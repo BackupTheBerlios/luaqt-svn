@@ -1,0 +1,623 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QVariant Class Reference
+
+   #include <qvariant.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef void(* f_construct )(Private *, const void *)
+     * typedef void(* f_clear )(Private *)
+     * typedef bool(* f_null )(const Private *)
+     * typedef void(* f_load )(Private *, QDataStream &)
+     * typedef void(* f_save )(const Private *, QDataStream &)
+     * typedef bool(* f_compare )(const Private *, const Private *)
+     * typedef bool(* f_convert )(const QVariant::Private *d, Type t, void *, bool *)
+     * typedef bool(* f_canConvert )(const QVariant::Private *d, Type t)
+     * typedef void(* f_debugStream )(QDebug, const QVariant &)
+     * enum Type {
+         Invalid = 0, Bool = 1, Int = 2, UInt = 3,
+         LongLong = 4, ULongLong = 5, Double = 6, Char = 7,
+         Map = 8, List = 9, String = 10, StringList = 11,
+         ByteArray = 12, BitArray = 13, Date = 14, Time = 15,
+         DateTime = 16, Url = 17, Locale = 18, Rect = 19,
+         RectF = 20, Size = 21, SizeF = 22, Line = 23,
+         LineF = 24, Point = 25, PointF = 26, Font = 64,
+         Pixmap = 65, Brush = 66, Color = 67, Palette = 68,
+         Icon = 69, Image = 70, Polygon = 71, Region = 72,
+         Bitmap = 73, Cursor = 74, SizePolicy = 75, KeySequence = 76,
+         Pen = 77, TextLength = 78, TextFormat = 79, UserType = 127,
+         LastType = 0xffffffff
+       }
+
+Public Member Functions
+
+     * QVariant ()
+     * ~QVariant ()
+     * QVariant (Type type)
+     * QVariant (int typeOrUserType, const void *copy)
+     * QVariant (const QVariant &other)
+     * QVariant (QDataStream &s)
+     * QVariant (int i)
+     * QVariant (uint ui)
+     * QVariant (qlonglong ll)
+     * QVariant (qulonglong ull)
+     * QVariant (bool b)
+     * QVariant (double d)
+     * QVariant (const char *str)
+     * QVariant (const QByteArray &bytearray)
+     * QVariant (const QBitArray &bitarray)
+     * QVariant (const QString &string)
+     * QVariant (const QLatin1String &string)
+     * QVariant (const QStringList &stringlist)
+     * QVariant (const QChar &qchar)
+     * QVariant (const QDate &date)
+     * QVariant (const QTime &time)
+     * QVariant (const QDateTime &datetime)
+     * QVariant (const QList< QVariant > &list)
+     * QVariant (const QMap< QString, QVariant > &map)
+     * QVariant (const QSize &size)
+     * QVariant (const QSizeF &size)
+     * QVariant (const QPoint &pt)
+     * QVariant (const QPointF &pt)
+     * QVariant (const QLine &line)
+     * QVariant (const QLineF &line)
+     * QVariant (const QRect &rect)
+     * QVariant (const QRectF &rect)
+     * QVariant (const QUrl &url)
+     * QVariant (const QLocale &locale)
+     * QVariant & operator= (const QVariant &other)
+     * Type type () const
+     * int userType () const
+     * const char * typeName () const
+     * bool canConvert (Type t) const
+     * bool convert (Type t)
+     * bool isValid () const
+     * bool isNull () const
+     * void clear ()
+     * void detach ()
+     * bool isDetached () const
+     * int toInt (bool *ok=0) const
+     * uint toUInt (bool *ok=0) const
+     * qlonglong toLongLong (bool *ok=0) const
+     * qulonglong toULongLong (bool *ok=0) const
+     * bool toBool () const
+     * double toDouble (bool *ok=0) const
+     * QByteArray toByteArray () const
+     * QBitArray toBitArray () const
+     * QString toString () const
+     * QStringList toStringList () const
+     * QChar toChar () const
+     * QDate toDate () const
+     * QTime toTime () const
+     * QDateTime toDateTime () const
+     * QList< QVariant > toList () const
+     * QMap< QString, QVariant > toMap () const
+     * QPoint toPoint () const
+     * QPointF toPointF () const
+     * QRect toRect () const
+     * QSize toSize () const
+     * QSizeF toSizeF () const
+     * QLine toLine () const
+     * QLineF toLineF () const
+     * QRectF toRectF () const
+     * QUrl toUrl () const
+     * QLocale toLocale () const
+     * void load (QDataStream &ds)
+     * void save (QDataStream &ds) const
+     * void * data ()
+     * const void * constData () const
+     * const void * data () const
+     * bool operator== (const QVariant &v) const
+     * bool operator!= (const QVariant &v) const
+
+Static Public Member Functions
+
+     * static const char * typeToName (Type type)
+     * static Type nameToType (const char *name)
+
+Protected Member Functions
+
+     * void create (int type, const void *copy)
+     * bool cmp (const QVariant &other) const
+
+Protected Attributes
+
+     * Private d
+
+Static Protected Attributes
+
+     * static const Handler * handler
+
+Friends
+
+     * bool qvariant_cast_helper (const QVariant &, QVariant::Type, void *)
+     * int qRegisterGuiVariant ()
+     * bool operator== (const QVariant &, const QVariantComparisonHelper &)
+     * Q_CORE_EXPORT QDebug operator<< (QDebug, const QVariant &)
+
+Classes
+
+     * struct Handler
+     * struct Private
+     * struct PrivateShared
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef bool(* QVariant::f_canConvert)(const QVariant::Private *d, Type t)
+
+
+
+   typedef void(* QVariant::f_clear)(Private *)
+
+
+
+   typedef bool(* QVariant::f_compare)(const Private *, const Private *)
+
+
+
+   typedef void(* QVariant::f_construct)(Private *, const void *)
+
+
+
+   typedef bool(* QVariant::f_convert)(const QVariant::Private *d, Type t, void *, bool *)
+
+
+
+   typedef void(* QVariant::f_debugStream)(QDebug, const QVariant &)
+
+
+
+   typedef void(* QVariant::f_load)(Private *, QDataStream &)
+
+
+
+   typedef bool(* QVariant::f_null)(const Private *)
+
+
+
+   typedef void(* QVariant::f_save)(const Private *, QDataStream &)
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QVariant::Type
+
+
+
+   Enumerator: 
+
+          Invalid    
+          Bool       
+          Int        
+          UInt       
+          LongLong   
+          ULongLong  
+          Double     
+          Char       
+          Map        
+          List       
+          String     
+          StringList 
+          ByteArray  
+          BitArray   
+          Date       
+          Time       
+          DateTime   
+          Url        
+          Locale     
+          Rect       
+          RectF      
+          Size       
+          SizeF      
+          Line       
+          LineF      
+          Point      
+          PointF     
+          Font       
+          Pixmap     
+          Brush      
+          Color      
+          Palette    
+          Icon       
+          Image      
+          Polygon    
+          Region     
+          Bitmap     
+          Cursor     
+          SizePolicy 
+          KeySequence
+          Pen        
+          TextLength 
+          TextFormat 
+          UserType   
+          LastType   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QVariant::QVariant (   )  [inline]
+
+
+
+   QVariant::~QVariant (   )
+
+
+
+   QVariant::QVariant (  Type  type  )
+
+
+
+   QVariant::QVariant (  int           typeOrUserType,
+                         const void *  copy
+                      )
+
+
+
+   QVariant::QVariant (  const QVariant &  other  )
+
+
+
+   QVariant::QVariant (  QDataStream &  s  )
+
+
+
+   QVariant::QVariant (  int  i  )
+
+
+
+   QVariant::QVariant (  uint  ui  )
+
+
+
+   QVariant::QVariant (  qlonglong  ll  )
+
+
+
+   QVariant::QVariant (  qulonglong  ull  )
+
+
+
+   QVariant::QVariant (  bool  b  )
+
+
+
+   QVariant::QVariant (  double  d  )
+
+
+
+   QVariant::QVariant (  const char *  str  )
+
+
+
+   QVariant::QVariant (  const QByteArray &  bytearray  )
+
+
+
+   QVariant::QVariant (  const QBitArray &  bitarray  )
+
+
+
+   QVariant::QVariant (  const QString &  string  )
+
+
+
+   QVariant::QVariant (  const QLatin1String &  string  )
+
+
+
+   QVariant::QVariant (  const QStringList &  stringlist  )
+
+
+
+   QVariant::QVariant (  const QChar &  qchar  )
+
+
+
+   QVariant::QVariant (  const QDate &  date  )
+
+
+
+   QVariant::QVariant (  const QTime &  time  )
+
+
+
+   QVariant::QVariant (  const QDateTime &  datetime  )
+
+
+
+   QVariant::QVariant (  const QList< QVariant > &  list  )
+
+
+
+   QVariant::QVariant (  const QMap< QString, QVariant > &  map  )
+
+
+
+   QVariant::QVariant (  const QSize &  size  )
+
+
+
+   QVariant::QVariant (  const QSizeF &  size  )
+
+
+
+   QVariant::QVariant (  const QPoint &  pt  )
+
+
+
+   QVariant::QVariant (  const QPointF &  pt  )
+
+
+
+   QVariant::QVariant (  const QLine &  line  )
+
+
+
+   QVariant::QVariant (  const QLineF &  line  )
+
+
+
+   QVariant::QVariant (  const QRect &  rect  )
+
+
+
+   QVariant::QVariant (  const QRectF &  rect  )
+
+
+
+   QVariant::QVariant (  const QUrl &  url  )
+
+
+
+   QVariant::QVariant (  const QLocale &  locale  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QVariant::canConvert (  Type  t  )  const
+
+
+
+   void QVariant::clear (   )
+
+
+
+   bool QVariant::cmp (  const QVariant &  other  )  const [protected]
+
+
+
+   const void* QVariant::constData (   )  const
+
+
+
+   bool QVariant::convert (  Type  t  )
+
+
+
+   void QVariant::create (  int           type,
+                            const void *  copy
+                         )  [protected]
+
+
+
+   const void* QVariant::data (   )  const [inline]
+
+
+
+   void* QVariant::data (   )
+
+
+
+   void QVariant::detach (   )
+
+
+
+   bool QVariant::isDetached (   )  const [inline]
+
+
+
+   bool QVariant::isNull (   )  const
+
+
+
+   bool QVariant::isValid (   )  const [inline]
+
+
+
+   void QVariant::load (  QDataStream &  ds  )
+
+
+
+   static Type QVariant::nameToType (  const char *  name  )  [static]
+
+
+
+   bool QVariant::operator!= (  const QVariant &  v  )  const [inline]
+
+
+
+   QVariant& QVariant::operator= (  const QVariant &  other  )
+
+
+
+   bool QVariant::operator== (  const QVariant &  v  )  const [inline]
+
+
+
+   void QVariant::save (  QDataStream &  ds  )  const
+
+
+
+   QBitArray QVariant::toBitArray (   )  const
+
+
+
+   bool QVariant::toBool (   )  const
+
+
+
+   QByteArray QVariant::toByteArray (   )  const
+
+
+
+   QChar QVariant::toChar (   )  const
+
+
+
+   QDate QVariant::toDate (   )  const
+
+
+
+   QDateTime QVariant::toDateTime (   )  const
+
+
+
+   double QVariant::toDouble (  bool *  ok = 0  )  const
+
+
+
+   int QVariant::toInt (  bool *  ok = 0  )  const
+
+
+
+   QLine QVariant::toLine (   )  const
+
+
+
+   QLineF QVariant::toLineF (   )  const
+
+
+
+   QList<QVariant> QVariant::toList (   )  const
+
+
+
+   QLocale QVariant::toLocale (   )  const
+
+
+
+   qlonglong QVariant::toLongLong (  bool *  ok = 0  )  const
+
+
+
+   QMap<QString,QVariant> QVariant::toMap (   )  const
+
+
+
+   QPoint QVariant::toPoint (   )  const
+
+
+
+   QPointF QVariant::toPointF (   )  const
+
+
+
+   QRect QVariant::toRect (   )  const
+
+
+
+   QRectF QVariant::toRectF (   )  const
+
+
+
+   QSize QVariant::toSize (   )  const
+
+
+
+   QSizeF QVariant::toSizeF (   )  const
+
+
+
+   QString QVariant::toString (   )  const
+
+
+
+   QStringList QVariant::toStringList (   )  const
+
+
+
+   QTime QVariant::toTime (   )  const
+
+
+
+   uint QVariant::toUInt (  bool *  ok = 0  )  const
+
+
+
+   qulonglong QVariant::toULongLong (  bool *  ok = 0  )  const
+
+
+
+   QUrl QVariant::toUrl (   )  const
+
+
+
+   Type QVariant::type (   )  const
+
+
+
+   const char* QVariant::typeName (   )  const
+
+
+
+   static const char* QVariant::typeToName (  Type  type  )  [static]
+
+
+
+   int QVariant::userType (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_CORE_EXPORT QDebug operator<< (  QDebug            ,
+                                      const QVariant &
+                                   )  [friend]
+
+
+
+   bool operator== (  const QVariant &                  v1,
+                      const QVariantComparisonHelper &  v2
+                   )  [friend]
+
+
+
+   int qRegisterGuiVariant (   )  [friend]
+
+
+
+   bool qvariant_cast_helper (  const QVariant &  v,
+                                QVariant::Type    tp,
+                                void *            ptr
+                             )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   Private QVariant::d [protected]
+
+
+
+   const Handler* QVariant::handler [static, protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qvariant.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

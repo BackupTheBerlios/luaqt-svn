@@ -1,0 +1,186 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QFontMetricsF Class Reference
+
+   #include <qfontmetrics.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QFontMetricsF (const QFont &)
+     * QFontMetricsF (const QFont &, QPaintDevice *pd)
+     * QFontMetricsF (const QFontMetrics &)
+     * QFontMetricsF (const QFontMetricsF &)
+     * ~QFontMetricsF ()
+     * QFontMetricsF & operator= (const QFontMetricsF &)
+     * QFontMetricsF & operator= (const QFontMetrics &)
+     * qreal ascent () const
+     * qreal descent () const
+     * qreal height () const
+     * qreal leading () const
+     * qreal lineSpacing () const
+     * qreal minLeftBearing () const
+     * qreal minRightBearing () const
+     * qreal maxWidth () const
+     * bool inFont (QChar) const
+     * qreal leftBearing (QChar) const
+     * qreal rightBearing (QChar) const
+     * qreal width (const QString &string) const
+     * qreal width (QChar) const
+     * QRectF boundingRect (const QString &string) const
+     * QRectF boundingRect (QChar) const
+     * QRectF boundingRect (const QRectF &r, int flags, const QString &string, int tabstops=0, int *tabarray=0) const
+     * QSizeF size (int flags, const QString &str, int tabstops=0, int *tabarray=0) const
+     * qreal underlinePos () const
+     * qreal overlinePos () const
+     * qreal strikeOutPos () const
+     * qreal lineWidth () const
+     * bool operator== (const QFontMetricsF &other)
+     * bool operator!= (const QFontMetricsF &other)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QFontMetricsF::QFontMetricsF (  const QFont &   )
+
+
+
+   QFontMetricsF::QFontMetricsF (  const QFont &   ,
+                                   QPaintDevice *  pd
+                                )
+
+
+
+   QFontMetricsF::QFontMetricsF (  const QFontMetrics &   )
+
+
+
+   QFontMetricsF::QFontMetricsF (  const QFontMetricsF &   )
+
+
+
+   QFontMetricsF::~QFontMetricsF (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   qreal QFontMetricsF::ascent (   )  const
+
+
+
+   QRectF QFontMetricsF::boundingRect (  const QRectF &   r,
+                                         int              flags,
+                                         const QString &  string,
+                                         int              tabstops = 0,
+                                         int *            tabarray = 0
+                                      )  const
+
+
+
+   QRectF QFontMetricsF::boundingRect (  QChar   )  const
+
+
+
+   QRectF QFontMetricsF::boundingRect (  const QString &  string  )  const
+
+
+
+   qreal QFontMetricsF::descent (   )  const
+
+
+
+   qreal QFontMetricsF::height (   )  const
+
+
+
+   bool QFontMetricsF::inFont (  QChar   )  const
+
+
+
+   qreal QFontMetricsF::leading (   )  const
+
+
+
+   qreal QFontMetricsF::leftBearing (  QChar   )  const
+
+
+
+   qreal QFontMetricsF::lineSpacing (   )  const
+
+
+
+   qreal QFontMetricsF::lineWidth (   )  const
+
+
+
+   qreal QFontMetricsF::maxWidth (   )  const
+
+
+
+   qreal QFontMetricsF::minLeftBearing (   )  const
+
+
+
+   qreal QFontMetricsF::minRightBearing (   )  const
+
+
+
+   bool QFontMetricsF::operator!= (  const QFontMetricsF &  other  )  [inline]
+
+
+
+   QFontMetricsF& QFontMetricsF::operator= (  const QFontMetrics &   )
+
+
+
+   QFontMetricsF& QFontMetricsF::operator= (  const QFontMetricsF &   )
+
+
+
+   bool QFontMetricsF::operator== (  const QFontMetricsF &  other  )
+
+
+
+   qreal QFontMetricsF::overlinePos (   )  const
+
+
+
+   qreal QFontMetricsF::rightBearing (  QChar   )  const
+
+
+
+   QSizeF QFontMetricsF::size (  int              flags,
+                                 const QString &  str,
+                                 int              tabstops = 0,
+                                 int *            tabarray = 0
+                              )  const
+
+
+
+   qreal QFontMetricsF::strikeOutPos (   )  const
+
+
+
+   qreal QFontMetricsF::underlinePos (   )  const
+
+
+
+   qreal QFontMetricsF::width (  QChar   )  const
+
+
+
+   qreal QFontMetricsF::width (  const QString &  string  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qfontmetrics.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,161 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                     Q3Cache< type > Class Template Reference
+
+   #include <q3cache.h>
+
+   Inherits Q3GCache.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3Cache (const Q3Cache< type > &c)
+     * Q3Cache (int maxCost=100, int size=17, bool caseSensitive=true)
+     * ~Q3Cache ()
+     * Q3Cache< type > & operator= (const Q3Cache< type > &c)
+     * int maxCost () const
+     * int totalCost () const
+     * void setMaxCost (int m)
+     * uint count () const
+     * uint size () const
+     * bool isEmpty () const
+     * void clear ()
+     * bool insert (const QString &k, const type *d, int c=1, int p=0)
+     * bool remove (const QString &k)
+     * type * take (const QString &k)
+     * type * find (const QString &k, bool ref=true) const
+     * type * operator[] (const QString &k) const
+     * void statistics () const
+     * template<> void deleteItem (Q3PtrCollection::Item)
+
+  template<class type>
+  class Q3Cache< type >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class type>
+   Q3Cache< type >::Q3Cache (  const Q3Cache< type > &  c  )  [inline]
+
+
+
+   template<class type>
+   Q3Cache< type >::Q3Cache (  int   maxCost = 100,
+                               int   size = 17,
+                               bool  caseSensitive = true
+                            )  [inline]
+
+
+
+   template<class type>
+   Q3Cache< type >::~Q3Cache (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class type>
+   void Q3Cache< type >::clear (   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3GCache.
+
+   template<class type>
+   uint Q3Cache< type >::count (   )  const [inline, virtual]
+
+
+
+   Reimplemented from Q3GCache.
+
+   template<>
+   void Q3Cache< type >::deleteItem (  Q3PtrCollection::Item  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3Cache< type >::find (  const QString &  k,
+                                  bool             ref = true
+                               )  const [inline]
+
+
+
+   template<class type>
+   bool Q3Cache< type >::insert (  const QString &  k,
+                                   const type *     d,
+                                   int              c = 1,
+                                   int              p = 0
+                                )  [inline]
+
+
+
+   template<class type>
+   bool Q3Cache< type >::isEmpty (   )  const [inline]
+
+
+
+   template<class type>
+   int Q3Cache< type >::maxCost (   )  const [inline]
+
+
+
+   Reimplemented from Q3GCache.
+
+   template<class type>
+   Q3Cache<type>& Q3Cache< type >::operator= (  const Q3Cache< type > &  c  )  [inline]
+
+
+
+   template<class type>
+   type* Q3Cache< type >::operator[] (  const QString &  k  )  const [inline]
+
+
+
+   template<class type>
+   bool Q3Cache< type >::remove (  const QString &  k  )  [inline]
+
+
+
+   template<class type>
+   void Q3Cache< type >::setMaxCost (  int  m  )  [inline]
+
+
+
+   Reimplemented from Q3GCache.
+
+   template<class type>
+   uint Q3Cache< type >::size (   )  const [inline]
+
+
+
+   Reimplemented from Q3GCache.
+
+   template<class type>
+   void Q3Cache< type >::statistics (   )  const [inline]
+
+
+
+   Reimplemented from Q3GCache.
+
+   template<class type>
+   type* Q3Cache< type >::take (  const QString &  k  )  [inline]
+
+
+
+   template<class type>
+   int Q3Cache< type >::totalCost (   )  const [inline]
+
+
+
+   Reimplemented from Q3GCache.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3cache.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

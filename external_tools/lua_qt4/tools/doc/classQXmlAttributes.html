@@ -1,0 +1,124 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QXmlAttributes Class Reference
+
+   #include <qxml.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QXmlAttributes ()
+     * virtual ~QXmlAttributes ()
+     * int index (const QString &qName) const
+     * int index (const QString &uri, const QString &localPart) const
+     * int length () const
+     * int count () const
+     * QString localName (int index) const
+     * QString qName (int index) const
+     * QString uri (int index) const
+     * QString type (int index) const
+     * QString type (const QString &qName) const
+     * QString type (const QString &uri, const QString &localName) const
+     * QString value (int index) const
+     * QString value (const QString &qName) const
+     * QString value (const QString &uri, const QString &localName) const
+     * void clear ()
+     * void append (const QString &qName, const QString &uri, const QString &localPart, const QString &value)
+
+Classes
+
+     * struct Attribute
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QXmlAttributes::QXmlAttributes (   )  [inline]
+
+
+
+   virtual QXmlAttributes::~QXmlAttributes (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QXmlAttributes::append (  const QString &  qName,
+                                  const QString &  uri,
+                                  const QString &  localPart,
+                                  const QString &  value
+                               )
+
+
+
+   void QXmlAttributes::clear (   )
+
+
+
+   int QXmlAttributes::count (   )  const [inline]
+
+
+
+   int QXmlAttributes::index (  const QString &  uri,
+                                const QString &  localPart
+                             )  const
+
+
+
+   int QXmlAttributes::index (  const QString &  qName  )  const
+
+
+
+   int QXmlAttributes::length (   )  const
+
+
+
+   QString QXmlAttributes::localName (  int  index  )  const
+
+
+
+   QString QXmlAttributes::qName (  int  index  )  const
+
+
+
+   QString QXmlAttributes::type (  const QString &  uri,
+                                   const QString &  localName
+                                )  const
+
+
+
+   QString QXmlAttributes::type (  const QString &  qName  )  const
+
+
+
+   QString QXmlAttributes::type (  int  index  )  const
+
+
+
+   QString QXmlAttributes::uri (  int  index  )  const
+
+
+
+   QString QXmlAttributes::value (  const QString &  uri,
+                                    const QString &  localName
+                                 )  const
+
+
+
+   QString QXmlAttributes::value (  const QString &  qName  )  const
+
+
+
+   QString QXmlAttributes::value (  int  index  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qxml.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

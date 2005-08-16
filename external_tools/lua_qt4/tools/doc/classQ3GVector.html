@@ -1,0 +1,228 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3GVector Class Reference
+
+   #include <q3gvector.h>
+
+   Inherits Q3PtrCollection.
+
+   Inherited by Q3PtrVector< type >, Q3PtrVector< char >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< QWidget >.
+
+   List of all members.
+
+Public Member Functions
+
+     * QDataStream & read (QDataStream &)
+     * QDataStream & write (QDataStream &) const
+     * virtual int compareItems (Item, Item)
+
+Protected Member Functions
+
+     * Q3GVector ()
+     * Q3GVector (uint size)
+     * Q3GVector (const Q3GVector &v)
+     * ~Q3GVector ()
+     * Q3GVector & operator= (const Q3GVector &v)
+     * bool operator== (const Q3GVector &v) const
+     * Item * data () const
+     * uint size () const
+     * uint count () const
+     * bool insert (uint index, Item)
+     * bool remove (uint index)
+     * Item take (uint index)
+     * void clear ()
+     * bool resize (uint newsize)
+     * bool fill (Item, int flen)
+     * void sort ()
+     * int bsearch (Item) const
+     * int findRef (Item, uint index) const
+     * int find (Item, uint index) const
+     * uint containsRef (Item) const
+     * uint contains (Item) const
+     * Item at (uint index) const
+     * bool insertExpand (uint index, Item)
+     * void toList (Q3GList *) const
+     * virtual QDataStream & read (QDataStream &, Item &)
+     * virtual QDataStream & write (QDataStream &, Item) const
+
+Friends
+
+     * class Q3GList
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3GVector::Q3GVector (   )  [protected]
+
+
+
+   Q3GVector::Q3GVector (  uint  size  )  [protected]
+
+
+
+   Q3GVector::Q3GVector (  const Q3GVector &  v  )  [protected]
+
+
+
+   Q3GVector::~Q3GVector (   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Item Q3GVector::at (  uint  index  )  const [inline, protected]
+
+
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   int Q3GVector::bsearch (  Item   )  const [protected]
+
+
+
+   void Q3GVector::clear (   )  [protected, virtual]
+
+
+
+   Implements Q3PtrCollection.
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   virtual int Q3GVector::compareItems (  Item  ,
+                                          Item
+                                       )  [virtual]
+
+
+
+   uint Q3GVector::contains (  Item   )  const [protected]
+
+
+
+   uint Q3GVector::containsRef (  Item   )  const [protected]
+
+
+
+   uint Q3GVector::count (   )  const [inline, protected, virtual]
+
+
+
+   Implements Q3PtrCollection.
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   Item* Q3GVector::data (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   bool Q3GVector::fill (  Item  ,
+                           int   flen
+                        )  [protected]
+
+
+
+   int Q3GVector::find (  Item  ,
+                          uint  index
+                       )  const [protected]
+
+
+
+   int Q3GVector::findRef (  Item  ,
+                             uint  index
+                          )  const [protected]
+
+
+
+   bool Q3GVector::insert (  uint  index,
+                             Item
+                          )  [protected]
+
+
+
+   bool Q3GVector::insertExpand (  uint  index,
+                                   Item
+                                )  [protected]
+
+
+
+   Q3GVector& Q3GVector::operator= (  const Q3GVector &  v  )  [protected]
+
+
+
+   bool Q3GVector::operator== (  const Q3GVector &  v  )  const [protected]
+
+
+
+   virtual QDataStream& Q3GVector::read (  QDataStream &  ,
+                                           Item &       
+                                        )  [protected, virtual]
+
+
+
+   QDataStream& Q3GVector::read (  QDataStream &   )
+
+
+
+   bool Q3GVector::remove (  uint  index  )  [protected]
+
+
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   bool Q3GVector::resize (  uint  newsize  )  [protected]
+
+
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   uint Q3GVector::size (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   void Q3GVector::sort (   )  [protected]
+
+
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   Item Q3GVector::take (  uint  index  )  [protected]
+
+
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   void Q3GVector::toList (  Q3GList *   )  const [protected]
+
+
+
+   Reimplemented in Q3PtrVector< type >, Q3PtrVector< QWidget >, Q3PtrVector< Q3TableItem >, and Q3PtrVector< char >.
+
+   virtual QDataStream& Q3GVector::write (  QDataStream &  ,
+                                            Item         
+                                         )  const [protected, virtual]
+
+
+
+   QDataStream& Q3GVector::write (  QDataStream &   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3GList [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3gvector.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,170 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QProgressBar Class Reference
+
+   #include <qprogressbar.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Slots
+
+     * void reset ()
+     * void setMinimum (int minimum)
+     * void setMaximum (int maximum)
+     * void setValue (int value)
+
+Signals
+
+     * void valueChanged (int value)
+
+Public Member Functions
+
+     * QProgressBar (QWidget *parent=0)
+     * int minimum () const
+     * int maximum () const
+     * void setRange (int minimum, int maximum)
+     * int value () const
+     * virtual QString text () const
+     * void setTextVisible (bool visible)
+     * bool isTextVisible () const
+     * Qt::Alignment alignment () const
+     * void setAlignment (Qt::Alignment alignment)
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+
+Properties
+
+     * int minimum
+     * int maximum
+     * QString text
+     * int value
+     * Qt Alignment
+     * bool textVisible
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QProgressBar::QProgressBar (  QWidget *  parent = 0  )  [explicit]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Alignment QProgressBar::alignment (   )  const
+
+
+
+   bool QProgressBar::isTextVisible (   )  const
+
+
+
+   int QProgressBar::maximum (   )  const
+
+
+
+   int QProgressBar::minimum (   )  const
+
+
+
+   QSize QProgressBar::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QProgressBar::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QProgressBar::reset (   )  [slot]
+
+
+
+   void QProgressBar::setAlignment (  Qt::Alignment  alignment  )
+
+
+
+   void QProgressBar::setMaximum (  int  maximum  )  [slot]
+
+
+
+   void QProgressBar::setMinimum (  int  minimum  )  [slot]
+
+
+
+   void QProgressBar::setRange (  int  minimum,
+                                  int  maximum
+                               )
+
+
+
+   void QProgressBar::setTextVisible (  bool  visible  )
+
+
+
+   void QProgressBar::setValue (  int  value  )  [slot]
+
+
+
+   QSize QProgressBar::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual QString QProgressBar::text (   )  const [virtual]
+
+
+
+   int QProgressBar::value (   )  const
+
+
+
+   void QProgressBar::valueChanged (  int  value  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Qt QProgressBar::Alignment [read, write]
+
+
+
+   int QProgressBar::maximum [read, write]
+
+
+
+   int QProgressBar::minimum [read, write]
+
+
+
+   QString QProgressBar::text [read]
+
+
+
+   bool QProgressBar::textVisible [read, write]
+
+
+
+   int QProgressBar::value [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qprogressbar.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,188 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3SpinWidget Class Reference
+
+   #include <q3rangecontrol.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum ButtonSymbols { UpDownArrows, PlusMinus }
+
+Public Slots
+
+     * void stepUp ()
+     * void stepDown ()
+
+Signals
+
+     * void stepUpPressed ()
+     * void stepDownPressed ()
+
+Public Member Functions
+
+     * Q3SpinWidget (QWidget *parent=0, const char *name=0)
+     * ~Q3SpinWidget ()
+     * void setEditWidget (QWidget *widget)
+     * QWidget * editWidget ()
+     * QRect upRect () const
+     * QRect downRect () const
+     * void setUpEnabled (bool on)
+     * void setDownEnabled (bool on)
+     * bool isUpEnabled () const
+     * bool isDownEnabled () const
+     * virtual void setButtonSymbols (ButtonSymbols bs)
+     * ButtonSymbols buttonSymbols () const
+     * void arrange ()
+
+Protected Member Functions
+
+     * void mousePressEvent (QMouseEvent *e)
+     * void resizeEvent (QResizeEvent *ev)
+     * void mouseReleaseEvent (QMouseEvent *e)
+     * void mouseMoveEvent (QMouseEvent *e)
+     * void wheelEvent (QWheelEvent *)
+     * void changeEvent (QEvent *)
+     * void paintEvent (QPaintEvent *)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3SpinWidget::ButtonSymbols
+
+
+
+   Enumerator: 
+
+          UpDownArrows
+          PlusMinus   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3SpinWidget::Q3SpinWidget (  QWidget *     parent = 0,
+                                 const char *  name = 0
+                              )
+
+
+
+   Q3SpinWidget::~Q3SpinWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3SpinWidget::arrange (   )
+
+
+
+   ButtonSymbols Q3SpinWidget::buttonSymbols (   )  const
+
+
+
+   void Q3SpinWidget::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QRect Q3SpinWidget::downRect (   )  const
+
+
+
+   QWidget* Q3SpinWidget::editWidget (   )
+
+
+
+   bool Q3SpinWidget::isDownEnabled (   )  const
+
+
+
+   bool Q3SpinWidget::isUpEnabled (   )  const
+
+
+
+   void Q3SpinWidget::mouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3SpinWidget::mousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3SpinWidget::mouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3SpinWidget::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3SpinWidget::resizeEvent (  QResizeEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3SpinWidget::setButtonSymbols (  ButtonSymbols  bs  )  [virtual]
+
+
+
+   void Q3SpinWidget::setDownEnabled (  bool  on  )
+
+
+
+   void Q3SpinWidget::setEditWidget (  QWidget *  widget  )
+
+
+
+   void Q3SpinWidget::setUpEnabled (  bool  on  )
+
+
+
+   void Q3SpinWidget::stepDown (   )  [slot]
+
+
+
+   void Q3SpinWidget::stepDownPressed (   )  [signal]
+
+
+
+   void Q3SpinWidget::stepUp (   )  [slot]
+
+
+
+   void Q3SpinWidget::stepUpPressed (   )  [signal]
+
+
+
+   QRect Q3SpinWidget::upRect (   )  const
+
+
+
+   void Q3SpinWidget::wheelEvent (  QWheelEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3rangecontrol.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

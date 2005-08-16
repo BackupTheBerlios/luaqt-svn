@@ -1,0 +1,257 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTextLayout Class Reference
+
+   #include <qtextlayout.h>
+
+   List of all members.
+
+Public Types
+
+     * enum CursorMode { SkipCharacters, SkipWords }
+
+Public Member Functions
+
+     * QTextLayout ()
+     * QTextLayout (const QString &text)
+     * QTextLayout (const QString &text, const QFont &font, QPaintDevice *paintdevice=0)
+     * QTextLayout (const QTextBlock &b)
+     * ~QTextLayout ()
+     * void setFont (const QFont &f)
+     * QFont font () const
+     * void setText (const QString &string)
+     * QString text () const
+     * void setTextOption (const QTextOption &option)
+     * QTextOption textOption () const
+     * void setPreeditArea (int position, const QString &text)
+     * int preeditAreaPosition () const
+     * QString preeditAreaText () const
+     * void setAdditionalFormats (const QList< FormatRange > &overrides)
+     * QList< FormatRange > additionalFormats () const
+     * void clearAdditionalFormats ()
+     * void setCacheEnabled (bool enable)
+     * bool cacheEnabled () const
+     * void beginLayout ()
+     * void endLayout ()
+     * QTextLine createLine ()
+     * int lineCount () const
+     * QTextLine lineAt (int i) const
+     * QTextLine lineForTextPosition (int pos) const
+     * bool isValidCursorPosition (int pos) const
+     * int nextCursorPosition (int oldPos, CursorMode mode=SkipCharacters) const
+     * int previousCursorPosition (int oldPos, CursorMode mode=SkipCharacters) const
+     * void draw (QPainter *p, const QPointF &pos, const QVector< FormatRange > &selections=QVector< FormatRange >(), const QRectF &clip=QRectF()) const
+     * void drawCursor (QPainter *p, const QPointF &pos, int cursorPosition) const
+     * QPointF position () const
+     * void setPosition (const QPointF &p)
+     * QRectF boundingRect () const
+     * qreal minimumWidth () const
+     * qreal maximumWidth () const
+     * QTextEngine * engine () const
+
+Friends
+
+     * class QPainter
+     * class QPSPrinter
+
+Classes
+
+     * struct FormatRange
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextLayout::CursorMode
+
+
+
+   Enumerator: 
+
+          SkipCharacters
+          SkipWords     
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextLayout::QTextLayout (   )
+
+
+
+   QTextLayout::QTextLayout (  const QString &  text  )
+
+
+
+   QTextLayout::QTextLayout (  const QString &  text,
+                               const QFont &    font,
+                               QPaintDevice *   paintdevice = 0
+                            )
+
+
+
+   QTextLayout::QTextLayout (  const QTextBlock &  b  )
+
+
+
+   QTextLayout::~QTextLayout (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QList<FormatRange> QTextLayout::additionalFormats (   )  const
+
+
+
+   void QTextLayout::beginLayout (   )
+
+
+
+   QRectF QTextLayout::boundingRect (   )  const
+
+
+
+   bool QTextLayout::cacheEnabled (   )  const
+
+
+
+   void QTextLayout::clearAdditionalFormats (   )
+
+
+
+   QTextLine QTextLayout::createLine (   )
+
+
+
+   void QTextLayout::draw (  QPainter *                      p,
+                             const QPointF &                 pos,
+                             const QVector< FormatRange > &  selections = QVector< FormatRange >(),
+                             const QRectF &                  clip = QRectF()
+                          )  const
+
+
+
+   void QTextLayout::drawCursor (  QPainter *       p,
+                                   const QPointF &  pos,
+                                   int              cursorPosition
+                                )  const
+
+
+
+   void QTextLayout::endLayout (   )
+
+
+
+   QTextEngine* QTextLayout::engine (   )  const [inline]
+
+
+
+   QFont QTextLayout::font (   )  const
+
+
+
+   bool QTextLayout::isValidCursorPosition (  int  pos  )  const
+
+
+
+   QTextLine QTextLayout::lineAt (  int  i  )  const
+
+
+
+   int QTextLayout::lineCount (   )  const
+
+
+
+   QTextLine QTextLayout::lineForTextPosition (  int  pos  )  const
+
+
+
+   qreal QTextLayout::maximumWidth (   )  const
+
+
+
+   qreal QTextLayout::minimumWidth (   )  const
+
+
+
+   int QTextLayout::nextCursorPosition (  int         oldPos,
+                                          CursorMode  mode = SkipCharacters
+                                       )  const
+
+
+
+   QPointF QTextLayout::position (   )  const
+
+
+
+   int QTextLayout::preeditAreaPosition (   )  const
+
+
+
+   QString QTextLayout::preeditAreaText (   )  const
+
+
+
+   int QTextLayout::previousCursorPosition (  int         oldPos,
+                                              CursorMode  mode = SkipCharacters
+                                           )  const
+
+
+
+   void QTextLayout::setAdditionalFormats (  const QList< FormatRange > &  overrides  )
+
+
+
+   void QTextLayout::setCacheEnabled (  bool  enable  )
+
+
+
+   void QTextLayout::setFont (  const QFont &  f  )
+
+
+
+   void QTextLayout::setPosition (  const QPointF &  p  )
+
+
+
+   void QTextLayout::setPreeditArea (  int              position,
+                                       const QString &  text
+                                    )
+
+
+
+   void QTextLayout::setText (  const QString &  string  )
+
+
+
+   void QTextLayout::setTextOption (  const QTextOption &  option  )
+
+
+
+   QString QTextLayout::text (   )  const
+
+
+
+   QTextOption QTextLayout::textOption (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QPainter [friend]
+
+
+
+   friend class QPSPrinter [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextlayout.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

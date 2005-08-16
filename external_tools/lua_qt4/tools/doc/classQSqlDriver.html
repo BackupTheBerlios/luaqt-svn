@@ -1,0 +1,246 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QSqlDriver Class Reference
+
+   #include <qsqldriver.h>
+
+   Inherits QObject.
+
+   Inherited by QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLite2Driver, and QSQLiteDriver.
+
+   List of all members.
+
+Public Types
+
+     * enum DriverFeature {
+         Transactions, QuerySize, BLOB, Unicode,
+         PreparedQueries, NamedPlaceholders, PositionalPlaceholders, LastInsertId
+       }
+     * enum StatementType {
+         WhereStatement, SelectStatement, UpdateStatement, InsertStatement,
+         DeleteStatement
+       }
+     * enum IdentifierType { FieldName, TableName }
+
+Public Member Functions
+
+     * QSqlDriver (QObject *parent=0)
+     * ~QSqlDriver ()
+     * virtual bool isOpen () const
+     * bool isOpenError () const
+     * virtual bool beginTransaction ()
+     * virtual bool commitTransaction ()
+     * virtual bool rollbackTransaction ()
+     * virtual QStringList tables (QSql::TableType tableType) const
+     * virtual QSqlIndex primaryIndex (const QString &tableName) const
+     * virtual QSqlRecord record (const QString &tableName) const
+     * virtual QString formatValue (const QSqlField &field, bool trimStrings=false) const
+     * virtual QString escapeIdentifier (const QString &identifier, IdentifierType type) const
+     * virtual QString sqlStatement (StatementType type, const QString &tableName, const QSqlRecord &rec, bool preparedStatement) const
+     * QSqlError lastError () const
+     * virtual QVariant handle () const
+     * virtual bool hasFeature (DriverFeature f) const =0
+     * virtual void close ()=0
+     * virtual QSqlResult * createResult () const =0
+     * virtual bool open (const QString &db, const QString &user=QString(), const QString &password=QString(), const QString &host=QString(), int port=-1, const QString &connOpts=QString())=0
+
+Protected Member Functions
+
+     * virtual void setOpen (bool o)
+     * virtual void setOpenError (bool e)
+     * virtual void setLastError (const QSqlError &e)
+
+Friends
+
+     * class QSqlDatabase
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QSqlDriver::DriverFeature
+
+
+
+   Enumerator: 
+
+          Transactions          
+          QuerySize             
+          BLOB                  
+          Unicode               
+          PreparedQueries       
+          NamedPlaceholders     
+          PositionalPlaceholders
+          LastInsertId          
+
+   enum QSqlDriver::IdentifierType
+
+
+
+   Enumerator: 
+
+          FieldName
+          TableName
+
+   enum QSqlDriver::StatementType
+
+
+
+   Enumerator: 
+
+          WhereStatement 
+          SelectStatement
+          UpdateStatement
+          InsertStatement
+          DeleteStatement
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSqlDriver::QSqlDriver (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QSqlDriver::~QSqlDriver (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual bool QSqlDriver::beginTransaction (   )  [virtual]
+
+
+
+   Reimplemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual void QSqlDriver::close (   )  [pure virtual]
+
+
+
+   Implemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual bool QSqlDriver::commitTransaction (   )  [virtual]
+
+
+
+   Reimplemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual QSqlResult* QSqlDriver::createResult (   )  const [pure virtual]
+
+
+
+   Implemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual QString QSqlDriver::escapeIdentifier (  const QString &  identifier,
+                                                   IdentifierType   type
+                                                )  const [virtual]
+
+
+
+   Reimplemented in QPSQLDriver.
+
+   virtual QString QSqlDriver::formatValue (  const QSqlField &  field,
+                                              bool               trimStrings = false
+                                           )  const [virtual]
+
+
+
+   Reimplemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, and QPSQLDriver.
+
+   virtual QVariant QSqlDriver::handle (   )  const [virtual]
+
+
+
+   Reimplemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual bool QSqlDriver::hasFeature (  DriverFeature  f  )  const [pure virtual]
+
+
+
+   Implemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual bool QSqlDriver::isOpen (   )  const [virtual]
+
+
+
+   Reimplemented in QPSQLDriver.
+
+   bool QSqlDriver::isOpenError (   )  const
+
+
+
+   QSqlError QSqlDriver::lastError (   )  const
+
+
+
+   virtual bool QSqlDriver::open (  const QString &  db,
+                                    const QString &  user = QString(),
+                                    const QString &  password = QString(),
+                                    const QString &  host = QString(),
+                                    int              port = -1,
+                                    const QString &  connOpts = QString()
+                                 )  [pure virtual]
+
+
+
+   Implemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual QSqlIndex QSqlDriver::primaryIndex (  const QString &  tableName  )  const [virtual]
+
+
+
+   Reimplemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual QSqlRecord QSqlDriver::record (  const QString &  tableName  )  const [virtual]
+
+
+
+   Reimplemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual bool QSqlDriver::rollbackTransaction (   )  [virtual]
+
+
+
+   Reimplemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+
+   virtual void QSqlDriver::setLastError (  const QSqlError &  e  )  [protected, virtual]
+
+
+
+   virtual void QSqlDriver::setOpen (  bool  o  )  [protected, virtual]
+
+
+
+   virtual void QSqlDriver::setOpenError (  bool  e  )  [protected, virtual]
+
+
+
+   virtual QString QSqlDriver::sqlStatement (  StatementType       type,
+                                               const QString &     tableName,
+                                               const QSqlRecord &  rec,
+                                               bool                preparedStatement
+                                            )  const [virtual]
+
+
+
+   virtual QStringList QSqlDriver::tables (  QSql::TableType  tableType  )  const [virtual]
+
+
+
+   Reimplemented in QIBaseDriver, QMYSQLDriver, QODBCDriver, QPSQLDriver, QSQLiteDriver, and QSQLite2Driver.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QSqlDatabase [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqldriver.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

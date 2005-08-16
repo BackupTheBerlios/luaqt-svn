@@ -1,0 +1,209 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QTime Class Reference
+
+   #include <qdatetime.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QTime ()
+     * QTime (int h, int m, int s=0, int ms=0)
+     * bool isNull () const
+     * bool isValid () const
+     * int hour () const
+     * int minute () const
+     * int second () const
+     * int msec () const
+     * QString toString (Qt::DateFormat f=Qt::TextDate) const
+     * QString toString (const QString &format) const
+     * bool setHMS (int h, int m, int s, int ms=0)
+     * QTime addSecs (int secs) const
+     * int secsTo (const QTime &) const
+     * QTime addMSecs (int ms) const
+     * int msecsTo (const QTime &) const
+     * bool operator== (const QTime &other) const
+     * bool operator!= (const QTime &other) const
+     * bool operator< (const QTime &other) const
+     * bool operator<= (const QTime &other) const
+     * bool operator> (const QTime &other) const
+     * bool operator>= (const QTime &other) const
+     * void start ()
+     * int restart ()
+     * int elapsed () const
+
+Static Public Member Functions
+
+     * static QTime currentTime ()
+     * static QTime fromString (const QString &s, Qt::DateFormat f=Qt::TextDate)
+     * static QTime fromString (const QString &s, const QString &format)
+     * static bool isValid (int h, int m, int s, int ms=0)
+
+Friends
+
+     * class QDateTime
+     * Q_CORE_EXPORT QDataStream & operator<< (QDataStream &, const QTime &)
+     * Q_CORE_EXPORT QDataStream & operator>> (QDataStream &, QTime &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTime::QTime (   )  [inline]
+
+
+
+   QTime::QTime (  int  h,
+                   int  m,
+                   int  s = 0,
+                   int  ms = 0
+                )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QTime QTime::addMSecs (  int  ms  )  const
+
+
+
+   QTime QTime::addSecs (  int  secs  )  const
+
+
+
+   static QTime QTime::currentTime (   )  [static]
+
+
+
+   int QTime::elapsed (   )  const
+
+
+
+   static QTime QTime::fromString (  const QString &  s,
+                                     const QString &  format
+                                  )  [static]
+
+
+
+   static QTime QTime::fromString (  const QString &  s,
+                                     Qt::DateFormat   f = Qt::TextDate
+                                  )  [static]
+
+
+
+   int QTime::hour (   )  const
+
+
+
+   bool QTime::isNull (   )  const [inline]
+
+
+
+   static bool QTime::isValid (  int  h,
+                                 int  m,
+                                 int  s,
+                                 int  ms = 0
+                              )  [static]
+
+
+
+   bool QTime::isValid (   )  const
+
+
+
+   int QTime::minute (   )  const
+
+
+
+   int QTime::msec (   )  const
+
+
+
+   int QTime::msecsTo (  const QTime &   )  const
+
+
+
+   bool QTime::operator!= (  const QTime &  other  )  const [inline]
+
+
+
+   bool QTime::operator< (  const QTime &  other  )  const [inline]
+
+
+
+   bool QTime::operator<= (  const QTime &  other  )  const [inline]
+
+
+
+   bool QTime::operator== (  const QTime &  other  )  const [inline]
+
+
+
+   bool QTime::operator> (  const QTime &  other  )  const [inline]
+
+
+
+   bool QTime::operator>= (  const QTime &  other  )  const [inline]
+
+
+
+   int QTime::restart (   )
+
+
+
+   int QTime::second (   )  const
+
+
+
+   int QTime::secsTo (  const QTime &   )  const
+
+
+
+   bool QTime::setHMS (  int  h,
+                         int  m,
+                         int  s,
+                         int  ms = 0
+                      )
+
+
+
+   void QTime::start (   )
+
+
+
+   QString QTime::toString (  const QString &  format  )  const
+
+
+
+   QString QTime::toString (  Qt::DateFormat  f = Qt::TextDate  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_CORE_EXPORT QDataStream& operator<< (  QDataStream &  ,
+                                            const QTime &
+                                         )  [friend]
+
+
+
+   Q_CORE_EXPORT QDataStream& operator>> (  QDataStream &  ,
+                                            QTime &      
+                                         )  [friend]
+
+
+
+   friend class QDateTime [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdatetime.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

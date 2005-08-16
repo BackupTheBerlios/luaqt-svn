@@ -1,0 +1,180 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QXmlReader Class Reference
+
+   #include <qxml.h>
+
+   Inherited by QXmlSimpleReader.
+
+   List of all members.
+
+Public Member Functions
+
+     * virtual ~QXmlReader ()
+     * virtual bool feature (const QString &name, bool *ok=0) const =0
+     * virtual void setFeature (const QString &name, bool value)=0
+     * virtual bool hasFeature (const QString &name) const =0
+     * virtual void * property (const QString &name, bool *ok=0) const =0
+     * virtual void setProperty (const QString &name, void *value)=0
+     * virtual bool hasProperty (const QString &name) const =0
+     * virtual void setEntityResolver (QXmlEntityResolver *handler)=0
+     * virtual QXmlEntityResolver * entityResolver () const =0
+     * virtual void setDTDHandler (QXmlDTDHandler *handler)=0
+     * virtual QXmlDTDHandler * DTDHandler () const =0
+     * virtual void setContentHandler (QXmlContentHandler *handler)=0
+     * virtual QXmlContentHandler * contentHandler () const =0
+     * virtual void setErrorHandler (QXmlErrorHandler *handler)=0
+     * virtual QXmlErrorHandler * errorHandler () const =0
+     * virtual void setLexicalHandler (QXmlLexicalHandler *handler)=0
+     * virtual QXmlLexicalHandler * lexicalHandler () const =0
+     * virtual void setDeclHandler (QXmlDeclHandler *handler)=0
+     * virtual QXmlDeclHandler * declHandler () const =0
+     * virtual bool parse (const QXmlInputSource &input)=0
+     * virtual bool parse (const QXmlInputSource *input)=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QXmlReader::~QXmlReader (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QXmlContentHandler* QXmlReader::contentHandler (   )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual QXmlDeclHandler* QXmlReader::declHandler (   )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual QXmlDTDHandler* QXmlReader::DTDHandler (   )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual QXmlEntityResolver* QXmlReader::entityResolver (   )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual QXmlErrorHandler* QXmlReader::errorHandler (   )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual bool QXmlReader::feature (  const QString &  name,
+                                       bool *           ok = 0
+                                    )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual bool QXmlReader::hasFeature (  const QString &  name  )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual bool QXmlReader::hasProperty (  const QString &  name  )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual QXmlLexicalHandler* QXmlReader::lexicalHandler (   )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual bool QXmlReader::parse (  const QXmlInputSource *  input  )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual bool QXmlReader::parse (  const QXmlInputSource &  input  )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual void* QXmlReader::property (  const QString &  name,
+                                         bool *           ok = 0
+                                      )  const [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual void QXmlReader::setContentHandler (  QXmlContentHandler *  handler  )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual void QXmlReader::setDeclHandler (  QXmlDeclHandler *  handler  )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual void QXmlReader::setDTDHandler (  QXmlDTDHandler *  handler  )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual void QXmlReader::setEntityResolver (  QXmlEntityResolver *  handler  )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual void QXmlReader::setErrorHandler (  QXmlErrorHandler *  handler  )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual void QXmlReader::setFeature (  const QString &  name,
+                                          bool             value
+                                       )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual void QXmlReader::setLexicalHandler (  QXmlLexicalHandler *  handler  )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+
+   virtual void QXmlReader::setProperty (  const QString &  name,
+                                           void *           value
+                                        )  [pure virtual]
+
+
+
+   Implemented in QXmlSimpleReader.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qxml.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

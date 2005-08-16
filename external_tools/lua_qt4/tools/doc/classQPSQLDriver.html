@@ -1,0 +1,178 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QPSQLDriver Class Reference
+
+   #include <qsql_psql.h>
+
+   Inherits QSqlDriver.
+
+   List of all members.
+
+Public Types
+
+     * enum Protocol { Version6 = 6, Version7 = 7, Version71 = 8, Version73 = 9 }
+
+Public Member Functions
+
+     * QPSQLDriver (QObject *parent=0)
+     * QPSQLDriver (PGconn *conn, QObject *parent=0)
+     * ~QPSQLDriver ()
+     * bool hasFeature (DriverFeature f) const
+     * bool open (const QString &db, const QString &user, const QString &password, const QString &host, int port, const QString &connOpts)
+     * bool isOpen () const
+     * void close ()
+     * QSqlResult * createResult () const
+     * QStringList tables (QSql::TableType) const
+     * QSqlIndex primaryIndex (const QString &tablename) const
+     * QSqlRecord record (const QString &tablename) const
+     * Protocol protocol () const
+     * QVariant handle () const
+     * QString escapeIdentifier (const QString &identifier, IdentifierType type) const
+     * QString formatValue (const QSqlField &field, bool trimStrings) const
+
+Protected Member Functions
+
+     * bool beginTransaction ()
+     * bool commitTransaction ()
+     * bool rollbackTransaction ()
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QPSQLDriver::Protocol
+
+
+
+   Enumerator: 
+
+          Version6 
+          Version7 
+          Version71
+          Version73
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPSQLDriver::QPSQLDriver (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QPSQLDriver::QPSQLDriver (  PGconn *   conn,
+                               QObject *  parent = 0
+                            )  [explicit]
+
+
+
+   QPSQLDriver::~QPSQLDriver (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QPSQLDriver::beginTransaction (   )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   void QPSQLDriver::close (   )  [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   bool QPSQLDriver::commitTransaction (   )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QSqlResult* QPSQLDriver::createResult (   )  const [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   QString QPSQLDriver::escapeIdentifier (  const QString &  identifier,
+                                            IdentifierType   type
+                                         )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QString QPSQLDriver::formatValue (  const QSqlField &  field,
+                                       bool               trimStrings
+                                    )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QVariant QPSQLDriver::handle (   )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   bool QPSQLDriver::hasFeature (  DriverFeature  f  )  const [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   bool QPSQLDriver::isOpen (   )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   bool QPSQLDriver::open (  const QString &  db,
+                             const QString &  user,
+                             const QString &  password,
+                             const QString &  host,
+                             int              port,
+                             const QString &  connOpts
+                          )  [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   QSqlIndex QPSQLDriver::primaryIndex (  const QString &  tablename  )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   Protocol QPSQLDriver::protocol (   )  const
+
+
+
+   QSqlRecord QPSQLDriver::record (  const QString &  tablename  )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   bool QPSQLDriver::rollbackTransaction (   )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QStringList QPSQLDriver::tables (  QSql::TableType   )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsql_psql.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

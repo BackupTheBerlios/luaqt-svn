@@ -1,0 +1,284 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QSplitter Class Reference
+
+   #include <qsplitter.h>
+
+   Inherits QFrame.
+
+   List of all members.
+
+Signals
+
+     * void splitterMoved (int pos, int index)
+
+Public Member Functions
+
+     * QSplitter (QWidget *parent=0)
+     * QSplitter (Qt::Orientation, QWidget *parent=0)
+     * ~QSplitter ()
+     * void addWidget (QWidget *widget)
+     * void insertWidget (int index, QWidget *widget)
+     * void setOrientation (Qt::Orientation)
+     * Qt::Orientation orientation () const
+     * void setChildrenCollapsible (bool)
+     * bool childrenCollapsible () const
+     * void setCollapsible (int index, bool)
+     * bool isCollapsible (int index) const
+     * void setOpaqueResize (bool opaque=true)
+     * bool opaqueResize () const
+     * void refresh ()
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * QList< int > sizes () const
+     * void setSizes (const QList< int > &list)
+     * QByteArray saveState () const
+     * bool restoreState (const QByteArray &state)
+     * int handleWidth () const
+     * void setHandleWidth (int)
+     * int indexOf (QWidget *w) const
+     * QWidget * widget (int index) const
+     * int count () const
+     * void getRange (int index, int *, int *) const
+     * QSplitterHandle * handle (int index) const
+     * void setStretchFactor (int index, int stretch)
+
+Protected Member Functions
+
+     * virtual QSplitterHandle * createHandle ()
+     * void childEvent (QChildEvent *)
+     * bool event (QEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void changeEvent (QEvent *)
+     * void moveSplitter (int pos, int index)
+     * void setRubberBand (int position)
+     * int closestLegalPosition (int, int)
+
+Properties
+
+     * Qt Orientation
+     * bool opaqueResize
+     * int handleWidth
+     * bool childrenCollapsible
+
+Friends
+
+     * class QSplitterHandle
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSplitter::QSplitter (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QSplitter::QSplitter (  Qt::Orientation  ,
+                           QWidget *        parent = 0
+                        )  [explicit]
+
+
+
+   QSplitter::~QSplitter (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QSplitter::addWidget (  QWidget *  widget  )
+
+
+
+   void QSplitter::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   void QSplitter::childEvent (  QChildEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   bool QSplitter::childrenCollapsible (   )  const
+
+
+
+   int QSplitter::closestLegalPosition (  int  ,
+                                          int
+                                       )  [protected]
+
+
+
+   int QSplitter::count (   )  const
+
+
+
+   virtual QSplitterHandle* QSplitter::createHandle (   )  [protected, virtual]
+
+
+
+   bool QSplitter::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QSplitter::getRange (  int    index,
+                               int *  ,
+                               int *
+                            )  const
+
+
+
+   QSplitterHandle* QSplitter::handle (  int  index  )  const
+
+
+
+   int QSplitter::handleWidth (   )  const
+
+
+
+   int QSplitter::indexOf (  QWidget *  w  )  const
+
+
+
+   void QSplitter::insertWidget (  int        index,
+                                   QWidget *  widget
+                                )
+
+
+
+   bool QSplitter::isCollapsible (  int  index  )  const
+
+
+
+   QSize QSplitter::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QSplitter::moveSplitter (  int  pos,
+                                   int  index
+                                )  [protected]
+
+
+
+   bool QSplitter::opaqueResize (   )  const
+
+
+
+   Qt::Orientation QSplitter::orientation (   )  const
+
+
+
+   void QSplitter::refresh (   )
+
+
+
+   void QSplitter::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QSplitter::restoreState (  const QByteArray &  state  )
+
+
+
+   QByteArray QSplitter::saveState (   )  const
+
+
+
+   void QSplitter::setChildrenCollapsible (  bool   )
+
+
+
+   void QSplitter::setCollapsible (  int   index,
+                                     bool
+                                  )
+
+
+
+   void QSplitter::setHandleWidth (  int   )
+
+
+
+   void QSplitter::setOpaqueResize (  bool  opaque = true  )
+
+
+
+   void QSplitter::setOrientation (  Qt::Orientation   )
+
+
+
+   void QSplitter::setRubberBand (  int  position  )  [protected]
+
+
+
+   void QSplitter::setSizes (  const QList< int > &  list  )
+
+
+
+   void QSplitter::setStretchFactor (  int  index,
+                                       int  stretch
+                                    )
+
+
+
+   QSize QSplitter::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   QList<int> QSplitter::sizes (   )  const
+
+
+
+   void QSplitter::splitterMoved (  int  pos,
+                                    int  index
+                                 )  [signal]
+
+
+
+   QWidget* QSplitter::widget (  int  index  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QSplitterHandle [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QSplitter::childrenCollapsible [read, write]
+
+
+
+   int QSplitter::handleWidth [read, write]
+
+
+
+   bool QSplitter::opaqueResize [read, write]
+
+
+
+   Qt QSplitter::Orientation [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsplitter.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,450 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QMainWindow Class Reference
+
+   The QMainWindow class provides a main application window. More...
+#include <QMainWindow>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * iconSize : QSize
+     * toolButtonStyle : Qt::ToolButtonStyle
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QMainWindow ( QWidget * parent = 0, Qt::WFlags flags = 0 )
+     * ~QMainWindow ()
+     * void addDockWidget ( Qt::DockWidgetArea area, QDockWidget *
+       dockwidget )
+     * void addDockWidget ( Qt::DockWidgetArea area, QDockWidget *
+       dockwidget, Qt::Orientation orientation )
+     * void addToolBar ( Qt::ToolBarArea area, QToolBar * toolbar )
+     * void addToolBar ( QToolBar * toolbar )
+     * QToolBar * addToolBar ( const QString & title )
+     * void addToolBarBreak ( Qt::ToolBarArea area = Qt::TopToolBarArea )
+     * QWidget * centralWidget () const
+     * Qt::DockWidgetArea corner ( Qt::Corner corner ) const
+     * virtual QMenu * createPopupMenu ()
+     * Qt::DockWidgetArea dockWidgetArea ( QDockWidget * dockwidget )
+       const
+     * QSize iconSize () const
+     * void insertToolBar ( QToolBar * before, QToolBar * toolbar )
+     * void insertToolBarBreak ( QToolBar * before )
+     * QMenuBar * menuBar () const
+     * void removeDockWidget ( QDockWidget * dockwidget )
+     * void removeToolBar ( QToolBar * toolbar )
+     * bool restoreState ( const QByteArray & state, int version = 0 )
+     * QByteArray saveState ( int version = 0 ) const
+     * void setCentralWidget ( QWidget * widget )
+     * void setCorner ( Qt::Corner corner, Qt::DockWidgetArea area )
+     * void setIconSize ( const QSize & iconSize )
+     * void setMenuBar ( QMenuBar * menuBar )
+     * void setStatusBar ( QStatusBar * statusbar )
+     * void setToolButtonStyle ( Qt::ToolButtonStyle toolButtonStyle )
+     * void splitDockWidget ( QDockWidget * first, QDockWidget * second,
+       Qt::Orientation orientation )
+     * QStatusBar * statusBar () const
+     * Qt::ToolBarArea toolBarArea ( QToolBar * toolbar ) const
+     * Qt::ToolButtonStyle toolButtonStyle () const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Signals
+
+     * void iconSizeChanged ( const QSize & iconSize )
+     * void toolButtonStyleChanged ( Qt::ToolButtonStyle toolButtonStyle
+       )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QMainWindow class provides a main application window.
+
+   QMainWindow provides a main application window, with a menu bar, tool
+   bars, dock widgets and a status bar around a large central widget,
+   such as a text edit, drawing canvas or Q3Workspace (for MDI
+   applications).
+
+   Topics:
+     * Saving and restoring state
+     * Behavior of Dock Widgets
+
+     * Dock Widget Separators
+     * Dragging Dock Widgets
+     * Dragging over Neighbors
+     * Dragging over other QDockWidgets
+     * Dragging to a Different Qt::DockWidgetArea
+
+  Saving and restoring state
+
+   The saveState() and restoreState() functions provide a means to save
+   and restore the layout of the QToolBars and QDockWidgets in the
+   QMainWindow. These functions work by storing the objectName of each
+   QToolBar and QDockWidget together with information about placement,
+   size, etc.
+
+  Behavior of Dock Widgets
+
+    Dock Widget Separators
+
+   QMainWindow uses separators to separate QDockWidgets from each other
+   and the central widget. These separators let the user control the size
+   of QDockWidgets by dragging the boundary between them.
+
+   A QDockWidget can be as large or as small as the user wishes, between
+   the minimumSizeHint() (or minimumSize()) and maximumSize() of the
+   QDockWidget. When a QDockWidget reaches its minimum size, space will
+   be taken from other QDockWidgets in the direction of the user's drag,
+   if possible. Once all QDockWidgets have reached their minimum sizes,
+   further dragging does nothing. When a QDockWidget reaches its maximium
+   size, space will be given to other QDockWidgets in the opposite
+   direction of the user's drag, if possible. Once all QDockWidgets have
+   reached their minimum size, futher dragging does nothing.
+
+    Dragging Dock Widgets
+
+   QDockWidget displays a title bar to let the user drag the dock widget
+   to a new location. A QDockWidget can be moved to any location provided
+   enough space is available. (QMainWindow won't resize itself to a
+   larger size in an attempt to provide more space.)
+
+   A QRubberBand is shown while dragging the QDockWidget. This
+   QRubberBand provides an indication to the user about where the
+   QDockWidget will be placed when the mouse button is released.
+
+    Dragging over Neighbors
+
+   All un-nested QDockWidgets in the same dock area are considered
+   neighbors. When dragging a QDockWidget over its neighbor:
+     * QMainWindow will split the neighbor perpendicularly to the
+       direction of the QDockWidgets.
+     * QMainWindow will swap the position of the QDockWidget being
+       dragged and its neighbor once the user has dragged the mouse past
+       the center point of the neighboring QDockWidget.
+
+   The following diagram depicts this behavior:
+
+                                  Diagram
+
+    Dragging over other QDockWidgets
+
+   When dragging nested QDockWidgets, or when dragging to a different
+   dock area, QMainWindow will split the QDockWindow under the mouse. Be
+   aware that the QDockWidget under the mouse will only be split by the
+   QDockWidget being dragged if both can fit in the space currently
+   occupied by the QDockWidget under the mouse.
+
+   A QDockWidget can be split horizontally or vertically, with the
+   QDockWidget being dragged being placed in one of four possible
+   locations, as shown in the diagram below:
+
+                                  Diagram
+
+    Dragging to a Different Qt::DockWidgetArea
+
+   The QDockWidget::floatable property influences feedback when the user
+   drags a QDockWidget over the central widget:
+     * If floating is true, QMainWindow chooses a dock area based on the
+       position of the mouse pointer. If the mouse is within 50 pixels of
+       the central widget's edge, the adjacent dock area is chosen. When
+       dragging into the corners of these 50 pixel regions, the current
+       corner() configuration is used to make the decision. Otherwise,
+       the QRubberBand is shown under the mouse pointer, as above.
+     * If floating is false, QMainWindow chooses a dock area based on the
+       distance between the mouse pointer and the center of the central
+       widget. If the mouse comes within 50 pixels of the central
+       widget's edge, the adjacent dock area is always chosen. When
+       dragging into the corners of these 50 pixel regions, the current
+       corner() configuration is used to make the decision.
+
+   In either case, dragging the mouse over another QDockWidget causes
+   QMainWindow to choose the other QDockWidget's dock area.
+
+   When dragging outside the QMainWindow, the QDockWidget::floating
+   property again controls feedback during dragging. When the property is
+   false, dragging outside of the QMainWindow will show the rubberband
+   over the QDockWidget's current location. This indicates that the
+   QDockWidget cannot be moved outside of the QMainWindow. When the
+   QDockWidget::floatable property is true, dragging outside of the
+   QMainWindow will show the QRubberBand under the mouse pointer. This
+   indicates that the QDockWidget will be floating when the mouse button
+   is released.
+
+   See also QMenuBar, QToolBar, QStatusBar, and QDockWidget.
+     _________________________________________________________________
+
+Property Documentation
+
+  iconSize : QSize
+
+   This property holds size of toolbar icons in this mainwindow.
+
+   The default is the default tool bar icon size of the GUI style.
+
+   Access functions:
+     * QSize iconSize () const
+     * void setIconSize ( const QSize & iconSize )
+
+  toolButtonStyle : Qt::ToolButtonStyle
+
+   This property holds style of toolbar buttons in this mainwindow.
+
+   The default is Qt::ToolButtonIconOnly.
+
+   Access functions:
+     * Qt::ToolButtonStyle toolButtonStyle () const
+     * void setToolButtonStyle ( Qt::ToolButtonStyle toolButtonStyle )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QMainWindow::QMainWindow ( QWidget * parent = 0, Qt::WFlags flags = 0 )
+
+   Constructs a QMainWindow with the given parent and the specified
+   widget flags.
+
+  QMainWindow::~QMainWindow ()
+
+   Destroys the main window.
+
+  void QMainWindow::addDockWidget ( Qt::DockWidgetArea area, QDockWidget *
+  dockwidget )
+
+   Adds the given dockwidget to the specified area.
+
+  void QMainWindow::addDockWidget ( Qt::DockWidgetArea area, QDockWidget *
+  dockwidget, Qt::Orientation orientation )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Adds dockwidget into the given area in the direction specified by the
+   orientation.
+
+  void QMainWindow::addToolBar ( Qt::ToolBarArea area, QToolBar * toolbar )
+
+   Adds the toolbar into the specified area in this main window. The
+   toolbar is placed at the end of the current tool bar block (i.e.
+   line).
+
+   See also insertToolBar(), addToolBarBreak(), and insertToolBarBreak().
+
+  void QMainWindow::addToolBar ( QToolBar * toolbar )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Equivalent of calling addToolBar(Qt::TopToolBarArea, toolbar)
+
+  QToolBar * QMainWindow::addToolBar ( const QString & title )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Creates a QToolBar object, setting its window title to title, and
+   inserts it into the top toolbar area.
+
+   See also setWindowTitle().
+
+  void QMainWindow::addToolBarBreak ( Qt::ToolBarArea area = Qt::TopToolBarArea
+  )
+
+   Adds a toolbar break to the given area after all the other objects
+   that are present.
+
+  QWidget * QMainWindow::centralWidget () const
+
+   Returns the central widget for the main window. This function returns
+   zero if the central widget has not been set.
+
+   See also setCentralWidget().
+
+  Qt::DockWidgetArea QMainWindow::corner ( Qt::Corner corner ) const
+
+   Returns the dock widget area that occupies the specified corner.
+
+   See also setCorner().
+
+  QMenu * QMainWindow::createPopupMenu ()   [virtual]
+
+   This function is called to create a popup menu when the user
+   right-clicks on the menu bar, a toolbar or a dock widget. If you want
+   to create a custom popup menu, reimplement this function and return
+   the created popup menu. Ownership of the popup menu is transferred to
+   the caller.
+
+  Qt::DockWidgetArea QMainWindow::dockWidgetArea ( QDockWidget * dockwidget )
+  const
+
+   Returns the Qt::DockWidgetArea for dockwidget.
+
+   See also addDockWidget(), splitDockWidget(), and Qt::DockWidgetArea.
+
+  void QMainWindow::iconSizeChanged ( const QSize & iconSize )   [signal]
+
+   This signal is emitted when the size of the icons used in the window
+   is changed. The new icon size is passed in iconSize.
+
+   You can connect this signal to other components to help maintain a
+   consistent appearance for your application.
+
+   See also setIconSize().
+
+  void QMainWindow::insertToolBar ( QToolBar * before, QToolBar * toolbar )
+
+   Inserts the toolbar into the area occupied by the before toolbar so
+   that it appears before it. For example, in normal left-to-right layout
+   operation, this means that toolbar will appear to the left of the
+   toolbar specified by before in a horizontal toolbar area.
+
+   See also insertToolBarBreak(), addToolBar(), and addToolBarBreak().
+
+  void QMainWindow::insertToolBarBreak ( QToolBar * before )
+
+   Inserts a toolbar break before the toolbar specified by before.
+
+  QMenuBar * QMainWindow::menuBar () const
+
+   Returns the menu bar for the main window. This function creates and
+   returns an empty menu bar if the menu bar does not exist.
+
+   See also setMenuBar().
+
+  void QMainWindow::removeDockWidget ( QDockWidget * dockwidget )
+
+   Removes the dockwidget from the main window.
+
+  void QMainWindow::removeToolBar ( QToolBar * toolbar )
+
+   Removes the toolbar from the main window.
+
+  bool QMainWindow::restoreState ( const QByteArray & state, int version = 0 )
+
+   Restores the state of this mainwindow's toolbars and dockwidgets. The
+   version number is compared with that stored in state. If they do not
+   match, the mainwindow's state is left unchanged, and this function
+   returns false; otherwise, the state is restored, and this function
+   returns true.
+
+   See also saveState().
+
+  QByteArray QMainWindow::saveState ( int version = 0 ) const
+
+   Saves the current state of this mainwindow's toolbars and dockwidgets.
+   The version number is stored as part of the data.
+
+   The objectName property is used to identify each QToolBar and
+   QDockWidget. You should make sure that this property is unique for
+   each QToolBar and QDockWidget you add to the QMainWindow
+
+   To restore the saved state, pass the return value and version number
+   to restoreState().
+
+   See also restoreState().
+
+  void QMainWindow::setCentralWidget ( QWidget * widget )
+
+   Sets the given widget to be the main window's central widget.
+
+   Warning: This function should be called at most once for each main
+   window instance
+
+   Note: QMainWindow takes ownership of the widget pointer and deletes it
+   at the appropriate time.
+
+   See also centralWidget().
+
+  void QMainWindow::setCorner ( Qt::Corner corner, Qt::DockWidgetArea area )
+
+   Sets the given dock widget area to occupy the specified corner.
+
+   See also corner().
+
+  void QMainWindow::setMenuBar ( QMenuBar * menuBar )
+
+   Sets the menu bar for the main window to menuBar.
+
+   Note: QMainWindow takes ownership of the menuBar pointer and deletes
+   it at the appropriate time.
+
+   See also menuBar().
+
+  void QMainWindow::setStatusBar ( QStatusBar * statusbar )
+
+   Sets the status bar for the main window to statusbar.
+
+   Note: QMainWindow takes ownership of the statusbar pointer and deletes
+   it at the appropriate time.
+
+   See also statusBar().
+
+  void QMainWindow::splitDockWidget ( QDockWidget * first, QDockWidget *
+  second, Qt::Orientation orientation )
+
+   Splits the space covered by the first dock widget into two parts,
+   moves the first dock widget into the first part, and moves the second
+   dock widget into the second part.
+
+   The orientation specifies how the space is divided: A Qt::Horizontal
+   split places the second dock widget to the right of the first; a
+   Qt::Vertical split places the second dock widget below the first.
+
+   Note: The Qt::LayoutDirection influences the order of the dock widgets
+   in the two parts of the divided area. When right-to-left layout
+   direction is enabled, the placing of the dock widgets will be
+   reversed.
+
+  QStatusBar * QMainWindow::statusBar () const
+
+   Returns the status bar for the main window. This function creates and
+   returns an empty status bar if the status bar does not exist.
+
+   See also setStatusBar().
+
+  Qt::ToolBarArea QMainWindow::toolBarArea ( QToolBar * toolbar ) const
+
+   Returns the tool bar area for toolbar.
+
+   See also addToolBar(), addToolBarBreak(), and Qt::ToolBarArea.
+
+  void QMainWindow::toolButtonStyleChanged ( Qt::ToolButtonStyle
+  toolButtonStyle )   [signal]
+
+   This signal is emiited when the style used for tool buttons in the
+   window is changed. The new style is passed in toolButtonStyle.
+
+   You can connect this signal to other components to help maintain a
+   consistent appearance for your application.
+
+   See also setToolButtonStyle().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

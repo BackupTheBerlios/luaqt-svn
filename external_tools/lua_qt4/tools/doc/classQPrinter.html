@@ -1,0 +1,386 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QPrinter Class Reference
+
+   #include <qprinter.h>
+
+   Inherits QPaintDevice.
+
+   List of all members.
+
+Public Types
+
+     * enum PrinterMode { ScreenResolution, PrinterResolution, HighResolution }
+     * enum Orientation { Portrait, Landscape }
+     * enum PageSize {
+         A4, B5, Letter, Legal,
+         Executive, A0, A1, A2,
+         A3, A5, A6, A7,
+         A8, A9, B0, B1,
+         B10, B2, B3, B4,
+         B6, B7, B8, B9,
+         C5E, Comm10E, DLE, Folio,
+         Ledger, Tabloid, Custom, NPageSize = Custom
+       }
+     * enum PageOrder { FirstPageFirst, LastPageFirst }
+     * enum ColorMode { GrayScale, Color }
+     * enum PaperSource {
+         OnlyOne, Lower, Middle, Manual,
+         Envelope, EnvelopeManual, Auto, Tractor,
+         SmallFormat, LargeFormat, LargeCapacity, Cassette,
+         FormSource
+       }
+     * enum PrinterState { Idle, Active, Aborted, Error }
+
+Public Member Functions
+
+     * QPrinter (PrinterMode mode=ScreenResolution)
+     * ~QPrinter ()
+     * int devType () const
+     * void setPrinterName (const QString &)
+     * QString printerName () const
+     * void setOutputFileName (const QString &)
+     * QString outputFileName () const
+     * void setPrintProgram (const QString &)
+     * QString printProgram () const
+     * void setDocName (const QString &)
+     * QString docName () const
+     * void setCreator (const QString &)
+     * QString creator () const
+     * void setOrientation (Orientation)
+     * Orientation orientation () const
+     * void setPageSize (PageSize)
+     * PageSize pageSize () const
+     * void setPageOrder (PageOrder)
+     * PageOrder pageOrder () const
+     * void setResolution (int)
+     * int resolution () const
+     * void setColorMode (ColorMode)
+     * ColorMode colorMode () const
+     * void setCollateCopies (bool collate)
+     * bool collateCopies () const
+     * void setFullPage (bool)
+     * bool fullPage () const
+     * void setNumCopies (int)
+     * int numCopies () const
+     * void setPaperSource (PaperSource)
+     * PaperSource paperSource () const
+     * QList< int > supportedResolutions () const
+     * QRect paperRect () const
+     * QRect pageRect () const
+     * QString printerSelectionOption () const
+     * void setPrinterSelectionOption (const QString &)
+     * bool newPage ()
+     * bool abort ()
+     * PrinterState printerState () const
+     * QPaintEngine * paintEngine () const
+
+Protected Member Functions
+
+     * int metric (PaintDeviceMetric) const
+
+Friends
+
+     * class QPrintDialogWin
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QPrinter::ColorMode
+
+
+
+   Enumerator: 
+
+          GrayScale
+          Color    
+
+   enum QPrinter::Orientation
+
+
+
+   Enumerator: 
+
+          Portrait 
+          Landscape
+
+   enum QPrinter::PageOrder
+
+
+
+   Enumerator: 
+
+          FirstPageFirst
+          LastPageFirst 
+
+   enum QPrinter::PageSize
+
+
+
+   Enumerator: 
+
+          A4       
+          B5       
+          Letter   
+          Legal    
+          Executive
+          A0       
+          A1       
+          A2       
+          A3       
+          A5       
+          A6       
+          A7       
+          A8       
+          A9       
+          B0       
+          B1       
+          B10      
+          B2       
+          B3       
+          B4       
+          B6       
+          B7       
+          B8       
+          B9       
+          C5E      
+          Comm10E  
+          DLE      
+          Folio    
+          Ledger   
+          Tabloid  
+          Custom   
+          NPageSize
+
+   enum QPrinter::PaperSource
+
+
+
+   Enumerator: 
+
+          OnlyOne       
+          Lower         
+          Middle        
+          Manual        
+          Envelope      
+          EnvelopeManual
+          Auto          
+          Tractor       
+          SmallFormat   
+          LargeFormat   
+          LargeCapacity 
+          Cassette      
+          FormSource    
+
+   enum QPrinter::PrinterMode
+
+
+
+   Enumerator: 
+
+          ScreenResolution 
+          PrinterResolution
+          HighResolution   
+
+   enum QPrinter::PrinterState
+
+
+
+   Enumerator: 
+
+          Idle   
+          Active 
+          Aborted
+          Error  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPrinter::QPrinter (  PrinterMode  mode = ScreenResolution  )  [explicit]
+
+
+
+   QPrinter::~QPrinter (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QPrinter::abort (   )
+
+
+
+   bool QPrinter::collateCopies (   )  const
+
+
+
+   ColorMode QPrinter::colorMode (   )  const
+
+
+
+   QString QPrinter::creator (   )  const
+
+
+
+   int QPrinter::devType (   )  const [virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   QString QPrinter::docName (   )  const
+
+
+
+   bool QPrinter::fullPage (   )  const
+
+
+
+   int QPrinter::metric (  PaintDeviceMetric   )  const [protected, virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   bool QPrinter::newPage (   )
+
+
+
+   int QPrinter::numCopies (   )  const
+
+
+
+   Orientation QPrinter::orientation (   )  const
+
+
+
+   QString QPrinter::outputFileName (   )  const
+
+
+
+   PageOrder QPrinter::pageOrder (   )  const
+
+
+
+   QRect QPrinter::pageRect (   )  const
+
+
+
+   PageSize QPrinter::pageSize (   )  const
+
+
+
+   QPaintEngine* QPrinter::paintEngine (   )  const [virtual]
+
+
+
+   Implements QPaintDevice.
+
+   QRect QPrinter::paperRect (   )  const
+
+
+
+   PaperSource QPrinter::paperSource (   )  const
+
+
+
+   QString QPrinter::printerName (   )  const
+
+
+
+   QString QPrinter::printerSelectionOption (   )  const
+
+
+
+   PrinterState QPrinter::printerState (   )  const
+
+
+
+   QString QPrinter::printProgram (   )  const
+
+
+
+   int QPrinter::resolution (   )  const
+
+
+
+   void QPrinter::setCollateCopies (  bool  collate  )
+
+
+
+   void QPrinter::setColorMode (  ColorMode   )
+
+
+
+   void QPrinter::setCreator (  const QString &   )
+
+
+
+   void QPrinter::setDocName (  const QString &   )
+
+
+
+   void QPrinter::setFullPage (  bool   )
+
+
+
+   void QPrinter::setNumCopies (  int   )
+
+
+
+   void QPrinter::setOrientation (  Orientation   )
+
+
+
+   void QPrinter::setOutputFileName (  const QString &   )
+
+
+
+   void QPrinter::setPageOrder (  PageOrder   )
+
+
+
+   void QPrinter::setPageSize (  PageSize   )
+
+
+
+   void QPrinter::setPaperSource (  PaperSource   )
+
+
+
+   void QPrinter::setPrinterName (  const QString &   )
+
+
+
+   void QPrinter::setPrinterSelectionOption (  const QString &   )
+
+
+
+   void QPrinter::setPrintProgram (  const QString &   )
+
+
+
+   void QPrinter::setResolution (  int   )
+
+
+
+   QList<int> QPrinter::supportedResolutions (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QPrintDialogWin [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qprinter.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

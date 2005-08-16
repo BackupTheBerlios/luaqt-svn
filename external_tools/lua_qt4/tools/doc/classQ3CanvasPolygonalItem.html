@@ -1,0 +1,150 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       Q3CanvasPolygonalItem Class Reference
+
+   #include <q3canvas.h>
+
+   Inherits Q3CanvasItem.
+
+   Inherited by Q3CanvasEllipse, Q3CanvasLine, Q3CanvasPolygon, and Q3CanvasRectangle.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CanvasPolygonalItem (Q3Canvas *canvas)
+     * virtual ~Q3CanvasPolygonalItem ()
+     * bool collidesWith (const Q3CanvasItem *) const
+     * virtual void setPen (QPen p)
+     * virtual void setBrush (QBrush b)
+     * QPen pen () const
+     * QBrush brush () const
+     * virtual Q3PointArray areaPoints () const =0
+     * virtual Q3PointArray areaPointsAdvanced () const
+     * QRect boundingRect () const
+     * int rtti () const
+
+Static Public Attributes
+
+     * static int RTTI
+
+Protected Member Functions
+
+     * void draw (QPainter &)
+     * virtual void drawShape (QPainter &)=0
+     * bool winding () const
+     * void setWinding (bool)
+     * void invalidate ()
+     * bool isValid () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasPolygonalItem::Q3CanvasPolygonalItem (  Q3Canvas *  canvas  )
+
+
+
+   virtual Q3CanvasPolygonalItem::~Q3CanvasPolygonalItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual Q3PointArray Q3CanvasPolygonalItem::areaPoints (   )  const [pure virtual]
+
+
+
+   Implemented in Q3CanvasRectangle, Q3CanvasPolygon, Q3CanvasLine, and Q3CanvasEllipse.
+
+   virtual Q3PointArray Q3CanvasPolygonalItem::areaPointsAdvanced (   )  const [virtual]
+
+
+
+   QRect Q3CanvasPolygonalItem::boundingRect (   )  const [virtual]
+
+
+
+   Implements Q3CanvasItem.
+
+   QBrush Q3CanvasPolygonalItem::brush (   )  const [inline]
+
+
+
+   bool Q3CanvasPolygonalItem::collidesWith (  const Q3CanvasItem *   )  const [virtual]
+
+
+
+   Implements Q3CanvasItem.
+
+   Reimplemented in Q3CanvasRectangle, and Q3CanvasEllipse.
+
+   void Q3CanvasPolygonalItem::draw (  QPainter &   )  [protected, virtual]
+
+
+
+   Implements Q3CanvasItem.
+
+   virtual void Q3CanvasPolygonalItem::drawShape (  QPainter &   )  [protected, pure virtual]
+
+
+
+   Implemented in Q3CanvasRectangle, Q3CanvasPolygon, Q3CanvasLine, and Q3CanvasEllipse.
+
+   void Q3CanvasPolygonalItem::invalidate (   )  [protected]
+
+
+
+   bool Q3CanvasPolygonalItem::isValid (   )  const [inline, protected]
+
+
+
+   QPen Q3CanvasPolygonalItem::pen (   )  const [inline]
+
+
+
+   int Q3CanvasPolygonalItem::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3CanvasItem.
+
+   Reimplemented in Q3CanvasRectangle, Q3CanvasPolygon, Q3CanvasSpline, Q3CanvasLine, and Q3CanvasEllipse.
+
+   virtual void Q3CanvasPolygonalItem::setBrush (  QBrush  b  )  [virtual]
+
+
+
+   virtual void Q3CanvasPolygonalItem::setPen (  QPen  p  )  [virtual]
+
+
+
+   Reimplemented in Q3CanvasLine.
+
+   void Q3CanvasPolygonalItem::setWinding (  bool   )  [protected]
+
+
+
+   bool Q3CanvasPolygonalItem::winding (   )  const [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3CanvasPolygonalItem::RTTI [static]
+
+
+
+   Reimplemented from Q3CanvasItem.
+
+   Reimplemented in Q3CanvasRectangle, Q3CanvasPolygon, Q3CanvasSpline, Q3CanvasLine, and Q3CanvasEllipse.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

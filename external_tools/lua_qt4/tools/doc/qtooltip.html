@@ -1,0 +1,57 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QToolTip Class Reference
+
+   The QToolTip class provides tool tips (balloon help) for any widget.
+   More...
+#include <QToolTip>
+
+   Part of the QtGui module.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Static Public Members
+
+     * QPalette palette ()
+     * void showText ( const QPoint & pos, const QString & text, QWidget
+       * w = 0 )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QToolTip class provides tool tips (balloon help) for any widget.
+
+   The tip is a short piece of text reminding the user of the widget's
+   function. It is drawn immediately below the given position in a
+   distinctive black-on-yellow color combination. The tip can be any rich
+   text formatted string.
+
+   The simplest and most common way to set a widget's tooltip is by
+   calling its QWidget::setToolTip() function.
+
+   It is also possible to show different tool tips for different regions
+   of a widget, by using a QHelpEvent of type QEvent::ToolTip. Intercept
+   the help event in your widget's QWidget::event() function and call
+   QToolTip::showText() with the text you want to display.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QPalette QToolTip::palette ()   [static]
+
+   Returns the palette used to render tooltips.
+
+  void QToolTip::showText ( const QPoint & pos, const QString & text, QWidget *
+  w = 0 )   [static]
+
+   Shows text as a tool tip, at global position pos. The optional widget
+   argument, w, is used to determine the appropriate screen on multi-head
+   systems.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

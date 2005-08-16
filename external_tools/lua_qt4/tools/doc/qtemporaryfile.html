@@ -1,0 +1,180 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                       QTemporaryFile Class Reference
+
+   The QTemporaryFile class is an I/O device that operates on temporary
+   files. More...
+#include <QTemporaryFile>
+
+   Part of the QtCore module.
+
+   Inherits QFile.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QTemporaryFile ()
+     * QTemporaryFile ( const QString & templateName )
+     * QTemporaryFile ( QObject * parent )
+     * QTemporaryFile ( const QString & templateName, QObject * parent )
+     * ~QTemporaryFile ()
+     * bool autoRemove () const
+     * QString fileName () const
+     * QString fileTemplate () const
+     * bool open ()
+     * void setAutoRemove ( bool b )
+     * void setFileTemplate ( const QString & name )
+
+     * 19 public functions inherited from QFile
+     * 30 public functions inherited from QIODevice
+     * 28 public functions inherited from QObject
+
+  Static Public Members
+
+     * QTemporaryFile * createLocalFile ( const QString & fileName )
+     * QTemporaryFile * createLocalFile ( QFile & file )
+
+     * 14 static public members inherited from QFile
+     * 4 static public members inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 property inherited from QObject
+     * 1 public slot inherited from QObject
+     * 3 signals inherited from QIODevice
+     * 1 signal inherited from QObject
+     * 5 protected functions inherited from QIODevice
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QTemporaryFile class is an I/O device that operates on temporary
+   files.
+
+   QTemporaryFile is an I/O device that will get its input/output from
+   the local disk. The filename for the temporary file will be guaranteed
+   to be unique once the file is opened and will subsequently be removed
+   upon destruction of the QTemporaryFile object.
+
+   A temporary file will have some static part of the name and some part
+   that is calculated to be unique. The default filename qt_temp will be
+   placed into the temporary path as returned by QDir::tempPath().
+
+   See also QDir::tempPath() and QFile.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QTemporaryFile::QTemporaryFile ()
+
+   Constructs a QTemporaryFile with no name.
+
+   See also setFileTemplate().
+
+  QTemporaryFile::QTemporaryFile ( const QString & templateName )
+
+   Constructs a QTemporaryFile with a template filename of templateName.
+   Upon opening the temporary file this will be used to create a unique
+   filename. If the templateName does end in XXXXXX it will automatically
+   be appended and used as the dynamic portion of the filename.
+
+   See also open() and fileTemplate().
+
+  QTemporaryFile::QTemporaryFile ( QObject * parent )
+
+   Constructs a QTemporaryFile with the given parent, but with no name.
+
+   See also setFileTemplate().
+
+  QTemporaryFile::QTemporaryFile ( const QString & templateName, QObject *
+  parent )
+
+   Constructs a QTemporaryFile with a template filename of templateName
+   and the specified parent. Upon opening the temporary file this will be
+   used to create a unique filename. If the templateName does end in
+   XXXXXX it will automatically be appended and used as the dynamic
+   portion of the filename.
+
+   See also open() and fileTemplate().
+
+  QTemporaryFile::~QTemporaryFile ()
+
+   Destroys the temporary file object, the file is automatically closed
+   if necessary and if in auto remove mode it will automatically delete
+   the file.
+
+   See also autoRemove().
+
+  bool QTemporaryFile::autoRemove () const
+
+   Returns true if the QTemporaryFile is in auto remove mode. Auto-remove
+   mode will automatically delete the filename from disk upon
+   destruction. This makes it very easy to create your QTemporaryFile
+   object on the stack, fill it with data, read from it, and finally on
+   function return it will automatically clean up after itself.
+
+   See also setAutoRemove() and remove().
+
+  QTemporaryFile * QTemporaryFile::createLocalFile ( const QString & fileName
+  )   [static]
+
+   Works on the given fileName rather than an existing QFile object.
+
+  QTemporaryFile * QTemporaryFile::createLocalFile ( QFile & file )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Creates and returns a local temporary file whose contents are a copy
+   of the contens of the given file.
+
+  QString QTemporaryFile::fileName () const
+
+   Returns the complete unique filename backing the QTemporaryFile
+   object. This string is null before the QTemporaryFile is opened,
+   afterwards it will contain the fileTemplate() plus additional
+   characters to make it unique.
+
+   See also fileTemplate().
+
+  QString QTemporaryFile::fileTemplate () const
+
+   Returns the set file template. The default file template will be
+   called qt_temp and be placed in QDir::tempPath().
+
+   See also setFileTemplate().
+
+  bool QTemporaryFile::open ()
+
+   A QTemporaryFile will always be opened in QIODevice::ReadWrite mode,
+   this allows easy access to the data in the file. This function will
+   return true upon success and will set the fileName() to the unique
+   filename used.
+
+   See also fileName().
+
+  void QTemporaryFile::setAutoRemove ( bool b )
+
+   Sets the QTemporaryFile into auto-remove mode if b is true.
+
+   See also autoRemove() and remove().
+
+  void QTemporaryFile::setFileTemplate ( const QString & name )
+
+   Sets the static portion of the file name to name. If the file template
+   ends in XXXXXX that will automatically be replaced with the unique
+   part of the filename, otherwise a filename will be determined
+   automatically based on the static portion specified.
+
+   See also fileTemplate().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

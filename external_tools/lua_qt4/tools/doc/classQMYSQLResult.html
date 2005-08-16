@@ -1,0 +1,140 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QMYSQLResult Class Reference
+
+   #include <qsql_mysql.h>
+
+   Inherits QSqlResult.
+
+   List of all members.
+
+Public Member Functions
+
+     * QMYSQLResult (const QMYSQLDriver *db)
+     * ~QMYSQLResult ()
+     * QVariant handle () const
+
+Protected Member Functions
+
+     * void cleanup ()
+     * bool fetch (int i)
+     * bool fetchNext ()
+     * bool fetchLast ()
+     * bool fetchFirst ()
+     * QVariant data (int field)
+     * bool isNull (int field)
+     * bool reset (const QString &query)
+     * int size ()
+     * int numRowsAffected ()
+     * QVariant lastInsertId () const
+     * QSqlRecord record () const
+
+Friends
+
+     * class QMYSQLDriver
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMYSQLResult::QMYSQLResult (  const QMYSQLDriver *  db  )  [explicit]
+
+
+
+   QMYSQLResult::~QMYSQLResult (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QMYSQLResult::cleanup (   )  [protected]
+
+
+
+   QVariant QMYSQLResult::data (  int  field  )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   bool QMYSQLResult::fetch (  int  i  )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   bool QMYSQLResult::fetchFirst (   )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   bool QMYSQLResult::fetchLast (   )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   bool QMYSQLResult::fetchNext (   )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlResult.
+
+   QVariant QMYSQLResult::handle (   )  const [virtual]
+
+
+
+   Reimplemented from QSqlResult.
+
+   bool QMYSQLResult::isNull (  int  field  )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   QVariant QMYSQLResult::lastInsertId (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QSqlResult.
+
+   int QMYSQLResult::numRowsAffected (   )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   QSqlRecord QMYSQLResult::record (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QSqlResult.
+
+   bool QMYSQLResult::reset (  const QString &  query  )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   int QMYSQLResult::size (   )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QMYSQLDriver [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsql_mysql.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

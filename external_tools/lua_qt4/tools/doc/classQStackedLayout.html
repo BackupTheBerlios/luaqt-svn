@@ -1,0 +1,162 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QStackedLayout Class Reference
+
+   #include <qstackedlayout.h>
+
+   Inherits QLayout.
+
+   List of all members.
+
+Public Slots
+
+     * void setCurrentIndex (int index)
+     * void setCurrentWidget (QWidget *w)
+
+Signals
+
+     * void widgetRemoved (int index)
+     * void currentChanged (int index)
+
+Public Member Functions
+
+     * QStackedLayout ()
+     * QStackedLayout (QWidget *parent)
+     * QStackedLayout (QLayout *parentLayout)
+     * ~QStackedLayout ()
+     * int addWidget (QWidget *w)
+     * int insertWidget (int index, QWidget *w)
+     * QWidget * currentWidget () const
+     * int currentIndex () const
+     * QWidget * widget (int) const
+     * int count () const
+     * void addItem (QLayoutItem *item)
+     * QSize sizeHint () const
+     * QSize minimumSize () const
+     * QLayoutItem * itemAt (int) const
+     * QLayoutItem * takeAt (int)
+     * void setGeometry (const QRect &rect)
+
+Properties
+
+     * int currentIndex
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QStackedLayout::QStackedLayout (   )
+
+
+
+   QStackedLayout::QStackedLayout (  QWidget *  parent  )  [explicit]
+
+
+
+   QStackedLayout::QStackedLayout (  QLayout *  parentLayout  )  [explicit]
+
+
+
+   QStackedLayout::~QStackedLayout (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QStackedLayout::addItem (  QLayoutItem *  item  )  [virtual]
+
+
+
+   Implements QLayout.
+
+   int QStackedLayout::addWidget (  QWidget *  w  )
+
+
+
+   Reimplemented from QLayout.
+
+   int QStackedLayout::count (   )  const [virtual]
+
+
+
+   Implements QLayout.
+
+   void QStackedLayout::currentChanged (  int  index  )  [signal]
+
+
+
+   int QStackedLayout::currentIndex (   )  const
+
+
+
+   QWidget* QStackedLayout::currentWidget (   )  const
+
+
+
+   int QStackedLayout::insertWidget (  int        index,
+                                       QWidget *  w
+                                    )
+
+
+
+   QLayoutItem* QStackedLayout::itemAt (  int   )  const [virtual]
+
+
+
+   Implements QLayout.
+
+   QSize QStackedLayout::minimumSize (   )  const [virtual]
+
+
+
+   Reimplemented from QLayout.
+
+   void QStackedLayout::setCurrentIndex (  int  index  )  [slot]
+
+
+
+   void QStackedLayout::setCurrentWidget (  QWidget *  w  )  [slot]
+
+
+
+   void QStackedLayout::setGeometry (  const QRect &  rect  )  [virtual]
+
+
+
+   Implements QLayout.
+
+   QSize QStackedLayout::sizeHint (   )  const [virtual]
+
+
+
+   Implements QLayoutItem.
+
+   QLayoutItem* QStackedLayout::takeAt (  int   )  [virtual]
+
+
+
+   Implements QLayout.
+
+   QWidget* QStackedLayout::widget (  int   )  const
+
+
+
+   void QStackedLayout::widgetRemoved (  int  index  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QStackedLayout::currentIndex [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstackedlayout.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

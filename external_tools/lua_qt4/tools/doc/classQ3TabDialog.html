@@ -1,0 +1,298 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3TabDialog Class Reference
+
+   #include <q3tabdialog.h>
+
+   Inherits QDialog.
+
+   List of all members.
+
+Signals
+
+     * void aboutToShow ()
+     * void applyButtonPressed ()
+     * void cancelButtonPressed ()
+     * void defaultButtonPressed ()
+     * void helpButtonPressed ()
+     * void currentChanged (QWidget *)
+     * void selected (const QString &)
+
+Public Member Functions
+
+     * Q3TabDialog (QWidget *parent=0, const char *name=0, bool modal=false, Qt::WFlags f=0)
+     * ~Q3TabDialog ()
+     * void show ()
+     * void setFont (const QFont &font)
+     * void addTab (QWidget *, const QString &)
+     * void addTab (QWidget *child, const QIcon &iconset, const QString &label)
+     * void insertTab (QWidget *, const QString &, int index=-1)
+     * void insertTab (QWidget *child, const QIcon &iconset, const QString &label, int index=-1)
+     * void changeTab (QWidget *, const QString &)
+     * void changeTab (QWidget *child, const QIcon &iconset, const QString &label)
+     * bool isTabEnabled (QWidget *) const
+     * void setTabEnabled (QWidget *, bool)
+     * bool isTabEnabled (const char *) const
+     * void setTabEnabled (const char *, bool)
+     * void showPage (QWidget *)
+     * void removePage (QWidget *)
+     * QString tabLabel (QWidget *)
+     * QWidget * currentPage () const
+     * void setDefaultButton (const QString &text)
+     * void setDefaultButton ()
+     * bool hasDefaultButton () const
+     * void setHelpButton (const QString &text)
+     * void setHelpButton ()
+     * bool hasHelpButton () const
+     * void setCancelButton (const QString &text)
+     * void setCancelButton ()
+     * bool hasCancelButton () const
+     * void setApplyButton (const QString &text)
+     * void setApplyButton ()
+     * bool hasApplyButton () const
+     * void setOKButton (const QString &text=QString())
+     * void setOkButton (const QString &text)
+     * void setOkButton ()
+     * bool hasOkButton () const
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void styleChange (QStyle &)
+     * void setTabBar (QTabBar *)
+     * QTabBar * tabBar () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3TabDialog::Q3TabDialog (  QWidget *     parent = 0,
+                               const char *  name = 0,
+                               bool          modal = false,
+                               Qt::WFlags    f = 0
+                            )
+
+
+
+   Q3TabDialog::~Q3TabDialog (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3TabDialog::aboutToShow (   )  [signal]
+
+
+
+   void Q3TabDialog::addTab (  QWidget *        child,
+                               const QIcon &    iconset,
+                               const QString &  label
+                            )
+
+
+
+   void Q3TabDialog::addTab (  QWidget *        ,
+                               const QString &
+                            )
+
+
+
+   void Q3TabDialog::applyButtonPressed (   )  [signal]
+
+
+
+   void Q3TabDialog::cancelButtonPressed (   )  [signal]
+
+
+
+   void Q3TabDialog::changeTab (  QWidget *        child,
+                                  const QIcon &    iconset,
+                                  const QString &  label
+                               )
+
+
+
+   void Q3TabDialog::changeTab (  QWidget *        ,
+                                  const QString &
+                               )
+
+
+
+   void Q3TabDialog::currentChanged (  QWidget *   )  [signal]
+
+
+
+   QWidget* Q3TabDialog::currentPage (   )  const
+
+
+
+   void Q3TabDialog::defaultButtonPressed (   )  [signal]
+
+
+
+   bool Q3TabDialog::hasApplyButton (   )  const
+
+
+
+   bool Q3TabDialog::hasCancelButton (   )  const
+
+
+
+   bool Q3TabDialog::hasDefaultButton (   )  const
+
+
+
+   bool Q3TabDialog::hasHelpButton (   )  const
+
+
+
+   bool Q3TabDialog::hasOkButton (   )  const
+
+
+
+   void Q3TabDialog::helpButtonPressed (   )  [signal]
+
+
+
+   void Q3TabDialog::insertTab (  QWidget *        child,
+                                  const QIcon &    iconset,
+                                  const QString &  label,
+                                  int              index = -1
+                               )
+
+
+
+   void Q3TabDialog::insertTab (  QWidget *        ,
+                                  const QString &  ,
+                                  int              index = -1
+                               )
+
+
+
+   bool Q3TabDialog::isTabEnabled (  const char *   )  const
+
+
+
+   bool Q3TabDialog::isTabEnabled (  QWidget *   )  const
+
+
+
+   void Q3TabDialog::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3TabDialog::removePage (  QWidget *   )
+
+
+
+   void Q3TabDialog::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   void Q3TabDialog::selected (  const QString &   )  [signal]
+
+
+
+   void Q3TabDialog::setApplyButton (   )
+
+
+
+   void Q3TabDialog::setApplyButton (  const QString &  text  )
+
+
+
+   void Q3TabDialog::setCancelButton (   )
+
+
+
+   void Q3TabDialog::setCancelButton (  const QString &  text  )
+
+
+
+   void Q3TabDialog::setDefaultButton (   )
+
+
+
+   void Q3TabDialog::setDefaultButton (  const QString &  text  )
+
+
+
+   void Q3TabDialog::setFont (  const QFont &  font  )
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3TabDialog::setHelpButton (   )
+
+
+
+   void Q3TabDialog::setHelpButton (  const QString &  text  )
+
+
+
+   void Q3TabDialog::setOkButton (   )
+
+
+
+   void Q3TabDialog::setOkButton (  const QString &  text  )
+
+
+
+   void Q3TabDialog::setOKButton (  const QString &  text = QString()  )
+
+
+
+   void Q3TabDialog::setTabBar (  QTabBar *   )  [protected]
+
+
+
+   void Q3TabDialog::setTabEnabled (  const char *  ,
+                                      bool        
+                                   )
+
+
+
+   void Q3TabDialog::setTabEnabled (  QWidget *  ,
+                                      bool     
+                                   )
+
+
+
+   void Q3TabDialog::show (   )
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3TabDialog::showPage (  QWidget *   )
+
+
+
+   void Q3TabDialog::styleChange (  QStyle &   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QTabBar* Q3TabDialog::tabBar (   )  const [protected]
+
+
+
+   QString Q3TabDialog::tabLabel (  QWidget *   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3tabdialog.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

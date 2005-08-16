@@ -1,0 +1,138 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                              QVarLengthArray< T, Prealloc > Class Template Reference
+
+   #include <qvarlengtharray.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QVarLengthArray (int size=0)
+     * QVarLengthArray (const QVarLengthArray &other)
+     * ~QVarLengthArray ()
+     * QVarLengthArray & operator= (const QVarLengthArray &other)
+     * int size () const
+     * int count () const
+     * bool isEmpty () const
+     * void resize (int size)
+     * void clear ()
+     * int capacity () const
+     * void reserve (int size)
+     * T & operator[] (int idx)
+     * const T & operator[] (int idx) const
+     * void append (const T &t)
+     * void append (const T *buf, int size)
+     * T * data ()
+     * const T * data () const
+     * const T * constData () const
+
+  template<class T, int Prealloc = 256>
+  class QVarLengthArray< T, Prealloc >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class T, int Prealloc>
+   Q_INLINE_TEMPLATE QVarLengthArray< T, Prealloc >::QVarLengthArray (  int  size = 0  )  [inline, explicit]
+
+
+
+   template<class T, int Prealloc = 256>
+   QVarLengthArray< T, Prealloc >::QVarLengthArray (  const QVarLengthArray< T, Prealloc > &  other  )  [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   QVarLengthArray< T, Prealloc >::~QVarLengthArray (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class T, int Prealloc>
+   Q_OUTOFLINE_TEMPLATE void QVarLengthArray< T, Prealloc >::append (  const T *  buf,
+                                                                       int        size
+                                                                    )
+
+
+
+   template<class T, int Prealloc = 256>
+   void QVarLengthArray< T, Prealloc >::append (  const T &  t  )  [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   int QVarLengthArray< T, Prealloc >::capacity (   )  const [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   void QVarLengthArray< T, Prealloc >::clear (   )  [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   const T* QVarLengthArray< T, Prealloc >::constData (   )  const [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   int QVarLengthArray< T, Prealloc >::count (   )  const [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   const T* QVarLengthArray< T, Prealloc >::data (   )  const [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   T* QVarLengthArray< T, Prealloc >::data (   )  [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   bool QVarLengthArray< T, Prealloc >::isEmpty (   )  const [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   QVarLengthArray& QVarLengthArray< T, Prealloc >::operator= (  const QVarLengthArray< T, Prealloc > &  other  )  [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   const T& QVarLengthArray< T, Prealloc >::operator[] (  int  idx  )  const [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   T& QVarLengthArray< T, Prealloc >::operator[] (  int  idx  )  [inline]
+
+
+
+   template<class T, int Prealloc>
+   Q_INLINE_TEMPLATE void QVarLengthArray< T, Prealloc >::reserve (  int  size  )  [inline]
+
+
+
+   template<class T, int Prealloc>
+   Q_INLINE_TEMPLATE void QVarLengthArray< T, Prealloc >::resize (  int  size  )  [inline]
+
+
+
+   template<class T, int Prealloc = 256>
+   int QVarLengthArray< T, Prealloc >::size (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qvarlengtharray.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,104 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3TextDrag Class Reference
+
+   #include <q3dragobject.h>
+
+   Inherits Q3DragObject.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3TextDrag (const QString &, QWidget *dragSource=0, const char *name=0)
+     * Q3TextDrag (QWidget *dragSource=0, const char *name=0)
+     * ~Q3TextDrag ()
+     * virtual void setText (const QString &)
+     * virtual void setSubtype (const QString &)
+     * const char * format (int i) const
+     * virtual QByteArray encodedData (const char *) const
+
+Static Public Member Functions
+
+     * static bool canDecode (const QMimeSource *e)
+     * static bool decode (const QMimeSource *e, QString &s)
+     * static bool decode (const QMimeSource *e, QString &s, QString &subtype)
+
+Protected Member Functions
+
+     * Q3TextDrag (Q3TextDragPrivate &, QWidget *dragSource=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3TextDrag::Q3TextDrag (  const QString &  ,
+                             QWidget *        dragSource = 0,
+                             const char *     name = 0
+                          )
+
+
+
+   Q3TextDrag::Q3TextDrag (  QWidget *     dragSource = 0,
+                             const char *  name = 0
+                          )
+
+
+
+   Q3TextDrag::~Q3TextDrag (   )
+
+
+
+   Q3TextDrag::Q3TextDrag (  Q3TextDragPrivate &  ,
+                             QWidget *            dragSource = 0
+                          )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static bool Q3TextDrag::canDecode (  const QMimeSource *  e  )  [static]
+
+
+
+   static bool Q3TextDrag::decode (  const QMimeSource *  e,
+                                     QString &            s,
+                                     QString &            subtype
+                                  )  [static]
+
+
+
+   static bool Q3TextDrag::decode (  const QMimeSource *  e,
+                                     QString &            s
+                                  )  [static]
+
+
+
+   virtual QByteArray Q3TextDrag::encodedData (  const char *   )  const [virtual]
+
+
+
+   Implements QMimeSource.
+
+   const char* Q3TextDrag::format (  int  i  )  const [virtual]
+
+
+
+   Implements QMimeSource.
+
+   virtual void Q3TextDrag::setSubtype (  const QString &   )  [virtual]
+
+
+
+   virtual void Q3TextDrag::setText (  const QString &   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3dragobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

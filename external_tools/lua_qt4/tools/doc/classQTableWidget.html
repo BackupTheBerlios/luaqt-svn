@@ -1,0 +1,410 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QTableWidget Class Reference
+
+   #include <qtablewidget.h>
+
+   Inherits QTableView.
+
+   List of all members.
+
+Public Slots
+
+     * void scrollToItem (const QTableWidgetItem *item, ScrollHint hint=EnsureVisible)
+     * void insertRow (int row)
+     * void insertColumn (int column)
+     * void removeRow (int row)
+     * void removeColumn (int column)
+     * void clear ()
+
+Signals
+
+     * void itemPressed (QTableWidgetItem *item)
+     * void itemClicked (QTableWidgetItem *item)
+     * void itemDoubleClicked (QTableWidgetItem *item)
+     * void itemActivated (QTableWidgetItem *item)
+     * void itemEntered (QTableWidgetItem *item)
+     * void itemChanged (QTableWidgetItem *item)
+     * void currentItemChanged (QTableWidgetItem *current, QTableWidgetItem *previous)
+     * void itemSelectionChanged ()
+
+Public Member Functions
+
+     * QTableWidget (QWidget *parent=0)
+     * QTableWidget (int rows, int columns, QWidget *parent=0)
+     * ~QTableWidget ()
+     * void setRowCount (int rows)
+     * int rowCount () const
+     * void setColumnCount (int columns)
+     * int columnCount () const
+     * int row (const QTableWidgetItem *item) const
+     * int column (const QTableWidgetItem *item) const
+     * QTableWidgetItem * item (int row, int column) const
+     * void setItem (int row, int column, QTableWidgetItem *item)
+     * QTableWidgetItem * takeItem (int row, int column)
+     * QTableWidgetItem * verticalHeaderItem (int row) const
+     * void setVerticalHeaderItem (int row, QTableWidgetItem *item)
+     * QTableWidgetItem * horizontalHeaderItem (int column) const
+     * void setHorizontalHeaderItem (int column, QTableWidgetItem *item)
+     * void setVerticalHeaderLabels (const QStringList &labels)
+     * void setHorizontalHeaderLabels (const QStringList &labels)
+     * int currentRow () const
+     * int currentColumn () const
+     * QTableWidgetItem * currentItem () const
+     * void setCurrentItem (QTableWidgetItem *item)
+     * void sortItems (int column, Qt::SortOrder order=Qt::AscendingOrder)
+     * void setSortingEnabled (bool enable)
+     * bool isSortingEnabled () const
+     * void editItem (QTableWidgetItem *item)
+     * void openPersistentEditor (QTableWidgetItem *item)
+     * void closePersistentEditor (QTableWidgetItem *item)
+     * bool isItemSelected (const QTableWidgetItem *item) const
+     * void setItemSelected (const QTableWidgetItem *item, bool select)
+     * void setRangeSelected (const QTableWidgetSelectionRange &range, bool select)
+     * QList< QTableWidgetSelectionRange > selectedRanges () const
+     * QList< QTableWidgetItem * > selectedItems ()
+     * QList< QTableWidgetItem * > findItems (const QString &text, Qt::MatchFlags flags) const
+     * int visualRow (int logicalRow) const
+     * int visualColumn (int logicalColumn) const
+     * QTableWidgetItem * itemAt (const QPoint &p) const
+     * QTableWidgetItem * itemAt (int x, int y) const
+     * QRect visualItemRect (const QTableWidgetItem *item) const
+     * const QTableWidgetItem * itemPrototype () const
+     * void setItemPrototype (const QTableWidgetItem *item)
+
+Protected Member Functions
+
+     * virtual QStringList mimeTypes () const
+     * virtual QMimeData * mimeData (const QList< QTableWidgetItem * > items) const
+     * virtual bool dropMimeData (int row, int column, const QMimeData *data, Qt::DropAction action)
+     * virtual Qt::DropActions supportedDropActions () const
+     * QList< QTableWidgetItem * > items (const QMimeData *data) const
+     * QModelIndex indexFromItem (QTableWidgetItem *item) const
+     * QTableWidgetItem * itemFromIndex (const QModelIndex &index) const
+
+Properties
+
+     * int rowCount
+     * int columnCount
+     * bool sortingEnabled
+
+Friends
+
+     * class QTableModel
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTableWidget::QTableWidget (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QTableWidget::QTableWidget (  int        rows,
+                                 int        columns,
+                                 QWidget *  parent = 0
+                              )
+
+
+
+   QTableWidget::~QTableWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QTableWidget::clear (   )  [slot]
+
+
+
+   void QTableWidget::closePersistentEditor (  QTableWidgetItem *  item  )
+
+
+
+   int QTableWidget::column (  const QTableWidgetItem *  item  )  const
+
+
+
+   int QTableWidget::columnCount (   )  const
+
+
+
+   int QTableWidget::currentColumn (   )  const
+
+
+
+   QTableWidgetItem* QTableWidget::currentItem (   )  const
+
+
+
+   void QTableWidget::currentItemChanged (  QTableWidgetItem *  current,
+                                            QTableWidgetItem *  previous
+                                         )  [signal]
+
+
+
+   int QTableWidget::currentRow (   )  const
+
+
+
+   virtual bool QTableWidget::dropMimeData (  int                row,
+                                              int                column,
+                                              const QMimeData *  data,
+                                              Qt::DropAction     action
+                                           )  [protected, virtual]
+
+
+
+   void QTableWidget::editItem (  QTableWidgetItem *  item  )
+
+
+
+   QList<QTableWidgetItem*> QTableWidget::findItems (  const QString &  text,
+                                                       Qt::MatchFlags   flags
+                                                    )  const
+
+
+
+   QTableWidgetItem* QTableWidget::horizontalHeaderItem (  int  column  )  const
+
+
+
+   QModelIndex QTableWidget::indexFromItem (  QTableWidgetItem *  item  )  const [protected]
+
+
+
+   void QTableWidget::insertColumn (  int  column  )  [slot]
+
+
+
+   void QTableWidget::insertRow (  int  row  )  [slot]
+
+
+
+   bool QTableWidget::isItemSelected (  const QTableWidgetItem *  item  )  const
+
+
+
+   bool QTableWidget::isSortingEnabled (   )  const
+
+
+
+   QTableWidgetItem* QTableWidget::item (  int  row,
+                                           int  column
+                                        )  const
+
+
+
+   void QTableWidget::itemActivated (  QTableWidgetItem *  item  )  [signal]
+
+
+
+   QTableWidgetItem * QTableWidget::itemAt (  int  x,
+                                              int  y
+                                           )  const [inline]
+
+
+
+   QTableWidgetItem* QTableWidget::itemAt (  const QPoint &  p  )  const
+
+
+
+   void QTableWidget::itemChanged (  QTableWidgetItem *  item  )  [signal]
+
+
+
+   void QTableWidget::itemClicked (  QTableWidgetItem *  item  )  [signal]
+
+
+
+   void QTableWidget::itemDoubleClicked (  QTableWidgetItem *  item  )  [signal]
+
+
+
+   void QTableWidget::itemEntered (  QTableWidgetItem *  item  )  [signal]
+
+
+
+   QTableWidgetItem* QTableWidget::itemFromIndex (  const QModelIndex &  index  )  const [protected]
+
+
+
+   void QTableWidget::itemPressed (  QTableWidgetItem *  item  )  [signal]
+
+
+
+   const QTableWidgetItem* QTableWidget::itemPrototype (   )  const
+
+
+
+   QList<QTableWidgetItem*> QTableWidget::items (  const QMimeData *  data  )  const [protected]
+
+
+
+   void QTableWidget::itemSelectionChanged (   )  [signal]
+
+
+
+   virtual QMimeData* QTableWidget::mimeData (  const QList< QTableWidgetItem * >  items  )  const [protected, virtual]
+
+
+
+   virtual QStringList QTableWidget::mimeTypes (   )  const [protected, virtual]
+
+
+
+   void QTableWidget::openPersistentEditor (  QTableWidgetItem *  item  )
+
+
+
+   void QTableWidget::removeColumn (  int  column  )  [slot]
+
+
+
+   void QTableWidget::removeRow (  int  row  )  [slot]
+
+
+
+   int QTableWidget::row (  const QTableWidgetItem *  item  )  const
+
+
+
+   int QTableWidget::rowCount (   )  const
+
+
+
+   void QTableWidget::scrollToItem (  const QTableWidgetItem *  item,
+                                      ScrollHint                hint = EnsureVisible
+                                   )  [slot]
+
+
+
+   QList<QTableWidgetItem*> QTableWidget::selectedItems (   )
+
+
+
+   QList<QTableWidgetSelectionRange> QTableWidget::selectedRanges (   )  const
+
+
+
+   void QTableWidget::setColumnCount (  int  columns  )
+
+
+
+   void QTableWidget::setCurrentItem (  QTableWidgetItem *  item  )
+
+
+
+   void QTableWidget::setHorizontalHeaderItem (  int                 column,
+                                                 QTableWidgetItem *  item
+                                              )
+
+
+
+   void QTableWidget::setHorizontalHeaderLabels (  const QStringList &  labels  )
+
+
+
+   void QTableWidget::setItem (  int                 row,
+                                 int                 column,
+                                 QTableWidgetItem *  item
+                              )
+
+
+
+   void QTableWidget::setItemPrototype (  const QTableWidgetItem *  item  )
+
+
+
+   void QTableWidget::setItemSelected (  const QTableWidgetItem *  item,
+                                         bool                      select
+                                      )
+
+
+
+   void QTableWidget::setRangeSelected (  const QTableWidgetSelectionRange &  range,
+                                          bool                                select
+                                       )
+
+
+
+   void QTableWidget::setRowCount (  int  rows  )
+
+
+
+   void QTableWidget::setSortingEnabled (  bool  enable  )
+
+
+
+   void QTableWidget::setVerticalHeaderItem (  int                 row,
+                                               QTableWidgetItem *  item
+                                            )
+
+
+
+   void QTableWidget::setVerticalHeaderLabels (  const QStringList &  labels  )
+
+
+
+   void QTableWidget::sortItems (  int            column,
+                                   Qt::SortOrder  order = Qt::AscendingOrder
+                                )
+
+
+
+   virtual Qt::DropActions QTableWidget::supportedDropActions (   )  const [protected, virtual]
+
+
+
+   QTableWidgetItem* QTableWidget::takeItem (  int  row,
+                                               int  column
+                                            )
+
+
+
+   QTableWidgetItem* QTableWidget::verticalHeaderItem (  int  row  )  const
+
+
+
+   int QTableWidget::visualColumn (  int  logicalColumn  )  const
+
+
+
+   QRect QTableWidget::visualItemRect (  const QTableWidgetItem *  item  )  const
+
+
+
+   int QTableWidget::visualRow (  int  logicalRow  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTableModel [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QTableWidget::columnCount [read, write]
+
+
+
+   int QTableWidget::rowCount [read, write]
+
+
+
+   bool QTableWidget::sortingEnabled [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtablewidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

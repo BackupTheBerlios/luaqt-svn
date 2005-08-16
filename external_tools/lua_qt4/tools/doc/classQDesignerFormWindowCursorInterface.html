@@ -1,0 +1,148 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                QDesignerFormWindowCursorInterface Class Reference
+
+   #include <abstractformwindowcursor.h>
+
+   List of all members.
+
+Public Types
+
+     * enum MoveOperation {
+         NoMove, Start, End, Next,
+         Prev, Left, Right, Up,
+         Down
+       }
+     * enum MoveMode { MoveAnchor, KeepAnchor }
+
+Public Member Functions
+
+     * virtual ~QDesignerFormWindowCursorInterface ()
+     * virtual QDesignerFormWindowInterface * formWindow () const =0
+     * virtual bool movePosition (MoveOperation op, MoveMode mode=MoveAnchor)=0
+     * virtual int position () const =0
+     * virtual void setPosition (int pos, MoveMode mode=MoveAnchor)=0
+     * virtual QWidget * current () const =0
+     * virtual int widgetCount () const =0
+     * virtual QWidget * widget (int index) const =0
+     * virtual bool hasSelection () const =0
+     * virtual int selectedWidgetCount () const =0
+     * virtual QWidget * selectedWidget (int index) const =0
+     * virtual void setProperty (const QString &name, const QVariant &value)=0
+     * virtual void setWidgetProperty (QWidget *widget, const QString &name, const QVariant &value)=0
+     * virtual void resetWidgetProperty (QWidget *widget, const QString &name)=0
+     * bool isWidgetSelected (QWidget *widget) const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDesignerFormWindowCursorInterface::MoveMode
+
+
+
+   Enumerator: 
+
+          MoveAnchor
+          KeepAnchor
+
+   enum QDesignerFormWindowCursorInterface::MoveOperation
+
+
+
+   Enumerator: 
+
+          NoMove
+          Start 
+          End   
+          Next  
+          Prev  
+          Left  
+          Right 
+          Up    
+          Down  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QDesignerFormWindowCursorInterface::~QDesignerFormWindowCursorInterface (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QWidget* QDesignerFormWindowCursorInterface::current (   )  const [pure virtual]
+
+
+
+   virtual QDesignerFormWindowInterface* QDesignerFormWindowCursorInterface::formWindow (   )  const [pure virtual]
+
+
+
+   virtual bool QDesignerFormWindowCursorInterface::hasSelection (   )  const [pure virtual]
+
+
+
+   bool QDesignerFormWindowCursorInterface::isWidgetSelected (  QWidget *  widget  )  const
+
+
+
+   virtual bool QDesignerFormWindowCursorInterface::movePosition (  MoveOperation  op,
+                                                                    MoveMode       mode = MoveAnchor
+                                                                 )  [pure virtual]
+
+
+
+   virtual int QDesignerFormWindowCursorInterface::position (   )  const [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowCursorInterface::resetWidgetProperty (  QWidget *        widget,
+                                                                           const QString &  name
+                                                                        )  [pure virtual]
+
+
+
+   virtual QWidget* QDesignerFormWindowCursorInterface::selectedWidget (  int  index  )  const [pure virtual]
+
+
+
+   virtual int QDesignerFormWindowCursorInterface::selectedWidgetCount (   )  const [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowCursorInterface::setPosition (  int       pos,
+                                                                   MoveMode  mode = MoveAnchor
+                                                                )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowCursorInterface::setProperty (  const QString &   name,
+                                                                   const QVariant &  value
+                                                                )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowCursorInterface::setWidgetProperty (  QWidget *         widget,
+                                                                         const QString &   name,
+                                                                         const QVariant &  value
+                                                                      )  [pure virtual]
+
+
+
+   virtual QWidget* QDesignerFormWindowCursorInterface::widget (  int  index  )  const [pure virtual]
+
+
+
+   virtual int QDesignerFormWindowCursorInterface::widgetCount (   )  const [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractformwindowcursor.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

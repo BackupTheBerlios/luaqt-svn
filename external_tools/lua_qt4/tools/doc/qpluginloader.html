@@ -1,0 +1,246 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                       QPluginLoader Class Reference
+
+   The QPluginLoader class loads a plugin at run-time. More...
+#include <QPluginLoader>
+
+   Part of the QtCore module.
+
+   Inherits QObject.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+
+  Properties
+
+     * fileName : QString
+
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QPluginLoader ( QObject * parent = 0 )
+     * QPluginLoader ( const QString & fileName, QObject * parent = 0 )
+     * ~QPluginLoader ()
+     * QString fileName () const
+     * QObject * instance ()
+     * bool isLoaded () const
+     * bool load ()
+     * void setFileName ( const QString & fileName )
+     * bool unload ()
+
+     * 28 public functions inherited from QObject
+
+  Static Public Members
+
+     * QObjectList staticInstances ()
+
+     * 4 static public members inherited from QObject
+
+  Macros
+
+     * Q_DECLARE_INTERFACE ( ClassName, Identifier )
+     * Q_EXPORT_PLUGIN ( ClassName )
+
+  Additional Inherited Members
+
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QObject
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QPluginLoader class loads a plugin at run-time.
+
+   QPlugingLoader provides a means for accessing a Qt plugin. Qt plugins
+   are stored in a shared library (a "DLL") and follow offer a few
+   benefits over plain shared libraries accessed using QLibrary:
+     * Plugins offer safety in cases where a plugin is linked against
+       different versions of Qt. (This typically would result in the
+       application crashing when opening such a library with QLibrary.)
+     * Plugin offers direct access to a root component object
+       (instance()), instead of forcing you to resolve a C function
+       manually.
+
+   An instance of a QPluginLoader object operates on a single shared
+   library file, which we call a plugin. It provides access to the
+   functionality in the plugin in a platform-independent way. To specify
+   which plugin to load, you can either pass a file name in the
+   constructor or set it with setFileName().
+
+   The most important functions are load() to dynamically load the plugin
+   file, isLoaded() to check whether loading was successful, and
+   instance() to access the root component in the plugin. The instance()
+   function implicitly tries to load the plugin if it has not been loaded
+   yet. Multiple instances of QPluginLoader can be used to access the
+   same physical plugin.
+
+   Once loaded, plugins remain in memory until the application
+   terminates. You can attempt to unload a plugin using unload(), but if
+   other instances of QPluginLoader are using the same library, the call
+   will fail, and unloading will only happen when every instance has
+   called unload().
+
+   See How to Create Qt Plugins for more information about how to make
+   your application extensible through plugins.
+
+   See also QLibrary.
+     _________________________________________________________________
+
+Property Documentation
+
+  fileName : QString
+
+   This property holds the file name of the plugin.
+
+   To be loadable, the file's suffix must be a valid suffix for a
+   loadable library in accordance with the platform, e.g. .so on Unix, -
+   .dylib on Mac OS X, and .dll on Windows. The suffix can be verified
+   with QLibrary::isLibrary().
+
+   Access functions:
+     * QString fileName () const
+     * void setFileName ( const QString & fileName )
+
+   See also load().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QPluginLoader::QPluginLoader ( QObject * parent = 0 )
+
+   Constructs a plugin loader with the given parent.
+
+  QPluginLoader::QPluginLoader ( const QString & fileName, QObject * parent = 0
+  )
+
+   Constructs a plugin loader with the given parent that will load the
+   plugin specified by fileName.
+
+   To be loadable, the file's suffix must be a valid suffix for a
+   loadable library in accordance with the platform, e.g. .so on Unix, -
+   .dylib on Mac OS X, and .dll on Windows. The suffix can be verified
+   with QLibrary::isLibrary().
+
+   See also setFileName().
+
+  QPluginLoader::~QPluginLoader ()
+
+   Destroys the QPluginLoader object.
+
+   Unless unload() was called explicitly, the plugin stays in memory
+   until the application terminates.
+
+   See also isLoaded() and unload().
+
+  QObject * QPluginLoader::instance ()
+
+   Returns the root component object of the plugin. The plugin is loaded
+   if necessary. The function returns 0 if the plugin could not be loaded
+   or if the root component object could not be instantiated.
+
+   If the root component object was destroyed, calling this function
+   creates a new instance.
+
+   The instance is not deleted when the QPluginLoader is destroyed.
+
+   The component object is a QObject. Use qobject_cast() to access
+   interfaces you are interested in.
+
+   See also load().
+
+  bool QPluginLoader::isLoaded () const
+
+   Returns true if the plugin is loaded; otherwise returns false.
+
+   See also load().
+
+  bool QPluginLoader::load ()
+
+   Loads the plugin and returns true if the plugin was loaded
+   successfully; otherwise returns false. Since instance() always calls
+   this function before resolving any symbols it is not necessary to call
+   it explicitly. In some situations you might want the plugin loaded in
+   advance, in which case you would use this function.
+
+   On Darwin and Mac OS X this function uses code from dlcompat, part of
+   the OpenDarwin project.
+    Copyright (c) 2002 Jorge Acereda and Peter O'Gorman.
+
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+   See also unload().
+
+  QObjectList QPluginLoader::staticInstances ()   [static]
+
+  bool QPluginLoader::unload ()
+
+   Unloads the plugin and returns true if the plugin could be unloaded;
+   otherwise returns false.
+
+   This happens automatically on application termination, so you
+   shouldn't normally need to call this function.
+
+   If other instances of QPluginLoader are using the same plugin, the
+   call will fail, and unloading will only happen when every instance has
+   called unload().
+
+   See also instance() and load().
+     _________________________________________________________________
+
+Macro Documentation
+
+  Q_DECLARE_INTERFACE ( ClassName, Identifier )
+
+   This macro associates the given Identifier (a string literal) to the
+   interface class called ClassName.
+
+   Example:
+    Q_DECLARE_INTERFACE(BrushInterface,
+                        "com.trolltech.PlugAndPaint.BrushInterface/1.0")
+
+   This macro is normally used right after the class definition for
+   ClassName, in a header file. See the Plug & Paint example for details.
+
+   See also Q_INTERFACE(), Q_EXPORT_PLUGIN(), and How to Create Qt
+   Plugins.
+
+  Q_EXPORT_PLUGIN ( ClassName )
+
+   This macro exports the plugin class ClassName. There should be exactly
+   one occurrence of this macro in a Qt plugin's source code (in an
+   implementation file).
+
+   Example:
+    Q_EXPORT_PLUGIN(ExtraFiltersPlugin)
+
+   See the Plug & Paint example for details.
+
+   See also Q_DECLARE_INTERFACE() and How to Create Qt Plugins.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

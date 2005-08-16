@@ -1,0 +1,190 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QTextBrowser Class Reference
+
+   #include <qtextbrowser.h>
+
+   Inherits QTextEdit.
+
+   List of all members.
+
+Public Slots
+
+     * virtual void setSource (const QUrl &name)
+     * virtual void backward ()
+     * virtual void forward ()
+     * virtual void home ()
+     * virtual void reload ()
+
+Signals
+
+     * void backwardAvailable (bool)
+     * void forwardAvailable (bool)
+     * void sourceChanged (const QUrl &)
+     * void highlighted (const QUrl &)
+     * void highlighted (const QString &)
+     * void anchorClicked (const QUrl &)
+
+Public Member Functions
+
+     * QTextBrowser (QWidget *parent=0)
+     * virtual ~QTextBrowser ()
+     * QUrl source () const
+     * QStringList searchPaths () const
+     * void setSearchPaths (const QStringList &paths)
+     * virtual QVariant loadResource (int type, const QUrl &name)
+
+Protected Member Functions
+
+     * virtual void keyPressEvent (QKeyEvent *ev)
+     * virtual void mouseMoveEvent (QMouseEvent *ev)
+     * virtual void mousePressEvent (QMouseEvent *ev)
+     * virtual void mouseReleaseEvent (QMouseEvent *ev)
+     * virtual void focusOutEvent (QFocusEvent *ev)
+     * virtual bool focusNextPrevChild (bool next)
+     * virtual void paintEvent (QPaintEvent *e)
+
+Properties
+
+     * QUrl source
+     * QStringList searchPaths
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextBrowser::QTextBrowser (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   virtual QTextBrowser::~QTextBrowser (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QTextBrowser::anchorClicked (  const QUrl &   )  [signal]
+
+
+
+   virtual void QTextBrowser::backward (   )  [virtual, slot]
+
+
+
+   void QTextBrowser::backwardAvailable (  bool   )  [signal]
+
+
+
+   virtual bool QTextBrowser::focusNextPrevChild (  bool  next  )  [protected, virtual]
+
+
+
+   Reimplemented from QTextEdit.
+
+   virtual void QTextBrowser::focusOutEvent (  QFocusEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QTextEdit.
+
+   virtual void QTextBrowser::forward (   )  [virtual, slot]
+
+
+
+   void QTextBrowser::forwardAvailable (  bool   )  [signal]
+
+
+
+   void QTextBrowser::highlighted (  const QString &   )  [signal]
+
+
+
+   void QTextBrowser::highlighted (  const QUrl &   )  [signal]
+
+
+
+   virtual void QTextBrowser::home (   )  [virtual, slot]
+
+
+
+   virtual void QTextBrowser::keyPressEvent (  QKeyEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QTextEdit.
+
+   virtual QVariant QTextBrowser::loadResource (  int           type,
+                                                  const QUrl &  name
+                                               )  [virtual]
+
+
+
+   Reimplemented from QTextEdit.
+
+   virtual void QTextBrowser::mouseMoveEvent (  QMouseEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QTextEdit.
+
+   virtual void QTextBrowser::mousePressEvent (  QMouseEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QTextEdit.
+
+   virtual void QTextBrowser::mouseReleaseEvent (  QMouseEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QTextEdit.
+
+   virtual void QTextBrowser::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QTextEdit.
+
+   virtual void QTextBrowser::reload (   )  [virtual, slot]
+
+
+
+   QStringList QTextBrowser::searchPaths (   )  const
+
+
+
+   void QTextBrowser::setSearchPaths (  const QStringList &  paths  )
+
+
+
+   virtual void QTextBrowser::setSource (  const QUrl &  name  )  [virtual, slot]
+
+
+
+   QUrl QTextBrowser::source (   )  const
+
+
+
+   void QTextBrowser::sourceChanged (  const QUrl &   )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QStringList QTextBrowser::searchPaths [read, write]
+
+
+
+   QUrl QTextBrowser::source [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextbrowser.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

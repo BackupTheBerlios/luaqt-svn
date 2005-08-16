@@ -1,0 +1,127 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QXmlContentHandler Class Reference
+
+   #include <qxml.h>
+
+   Inherited by QXmlDefaultHandler.
+
+   List of all members.
+
+Public Member Functions
+
+     * virtual ~QXmlContentHandler ()
+     * virtual void setDocumentLocator (QXmlLocator *locator)=0
+     * virtual bool startDocument ()=0
+     * virtual bool endDocument ()=0
+     * virtual bool startPrefixMapping (const QString &prefix, const QString &uri)=0
+     * virtual bool endPrefixMapping (const QString &prefix)=0
+     * virtual bool startElement (const QString &namespaceURI, const QString &localName, const QString &qName, const QXmlAttributes &atts)=0
+     * virtual bool endElement (const QString &namespaceURI, const QString &localName, const QString &qName)=0
+     * virtual bool characters (const QString &ch)=0
+     * virtual bool ignorableWhitespace (const QString &ch)=0
+     * virtual bool processingInstruction (const QString &target, const QString &data)=0
+     * virtual bool skippedEntity (const QString &name)=0
+     * virtual QString errorString () const =0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QXmlContentHandler::~QXmlContentHandler (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual bool QXmlContentHandler::characters (  const QString &  ch  )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual bool QXmlContentHandler::endDocument (   )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual bool QXmlContentHandler::endElement (  const QString &  namespaceURI,
+                                                  const QString &  localName,
+                                                  const QString &  qName
+                                               )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual bool QXmlContentHandler::endPrefixMapping (  const QString &  prefix  )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual QString QXmlContentHandler::errorString (   )  const [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual bool QXmlContentHandler::ignorableWhitespace (  const QString &  ch  )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual bool QXmlContentHandler::processingInstruction (  const QString &  target,
+                                                             const QString &  data
+                                                          )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual void QXmlContentHandler::setDocumentLocator (  QXmlLocator *  locator  )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual bool QXmlContentHandler::skippedEntity (  const QString &  name  )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual bool QXmlContentHandler::startDocument (   )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual bool QXmlContentHandler::startElement (  const QString &         namespaceURI,
+                                                    const QString &         localName,
+                                                    const QString &         qName,
+                                                    const QXmlAttributes &  atts
+                                                 )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+
+   virtual bool QXmlContentHandler::startPrefixMapping (  const QString &  prefix,
+                                                          const QString &  uri
+                                                       )  [pure virtual]
+
+
+
+   Implemented in QXmlDefaultHandler.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qxml.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

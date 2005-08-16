@@ -1,0 +1,403 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                     QLinkedList< T > Class Template Reference
+
+   #include <qlinkedlist.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef iterator Iterator
+     * typedef const_iterator ConstIterator
+     * typedef int size_type
+     * typedef T value_type
+     * typedef value_type * pointer
+     * typedef const value_type * const_pointer
+     * typedef value_type & reference
+     * typedef const value_type & const_reference
+
+Public Member Functions
+
+     * QLinkedList ()
+     * QLinkedList (const QLinkedList &l)
+     * ~QLinkedList ()
+     * QLinkedList< T > & operator= (const QLinkedList &)
+     * bool operator== (const QLinkedList &l) const
+     * bool operator!= (const QLinkedList &l) const
+     * int size () const
+     * void detach ()
+     * bool isDetached () const
+     * void setSharable (bool sharable)
+     * bool isEmpty () const
+     * void clear ()
+     * void append (const T &)
+     * void prepend (const T &)
+     * T takeFirst ()
+     * T takeLast ()
+     * int removeAll (const T &t)
+     * bool contains (const T &t) const
+     * int count (const T &t) const
+     * iterator begin ()
+     * const_iterator begin () const
+     * const_iterator constBegin () const
+     * iterator end ()
+     * const_iterator end () const
+     * const_iterator constEnd () const
+     * iterator insert (iterator before, const T &t)
+     * iterator erase (iterator pos)
+     * iterator erase (iterator first, iterator last)
+     * int count () const
+     * T & first ()
+     * const T & first () const
+     * T & last ()
+     * const T & last () const
+     * void removeFirst ()
+     * void removeLast ()
+     * void push_back (const T &t)
+     * void push_front (const T &t)
+     * T & front ()
+     * const T & front () const
+     * T & back ()
+     * const T & back () const
+     * void pop_front ()
+     * void pop_back ()
+     * bool empty () const
+     * QLinkedList & operator+= (const QLinkedList &l)
+     * QLinkedList operator+ (const QLinkedList &l) const
+     * QLinkedList & operator+= (const T &t)
+     * QLinkedList & operator<< (const T &t)
+     * QLinkedList & operator<< (const QLinkedList &l)
+
+Friends
+
+     * class iterator
+     * class const_iterator
+
+Classes
+
+     * class const_iterator
+     * class iterator
+
+  template<class T>
+  class QLinkedList< T >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<class T>
+   typedef const value_type* QLinkedList< T >::const_pointer
+
+
+
+   template<class T>
+   typedef const value_type& QLinkedList< T >::const_reference
+
+
+
+   template<class T>
+   typedef const_iterator QLinkedList< T >::ConstIterator
+
+
+
+   template<class T>
+   typedef iterator QLinkedList< T >::Iterator
+
+
+
+   template<class T>
+   typedef value_type* QLinkedList< T >::pointer
+
+
+
+   template<class T>
+   typedef value_type& QLinkedList< T >::reference
+
+
+
+   template<class T>
+   typedef int QLinkedList< T >::size_type
+
+
+
+   template<class T>
+   typedef T QLinkedList< T >::value_type
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class T>
+   QLinkedList< T >::QLinkedList (   )  [inline]
+
+
+
+   template<class T>
+   QLinkedList< T >::QLinkedList (  const QLinkedList< T > &  l  )  [inline]
+
+
+
+   template<typename T>
+   QLinkedList< T >::~QLinkedList (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<typename T>
+   void QLinkedList< T >::append (  const T &   )
+
+
+
+   template<class T>
+   const T& QLinkedList< T >::back (   )  const [inline]
+
+
+
+   template<class T>
+   T& QLinkedList< T >::back (   )  [inline]
+
+
+
+   template<class T>
+   const_iterator QLinkedList< T >::begin (   )  const [inline]
+
+
+
+   template<class T>
+   iterator QLinkedList< T >::begin (   )  [inline]
+
+
+
+   template<typename T>
+   void QLinkedList< T >::clear (   )
+
+
+
+   template<class T>
+   const_iterator QLinkedList< T >::constBegin (   )  const [inline]
+
+
+
+   template<class T>
+   const_iterator QLinkedList< T >::constEnd (   )  const [inline]
+
+
+
+   template<typename T>
+   bool QLinkedList< T >::contains (  const T &  t  )  const
+
+
+
+   template<class T>
+   int QLinkedList< T >::count (   )  const [inline]
+
+
+
+   template<typename T>
+   int QLinkedList< T >::count (  const T &  t  )  const
+
+
+
+   template<class T>
+   void QLinkedList< T >::detach (   )  [inline]
+
+
+
+   template<class T>
+   bool QLinkedList< T >::empty (   )  const [inline]
+
+
+
+   template<class T>
+   const_iterator QLinkedList< T >::end (   )  const [inline]
+
+
+
+   template<class T>
+   iterator QLinkedList< T >::end (   )  [inline]
+
+
+
+   template<class T>
+   iterator QLinkedList< T >::erase (  iterator  first,
+                                       iterator  last
+                                    )
+
+
+
+   template<typename T>
+   QLinkedList< T >::iterator QLinkedList< T >::erase (  iterator  pos  )
+
+
+
+   template<class T>
+   const T& QLinkedList< T >::first (   )  const [inline]
+
+
+
+   template<class T>
+   T& QLinkedList< T >::first (   )  [inline]
+
+
+
+   template<class T>
+   const T& QLinkedList< T >::front (   )  const [inline]
+
+
+
+   template<class T>
+   T& QLinkedList< T >::front (   )  [inline]
+
+
+
+   template<typename T>
+   QLinkedList< T >::iterator QLinkedList< T >::insert (  iterator   before,
+                                                          const T &  t
+                                                       )
+
+
+
+   template<class T>
+   bool QLinkedList< T >::isDetached (   )  const [inline]
+
+
+
+   template<class T>
+   bool QLinkedList< T >::isEmpty (   )  const [inline]
+
+
+
+   template<class T>
+   const T& QLinkedList< T >::last (   )  const [inline]
+
+
+
+   template<class T>
+   T& QLinkedList< T >::last (   )  [inline]
+
+
+
+   template<class T>
+   bool QLinkedList< T >::operator!= (  const QLinkedList< T > &  l  )  const [inline]
+
+
+
+   template<class T>
+   QLinkedList QLinkedList< T >::operator+ (  const QLinkedList< T > &  l  )  const
+
+
+
+   template<class T>
+   QLinkedList& QLinkedList< T >::operator+= (  const T &  t  )  [inline]
+
+
+
+   template<class T>
+   QLinkedList& QLinkedList< T >::operator+= (  const QLinkedList< T > &  l  )
+
+
+
+   template<class T>
+   QLinkedList& QLinkedList< T >::operator<< (  const QLinkedList< T > &  l  )  [inline]
+
+
+
+   template<class T>
+   QLinkedList& QLinkedList< T >::operator<< (  const T &  t  )  [inline]
+
+
+
+   template<class T>
+   QLinkedList<T>& QLinkedList< T >::operator= (  const QLinkedList< T > &   )
+
+
+
+   template<class T>
+   bool QLinkedList< T >::operator== (  const QLinkedList< T > &  l  )  const
+
+
+
+   template<class T>
+   void QLinkedList< T >::pop_back (   )  [inline]
+
+
+
+   template<class T>
+   void QLinkedList< T >::pop_front (   )  [inline]
+
+
+
+   template<typename T>
+   void QLinkedList< T >::prepend (  const T &   )
+
+
+
+   template<class T>
+   void QLinkedList< T >::push_back (  const T &  t  )  [inline]
+
+
+
+   template<class T>
+   void QLinkedList< T >::push_front (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   int QLinkedList< T >::removeAll (  const T &  t  )
+
+
+
+   template<class T>
+   void QLinkedList< T >::removeFirst (   )  [inline]
+
+
+
+   template<class T>
+   void QLinkedList< T >::removeLast (   )  [inline]
+
+
+
+   template<class T>
+   void QLinkedList< T >::setSharable (  bool  sharable  )  [inline]
+
+
+
+   template<class T>
+   int QLinkedList< T >::size (   )  const [inline]
+
+
+
+   template<typename T>
+   T QLinkedList< T >::takeFirst (   )  [inline]
+
+
+
+   template<typename T>
+   T QLinkedList< T >::takeLast (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   template<class T>
+   friend class const_iterator [friend]
+
+
+
+   template<class T>
+   friend class iterator [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlinkedlist.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

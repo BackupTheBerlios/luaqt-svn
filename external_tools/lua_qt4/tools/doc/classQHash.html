@@ -1,0 +1,331 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                     QHash< Key, T > Class Template Reference
+
+   #include <qhash.h>
+
+   Inherited by QMultiHash< Key, T >.
+
+   List of all members.
+
+Public Types
+
+     * typedef iterator Iterator
+     * typedef const_iterator ConstIterator
+
+Public Member Functions
+
+     * QHash ()
+     * QHash (const QHash< Key, T > &other)
+     * ~QHash ()
+     * QHash< Key, T > & operator= (const QHash< Key, T > &other)
+     * bool operator== (const QHash< Key, T > &other) const
+     * bool operator!= (const QHash< Key, T > &other) const
+     * int size () const
+     * bool isEmpty () const
+     * int capacity () const
+     * void reserve (int size)
+     * void squeeze ()
+     * void detach ()
+     * bool isDetached () const
+     * void setSharable (bool sharable)
+     * void clear ()
+     * int remove (const Key &key)
+     * T take (const Key &key)
+     * bool contains (const Key &key) const
+     * const Key key (const T &value) const
+     * const T value (const Key &key) const
+     * const T value (const Key &key, const T &defaultValue) const
+     * T & operator[] (const Key &key)
+     * const T operator[] (const Key &key) const
+     * QList< Key > keys () const
+     * QList< Key > keys (const T &value) const
+     * QList< T > values () const
+     * QList< T > values (const Key &key) const
+     * int count (const Key &key) const
+     * iterator begin ()
+     * const_iterator begin () const
+     * const_iterator constBegin () const
+     * iterator end ()
+     * const_iterator end () const
+     * const_iterator constEnd () const
+     * iterator erase (iterator it)
+     * int count () const
+     * iterator find (const Key &key)
+     * const_iterator find (const Key &key) const
+     * iterator insert (const Key &key, const T &value)
+     * iterator insertMulti (const Key &key, const T &value)
+     * QHash< Key, T > & unite (const QHash< Key, T > &other)
+     * bool empty () const
+
+Friends
+
+     * class iterator
+     * class const_iterator
+
+Classes
+
+     * class const_iterator
+     * class iterator
+
+  template<class Key, class T>
+  class QHash< Key, T >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<class Key, class T>
+   typedef const_iterator QHash< Key, T >::ConstIterator
+
+
+
+   template<class Key, class T>
+   typedef iterator QHash< Key, T >::Iterator
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class Key, class T>
+   QHash< Key, T >::QHash (   )  [inline]
+
+
+
+   template<class Key, class T>
+   QHash< Key, T >::QHash (  const QHash< Key, T > &  other  )  [inline]
+
+
+
+   template<class Key, class T>
+   QHash< Key, T >::~QHash (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class Key, class T>
+   const_iterator QHash< Key, T >::begin (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   iterator QHash< Key, T >::begin (   )  [inline]
+
+
+
+   template<class Key, class T>
+   int QHash< Key, T >::capacity (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE void QHash< Key, T >::clear (   )
+
+
+
+   template<class Key, class T>
+   const_iterator QHash< Key, T >::constBegin (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   const_iterator QHash< Key, T >::constEnd (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE bool QHash< Key, T >::contains (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   int QHash< Key, T >::count (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE int QHash< Key, T >::count (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   void QHash< Key, T >::detach (   )  [inline]
+
+
+
+   template<class Key, class T>
+   bool QHash< Key, T >::empty (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   const_iterator QHash< Key, T >::end (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   iterator QHash< Key, T >::end (   )  [inline]
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QHash< Key, T >::iterator QHash< Key, T >::erase (  iterator  it  )
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QHash< Key, T >::const_iterator QHash< Key, T >::find (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QHash< Key, T >::iterator QHash< Key, T >::find (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QHash< Key, T >::iterator QHash< Key, T >::insert (  const Key &  key,
+                                                                          const T &    value
+                                                                       )
+
+
+
+   Reimplemented in QMultiHash< Key, T >.
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QHash< Key, T >::iterator QHash< Key, T >::insertMulti (  const Key &  key,
+                                                                               const T &    value
+                                                                            )
+
+
+
+   template<class Key, class T>
+   bool QHash< Key, T >::isDetached (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   bool QHash< Key, T >::isEmpty (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE const Key QHash< Key, T >::key (  const T &  value  )  const
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QList< Key > QHash< Key, T >::keys (  const T &  value  )  const
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QList< Key > QHash< Key, T >::keys (   )  const
+
+
+
+   template<class Key, class T>
+   bool QHash< Key, T >::operator!= (  const QHash< Key, T > &  other  )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QHash< Key, T > & QHash< Key, T >::operator= (  const QHash< Key, T > &  other  )
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE bool QHash< Key, T >::operator== (  const QHash< Key, T > &  other  )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE const T QHash< Key, T >::operator[] (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE T & QHash< Key, T >::operator[] (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE int QHash< Key, T >::remove (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE void QHash< Key, T >::reserve (  int  size  )
+
+
+
+   template<class Key, class T>
+   void QHash< Key, T >::setSharable (  bool  sharable  )  [inline]
+
+
+
+   template<class Key, class T>
+   int QHash< Key, T >::size (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   void QHash< Key, T >::squeeze (   )  [inline]
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE T QHash< Key, T >::take (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QHash< Key, T > & QHash< Key, T >::unite (  const QHash< Key, T > &  other  )
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE const T QHash< Key, T >::value (  const Key &  key,
+                                                       const T &    defaultValue
+                                                    )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE const T QHash< Key, T >::value (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QList< T > QHash< Key, T >::values (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QList< T > QHash< Key, T >::values (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   template<class Key, class T>
+   friend class const_iterator [friend]
+
+
+
+   template<class Key, class T>
+   friend class iterator [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qhash.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,463 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QListWidget Class Reference
+
+   The QListWidget class provides an item-based list widget. More...
+#include <QListWidget>
+
+   Part of the QtGui module.
+
+   Inherits QListView.
+     * List of all members, including inherited members
+
+  Properties
+
+     * count : const int
+     * currentRow : int
+
+     * 9 properties inherited from QListView
+     * 10 properties inherited from QAbstractItemView
+     * 2 properties inherited from QAbstractScrollArea
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QListWidget ( QWidget * parent = 0 )
+     * ~QListWidget ()
+     * void addItem ( const QString & label )
+     * void addItem ( QListWidgetItem * item )
+     * void addItems ( const QStringList & labels )
+     * void closePersistentEditor ( QListWidgetItem * item )
+     * int count () const
+     * QListWidgetItem * currentItem () const
+     * int currentRow () const
+     * void editItem ( QListWidgetItem * item )
+     * QList<QListWidgetItem *> findItems ( const QString & text,
+       Qt::MatchFlags flags ) const
+     * void insertItem ( int row, QListWidgetItem * item )
+     * void insertItem ( int row, const QString & label )
+     * void insertItems ( int row, const QStringList & labels )
+     * bool isItemHidden ( const QListWidgetItem * item ) const
+     * bool isItemSelected ( const QListWidgetItem * item ) const
+     * QListWidgetItem * item ( int row ) const
+     * QListWidgetItem * itemAt ( const QPoint & p ) const
+     * QListWidgetItem * itemAt ( int x, int y ) const
+     * void openPersistentEditor ( QListWidgetItem * item )
+     * int row ( const QListWidgetItem * item ) const
+     * QList<QListWidgetItem *> selectedItems () const
+     * void setCurrentItem ( QListWidgetItem * item )
+     * void setCurrentRow ( int row )
+     * void setItemHidden ( const QListWidgetItem * item, bool hide )
+     * void setItemSelected ( const QListWidgetItem * item, bool select )
+     * void sortItems ( Qt::SortOrder order = Qt::AscendingOrder )
+     * QListWidgetItem * takeItem ( int row )
+     * QRect visualItemRect ( const QListWidgetItem * item ) const
+
+     * 21 public functions inherited from QListView
+     * 37 public functions inherited from QAbstractItemView
+     * 8 public functions inherited from QAbstractScrollArea
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void clear ()
+     * void scrollToItem ( const QListWidgetItem * item, ScrollHint hint
+       = EnsureVisible )
+
+     * 6 public slots inherited from QAbstractItemView
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void currentItemChanged ( QListWidgetItem * current,
+       QListWidgetItem * previous )
+     * void currentRowChanged ( int currentRow )
+     * void currentTextChanged ( const QString & currentText )
+     * void itemActivated ( QListWidgetItem * item )
+     * void itemChanged ( QListWidgetItem * item )
+     * void itemClicked ( QListWidgetItem * item )
+     * void itemDoubleClicked ( QListWidgetItem * item )
+     * void itemEntered ( QListWidgetItem * item )
+     * void itemPressed ( QListWidgetItem * item )
+     * void itemSelectionChanged ()
+
+     * 6 signals inherited from QAbstractItemView
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * virtual bool dropMimeData ( int index, const QMimeData * data,
+       Qt::DropAction action )
+     * QModelIndex indexFromItem ( QListWidgetItem * item ) const
+     * QListWidgetItem * itemFromIndex ( const QModelIndex & index )
+       const
+     * QList<QListWidgetItem *> items ( const QMimeData * data ) const
+     * virtual QMimeData * mimeData ( const QList<QListWidgetItem *>
+       items ) const
+     * virtual QStringList mimeTypes () const
+     * virtual Qt::DropActions supportedDropActions () const
+
+     * 1 protected function inherited from QListView
+     * 35 protected functions inherited from QAbstractItemView
+     * 17 protected functions inherited from QAbstractScrollArea
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 8 protected slots inherited from QAbstractItemView
+     _________________________________________________________________
+
+Detailed Description
+
+   The QListWidget class provides an item-based list widget.
+
+   QListWidget is a convenience class that provides a list view similar
+   to the one supplied by QListView, but with a classic item-based
+   interface for adding and removing items. QListWidget uses an internal
+   model to manage each QListWidgetItem in the list.
+
+   For a more flexible list view widget, use the QListView class with a
+   standard model.
+
+   List widgets are constructed in the same way as other widgets:
+        QListWidget *listWidget;
+
+   The selectionMode() of a list widget determines how many of the items
+   in the list can be selected at the same time, and whether complex
+   selections of items can be created. This can be set with the
+   setSelectionMode() function.
+
+   There are two ways to add items to the list: they can be constructed
+   with the list widget as their parent widget, or they can be
+   constructed with no parent widget and added to the list later. If a
+   list widget already exists when the items are constructed, the first
+   method is easier to use:
+        new QListWidgetItem(tr("Oak"), listWidget);
+        new QListWidgetItem(tr("Fir"), listWidget);
+        new QListWidgetItem(tr("Pine"), listWidget);
+
+   If you need to insert a new item into the list at a particular
+   position, it is more convenient to construct the item without a parent
+   widget and use the insertItem() function to place it within the list:
+        QListWidgetItem *newItem = new QListWidgetItem;
+        newItem->setText(itemText);
+        listWidget->insertItem(row, newItem);
+
+   For multiple items, insertItems() can be used instead. The number of
+   items in the list is found with the count() function. To remove items
+   from the list, use removeItem().
+
+   The current item in the list can be found with currentItem(), and
+   changed with setCurrentItem(). The user can also change the current
+   item by navigating with the keyboard or clicking on a different item.
+   When the current item changes, the currentItemChanged() signal is
+   emitted with the new current item and the item that was previously
+   current.
+
+   See also QListWidgetItem and Model/View Programming.
+     _________________________________________________________________
+
+Property Documentation
+
+  count : const int
+
+   This property holds the number of items in the list including any
+   hidden items.
+
+   Access functions:
+     * int count () const
+
+  currentRow : int
+
+   This property holds the row of the current item.
+
+   Access functions:
+     * int currentRow () const
+     * void setCurrentRow ( int row )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QListWidget::QListWidget ( QWidget * parent = 0 )
+
+   Constructs an empty QListWidget with the given parent.
+
+  QListWidget::~QListWidget ()
+
+   Destroys the list widget and all its items.
+
+  void QListWidget::addItem ( const QString & label )
+
+   Inserts an item with the text label at the end of the list widget.
+
+  void QListWidget::addItem ( QListWidgetItem * item )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Inserts the item at the the end of the list widget.
+
+   See also insertItem().
+
+  void QListWidget::addItems ( const QStringList & labels )
+
+   Inserts items with the text labels at the end of the list widget.
+
+   See also insertItems().
+
+  void QListWidget::clear ()   [slot]
+
+   Removes all items and selections in the view.
+
+  void QListWidget::closePersistentEditor ( QListWidgetItem * item )
+
+   Closes the persistent editor for the given item.
+
+   See also openPersistentEditor().
+
+  QListWidgetItem * QListWidget::currentItem () const
+
+   Returns the current item.
+
+  void QListWidget::currentItemChanged ( QListWidgetItem * current,
+  QListWidgetItem * previous )   [signal]
+
+   This signal is emitted whenever the current item changes. The previous
+   item is the item that previously had the focus, current is the new
+   current item.
+
+  void QListWidget::currentRowChanged ( int currentRow )   [signal]
+
+   This signal is emitted whenever the current item changes. The
+   currentRow is the row of the current item. If there is no current
+   item, the currentRow is -1.
+
+  void QListWidget::currentTextChanged ( const QString & currentText )
+  [signal]
+
+   This signal is emitted whenever the current item changes. The
+   currentText is the text data in the current item. If there is no
+   current item, the currentText is invalid.
+
+  bool QListWidget::dropMimeData ( int index, const QMimeData * data,
+  Qt::DropAction action )   [virtual protected]
+
+   Handles the data supplied by a drag and drop operation that ended with
+   the given action in the given index.
+
+   See also supportedDropActions().
+
+  void QListWidget::editItem ( QListWidgetItem * item )
+
+   Starts editing the item if it is editable.
+
+  QList<QListWidgetItem *> QListWidget::findItems ( const QString & text,
+  Qt::MatchFlags flags ) const
+
+   Finds items with the text that matches the string text using the given
+   flags.
+
+  QModelIndex QListWidget::indexFromItem ( QListWidgetItem * item ) const
+  [protected]
+
+   Returns the QModelIndex assocated with the given item.
+
+  void QListWidget::insertItem ( int row, QListWidgetItem * item )
+
+   Inserts the item at the position in the list given by row.
+
+   See also addItem().
+
+  void QListWidget::insertItem ( int row, const QString & label )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Inserts an item with the text label in the list widget at the position
+   given by row.
+
+   See also addItem().
+
+  void QListWidget::insertItems ( int row, const QStringList & labels )
+
+   Inserts items from the list of labels into the list, starting at the
+   given row.
+
+   See also insertItem() and addItem().
+
+  bool QListWidget::isItemHidden ( const QListWidgetItem * item ) const
+
+   Returns true if the item is explicitly hidden; otherwise returns
+   false.
+
+  bool QListWidget::isItemSelected ( const QListWidgetItem * item ) const
+
+   Returns true if item is selected and not hidden; otherwise returns
+   false.
+
+  QListWidgetItem * QListWidget::item ( int row ) const
+
+   Returns the item that occupies the given row in the list.
+
+   See also row().
+
+  void QListWidget::itemActivated ( QListWidgetItem * item )   [signal]
+
+   This signal is emitted when the item is activated. The item is
+   activated when the user clicks or double clicks on it, depending on
+   the system configuration. It is also activated when the user presses
+   the activation key (on Windows and X11 this is the Return key, on Mac
+   OS X it is Ctrl+0).
+
+  QListWidgetItem * QListWidget::itemAt ( const QPoint & p ) const
+
+   Returns a pointer to the item at the coordinates p.
+
+  QListWidgetItem * QListWidget::itemAt ( int x, int y ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a pointer to the item at the coordinates (x, y).
+
+  void QListWidget::itemChanged ( QListWidgetItem * item )   [signal]
+
+   This signal is emitted whenever the data of item has changed.
+
+  void QListWidget::itemClicked ( QListWidgetItem * item )   [signal]
+
+   This signal is emitted when a mouse button is clicked. The item may be
+   0 if the mouse was not clicked on an item.
+
+  void QListWidget::itemDoubleClicked ( QListWidgetItem * item )   [signal]
+
+   This signal is emitted when a mouse button is double clicked. The item
+   may be 0 if the mouse was not clicked on an item.
+
+  void QListWidget::itemEntered ( QListWidgetItem * item )   [signal]
+
+   This signal is emitted when the mouse cursor enters an item. The item
+   is the item entered. This signal is only emitted when mouseTracking is
+   turned on, or when a mouse button is pressed while moving into an
+   item.
+
+  QListWidgetItem * QListWidget::itemFromIndex ( const QModelIndex & index )
+  const   [protected]
+
+   Returns a pointer to the QListWidgetItem assocated with the given
+   index.
+
+  void QListWidget::itemPressed ( QListWidgetItem * item )   [signal]
+
+   This signal is emitted when a item has been pressed (mouse click and
+   release). The item may be 0 if the mouse was not pressed on an item.
+
+  void QListWidget::itemSelectionChanged ()   [signal]
+
+   This signal is emitted whenever the selection changes.
+
+   See also selectedItems() and isItemSelected().
+
+  QList<QListWidgetItem *> QListWidget::items ( const QMimeData * data )
+  const   [protected]
+
+   Returns a list of pointers to the items contained in the data object.
+   If the object was not created by a QTreeWidget in the same process,
+   the list is empty.
+
+  QMimeData * QListWidget::mimeData ( const QList<QListWidgetItem *> items )
+  const   [virtual protected]
+
+   Returns an object that contains a serialized description of the
+   specified items. The format used to describe the items is obtained
+   from the mimeTypes() function.
+
+   If the list of items is empty, 0 is returned rather than a serialized
+   empty list.
+
+  QStringList QListWidget::mimeTypes () const   [virtual protected]
+
+   Returns a list of MIME types that can be used to describe a list of
+   listwidget items.
+
+   See also mimeData().
+
+  void QListWidget::openPersistentEditor ( QListWidgetItem * item )
+
+   Opens an editor for the given item. The editor remains open after
+   editing.
+
+   See also closePersistentEditor().
+
+  int QListWidget::row ( const QListWidgetItem * item ) const
+
+   Returns the row containing the given item.
+
+   See also item().
+
+  void QListWidget::scrollToItem ( const QListWidgetItem * item, ScrollHint
+  hint = EnsureVisible )   [slot]
+
+   Scrolls the view if necessary to ensure that the item is visible. The
+   hint parameter specifies more precisely where the item should be
+   located after the operation.
+
+  QList<QListWidgetItem *> QListWidget::selectedItems () const
+
+   Returns a list of all selected items in the list widget.
+
+  void QListWidget::setCurrentItem ( QListWidgetItem * item )
+
+   Sets the current item to item.
+
+  void QListWidget::setItemHidden ( const QListWidgetItem * item, bool hide )
+
+   If hide is true, the item will be hidden; otherwise it will be shown.
+
+  void QListWidget::setItemSelected ( const QListWidgetItem * item, bool select
+  )
+
+   Selects or deselects the given item depending on whether select is
+   true of false.
+
+  void QListWidget::sortItems ( Qt::SortOrder order = Qt::AscendingOrder )
+
+   Sorts all the items in the list widget according to the specified
+   order.
+
+  Qt::DropActions QListWidget::supportedDropActions () const   [virtual
+  protected]
+
+   Returns the drop actions supported by this view.
+
+   See also Qt::DropActions.
+
+  QListWidgetItem * QListWidget::takeItem ( int row )
+
+   Removes and returns the item from the given row in the list widget,
+   otherwise return 0;
+
+   See also insertItem() and addItem().
+
+  QRect QListWidget::visualItemRect ( const QListWidgetItem * item ) const
+
+   Returns the rectangle on the viewport occupied by the item at item.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

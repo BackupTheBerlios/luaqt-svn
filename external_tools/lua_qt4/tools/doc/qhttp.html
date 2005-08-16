@@ -1,0 +1,698 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QHttp Class Reference
+
+   The QHttp class provides an implementation of the HTTP protocol.
+   More...
+#include <QHttp>
+
+   Part of the QtNetwork module.
+
+   Inherits QObject.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+     * Obsolete members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum Error { NoError, HostNotFound, ConnectionRefused,
+       UnexpectedClose, ..., UnknownError }
+     * enum State { Unconnected, HostLookup, Connecting, Sending, ...,
+       Closing }
+
+  Public Functions
+
+     * QHttp ( QObject * parent = 0 )
+     * QHttp ( const QString & hostName, quint16 port = 80, QObject *
+       parent = 0 )
+     * virtual ~QHttp ()
+     * qint64 bytesAvailable () const
+     * void clearPendingRequests ()
+     * int close ()
+     * QIODevice * currentDestinationDevice () const
+     * int currentId () const
+     * QHttpRequestHeader currentRequest () const
+     * QIODevice * currentSourceDevice () const
+     * Error error () const
+     * QString errorString () const
+     * int get ( const QString & path, QIODevice * to = 0 )
+     * bool hasPendingRequests () const
+     * int head ( const QString & path )
+     * QHttpResponseHeader lastResponse () const
+     * int post ( const QString & path, QIODevice * data, QIODevice * to
+       = 0 )
+     * int post ( const QString & path, const QByteArray & data,
+       QIODevice * to = 0 )
+     * qint64 read ( char * data, qint64 maxlen )
+     * QByteArray readAll ()
+     * int request ( const QHttpRequestHeader & header, QIODevice * data
+       = 0, QIODevice * to = 0 )
+     * int request ( const QHttpRequestHeader & header, const QByteArray
+       & data, QIODevice * to = 0 )
+     * int setHost ( const QString & hostName, quint16 port = 80 )
+     * int setProxy ( const QString & host, int port, const QString &
+       username = QString(), const QString & password = QString() )
+     * int setSocket ( QTcpSocket * socket )
+     * int setUser ( const QString & userName, const QString & password =
+       QString() )
+     * State state () const
+
+     * 28 public functions inherited from QObject
+
+  Public Slots
+
+     * void abort ()
+
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void dataReadProgress ( int done, int total )
+     * void dataSendProgress ( int done, int total )
+     * void done ( bool error )
+     * void readyRead ( const QHttpResponseHeader & resp )
+     * void requestFinished ( int id, bool error )
+     * void requestStarted ( int id )
+     * void responseHeaderReceived ( const QHttpResponseHeader & resp )
+     * void stateChanged ( int state )
+
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 property inherited from QObject
+     * 4 static public members inherited from QObject
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QHttp class provides an implementation of the HTTP protocol.
+
+   This class provides a direct interface to HTTP that allows you to have
+   more control over the requests and that allows you to access the
+   response header fields.
+
+   The class works asynchronously, so there are no blocking functions. If
+   an operation cannot be executed immediately, the function will still
+   return straight away and the operation will be scheduled for later
+   execution. The results of scheduled operations are reported via
+   signals. This approach depends on the event loop being in operation.
+
+   The operations that can be scheduled (they are called "requests" in
+   the rest of the documentation) are the following: setHost(), get(),
+   post(), head() and request().
+
+   All of these requests return a unique identifier that allows you to
+   keep track of the request that is currently executed. When the
+   execution of a request starts, the requestStarted() signal with the
+   identifier is emitted and when the request is finished, the
+   requestFinished() signal is emitted with the identifier and a bool
+   that indicates if the request finished with an error.
+
+   To make an HTTP request you must set up suitable HTTP headers. The
+   following example demonstrates, how to request the main HTML page from
+   the Trolltech home page (i.e. the URL
+   http://www.trolltech.com/index.html):
+    QHttpRequestHeader header("GET", "/index.html");
+    header.setValue("Host", "www.trolltech.com");
+    http->setHost("www.trolltech.com");
+    http->request(header);
+
+   For the common HTTP requests GET, POST and HEAD, QHttp provides the
+   convenience functions get(), post() and head(). They already use a
+   reasonable header and if you don't have to set special header fields,
+   they are easier to use. The above example can also be written as:
+    http->setHost("www.trolltech.com"); // id == 1
+    http->get("/index.html");           // id == 2
+
+   For this example the following sequence of signals is emitted (with
+   small variations, depending on network traffic, etc.):
+    requestStarted(1)
+    requestFinished(1, false)
+
+    requestStarted(2)
+    stateChanged(Connecting)
+    stateChanged(Sending)
+    dataSendProgress(77, 77)
+    stateChanged(Reading)
+    responseHeaderReceived(responseheader)
+    dataReadProgress(5388, 0)
+    readyRead(responseheader)
+    dataReadProgress(18300, 0)
+    readyRead(responseheader)
+    stateChanged(Connected)
+    requestFinished(2, false)
+
+    done(false)
+
+    stateChanged(Closing)
+    stateChanged(Unconnected)
+
+   The dataSendProgress() and dataReadProgress() signals in the above
+   example are useful if you want to show a progressbar to inform the
+   user about the progress of the download. The second argument is the
+   total size of data. In certain cases it is not possible to know the
+   total amount in advance, in which case the second argument is 0. (If
+   you connect to a QProgressBar a total of 0 results in a busy
+   indicator.)
+
+   When the response header is read, it is reported with the
+   responseHeaderReceived() signal.
+
+   The readyRead() signal tells you that there is data ready to be read.
+   The amount of data can then be queried with the bytesAvailable()
+   function and it can be read with the read() or readAll() functions.
+
+   If an error occurs during the execution of one of the commands in a
+   sequence of commands, all the pending commands (i.e. scheduled, but
+   not yet executed commands) are cleared and no signals are emitted for
+   them.
+
+   For example, if you have the following sequence of requests
+    http->setHost("www.foo.bar");       // id == 1
+    http->get("/index.html");           // id == 2
+    http->post("register.html", data);  // id == 3
+
+   and the get() request fails because the host lookup fails, then the
+   post() request is never executed and the signals would look like this:
+    requestStarted(1)
+    requestFinished(1, false)
+
+    requestStarted(2)
+    stateChanged(HostLookup)
+    requestFinished(2, true)
+
+    done(true)
+
+    stateChanged(Unconnected)
+
+   You can then get details about the error with the error() and
+   errorString() functions. Note that only unexpected behavior, like
+   network failure is considered as an error. If the server response
+   contains an error status, like a 404 response, this is reported as a
+   normal response case. So you should always check the status code of
+   the response header.
+
+   The functions currentId() and currentRequest() provide more
+   information about the currently executing request.
+
+   The functions hasPendingRequests() and clearPendingRequests() allow
+   you to query and clear the list of pending requests.
+
+   The HTTP example illustrates how to write HTTP clients using QHttp.
+
+   See also Network Module and QFtp.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QHttp::Error
+
+   This enum identifies the error that occurred.
+
+   Constant Value Description
+   QHttp::NoError 0 No error occurred.
+   QHttp::HostNotFound 2 The host name lookup failed.
+   QHttp::ConnectionRefused 3 The server refused the connection.
+   QHttp::UnexpectedClose 4 The server closed the connection
+   unexpectedly.
+   QHttp::InvalidResponseHeader 5 The server sent an invalid response
+   header.
+   QHttp::WrongContentLength 6 The client could not read the content
+   correctly because an error with respect to the content length
+   occurred.
+   QHttp::Aborted 7 The request was aborted with abort().
+   QHttp::UnknownError 1 An error other than those specified above
+   occurred.
+
+   See also error().
+
+  enum QHttp::State
+
+   This enum is used to specify the state the client is in:
+
+   Constant Value Description
+   QHttp::Unconnected 0 There is no connection to the host.
+   QHttp::HostLookup 1 A host name lookup is in progress.
+   QHttp::Connecting 2 An attempt to connect to the host is in progress.
+   QHttp::Sending 3 The client is sending its request to the server.
+   QHttp::Reading 4 The client's request has been sent and the client is
+   reading the server's response.
+   QHttp::Connected 5 The connection to the host is open, but the client
+   is neither sending a request, nor waiting for a response.
+   QHttp::Closing 6 The connection is closing down, but is not yet
+   closed. (The state will be Unconnected when the connection is closed.)
+
+   See also stateChanged() and state().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QHttp::QHttp ( QObject * parent = 0 )
+
+   Constructs a QHttp object. The parent parameter is passed on to the
+   QObject constructor.
+
+  QHttp::QHttp ( const QString & hostName, quint16 port = 80, QObject * parent
+  = 0 )
+
+   Constructs a QHttp object. Subsequent requests are done by connecting
+   to the server hostName on port port.
+
+   The parent parameter is passed on to the QObject constructor.
+
+   See also setHost().
+
+  QHttp::~QHttp ()   [virtual]
+
+   Destroys the QHttp object. If there is an open connection, it is
+   closed.
+
+  void QHttp::abort ()   [slot]
+
+   Aborts the current request and deletes all scheduled requests.
+
+   For the current request, the requestFinished() signal with the error
+   argument true is emitted. For all other requests that are affected by
+   the abort(), no signals are emitted.
+
+   Since this slot also deletes the scheduled requests, there are no
+   requests left and the done() signal is emitted (with the error
+   argument true).
+
+   See also clearPendingRequests().
+
+  qint64 QHttp::bytesAvailable () const
+
+   Returns the number of bytes that can be read from the response content
+   at the moment.
+
+   See also get(), post(), request(), readyRead(), read(), and readAll().
+
+  void QHttp::clearPendingRequests ()
+
+   Deletes all pending requests from the list of scheduled requests. This
+   does not affect the request that is being executed. If you want to
+   stop this this as well, use abort().
+
+   See also hasPendingRequests() and abort().
+
+  int QHttp::close ()
+
+   Closes the connection; this is useful if you have a keep-alive
+   connection and want to close it.
+
+   For the requests issued with get(), post() and head(), QHttp sets the
+   connection to be keep-alive. You can also do this using the header you
+   pass to the request() function. QHttp only closes the connection to
+   the HTTP server if the response header requires it to do so.
+
+   The function does not block and returns immediately. The request is
+   scheduled, and its execution is performed asynchronously. The function
+   returns a unique identifier which is passed by requestStarted() and
+   requestFinished().
+
+   When the request is started the requestStarted() signal is emitted.
+   When it is finished the requestFinished() signal is emitted.
+
+   If you want to close the connection immediately, you have to use
+   abort() instead.
+
+   See also stateChanged(), abort(), requestStarted(), requestFinished(),
+   and done().
+
+  QIODevice * QHttp::currentDestinationDevice () const
+
+   Returns the QIODevice pointer that is used as to store the data of the
+   HTTP request being executed. If there is no current request or if the
+   request does not store the data to an IO device, this function returns
+   0.
+
+   This function can be used to delete the QIODevice in the slot
+   connected to the requestFinished() signal.
+
+   See also currentSourceDevice(), get(), post(), and request().
+
+  int QHttp::currentId () const
+
+   Returns the identifier of the HTTP request being executed or 0 if
+   there is no request being executed (i.e. they've all finished).
+
+   See also currentRequest().
+
+  QHttpRequestHeader QHttp::currentRequest () const
+
+   Returns the request header of the HTTP request being executed. If the
+   request is one issued by setHost() or close(), it returns an invalid
+   request header, i.e. QHttpRequestHeader::isValid() returns false.
+
+   See also currentId().
+
+  QIODevice * QHttp::currentSourceDevice () const
+
+   Returns the QIODevice pointer that is used as the data source of the
+   HTTP request being executed. If there is no current request or if the
+   request does not use an IO device as the data source, this function
+   returns 0.
+
+   This function can be used to delete the QIODevice in the slot
+   connected to the requestFinished() signal.
+
+   See also currentDestinationDevice(), post(), and request().
+
+  void QHttp::dataReadProgress ( int done, int total )   [signal]
+
+   This signal is emitted when this object reads data from a HTTP server
+   to indicate the current progress of the download.
+
+   done is the amount of data that has already arrived and total is the
+   total amount of data. It is possible that the total amount of data
+   that should be transferred cannot be determined, in which case total
+   is 0.(If you connect to a QProgressBar, the progress bar shows a busy
+   indicator if the total is 0).
+
+   Warning: done and total are not necessarily the size in bytes, since
+   for large files these values might need to be "scaled" to avoid
+   overflow.
+
+   See also dataSendProgress(), get(), post(), request(), and
+   QProgressBar.
+
+  void QHttp::dataSendProgress ( int done, int total )   [signal]
+
+   This signal is emitted when this object sends data to a HTTP server to
+   inform it about the progress of the upload.
+
+   done is the amount of data that has already arrived and total is the
+   total amount of data. It is possible that the total amount of data
+   that should be transferred cannot be determined, in which case total
+   is 0.(If you connect to a QProgressBar, the progress bar shows a busy
+   indicator if the total is 0).
+
+   Warning: done and total are not necessarily the size in bytes, since
+   for large files these values might need to be "scaled" to avoid
+   overflow.
+
+   See also dataReadProgress(), post(), request(), and QProgressBar.
+
+  void QHttp::done ( bool error )   [signal]
+
+   This signal is emitted when the last pending request has finished; (it
+   is emitted after the last request's requestFinished() signal). error
+   is true if an error occurred during the processing; otherwise error is
+   false.
+
+   See also requestFinished(), error(), and errorString().
+
+  Error QHttp::error () const
+
+   Returns the last error that occurred. This is useful to find out what
+   happened when receiving a requestFinished() or a done() signal with
+   the error argument true.
+
+   If you start a new request, the error status is reset to NoError.
+
+  QString QHttp::errorString () const
+
+   Returns a human-readable description of the last error that occurred.
+   This is useful to present a error message to the user when receiving a
+   requestFinished() or a done() signal with the error argument true.
+
+  int QHttp::get ( const QString & path, QIODevice * to = 0 )
+
+   Sends a get request for path to the server set by setHost() or as
+   specified in the constructor.
+
+   path must be an absolute path like /index.html or an absolute URI like
+   http://www.trolltech.com/index.html.
+
+   If the IO device to is 0 the readyRead() signal is emitted every time
+   new content data is available to read.
+
+   If the IO device to is not 0, the content data of the response is
+   written directly to the device. Make sure that the to pointer is valid
+   for the duration of the operation (it is safe to delete it when the
+   requestFinished() signal is emitted).
+
+   The function does not block and returns immediately. The request is
+   scheduled, and its execution is performed asynchronously. The function
+   returns a unique identifier which is passed by requestStarted() and
+   requestFinished().
+
+   When the request is started the requestStarted() signal is emitted.
+   When it is finished the requestFinished() signal is emitted.
+
+   See also setHost(), post(), head(), request(), requestStarted(),
+   requestFinished(), and done().
+
+  bool QHttp::hasPendingRequests () const
+
+   Returns true if there are any requests scheduled that have not yet
+   been executed; otherwise returns false.
+
+   The request that is being executed is not considered as a scheduled
+   request.
+
+   See also clearPendingRequests(), currentId(), and currentRequest().
+
+  int QHttp::head ( const QString & path )
+
+   Sends a header request for path to the server set by setHost() or as
+   specified in the constructor.
+
+   path must be an absolute path like /index.html or an absolute URI like
+   http://www.trolltech.com/index.html.
+
+   The function does not block and returns immediately. The request is
+   scheduled, and its execution is performed asynchronously. The function
+   returns a unique identifier which is passed by requestStarted() and
+   requestFinished().
+
+   When the request is started the requestStarted() signal is emitted.
+   When it is finished the requestFinished() signal is emitted.
+
+   See also setHost(), get(), post(), request(), requestStarted(),
+   requestFinished(), and done().
+
+  QHttpResponseHeader QHttp::lastResponse () const
+
+   Returns the received response header of the most recently finished
+   HTTP request. If no response has yet been received
+   QHttpResponseHeader::isValid() will return false.
+
+   See also currentRequest().
+
+  int QHttp::post ( const QString & path, QIODevice * data, QIODevice * to = 0
+  )
+
+   Sends a post request for path to the server set by setHost() or as
+   specified in the constructor.
+
+   path must be an absolute path like /index.html or an absolute URI like
+   http://www.trolltech.com/index.html.
+
+   The incoming data comes via the data IO device.
+
+   If the IO device to is 0 the readyRead() signal is emitted every time
+   new content data is available to read.
+
+   If the IO device to is not 0, the content data of the response is
+   written directly to the device. Make sure that the to pointer is valid
+   for the duration of the operation (it is safe to delete it when the
+   requestFinished() signal is emitted).
+
+   The function does not block and returns immediately. The request is
+   scheduled, and its execution is performed asynchronously. The function
+   returns a unique identifier which is passed by requestStarted() and
+   requestFinished().
+
+   When the request is started the requestStarted() signal is emitted.
+   When it is finished the requestFinished() signal is emitted.
+
+   See also setHost(), get(), head(), request(), requestStarted(),
+   requestFinished(), and done().
+
+  int QHttp::post ( const QString & path, const QByteArray & data, QIODevice *
+  to = 0 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   data is used as the content data of the HTTP request.
+
+  qint64 QHttp::read ( char * data, qint64 maxlen )
+
+   Reads maxlen bytes from the response content into data and returns the
+   number of bytes read. Returns -1 if an error occurred.
+
+   See also get(), post(), request(), readyRead(), bytesAvailable(), and
+   readAll().
+
+  QByteArray QHttp::readAll ()
+
+   Reads all the bytes from the response content and returns them.
+
+   See also get(), post(), request(), readyRead(), bytesAvailable(), and
+   read().
+
+  void QHttp::readyRead ( const QHttpResponseHeader & resp )   [signal]
+
+   This signal is emitted when there is new response data to read.
+
+   If you specified a device in the request where the data should be
+   written to, then this signal is not emitted; instead the data is
+   written directly to the device.
+
+   The response header is passed in resp.
+
+   You can read the data with the readAll() or read() functions
+
+   This signal is useful if you want to process the data in chunks as
+   soon as it becomes available. If you are only interested in the
+   complete data, just connect to the requestFinished() signal and read
+   the data then instead.
+
+   See also get(), post(), request(), readAll(), read(), and
+   bytesAvailable().
+
+  int QHttp::request ( const QHttpRequestHeader & header, QIODevice * data = 0,
+  QIODevice * to = 0 )
+
+   Sends a request to the server set by setHost() or as specified in the
+   constructor. Uses the header as the HTTP request header. You are
+   responsible for setting up a header that is appropriate for your
+   request.
+
+   The incoming data comes via the data IO device.
+
+   If the IO device to is 0 the readyRead() signal is emitted every time
+   new content data is available to read.
+
+   If the IO device to is not 0, the content data of the response is
+   written directly to the device. Make sure that the to pointer is valid
+   for the duration of the operation (it is safe to delete it when the
+   requestFinished() signal is emitted).
+
+   The function does not block and returns immediately. The request is
+   scheduled, and its execution is performed asynchronously. The function
+   returns a unique identifier which is passed by requestStarted() and
+   requestFinished().
+
+   When the request is started the requestStarted() signal is emitted.
+   When it is finished the requestFinished() signal is emitted.
+
+   See also setHost(), get(), post(), head(), requestStarted(),
+   requestFinished(), and done().
+
+  int QHttp::request ( const QHttpRequestHeader & header, const QByteArray &
+  data, QIODevice * to = 0 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   data is used as the content data of the HTTP request.
+
+  void QHttp::requestFinished ( int id, bool error )   [signal]
+
+   This signal is emitted when processing the request identified by id
+   has finished. error is true if an error occurred during the
+   processing; otherwise error is false.
+
+   See also requestStarted(), done(), error(), and errorString().
+
+  void QHttp::requestStarted ( int id )   [signal]
+
+   This signal is emitted when processing the request identified by id
+   starts.
+
+   See also requestFinished() and done().
+
+  void QHttp::responseHeaderReceived ( const QHttpResponseHeader & resp )
+  [signal]
+
+   This signal is emitted when the HTTP header of a server response is
+   available. The header is passed in resp.
+
+   See also get(), post(), head(), request(), and readyRead().
+
+  int QHttp::setHost ( const QString & hostName, quint16 port = 80 )
+
+   Sets the HTTP server that is used for requests to hostName on port
+   port.
+
+   The function does not block and returns immediately. The request is
+   scheduled, and its execution is performed asynchronously. The function
+   returns a unique identifier which is passed by requestStarted() and
+   requestFinished().
+
+   When the request is started the requestStarted() signal is emitted.
+   When it is finished the requestFinished() signal is emitted.
+
+   See also get(), post(), head(), request(), requestStarted(),
+   requestFinished(), and done().
+
+  int QHttp::setProxy ( const QString & host, int port, const QString &
+  username = QString(), const QString & password = QString() )
+
+   Enables proxy support, using the proxy server host on port port.
+   username and password can be provided if the proxy server requires
+   authentication.
+
+  int QHttp::setSocket ( QTcpSocket * socket )
+
+   Replaces the internal QSocket that QHttp uses with the given socket.
+   This is useful if you want to use your own custom QSocket subclass
+   instead of the plain QSocket that QHttp uses by default.
+
+   The function does not block and returns immediately. The request is
+   scheduled, and its execution is performed asynchronously. The function
+   returns a unique identifier which is passed by requestStarted() and
+   requestFinished().
+
+   When the request is started the requestStarted() signal is emitted.
+   When it is finished the requestFinished() signal is emitted.
+
+  int QHttp::setUser ( const QString & userName, const QString & password =
+  QString() )
+
+   This function sets the user name userName and password password for
+   web pages that require authentication.
+
+   The function does not block and returns immediately. The request is
+   scheduled, and its execution is performed asynchronously. The function
+   returns a unique identifier which is passed by requestStarted() and
+   requestFinished().
+
+   When the request is started the requestStarted() signal is emitted.
+   When it is finished the requestFinished() signal is emitted.
+
+  State QHttp::state () const
+
+   Returns the current state of the object. When the state changes, the
+   stateChanged() signal is emitted.
+
+   See also State and stateChanged().
+
+  void QHttp::stateChanged ( int state )   [signal]
+
+   This signal is emitted when the state of the QHttp object changes. The
+   argument state is the new state of the connection; it is one of the
+   State values.
+
+   This usually happens when a request is started, but it can also happen
+   when the server closes the connection or when a call to close()
+   succeeded.
+
+   See also get(), post(), head(), request(), close(), state(), and
+   State.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

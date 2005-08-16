@@ -1,0 +1,209 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QBitArray Class Reference
+
+   #include <qbitarray.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QBitArray ()
+     * QBitArray (int size, bool val=false)
+     * QBitArray (const QBitArray &other)
+     * QBitArray & operator= (const QBitArray &other)
+     * int size () const
+     * int count () const
+     * bool isEmpty () const
+     * bool isNull () const
+     * void resize (int size)
+     * void detach ()
+     * bool isDetached () const
+     * void clear ()
+     * bool testBit (int i) const
+     * void setBit (int i)
+     * void setBit (int i, bool val)
+     * void clearBit (int i)
+     * bool toggleBit (int i)
+     * bool at (int i) const
+     * QBitRef operator[] (int i)
+     * bool operator[] (int i) const
+     * QBitRef operator[] (uint i)
+     * bool operator[] (uint i) const
+     * QBitArray & operator &= (const QBitArray &)
+     * QBitArray & operator|= (const QBitArray &)
+     * QBitArray & operator^= (const QBitArray &)
+     * QBitArray operator~ () const
+     * bool operator== (const QBitArray &a) const
+     * bool operator!= (const QBitArray &a) const
+     * bool fill (bool val, int size=-1)
+     * void fill (bool val, int first, int last)
+     * void truncate (int pos)
+
+Friends
+
+     * Q_CORE_EXPORT QDataStream & operator<< (QDataStream &, const QBitArray &)
+     * Q_CORE_EXPORT QDataStream & operator>> (QDataStream &, QBitArray &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QBitArray::QBitArray (   )  [inline]
+
+
+
+   QBitArray::QBitArray (  int   size,
+                           bool  val = false
+                        )  [explicit]
+
+
+
+   QBitArray::QBitArray (  const QBitArray &  other  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QBitArray::at (  int  i  )  const [inline]
+
+
+
+   void QBitArray::clear (   )  [inline]
+
+
+
+   void QBitArray::clearBit (  int  i  )  [inline]
+
+
+
+   int QBitArray::count (   )  const [inline]
+
+
+
+   void QBitArray::detach (   )  [inline]
+
+
+
+   void QBitArray::fill (  bool  val,
+                           int   first,
+                           int   last
+                        )
+
+
+
+   bool QBitArray::fill (  bool  val,
+                           int   size = -1
+                        )  [inline]
+
+
+
+   bool QBitArray::isDetached (   )  const [inline]
+
+
+
+   bool QBitArray::isEmpty (   )  const [inline]
+
+
+
+   bool QBitArray::isNull (   )  const [inline]
+
+
+
+   QBitArray& QBitArray::operator &= (  const QBitArray &   )
+
+
+
+   bool QBitArray::operator!= (  const QBitArray &  a  )  const [inline]
+
+
+
+   QBitArray& QBitArray::operator= (  const QBitArray &  other  )  [inline]
+
+
+
+   bool QBitArray::operator== (  const QBitArray &  a  )  const [inline]
+
+
+
+   bool QBitArray::operator[] (  uint  i  )  const [inline]
+
+
+
+   QBitRef QBitArray::operator[] (  uint  i  )  [inline]
+
+
+
+   bool QBitArray::operator[] (  int  i  )  const [inline]
+
+
+
+   QBitRef QBitArray::operator[] (  int  i  )  [inline]
+
+
+
+   QBitArray& QBitArray::operator^= (  const QBitArray &   )
+
+
+
+   QBitArray& QBitArray::operator|= (  const QBitArray &   )
+
+
+
+   QBitArray QBitArray::operator~ (   )  const
+
+
+
+   void QBitArray::resize (  int  size  )
+
+
+
+   void QBitArray::setBit (  int   i,
+                             bool  val
+                          )  [inline]
+
+
+
+   void QBitArray::setBit (  int  i  )  [inline]
+
+
+
+   int QBitArray::size (   )  const [inline]
+
+
+
+   bool QBitArray::testBit (  int  i  )  const [inline]
+
+
+
+   bool QBitArray::toggleBit (  int  i  )  [inline]
+
+
+
+   void QBitArray::truncate (  int  pos  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_CORE_EXPORT QDataStream& operator<< (  QDataStream &      ,
+                                            const QBitArray &
+                                         )  [friend]
+
+
+
+   Q_CORE_EXPORT QDataStream& operator>> (  QDataStream &  ,
+                                            QBitArray &  
+                                         )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qbitarray.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

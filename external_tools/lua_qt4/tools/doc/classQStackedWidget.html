@@ -1,0 +1,121 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QStackedWidget Class Reference
+
+   #include <qstackedwidget.h>
+
+   Inherits QFrame.
+
+   List of all members.
+
+Public Slots
+
+     * void setCurrentIndex (int index)
+     * void setCurrentWidget (QWidget *w)
+
+Signals
+
+     * void currentChanged (int)
+     * void widgetRemoved (int index)
+
+Public Member Functions
+
+     * QStackedWidget (QWidget *parent=0)
+     * ~QStackedWidget ()
+     * int addWidget (QWidget *w)
+     * int insertWidget (int index, QWidget *w)
+     * void removeWidget (QWidget *w)
+     * QWidget * currentWidget () const
+     * int currentIndex () const
+     * int indexOf (QWidget *) const
+     * QWidget * widget (int) const
+     * int count () const
+
+Properties
+
+     * int currentIndex
+     * int count
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QStackedWidget::QStackedWidget (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QStackedWidget::~QStackedWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QStackedWidget::addWidget (  QWidget *  w  )
+
+
+
+   int QStackedWidget::count (   )  const
+
+
+
+   void QStackedWidget::currentChanged (  int   )  [signal]
+
+
+
+   int QStackedWidget::currentIndex (   )  const
+
+
+
+   QWidget* QStackedWidget::currentWidget (   )  const
+
+
+
+   int QStackedWidget::indexOf (  QWidget *   )  const
+
+
+
+   int QStackedWidget::insertWidget (  int        index,
+                                       QWidget *  w
+                                    )
+
+
+
+   void QStackedWidget::removeWidget (  QWidget *  w  )
+
+
+
+   void QStackedWidget::setCurrentIndex (  int  index  )  [slot]
+
+
+
+   void QStackedWidget::setCurrentWidget (  QWidget *  w  )  [slot]
+
+
+
+   QWidget* QStackedWidget::widget (  int   )  const
+
+
+
+   void QStackedWidget::widgetRemoved (  int  index  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QStackedWidget::count [read]
+
+
+
+   int QStackedWidget::currentIndex [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstackedwidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

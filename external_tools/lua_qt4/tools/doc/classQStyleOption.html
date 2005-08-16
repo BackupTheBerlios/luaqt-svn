@@ -1,0 +1,160 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QStyleOption Class Reference
+
+   #include <qstyleoption.h>
+
+   Inherited by QStyleOptionButton, QStyleOptionComplex, QStyleOptionDockWidget, QStyleOptionFocusRect, QStyleOptionFrame, QStyleOptionHeader, QStyleOptionMenuItem, QStyleOptionProgressBar, QStyleOptionQ3DockWindow, QStyleOptionQ3ListViewItem, QStyleOptionRubberBand, QStyleOptionTab, QStyleOptionTabBarBase, QStyleOptionTabWidgetFrame, QStyleOptionToolBox, and QStyleOptionViewItem.
+
+   List of all members.
+
+Public Types
+
+     * enum OptionType {
+         SO_Default, SO_FocusRect, SO_Button, SO_Tab,
+         SO_MenuItem, SO_Frame, SO_ProgressBar, SO_ToolBox,
+         SO_Header, SO_Q3DockWindow, SO_DockWidget, SO_Q3ListViewItem,
+         SO_ViewItem, SO_TabWidgetFrame, SO_TabBarBase, SO_RubberBand,
+         SO_Complex = 0xf0000, SO_Slider, SO_SpinBox, SO_ToolButton,
+         SO_ComboBox, SO_Q3ListView, SO_TitleBar, SO_CustomBase = 0xf00,
+         SO_ComplexCustomBase = 0xf000000
+       }
+     * enum { Type = SO_Default }
+     * enum { Version = 1 }
+
+Public Member Functions
+
+     * QStyleOption (int version=QStyleOption::Version, int type=SO_Default)
+     * QStyleOption (const QStyleOption &other)
+     * ~QStyleOption ()
+     * void init (const QWidget *w)
+     * QStyleOption & operator= (const QStyleOption &other)
+
+Public Attributes
+
+     * int version
+     * int type
+     * QStyle::State state
+     * Qt::LayoutDirection direction
+     * QRect rect
+     * QFontMetrics fontMetrics
+     * QPalette palette
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Type
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Version
+
+   enum QStyleOption::OptionType
+
+
+
+   Enumerator: 
+
+          SO_Default          
+          SO_FocusRect        
+          SO_Button           
+          SO_Tab              
+          SO_MenuItem         
+          SO_Frame            
+          SO_ProgressBar      
+          SO_ToolBox          
+          SO_Header           
+          SO_Q3DockWindow     
+          SO_DockWidget       
+          SO_Q3ListViewItem   
+          SO_ViewItem         
+          SO_TabWidgetFrame   
+          SO_TabBarBase       
+          SO_RubberBand       
+          SO_Complex          
+          SO_Slider           
+          SO_SpinBox          
+          SO_ToolButton       
+          SO_ComboBox         
+          SO_Q3ListView       
+          SO_TitleBar         
+          SO_CustomBase       
+          SO_ComplexCustomBase
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QStyleOption::QStyleOption (  int  version = QStyleOption::Version,
+                                 int  type = SO_Default
+                              )
+
+
+
+   QStyleOption::QStyleOption (  const QStyleOption &  other  )
+
+
+
+   QStyleOption::~QStyleOption (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QStyleOption::init (  const QWidget *  w  )
+
+
+
+   QStyleOption& QStyleOption::operator= (  const QStyleOption &  other  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   Qt::LayoutDirection QStyleOption::direction
+
+
+
+   QFontMetrics QStyleOption::fontMetrics
+
+
+
+   QPalette QStyleOption::palette
+
+
+
+   QRect QStyleOption::rect
+
+
+
+   QStyle::State QStyleOption::state
+
+
+
+   int QStyleOption::type
+
+
+
+   int QStyleOption::version
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstyleoption.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

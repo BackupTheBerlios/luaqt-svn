@@ -1,0 +1,202 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QDoubleSpinBox Class Reference
+
+   #include <qspinbox.h>
+
+   Inherits QAbstractSpinBox.
+
+   List of all members.
+
+Public Slots
+
+     * void setValue (double val)
+
+Signals
+
+     * void valueChanged (double)
+     * void valueChanged (const QString &)
+
+Public Member Functions
+
+     * QDoubleSpinBox (QWidget *parent=0)
+     * double value () const
+     * QString prefix () const
+     * void setPrefix (const QString &p)
+     * QString suffix () const
+     * void setSuffix (const QString &s)
+     * QString cleanText () const
+     * double singleStep () const
+     * void setSingleStep (double val)
+     * double minimum () const
+     * void setMinimum (double min)
+     * double maximum () const
+     * void setMaximum (double max)
+     * void setRange (double min, double max)
+     * int decimals () const
+     * void setDecimals (int prec)
+     * virtual QValidator::State validate (QString &input, int &pos) const
+     * virtual double valueFromText (const QString &text) const
+     * virtual QString textFromValue (double v) const
+     * virtual void fixup (QString &str) const
+
+Properties
+
+     * QString prefix
+     * QString suffix
+     * QString cleanText
+     * int decimals
+     * double maximum
+     * double minimum
+     * double singleStep
+     * double value
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDoubleSpinBox::QDoubleSpinBox (  QWidget *  parent = 0  )  [explicit]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QDoubleSpinBox::cleanText (   )  const
+
+
+
+   int QDoubleSpinBox::decimals (   )  const
+
+
+
+   virtual void QDoubleSpinBox::fixup (  QString &  str  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   double QDoubleSpinBox::maximum (   )  const
+
+
+
+   double QDoubleSpinBox::minimum (   )  const
+
+
+
+   QString QDoubleSpinBox::prefix (   )  const
+
+
+
+   void QDoubleSpinBox::setDecimals (  int  prec  )
+
+
+
+   void QDoubleSpinBox::setMaximum (  double  max  )
+
+
+
+   void QDoubleSpinBox::setMinimum (  double  min  )
+
+
+
+   void QDoubleSpinBox::setPrefix (  const QString &  p  )
+
+
+
+   void QDoubleSpinBox::setRange (  double  min,
+                                    double  max
+                                 )
+
+
+
+   void QDoubleSpinBox::setSingleStep (  double  val  )
+
+
+
+   void QDoubleSpinBox::setSuffix (  const QString &  s  )
+
+
+
+   void QDoubleSpinBox::setValue (  double  val  )  [slot]
+
+
+
+   double QDoubleSpinBox::singleStep (   )  const
+
+
+
+   QString QDoubleSpinBox::suffix (   )  const
+
+
+
+   virtual QString QDoubleSpinBox::textFromValue (  double  v  )  const [virtual]
+
+
+
+   virtual QValidator::State QDoubleSpinBox::validate (  QString &  input,
+                                                         int &      pos
+                                                      )  const [virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   double QDoubleSpinBox::value (   )  const
+
+
+
+   void QDoubleSpinBox::valueChanged (  const QString &   )  [signal]
+
+
+
+   void QDoubleSpinBox::valueChanged (  double   )  [signal]
+
+
+
+   virtual double QDoubleSpinBox::valueFromText (  const QString &  text  )  const [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QString QDoubleSpinBox::cleanText [read]
+
+
+
+   int QDoubleSpinBox::decimals [read, write]
+
+
+
+   double QDoubleSpinBox::maximum [read, write]
+
+
+
+   double QDoubleSpinBox::minimum [read, write]
+
+
+
+   QString QDoubleSpinBox::prefix [read, write]
+
+
+
+   double QDoubleSpinBox::singleStep [read, write]
+
+
+
+   QString QDoubleSpinBox::suffix [read, write]
+
+
+
+   double QDoubleSpinBox::value [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qspinbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

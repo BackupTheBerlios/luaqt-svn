@@ -1,0 +1,315 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3Socket Class Reference
+
+   #include <q3socket.h>
+
+   Inherits QIODevice.
+
+   List of all members.
+
+Public Types
+
+     * enum Error { ErrConnectionRefused, ErrHostNotFound, ErrSocketRead }
+     * enum State {
+         Idle, HostLookup, Connecting, Connected,
+         Closing, Connection = Connected
+       }
+
+Signals
+
+     * void hostFound ()
+     * void connected ()
+     * void connectionClosed ()
+     * void delayedCloseFinished ()
+     * void readyRead ()
+     * void bytesWritten (int nbytes)
+     * void error (int)
+
+Public Member Functions
+
+     * Q3Socket (QObject *parent=0, const char *name=0)
+     * virtual ~Q3Socket ()
+     * State state () const
+     * int socket () const
+     * virtual void setSocket (int)
+     * Q3SocketDevice * socketDevice ()
+     * virtual void setSocketDevice (Q3SocketDevice *)
+     * virtual void connectToHost (const QString &host, Q_UINT16 port)
+     * QString peerName () const
+     * bool open (int mode)
+     * void close ()
+     * bool flush ()
+     * Offset size () const
+     * Offset at () const
+     * bool at (Offset)
+     * bool atEnd () const
+     * qint64 bytesAvailable () const
+     * Q_ULONG waitForMore (int msecs, bool *timeout) const
+     * Q_ULONG waitForMore (int msecs) const
+     * qint64 bytesToWrite () const
+     * void clearPendingData ()
+     * int getch ()
+     * int putch (int)
+     * int ungetch (int)
+     * bool canReadLine () const
+     * Q_UINT16 port () const
+     * Q_UINT16 peerPort () const
+     * QHostAddress address () const
+     * QHostAddress peerAddress () const
+     * void setReadBufferSize (Q_ULONG)
+     * Q_ULONG readBufferSize () const
+     * bool isSequential () const
+
+Protected Slots
+
+     * virtual void sn_read (bool force=false)
+     * virtual void sn_write ()
+
+Protected Member Functions
+
+     * qint64 readData (char *data, qint64 maxlen)
+     * qint64 writeData (const char *data, qint64 len)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3Socket::Error
+
+
+
+   Enumerator: 
+
+          ErrConnectionRefused
+          ErrHostNotFound     
+          ErrSocketRead       
+
+   enum Q3Socket::State
+
+
+
+   Enumerator: 
+
+          Idle      
+          HostLookup
+          Connecting
+          Connected 
+          Closing   
+          Connection
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Socket::Q3Socket (  QObject *     parent = 0,
+                         const char *  name = 0
+                      )
+
+
+
+   virtual Q3Socket::~Q3Socket (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QHostAddress Q3Socket::address (   )  const
+
+
+
+   bool Q3Socket::at (  Offset   )
+
+
+
+   Offset Q3Socket::at (   )  const
+
+
+
+   bool Q3Socket::atEnd (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   qint64 Q3Socket::bytesAvailable (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   qint64 Q3Socket::bytesToWrite (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void Q3Socket::bytesWritten (  int  nbytes  )  [signal]
+
+
+
+   bool Q3Socket::canReadLine (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void Q3Socket::clearPendingData (   )
+
+
+
+   void Q3Socket::close (   )  [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void Q3Socket::connected (   )  [signal]
+
+
+
+   void Q3Socket::connectionClosed (   )  [signal]
+
+
+
+   virtual void Q3Socket::connectToHost (  const QString &  host,
+                                           Q_UINT16         port
+                                        )  [virtual]
+
+
+
+   void Q3Socket::delayedCloseFinished (   )  [signal]
+
+
+
+   void Q3Socket::error (  int   )  [signal]
+
+
+
+   bool Q3Socket::flush (   )
+
+
+
+   int Q3Socket::getch (   )
+
+
+
+   void Q3Socket::hostFound (   )  [signal]
+
+
+
+   bool Q3Socket::isSequential (   )  const [inline, virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   bool Q3Socket::open (  int  mode  )
+
+
+
+   QHostAddress Q3Socket::peerAddress (   )  const
+
+
+
+   QString Q3Socket::peerName (   )  const
+
+
+
+   Q_UINT16 Q3Socket::peerPort (   )  const
+
+
+
+   Q_UINT16 Q3Socket::port (   )  const
+
+
+
+   int Q3Socket::putch (  int   )
+
+
+
+   Q_ULONG Q3Socket::readBufferSize (   )  const
+
+
+
+   qint64 Q3Socket::readData (  char *  data,
+                                qint64  maxlen
+                             )  [protected, virtual]
+
+
+
+   Implements QIODevice.
+
+   void Q3Socket::readyRead (   )  [signal]
+
+
+
+   Reimplemented from QIODevice.
+
+   void Q3Socket::setReadBufferSize (  Q_ULONG   )
+
+
+
+   virtual void Q3Socket::setSocket (  int   )  [virtual]
+
+
+
+   virtual void Q3Socket::setSocketDevice (  Q3SocketDevice *   )  [virtual]
+
+
+
+   Offset Q3Socket::size (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   virtual void Q3Socket::sn_read (  bool  force = false  )  [protected, virtual, slot]
+
+
+
+   virtual void Q3Socket::sn_write (   )  [protected, virtual, slot]
+
+
+
+   int Q3Socket::socket (   )  const
+
+
+
+   Q3SocketDevice* Q3Socket::socketDevice (   )
+
+
+
+   State Q3Socket::state (   )  const
+
+
+
+   int Q3Socket::ungetch (  int   )
+
+
+
+   Q_ULONG Q3Socket::waitForMore (  int  msecs  )  const
+
+
+
+   Q_ULONG Q3Socket::waitForMore (  int     msecs,
+                                    bool *  timeout
+                                 )  const
+
+
+
+   qint64 Q3Socket::writeData (  const char *  data,
+                                 qint64        len
+                              )  [protected, virtual]
+
+
+
+   Implements QIODevice.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3socket.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

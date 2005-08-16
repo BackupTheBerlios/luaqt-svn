@@ -1,0 +1,409 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTableView Class Reference
+
+   #include <qtableview.h>
+
+   Inherits QAbstractItemView.
+
+   Inherited by QTableWidget.
+
+   List of all members.
+
+Public Slots
+
+     * void selectRow (int row)
+     * void selectColumn (int column)
+     * void hideRow (int row)
+     * void hideColumn (int column)
+     * void showRow (int row)
+     * void showColumn (int column)
+     * void resizeRowToContents (int row)
+     * void resizeColumnToContents (int column)
+     * void sortByColumn (int column)
+
+Public Member Functions
+
+     * QTableView (QWidget *parent=0)
+     * ~QTableView ()
+     * void setModel (QAbstractItemModel *model)
+     * void setRootIndex (const QModelIndex &index)
+     * void setSelectionModel (QItemSelectionModel *selectionModel)
+     * QHeaderView * horizontalHeader () const
+     * QHeaderView * verticalHeader () const
+     * void setHorizontalHeader (QHeaderView *header)
+     * void setVerticalHeader (QHeaderView *header)
+     * int rowViewportPosition (int row) const
+     * int rowHeight (int row) const
+     * int rowAt (int y) const
+     * int columnViewportPosition (int column) const
+     * int columnWidth (int column) const
+     * int columnAt (int x) const
+     * bool isRowHidden (int row) const
+     * void setRowHidden (int row, bool hide)
+     * bool isColumnHidden (int column) const
+     * void setColumnHidden (int column, bool hide)
+     * bool showGrid () const
+     * void setShowGrid (bool show)
+     * Qt::PenStyle gridStyle () const
+     * void setGridStyle (Qt::PenStyle style)
+     * QRect visualRect (const QModelIndex &index) const
+     * void scrollTo (const QModelIndex &index, ScrollHint hint=EnsureVisible)
+     * QModelIndex indexAt (const QPoint &p) const
+
+Protected Slots
+
+     * void rowMoved (int row, int oldIndex, int newIndex)
+     * void columnMoved (int column, int oldIndex, int newIndex)
+     * void rowResized (int row, int oldHeight, int newHeight)
+     * void columnResized (int column, int oldWidth, int newWidth)
+     * void rowCountChanged (int oldCount, int newCount)
+     * void columnCountChanged (int oldCount, int newCount)
+
+Protected Member Functions
+
+     * QTableView (QTableViewPrivate &, QWidget *parent)
+     * void scrollContentsBy (int dx, int dy)
+     * QStyleOptionViewItem viewOptions () const
+     * void paintEvent (QPaintEvent *e)
+     * int horizontalOffset () const
+     * int verticalOffset () const
+     * QModelIndex moveCursor (CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
+     * void setSelection (const QRect &rect, QItemSelectionModel::SelectionFlags command)
+     * QRegion visualRegionForSelection (const QItemSelection &selection) const
+     * QModelIndexList selectedIndexes () const
+     * void updateGeometries ()
+     * int sizeHintForRow (int row) const
+     * int sizeHintForColumn (int column) const
+     * void verticalScrollbarAction (int action)
+     * void horizontalScrollbarAction (int action)
+     * bool isIndexHidden (const QModelIndex &index) const
+
+Properties
+
+     * bool showGrid
+     * Qt PenStyle
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTableView::QTableView (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QTableView::~QTableView (   )
+
+
+
+   QTableView::QTableView (  QTableViewPrivate &  ,
+                             QWidget *            parent
+                          )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QTableView::columnAt (  int  x  )  const
+
+
+
+   void QTableView::columnCountChanged (  int  oldCount,
+                                          int  newCount
+                                       )  [protected, slot]
+
+
+
+   void QTableView::columnMoved (  int  column,
+                                   int  oldIndex,
+                                   int  newIndex
+                                )  [protected, slot]
+
+
+
+   void QTableView::columnResized (  int  column,
+                                     int  oldWidth,
+                                     int  newWidth
+                                  )  [protected, slot]
+
+
+
+   int QTableView::columnViewportPosition (  int  column  )  const
+
+
+
+   int QTableView::columnWidth (  int  column  )  const
+
+
+
+   Qt::PenStyle QTableView::gridStyle (   )  const
+
+
+
+   void QTableView::hideColumn (  int  column  )  [slot]
+
+
+
+   void QTableView::hideRow (  int  row  )  [slot]
+
+
+
+   QHeaderView* QTableView::horizontalHeader (   )  const
+
+
+
+   int QTableView::horizontalOffset (   )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QTableView::horizontalScrollbarAction (  int  action  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   QModelIndex QTableView::indexAt (  const QPoint &  p  )  const [virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   bool QTableView::isColumnHidden (  int  column  )  const
+
+
+
+   bool QTableView::isIndexHidden (  const QModelIndex &  index  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   bool QTableView::isRowHidden (  int  row  )  const
+
+
+
+   QModelIndex QTableView::moveCursor (  CursorAction           cursorAction,
+                                         Qt::KeyboardModifiers  modifiers
+                                      )  [protected]
+
+
+
+   void QTableView::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QTableView::resizeColumnToContents (  int  column  )  [slot]
+
+
+
+   void QTableView::resizeRowToContents (  int  row  )  [slot]
+
+
+
+   int QTableView::rowAt (  int  y  )  const
+
+
+
+   void QTableView::rowCountChanged (  int  oldCount,
+                                       int  newCount
+                                    )  [protected, slot]
+
+
+
+   int QTableView::rowHeight (  int  row  )  const
+
+
+
+   void QTableView::rowMoved (  int  row,
+                                int  oldIndex,
+                                int  newIndex
+                             )  [protected, slot]
+
+
+
+   void QTableView::rowResized (  int  row,
+                                  int  oldHeight,
+                                  int  newHeight
+                               )  [protected, slot]
+
+
+
+   int QTableView::rowViewportPosition (  int  row  )  const
+
+
+
+   void QTableView::scrollContentsBy (  int  dx,
+                                        int  dy
+                                     )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QTableView::scrollTo (  const QModelIndex &  index,
+                                ScrollHint           hint = EnsureVisible
+                             )  [virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QTableView::selectColumn (  int  column  )  [slot]
+
+
+
+   QModelIndexList QTableView::selectedIndexes (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTableView::selectRow (  int  row  )  [slot]
+
+
+
+   void QTableView::setColumnHidden (  int   column,
+                                       bool  hide
+                                    )
+
+
+
+   void QTableView::setGridStyle (  Qt::PenStyle  style  )
+
+
+
+   void QTableView::setHorizontalHeader (  QHeaderView *  header  )
+
+
+
+   void QTableView::setModel (  QAbstractItemModel *  model  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTableView::setRootIndex (  const QModelIndex &  index  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTableView::setRowHidden (  int   row,
+                                    bool  hide
+                                 )
+
+
+
+   void QTableView::setSelection (  const QRect &                        rect,
+                                    QItemSelectionModel::SelectionFlags  command
+                                 )  [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QTableView::setSelectionModel (  QItemSelectionModel *  selectionModel  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTableView::setShowGrid (  bool  show  )
+
+
+
+   void QTableView::setVerticalHeader (  QHeaderView *  header  )
+
+
+
+   void QTableView::showColumn (  int  column  )  [slot]
+
+
+
+   bool QTableView::showGrid (   )  const
+
+
+
+   void QTableView::showRow (  int  row  )  [slot]
+
+
+
+   int QTableView::sizeHintForColumn (  int  column  )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   int QTableView::sizeHintForRow (  int  row  )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTableView::sortByColumn (  int  column  )  [slot]
+
+
+
+   void QTableView::updateGeometries (   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   QHeaderView* QTableView::verticalHeader (   )  const
+
+
+
+   int QTableView::verticalOffset (   )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QTableView::verticalScrollbarAction (  int  action  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   QStyleOptionViewItem QTableView::viewOptions (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   QRect QTableView::visualRect (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   QRegion QTableView::visualRegionForSelection (  const QItemSelection &  selection  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Qt QTableView::PenStyle [read, write]
+
+
+
+   bool QTableView::showGrid [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtableview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

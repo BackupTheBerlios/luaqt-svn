@@ -1,0 +1,216 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QInputDialog Class Reference
+
+   The QInputDialog class provides a simple convenience dialog to get a
+   single value from the user. More...
+#include <QInputDialog>
+
+   Part of the QtGui module.
+
+   Inherits QDialog.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Static Public Members
+
+     * double getDouble ( QWidget * parent, const QString & title, const
+       QString & label, double value = 0, double minValue = -2147483647,
+       double maxValue = 2147483647, int decimals = 1, bool * ok = 0,
+       Qt::WFlags f = 0 )
+     * int getInteger ( QWidget * parent, const QString & title, const
+       QString & label, int value = 0, int minValue = -2147483647, int
+       maxValue = 2147483647, int step = 1, bool * ok = 0, Qt::WFlags f =
+       0 )
+     * QString getItem ( QWidget * parent, const QString & title, const
+       QString & label, const QStringList & list, int current = 0, bool
+       editable = true, bool * ok = 0, Qt::WFlags f = 0 )
+     * QString getText ( QWidget * parent, const QString & title, const
+       QString & label, QLineEdit::EchoMode mode = QLineEdit::Normal,
+       const QString & text = QString(), bool * ok = 0, Qt::WFlags f = 0
+       )
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+
+  Additional Inherited Members
+
+     * 2 properties inherited from QDialog
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+     * 9 public functions inherited from QDialog
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+     * 5 public slots inherited from QDialog
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QInputDialog class provides a simple convenience dialog to get a
+   single value from the user.
+
+   The input value can be a string, a number or an item from a list. A
+   label must be set to tell the user what they should enter.
+
+   Four static convenience functions are provided: getText(),
+   getInteger(), getDouble() and getItem(). All the functions can be used
+   in a similar way, for example:
+        bool ok;
+        QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"
+),
+                                             tr("User name:"), QLineEdit::Norma
+l,
+                                             QDir::home().dirName(), &ok);
+        if (ok && !text.isEmpty())
+            textLabel->setText(text);
+
+   The ok variable is set to true if the user clicks OK; otherwise it is
+   set to false.
+
+                               Input Dialogs
+
+   The Standard Dialogs example shows how to use QInputDialog as well as
+   other built-in Qt dialogs.
+
+   See also QMessageBox.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  double QInputDialog::getDouble ( QWidget * parent, const QString & title,
+  const QString & label, double value = 0, double minValue = -2147483647,
+  double maxValue = 2147483647, int decimals = 1, bool * ok = 0, Qt::WFlags f =
+  0 )   [static]
+
+   Static convenience function to get a floating point number from the
+   user. title is the text which is displayed in the title bar of the
+   dialog. label is the text which is shown to the user (it should say
+   what should be entered). value is the default floating point number
+   that the line edit will be set to. minValue and maxValue are the
+   minimum and maximum values the user may choose, and decimals is the
+   maximum number of decimal places the number may have.
+
+   If ok is non-null, *ok will be set to true if the user pressed OK and
+   to false if the user pressed Cancel. The dialog's parent is parent.
+   The dialog will be modal and uses the widget flags f.
+
+   This function returns the floating point number which has been entered
+   by the user.
+
+   Use this static function like this:
+        bool ok;
+        double d = QInputDialog::getDouble(this, tr("QInputDialog::getDouble()"
+),
+                                           tr("Amount:"), 37.56, -10000, 10000,
+ 2, &ok);
+        if (ok)
+            doubleLabel->setText(QString("$%1").arg(d));
+
+   See also getText(), getInteger(), and getItem().
+
+  int QInputDialog::getInteger ( QWidget * parent, const QString & title, const
+  QString & label, int value = 0, int minValue = -2147483647, int maxValue =
+  2147483647, int step = 1, bool * ok = 0, Qt::WFlags f = 0 )   [static]
+
+   Static convenience function to get an integer input from the user.
+   title is the text which is displayed in the title bar of the dialog.
+   label is the text which is shown to the user (it should say what
+   should be entered). value is the default integer which the spinbox
+   will be set to. minValue and maxValue are the minimum and maximum
+   values the user may choose, and step is the amount by which the values
+   change as the user presses the arrow buttons to increment or decrement
+   the value.
+
+   If ok is non-null *ok will be set to true if the user pressed OK and
+   to false if the user pressed Cancel. The dialog's parent is parent.
+   The dialog will be modal and uses the widget flags f.
+
+   This function returns the integer which has been entered by the user.
+
+   Use this static function like this:
+        bool ok;
+        int i = QInputDialog::getInteger(this, tr("QInputDialog::getInteger()")
+,
+                                         tr("Percentage:"), 25, 0, 100, 1, &ok)
+;
+        if (ok)
+            integerLabel->setText(tr("%1%").arg(i));
+
+   See also getText(), getDouble(), and getItem().
+
+  QString QInputDialog::getItem ( QWidget * parent, const QString & title,
+  const QString & label, const QStringList & list, int current = 0, bool
+  editable = true, bool * ok = 0, Qt::WFlags f = 0 )   [static]
+
+   Static convenience function to let the user select an item from a
+   string list. title is the text which is displayed in the title bar of
+   the dialog. label is the text which is shown to the user (it should
+   say what should be entered). list is the string list which is inserted
+   into the combobox, and current is the number of the item which should
+   be the current item. If editable is true the user can enter their own
+   text; if editable is false the user may only select one of the
+   existing items.
+
+   If ok is non-null *a ok will be set to true if the user pressed OK and
+   to false if the user pressed Cancel. The dialog's parent is parent.
+   The dialog will be modal and uses the widget flags f.
+
+   This function returns the text of the current item, or if editable is
+   true, the current text of the combobox.
+
+   Use this static function like this:
+        QStringList items;
+        items << tr("Spring") << tr("Summer") << tr("Fall") << tr("Winter");
+
+        bool ok;
+        QString item = QInputDialog::getItem(this, tr("QInputDialog::getItem()"
+),
+                                             tr("Season:"), items, 0, false, &o
+k);
+        if (ok && !item.isEmpty())
+            itemLabel->setText(item);
+
+   See also getText(), getInteger(), and getDouble().
+
+  QString QInputDialog::getText ( QWidget * parent, const QString & title,
+  const QString & label, QLineEdit::EchoMode mode = QLineEdit::Normal, const
+  QString & text = QString(), bool * ok = 0, Qt::WFlags f = 0 )   [static]
+
+   Static convenience function to get a string from the user. title is
+   the text which is displayed in the title bar of the dialog. label is
+   the text which is shown to the user (it should say what should be
+   entered). text is the default text which is placed in the line edit.
+   The mode is the echo mode the line edit will use. If ok is non-null *a
+   ok will be set to true if the user pressed OK and to false if the user
+   pressed Cancel. The dialog's parent is parent. The dialog will be
+   modal and uses the widget flags f.
+
+   This function returns the text which has been entered in the line
+   edit. It will not return an empty string.
+
+   Use this static function like this:
+        bool ok;
+        QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"
+),
+                                             tr("User name:"), QLineEdit::Norma
+l,
+                                             QDir::home().dirName(), &ok);
+        if (ok && !text.isEmpty())
+            textLabel->setText(text);
+
+   See also getInteger(), getDouble(), and getItem().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,156 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QLayoutItem Class Reference
+
+   #include <qlayoutitem.h>
+
+   Inherited by QLayout, QSpacerItem, and QWidgetItem.
+
+   List of all members.
+
+Public Member Functions
+
+     * QLayoutItem (Qt::Alignment alignment=0)
+     * virtual ~QLayoutItem ()
+     * virtual QSize sizeHint () const =0
+     * virtual QSize minimumSize () const =0
+     * virtual QSize maximumSize () const =0
+     * virtual Qt::Orientations expandingDirections () const =0
+     * virtual void setGeometry (const QRect &)=0
+     * virtual QRect geometry () const =0
+     * virtual bool isEmpty () const =0
+     * virtual bool hasHeightForWidth () const
+     * virtual int heightForWidth (int) const
+     * virtual int minimumHeightForWidth (int) const
+     * virtual void invalidate ()
+     * virtual QWidget * widget ()
+     * virtual QLayout * layout ()
+     * virtual QSpacerItem * spacerItem ()
+     * Qt::Alignment alignment () const
+     * void setAlignment (Qt::Alignment a)
+
+Protected Attributes
+
+     * Qt::Alignment align
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QLayoutItem::QLayoutItem (  Qt::Alignment  alignment = 0  )  [inline, explicit]
+
+
+
+   virtual QLayoutItem::~QLayoutItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Alignment QLayoutItem::alignment (   )  const [inline]
+
+
+
+   virtual Qt::Orientations QLayoutItem::expandingDirections (   )  const [pure virtual]
+
+
+
+   Implemented in QBoxLayout, QGridLayout, QLayout, QSpacerItem, and QWidgetItem.
+
+   virtual QRect QLayoutItem::geometry (   )  const [pure virtual]
+
+
+
+   Implemented in QLayout, QSpacerItem, and QWidgetItem.
+
+   virtual bool QLayoutItem::hasHeightForWidth (   )  const [virtual]
+
+
+
+   Reimplemented in QBoxLayout, QGridLayout, and QWidgetItem.
+
+   virtual int QLayoutItem::heightForWidth (  int   )  const [virtual]
+
+
+
+   Reimplemented in QBoxLayout, QGridLayout, and QWidgetItem.
+
+   virtual void QLayoutItem::invalidate (   )  [virtual]
+
+
+
+   Reimplemented in QBoxLayout, QGridLayout, and QLayout.
+
+   virtual bool QLayoutItem::isEmpty (   )  const [pure virtual]
+
+
+
+   Implemented in QLayout, QSpacerItem, and QWidgetItem.
+
+   virtual QLayout* QLayoutItem::layout (   )  [virtual]
+
+
+
+   Reimplemented in QLayout.
+
+   virtual QSize QLayoutItem::maximumSize (   )  const [pure virtual]
+
+
+
+   Implemented in QBoxLayout, QGridLayout, QLayout, QSpacerItem, and QWidgetItem.
+
+   virtual int QLayoutItem::minimumHeightForWidth (  int   )  const [virtual]
+
+
+
+   Reimplemented in QBoxLayout, and QGridLayout.
+
+   virtual QSize QLayoutItem::minimumSize (   )  const [pure virtual]
+
+
+
+   Implemented in QBoxLayout, QGridLayout, QLayout, QSpacerItem, QWidgetItem, and QStackedLayout.
+
+   void QLayoutItem::setAlignment (  Qt::Alignment  a  )
+
+
+
+   virtual void QLayoutItem::setGeometry (  const QRect &   )  [pure virtual]
+
+
+
+   Implemented in QBoxLayout, QGridLayout, QLayout, QSpacerItem, QWidgetItem, and QStackedLayout.
+
+   virtual QSize QLayoutItem::sizeHint (   )  const [pure virtual]
+
+
+
+   Implemented in QBoxLayout, QGridLayout, QSpacerItem, QWidgetItem, and QStackedLayout.
+
+   virtual QSpacerItem* QLayoutItem::spacerItem (   )  [virtual]
+
+
+
+   Reimplemented in QSpacerItem.
+
+   virtual QWidget* QLayoutItem::widget (   )  [virtual]
+
+
+
+   Reimplemented in QWidgetItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   Qt::Alignment QLayoutItem::align [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlayoutitem.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

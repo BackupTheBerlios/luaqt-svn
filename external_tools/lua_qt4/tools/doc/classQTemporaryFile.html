@@ -1,0 +1,116 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QTemporaryFile Class Reference
+
+   #include <qtemporaryfile.h>
+
+   Inherits QFile.
+
+   List of all members.
+
+Public Member Functions
+
+     * QTemporaryFile ()
+     * QTemporaryFile (const QString &templateName)
+     * QTemporaryFile (QObject *parent)
+     * QTemporaryFile (const QString &templateName, QObject *parent)
+     * ~QTemporaryFile ()
+     * bool autoRemove () const
+     * void setAutoRemove (bool b)
+     * bool open ()
+     * QString fileName () const
+     * QString fileTemplate () const
+     * void setFileTemplate (const QString &name)
+     * virtual QFileEngine * fileEngine () const
+
+Static Public Member Functions
+
+     * static QTemporaryFile * createLocalFile (const QString &fileName)
+     * static QTemporaryFile * createLocalFile (QFile &file)
+
+Protected Member Functions
+
+     * bool open (OpenMode flags)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTemporaryFile::QTemporaryFile (   )
+
+
+
+   QTemporaryFile::QTemporaryFile (  const QString &  templateName  )  [explicit]
+
+
+
+   QTemporaryFile::QTemporaryFile (  QObject *  parent  )  [explicit]
+
+
+
+   QTemporaryFile::QTemporaryFile (  const QString &  templateName,
+                                     QObject *        parent
+                                  )
+
+
+
+   QTemporaryFile::~QTemporaryFile (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QTemporaryFile::autoRemove (   )  const
+
+
+
+   static QTemporaryFile* QTemporaryFile::createLocalFile (  QFile &  file  )  [static]
+
+
+
+   static QTemporaryFile* QTemporaryFile::createLocalFile (  const QString &  fileName  )  [inline, static]
+
+
+
+   virtual QFileEngine* QTemporaryFile::fileEngine (   )  const [virtual]
+
+
+
+   Reimplemented from QFile.
+
+   QString QTemporaryFile::fileName (   )  const
+
+
+
+   Reimplemented from QFile.
+
+   QString QTemporaryFile::fileTemplate (   )  const
+
+
+
+   bool QTemporaryFile::open (  OpenMode  flags  )  [protected, virtual]
+
+
+
+   Reimplemented from QFile.
+
+   bool QTemporaryFile::open (   )  [inline]
+
+
+
+   void QTemporaryFile::setAutoRemove (  bool  b  )
+
+
+
+   void QTemporaryFile::setFileTemplate (  const QString &  name  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtemporaryfile.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

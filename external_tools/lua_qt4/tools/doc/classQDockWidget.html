@@ -1,0 +1,199 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QDockWidget Class Reference
+
+   #include <qdockwidget.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags DockWidgetFeatures
+     * enum DockWidgetFeature {
+         DockWidgetClosable = 0x01, DockWidgetMovable = 0x02, DockWidgetFloatable = 0x04, DockWidgetFeatureMask = 0x07,
+         AllDockWidgetFeatures = DockWidgetFeatureMask, NoDockWidgetFeatures = 0x00, Reserved = 0xff
+       }
+
+Signals
+
+     * void featuresChanged (DockWidgetFeatures features)
+     * void topLevelChanged (bool topLevel)
+     * void allowedAreasChanged (Qt::DockWidgetAreas allowedAreas)
+
+Public Member Functions
+
+     * QDockWidget (const QString &title, QWidget *parent=0, Qt::WFlags flags=0)
+     * QDockWidget (QWidget *parent=0, Qt::WFlags flags=0)
+     * ~QDockWidget ()
+     * QWidget * widget () const
+     * void setWidget (QWidget *widget)
+     * void setFeatures (DockWidgetFeatures features)
+     * DockWidgetFeatures features () const
+     * void setFloating (bool floating)
+     * bool isFloating () const
+     * void setAllowedAreas (Qt::DockWidgetAreas areas)
+     * Qt::DockWidgetAreas allowedAreas () const
+     * bool isAreaAllowed (Qt::DockWidgetArea area) const
+     * QAction * toggleViewAction () const
+
+Protected Member Functions
+
+     * void changeEvent (QEvent *event)
+     * void closeEvent (QCloseEvent *event)
+     * void paintEvent (QPaintEvent *event)
+     * bool event (QEvent *event)
+
+Properties
+
+     * bool floating
+     * DockWidgetFeatures features
+     * Qt DockWidgetAreas
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QDockWidget::DockWidgetFeatures
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDockWidget::DockWidgetFeature
+
+
+
+   Enumerator: 
+
+          DockWidgetClosable   
+          DockWidgetMovable    
+          DockWidgetFloatable  
+          DockWidgetFeatureMask
+          AllDockWidgetFeatures
+          NoDockWidgetFeatures 
+          Reserved             
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDockWidget::QDockWidget (  const QString &  title,
+                               QWidget *        parent = 0,
+                               Qt::WFlags       flags = 0
+                            )  [explicit]
+
+
+
+   QDockWidget::QDockWidget (  QWidget *   parent = 0,
+                               Qt::WFlags  flags = 0
+                            )  [explicit]
+
+
+
+   QDockWidget::~QDockWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::DockWidgetAreas QDockWidget::allowedAreas (   )  const
+
+
+
+   void QDockWidget::allowedAreasChanged (  Qt::DockWidgetAreas  allowedAreas  )  [signal]
+
+
+
+   void QDockWidget::changeEvent (  QEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QDockWidget::closeEvent (  QCloseEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QDockWidget::event (  QEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   DockWidgetFeatures QDockWidget::features (   )  const
+
+
+
+   void QDockWidget::featuresChanged (  DockWidgetFeatures  features  )  [signal]
+
+
+
+   bool QDockWidget::isAreaAllowed (  Qt::DockWidgetArea  area  )  const [inline]
+
+
+
+   bool QDockWidget::isFloating (   )  const [inline]
+
+
+
+   void QDockWidget::paintEvent (  QPaintEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QDockWidget::setAllowedAreas (  Qt::DockWidgetAreas  areas  )
+
+
+
+   void QDockWidget::setFeatures (  DockWidgetFeatures  features  )
+
+
+
+   void QDockWidget::setFloating (  bool  floating  )
+
+
+
+   void QDockWidget::setWidget (  QWidget *  widget  )
+
+
+
+   QAction* QDockWidget::toggleViewAction (   )  const
+
+
+
+   void QDockWidget::topLevelChanged (  bool  topLevel  )  [signal]
+
+
+
+   QWidget* QDockWidget::widget (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Qt QDockWidget::DockWidgetAreas [read, write]
+
+
+
+   DockWidgetFeatures QDockWidget::features [read, write]
+
+
+
+   bool QDockWidget::floating [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdockwidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

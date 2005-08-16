@@ -1,0 +1,592 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QHeaderView Class Reference
+
+   #include <qheaderview.h>
+
+   Inherits QAbstractItemView.
+
+   List of all members.
+
+Public Types
+
+     * enum ResizeMode { Interactive, Stretch, Custom }
+
+Public Slots
+
+     * void setOffset (int offset)
+     * void headerDataChanged (Qt::Orientation orientation, int logicalFirst, int logicalLast)
+
+Signals
+
+     * void sectionMoved (int logicalIndex, int oldVisualIndex, int newVisualIndex)
+     * void sectionResized (int logicalIndex, int oldSize, int newSize)
+     * void sectionPressed (int logicalIndex)
+     * void sectionClicked (int logicalIndex)
+     * void sectionDoubleClicked (int logicalIndex)
+     * void sectionCountChanged (int oldCount, int newCount)
+     * void sectionHandleDoubleClicked (int logicalIndex)
+     * void sectionAutoResize (int logicalIndex, ResizeMode mode)
+
+Public Member Functions
+
+     * QHeaderView (Qt::Orientation orientation, QWidget *parent=0)
+     * virtual ~QHeaderView ()
+     * void setModel (QAbstractItemModel *model)
+     * Qt::Orientation orientation () const
+     * int offset () const
+     * int length () const
+     * QSize sizeHint () const
+     * int sectionSizeHint (int logicalIndex) const
+     * int visualIndexAt (int position) const
+     * int logicalIndexAt (int position) const
+     * int logicalIndexAt (int x, int y) const
+     * int logicalIndexAt (const QPoint &pos) const
+     * int sectionSize (int logicalIndex) const
+     * int sectionPosition (int logicalIndex) const
+     * int sectionViewportPosition (int logicalIndex) const
+     * void moveSection (int from, int to)
+     * void resizeSection (int logicalIndex, int size)
+     * bool isSectionHidden (int logicalIndex) const
+     * void setSectionHidden (int logicalIndex, bool hide)
+     * void hideSection (int logicalIndex)
+     * void showSection (int logicalIndex)
+     * int count () const
+     * int visualIndex (int logicalIndex) const
+     * int logicalIndex (int visualIndex) const
+     * void setMovable (bool movable)
+     * bool isMovable () const
+     * void setClickable (bool clickable)
+     * bool isClickable () const
+     * void setHighlightSections (bool highlight)
+     * bool highlightSections () const
+     * void setResizeMode (ResizeMode mode)
+     * void setResizeMode (int logicalIndex, ResizeMode mode)
+     * ResizeMode resizeMode (int logicalIndex) const
+     * int stretchSectionCount () const
+     * void setSortIndicatorShown (bool show)
+     * bool isSortIndicatorShown () const
+     * void setSortIndicator (int logicalIndex, Qt::SortOrder order)
+     * int sortIndicatorSection () const
+     * Qt::SortOrder sortIndicatorOrder () const
+     * bool stretchLastSection () const
+     * void setStretchLastSection (bool stretch)
+     * void doItemsLayout ()
+     * bool sectionsMoved () const
+
+Protected Slots
+
+     * void updateSection (int logicalIndex)
+     * void resizeSections ()
+     * void sectionsInserted (const QModelIndex &parent, int logicalFirst, int logicalLast)
+     * void sectionsAboutToBeRemoved (const QModelIndex &parent, int logicalFirst, int logicalLast)
+
+Protected Member Functions
+
+     * QHeaderView (QHeaderViewPrivate &dd, Qt::Orientation orientation, QWidget *parent=0)
+     * void initialize ()
+     * void initializeSections ()
+     * void initializeSections (int start, int end)
+     * void currentChanged (const QModelIndex &old, const QModelIndex &current)
+     * bool event (QEvent *e)
+     * void paintEvent (QPaintEvent *e)
+     * void mousePressEvent (QMouseEvent *e)
+     * void mouseMoveEvent (QMouseEvent *e)
+     * void mouseReleaseEvent (QMouseEvent *e)
+     * void mouseDoubleClickEvent (QMouseEvent *e)
+     * virtual void paintSection (QPainter *painter, const QRect &rect, int logicalIndex) const
+     * virtual QSize sectionSizeFromContents (int logicalIndex) const
+     * int horizontalOffset () const
+     * int verticalOffset () const
+     * void updateGeometries ()
+     * void scrollContentsBy (int dx, int dy)
+     * void dataChanged (const QModelIndex &topLeft, const QModelIndex &bottomRight)
+     * void rowsInserted (const QModelIndex &parent, int start, int end)
+     * QRect visualRect (const QModelIndex &index) const
+     * void scrollTo (const QModelIndex &index, ScrollHint hint)
+     * QModelIndex indexAt (const QPoint &p) const
+     * bool isIndexHidden (const QModelIndex &index) const
+     * QModelIndex moveCursor (CursorAction, Qt::KeyboardModifiers)
+     * void setSelection (const QRect &, QItemSelectionModel::SelectionFlags)
+     * QRegion visualRegionForSelection (const QItemSelection &selection) const
+
+Properties
+
+     * bool showSortIndicator
+     * bool highlightSections
+     * bool stretchLastSection
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QHeaderView::ResizeMode
+
+
+
+   Enumerator: 
+
+          Interactive
+          Stretch    
+          Custom     
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QHeaderView::QHeaderView (  Qt::Orientation  orientation,
+                               QWidget *        parent = 0
+                            )  [explicit]
+
+
+
+   virtual QHeaderView::~QHeaderView (   )  [virtual]
+
+
+
+   QHeaderView::QHeaderView (  QHeaderViewPrivate &  dd,
+                               Qt::Orientation       orientation,
+                               QWidget *             parent = 0
+                            )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QHeaderView::count (   )  const
+
+
+
+   void QHeaderView::currentChanged (  const QModelIndex &  old,
+                                       const QModelIndex &  current
+                                    )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QHeaderView::dataChanged (  const QModelIndex &  topLeft,
+                                    const QModelIndex &  bottomRight
+                                 )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QHeaderView::doItemsLayout (   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   bool QHeaderView::event (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QHeaderView::headerDataChanged (  Qt::Orientation  orientation,
+                                          int              logicalFirst,
+                                          int              logicalLast
+                                       )  [slot]
+
+
+
+   void QHeaderView::hideSection (  int  logicalIndex  )  [inline]
+
+
+
+   bool QHeaderView::highlightSections (   )  const
+
+
+
+   int QHeaderView::horizontalOffset (   )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   QModelIndex QHeaderView::indexAt (  const QPoint &  p  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QHeaderView::initialize (   )  [protected]
+
+
+
+   void QHeaderView::initializeSections (  int  start,
+                                           int  end
+                                        )  [protected]
+
+
+
+   void QHeaderView::initializeSections (   )  [protected]
+
+
+
+   bool QHeaderView::isClickable (   )  const
+
+
+
+   bool QHeaderView::isIndexHidden (  const QModelIndex &  index  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   bool QHeaderView::isMovable (   )  const
+
+
+
+   bool QHeaderView::isSectionHidden (  int  logicalIndex  )  const
+
+
+
+   bool QHeaderView::isSortIndicatorShown (   )  const
+
+
+
+   int QHeaderView::length (   )  const
+
+
+
+   int QHeaderView::logicalIndex (  int  visualIndex  )  const
+
+
+
+   int QHeaderView::logicalIndexAt (  const QPoint &  pos  )  const [inline]
+
+
+
+   int QHeaderView::logicalIndexAt (  int  x,
+                                      int  y
+                                   )  const [inline]
+
+
+
+   int QHeaderView::logicalIndexAt (  int  position  )  const
+
+
+
+   void QHeaderView::mouseDoubleClickEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QHeaderView::mouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QHeaderView::mousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QHeaderView::mouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   QModelIndex QHeaderView::moveCursor (  CursorAction           ,
+                                          Qt::KeyboardModifiers
+                                       )  [protected]
+
+
+
+   void QHeaderView::moveSection (  int  from,
+                                    int  to
+                                 )
+
+
+
+   int QHeaderView::offset (   )  const
+
+
+
+   Qt::Orientation QHeaderView::orientation (   )  const
+
+
+
+   void QHeaderView::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   virtual void QHeaderView::paintSection (  QPainter *     painter,
+                                             const QRect &  rect,
+                                             int            logicalIndex
+                                          )  const [protected, virtual]
+
+
+
+   ResizeMode QHeaderView::resizeMode (  int  logicalIndex  )  const
+
+
+
+   void QHeaderView::resizeSection (  int  logicalIndex,
+                                      int  size
+                                   )
+
+
+
+   void QHeaderView::resizeSections (   )  [protected, slot]
+
+
+
+   void QHeaderView::rowsInserted (  const QModelIndex &  parent,
+                                     int                  start,
+                                     int                  end
+                                  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QHeaderView::scrollContentsBy (  int  dx,
+                                         int  dy
+                                      )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QHeaderView::scrollTo (  const QModelIndex &  index,
+                                 ScrollHint           hint
+                              )  [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QHeaderView::sectionAutoResize (  int         logicalIndex,
+                                          ResizeMode  mode
+                                       )  [signal]
+
+
+
+   void QHeaderView::sectionClicked (  int  logicalIndex  )  [signal]
+
+
+
+   void QHeaderView::sectionCountChanged (  int  oldCount,
+                                            int  newCount
+                                         )  [signal]
+
+
+
+   void QHeaderView::sectionDoubleClicked (  int  logicalIndex  )  [signal]
+
+
+
+   void QHeaderView::sectionHandleDoubleClicked (  int  logicalIndex  )  [signal]
+
+
+
+   void QHeaderView::sectionMoved (  int  logicalIndex,
+                                     int  oldVisualIndex,
+                                     int  newVisualIndex
+                                  )  [signal]
+
+
+
+   int QHeaderView::sectionPosition (  int  logicalIndex  )  const
+
+
+
+   void QHeaderView::sectionPressed (  int  logicalIndex  )  [signal]
+
+
+
+   void QHeaderView::sectionResized (  int  logicalIndex,
+                                       int  oldSize,
+                                       int  newSize
+                                    )  [signal]
+
+
+
+   void QHeaderView::sectionsAboutToBeRemoved (  const QModelIndex &  parent,
+                                                 int                  logicalFirst,
+                                                 int                  logicalLast
+                                              )  [protected, slot]
+
+
+
+   void QHeaderView::sectionsInserted (  const QModelIndex &  parent,
+                                         int                  logicalFirst,
+                                         int                  logicalLast
+                                      )  [protected, slot]
+
+
+
+   int QHeaderView::sectionSize (  int  logicalIndex  )  const
+
+
+
+   virtual QSize QHeaderView::sectionSizeFromContents (  int  logicalIndex  )  const [protected, virtual]
+
+
+
+   int QHeaderView::sectionSizeHint (  int  logicalIndex  )  const
+
+
+
+   bool QHeaderView::sectionsMoved (   )  const
+
+
+
+   int QHeaderView::sectionViewportPosition (  int  logicalIndex  )  const
+
+
+
+   void QHeaderView::setClickable (  bool  clickable  )
+
+
+
+   void QHeaderView::setHighlightSections (  bool  highlight  )
+
+
+
+   void QHeaderView::setModel (  QAbstractItemModel *  model  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QHeaderView::setMovable (  bool  movable  )
+
+
+
+   void QHeaderView::setOffset (  int  offset  )  [slot]
+
+
+
+   void QHeaderView::setResizeMode (  int         logicalIndex,
+                                      ResizeMode  mode
+                                   )
+
+
+
+   void QHeaderView::setResizeMode (  ResizeMode  mode  )
+
+
+
+   void QHeaderView::setSectionHidden (  int   logicalIndex,
+                                         bool  hide
+                                      )
+
+
+
+   void QHeaderView::setSelection (  const QRect &                        ,
+                                     QItemSelectionModel::SelectionFlags
+                                  )  [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QHeaderView::setSortIndicator (  int            logicalIndex,
+                                         Qt::SortOrder  order
+                                      )
+
+
+
+   void QHeaderView::setSortIndicatorShown (  bool  show  )
+
+
+
+   void QHeaderView::setStretchLastSection (  bool  stretch  )
+
+
+
+   void QHeaderView::showSection (  int  logicalIndex  )  [inline]
+
+
+
+   QSize QHeaderView::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Qt::SortOrder QHeaderView::sortIndicatorOrder (   )  const
+
+
+
+   int QHeaderView::sortIndicatorSection (   )  const
+
+
+
+   bool QHeaderView::stretchLastSection (   )  const
+
+
+
+   int QHeaderView::stretchSectionCount (   )  const
+
+
+
+   void QHeaderView::updateGeometries (   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QHeaderView::updateSection (  int  logicalIndex  )  [protected, slot]
+
+
+
+   int QHeaderView::verticalOffset (   )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   int QHeaderView::visualIndex (  int  logicalIndex  )  const
+
+
+
+   int QHeaderView::visualIndexAt (  int  position  )  const
+
+
+
+   QRect QHeaderView::visualRect (  const QModelIndex &  index  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   QRegion QHeaderView::visualRegionForSelection (  const QItemSelection &  selection  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QHeaderView::highlightSections [read, write]
+
+
+
+   bool QHeaderView::showSortIndicator [read, write]
+
+
+
+   bool QHeaderView::stretchLastSection [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qheaderview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

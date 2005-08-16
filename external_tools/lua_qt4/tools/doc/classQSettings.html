@@ -1,0 +1,243 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QSettings Class Reference
+
+   #include <qsettings.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * enum Status { NoError = 0, AccessError, FormatError }
+     * enum Format { NativeFormat, IniFormat }
+     * enum Scope { UserScope, SystemScope }
+
+Public Member Functions
+
+     * QSettings (const QString &organization, const QString &application=QString(), QObject *parent=0)
+     * QSettings (Scope scope, const QString &organization, const QString &application=QString(), QObject *parent=0)
+     * QSettings (Format format, Scope scope, const QString &organization, const QString &application=QString(), QObject *parent=0)
+     * QSettings (const QString &fileName, Format format, QObject *parent=0)
+     * QSettings (QObject *parent=0)
+     * ~QSettings ()
+     * void clear ()
+     * void sync ()
+     * Status status () const
+     * void beginGroup (const QString &prefix)
+     * void endGroup ()
+     * QString group () const
+     * int beginReadArray (const QString &prefix)
+     * void beginWriteArray (const QString &prefix, int size=-1)
+     * void endArray ()
+     * void setArrayIndex (int i)
+     * QStringList allKeys () const
+     * QStringList childKeys () const
+     * QStringList childGroups () const
+     * bool isWritable () const
+     * void setValue (const QString &key, const QVariant &value)
+     * QVariant value (const QString &key, const QVariant &defaultValue=QVariant()) const
+     * void remove (const QString &key)
+     * bool contains (const QString &key) const
+     * void setFallbacksEnabled (bool b)
+     * bool fallbacksEnabled () const
+     * QString fileName () const
+
+Static Public Member Functions
+
+     * static void setSystemIniPath (const QString &dir)
+     * static void setUserIniPath (const QString &dir)
+
+Protected Member Functions
+
+     * bool event (QEvent *event)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QSettings::Format
+
+
+
+   Enumerator: 
+
+          NativeFormat
+          IniFormat   
+
+   enum QSettings::Scope
+
+
+
+   Enumerator: 
+
+          UserScope  
+          SystemScope
+
+   enum QSettings::Status
+
+
+
+   Enumerator: 
+
+          NoError    
+          AccessError
+          FormatError
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSettings::QSettings (  const QString &  organization,
+                           const QString &  application = QString(),
+                           QObject *        parent = 0
+                        )  [explicit]
+
+
+
+   QSettings::QSettings (  Scope            scope,
+                           const QString &  organization,
+                           const QString &  application = QString(),
+                           QObject *        parent = 0
+                        )
+
+
+
+   QSettings::QSettings (  Format           format,
+                           Scope            scope,
+                           const QString &  organization,
+                           const QString &  application = QString(),
+                           QObject *        parent = 0
+                        )
+
+
+
+   QSettings::QSettings (  const QString &  fileName,
+                           Format           format,
+                           QObject *        parent = 0
+                        )
+
+
+
+   QSettings::QSettings (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QSettings::~QSettings (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QStringList QSettings::allKeys (   )  const
+
+
+
+   void QSettings::beginGroup (  const QString &  prefix  )
+
+
+
+   int QSettings::beginReadArray (  const QString &  prefix  )
+
+
+
+   void QSettings::beginWriteArray (  const QString &  prefix,
+                                      int              size = -1
+                                   )
+
+
+
+   QStringList QSettings::childGroups (   )  const
+
+
+
+   QStringList QSettings::childKeys (   )  const
+
+
+
+   void QSettings::clear (   )
+
+
+
+   bool QSettings::contains (  const QString &  key  )  const
+
+
+
+   void QSettings::endArray (   )
+
+
+
+   void QSettings::endGroup (   )
+
+
+
+   bool QSettings::event (  QEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   bool QSettings::fallbacksEnabled (   )  const
+
+
+
+   QString QSettings::fileName (   )  const
+
+
+
+   QString QSettings::group (   )  const
+
+
+
+   bool QSettings::isWritable (   )  const
+
+
+
+   void QSettings::remove (  const QString &  key  )
+
+
+
+   void QSettings::setArrayIndex (  int  i  )
+
+
+
+   void QSettings::setFallbacksEnabled (  bool  b  )
+
+
+
+   static void QSettings::setSystemIniPath (  const QString &  dir  )  [static]
+
+
+
+   static void QSettings::setUserIniPath (  const QString &  dir  )  [static]
+
+
+
+   void QSettings::setValue (  const QString &   key,
+                               const QVariant &  value
+                            )
+
+
+
+   Status QSettings::status (   )  const
+
+
+
+   void QSettings::sync (   )
+
+
+
+   QVariant QSettings::value (  const QString &   key,
+                                const QVariant &  defaultValue = QVariant()
+                             )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsettings.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

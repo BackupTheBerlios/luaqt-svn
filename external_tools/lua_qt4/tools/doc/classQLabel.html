@@ -1,0 +1,266 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QLabel Class Reference
+
+   #include <qlabel.h>
+
+   Inherits QFrame.
+
+   List of all members.
+
+Public Slots
+
+     * void setText (const QString &)
+     * void setPixmap (const QPixmap &)
+     * void setPicture (const QPicture &)
+     * void setMovie (QMovie *movie)
+     * void setNum (int)
+     * void setNum (double)
+     * void clear ()
+
+Public Member Functions
+
+     * QLabel (QWidget *parent=0, Qt::WFlags f=0)
+     * QLabel (const QString &text, QWidget *parent=0, Qt::WFlags f=0)
+     * ~QLabel ()
+     * QString text () const
+     * const QPixmap * pixmap () const
+     * const QPicture * picture () const
+     * QMovie * movie () const
+     * Qt::TextFormat textFormat () const
+     * void setTextFormat (Qt::TextFormat)
+     * Qt::Alignment alignment () const
+     * void setAlignment (Qt::Alignment)
+     * void setWordWrap (bool on)
+     * bool wordWrap () const
+     * int indent () const
+     * void setIndent (int)
+     * int margin () const
+     * void setMargin (int)
+     * bool hasScaledContents () const
+     * void setScaledContents (bool)
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * void setBuddy (QWidget *)
+     * QWidget * buddy () const
+     * int heightForWidth (int) const
+
+Protected Member Functions
+
+     * bool event (QEvent *e)
+     * void paintEvent (QPaintEvent *)
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * QString text
+     * Qt TextFormat
+     * QPixmap pixmap
+     * bool scaledContents
+     * Qt Alignment
+     * bool wordWrap
+     * int margin
+     * int indent
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QLabel::QLabel (  QWidget *   parent = 0,
+                     Qt::WFlags  f = 0
+                  )  [explicit]
+
+
+
+   QLabel::QLabel (  const QString &  text,
+                     QWidget *        parent = 0,
+                     Qt::WFlags       f = 0
+                  )  [explicit]
+
+
+
+   QLabel::~QLabel (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Alignment QLabel::alignment (   )  const
+
+
+
+   QWidget* QLabel::buddy (   )  const
+
+
+
+   void QLabel::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   void QLabel::clear (   )  [slot]
+
+
+
+   bool QLabel::event (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QLabel::hasScaledContents (   )  const
+
+
+
+   int QLabel::heightForWidth (  int   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int QLabel::indent (   )  const
+
+
+
+   int QLabel::margin (   )  const
+
+
+
+   QSize QLabel::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QMovie* QLabel::movie (   )  const
+
+
+
+   void QLabel::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   const QPicture* QLabel::picture (   )  const
+
+
+
+   const QPixmap* QLabel::pixmap (   )  const
+
+
+
+   void QLabel::setAlignment (  Qt::Alignment   )
+
+
+
+   void QLabel::setBuddy (  QWidget *   )
+
+
+
+   void QLabel::setIndent (  int   )
+
+
+
+   void QLabel::setMargin (  int   )
+
+
+
+   void QLabel::setMovie (  QMovie *  movie  )  [slot]
+
+
+
+   void QLabel::setNum (  double   )  [slot]
+
+
+
+   void QLabel::setNum (  int   )  [slot]
+
+
+
+   void QLabel::setPicture (  const QPicture &   )  [slot]
+
+
+
+   void QLabel::setPixmap (  const QPixmap &   )  [slot]
+
+
+
+   void QLabel::setScaledContents (  bool   )
+
+
+
+   void QLabel::setText (  const QString &   )  [slot]
+
+
+
+   void QLabel::setTextFormat (  Qt::TextFormat   )
+
+
+
+   void QLabel::setWordWrap (  bool  on  )
+
+
+
+   QSize QLabel::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   QString QLabel::text (   )  const
+
+
+
+   Qt::TextFormat QLabel::textFormat (   )  const
+
+
+
+   bool QLabel::wordWrap (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Qt QLabel::Alignment [read, write]
+
+
+
+   int QLabel::indent [read, write]
+
+
+
+   int QLabel::margin [read, write]
+
+
+
+   QPixmap QLabel::pixmap [read, write]
+
+
+
+   bool QLabel::scaledContents [read, write]
+
+
+
+   QString QLabel::text [read, write]
+
+
+
+   Qt QLabel::TextFormat [read, write]
+
+
+
+   bool QLabel::wordWrap [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlabel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,137 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3ComboTableItem Class Reference
+
+   #include <q3table.h>
+
+   Inherits Q3TableItem.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3ComboTableItem (Q3Table *table, const QStringList &list, bool editable=false)
+     * ~Q3ComboTableItem ()
+     * virtual QWidget * createEditor () const
+     * virtual void setContentFromEditor (QWidget *w)
+     * virtual void paint (QPainter *p, const QColorGroup &cg, const QRect &cr, bool selected)
+     * virtual void setCurrentItem (int i)
+     * virtual void setCurrentItem (const QString &i)
+     * int currentItem () const
+     * QString currentText () const
+     * int count () const
+     * QString text (int i) const
+     * virtual void setEditable (bool b)
+     * bool isEditable () const
+     * virtual void setStringList (const QStringList &l)
+     * int rtti () const
+     * QSize sizeHint () const
+
+Static Public Attributes
+
+     * static int RTTI
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ComboTableItem::Q3ComboTableItem (  Q3Table *            table,
+                                         const QStringList &  list,
+                                         bool                 editable = false
+                                      )
+
+
+
+   Q3ComboTableItem::~Q3ComboTableItem (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int Q3ComboTableItem::count (   )  const
+
+
+
+   virtual QWidget* Q3ComboTableItem::createEditor (   )  const [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   int Q3ComboTableItem::currentItem (   )  const
+
+
+
+   QString Q3ComboTableItem::currentText (   )  const
+
+
+
+   bool Q3ComboTableItem::isEditable (   )  const
+
+
+
+   virtual void Q3ComboTableItem::paint (  QPainter *           p,
+                                           const QColorGroup &  cg,
+                                           const QRect &        cr,
+                                           bool                 selected
+                                        )  [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   int Q3ComboTableItem::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   virtual void Q3ComboTableItem::setContentFromEditor (  QWidget *  w  )  [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   virtual void Q3ComboTableItem::setCurrentItem (  const QString &  i  )  [virtual]
+
+
+
+   virtual void Q3ComboTableItem::setCurrentItem (  int  i  )  [virtual]
+
+
+
+   virtual void Q3ComboTableItem::setEditable (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3ComboTableItem::setStringList (  const QStringList &  l  )  [virtual]
+
+
+
+   QSize Q3ComboTableItem::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   QString Q3ComboTableItem::text (  int  i  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3ComboTableItem::RTTI [static]
+
+
+
+   Reimplemented from Q3TableItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3table.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

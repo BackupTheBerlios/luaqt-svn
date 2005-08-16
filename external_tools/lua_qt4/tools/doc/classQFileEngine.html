@@ -1,0 +1,333 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QFileEngine Class Reference
+
+   #include <qfileengine.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags FileFlags
+     * enum Type { File, Resource, User = 50, MaxUser = 100 }
+     * enum FileFlag {
+         ReadOwnerPerm = 0x4000, WriteOwnerPerm = 0x2000, ExeOwnerPerm = 0x1000, ReadUserPerm = 0x0400,
+         WriteUserPerm = 0x0200, ExeUserPerm = 0x0100, ReadGroupPerm = 0x0040, WriteGroupPerm = 0x0020,
+         ExeGroupPerm = 0x0010, ReadOtherPerm = 0x0004, WriteOtherPerm = 0x0002, ExeOtherPerm = 0x0001,
+         LinkType = 0x10000, FileType = 0x20000, DirectoryType = 0x40000, HiddenFlag = 0x0100000,
+         LocalDiskFlag = 0x0200000, ExistsFlag = 0x0400000, RootFlag = 0x0800000, PermsMask = 0x0000FFFF,
+         TypesMask = 0x000F0000, FlagsMask = 0x0FF00000, FileInfoAll = FlagsMask | PermsMask | TypesMask
+       }
+     * enum FileName {
+         DefaultName, BaseName, PathName, AbsoluteName,
+         AbsolutePathName, LinkName, CanonicalName, CanonicalPathName
+       }
+     * enum FileOwner { OwnerUser, OwnerGroup }
+     * enum FileTime { CreationTime, ModificationTime, AccessTime }
+
+Public Member Functions
+
+     * virtual ~QFileEngine ()
+     * virtual void setFileName (const QString &file)=0
+     * virtual bool open (int flags)=0
+     * virtual bool close ()=0
+     * virtual void flush ()=0
+     * virtual qint64 size () const =0
+     * virtual qint64 at () const =0
+     * virtual bool seek (qint64 off)=0
+     * virtual bool isSequential () const =0
+     * virtual uchar * map (qint64 off, qint64 len)
+     * virtual void unmap (uchar *data)
+     * virtual qint64 read (char *data, qint64 maxlen)=0
+     * virtual qint64 write (const char *data, qint64 len)=0
+     * virtual QFile::FileError error () const
+     * virtual QString errorString () const
+     * virtual bool remove ()=0
+     * virtual bool copy (const QString &newName)=0
+     * virtual bool rename (const QString &newName)=0
+     * virtual bool link (const QString &newName)=0
+     * virtual Type type () const =0
+     * virtual bool mkdir (const QString &dirName, bool createParentDirectories) const =0
+     * virtual bool rmdir (const QString &dirName, bool recurseParentDirectories) const =0
+     * virtual bool setSize (qint64 size)=0
+     * virtual QStringList entryList (QDir::Filters filters, const QStringList &filterNames) const =0
+     * virtual bool caseSensitive () const =0
+     * virtual bool isRelativePath () const =0
+     * virtual FileFlags fileFlags (FileFlags type=FileInfoAll) const =0
+     * virtual bool chmod (uint perms)=0
+     * virtual QString fileName (FileName file=DefaultName) const =0
+     * virtual uint ownerId (FileOwner) const =0
+     * virtual QString owner (FileOwner) const =0
+     * virtual QDateTime fileTime (FileTime time) const =0
+
+Static Public Member Functions
+
+     * static QFileEngine * createFileEngine (const QString &file)
+
+Protected Member Functions
+
+     * QFileEngine ()
+     * QFileEngine (QFileEnginePrivate &)
+
+Protected Attributes
+
+     * QFileEnginePrivate * d_ptr
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QFileEngine::FileFlags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QFileEngine::FileFlag
+
+
+
+   Enumerator: 
+
+          ReadOwnerPerm 
+          WriteOwnerPerm
+          ExeOwnerPerm  
+          ReadUserPerm  
+          WriteUserPerm 
+          ExeUserPerm   
+          ReadGroupPerm 
+          WriteGroupPerm
+          ExeGroupPerm  
+          ReadOtherPerm 
+          WriteOtherPerm
+          ExeOtherPerm  
+          LinkType      
+          FileType      
+          DirectoryType 
+          HiddenFlag    
+          LocalDiskFlag 
+          ExistsFlag    
+          RootFlag      
+          PermsMask     
+          TypesMask     
+          FlagsMask     
+          FileInfoAll   
+
+   enum QFileEngine::FileName
+
+
+
+   Enumerator: 
+
+          DefaultName      
+          BaseName         
+          PathName         
+          AbsoluteName     
+          AbsolutePathName 
+          LinkName         
+          CanonicalName    
+          CanonicalPathName
+
+   enum QFileEngine::FileOwner
+
+
+
+   Enumerator: 
+
+          OwnerUser 
+          OwnerGroup
+
+   enum QFileEngine::FileTime
+
+
+
+   Enumerator: 
+
+          CreationTime    
+          ModificationTime
+          AccessTime      
+
+   enum QFileEngine::Type
+
+
+
+   Enumerator: 
+
+          File    
+          Resource
+          User    
+          MaxUser 
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QFileEngine::~QFileEngine (   )  [virtual]
+
+
+
+   QFileEngine::QFileEngine (   )  [protected]
+
+
+
+   QFileEngine::QFileEngine (  QFileEnginePrivate &   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual qint64 QFileEngine::at (   )  const [pure virtual]
+
+
+
+   virtual bool QFileEngine::caseSensitive (   )  const [pure virtual]
+
+
+
+   virtual bool QFileEngine::chmod (  uint  perms  )  [pure virtual]
+
+
+
+   virtual bool QFileEngine::close (   )  [pure virtual]
+
+
+
+   virtual bool QFileEngine::copy (  const QString &  newName  )  [pure virtual]
+
+
+
+   static QFileEngine* QFileEngine::createFileEngine (  const QString &  file  )  [static]
+
+
+
+   virtual QStringList QFileEngine::entryList (  QDir::Filters        filters,
+                                                 const QStringList &  filterNames
+                                              )  const [pure virtual]
+
+
+
+   virtual QFile::FileError QFileEngine::error (   )  const [virtual]
+
+
+
+   virtual QString QFileEngine::errorString (   )  const [virtual]
+
+
+
+   virtual FileFlags QFileEngine::fileFlags (  FileFlags  type = FileInfoAll  )  const [pure virtual]
+
+
+
+   virtual QString QFileEngine::fileName (  FileName  file = DefaultName  )  const [pure virtual]
+
+
+
+   virtual QDateTime QFileEngine::fileTime (  FileTime  time  )  const [pure virtual]
+
+
+
+   virtual void QFileEngine::flush (   )  [pure virtual]
+
+
+
+   virtual bool QFileEngine::isRelativePath (   )  const [pure virtual]
+
+
+
+   virtual bool QFileEngine::isSequential (   )  const [pure virtual]
+
+
+
+   virtual bool QFileEngine::link (  const QString &  newName  )  [pure virtual]
+
+
+
+   virtual uchar* QFileEngine::map (  qint64  off,
+                                      qint64  len
+                                   )  [virtual]
+
+
+
+   virtual bool QFileEngine::mkdir (  const QString &  dirName,
+                                      bool             createParentDirectories
+                                   )  const [pure virtual]
+
+
+
+   virtual bool QFileEngine::open (  int  flags  )  [pure virtual]
+
+
+
+   virtual QString QFileEngine::owner (  FileOwner   )  const [pure virtual]
+
+
+
+   virtual uint QFileEngine::ownerId (  FileOwner   )  const [pure virtual]
+
+
+
+   virtual qint64 QFileEngine::read (  char *  data,
+                                       qint64  maxlen
+                                    )  [pure virtual]
+
+
+
+   virtual bool QFileEngine::remove (   )  [pure virtual]
+
+
+
+   virtual bool QFileEngine::rename (  const QString &  newName  )  [pure virtual]
+
+
+
+   virtual bool QFileEngine::rmdir (  const QString &  dirName,
+                                      bool             recurseParentDirectories
+                                   )  const [pure virtual]
+
+
+
+   virtual bool QFileEngine::seek (  qint64  off  )  [pure virtual]
+
+
+
+   virtual void QFileEngine::setFileName (  const QString &  file  )  [pure virtual]
+
+
+
+   virtual bool QFileEngine::setSize (  qint64  size  )  [pure virtual]
+
+
+
+   virtual qint64 QFileEngine::size (   )  const [pure virtual]
+
+
+
+   virtual Type QFileEngine::type (   )  const [pure virtual]
+
+
+
+   virtual void QFileEngine::unmap (  uchar *  data  )  [virtual]
+
+
+
+   virtual qint64 QFileEngine::write (  const char *  data,
+                                        qint64        len
+                                     )  [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QFileEnginePrivate* QFileEngine::d_ptr [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qfileengine.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

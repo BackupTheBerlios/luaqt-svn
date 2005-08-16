@@ -1,0 +1,549 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QList< T > Class Template Reference
+
+   #include <qlist.h>
+
+   Inherited by QQueue< T >.
+
+   List of all members.
+
+Public Types
+
+     * typedef iterator Iterator
+     * typedef const_iterator ConstIterator
+     * typedef int size_type
+     * typedef T value_type
+     * typedef value_type * pointer
+     * typedef const value_type * const_pointer
+     * typedef value_type & reference
+     * typedef const value_type & const_reference
+
+Public Member Functions
+
+     * QList ()
+     * QList (const QList &l)
+     * ~QList ()
+     * QList & operator= (const QList &l)
+     * bool operator== (const QList &l) const
+     * bool operator!= (const QList &l) const
+     * int size () const
+     * void detach ()
+     * bool isDetached () const
+     * void setSharable (bool sharable)
+     * bool isEmpty () const
+     * void clear ()
+     * const T & at (int i) const
+     * const T & operator[] (int i) const
+     * T & operator[] (int i)
+     * void append (const T &t)
+     * void prepend (const T &t)
+     * void insert (int i, const T &t)
+     * void replace (int i, const T &t)
+     * void removeAt (int i)
+     * int removeAll (const T &t)
+     * T takeAt (int i)
+     * T takeFirst ()
+     * T takeLast ()
+     * void move (int from, int to)
+     * void swap (int i, int j)
+     * int indexOf (const T &t, int from=0) const
+     * int lastIndexOf (const T &t, int from=-1) const
+     * QBool contains (const T &t) const
+     * int count (const T &t) const
+     * iterator begin ()
+     * const_iterator begin () const
+     * const_iterator constBegin () const
+     * iterator end ()
+     * const_iterator end () const
+     * const_iterator constEnd () const
+     * iterator insert (iterator before, const T &t)
+     * iterator erase (iterator pos)
+     * iterator erase (iterator first, iterator last)
+     * int count () const
+     * T & first ()
+     * const T & first () const
+     * T & last ()
+     * const T & last () const
+     * void removeFirst ()
+     * void removeLast ()
+     * QList< T > mid (int pos, int length=-1) const
+     * T value (int i) const
+     * T value (int i, const T &defaultValue) const
+     * void push_back (const T &t)
+     * void push_front (const T &t)
+     * T & front ()
+     * const T & front () const
+     * T & back ()
+     * const T & back () const
+     * void pop_front ()
+     * void pop_back ()
+     * bool empty () const
+     * QList & operator+= (const QList &l)
+     * QList operator+ (const QList &l) const
+     * QList & operator+= (const T &t)
+     * QList & operator<< (const T &t)
+     * QList & operator<< (const QList &l)
+     * QVector< T > toVector () const
+     * QSet< T > toSet () const
+     * std::list< T > toStdList () const
+
+Static Public Member Functions
+
+     * static QList< T > fromVector (const QVector< T > &vector)
+     * static QList< T > fromSet (const QSet< T > &set)
+     * static QList< T > fromStdList (const std::list< T > &list)
+
+Friends
+
+     * class iterator
+     * class const_iterator
+
+Classes
+
+     * class const_iterator
+     * class iterator
+     * struct Node
+
+  template<typename T>
+  class QList< T >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<typename T>
+   typedef const value_type* QList< T >::const_pointer
+
+
+
+   template<typename T>
+   typedef const value_type& QList< T >::const_reference
+
+
+
+   template<typename T>
+   typedef const_iterator QList< T >::ConstIterator
+
+
+
+   template<typename T>
+   typedef iterator QList< T >::Iterator
+
+
+
+   template<typename T>
+   typedef value_type* QList< T >::pointer
+
+
+
+   template<typename T>
+   typedef value_type& QList< T >::reference
+
+
+
+   template<typename T>
+   typedef int QList< T >::size_type
+
+
+
+   template<typename T>
+   typedef T QList< T >::value_type
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<typename T>
+   QList< T >::QList (   )  [inline]
+
+
+
+   template<typename T>
+   QList< T >::QList (  const QList< T > &  l  )  [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE QList< T >::~QList (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<typename T>
+   void QList< T >::append (  const T &  t  )
+
+
+
+   template<typename T>
+   const T & QList< T >::at (  int  i  )  const [inline]
+
+
+
+   template<typename T>
+   const T& QList< T >::back (   )  const [inline]
+
+
+
+   template<typename T>
+   T& QList< T >::back (   )  [inline]
+
+
+
+   template<typename T>
+   const_iterator QList< T >::begin (   )  const [inline]
+
+
+
+   template<typename T>
+   iterator QList< T >::begin (   )  [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE void QList< T >::clear (   )
+
+
+
+   template<typename T>
+   const_iterator QList< T >::constBegin (   )  const [inline]
+
+
+
+   template<typename T>
+   const_iterator QList< T >::constEnd (   )  const [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE QBool QList< T >::contains (  const T &  t  )  const
+
+
+
+   template<typename T>
+   int QList< T >::count (   )  const [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE int QList< T >::count (  const T &  t  )  const
+
+
+
+   template<typename T>
+   void QList< T >::detach (   )  [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::empty (   )  const [inline]
+
+
+
+   template<typename T>
+   const_iterator QList< T >::end (   )  const [inline]
+
+
+
+   template<typename T>
+   iterator QList< T >::end (   )  [inline]
+
+
+
+   template<typename T>
+   iterator QList< T >::erase (  iterator  first,
+                                 iterator  last
+                              )
+
+
+
+   template<typename T>
+   QList< T >::iterator QList< T >::erase (  iterator  pos  )  [inline]
+
+
+
+   template<typename T>
+   const T& QList< T >::first (   )  const [inline]
+
+
+
+   template<typename T>
+   T& QList< T >::first (   )  [inline]
+
+
+
+   template<typename T>
+   QList< T > QList< T >::fromSet (  const QSet< T > &  set  )  [static]
+
+
+
+   template<typename T>
+   static QList<T> QList< T >::fromStdList (  const std::list< T > &  list  )  [inline, static]
+
+
+
+   template<typename T>
+   QList< T > QList< T >::fromVector (  const QVector< T > &  vector  )  [static]
+
+
+
+   template<typename T>
+   const T& QList< T >::front (   )  const [inline]
+
+
+
+   template<typename T>
+   T& QList< T >::front (   )  [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE int QList< T >::indexOf (  const T &  t,
+                                                   int        from = 0
+                                                )  const
+
+
+
+   template<typename T>
+   QList< T >::iterator QList< T >::insert (  iterator   before,
+                                              const T &  t
+                                           )  [inline]
+
+
+
+   template<typename T>
+   void QList< T >::insert (  int        i,
+                              const T &  t
+                           )  [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::isDetached (   )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::isEmpty (   )  const [inline]
+
+
+
+   template<typename T>
+   const T& QList< T >::last (   )  const [inline]
+
+
+
+   template<typename T>
+   T& QList< T >::last (   )  [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE int QList< T >::lastIndexOf (  const T &  t,
+                                                       int        from = -1
+                                                    )  const
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE QList< T > QList< T >::mid (  int  pos,
+                                                      int  length = -1
+                                                   )  const
+
+
+
+   template<typename T>
+   void QList< T >::move (  int  from,
+                            int  to
+                         )  [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::operator!= (  const QList< T > &  l  )  const [inline]
+
+
+
+   template<typename T>
+   QList QList< T >::operator+ (  const QList< T > &  l  )  const [inline]
+
+
+
+   template<typename T>
+   QList& QList< T >::operator+= (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   QList& QList< T >::operator+= (  const QList< T > &  l  )
+
+
+
+   template<typename T>
+   QList& QList< T >::operator<< (  const QList< T > &  l  )  [inline]
+
+
+
+   template<typename T>
+   QList& QList< T >::operator<< (  const T &  t  )  [inline]
+
+
+
+   Reimplemented in QStringList.
+
+   template<typename T>
+   QList& QList< T >::operator= (  const QList< T > &  l  )
+
+
+
+   template<typename T>
+   bool QList< T >::operator== (  const QList< T > &  l  )  const
+
+
+
+   template<typename T>
+   T & QList< T >::operator[] (  int  i  )  [inline]
+
+
+
+   template<typename T>
+   const T & QList< T >::operator[] (  int  i  )  const [inline]
+
+
+
+   template<typename T>
+   void QList< T >::pop_back (   )  [inline]
+
+
+
+   template<typename T>
+   void QList< T >::pop_front (   )  [inline]
+
+
+
+   template<typename T>
+   void QList< T >::prepend (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   void QList< T >::push_back (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   void QList< T >::push_front (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE int QList< T >::removeAll (  const T &  t  )
+
+
+
+   template<typename T>
+   void QList< T >::removeAt (  int  i  )  [inline]
+
+
+
+   template<typename T>
+   void QList< T >::removeFirst (   )  [inline]
+
+
+
+   template<typename T>
+   void QList< T >::removeLast (   )  [inline]
+
+
+
+   template<typename T>
+   void QList< T >::replace (  int        i,
+                               const T &  t
+                            )  [inline]
+
+
+
+   template<typename T>
+   void QList< T >::setSharable (  bool  sharable  )  [inline]
+
+
+
+   template<typename T>
+   int QList< T >::size (   )  const [inline]
+
+
+
+   template<typename T>
+   void QList< T >::swap (  int  i,
+                            int  j
+                         )  [inline]
+
+
+
+   template<typename T>
+   T QList< T >::takeAt (  int  i  )  [inline]
+
+
+
+   template<typename T>
+   T QList< T >::takeFirst (   )  [inline]
+
+
+
+   template<typename T>
+   T QList< T >::takeLast (   )  [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE QSet< T > QList< T >::toSet (   )  const
+
+
+
+   template<typename T>
+   std::list<T> QList< T >::toStdList (   )  const [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE QVector< T > QList< T >::toVector (   )  const
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE T QList< T >::value (  int        i,
+                                               const T &  defaultValue
+                                            )  const
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE T QList< T >::value (  int  i  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   template<typename T>
+   friend class const_iterator [friend]
+
+
+
+   template<typename T>
+   friend class iterator [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following files:
+     * include/qlist.h
+     * include/qset.h
+     * include/qvector.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

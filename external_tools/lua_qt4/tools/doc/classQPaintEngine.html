@@ -1,0 +1,459 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QPaintEngine Class Reference
+
+   #include <qpaintengine.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags PaintEngineFeatures
+     * typedef LuaQtGenericFlags DirtyFlags
+     * enum PaintEngineFeature {
+         PrimitiveTransform = 0x00000001, PatternTransform = 0x00000002, PixmapTransform = 0x00000004, PatternBrush = 0x00000008,
+         LinearGradientFill = 0x00000010, RadialGradientFill = 0x00000020, ConicalGradientFill = 0x00000040, AlphaBlend = 0x00000080,
+         PorterDuff = 0x00000100, PainterPaths = 0x00000200, Antialiasing = 0x00000400, BrushStroke = 0x00000800,
+         PaintOutsidePaintEvent = 0x20000000, AllFeatures = 0xffffffff
+       }
+     * enum DirtyFlag {
+         DirtyPen = 0x0001, DirtyBrush = 0x0002, DirtyBrushOrigin = 0x0004, DirtyFont = 0x0008,
+         DirtyBackground = 0x0010, DirtyBackgroundMode = 0x0020, DirtyTransform = 0x0040, DirtyClipRegion = 0x0080,
+         DirtyClipPath = 0x0100, DirtyHints = 0x0200, DirtyCompositionMode = 0x0400, AllDirty = 0xffff
+       }
+     * enum PolygonDrawMode { OddEvenMode, WindingMode, ConvexMode, PolylineMode }
+     * enum Type {
+         X11, Windows, QuickDraw, CoreGraphics,
+         MacPrinter, QWindowSystem, PostScript, OpenGL,
+         Picture, SVG, Raster, User = 50,
+         MaxUser = 100
+       }
+
+Public Member Functions
+
+     * QPaintEngine (PaintEngineFeatures features=0)
+     * virtual ~QPaintEngine ()
+     * bool isActive () const
+     * void setActive (bool newState)
+     * virtual bool begin (QPaintDevice *pdev)=0
+     * virtual bool end ()=0
+     * virtual void updateState (const QPaintEngineState &state)=0
+     * virtual void drawRects (const QRect *rects, int rectCount)
+     * virtual void drawRects (const QRectF *rects, int rectCount)
+     * virtual void drawLines (const QLine *lines, int lineCount)
+     * virtual void drawLines (const QLineF *lines, int lineCount)
+     * virtual void drawEllipse (const QRectF &r)
+     * virtual void drawEllipse (const QRect &r)
+     * virtual void drawPath (const QPainterPath &path)
+     * virtual void drawPoints (const QPointF *points, int pointCount)
+     * virtual void drawPoints (const QPoint *points, int pointCount)
+     * virtual void drawPolygon (const QPointF *points, int pointCount, PolygonDrawMode mode)
+     * virtual void drawPolygon (const QPoint *points, int pointCount, PolygonDrawMode mode)
+     * virtual void drawPixmap (const QRectF &r, const QPixmap &pm, const QRectF &sr)=0
+     * virtual void drawTextItem (const QPointF &p, const QTextItem &textItem)
+     * virtual void drawTiledPixmap (const QRectF &r, const QPixmap &pixmap, const QPointF &s)
+     * virtual void drawImage (const QRectF &r, const QImage &pm, const QRectF &sr, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * void setPaintDevice (QPaintDevice *device)
+     * QPaintDevice * paintDevice () const
+     * void setSystemClip (const QRegion &baseClip)
+     * QRegion systemClip () const
+     * virtual QPoint coordinateOffset () const
+     * virtual Type type () const =0
+     * void fix_neg_rect (int *x, int *y, int *w, int *h)
+     * bool testDirty (DirtyFlags df)
+     * void setDirty (DirtyFlags df)
+     * void clearDirty (DirtyFlags df)
+     * bool hasFeature (PaintEngineFeatures feature) const
+     * QPainter * painter () const
+     * void syncState ()
+
+Protected Member Functions
+
+     * QPaintEngine (QPaintEnginePrivate &data, PaintEngineFeatures devcaps=0)
+
+Protected Attributes
+
+     * QPaintEngineState * state
+     * PaintEngineFeatures gccaps
+     * uint active: 1
+     * uint selfDestruct: 1
+     * QPaintEnginePrivate * d_ptr
+
+Friends
+
+     * class QFontEngineBox
+     * class QFontEngineMac
+     * class QFontEngineWin
+     * class QFontEngineFT
+     * class QFontEngineQPF
+     * class QPSPrintEngine
+     * class QMacPrintEngine
+     * class QMacPrintEnginePrivate
+     * class QPainter
+     * class QPainterPrivate
+     * class QWidget
+     * class QWin32PaintEngine
+     * class QWin32PaintEnginePrivate
+     * class QMacCGContext
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QPaintEngine::DirtyFlags
+
+
+
+   typedef LuaQtGenericFlags QPaintEngine::PaintEngineFeatures
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QPaintEngine::DirtyFlag
+
+
+
+   Enumerator: 
+
+          DirtyPen            
+          DirtyBrush          
+          DirtyBrushOrigin    
+          DirtyFont           
+          DirtyBackground     
+          DirtyBackgroundMode 
+          DirtyTransform      
+          DirtyClipRegion     
+          DirtyClipPath       
+          DirtyHints          
+          DirtyCompositionMode
+          AllDirty            
+
+   enum QPaintEngine::PaintEngineFeature
+
+
+
+   Enumerator: 
+
+          PrimitiveTransform    
+          PatternTransform      
+          PixmapTransform       
+          PatternBrush          
+          LinearGradientFill    
+          RadialGradientFill    
+          ConicalGradientFill   
+          AlphaBlend            
+          PorterDuff            
+          PainterPaths          
+          Antialiasing          
+          BrushStroke           
+          PaintOutsidePaintEvent
+          AllFeatures           
+
+   enum QPaintEngine::PolygonDrawMode
+
+
+
+   Enumerator: 
+
+          OddEvenMode 
+          WindingMode 
+          ConvexMode  
+          PolylineMode
+
+   enum QPaintEngine::Type
+
+
+
+   Enumerator: 
+
+          X11          
+          Windows      
+          QuickDraw    
+          CoreGraphics 
+          MacPrinter   
+          QWindowSystem
+          PostScript   
+          OpenGL       
+          Picture      
+          SVG          
+          Raster       
+          User         
+          MaxUser      
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPaintEngine::QPaintEngine (  PaintEngineFeatures  features = 0  )  [explicit]
+
+
+
+   virtual QPaintEngine::~QPaintEngine (   )  [virtual]
+
+
+
+   QPaintEngine::QPaintEngine (  QPaintEnginePrivate &  data,
+                                 PaintEngineFeatures    devcaps = 0
+                              )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual bool QPaintEngine::begin (  QPaintDevice *  pdev  )  [pure virtual]
+
+
+
+   void QPaintEngine::clearDirty (  DirtyFlags  df  )  [inline]
+
+
+
+   virtual QPoint QPaintEngine::coordinateOffset (   )  const [virtual]
+
+
+
+   virtual void QPaintEngine::drawEllipse (  const QRect &  r  )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawEllipse (  const QRectF &  r  )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawImage (  const QRectF &            r,
+                                           const QImage &            pm,
+                                           const QRectF &            sr,
+                                           Qt::ImageConversionFlags  flags = Qt::AutoColor
+                                        )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawLines (  const QLineF *  lines,
+                                           int             lineCount
+                                        )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawLines (  const QLine *  lines,
+                                           int            lineCount
+                                        )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawPath (  const QPainterPath &  path  )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawPixmap (  const QRectF &   r,
+                                            const QPixmap &  pm,
+                                            const QRectF &   sr
+                                         )  [pure virtual]
+
+
+
+   virtual void QPaintEngine::drawPoints (  const QPoint *  points,
+                                            int             pointCount
+                                         )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawPoints (  const QPointF *  points,
+                                            int              pointCount
+                                         )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawPolygon (  const QPoint *   points,
+                                             int              pointCount,
+                                             PolygonDrawMode  mode
+                                          )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawPolygon (  const QPointF *  points,
+                                             int              pointCount,
+                                             PolygonDrawMode  mode
+                                          )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawRects (  const QRectF *  rects,
+                                           int             rectCount
+                                        )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawRects (  const QRect *  rects,
+                                           int            rectCount
+                                        )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawTextItem (  const QPointF &    p,
+                                              const QTextItem &  textItem
+                                           )  [virtual]
+
+
+
+   virtual void QPaintEngine::drawTiledPixmap (  const QRectF &   r,
+                                                 const QPixmap &  pixmap,
+                                                 const QPointF &  s
+                                              )  [virtual]
+
+
+
+   virtual bool QPaintEngine::end (   )  [pure virtual]
+
+
+
+   void QPaintEngine::fix_neg_rect (  int *  x,
+                                      int *  y,
+                                      int *  w,
+                                      int *  h
+                                   )  [inline]
+
+
+
+   bool QPaintEngine::hasFeature (  PaintEngineFeatures  feature  )  const [inline]
+
+
+
+   bool QPaintEngine::isActive (   )  const [inline]
+
+
+
+   QPaintDevice* QPaintEngine::paintDevice (   )  const
+
+
+
+   QPainter* QPaintEngine::painter (   )  const
+
+
+
+   void QPaintEngine::setActive (  bool  newState  )  [inline]
+
+
+
+   void QPaintEngine::setDirty (  DirtyFlags  df  )  [inline]
+
+
+
+   void QPaintEngine::setPaintDevice (  QPaintDevice *  device  )
+
+
+
+   void QPaintEngine::setSystemClip (  const QRegion &  baseClip  )
+
+
+
+   void QPaintEngine::syncState (   )  [inline]
+
+
+
+   QRegion QPaintEngine::systemClip (   )  const
+
+
+
+   bool QPaintEngine::testDirty (  DirtyFlags  df  )  [inline]
+
+
+
+   virtual Type QPaintEngine::type (   )  const [pure virtual]
+
+
+
+   virtual void QPaintEngine::updateState (  const QPaintEngineState &  state  )  [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QFontEngineBox [friend]
+
+
+
+   friend class QFontEngineFT [friend]
+
+
+
+   friend class QFontEngineMac [friend]
+
+
+
+   friend class QFontEngineQPF [friend]
+
+
+
+   friend class QFontEngineWin [friend]
+
+
+
+   friend class QMacCGContext [friend]
+
+
+
+   friend class QMacPrintEngine [friend]
+
+
+
+   friend class QMacPrintEnginePrivate [friend]
+
+
+
+   friend class QPainter [friend]
+
+
+
+   friend class QPainterPrivate [friend]
+
+
+
+   friend class QPSPrintEngine [friend]
+
+
+
+   friend class QWidget [friend]
+
+
+
+   friend class QWin32PaintEngine [friend]
+
+
+
+   friend class QWin32PaintEnginePrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   uint QPaintEngine::active [protected]
+
+
+
+   QPaintEnginePrivate* QPaintEngine::d_ptr [protected]
+
+
+
+   PaintEngineFeatures QPaintEngine::gccaps [protected]
+
+
+
+   uint QPaintEngine::selfDestruct [protected]
+
+
+
+   QPaintEngineState* QPaintEngine::state [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpaintengine.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,337 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTabWidget Class Reference
+
+   #include <qtabwidget.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum TabPosition { North, South, West, East }
+     * enum TabShape { Rounded, Triangular }
+
+Public Slots
+
+     * void setCurrentIndex (int index)
+     * void setCurrentWidget (QWidget *widget)
+
+Signals
+
+     * void currentChanged (int index)
+
+Public Member Functions
+
+     * QTabWidget (QWidget *parent=0)
+     * ~QTabWidget ()
+     * int addTab (QWidget *widget, const QString &)
+     * int addTab (QWidget *widget, const QIcon &icon, const QString &label)
+     * int insertTab (int index, QWidget *widget, const QString &)
+     * int insertTab (int index, QWidget *widget, const QIcon &icon, const QString &label)
+     * void removeTab (int index)
+     * bool isTabEnabled (int index) const
+     * void setTabEnabled (int index, bool)
+     * QString tabText (int index) const
+     * void setTabText (int index, const QString &)
+     * QIcon tabIcon (int index) const
+     * void setTabIcon (int index, const QIcon &icon)
+     * void setTabToolTip (int index, const QString &tip)
+     * QString tabToolTip (int index) const
+     * int currentIndex () const
+     * QWidget * currentWidget () const
+     * QWidget * widget (int index) const
+     * int indexOf (QWidget *widget) const
+     * int count () const
+     * TabPosition tabPosition () const
+     * void setTabPosition (TabPosition)
+     * TabShape tabShape () const
+     * void setTabShape (TabShape s)
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * void setCornerWidget (QWidget *w, Qt::Corner corner=Qt::TopRightCorner)
+     * QWidget * cornerWidget (Qt::Corner corner=Qt::TopRightCorner) const
+
+Protected Member Functions
+
+     * virtual void tabInserted (int index)
+     * virtual void tabRemoved (int index)
+     * void showEvent (QShowEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * void paintEvent (QPaintEvent *)
+     * void setTabBar (QTabBar *)
+     * QTabBar * tabBar () const
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * TabPosition tabPosition
+     * TabShape tabShape
+     * int currentIndex
+     * int count
+
+Friends
+
+     * class Q3TabDialog
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTabWidget::TabPosition
+
+
+
+   Enumerator: 
+
+          North
+          South
+          West 
+          East 
+
+   enum QTabWidget::TabShape
+
+
+
+   Enumerator: 
+
+          Rounded   
+          Triangular
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTabWidget::QTabWidget (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QTabWidget::~QTabWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QTabWidget::addTab (  QWidget *        widget,
+                             const QIcon &    icon,
+                             const QString &  label
+                          )
+
+
+
+   int QTabWidget::addTab (  QWidget *        widget,
+                             const QString &
+                          )
+
+
+
+   void QTabWidget::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QWidget* QTabWidget::cornerWidget (  Qt::Corner  corner = Qt::TopRightCorner  )  const
+
+
+
+   int QTabWidget::count (   )  const
+
+
+
+   void QTabWidget::currentChanged (  int  index  )  [signal]
+
+
+
+   int QTabWidget::currentIndex (   )  const
+
+
+
+   QWidget* QTabWidget::currentWidget (   )  const
+
+
+
+   int QTabWidget::indexOf (  QWidget *  widget  )  const
+
+
+
+   int QTabWidget::insertTab (  int              index,
+                                QWidget *        widget,
+                                const QIcon &    icon,
+                                const QString &  label
+                             )
+
+
+
+   int QTabWidget::insertTab (  int              index,
+                                QWidget *        widget,
+                                const QString &
+                             )
+
+
+
+   bool QTabWidget::isTabEnabled (  int  index  )  const
+
+
+
+   void QTabWidget::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QTabWidget::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QTabWidget::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QTabWidget::removeTab (  int  index  )
+
+
+
+   void QTabWidget::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QTabWidget::setCornerWidget (  QWidget *   w,
+                                       Qt::Corner  corner = Qt::TopRightCorner
+                                    )
+
+
+
+   void QTabWidget::setCurrentIndex (  int  index  )  [slot]
+
+
+
+   void QTabWidget::setCurrentWidget (  QWidget *  widget  )  [slot]
+
+
+
+   void QTabWidget::setTabBar (  QTabBar *   )  [protected]
+
+
+
+   void QTabWidget::setTabEnabled (  int   index,
+                                     bool
+                                  )
+
+
+
+   void QTabWidget::setTabIcon (  int            index,
+                                  const QIcon &  icon
+                               )
+
+
+
+   void QTabWidget::setTabPosition (  TabPosition   )
+
+
+
+   void QTabWidget::setTabShape (  TabShape  s  )
+
+
+
+   void QTabWidget::setTabText (  int              index,
+                                  const QString &
+                               )
+
+
+
+   void QTabWidget::setTabToolTip (  int              index,
+                                     const QString &  tip
+                                  )
+
+
+
+   void QTabWidget::showEvent (  QShowEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QTabWidget::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QTabBar* QTabWidget::tabBar (   )  const [protected]
+
+
+
+   QIcon QTabWidget::tabIcon (  int  index  )  const
+
+
+
+   virtual void QTabWidget::tabInserted (  int  index  )  [protected, virtual]
+
+
+
+   TabPosition QTabWidget::tabPosition (   )  const
+
+
+
+   virtual void QTabWidget::tabRemoved (  int  index  )  [protected, virtual]
+
+
+
+   TabShape QTabWidget::tabShape (   )  const
+
+
+
+   QString QTabWidget::tabText (  int  index  )  const
+
+
+
+   QString QTabWidget::tabToolTip (  int  index  )  const
+
+
+
+   QWidget* QTabWidget::widget (  int  index  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3TabDialog [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QTabWidget::count [read]
+
+
+
+   int QTabWidget::currentIndex [read, write]
+
+
+
+   TabPosition QTabWidget::tabPosition [read, write]
+
+
+
+   TabShape QTabWidget::tabShape [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtabwidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

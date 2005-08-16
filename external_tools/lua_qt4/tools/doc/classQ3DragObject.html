@@ -1,0 +1,144 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3DragObject Class Reference
+
+   #include <q3dragobject.h>
+
+   Inherits QObject, and QMimeSource.
+
+   Inherited by Q3IconDrag, Q3ImageDrag, Q3StoredDrag, and Q3TextDrag.
+
+   List of all members.
+
+Public Types
+
+     * enum DragMode {
+         DragDefault, DragCopy, DragMove, DragLink,
+         DragCopyOrMove
+       }
+
+Public Member Functions
+
+     * Q3DragObject (QWidget *dragSource=0, const char *name=0)
+     * virtual ~Q3DragObject ()
+     * bool drag ()
+     * bool dragMove ()
+     * void dragCopy ()
+     * void dragLink ()
+     * virtual void setPixmap (QPixmap)
+     * virtual void setPixmap (QPixmap, const QPoint &hotspot)
+     * QPixmap pixmap () const
+     * QPoint pixmapHotSpot () const
+     * QWidget * source ()
+
+Static Public Member Functions
+
+     * static QWidget * target ()
+
+Protected Member Functions
+
+     * Q3DragObject (Q3DragObjectPrivate &, QWidget *dragSource=0)
+     * virtual bool drag (DragMode)
+
+Friends
+
+     * class QDragMime
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3DragObject::DragMode
+
+
+
+   Enumerator: 
+
+          DragDefault   
+          DragCopy      
+          DragMove      
+          DragLink      
+          DragCopyOrMove
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3DragObject::Q3DragObject (  QWidget *     dragSource = 0,
+                                 const char *  name = 0
+                              )
+
+
+
+   virtual Q3DragObject::~Q3DragObject (   )  [virtual]
+
+
+
+   Q3DragObject::Q3DragObject (  Q3DragObjectPrivate &  ,
+                                 QWidget *              dragSource = 0
+                              )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual bool Q3DragObject::drag (  DragMode   )  [protected, virtual]
+
+
+
+   bool Q3DragObject::drag (   )
+
+
+
+   void Q3DragObject::dragCopy (   )
+
+
+
+   void Q3DragObject::dragLink (   )
+
+
+
+   bool Q3DragObject::dragMove (   )
+
+
+
+   QPixmap Q3DragObject::pixmap (   )  const
+
+
+
+   QPoint Q3DragObject::pixmapHotSpot (   )  const
+
+
+
+   virtual void Q3DragObject::setPixmap (  QPixmap         ,
+                                           const QPoint &  hotspot
+                                        )  [virtual]
+
+
+
+   virtual void Q3DragObject::setPixmap (  QPixmap   )  [virtual]
+
+
+
+   QWidget* Q3DragObject::source (   )
+
+
+
+   static QWidget* Q3DragObject::target (   )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QDragMime [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3dragobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

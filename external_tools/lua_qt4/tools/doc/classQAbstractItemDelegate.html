@@ -1,0 +1,167 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QAbstractItemDelegate Class Reference
+
+   #include <qabstractitemdelegate.h>
+
+   Inherits QObject.
+
+   Inherited by QItemDelegate.
+
+   List of all members.
+
+Public Types
+
+     * enum EndEditHint {
+         NoHint, EditNextItem, EditPreviousItem, SubmitModelCache,
+         RevertModelCache
+       }
+
+Signals
+
+     * void commitData (QWidget *editor)
+     * void closeEditor (QWidget *editor, EndEditHint hint=NoHint)
+
+Public Member Functions
+
+     * QAbstractItemDelegate (QObject *parent=0)
+     * virtual ~QAbstractItemDelegate ()
+     * virtual void paint (QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const =0
+     * virtual QSize sizeHint (const QStyleOptionViewItem &option, const QModelIndex &index) const =0
+     * virtual QWidget * createEditor (QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+     * virtual void setEditorData (QWidget *editor, const QModelIndex &index) const
+     * virtual void setModelData (QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+     * virtual void updateEditorGeometry (QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
+     * virtual bool editorEvent (QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+
+Static Public Member Functions
+
+     * static QString elidedText (const QFontMetrics &fontMetrics, int width, Qt::TextElideMode mode, const QString &text)
+
+Protected Member Functions
+
+     * QAbstractItemDelegate (QObjectPrivate &, QObject *parent=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QAbstractItemDelegate::EndEditHint
+
+
+
+   Enumerator: 
+
+          NoHint          
+          EditNextItem    
+          EditPreviousItem
+          SubmitModelCache
+          RevertModelCache
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractItemDelegate::QAbstractItemDelegate (  QObject *  parent = 0  )  [explicit]
+
+
+
+   virtual QAbstractItemDelegate::~QAbstractItemDelegate (   )  [virtual]
+
+
+
+   QAbstractItemDelegate::QAbstractItemDelegate (  QObjectPrivate &  ,
+                                                   QObject *         parent = 0
+                                                )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QAbstractItemDelegate::closeEditor (  QWidget *    editor,
+                                              EndEditHint  hint = NoHint
+                                           )  [signal]
+
+
+
+   void QAbstractItemDelegate::commitData (  QWidget *  editor  )  [signal]
+
+
+
+   virtual QWidget* QAbstractItemDelegate::createEditor (  QWidget *                     parent,
+                                                           const QStyleOptionViewItem &  option,
+                                                           const QModelIndex &           index
+                                                        )  const [virtual]
+
+
+
+   Reimplemented in QItemDelegate.
+
+   virtual bool QAbstractItemDelegate::editorEvent (  QEvent *                      event,
+                                                      QAbstractItemModel *          model,
+                                                      const QStyleOptionViewItem &  option,
+                                                      const QModelIndex &           index
+                                                   )  [virtual]
+
+
+
+   Reimplemented in QItemDelegate.
+
+   static QString QAbstractItemDelegate::elidedText (  const QFontMetrics &  fontMetrics,
+                                                       int                   width,
+                                                       Qt::TextElideMode     mode,
+                                                       const QString &       text
+                                                    )  [static]
+
+
+
+   virtual void QAbstractItemDelegate::paint (  QPainter *                    painter,
+                                                const QStyleOptionViewItem &  option,
+                                                const QModelIndex &           index
+                                             )  const [pure virtual]
+
+
+
+   Implemented in QItemDelegate.
+
+   virtual void QAbstractItemDelegate::setEditorData (  QWidget *            editor,
+                                                        const QModelIndex &  index
+                                                     )  const [virtual]
+
+
+
+   Reimplemented in QItemDelegate.
+
+   virtual void QAbstractItemDelegate::setModelData (  QWidget *             editor,
+                                                       QAbstractItemModel *  model,
+                                                       const QModelIndex &   index
+                                                    )  const [virtual]
+
+
+
+   Reimplemented in QItemDelegate.
+
+   virtual QSize QAbstractItemDelegate::sizeHint (  const QStyleOptionViewItem &  option,
+                                                    const QModelIndex &           index
+                                                 )  const [pure virtual]
+
+
+
+   Implemented in QItemDelegate.
+
+   virtual void QAbstractItemDelegate::updateEditorGeometry (  QWidget *                     editor,
+                                                               const QStyleOptionViewItem &  option,
+                                                               const QModelIndex &           index
+                                                            )  const [virtual]
+
+
+
+   Reimplemented in QItemDelegate.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractitemdelegate.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

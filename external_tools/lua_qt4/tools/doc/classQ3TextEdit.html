@@ -1,0 +1,1254 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3TextEdit Class Reference
+
+   #include <q3textedit.h>
+
+   Inherits Q3ScrollView.
+
+   Inherited by Q3MultiLineEdit, Q3TextBrowser, and Q3TextView.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags AutoFormatting
+     * enum WordWrap { NoWrap, WidgetWidth, FixedPixelWidth, FixedColumnWidth }
+     * enum WrapPolicy { AtWordBoundary, AtWhiteSpace = AtWordBoundary, Anywhere, AtWordOrDocumentBoundary }
+     * enum AutoFormattingFlag { AutoNone = 0, AutoBulletList = 0x00000001, AutoAll = 0xffffffff }
+     * enum KeyboardAction {
+         ActionBackspace, ActionDelete, ActionReturn, ActionKill,
+         ActionWordBackspace, ActionWordDelete
+       }
+     * enum CursorAction {
+         MoveBackward, MoveForward, MoveWordBackward, MoveWordForward,
+         MoveUp, MoveDown, MoveLineStart, MoveLineEnd,
+         MoveHome, MoveEnd, MovePgUp, MovePgDown
+       }
+     * enum VerticalAlignment { AlignNormal, AlignSuperScript, AlignSubScript }
+     * enum TextInsertionFlags { RedoIndentation = 0x0001, CheckNewLines = 0x0002, RemoveSelected = 0x0004 }
+
+Public Slots
+
+     * virtual void setMimeSourceFactory (Q3MimeSourceFactory *factory)
+     * virtual void setStyleSheet (Q3StyleSheet *styleSheet)
+     * virtual void scrollToAnchor (const QString &name)
+     * virtual void setPaper (const QBrush &pap)
+     * virtual void setLinkUnderline (bool)
+     * virtual void setWordWrap (WordWrap mode)
+     * virtual void setWrapColumnOrWidth (int)
+     * virtual void setWrapPolicy (WrapPolicy policy)
+     * virtual void copy ()
+     * virtual void append (const QString &text)
+     * void setText (const QString &txt)
+     * virtual void setText (const QString &txt, const QString &context)
+     * virtual void setTextFormat (Qt::TextFormat f)
+     * virtual void selectAll (bool select=true)
+     * virtual void setTabStopWidth (int ts)
+     * virtual void zoomIn (int range)
+     * virtual void zoomIn ()
+     * virtual void zoomOut (int range)
+     * virtual void zoomOut ()
+     * virtual void zoomTo (int size)
+     * virtual void sync ()
+     * virtual void setReadOnly (bool b)
+     * virtual void undo ()
+     * virtual void redo ()
+     * virtual void cut ()
+     * virtual void paste ()
+     * virtual void pasteSubType (const QByteArray &subtype)
+     * virtual void clear ()
+     * virtual void del ()
+     * virtual void indent ()
+     * virtual void setItalic (bool b)
+     * virtual void setBold (bool b)
+     * virtual void setUnderline (bool b)
+     * virtual void setFamily (const QString &f)
+     * virtual void setPointSize (int s)
+     * virtual void setColor (const QColor &c)
+     * virtual void setVerticalAlignment (VerticalAlignment a)
+     * virtual void setAlignment (int a)
+     * virtual void setParagType (Q3StyleSheetItem::DisplayMode dm, Q3StyleSheetItem::ListStyle listStyle)
+     * virtual void setCursorPosition (int parag, int index)
+     * virtual void setSelection (int parag_from, int index_from, int parag_to, int index_to, int selNum=0)
+     * virtual void setSelectionAttributes (int selNum, const QColor &back, bool invertText)
+     * virtual void setModified (bool m)
+     * virtual void resetFormat ()
+     * virtual void setUndoDepth (int d)
+     * virtual void setFormat (Q3TextFormat *f, int flags)
+     * virtual void ensureCursorVisible ()
+     * virtual void placeCursor (const QPoint &pos, Q3TextCursor *c=0)
+     * virtual void moveCursor (CursorAction action, bool select)
+     * virtual void doKeyboardAction (KeyboardAction action)
+     * virtual void removeSelectedText (int selNum=0)
+     * virtual void removeSelection (int selNum=0)
+     * virtual void setCurrentFont (const QFont &f)
+     * virtual void setOverwriteMode (bool b)
+     * virtual void scrollToBottom ()
+     * virtual void insert (const QString &text, uint insertionFlags=CheckNewLines|RemoveSelected)
+     * virtual void insert (const QString &text, bool, bool=true, bool=true)
+     * virtual void insertAt (const QString &text, int para, int index)
+     * virtual void removeParagraph (int para)
+     * virtual void insertParagraph (const QString &text, int para)
+     * virtual void setParagraphBackgroundColor (int para, const QColor &bg)
+     * virtual void clearParagraphBackground (int para)
+     * virtual void setUndoRedoEnabled (bool b)
+     * virtual void setTabChangesFocus (bool b)
+     * void polishEvent (QEvent *)
+     * void setMaxLogLines (int numLines)
+     * int maxLogLines () const
+
+Signals
+
+     * void textChanged ()
+     * void selectionChanged ()
+     * void copyAvailable (bool)
+     * void undoAvailable (bool yes)
+     * void redoAvailable (bool yes)
+     * void currentFontChanged (const QFont &f)
+     * void currentColorChanged (const QColor &c)
+     * void currentAlignmentChanged (int a)
+     * void currentVerticalAlignmentChanged (VerticalAlignment a)
+     * void cursorPositionChanged (Q3TextCursor *c)
+     * void cursorPositionChanged (int para, int pos)
+     * void returnPressed ()
+     * void modificationChanged (bool m)
+     * void clicked (int parag, int index)
+     * void doubleClicked (int parag, int index)
+
+Public Member Functions
+
+     * Q3TextEdit (const QString &text, const QString &context=QString(), QWidget *parent=0, const char *name=0)
+     * Q3TextEdit (QWidget *parent=0, const char *name=0)
+     * virtual ~Q3TextEdit ()
+     * QString text () const
+     * QString text (int para) const
+     * Qt::TextFormat textFormat () const
+     * QString context () const
+     * QString documentTitle () const
+     * void getSelection (int *paraFrom, int *indexFrom, int *paraTo, int *indexTo, int selNum=0) const
+     * virtual bool find (const QString &expr, bool cs, bool wo, bool forward=true, int *para=0, int *index=0)
+     * int paragraphs () const
+     * int lines () const
+     * int linesOfParagraph (int para) const
+     * int lineOfChar (int para, int chr)
+     * int length () const
+     * QRect paragraphRect (int para) const
+     * int paragraphAt (const QPoint &pos) const
+     * int charAt (const QPoint &pos, int *para) const
+     * int paragraphLength (int para) const
+     * Q3StyleSheet * styleSheet () const
+     * Q3MimeSourceFactory * mimeSourceFactory () const
+     * QBrush paper () const
+     * bool linkUnderline () const
+     * int heightForWidth (int w) const
+     * bool hasSelectedText () const
+     * QString selectedText () const
+     * bool isUndoAvailable () const
+     * bool isRedoAvailable () const
+     * WordWrap wordWrap () const
+     * int wrapColumnOrWidth () const
+     * WrapPolicy wrapPolicy () const
+     * int tabStopWidth () const
+     * QString anchorAt (const QPoint &pos, Qt::AnchorAttribute a=Qt::AnchorHref)
+     * QSize sizeHint () const
+     * bool isReadOnly () const
+     * void getCursorPosition (int *parag, int *index) const
+     * bool isModified () const
+     * bool italic () const
+     * bool bold () const
+     * bool underline () const
+     * QString family () const
+     * int pointSize () const
+     * QColor color () const
+     * QFont font () const
+     * QFont currentFont () const
+     * int alignment () const
+     * VerticalAlignment verticalAlignment () const
+     * int undoDepth () const
+     * virtual bool getFormat (int para, int index, QFont *font, QColor *color, VerticalAlignment *verticalAlignment)
+     * virtual bool getParagraphFormat (int para, QFont *font, QColor *color, VerticalAlignment *verticalAlignment, int *alignment, Q3StyleSheetItem::DisplayMode *displayMode, Q3StyleSheetItem::ListStyle *listStyle, int *listDepth)
+     * bool isOverwriteMode () const
+     * QColor paragraphBackgroundColor (int para) const
+     * bool isUndoRedoEnabled () const
+     * bool eventFilter (QObject *o, QEvent *e)
+     * bool tabChangesFocus () const
+     * void setAutoFormatting (AutoFormatting)
+     * AutoFormatting autoFormatting () const
+     * Q3SyntaxHighlighter * syntaxHighlighter () const
+
+Protected Slots
+
+     * virtual void doChangeInterval ()
+     * virtual void sliderReleased ()
+
+Protected Member Functions
+
+     * void repaintChanged ()
+     * void updateStyles ()
+     * void drawContents (QPainter *p, int cx, int cy, int cw, int ch)
+     * bool event (QEvent *e)
+     * void changeEvent (QEvent *)
+     * void keyPressEvent (QKeyEvent *e)
+     * void resizeEvent (QResizeEvent *e)
+     * void viewportResizeEvent (QResizeEvent *)
+     * void contentsMousePressEvent (QMouseEvent *e)
+     * void contentsMouseMoveEvent (QMouseEvent *e)
+     * void contentsMouseReleaseEvent (QMouseEvent *e)
+     * void contentsMouseDoubleClickEvent (QMouseEvent *e)
+     * void contentsWheelEvent (QWheelEvent *e)
+     * void inputMethodEvent (QInputMethodEvent *)
+     * void contentsDragEnterEvent (QDragEnterEvent *e)
+     * void contentsDragMoveEvent (QDragMoveEvent *e)
+     * void contentsDragLeaveEvent (QDragLeaveEvent *e)
+     * void contentsDropEvent (QDropEvent *e)
+     * void contentsContextMenuEvent (QContextMenuEvent *e)
+     * bool focusNextPrevChild (bool next)
+     * Q3TextDocument * document () const
+     * Q3TextCursor * textCursor () const
+     * void setDocument (Q3TextDocument *doc)
+     * virtual Q3PopupMenu * createPopupMenu (const QPoint &pos)
+     * virtual Q3PopupMenu * createPopupMenu ()
+     * void drawCursor (bool visible)
+
+Properties
+
+     * Qt TextFormat
+     * QString text
+     * QBrush paper
+     * bool linkUnderline
+     * QString documentTitle
+     * int length
+     * WordWrap wordWrap
+     * int wrapColumnOrWidth
+     * WrapPolicy wrapPolicy
+     * bool hasSelectedText
+     * QString selectedText
+     * int undoDepth
+     * bool overwriteMode
+     * bool modified
+     * bool readOnly
+     * bool undoRedoEnabled
+     * int tabStopWidth
+     * bool tabChangesFocus
+     * AutoFormattingFlag autoFormatting
+
+Friends
+
+     * class Q3TextBrowser
+     * class Q3SyntaxHighlighter
+
+Classes
+
+     * struct UndoRedoInfo
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags Q3TextEdit::AutoFormatting
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3TextEdit::AutoFormattingFlag
+
+
+
+   Enumerator: 
+
+          AutoNone      
+          AutoBulletList
+          AutoAll       
+
+   enum Q3TextEdit::CursorAction
+
+
+
+   Enumerator: 
+
+          MoveBackward    
+          MoveForward     
+          MoveWordBackward
+          MoveWordForward 
+          MoveUp          
+          MoveDown        
+          MoveLineStart   
+          MoveLineEnd     
+          MoveHome        
+          MoveEnd         
+          MovePgUp        
+          MovePgDown      
+
+   enum Q3TextEdit::KeyboardAction
+
+
+
+   Enumerator: 
+
+          ActionBackspace    
+          ActionDelete       
+          ActionReturn       
+          ActionKill         
+          ActionWordBackspace
+          ActionWordDelete   
+
+   enum Q3TextEdit::TextInsertionFlags
+
+
+
+   Enumerator: 
+
+          RedoIndentation
+          CheckNewLines  
+          RemoveSelected 
+
+   enum Q3TextEdit::VerticalAlignment
+
+
+
+   Enumerator: 
+
+          AlignNormal     
+          AlignSuperScript
+          AlignSubScript  
+
+   enum Q3TextEdit::WordWrap
+
+
+
+   Enumerator: 
+
+          NoWrap          
+          WidgetWidth     
+          FixedPixelWidth 
+          FixedColumnWidth
+
+   enum Q3TextEdit::WrapPolicy
+
+
+
+   Enumerator: 
+
+          AtWordBoundary          
+          AtWhiteSpace            
+          Anywhere                
+          AtWordOrDocumentBoundary
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3TextEdit::Q3TextEdit (  const QString &  text,
+                             const QString &  context = QString(),
+                             QWidget *        parent = 0,
+                             const char *     name = 0
+                          )
+
+
+
+   Q3TextEdit::Q3TextEdit (  QWidget *     parent = 0,
+                             const char *  name = 0
+                          )
+
+
+
+   virtual Q3TextEdit::~Q3TextEdit (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int Q3TextEdit::alignment (   )  const
+
+
+
+   Reimplemented in Q3MultiLineEdit.
+
+   QString Q3TextEdit::anchorAt (  const QPoint &       pos,
+                                   Qt::AnchorAttribute  a = Qt::AnchorHref
+                                )
+
+
+
+   virtual void Q3TextEdit::append (  const QString &  text  )  [virtual, slot]
+
+
+
+   AutoFormatting Q3TextEdit::autoFormatting (   )  const
+
+
+
+   bool Q3TextEdit::bold (   )  const
+
+
+
+   void Q3TextEdit::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   int Q3TextEdit::charAt (  const QPoint &  pos,
+                             int *           para
+                          )  const
+
+
+
+   virtual void Q3TextEdit::clear (   )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::clearParagraphBackground (  int  para  )  [virtual, slot]
+
+
+
+   void Q3TextEdit::clicked (  int  parag,
+                               int  index
+                            )  [signal]
+
+
+
+   QColor Q3TextEdit::color (   )  const
+
+
+
+   void Q3TextEdit::contentsContextMenuEvent (  QContextMenuEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::contentsDragEnterEvent (  QDragEnterEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::contentsDragLeaveEvent (  QDragLeaveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::contentsDragMoveEvent (  QDragMoveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::contentsDropEvent (  QDropEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::contentsMouseDoubleClickEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::contentsMouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::contentsMousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::contentsMouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::contentsWheelEvent (  QWheelEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   QString Q3TextEdit::context (   )  const
+
+
+
+   virtual void Q3TextEdit::copy (   )  [virtual, slot]
+
+
+
+   void Q3TextEdit::copyAvailable (  bool   )  [signal]
+
+
+
+   virtual Q3PopupMenu* Q3TextEdit::createPopupMenu (   )  [protected, virtual]
+
+
+
+   virtual Q3PopupMenu* Q3TextEdit::createPopupMenu (  const QPoint &  pos  )  [protected, virtual]
+
+
+
+   void Q3TextEdit::currentAlignmentChanged (  int  a  )  [signal]
+
+
+
+   void Q3TextEdit::currentColorChanged (  const QColor &  c  )  [signal]
+
+
+
+   QFont Q3TextEdit::currentFont (   )  const
+
+
+
+   void Q3TextEdit::currentFontChanged (  const QFont &  f  )  [signal]
+
+
+
+   void Q3TextEdit::currentVerticalAlignmentChanged (  VerticalAlignment  a  )  [signal]
+
+
+
+   void Q3TextEdit::cursorPositionChanged (  int  para,
+                                             int  pos
+                                          )  [signal]
+
+
+
+   void Q3TextEdit::cursorPositionChanged (  Q3TextCursor *  c  )  [signal]
+
+
+
+   virtual void Q3TextEdit::cut (   )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::del (   )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::doChangeInterval (   )  [protected, virtual, slot]
+
+
+
+   Q3TextDocument * Q3TextEdit::document (   )  const [inline, protected]
+
+
+
+   QString Q3TextEdit::documentTitle (   )  const
+
+
+
+   virtual void Q3TextEdit::doKeyboardAction (  KeyboardAction  action  )  [virtual, slot]
+
+
+
+   void Q3TextEdit::doubleClicked (  int  parag,
+                                     int  index
+                                  )  [signal]
+
+
+
+   void Q3TextEdit::drawContents (  QPainter *  p,
+                                    int         cx,
+                                    int         cy,
+                                    int         cw,
+                                    int         ch
+                                 )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::drawCursor (  bool  visible  )  [protected]
+
+
+
+   virtual void Q3TextEdit::ensureCursorVisible (   )  [virtual, slot]
+
+
+
+   bool Q3TextEdit::event (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool Q3TextEdit::eventFilter (  QObject *  o,
+                                   QEvent *   e
+                                )  [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   QString Q3TextEdit::family (   )  const
+
+
+
+   virtual bool Q3TextEdit::find (  const QString &  expr,
+                                    bool             cs,
+                                    bool             wo,
+                                    bool             forward = true,
+                                    int *            para = 0,
+                                    int *            index = 0
+                                 )  [virtual]
+
+
+
+   bool Q3TextEdit::focusNextPrevChild (  bool  next  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   QFont Q3TextEdit::font (   )  const
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3TextEdit::getCursorPosition (  int *  parag,
+                                         int *  index
+                                      )  const
+
+
+
+   virtual bool Q3TextEdit::getFormat (  int                  para,
+                                         int                  index,
+                                         QFont *              font,
+                                         QColor *             color,
+                                         VerticalAlignment *  verticalAlignment
+                                      )  [virtual]
+
+
+
+   virtual bool Q3TextEdit::getParagraphFormat (  int                              para,
+                                                  QFont *                          font,
+                                                  QColor *                         color,
+                                                  VerticalAlignment *              verticalAlignment,
+                                                  int *                            alignment,
+                                                  Q3StyleSheetItem::DisplayMode *  displayMode,
+                                                  Q3StyleSheetItem::ListStyle *    listStyle,
+                                                  int *                            listDepth
+                                               )  [virtual]
+
+
+
+   void Q3TextEdit::getSelection (  int *  paraFrom,
+                                    int *  indexFrom,
+                                    int *  paraTo,
+                                    int *  indexTo,
+                                    int    selNum = 0
+                                 )  const
+
+
+
+   bool Q3TextEdit::hasSelectedText (   )  const
+
+
+
+   int Q3TextEdit::heightForWidth (  int  w  )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3TextEdit::indent (   )  [virtual, slot]
+
+
+
+   void Q3TextEdit::inputMethodEvent (  QInputMethodEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3TextEdit::insert (  const QString &  text,
+                                      bool             ,
+                                      bool             = true,
+                                      bool             = true
+                                   )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::insert (  const QString &  text,
+                                      uint             insertionFlags = CheckNewLines|RemoveSelected
+                                   )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::insertAt (  const QString &  text,
+                                        int              para,
+                                        int              index
+                                     )  [virtual, slot]
+
+
+
+   Reimplemented in Q3MultiLineEdit.
+
+   virtual void Q3TextEdit::insertParagraph (  const QString &  text,
+                                               int              para
+                                            )  [virtual, slot]
+
+
+
+   bool Q3TextEdit::isModified (   )  const
+
+
+
+   bool Q3TextEdit::isOverwriteMode (   )  const [inline]
+
+
+
+   bool Q3TextEdit::isReadOnly (   )  const [inline]
+
+
+
+   bool Q3TextEdit::isRedoAvailable (   )  const
+
+
+
+   bool Q3TextEdit::isUndoAvailable (   )  const
+
+
+
+   bool Q3TextEdit::isUndoRedoEnabled (   )  const
+
+
+
+   bool Q3TextEdit::italic (   )  const
+
+
+
+   void Q3TextEdit::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3TextBrowser.
+
+   int Q3TextEdit::length (   )  const
+
+
+
+   int Q3TextEdit::lineOfChar (  int  para,
+                                 int  chr
+                              )
+
+
+
+   int Q3TextEdit::lines (   )  const
+
+
+
+   int Q3TextEdit::linesOfParagraph (  int  para  )  const
+
+
+
+   bool Q3TextEdit::linkUnderline (   )  const
+
+
+
+   int Q3TextEdit::maxLogLines (   )  const [slot]
+
+
+
+   Q3MimeSourceFactory* Q3TextEdit::mimeSourceFactory (   )  const
+
+
+
+   void Q3TextEdit::modificationChanged (  bool  m  )  [signal]
+
+
+
+   virtual void Q3TextEdit::moveCursor (  CursorAction  action,
+                                          bool          select
+                                       )  [virtual, slot]
+
+
+
+   QBrush Q3TextEdit::paper (   )  const
+
+
+
+   int Q3TextEdit::paragraphAt (  const QPoint &  pos  )  const
+
+
+
+   QColor Q3TextEdit::paragraphBackgroundColor (  int  para  )  const
+
+
+
+   int Q3TextEdit::paragraphLength (  int  para  )  const
+
+
+
+   QRect Q3TextEdit::paragraphRect (  int  para  )  const
+
+
+
+   int Q3TextEdit::paragraphs (   )  const
+
+
+
+   virtual void Q3TextEdit::paste (   )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::pasteSubType (  const QByteArray &  subtype  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::placeCursor (  const QPoint &  pos,
+                                           Q3TextCursor *  c = 0
+                                        )  [virtual, slot]
+
+
+
+   int Q3TextEdit::pointSize (   )  const
+
+
+
+   void Q3TextEdit::polishEvent (  QEvent *   )  [slot]
+
+
+
+   virtual void Q3TextEdit::redo (   )  [virtual, slot]
+
+
+
+   void Q3TextEdit::redoAvailable (  bool  yes  )  [signal]
+
+
+
+   virtual void Q3TextEdit::removeParagraph (  int  para  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::removeSelectedText (  int  selNum = 0  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::removeSelection (  int  selNum = 0  )  [virtual, slot]
+
+
+
+   void Q3TextEdit::repaintChanged (   )  [protected]
+
+
+
+   virtual void Q3TextEdit::resetFormat (   )  [virtual, slot]
+
+
+
+   void Q3TextEdit::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3TextEdit::returnPressed (   )  [signal]
+
+
+
+   virtual void Q3TextEdit::scrollToAnchor (  const QString &  name  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::scrollToBottom (   )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::selectAll (  bool  select = true  )  [virtual, slot]
+
+
+
+   QString Q3TextEdit::selectedText (   )  const
+
+
+
+   void Q3TextEdit::selectionChanged (   )  [signal]
+
+
+
+   virtual void Q3TextEdit::setAlignment (  int  a  )  [virtual, slot]
+
+
+
+   void Q3TextEdit::setAutoFormatting (  AutoFormatting   )
+
+
+
+   virtual void Q3TextEdit::setBold (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setColor (  const QColor &  c  )  [virtual, slot]
+
+
+
+   void Q3TextEdit::setCurrentFont (  const QFont &  f  )  [inline, virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setCursorPosition (  int  parag,
+                                                 int  index
+                                              )  [virtual, slot]
+
+
+
+   Reimplemented in Q3MultiLineEdit.
+
+   void Q3TextEdit::setDocument (  Q3TextDocument *  doc  )  [protected]
+
+
+
+   virtual void Q3TextEdit::setFamily (  const QString &  f  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setFormat (  Q3TextFormat *  f,
+                                         int             flags
+                                      )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setItalic (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setLinkUnderline (  bool   )  [virtual, slot]
+
+
+
+   void Q3TextEdit::setMaxLogLines (  int  numLines  )  [slot]
+
+
+
+   virtual void Q3TextEdit::setMimeSourceFactory (  Q3MimeSourceFactory *  factory  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setModified (  bool  m  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setOverwriteMode (  bool  b  )  [inline, virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setPaper (  const QBrush &  pap  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setParagraphBackgroundColor (  int             para,
+                                                           const QColor &  bg
+                                                        )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setParagType (  Q3StyleSheetItem::DisplayMode  dm,
+                                            Q3StyleSheetItem::ListStyle    listStyle
+                                         )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setPointSize (  int  s  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setReadOnly (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setSelection (  int  parag_from,
+                                            int  index_from,
+                                            int  parag_to,
+                                            int  index_to,
+                                            int  selNum = 0
+                                         )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setSelectionAttributes (  int             selNum,
+                                                      const QColor &  back,
+                                                      bool            invertText
+                                                   )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setStyleSheet (  Q3StyleSheet *  styleSheet  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setTabChangesFocus (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setTabStopWidth (  int  ts  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setText (  const QString &  txt,
+                                       const QString &  context
+                                    )  [virtual, slot]
+
+
+
+   Reimplemented in Q3TextBrowser.
+
+   void Q3TextEdit::setText (  const QString &  txt  )  [inline, slot]
+
+
+
+   Reimplemented in Q3TextBrowser.
+
+   virtual void Q3TextEdit::setTextFormat (  Qt::TextFormat  f  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setUnderline (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setUndoDepth (  int  d  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setUndoRedoEnabled (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setVerticalAlignment (  VerticalAlignment  a  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setWordWrap (  WordWrap  mode  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setWrapColumnOrWidth (  int   )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::setWrapPolicy (  WrapPolicy  policy  )  [virtual, slot]
+
+
+
+   QSize Q3TextEdit::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3TextEdit::sliderReleased (   )  [protected, virtual, slot]
+
+
+
+   Q3StyleSheet* Q3TextEdit::styleSheet (   )  const
+
+
+
+   virtual void Q3TextEdit::sync (   )  [virtual, slot]
+
+
+
+   Q3SyntaxHighlighter* Q3TextEdit::syntaxHighlighter (   )  const
+
+
+
+   bool Q3TextEdit::tabChangesFocus (   )  const
+
+
+
+   int Q3TextEdit::tabStopWidth (   )  const
+
+
+
+   QString Q3TextEdit::text (  int  para  )  const
+
+
+
+   QString Q3TextEdit::text (   )  const
+
+
+
+   void Q3TextEdit::textChanged (   )  [signal]
+
+
+
+   Q3TextCursor * Q3TextEdit::textCursor (   )  const [inline, protected]
+
+
+
+   Qt::TextFormat Q3TextEdit::textFormat (   )  const
+
+
+
+   bool Q3TextEdit::underline (   )  const
+
+
+
+   virtual void Q3TextEdit::undo (   )  [virtual, slot]
+
+
+
+   void Q3TextEdit::undoAvailable (  bool  yes  )  [signal]
+
+
+
+   int Q3TextEdit::undoDepth (   )  const
+
+
+
+   void Q3TextEdit::updateStyles (   )  [protected]
+
+
+
+   VerticalAlignment Q3TextEdit::verticalAlignment (   )  const
+
+
+
+   void Q3TextEdit::viewportResizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   WordWrap Q3TextEdit::wordWrap (   )  const
+
+
+
+   int Q3TextEdit::wrapColumnOrWidth (   )  const
+
+
+
+   WrapPolicy Q3TextEdit::wrapPolicy (   )  const
+
+
+
+   virtual void Q3TextEdit::zoomIn (   )  [inline, virtual, slot]
+
+
+
+   virtual void Q3TextEdit::zoomIn (  int  range  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::zoomOut (   )  [inline, virtual, slot]
+
+
+
+   virtual void Q3TextEdit::zoomOut (  int  range  )  [virtual, slot]
+
+
+
+   virtual void Q3TextEdit::zoomTo (  int  size  )  [virtual, slot]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3SyntaxHighlighter [friend]
+
+
+
+   friend class Q3TextBrowser [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   AutoFormattingFlag Q3TextEdit::autoFormatting [read, write]
+
+
+
+   QString Q3TextEdit::documentTitle [read]
+
+
+
+   bool Q3TextEdit::hasSelectedText [read]
+
+
+
+   int Q3TextEdit::length [read]
+
+
+
+   bool Q3TextEdit::linkUnderline [read, write]
+
+
+
+   bool Q3TextEdit::modified [read, write]
+
+
+
+   bool Q3TextEdit::overwriteMode [read, write]
+
+
+
+   QBrush Q3TextEdit::paper [read, write]
+
+
+
+   bool Q3TextEdit::readOnly [read, write]
+
+
+
+   QString Q3TextEdit::selectedText [read]
+
+
+
+   bool Q3TextEdit::tabChangesFocus [read, write]
+
+
+
+   int Q3TextEdit::tabStopWidth [read, write]
+
+
+
+   QString Q3TextEdit::text [read, write]
+
+
+
+   Qt Q3TextEdit::TextFormat [read, write]
+
+
+
+   int Q3TextEdit::undoDepth [read, write]
+
+
+
+   bool Q3TextEdit::undoRedoEnabled [read, write]
+
+
+
+   WordWrap Q3TextEdit::wordWrap [read, write]
+
+
+
+   int Q3TextEdit::wrapColumnOrWidth [read, write]
+
+
+
+   WrapPolicy Q3TextEdit::wrapPolicy [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3textedit.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,96 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QVBoxLayout Class Reference
+
+   The QVBoxLayout class lines up widgets vertically. More...
+#include <QVBoxLayout>
+
+   Part of the QtGui module.
+
+   Inherits QBoxLayout.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QVBoxLayout ()
+     * QVBoxLayout ( QWidget * parent )
+     * ~QVBoxLayout ()
+
+     * 22 public functions inherited from QBoxLayout
+     * 29 public functions inherited from QLayout
+     * 28 public functions inherited from QObject
+     * 16 public functions inherited from QLayoutItem
+
+  Additional Inherited Members
+
+     * 3 properties inherited from QLayout
+     * 1 property inherited from QObject
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QObject
+     * 1 static public member inherited from QLayout
+     * 4 static public members inherited from QObject
+     * 1 protected function inherited from QBoxLayout
+     * 3 protected functions inherited from QLayout
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QVBoxLayout class lines up widgets vertically.
+
+   This class is used to construct vertical box layout objects. See
+   QBoxLayout for details.
+
+   The simplest use of the class is like this:
+        QWidget *window = new QWidget;
+        QPushButton *button1 = new QPushButton("One");
+        QPushButton *button2 = new QPushButton("Two");
+        QPushButton *button3 = new QPushButton("Three");
+        QPushButton *button4 = new QPushButton("Four");
+        QPushButton *button5 = new QPushButton("Five");
+
+        QVBoxLayout *layout = new QVBoxLayout;
+        layout->addWidget(button1);
+        layout->addWidget(button2);
+        layout->addWidget(button3);
+        layout->addWidget(button4);
+        layout->addWidget(button5);
+
+        window->setLayout(layout);
+        window->show();
+
+   First, we create the widgets we want in the layout. Then, we create
+   the QVBoxLayout object and add the widgets into the layout. Finally,
+   we call QWidget::setLayout() to install the QVBoxLayout object onto
+   the widget. At that point, the widgets in the layout are reparented to
+   have window as their parent.
+
+               Horizontal box layout with five child widgets
+
+   See also QHBoxLayout, QGridLayout, QStackedLayout, and Layout Classes.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QVBoxLayout::QVBoxLayout ()
+
+   Constructs a new vertical box. You must add it to another layout.
+
+  QVBoxLayout::QVBoxLayout ( QWidget * parent )
+
+   Constructs a new top-level vertical box with parent parent.
+
+  QVBoxLayout::~QVBoxLayout ()
+
+   Destroys this box layout.
+
+   The layout's widgets aren't destroyed.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

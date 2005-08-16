@@ -1,0 +1,103 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QScrollBar Class Reference
+
+   #include <qscrollbar.h>
+
+   Inherits QAbstractSlider.
+
+   List of all members.
+
+Public Member Functions
+
+     * QScrollBar (QWidget *parent=0)
+     * QScrollBar (Qt::Orientation, QWidget *parent=0)
+     * ~QScrollBar ()
+     * QSize sizeHint () const
+     * bool event (QEvent *event)
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+     * void mousePressEvent (QMouseEvent *)
+     * void mouseReleaseEvent (QMouseEvent *)
+     * void mouseMoveEvent (QMouseEvent *)
+     * void hideEvent (QHideEvent *)
+     * void sliderChange (SliderChange change)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QScrollBar::QScrollBar (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QScrollBar::QScrollBar (  Qt::Orientation  ,
+                             QWidget *        parent = 0
+                          )  [explicit]
+
+
+
+   QScrollBar::~QScrollBar (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QScrollBar::event (  QEvent *  event  )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QScrollBar::hideEvent (  QHideEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QScrollBar::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QScrollBar::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QScrollBar::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QScrollBar::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QScrollBar::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QScrollBar::sliderChange (  SliderChange  change  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractSlider.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qscrollbar.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

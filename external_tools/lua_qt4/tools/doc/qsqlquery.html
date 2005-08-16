@@ -1,0 +1,615 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QSqlQuery Class Reference
+
+   The QSqlQuery class provides a means of executing and manipulating SQL
+   statements. More...
+#include <QSqlQuery>
+
+   Part of the QtSql module.
+
+   Inherited by Q3SqlCursor.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QSqlQuery ( QSqlResult * result )
+     * QSqlQuery ( const QString & query = QString(), QSqlDatabase db =
+       QSqlDatabase() )
+     * QSqlQuery ( QSqlDatabase db )
+     * QSqlQuery ( const QSqlQuery & other )
+     * ~QSqlQuery ()
+     * void addBindValue ( const QVariant & val, QSql::ParamType
+       paramType = QSql::In )
+     * int at () const
+     * void bindValue ( const QString & placeholder, const QVariant &
+       val, QSql::ParamType paramType = QSql::In )
+     * void bindValue ( int pos, const QVariant & val, QSql::ParamType
+       paramType = QSql::In )
+     * QVariant boundValue ( const QString & placeholder ) const
+     * QVariant boundValue ( int pos ) const
+     * QMap<QString, QVariant> boundValues () const
+     * void clear ()
+     * const QSqlDriver * driver () const
+     * bool exec ( const QString & query )
+     * bool exec ()
+     * QString executedQuery () const
+     * bool first ()
+     * bool isActive () const
+     * bool isForwardOnly () const
+     * bool isNull ( int field ) const
+     * bool isSelect () const
+     * bool isValid () const
+     * bool last ()
+     * QSqlError lastError () const
+     * QVariant lastInsertId () const
+     * QString lastQuery () const
+     * bool next ()
+     * int numRowsAffected () const
+     * bool prepare ( const QString & query )
+     * bool previous ()
+     * QSqlRecord record () const
+     * const QSqlResult * result () const
+     * bool seek ( int index, bool relative = false )
+     * void setForwardOnly ( bool forward )
+     * int size () const
+     * QVariant value ( int index ) const
+     * QSqlQuery & operator= ( const QSqlQuery & other )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QSqlQuery class provides a means of executing and manipulating SQL
+   statements.
+
+   QSqlQuery encapsulates the functionality involved in creating,
+   navigating and retrieving data from SQL queries which are executed on
+   a QSqlDatabase. It can be used to execute DML (data manipulation
+   language) statements, such as SELECT, INSERT, UPDATE and DELETE, as
+   well as DDL (data definition language) statements, such as CREATE
+   TABLE. It can also be used to execute database-specific commands which
+   are not standard SQL (e.g. SET DATESTYLE=ISO for PostgreSQL).
+
+   Successfully executed SQL statements set the query's state to active;
+   isActive() then returns true. Otherwise the query's state is set to
+   inactive. In either case, when executing a new SQL statement, the
+   query is positioned on an invalid record; an active query must be
+   navigated to a valid record (so that isValid() returns true) before
+   values can be retrieved.
+
+   Navigating records is performed with the following functions:
+     * next()
+     * previous()
+     * first()
+     * last()
+     * seek()
+
+   These functions allow the programmer to move forward, backward or
+   arbitrarily through the records returned by the query. If you only
+   need to move forward through the results, e.g. using next() or using
+   seek() with a positive offset, you can use setForwardOnly() and save a
+   significant amount of memory overhead. Once an active query is
+   positioned on a valid record, data can be retrieved using value(). All
+   data is transferred from the SQL backend using QVariants.
+
+   For example:
+        QSqlQuery query("SELECT country FROM artist");
+        while (query.next()) {
+            QString country = query.value(0).toString();
+            doSomething(country);
+        }
+
+   To access the data returned by a query, use value(int). Each field in
+   the data returned by a SELECT statement is accessed by passing the
+   field's position in the statement, starting from 0. This makes using
+   SELECT * queries inadvisable because the order of the fields returned
+   is indeterminate.
+
+   For the sake of efficiency, there are no functions to access a field
+   by name (unless you use prepared queries with names, as explained
+   below). To convert a field name into an index, use record().indexOf(),
+   for example:
+        QSqlQuery query("SELECT * FROM artist");
+        int fieldNo = query.record().indexOf("country");
+        while (query.next()) {
+            QString country = query.value(fieldNo).toString();
+            doSomething(country);
+        }
+
+   QSqlQuery supports prepared query execution and the binding of
+   parameter values to placeholders. Some databases don't support these
+   features, so for those, Qt emulates the required functionality. For
+   example, the Oracle and ODBC drivers have proper prepared query
+   support, and Qt makes use of it; but for databases that don't have
+   this support, Qt implements the feature itself, e.g. by replacing
+   placeholders with actual values when a query is executed. Use
+   numRowsAffected() to find out how many rows were affected by a
+   non-SELECT query, and size() to find how many were retrieved by a
+   SELECT.
+
+   Oracle databases identify placeholders by using a colon-name syntax,
+   e.g :name. ODBC simply uses ? characters. Qt supports both syntaxes,
+   with the restriction that you can't mix them in the same query.
+
+   You can retrieve the values of all the fields in a single variable (a
+   map) using boundValues().
+
+   Below we present the same example using each of the four different
+   binding approaches, as well as one example of binding values to a
+   stored procedure.
+
+   Named binding using named placeholders:
+        QSqlQuery query;
+        query.prepare("INSERT INTO person (id, forename, surname) "
+                      "VALUES (:id, :forename, :surname)");
+        query.bindValue(":id", 1001);
+        query.bindValue(":forename", "Bart");
+        query.bindValue(":surname", "Simpson");
+        query.exec();
+
+   Positional binding using named placeholders:
+        QSqlQuery query;
+        query.prepare("INSERT INTO person (id, forename, surname) "
+                      "VALUES (:id, :forename, :surname)");
+        query.bindValue(0, 1001);
+        query.bindValue(1, "Bart");
+        query.bindValue(2, "Simpson");
+        query.exec();
+
+   Binding values using positional placeholders (version 1):
+        QSqlQuery query;
+        query.prepare("INSERT INTO person (id, forename, surname) "
+                      "VALUES (?, ?, ?)");
+        query.bindValue(0, 1001);
+        query.bindValue(1, "Bart");
+        query.bindValue(2, "Simpson");
+        query.exec();
+
+   Binding values using positional placeholders (version 2):
+        QSqlQuery query;
+        query.prepare("INSERT INTO person (id, forename, surname) "
+                      "VALUES (?, ?, ?)");
+        query.addBindValue(1001);
+        query.addBindValue("Bart");
+        query.addBindValue("Simpson");
+        query.exec();
+
+   Binding values to a stored procedure:
+
+   This code calls a stored procedure called AsciiToInt(), passing it a
+   character through its in parameter, and taking its result in the out
+   parameter.
+        QSqlQuery query;
+        query.prepare("CALL AsciiToInt(?, ?)");
+        query.bindValue(0, "A");
+        query.bindValue(1, 0, QSql::Out);
+        query.exec();
+        int i = query.boundValue(1).toInt(); // i is 65
+
+   See also QSqlDatabase, QSqlQueryModel, QSqlTableModel, and QVariant.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QSqlQuery::QSqlQuery ( QSqlResult * result )
+
+   Constructs a QSqlQuery object which uses the QSqlResult result to
+   communicate with a database.
+
+  QSqlQuery::QSqlQuery ( const QString & query = QString(), QSqlDatabase db =
+  QSqlDatabase() )
+
+   Constructs a QSqlQuery object using the SQL query and the database db.
+   If db is not specified, the application's default database is used. If
+   query is not an empty string, it will be executed.
+
+   See also QSqlDatabase.
+
+  QSqlQuery::QSqlQuery ( QSqlDatabase db )
+
+   Constructs a QSqlQuery object using the database db.
+
+   See also QSqlDatabase.
+
+  QSqlQuery::QSqlQuery ( const QSqlQuery & other )
+
+   Constructs a copy of other.
+
+  QSqlQuery::~QSqlQuery ()
+
+   Destroys the object and frees any allocated resources.
+
+  void QSqlQuery::addBindValue ( const QVariant & val, QSql::ParamType
+  paramType = QSql::In )
+
+   Adds the value val to the list of values when using positional value
+   binding. The order of the addBindValue() calls determines which
+   placeholder a value will be bound to in the prepared query. If
+   paramType is QSql::Out or QSql::InOut, the placeholder will be
+   overwritten with data from the database after the exec() call.
+
+   See also bindValue(), prepare(), exec(), boundValue(), and
+   boundValues().
+
+  int QSqlQuery::at () const
+
+   Returns the current internal position of the query. The first record
+   is at position zero. If the position is invalid, the function returns
+   QSql::BeforeFirstRow or QSql::AfterLastRow, which are special negative
+   values.
+
+   See also previous(), next(), first(), last(), seek(), isActive(), and
+   isValid().
+
+  void QSqlQuery::bindValue ( const QString & placeholder, const QVariant &
+  val, QSql::ParamType paramType = QSql::In )
+
+   Set the placeholder placeholder to be bound to value val in the
+   prepared statement. Note that the placeholder mark (e.g :) must be
+   included when specifying the placeholder name. If paramType is
+   QSql::Out or QSql::InOut, the placeholder will be overwritten with
+   data from the database after the exec() call.
+
+   See also addBindValue(), prepare(), exec(), boundValue(), and
+   boundValues().
+
+  void QSqlQuery::bindValue ( int pos, const QVariant & val, QSql::ParamType
+  paramType = QSql::In )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Set the placeholder in position pos to be bound to value val in the
+   prepared statement. Field numbering starts at 0. If paramType is
+   QSql::Out or QSql::InOut, the placeholder will be overwritten with
+   data from the database after the exec() call.
+
+  QVariant QSqlQuery::boundValue ( const QString & placeholder ) const
+
+   Returns the value for the placeholder.
+
+   See also boundValues(), bindValue(), and addBindValue().
+
+  QVariant QSqlQuery::boundValue ( int pos ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the value for the placeholder at position pos.
+
+  QMap<QString, QVariant> QSqlQuery::boundValues () const
+
+   Returns a map of the bound values.
+
+   With named binding, the bound values can be examined in the following
+   ways:
+        QMapIterator<QString, QVariant> i(query.boundValues());
+        while (i.hasNext()) {
+            i.next();
+            cout << i.key().toAscii().data() << ": "
+                 << i.value().toString().toAscii().data() << endl;
+        }
+
+   With positional binding, the code becomes:
+        QList<QVariant> list = query.boundValues().values();
+        for (int i = 0; i < list.size(); ++i)
+            cout << i << ": " << list.at(i).toString().toAscii().data() << endl
+;
+
+   See also boundValue(), bindValue(), and addBindValue().
+
+  void QSqlQuery::clear ()
+
+   Clears the result set and releases any resources held by the query.
+   You should rarely if ever need to call this function.
+
+  const QSqlDriver * QSqlQuery::driver () const
+
+   Returns the database driver associated with the query.
+
+  bool QSqlQuery::exec ( const QString & query )
+
+   Executes the SQL in query. Returns true and sets the query state to
+   active if the query was successful; otherwise returns false. The query
+   string must use syntax appropriate for the SQL database being queried
+   (for example, standard SQL).
+
+   After the query is executed, the query is positioned on an invalid
+   record and must be navigated to a valid record before data values can
+   be retrieved (for example, using next()).
+
+   Note that the last error for this query is reset when exec() is
+   called.
+
+   Example:
+        QSqlQuery query("SELECT country FROM artist");
+        while (query.next()) {
+            QString country = query.value(0).toString();
+            doSomething(country);
+        }
+
+   See also isActive(), isValid(), next(), previous(), first(), last(),
+   and seek().
+
+  bool QSqlQuery::exec ()
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Executes a previously prepared SQL query. Returns true if the query
+   executed successfully; otherwise returns false.
+
+   See also prepare(), bindValue(), addBindValue(), boundValue(), and
+   boundValues().
+
+  QString QSqlQuery::executedQuery () const
+
+   Returns the last query that was executed.
+
+   In most cases this function returns the same string as lastQuery(). If
+   a prepared query with placeholders is executed on a DBMS that does not
+   support it, the preparation of this query is emulated. The
+   placeholders in the original query are replaced with their bound
+   values to form a new query. This function returns the modified query.
+   It is mostly useful for debugging purposes.
+
+   See also lastQuery().
+
+  bool QSqlQuery::first ()
+
+   Retrieves the first record in the result, if available, and positions
+   the query on the retrieved record. Note that the result must be in an
+   active state and isSelect() must return true before calling this
+   function or it will do nothing and return false. Returns true if
+   successful. If unsuccessful the query position is set to an invalid
+   position and false is returned.
+
+   See also next(), previous(), last(), seek(), at(), isActive(), and
+   isValid().
+
+  bool QSqlQuery::isActive () const
+
+   Returns true if the query is currently active; otherwise returns
+   false.
+
+  bool QSqlQuery::isForwardOnly () const
+
+   Returns true if you can only scroll forward through a result set;
+   otherwise returns false.
+
+   See also setForwardOnly() and next().
+
+  bool QSqlQuery::isNull ( int field ) const
+
+   Returns true if the query is active and positioned on a valid record
+   and the field is NULL; otherwise returns false. Note that for some
+   drivers, isNull() will not return accurate information until after an
+   attempt is made to retrieve data.
+
+   See also isActive(), isValid(), and value().
+
+  bool QSqlQuery::isSelect () const
+
+   Returns true if the current query is a SELECT statement; otherwise
+   returns false.
+
+  bool QSqlQuery::isValid () const
+
+   Returns true if the query is currently positioned on a valid record;
+   otherwise returns false.
+
+  bool QSqlQuery::last ()
+
+   Retrieves the last record in the result, if available, and positions
+   the query on the retrieved record. Note that the result must be in an
+   active state and isSelect() must return true before calling this
+   function or it will do nothing and return false. Returns true if
+   successful. If unsuccessful the query position is set to an invalid
+   position and false is returned.
+
+   See also next(), previous(), first(), seek(), at(), isActive(), and
+   isValid().
+
+  QSqlError QSqlQuery::lastError () const
+
+   Returns error information about the last error (if any) that occurred.
+
+   See also QSqlError.
+
+  QVariant QSqlQuery::lastInsertId () const
+
+   Returns the object ID of the most recent inserted row if the database
+   supports it. An invalid QVariant will be returned if the query did not
+   insert any value or if the database does not report the id back. If
+   more than one row was touched by the insert, the behavior is
+   undefined.
+
+   See also QSqlDriver::hasFeature().
+
+  QString QSqlQuery::lastQuery () const
+
+   Returns the text of the current query being used, or an empty string
+   if there is no current query text.
+
+   See also executedQuery().
+
+  bool QSqlQuery::next ()
+
+   Retrieves the next record in the result, if available, and positions
+   the query on the retrieved record. Note that the result must be in an
+   active state and isSelect() must return true before calling this
+   function or it will do nothing and return false.
+
+   The following rules apply:
+     * If the result is currently located before the first record, e.g.
+       immediately after a query is executed, an attempt is made to
+       retrieve the first record.
+     * If the result is currently located after the last record, there is
+       no change and false is returned.
+     * If the result is located somewhere in the middle, an attempt is
+       made to retrieve the next record.
+
+   If the record could not be retrieved, the result is positioned after
+   the last record and false is returned. If the record is successfully
+   retrieved, true is returned.
+
+   See also previous(), first(), last(), seek(), at(), isActive(), and
+   isValid().
+
+  int QSqlQuery::numRowsAffected () const
+
+   Returns the number of rows affected by the result's SQL statement, or
+   -1 if it cannot be determined. Note that for SELECT statements, the
+   value is undefined; use size() instead. If the query is not active
+   (isActive() returns false), -1 is returned.
+
+   See also size() and QSqlDriver::hasFeature().
+
+  bool QSqlQuery::prepare ( const QString & query )
+
+   Prepares the SQL query query for execution. The query may contain
+   placeholders for binding values. Both Oracle style colon-name (e.g.,
+   :surname), and ODBC style (?) placeholders are supported; but they
+   cannot be mixed in the same query. See the Detailed Description for
+   examples.
+
+   See also exec(), bindValue(), and addBindValue().
+
+  bool QSqlQuery::previous ()
+
+   Retrieves the previous record in the result, if available, and
+   positions the query on the retrieved record. Note that the result must
+   be in an active state and isSelect() must return true before calling
+   this function or it will do nothing and return false.
+
+   The following rules apply:
+     * If the result is currently located before the first record, there
+       is no change and false is returned.
+     * If the result is currently located after the last record, an
+       attempt is made to retrieve the last record.
+     * If the result is somewhere in the middle, an attempt is made to
+       retrieve the previous record.
+
+   If the record could not be retrieved, the result is positioned before
+   the first record and false is returned. If the record is successfully
+   retrieved, true is returned.
+
+   See also next(), first(), last(), seek(), at(), isActive(), and
+   isValid().
+
+  QSqlRecord QSqlQuery::record () const
+
+   Returns a QSqlRecord containing the field information for the current
+   query. If the query points to a valid row (isValid() returns true),
+   the record is populated with the row's values. An empty record is
+   returned when there is no active query (isActive() returns false).
+
+   To retrieve values from a query, value() should be used since its
+   index-based lookup is faster.
+
+   In the following example, a SELECT * FROM query is executed. Since the
+   order of the columns is not defined, QSqlRecord::indexOf() is used to
+   obtain the index of a column.
+    QSqlQuery q("select * from employees");
+    QSqlRecord rec = q.record();
+
+    qDebug() << "Number of columns: " << rec.count();
+
+    int nameCol = rec.indexOf("name"); // index of the field "name"
+    while (q.next())
+        qDebug() << q.value(nameCol).toString(); // output all names
+
+   See also value().
+
+  const QSqlResult * QSqlQuery::result () const
+
+   Returns the result associated with the query.
+
+  bool QSqlQuery::seek ( int index, bool relative = false )
+
+   Retrieves the record at position index, if available, and positions
+   the query on the retrieved record. The first record is at position 0.
+   Note that the query must be in an active state and isSelect() must
+   return true before calling this function.
+
+   If relative is false (the default), the following rules apply:
+     * If index is negative, the result is positioned before the first
+       record and false is returned.
+     * Otherwise, an attempt is made to move to the record at position
+       index. If the record at position index could not be retrieved, the
+       result is positioned after the last record and false is returned.
+       If the record is successfully retrieved, true is returned.
+
+   If relative is true, the following rules apply:
+     * If the result is currently positioned before the first record or
+       on the first record, and index is negative, there is no change,
+       and false is returned.
+     * If the result is currently located after the last record, and
+       index is positive, there is no change, and false is returned.
+     * If the result is currently located somewhere in the middle, and
+       the relative offset index moves the result below zero, the result
+       is positioned before the first record and false is returned.
+     * Otherwise, an attempt is made to move to the record index records
+       ahead of the current record (or index records behind the current
+       record if index is negative). If the record at offset index could
+       not be retrieved, the result is positioned after the last record
+       if index >= 0, (or before the first record if index is negative),
+       and false is returned. If the record is successfully retrieved,
+       true is returned.
+
+   See also next(), previous(), first(), last(), at(), isActive(), and
+   isValid().
+
+  void QSqlQuery::setForwardOnly ( bool forward )
+
+   Sets forward only mode to forward. If forward is true, only next() and
+   seek() with positive values, are allowed for navigating the results.
+   Forward only mode needs far less memory since results do not need to
+   be cached.
+
+   Forward only mode is off by default.
+
+   See also isForwardOnly(), next(), and seek().
+
+  int QSqlQuery::size () const
+
+   Returns the size of the result (number of rows returned), or -1 if the
+   size cannot be determined or if the database does not support
+   reporting information about query sizes. Note that for non-SELECT
+   statements (isSelect() returns false), size() will return -1. If the
+   query is not active (isActive() returns false), -1 is returned.
+
+   To determine the number of rows affected by a non-SELECT statement,
+   use numRowsAffected().
+
+   See also isActive(), numRowsAffected(), and QSqlDriver::hasFeature().
+
+  QVariant QSqlQuery::value ( int index ) const
+
+   Returns the value of field index in the current record.
+
+   The fields are numbered from left to right using the text of the
+   SELECT statement, e.g. in
+    SELECT forename, surname FROM people;
+
+   field 0 is forename and field 1 is surname. Using SELECT * is not
+   recommended because the order of the fields in the query is undefined.
+
+   An invalid QVariant is returned if field index does not exist, if the
+   query is inactive, or if the query is positioned on an invalid record.
+
+   See also previous(), next(), first(), last(), seek(), isActive(), and
+   isValid().
+
+  QSqlQuery & QSqlQuery::operator= ( const QSqlQuery & other )
+
+   Assigns other to this object.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

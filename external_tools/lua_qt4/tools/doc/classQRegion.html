@@ -1,0 +1,243 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QRegion Class Reference
+
+   #include <qregion.h>
+
+   List of all members.
+
+Public Types
+
+     * enum RegionType { Rectangle, Ellipse }
+
+Public Member Functions
+
+     * QRegion ()
+     * QRegion (int x, int y, int w, int h, RegionType t=Rectangle)
+     * QRegion (const QRect &r, RegionType t=Rectangle)
+     * QRegion (const QPolygon &pa, Qt::FillRule fillRule=Qt::OddEvenFill)
+     * QRegion (const QRegion &region)
+     * QRegion (const QBitmap &bitmap)
+     * ~QRegion ()
+     * QRegion & operator= (const QRegion &)
+     * bool isEmpty () const
+     * bool contains (const QPoint &p) const
+     * bool contains (const QRect &r) const
+     * void translate (int dx, int dy)
+     * void translate (const QPoint &p)
+     * QRegion unite (const QRegion &r) const
+     * QRegion intersect (const QRegion &r) const
+     * QRegion subtract (const QRegion &r) const
+     * QRegion eor (const QRegion &r) const
+     * QRect boundingRect () const
+     * QVector< QRect > rects () const
+     * void setRects (const QRect *rect, int num)
+     * const QRegion operator| (const QRegion &r) const
+     * const QRegion operator+ (const QRegion &r) const
+     * const QRegion operator & (const QRegion &r) const
+     * const QRegion operator- (const QRegion &r) const
+     * const QRegion operator^ (const QRegion &r) const
+     * QRegion & operator|= (const QRegion &r)
+     * QRegion & operator+= (const QRegion &r)
+     * QRegion & operator &= (const QRegion &r)
+     * QRegion & operator-= (const QRegion &r)
+     * QRegion & operator^= (const QRegion &r)
+     * bool operator== (const QRegion &r) const
+     * bool operator!= (const QRegion &r) const
+     * operator QVariant () const
+
+Friends
+
+     * Q_GUI_EXPORT QDataStream & operator<< (QDataStream &, const QRegion &)
+     * Q_GUI_EXPORT QDataStream & operator>> (QDataStream &, QRegion &)
+
+Classes
+
+     * struct QRegionData
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QRegion::RegionType
+
+
+
+   Enumerator: 
+
+          Rectangle
+          Ellipse  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QRegion::QRegion (   )
+
+
+
+   QRegion::QRegion (  int         x,
+                       int         y,
+                       int         w,
+                       int         h,
+                       RegionType  t = Rectangle
+                    )
+
+
+
+   QRegion::QRegion (  const QRect &  r,
+                       RegionType     t = Rectangle
+                    )
+
+
+
+   QRegion::QRegion (  const QPolygon &  pa,
+                       Qt::FillRule      fillRule = Qt::OddEvenFill
+                    )
+
+
+
+   QRegion::QRegion (  const QRegion &  region  )
+
+
+
+   QRegion::QRegion (  const QBitmap &  bitmap  )
+
+
+
+   QRegion::~QRegion (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QRect QRegion::boundingRect (   )  const
+
+
+
+   bool QRegion::contains (  const QRect &  r  )  const
+
+
+
+   bool QRegion::contains (  const QPoint &  p  )  const
+
+
+
+   QRegion QRegion::eor (  const QRegion &  r  )  const
+
+
+
+   QRegion QRegion::intersect (  const QRegion &  r  )  const
+
+
+
+   bool QRegion::isEmpty (   )  const
+
+
+
+   const QRegion QRegion::operator & (  const QRegion &  r  )  const
+
+
+
+   QRegion& QRegion::operator &= (  const QRegion &  r  )
+
+
+
+   QRegion::operator QVariant (   )  const
+
+
+
+   bool QRegion::operator!= (  const QRegion &  r  )  const [inline]
+
+
+
+   const QRegion QRegion::operator+ (  const QRegion &  r  )  const
+
+
+
+   QRegion& QRegion::operator+= (  const QRegion &  r  )
+
+
+
+   const QRegion QRegion::operator- (  const QRegion &  r  )  const
+
+
+
+   QRegion& QRegion::operator-= (  const QRegion &  r  )
+
+
+
+   QRegion& QRegion::operator= (  const QRegion &   )
+
+
+
+   bool QRegion::operator== (  const QRegion &  r  )  const
+
+
+
+   const QRegion QRegion::operator^ (  const QRegion &  r  )  const
+
+
+
+   QRegion& QRegion::operator^= (  const QRegion &  r  )
+
+
+
+   const QRegion QRegion::operator| (  const QRegion &  r  )  const
+
+
+
+   QRegion& QRegion::operator|= (  const QRegion &  r  )
+
+
+
+   QVector<QRect> QRegion::rects (   )  const
+
+
+
+   void QRegion::setRects (  const QRect *  rect,
+                             int            num
+                          )
+
+
+
+   QRegion QRegion::subtract (  const QRegion &  r  )  const
+
+
+
+   void QRegion::translate (  const QPoint &  p  )  [inline]
+
+
+
+   void QRegion::translate (  int  dx,
+                              int  dy
+                           )
+
+
+
+   QRegion QRegion::unite (  const QRegion &  r  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_GUI_EXPORT QDataStream& operator<< (  QDataStream &    ,
+                                           const QRegion &
+                                        )  [friend]
+
+
+
+   Q_GUI_EXPORT QDataStream& operator>> (  QDataStream &  ,
+                                           QRegion &    
+                                        )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qregion.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

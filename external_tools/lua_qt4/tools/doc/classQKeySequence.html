@@ -1,0 +1,189 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QKeySequence Class Reference
+
+   #include <qkeysequence.h>
+
+   List of all members.
+
+Public Types
+
+     * enum SequenceMatch { NoMatch, PartialMatch, ExactMatch }
+
+Public Member Functions
+
+     * QKeySequence ()
+     * QKeySequence (const QString &key)
+     * QKeySequence (int k1, int k2=0, int k3=0, int k4=0)
+     * QKeySequence (const QKeySequence &ks)
+     * ~QKeySequence ()
+     * uint count () const
+     * bool isEmpty () const
+     * SequenceMatch matches (const QKeySequence &seq) const
+     * operator QString () const
+     * operator QVariant () const
+     * operator int () const
+     * int operator[] (uint i) const
+     * QKeySequence & operator= (const QKeySequence &other)
+     * bool operator== (const QKeySequence &other) const
+     * bool operator!= (const QKeySequence &other) const
+     * bool operator< (const QKeySequence &ks) const
+     * bool operator> (const QKeySequence &other) const
+     * bool operator<= (const QKeySequence &other) const
+     * bool operator>= (const QKeySequence &other) const
+     * bool isDetached () const
+
+Static Public Member Functions
+
+     * static QKeySequence mnemonic (const QString &text)
+
+Friends
+
+     * class Q3AccelManager
+     * class QShortcutMap
+     * class QShortcut
+     * Q_GUI_EXPORT QDataStream & operator<< (QDataStream &in, const QKeySequence &ks)
+     * Q_GUI_EXPORT QDataStream & operator>> (QDataStream &in, QKeySequence &ks)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QKeySequence::SequenceMatch
+
+
+
+   Enumerator: 
+
+          NoMatch     
+          PartialMatch
+          ExactMatch  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QKeySequence::QKeySequence (   )
+
+
+
+   QKeySequence::QKeySequence (  const QString &  key  )
+
+
+
+   QKeySequence::QKeySequence (  int  k1,
+                                 int  k2 = 0,
+                                 int  k3 = 0,
+                                 int  k4 = 0
+                              )
+
+
+
+   QKeySequence::QKeySequence (  const QKeySequence &  ks  )
+
+
+
+   QKeySequence::~QKeySequence (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   uint QKeySequence::count (   )  const
+
+
+
+   bool QKeySequence::isDetached (   )  const
+
+
+
+   bool QKeySequence::isEmpty (   )  const
+
+
+
+   SequenceMatch QKeySequence::matches (  const QKeySequence &  seq  )  const
+
+
+
+   static QKeySequence QKeySequence::mnemonic (  const QString &  text  )  [static]
+
+
+
+   QKeySequence::operator int (   )  const
+
+
+
+   QKeySequence::operator QString (   )  const
+
+
+
+   QKeySequence::operator QVariant (   )  const
+
+
+
+   bool QKeySequence::operator!= (  const QKeySequence &  other  )  const [inline]
+
+
+
+   bool QKeySequence::operator< (  const QKeySequence &  ks  )  const
+
+
+
+   bool QKeySequence::operator<= (  const QKeySequence &  other  )  const [inline]
+
+
+
+   QKeySequence& QKeySequence::operator= (  const QKeySequence &  other  )
+
+
+
+   bool QKeySequence::operator== (  const QKeySequence &  other  )  const
+
+
+
+   bool QKeySequence::operator> (  const QKeySequence &  other  )  const [inline]
+
+
+
+   bool QKeySequence::operator>= (  const QKeySequence &  other  )  const [inline]
+
+
+
+   int QKeySequence::operator[] (  uint  i  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_GUI_EXPORT QDataStream& operator<< (  QDataStream &         in,
+                                           const QKeySequence &  ks
+                                        )  [friend]
+
+
+
+   Q_GUI_EXPORT QDataStream& operator>> (  QDataStream &   in,
+                                           QKeySequence &  ks
+                                        )  [friend]
+
+
+
+   friend class Q3AccelManager [friend]
+
+
+
+   friend class QShortcut [friend]
+
+
+
+   friend class QShortcutMap [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qkeysequence.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,59 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                     QAbstractExtensionManager Class Reference
+
+   #include <extension.h>
+
+   Inherited by QExtensionManager.
+
+   List of all members.
+
+Public Member Functions
+
+     * virtual ~QAbstractExtensionManager ()
+     * virtual void registerExtensions (QAbstractExtensionFactory *factory, const QString &iid)=0
+     * virtual void unregisterExtensions (QAbstractExtensionFactory *factory, const QString &iid)=0
+     * virtual QObject * extension (QObject *object, const QString &iid) const =0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QAbstractExtensionManager::~QAbstractExtensionManager (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QObject* QAbstractExtensionManager::extension (  QObject *        object,
+                                                            const QString &  iid
+                                                         )  const [pure virtual]
+
+
+
+   Implemented in QExtensionManager.
+
+   virtual void QAbstractExtensionManager::registerExtensions (  QAbstractExtensionFactory *  factory,
+                                                                 const QString &              iid
+                                                              )  [pure virtual]
+
+
+
+   Implemented in QExtensionManager.
+
+   virtual void QAbstractExtensionManager::unregisterExtensions (  QAbstractExtensionFactory *  factory,
+                                                                   const QString &              iid
+                                                                )  [pure virtual]
+
+
+
+   Implemented in QExtensionManager.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/extension.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

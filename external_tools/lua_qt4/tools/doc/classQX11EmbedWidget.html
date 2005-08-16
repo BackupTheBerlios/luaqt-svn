@@ -1,0 +1,118 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QX11EmbedWidget Class Reference
+
+   #include <qx11embed_x11.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum Error { Unknown, Internal, InvalidWindowID }
+
+Signals
+
+     * void embedded ()
+     * void containerClosed ()
+     * void error (Error error)
+
+Public Member Functions
+
+     * QX11EmbedWidget (QWidget *parent=0)
+     * ~QX11EmbedWidget ()
+     * void embedInto (WId id)
+     * WId containerWinId () const
+     * Error error () const
+
+Protected Member Functions
+
+     * bool x11Event (XEvent *)
+     * bool eventFilter (QObject *, QEvent *)
+     * bool event (QEvent *)
+     * void resizeEvent (QResizeEvent *)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QX11EmbedWidget::Error
+
+
+
+   Enumerator: 
+
+          Unknown        
+          Internal       
+          InvalidWindowID
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QX11EmbedWidget::QX11EmbedWidget (  QWidget *  parent = 0  )
+
+
+
+   QX11EmbedWidget::~QX11EmbedWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QX11EmbedWidget::containerClosed (   )  [signal]
+
+
+
+   WId QX11EmbedWidget::containerWinId (   )  const
+
+
+
+   void QX11EmbedWidget::embedded (   )  [signal]
+
+
+
+   void QX11EmbedWidget::embedInto (  WId  id  )
+
+
+
+   void QX11EmbedWidget::error (  Error  error  )  [signal]
+
+
+
+   Error QX11EmbedWidget::error (   )  const
+
+
+
+   bool QX11EmbedWidget::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QX11EmbedWidget::eventFilter (  QObject *  ,
+                                        QEvent * 
+                                     )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void QX11EmbedWidget::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QX11EmbedWidget::x11Event (  XEvent *   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qx11embed_x11.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

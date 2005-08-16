@@ -1,0 +1,213 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QShortcut Class Reference
+
+   The QShortcut class is used to create keyboard shortcuts. More...
+#include <QShortcut>
+
+   Part of the QtGui module.
+
+   Inherits QObject.
+     * List of all members, including inherited members
+
+  Properties
+
+     * context : Qt::ShortcutContext
+     * enabled : bool
+     * key : QKeySequence
+     * whatsThis : QString
+
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QShortcut ( QWidget * parent )
+     * QShortcut ( const QKeySequence & key, QWidget * parent, const char
+       * member = 0, const char * ambiguousMember = 0,
+       Qt::ShortcutContext context = Qt::WindowShortcut )
+     * ~QShortcut ()
+     * Qt::ShortcutContext context ()
+     * int id () const
+     * bool isEnabled () const
+     * QKeySequence key () const
+     * QWidget * parentWidget () const
+     * void setContext ( Qt::ShortcutContext context )
+     * void setEnabled ( bool enable )
+     * void setKey ( const QKeySequence & key )
+     * void setWhatsThis ( const QString & text )
+     * QString whatsThis () const
+
+     * 28 public functions inherited from QObject
+
+  Signals
+
+     * void activated ()
+     * void activatedAmbiguously ()
+
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 public slot inherited from QObject
+     * 4 static public members inherited from QObject
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QShortcut class is used to create keyboard shortcuts.
+
+   The QShortcut class provides a way of connecting keyboard shortcuts to
+   Qt's signals and slots mechanism, so that objects can be informed when
+   a shortcut is executed. The shortcut can be set up to contain all the
+   key presses necessary to describe a keyboard shortcut, including the
+   states of modifier keys such as Shift, Ctrl, and Alt.
+
+   For applications that use menus, it may be more convenient to use the
+   convenience functions provided in the QMenu class to assign keyboard
+   shortcuts to menu items as they are created. Alternatively, shortcuts
+   may be associated with other types of actions in the QAction class.
+
+   The simplest way to create a shortcut for a particular widget is to
+   construct the shortcut with a key sequence. For example:
+    shortcut = QShortcut(QKeySequence(tr("Ctrl+O", "File|Open")),
+                         parent);
+
+   When the user types the key sequence for a given shortcut, the
+   shortcut's activated() signal is emitted. (In the case of ambiguity,
+   the activatedAmbiguously() signal is emitted.) A shortcut is "listened
+   for" by Qt's event loop when the shortcut's parent widget is receiving
+   events.
+
+   A shortcut's key sequence can be set with setKey() and retrieved with
+   key(). A shortcut can be enabled or disabled with setEnabled(), and
+   can have "What's This?" help text set with setWhatsThis().
+
+   See also QShortcutEvent, QKeySequence, and QAction.
+     _________________________________________________________________
+
+Property Documentation
+
+  context : Qt::ShortcutContext
+
+   This property holds the context in which the shortcut is valid.
+
+   A shortcut's context decides in which circumstances a shortcut is
+   allowed to be triggered. The normal context is Qt::WindowShortcut,
+   which allows the shortcut to trigger if the parent (the widget
+   containing the shortcut) is a subwidget of the active top-level
+   window.
+
+   Access functions:
+     * Qt::ShortcutContext context ()
+     * void setContext ( Qt::ShortcutContext context )
+
+  enabled : bool
+
+   This property holds whether the shortcut is enabled.
+
+   An enabled shortcut emits the activated() or activatedAmbiguously()
+   signal when a QShortcutEvent occurs that matches the shortcut's key()
+   sequence.
+
+   If the application is in WhatsThis mode the shortcut will not emit the
+   signals, but will show the "What's This?" text instead.
+
+   Access functions:
+     * bool isEnabled () const
+     * void setEnabled ( bool enable )
+
+   See also whatsThis.
+
+  key : QKeySequence
+
+   This property holds the shortcut's key sequence.
+
+   This is a key sequence with an optional combination of Shift, Ctrl,
+   and Alt. The key sequence may be supplied in a number of ways:
+    setKey(0);                  // no signal emitted
+    setKey(QKeySequence());     // no signal emitted
+    setKey(0x3b1);              // Greek letter alpha
+    setKey(Qt::Key_D);              // 'd', e.g. to delete
+    setKey('q');                // 'q', e.g. to quit
+    setKey(Qt::CTRL + Qt::Key_P);       // Ctrl+P, e.g. to print document
+    setKey("Ctrl+P");           // Ctrl+P, e.g. to print document
+
+   Access functions:
+     * QKeySequence key () const
+     * void setKey ( const QKeySequence & key )
+
+  whatsThis : QString
+
+   This property holds the shortcut's "What's This?" help text.
+
+   The text will be shown when the application is in "What's This?" mode
+   and the user types the shortcut key() sequence.
+
+   To set "What's This?" help on a menu item (with or without a shortcut
+   key), set the help on the item's action.
+
+   Access functions:
+     * QString whatsThis () const
+     * void setWhatsThis ( const QString & text )
+
+   See also QWhatsThis::inWhatsThisMode() and QAction::setWhatsThis().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QShortcut::QShortcut ( QWidget * parent )
+
+   Constructs a QShortcut object for the parent widget. Since no shortcut
+   key sequence is specified, the shortcut will not emit any signals.
+
+   See also setKey().
+
+  QShortcut::QShortcut ( const QKeySequence & key, QWidget * parent, const char
+  * member = 0, const char * ambiguousMember = 0, Qt::ShortcutContext context =
+  Qt::WindowShortcut )
+
+   Constructs a QShortcut object for the parent widget. The shortcut
+   operates on its parent, listening for QShortcutEvents that match the
+   key sequence. Depending on the ambiguity of the event, the shortcut
+   will call the member function, or the ambiguousMember function, if the
+   key press was in the shortcut's context.
+
+  QShortcut::~QShortcut ()
+
+   Destroys the shortcut.
+
+  void QShortcut::activated ()   [signal]
+
+   This signal is emitted when the user types the shortcut's key
+   sequence.
+
+   See also activatedAmbiguously().
+
+  void QShortcut::activatedAmbiguously ()   [signal]
+
+   This signal is emitted when the user types a shortcut key sequence
+   that is ambiguous. For example, if one key sequence is a "prefix" for
+   another and the user types these keys it isn't clear if they want the
+   shorter key sequence, or if they're about to type more to complete the
+   longer key sequence.
+
+   See also activated().
+
+  int QShortcut::id () const
+
+   Returns the shortcut's ID.
+
+   See also QShortcutEvent::shortcutId().
+
+  QWidget * QShortcut::parentWidget () const
+
+   Returns the shortcut's parent widget.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

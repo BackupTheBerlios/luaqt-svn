@@ -1,0 +1,446 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QTableView Class Reference
+
+   The QTableView class provides a default model/view implementation of a
+   table view. More...
+#include <QTableView>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractItemView.
+
+   Inherited by QTableWidget.
+     * List of all members, including inherited members
+
+  Properties
+
+     * gridStyle : Qt::PenStyle
+     * showGrid : bool
+
+     * 10 properties inherited from QAbstractItemView
+     * 2 properties inherited from QAbstractScrollArea
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QTableView ( QWidget * parent = 0 )
+     * ~QTableView ()
+     * int columnAt ( int x ) const
+     * int columnViewportPosition ( int column ) const
+     * int columnWidth ( int column ) const
+     * Qt::PenStyle gridStyle () const
+     * QHeaderView * horizontalHeader () const
+     * virtual QModelIndex indexAt ( const QPoint & pos ) const
+     * bool isColumnHidden ( int column ) const
+     * bool isRowHidden ( int row ) const
+     * int rowAt ( int y ) const
+     * int rowHeight ( int row ) const
+     * int rowViewportPosition ( int row ) const
+     * void setColumnHidden ( int column, bool hide )
+     * void setGridStyle ( Qt::PenStyle style )
+     * void setHorizontalHeader ( QHeaderView * header )
+     * void setRowHidden ( int row, bool hide )
+     * void setShowGrid ( bool show )
+     * void setVerticalHeader ( QHeaderView * header )
+     * bool showGrid () const
+     * QHeaderView * verticalHeader () const
+
+     * 37 public functions inherited from QAbstractItemView
+     * 8 public functions inherited from QAbstractScrollArea
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void hideColumn ( int column )
+     * void hideRow ( int row )
+     * void resizeColumnToContents ( int column )
+     * void resizeRowToContents ( int row )
+     * void selectColumn ( int column )
+     * void selectRow ( int row )
+     * void showColumn ( int column )
+     * void showRow ( int row )
+     * void sortByColumn ( int column )
+
+     * 6 public slots inherited from QAbstractItemView
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Protected Functions
+
+     * virtual int horizontalOffset () const
+     * virtual QModelIndex moveCursor ( CursorAction cursorAction,
+       Qt::KeyboardModifiers modifiers )
+     * virtual void paintEvent ( QPaintEvent * e )
+     * virtual void setSelection ( const QRect & rect,
+       QItemSelectionModel::SelectionFlags flags )
+     * virtual int sizeHintForColumn ( int column ) const
+     * virtual int sizeHintForRow ( int row ) const
+     * virtual int verticalOffset () const
+
+     * 35 protected functions inherited from QAbstractItemView
+     * 17 protected functions inherited from QAbstractScrollArea
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Protected Slots
+
+     * void columnCountChanged ( int oldCount, int newCount )
+     * void columnMoved ( int column, int oldIndex, int newIndex )
+     * void columnResized ( int column, int oldWidth, int newWidth )
+     * void rowCountChanged ( int oldCount, int newCount )
+     * void rowMoved ( int row, int oldIndex, int newIndex )
+     * void rowResized ( int row, int oldHeight, int newHeight )
+
+     * 8 protected slots inherited from QAbstractItemView
+
+  Additional Inherited Members
+
+     * 6 signals inherited from QAbstractItemView
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QTableView class provides a default model/view implementation of a
+   table view.
+
+   A QTableView implements a table view that displays items from a model.
+   This class is used to provide standard tables that were previously
+   provided by the QTable class, but using the more flexible approach
+   provided by Qt's model/view architecture.
+
+   The QTableView class is one of the Model/View Classes and is part of
+   Qt's model/view framework.
+
+   QTableView implements the interfaces defined by the QAbstractItemView
+   class to allow it to display data provided by models derived from the
+   QAbstractItemModel class.
+
+   The table has a vertical header that can be obtained using the
+   verticalHeader() function, and a horizontal header that is available
+   through the horizontalHeader() function. Each of the rows in the table
+   can be found by using rowHeight(); similarly, the width of columns can
+   be found using columnWidth().
+
+   Rows and columns can be hidden and shown with hideRow(), hideColumn(),
+   showRow(), and showColumn(). They can be selected with selectRow() and
+   selectColumn(). The table will show a grid depending on the showGrid
+   property.
+
+   For some specialized forms of tables it is useful to be able to
+   convert between row and column indexes and widget coordinates. The
+   rowAt() function provides the y-coordinate within the view of the
+   specified row; the row index can be used to obtain a corresponding
+   y-coordinate with rowViewportPosition(). The columnAt() and
+   columnViewportPosition() functions provide the equivalent conversion
+   operations between x-coordinates and column indexes.
+
+   See also Model/View Programming, QAbstractItemModel, and
+   QAbstractItemView.
+     _________________________________________________________________
+
+Property Documentation
+
+  gridStyle : Qt::PenStyle
+
+   This property holds the pen style used to draw the grid.
+
+   This property holds the style used when drawing the grid (see
+   showGrid).
+
+   Access functions:
+     * Qt::PenStyle gridStyle () const
+     * void setGridStyle ( Qt::PenStyle style )
+
+  showGrid : bool
+
+   This property holds whether the grid is shown.
+
+   If this property is true a grid is drawn for the table; if the
+   property is false, no grid is drawn. The default value is true.
+
+   Access functions:
+     * bool showGrid () const
+     * void setShowGrid ( bool show )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QTableView::QTableView ( QWidget * parent = 0 )
+
+   Constructs a table view with a parent to represent the data.
+
+   See also QAbstractItemModel.
+
+  QTableView::~QTableView ()
+
+   Destroys the table view.
+
+  int QTableView::columnAt ( int x ) const
+
+   Returns the column in which the given x-coordinate, x, in contents
+   coordinates is located.
+
+  void QTableView::columnCountChanged ( int oldCount, int newCount )
+  [protected slot]
+
+   This slot is called whenever columns are added or deleted. The
+   previous number of columns is specified by oldCount, and the new
+   number of columns is specified by newCount.
+
+  void QTableView::columnMoved ( int column, int oldIndex, int newIndex )
+  [protected slot]
+
+   This slot is called to change the index of the given column in the
+   table view. The old index is specified by oldIndex, and the new index
+   by newIndex.
+
+   See also rowMoved().
+
+  void QTableView::columnResized ( int column, int oldWidth, int newWidth )
+  [protected slot]
+
+   This slot is called to change the width of the given column. The old
+   width is specified by oldWidth, and the new width by newWidth.
+
+   See also rowResized().
+
+  int QTableView::columnViewportPosition ( int column ) const
+
+   Returns the x-coordinate in contents coordinates of the given column.
+
+  int QTableView::columnWidth ( int column ) const
+
+   Returns the width of the given column.
+
+   See also resizeColumnToContents().
+
+  void QTableView::hideColumn ( int column )   [slot]
+
+   Hide the given column.
+
+   See also showColumn() and hideRow().
+
+  void QTableView::hideRow ( int row )   [slot]
+
+   Hide the given row.
+
+   See also showRow() and hideColumn().
+
+  QHeaderView * QTableView::horizontalHeader () const
+
+   Returns the table view's horizontal header.
+
+   See also setHorizontalHeader() and verticalHeader().
+
+  int QTableView::horizontalOffset () const   [virtual protected]
+
+   Returns the horizontal offset of the items in the table view.
+
+   Reimplemented from QAbstractItemView.
+
+   See also verticalOffset().
+
+  QModelIndex QTableView::indexAt ( const QPoint & pos ) const   [virtual]
+
+   Returns the index position of the model item corresponding to the
+   table item at position pos in contents coordinates.
+
+   Reimplemented from QAbstractItemView.
+
+  bool QTableView::isColumnHidden ( int column ) const
+
+   Returns true if the given column is hidden; otherwise returns false.
+
+  bool QTableView::isRowHidden ( int row ) const
+
+   Returns true if the given row is hidden; otherwise returns false.
+
+  QModelIndex QTableView::moveCursor ( CursorAction cursorAction,
+  Qt::KeyboardModifiers modifiers )   [virtual protected]
+
+   Moves the cursor in accordance with the given cursorAction, using the
+   information provided by the modifiers.
+
+   Reimplemented from QAbstractItemView.
+
+   See also QAbstractItemView::CursorAction.
+
+  void QTableView::paintEvent ( QPaintEvent * e )   [virtual protected]
+
+   Paints the table on receipt of the given paint event e.
+
+   Reimplemented from QWidget.
+
+  void QTableView::resizeColumnToContents ( int column )   [slot]
+
+   Resizes the given column based on the size hints of the delegates used
+   to render each item in the column.
+
+  void QTableView::resizeRowToContents ( int row )   [slot]
+
+   Resizes the given row based on the size hints of the delegates used to
+   render each item in the row.
+
+  int QTableView::rowAt ( int y ) const
+
+   Returns the row in which the given y-coordinate, y, in contents
+   coordinates is located.
+
+  void QTableView::rowCountChanged ( int oldCount, int newCount )   [protected
+  slot]
+
+   This slot is called whenever rows are added or deleted. The previous
+   number of rows is specified by oldCount, and the new number of rows is
+   specified by newCount.
+
+  int QTableView::rowHeight ( int row ) const
+
+   Returns the height of the given row.
+
+   See also resizeRowToContents().
+
+  void QTableView::rowMoved ( int row, int oldIndex, int newIndex )
+  [protected slot]
+
+   This slot is called to change the index of the given row in the table
+   view. The old index is specified by oldIndex, and the new index by
+   newIndex.
+
+   See also columnMoved().
+
+  void QTableView::rowResized ( int row, int oldHeight, int newHeight )
+  [protected slot]
+
+   This slot is called to change the height of the given row. The old
+   height is specified by oldHeight, and the new height by newHeight.
+
+   See also columnResized().
+
+  int QTableView::rowViewportPosition ( int row ) const
+
+   Returns the y-coordinate in contents coordinates of the given row.
+
+  void QTableView::selectColumn ( int column )   [slot]
+
+   Selects the given column in the table view.
+
+   See also selectRow().
+
+  void QTableView::selectRow ( int row )   [slot]
+
+   Selects the given row in the table view.
+
+   See also selectColumn().
+
+  void QTableView::setColumnHidden ( int column, bool hide )
+
+   If hide is true the given column will be hidden; otherwise it will be
+   shown.
+
+  void QTableView::setHorizontalHeader ( QHeaderView * header )
+
+   Sets the widget to use for the vertical header to header.
+
+   See also horizontalHeader() and setVerticalHeader().
+
+  void QTableView::setRowHidden ( int row, bool hide )
+
+   If hide is true row will be hidden, otherwise it will be shown.
+
+  void QTableView::setSelection ( const QRect & rect,
+  QItemSelectionModel::SelectionFlags flags )   [virtual protected]
+
+   Selects the items within the given rect and in accordance with the
+   specified selection flags.
+
+   Reimplemented from QAbstractItemView.
+
+  void QTableView::setVerticalHeader ( QHeaderView * header )
+
+   Sets the widget to use for the horizontal header to header.
+
+   See also verticalHeader() and setHorizontalHeader().
+
+  void QTableView::showColumn ( int column )   [slot]
+
+   Show the given column.
+
+   See also hideColumn() and showRow().
+
+  void QTableView::showRow ( int row )   [slot]
+
+   Show the given row.
+
+   See also hideRow() and showColumn().
+
+  int QTableView::sizeHintForColumn ( int column ) const   [virtual protected]
+
+   Returns the size hint for the given column's width or -1 if there is
+   no model.
+
+   If you need to set the width of a given column to a fixed value, call
+   QHeaderView::resizeSection() on the table's horizontal header.
+
+   If you reimplement this function in a subclass, note that the value
+   you return is only used when resizeColumnToContents() is called. In
+   that case, if a larger column width is required by either the
+   horizontal header or the item delegate, that width will be used
+   instead.
+
+   Reimplemented from QAbstractItemView.
+
+   See also QWidget::sizeHint and horizontalHeader().
+
+  int QTableView::sizeHintForRow ( int row ) const   [virtual protected]
+
+   Returns the size hint for the given row's height or -1 if there is no
+   model.
+
+   If you need to set the height of a given row to a fixed value, call
+   QHeaderView::resizeSection() on the table's vertical header.
+
+   If you reimplement this function in a subclass, note that the value
+   you return is only used when resizeRowToContents() is called. In that
+   case, if a larger row height is required by either the vertical header
+   or the item delegate, that width will be used instead.
+
+   Reimplemented from QAbstractItemView.
+
+   See also QWidget::sizeHint and verticalHeader().
+
+  void QTableView::sortByColumn ( int column )   [slot]
+
+   Sorts the model by the values in the given column.
+
+  QHeaderView * QTableView::verticalHeader () const
+
+   Returns the table view's vertical header.
+
+   See also setVerticalHeader() and horizontalHeader().
+
+  int QTableView::verticalOffset () const   [virtual protected]
+
+   Returns the vertical offset of the items in the table view.
+
+   Reimplemented from QAbstractItemView.
+
+   See also horizontalOffset().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

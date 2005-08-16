@@ -1,0 +1,220 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                   Q3PtrVector< type > Class Template Reference
+
+   #include <q3ptrvector.h>
+
+   Inherits Q3GVector.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3PtrVector ()
+     * Q3PtrVector (uint size)
+     * Q3PtrVector (const Q3PtrVector< type > &v)
+     * ~Q3PtrVector ()
+     * Q3PtrVector< type > & operator= (const Q3PtrVector< type > &v)
+     * bool operator== (const Q3PtrVector< type > &v) const
+     * type ** data () const
+     * uint size () const
+     * uint count () const
+     * bool isEmpty () const
+     * bool isNull () const
+     * bool resize (uint size)
+     * bool insert (uint i, const type *d)
+     * bool remove (uint i)
+     * type * take (uint i)
+     * void clear ()
+     * bool fill (const type *d, int size=-1)
+     * void sort ()
+     * int bsearch (const type *d) const
+     * int findRef (const type *d, uint i=0) const
+     * int find (const type *d, uint i=0) const
+     * uint containsRef (const type *d) const
+     * uint contains (const type *d) const
+     * type * operator[] (int i) const
+     * type * at (uint i) const
+     * void toList (Q3GList *list) const
+     * template<> void deleteItem (Q3PtrCollection::Item)
+
+  template<class type>
+  class Q3PtrVector< type >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class type>
+   Q3PtrVector< type >::Q3PtrVector (   )  [inline]
+
+
+
+   template<class type>
+   Q3PtrVector< type >::Q3PtrVector (  uint  size  )  [inline]
+
+
+
+   template<class type>
+   Q3PtrVector< type >::Q3PtrVector (  const Q3PtrVector< type > &  v  )  [inline]
+
+
+
+   template<class type>
+   Q3PtrVector< type >::~Q3PtrVector (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class type>
+   type* Q3PtrVector< type >::at (  uint  i  )  const [inline]
+
+
+
+   Reimplemented from Q3GVector.
+
+   template<class type>
+   int Q3PtrVector< type >::bsearch (  const type *  d  )  const [inline]
+
+
+
+   template<class type>
+   void Q3PtrVector< type >::clear (   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3GVector.
+
+   template<class type>
+   uint Q3PtrVector< type >::contains (  const type *  d  )  const [inline]
+
+
+
+   template<class type>
+   uint Q3PtrVector< type >::containsRef (  const type *  d  )  const [inline]
+
+
+
+   template<class type>
+   uint Q3PtrVector< type >::count (   )  const [inline, virtual]
+
+
+
+   Reimplemented from Q3GVector.
+
+   template<class type>
+   type** Q3PtrVector< type >::data (   )  const [inline]
+
+
+
+   Reimplemented from Q3GVector.
+
+   template<>
+   void Q3PtrVector< type >::deleteItem (  Q3PtrCollection::Item  d  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrVector< type >::fill (  const type *  d,
+                                     int           size = -1
+                                  )  [inline]
+
+
+
+   template<class type>
+   int Q3PtrVector< type >::find (  const type *  d,
+                                    uint          i = 0
+                                 )  const [inline]
+
+
+
+   template<class type>
+   int Q3PtrVector< type >::findRef (  const type *  d,
+                                       uint          i = 0
+                                    )  const [inline]
+
+
+
+   template<class type>
+   bool Q3PtrVector< type >::insert (  uint          i,
+                                       const type *  d
+                                    )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrVector< type >::isEmpty (   )  const [inline]
+
+
+
+   template<class type>
+   bool Q3PtrVector< type >::isNull (   )  const [inline]
+
+
+
+   template<class type>
+   Q3PtrVector<type>& Q3PtrVector< type >::operator= (  const Q3PtrVector< type > &  v  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrVector< type >::operator== (  const Q3PtrVector< type > &  v  )  const [inline]
+
+
+
+   template<class type>
+   type* Q3PtrVector< type >::operator[] (  int  i  )  const [inline]
+
+
+
+   template<class type>
+   bool Q3PtrVector< type >::remove (  uint  i  )  [inline]
+
+
+
+   Reimplemented from Q3GVector.
+
+   template<class type>
+   bool Q3PtrVector< type >::resize (  uint  size  )  [inline]
+
+
+
+   Reimplemented from Q3GVector.
+
+   template<class type>
+   uint Q3PtrVector< type >::size (   )  const [inline]
+
+
+
+   Reimplemented from Q3GVector.
+
+   template<class type>
+   void Q3PtrVector< type >::sort (   )  [inline]
+
+
+
+   Reimplemented from Q3GVector.
+
+   template<class type>
+   type* Q3PtrVector< type >::take (  uint  i  )  [inline]
+
+
+
+   Reimplemented from Q3GVector.
+
+   template<class type>
+   void Q3PtrVector< type >::toList (  Q3GList *  list  )  const [inline]
+
+
+
+   Reimplemented from Q3GVector.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3ptrvector.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

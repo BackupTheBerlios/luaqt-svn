@@ -1,0 +1,157 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3WidgetStack Class Reference
+
+   #include <q3widgetstack.h>
+
+   Inherits Q3Frame.
+
+   List of all members.
+
+Public Slots
+
+     * void raiseWidget (int)
+     * void raiseWidget (QWidget *)
+
+Signals
+
+     * void aboutToShow (int)
+     * void aboutToShow (QWidget *)
+
+Public Member Functions
+
+     * Q3WidgetStack (QWidget *parent, const char *name=0, Qt::WFlags f=0)
+     * ~Q3WidgetStack ()
+     * int addWidget (QWidget *, int=-1)
+     * void removeWidget (QWidget *)
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * void setVisible (bool visible)
+     * QWidget * widget (int) const
+     * int id (QWidget *) const
+     * QWidget * visibleWidget () const
+     * void setFrameRect (const QRect &)
+
+Protected Member Functions
+
+     * void frameChanged ()
+     * void resizeEvent (QResizeEvent *)
+     * bool event (QEvent *e)
+     * virtual void setChildGeometries ()
+     * void childEvent (QChildEvent *)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3WidgetStack::Q3WidgetStack (  QWidget *     parent,
+                                   const char *  name = 0,
+                                   Qt::WFlags    f = 0
+                                )
+
+
+
+   Q3WidgetStack::~Q3WidgetStack (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3WidgetStack::aboutToShow (  QWidget *   )  [signal]
+
+
+
+   void Q3WidgetStack::aboutToShow (  int   )  [signal]
+
+
+
+   int Q3WidgetStack::addWidget (  QWidget *  ,
+                                   int        = -1
+                                )
+
+
+
+   void Q3WidgetStack::childEvent (  QChildEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   bool Q3WidgetStack::event (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3WidgetStack::frameChanged (   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Frame.
+
+   int Q3WidgetStack::id (  QWidget *   )  const
+
+
+
+   QSize Q3WidgetStack::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3WidgetStack::raiseWidget (  QWidget *   )  [slot]
+
+
+
+   void Q3WidgetStack::raiseWidget (  int   )  [slot]
+
+
+
+   void Q3WidgetStack::removeWidget (  QWidget *   )
+
+
+
+   void Q3WidgetStack::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Frame.
+
+   virtual void Q3WidgetStack::setChildGeometries (   )  [protected, virtual]
+
+
+
+   void Q3WidgetStack::setFrameRect (  const QRect &   )
+
+
+
+   Reimplemented from QFrame.
+
+   void Q3WidgetStack::setVisible (  bool  visible  )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize Q3WidgetStack::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   QWidget* Q3WidgetStack::visibleWidget (   )  const
+
+
+
+   QWidget* Q3WidgetStack::widget (  int   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3widgetstack.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

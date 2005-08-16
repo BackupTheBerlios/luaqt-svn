@@ -1,0 +1,102 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3WhatsThis Class Reference
+
+   #include <q3whatsthis.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3WhatsThis (QWidget *)
+     * ~Q3WhatsThis ()
+     * bool eventFilter (QObject *, QEvent *)
+     * virtual QString text (const QPoint &)
+     * virtual bool clicked (const QString &href)
+
+Static Public Member Functions
+
+     * static void enterWhatsThisMode ()
+     * static bool inWhatsThisMode ()
+     * static void add (QWidget *w, const QString &s)
+     * static void remove (QWidget *w)
+     * static QToolButton * whatsThisButton (QWidget *parent)
+     * static void leaveWhatsThisMode (const QString &text=QString(), const QPoint &pos=QCursor::pos(), QWidget *w=0)
+     * static void display (const QString &text, const QPoint &pos=QCursor::pos(), QWidget *w=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3WhatsThis::Q3WhatsThis (  QWidget *   )
+
+
+
+   Q3WhatsThis::~Q3WhatsThis (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static void Q3WhatsThis::add (  QWidget *        w,
+                                   const QString &  s
+                                )  [inline, static]
+
+
+
+   virtual bool Q3WhatsThis::clicked (  const QString &  href  )  [virtual]
+
+
+
+   static void Q3WhatsThis::display (  const QString &  text,
+                                       const QPoint &   pos = QCursor::pos(),
+                                       QWidget *        w = 0
+                                    )  [inline, static]
+
+
+
+   static void Q3WhatsThis::enterWhatsThisMode (   )  [inline, static]
+
+
+
+   bool Q3WhatsThis::eventFilter (  QObject *  ,
+                                    QEvent * 
+                                 )  [virtual]
+
+
+
+   Reimplemented from QObject.
+
+   static bool Q3WhatsThis::inWhatsThisMode (   )  [inline, static]
+
+
+
+   static void Q3WhatsThis::leaveWhatsThisMode (  const QString &  text = QString(),
+                                                  const QPoint &   pos = QCursor::pos(),
+                                                  QWidget *        w = 0
+                                               )  [inline, static]
+
+
+
+   static void Q3WhatsThis::remove (  QWidget *  w  )  [inline, static]
+
+
+
+   virtual QString Q3WhatsThis::text (  const QPoint &   )  [virtual]
+
+
+
+   static QToolButton* Q3WhatsThis::whatsThisButton (  QWidget *  parent  )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3whatsthis.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

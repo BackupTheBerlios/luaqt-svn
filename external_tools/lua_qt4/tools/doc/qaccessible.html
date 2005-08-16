@@ -1,0 +1,523 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QAccessible Class Reference
+
+   The QAccessible class provides enums and static functions relating to
+   accessibility. More...
+#include <QAccessible>
+
+   Part of the QtGui module.
+
+   Inherited by QAccessibleInterface and QAccessiblePlugin.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum Action { DefaultAction, Press, SetFocus, Increase, ...,
+       LastStandardAction }
+     * enum Event { AcceleratorChanged, Alert, ContextHelpEnd,
+       ContextHelpStart, ..., ValueChanged }
+     * typedef InterfaceFactory
+     * flags Relation
+     * enum RelationFlag { Unrelated, Self, Ancestor, Child, ...,
+       Controlled }
+     * enum Role { AlertMessage, Animation, Application, Assistant, ...,
+       Window }
+     * typedef RootObjectHandler
+     * flags State
+     * enum StateFlag { Animated, Busy, Checked, Collapsed, ...,
+       Unavailable }
+     * enum Text { Name, Description, Value, Help, Accelerator, UserText
+       }
+     * typedef UpdateHandler
+
+  Static Public Members
+
+     * void installFactory ( InterfaceFactory factory )
+     * RootObjectHandler installRootObjectHandler ( RootObjectHandler
+       handler )
+     * UpdateHandler installUpdateHandler ( UpdateHandler handler )
+     * bool isActive ()
+     * QAccessibleInterface * queryAccessibleInterface ( QObject * object
+       )
+     * void removeFactory ( InterfaceFactory factory )
+     * void setRootObject ( QObject * object )
+     * void updateAccessibility ( QObject * object, int child, Event
+       reason )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QAccessible class provides enums and static functions relating to
+   accessibility.
+
+   Accessible applications can be used by people who are not able to use
+   applications by conventional means.
+
+   The functions in this class are used for communication between
+   accessible applications (also called AT Servers) and accessibility
+   tools (AT Clients), such as screen readers and braille displays.
+   Clients and servers communicate in the following way:
+     * AT Servers notify the clients about events through calls to the
+       updateAccessibility() function.
+     * AT Clients request information about the objects in the server.
+       The QAccessibleInterface class is the core interface, and
+       encapsulates this information in a pure virtual API.
+       Implementations of the interface are provided by Qt through the
+       queryAccessibleInterface() API.
+
+   The communication between servers and clients is initialized by the
+   setRootObject() function. Function pointers can be installed to
+   replace or extend the default behavior of the static functions in
+   QAccessible.
+
+   Qt supports Microsoft Active Accessibility (MSAA), Mac OS X
+   Accessibility, and the Unix/X11 AT-SPI standard. Other backends can be
+   supported using QAccessibilityBridge.
+
+   In addition to QAccessible's static functions, Qt offers one generic
+   interface, QAccessibleInterface, that can be used to wrap all widgets
+   and objects (e.g., QPushButton). This single interface provides all
+   the metadata necessary for the assistive technologies. Qt provides
+   implementations of this interface for its built-in widgets as plugins.
+
+   When you develop custom widgets, you can create custom subclasses of
+   QAccessibleInterface and distribute them as plugins (using
+   QAccessiblePlugin) or compile them into the application. Likewise,
+   Qt's predefined accessibility support can be built as plugin (the
+   default) or directly into the Qt library. The main advantage of using
+   plugins is that the accessibility classes are only loaded into memory
+   if they are actually used; they don't slow down the common case where
+   no assistive technology is being used.
+
+   Qt also includes two convenience classes, QAccessibleObject and
+   QAccessibleWidget, that inherit from QAccessibleInterface and provide
+   the lowest common denominator of metadata (e.g., widget geometry,
+   window title, basic help text). You can use them as base classes when
+   wrapping your custom QObject or QWidget subclasses.
+
+   See also QAccessibleInterface.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QAccessible::Action
+
+   This enum describes the possible types of action that can occur.
+
+               Constant                 Value
+   QAccessible::DefaultAction             0
+   QAccessible::Press                     -1
+   QAccessible::SetFocus                  -2
+   QAccessible::Increase                  -3
+   QAccessible::Decrease                  -4
+   QAccessible::Accept                    -5
+   QAccessible::Cancel                    -6
+   QAccessible::Select                    -7
+   QAccessible::ClearSelection            -8
+   QAccessible::RemoveSelection           -9
+   QAccessible::ExtendSelection          -10
+   QAccessible::AddToSelection           -11
+   QAccessible::FirstStandardAction     Press
+   QAccessible::LastStandardAction  AddToSelection
+
+  enum QAccessible::Event
+
+   This enum type defines accessible event types.
+
+               Constant              Value
+   QAccessible::AcceleratorChanged   0x80C0
+   QAccessible::Alert                0x0002
+   QAccessible::ContextHelpEnd       0x000D
+   QAccessible::ContextHelpStart     0x000C
+   QAccessible::DefaultActionChanged 0x80B0
+   QAccessible::DescriptionChanged   0x800D
+   QAccessible::DialogEnd            0x0011
+   QAccessible::DialogStart          0x0010
+   QAccessible::DragDropEnd          0x000F
+   QAccessible::DragDropStart        0x000E
+   QAccessible::Focus                0x8005
+   QAccessible::ForegroundChanged    0x0003
+   QAccessible::HelpChanged          0x80A0
+   QAccessible::LocationChanged      0x800B
+   QAccessible::MenuCommand          0x0018
+   QAccessible::MenuEnd              0x0005
+   QAccessible::MenuStart            0x0004
+   QAccessible::NameChanged          0x800C
+   QAccessible::ObjectCreated        0x8000
+   QAccessible::ObjectDestroyed      0x8001
+   QAccessible::ObjectHide           0x8003
+   QAccessible::ObjectReorder        0x8004
+   QAccessible::ObjectShow           0x8002
+   QAccessible::ParentChanged        0x800F
+   QAccessible::PopupMenuEnd         0x0007
+   QAccessible::PopupMenuStart       0x0006
+   QAccessible::ScrollingEnd         0x0013
+   QAccessible::ScrollingStart       0x0012
+   QAccessible::Selection            0x8006
+   QAccessible::SelectionAdd         0x8007
+   QAccessible::SelectionRemove      0x8008
+   QAccessible::SelectionWithin      0x8009
+   QAccessible::SoundPlayed          0x0001
+   QAccessible::StateChanged         0x800A
+   QAccessible::ValueChanged         0x800E
+
+  typedef QAccessible::InterfaceFactory
+
+   A function pointer type. Use a function with this prototype to install
+   interface factories with installFactory().
+
+   The function receives a QObject pointer. If the QObject provides a
+   QAccessibleInterface, it sets the second parameter to point to the
+   corresponding QAccessibleInterface, and returns true; otherwise
+   returns false.
+
+   Installed factories are called by queryAccessibilityInterface() until
+   one provides an interface.
+
+  enum QAccessible::RelationFlag
+  flags QAccessible::Relation
+
+   This enum type defines bit flags that can be combined to indicate the
+   relationship between two accessible objects.
+
+   Constant Value Description
+   QAccessible::Unrelated 0x00000000 The objects are unrelated.
+   QAccessible::Self 0x00000001 The objects are the same.
+   QAccessible::Ancestor 0x00000002 The first object is a parent of the
+   second object.
+   QAccessible::Child 0x00000004 The first object is a direct child of
+   the second object.
+   QAccessible::Descendent 0x00000008 The first object is an indirect
+   child of the second object.
+   QAccessible::Sibling 0x00000010 The objects are siblings.
+   QAccessible::Up 0x00000100 The first object is above the second
+   object.
+   QAccessible::Down 0x00000200 The first object is below the second
+   object.
+   QAccessible::Left 0x00000400 The first object is left of the second
+   object.
+   QAccessible::Right 0x00000800 The first object is right of the second
+   object.
+   QAccessible::Covers 0x00001000 The first object covers the second
+   object.
+   QAccessible::Covered 0x00002000 The first object is covered by the
+   second object.
+   QAccessible::FocusChild 0x00010000 The first object is the second
+   object's focus child.
+   QAccessible::Label 0x00020000 The first object is the label of the
+   second object.
+   QAccessible::Labelled 0x00040000 The first object is labelled by the
+   second object.
+   QAccessible::Controller 0x00080000 The first object controls the
+   second object.
+   QAccessible::Controlled 0x00100000 The first object is controlled by
+   the second object.
+
+   Implementations of relationTo() return a combination of these flags.
+   Some values are mutually exclusive.
+
+   Implementations of navigate() can accept only one distinct value.
+
+   The Relation type is a typedef for QFlags<RelationFlag>. It stores an
+   OR combination of RelationFlag values.
+
+  enum QAccessible::Role
+
+   This enum defines the role of an accessible object. The roles are:
+
+   Constant Value Description
+   QAccessible::AlertMessage 0x00000008 An object that is used to alert
+   the user.
+   QAccessible::Animation 0x00000036 An object that displays an
+   animation.
+   QAccessible::Application 0x0000000E The application's main window.
+   QAccessible::Assistant 0x00000020 An object that provids interactive
+   help.
+   QAccessible::Border 0x00000013 An object that represents a border.
+   QAccessible::ButtonDropDown 0x00000038 A button that drops down a list
+   of items.
+   QAccessible::ButtonDropGrid 0x0000003A A button that drops down a
+   grid.
+   QAccessible::ButtonMenu 0x00000039 A button that drops down a menu.
+   QAccessible::Canvas 0x00000035 An object that displays graphics that
+   the user can interact with.
+   QAccessible::Caret 0x00000007 An object that represents the system
+   caret (text cursor).
+   QAccessible::Cell 0x0000001D A cell in a table.
+   QAccessible::Chart 0x00000011 An object that displays a graphical
+   representation of data.
+   QAccessible::CheckBox 0x0000002C An object that represents an option
+   that can be checked or unchecked. Some options provide a "mixed"
+   state, e.g. neither checked nor unchecked.
+   QAccessible::Client 0x0000000A The client area in a window.
+   QAccessible::Clock 0x0000003D A clock displaying time.
+   QAccessible::Column 0x0000001B A column of cells, usually within a
+   table.
+   QAccessible::ColumnHeader 0x00000019 A header for a column of data.
+   QAccessible::ComboBox 0x0000002E A list of choices that the user can
+   select from.
+   QAccessible::Cursor 0x00000006 An object that represents the mouse
+   cursor.
+   QAccessible::Dial 0x00000031 An object that represents a dial or knob.
+   QAccessible::Dialog 0x00000012 A dialog box.
+   QAccessible::Document 0x0000000F A document window, usually in an MDI
+   environment.
+   QAccessible::EditableText 0x0000002A Editable text
+   QAccessible::Equation 0x00000037 An object that represents a
+   mathematical equation.
+   QAccessible::Graphic 0x00000028 A graphic or picture, e.g. an icon.
+   QAccessible::Grip 0x00000004 A grip that the user can drag to change
+   the size of widgets.
+   QAccessible::Grouping 0x00000014 An object that represents a logical
+   grouping of other objects.
+   QAccessible::HelpBalloon 0x0000001F An object that displays help in a
+   separate, short lived window.
+   QAccessible::HotkeyField 0x00000032 A hotkey field that allows the
+   user to enter a key sequence.
+   QAccessible::Indicator 0x00000027 An indicator that represents a
+   current value or item.
+   QAccessible::LayeredPane 0x0000003F An object that can contain layered
+   children, e.g. in a stack.
+   QAccessible::Link 0x0000001E A link to something else.
+   QAccessible::List 0x00000021 A list of items, from which the user to
+   select one or more items.
+   QAccessible::ListItem 0x00000022 An item in a list of items.
+   QAccessible::MenuBar 0x00000002 A menu bar from which menus are opened
+   by the user.
+   QAccessible::MenuItem 0x0000000C An item in a menu or menu bar.
+   QAccessible::NoRole 0x00000000 The object has no role. This usually
+   indicates an invalid object.
+   QAccessible::PageTab 0x00000025 A page tab that the user can select to
+   switch to a different page in a dialog.
+   QAccessible::PageTabList 0x0000003C A list of page tabs.
+   QAccessible::Pane 0x00000010 A generic container.
+   QAccessible::PopupMenu 0x0000000B A menu which lists options that the
+   user can select to perform an action.
+   QAccessible::ProgressBar 0x00000030 The object displays the progress
+   of an operation in progress.
+   QAccessible::PropertyPage 0x00000026 A property page where the user
+   can change options and settings.
+   QAccessible::PushButton 0x0000002B A button.
+   QAccessible::RadioButton 0x0000002D An object that represents an
+   option that is mutually exclusive with other options.
+   QAccessible::Row 0x0000001C A row of cells, usually within a table.
+   QAccessible::RowHeader 0x0000001A A header for a row of data.
+   QAccessible::ScrollBar 0x00000003 A scroll bar, which allows the user
+   to scroll the visible area.
+   QAccessible::Separator 0x00000015 A separator that divides space into
+   logical areas.
+   QAccessible::Slider 0x00000033 A slider that allows the user to select
+   a value within a given range.
+   QAccessible::Sound 0x00000005 An object that represents a sound.
+   QAccessible::SpinBox 0x00000034 A spin box widget that allows the user
+   to enter a value within a given range.
+   QAccessible::Splitter 0x0000003E A splitter distributing available
+   space between its child widgets.
+   QAccessible::StaticText 0x00000029 Static text, such as labels for
+   other widgets.
+   QAccessible::StatusBar 0x00000017 A status bar.
+   QAccessible::Table 0x00000018 A table representing data in a grid of
+   rows and columns.
+   QAccessible::TitleBar 0x00000001 The title bar caption of a window.
+   QAccessible::ToolBar 0x00000016 A tool bar, which groups widgets that
+   the user accesses frequently.
+   QAccessible::ToolTip 0x0000000D A tool tip which provides information
+   about other objects.
+   QAccessible::Tree 0x00000023 A list of items in a tree structure.
+   QAccessible::TreeItem 0x00000024 An item in a tree structure.
+   QAccessible::UserRole 0x0000ffff The first value to be used for user
+   defined roles.
+   QAccessible::Whitespace 0x0000003B Blank space between other objects.
+   QAccessible::Window 0x00000009 A top level window.
+
+  typedef QAccessible::RootObjectHandler
+
+   A function pointer type. Use a function with this prototype to install
+   your own root object handler.
+
+   The function is called by setRootObject().
+
+  enum QAccessible::StateFlag
+  flags QAccessible::State
+
+   This enum type defines bit flags that can be combined to indicate the
+   state of an accessible object. The values are:
+
+   Constant Value Description
+   QAccessible::Animated 0x00004000 The object's appearance changes
+   frequently.
+   QAccessible::Busy 0x00000800 The object cannot accept input at the
+   moment.
+   QAccessible::Checked 0x00000010 The object's check box is checked.
+   QAccessible::Collapsed 0x00000400 The object is collapsed, e.g. a
+   closed listview item, or an iconified window.
+   QAccessible::DefaultButton 0x00000100 The object represents the
+   default button in a dialog.
+   QAccessible::Expanded 0x00000200 The object is expandable, and
+   currently the children are visible.
+   QAccessible::ExtSelectable 0x02000000 The object supports extended
+   selection.
+   QAccessible::Focusable 0x00100000 The object can receive focus. Only
+   objects in the active window can receive focus.
+   QAccessible::Focused 0x00000004 The object has keyboard focus.
+   QAccessible::HasPopup 0x40000000 The object opens a popup.
+   QAccessible::HotTracked 0x00000080 The object's appearance is
+   sensitive to the mouse cursor position.
+   QAccessible::Invisible 0x00008000 The object is not visible to the
+   user.
+   QAccessible::Linked 0x00400000 The object is linked to another object,
+   e.g. a hyperlink.
+   QAccessible::Marqueed 0x00002000 The object displays scrolling
+   contents, e.g. a log view.
+   QAccessible::Mixed 0x00000020 The state of the object is not
+   determined, e.g. a tri-state check box that is neither checked nor
+   unchecked.
+   QAccessible::Modal 0x80000000 The object blocks input from other
+   objects.
+   QAccessible::Movable 0x00040000 The object can be moved.
+   QAccessible::MultiSelectable 0x01000000 The object supports multiple
+   selected items.
+   QAccessible::Normal 0x00000000 The normal state.
+   QAccessible::Offscreen 0x00010000 The object is clipped by the visible
+   area. Objects that are off screen are also invisible.
+   QAccessible::Pressed 0x00000008 The object is pressed.
+   QAccessible::Protected 0x20000000 The object is password protected,
+   e.g. a line edit for entering a Password.
+   QAccessible::ReadOnly 0x00000040 The object can usually be edited, but
+   is explicitly set to read-only.
+   QAccessible::Selectable 0x00200000 The object is selectable.
+   QAccessible::Selected 0x00000002 The object is selected.
+   QAccessible::SelfVoicing 0x00080000 The object describes itself
+   through speech or sound.
+   QAccessible::Sizeable 0x00020000 The object can be resized, e.g.
+   top-level windows.
+   QAccessible::Traversed 0x00800000 The object is linked and has been
+   visited.
+   QAccessible::Unavailable 0x00000001 The object is unavailable to the
+   user, e.g. a disabled widget.
+
+   Implementations of QAccessibleInterface::state() return a combination
+   of these flags.
+
+   The State type is a typedef for QFlags<StateFlag>. It stores an OR
+   combination of StateFlag values.
+
+  enum QAccessible::Text
+
+   This enum specifies string information that an accessible object
+   returns.
+
+   Constant Value Description
+   QAccessible::Name 0 The name of the object.
+   QAccessible::Description 1 A short text describing the object.
+   QAccessible::Value 2 The value of the object.
+   QAccessible::Help 3 A longer text giving information about how to use
+   the object.
+   QAccessible::Accelerator 4 The keyboard shortcut that executes the
+   object's default action.
+   QAccessible::UserText 0x0000ffff The first value to be used for user
+   defined text.
+
+  typedef QAccessible::UpdateHandler
+
+   A function pointer type. Use a function with this prototype to install
+   your own update function.
+
+   The function is called by updateAccessibility().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  void QAccessible::installFactory ( InterfaceFactory factory )   [static]
+
+   Installs the InterfaceFactory factory. The last factory added is the
+   first one used by queryAccessibleInterface().
+
+  RootObjectHandler QAccessible::installRootObjectHandler ( RootObjectHandler
+  handler )   [static]
+
+   Installs the given handler as the function to be used by
+   setRootObject(), and returns the previously installed handler.
+
+  UpdateHandler QAccessible::installUpdateHandler ( UpdateHandler handler )
+  [static]
+
+   Installs the given handler as the function to be used by
+   updateAccessibility(), and returns the previously installed handler.
+
+  bool QAccessible::isActive ()   [static]
+
+   Returns true if an accessibility implementation has been requested
+   during the runtime of the application; otherwise returns false.
+
+   Use this function to prevent potentially expensive notifications via
+   updateAccessibility().
+
+  QAccessibleInterface * QAccessible::queryAccessibleInterface ( QObject *
+  object )   [static]
+
+   If a QAccessibleInterface implementation exists for the given object,
+   this function returns a pointer to the implementation; otherwise it
+   returns 0.
+
+   The function calls all installed factory functions (from most recently
+   installed to least recently installed) until one is found that
+   provides an interface for the class of object. If no factory can
+   provide an accessibility implementation for the class the function
+   loads installed accessibility plugins, and tests if any of the plugins
+   can provide the implementation.
+
+   If no implementation for the object's class is available, the function
+   tries to find an implementation for the object's parent class, using
+   the above strategy.
+
+   Warning: The caller is responsible for deleting the returned interface
+   after use.
+
+  void QAccessible::removeFactory ( InterfaceFactory factory )   [static]
+
+   Removes factory from the list of installed InterfaceFactories.
+
+  void QAccessible::setRootObject ( QObject * object )   [static]
+
+   Sets the root accessible object of this application to object. All
+   other accessible objects in the application can be reached by the
+   client using object navigation.
+
+   You should never need to call this function. Qt sets the QApplication
+   object as the root object immediately before the event loop is entered
+   in QApplication::exec().
+
+   Use installRootObjectHandler() to redirect the function call to a
+   customized handler function.
+
+   See also RootObjectHandler and queryAccessibleInterface().
+
+  void QAccessible::updateAccessibility ( QObject * object, int child, Event
+  reason )   [static]
+
+   Notifies accessibility clients about a change in object's
+   accessibility information.
+
+   reason specifies the cause of the change, for example, ValueChange
+   when the position of a slider has been changed. child is the (1-based)
+   index of the child element that has changed. When child is 0, the
+   object itself has changed.
+
+   Call this function whenever the state of your accessible object or one
+   of it's sub-elements has been changed either programmatically (e.g. by
+   calling QLabel::setText()) or by user interaction.
+
+   If there are no accessibility tools listening to this event, the
+   performance penalty for calling this function is small, but if
+   determining the parameters of the call is expensive you can test
+   isActive() to avoid unnecessary computations.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,226 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QMovie Class Reference
+
+   #include <qmovie.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * enum MovieState { NotRunning, Paused, Running }
+
+Public Slots
+
+     * void start ()
+     * bool jumpToNextFrame ()
+     * void setPaused (bool paused)
+     * void stop ()
+
+Signals
+
+     * void started ()
+     * void resized (const QSize &size)
+     * void updated (const QRect &rect)
+     * void stateChanged (MovieState state)
+     * void error (QImageReader::ImageReaderError error)
+     * void finished ()
+
+Public Member Functions
+
+     * QMovie (QObject *parent=0)
+     * QMovie (QIODevice *device, const QByteArray &format=QByteArray(), QObject *parent=0)
+     * QMovie (const QString &fileName, const QByteArray &format=QByteArray(), QObject *parent=0)
+     * ~QMovie ()
+     * void setDevice (QIODevice *device)
+     * QIODevice * device () const
+     * void setFileName (const QString &fileName)
+     * QString fileName () const
+     * void setFormat (const QByteArray &format)
+     * QByteArray format () const
+     * void setBackgroundColor (const QColor &color)
+     * QColor backgroundColor () const
+     * MovieState state () const
+     * QRect frameRect () const
+     * QImage currentImage () const
+     * QPixmap currentPixmap () const
+     * bool isValid () const
+     * bool jumpToFrame (int frameNumber)
+     * int loopCount () const
+     * int frameCount () const
+     * int nextFrameDelay () const
+     * int currentFrameNumber () const
+     * void setSpeed (int percentSpeed)
+     * int speed () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QMovie::MovieState
+
+
+
+   Enumerator: 
+
+          NotRunning
+          Paused    
+          Running   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMovie::QMovie (  QObject *  parent = 0  )
+
+
+
+   QMovie::QMovie (  QIODevice *         device,
+                     const QByteArray &  format = QByteArray(),
+                     QObject *           parent = 0
+                  )  [explicit]
+
+
+
+   QMovie::QMovie (  const QString &     fileName,
+                     const QByteArray &  format = QByteArray(),
+                     QObject *           parent = 0
+                  )  [explicit]
+
+
+
+   QMovie::~QMovie (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QColor QMovie::backgroundColor (   )  const
+
+
+
+   int QMovie::currentFrameNumber (   )  const
+
+
+
+   QImage QMovie::currentImage (   )  const
+
+
+
+   QPixmap QMovie::currentPixmap (   )  const
+
+
+
+   QIODevice* QMovie::device (   )  const
+
+
+
+   void QMovie::error (  QImageReader::ImageReaderError  error  )  [signal]
+
+
+
+   QString QMovie::fileName (   )  const
+
+
+
+   void QMovie::finished (   )  [signal]
+
+
+
+   QByteArray QMovie::format (   )  const
+
+
+
+   int QMovie::frameCount (   )  const
+
+
+
+   QRect QMovie::frameRect (   )  const
+
+
+
+   bool QMovie::isValid (   )  const
+
+
+
+   bool QMovie::jumpToFrame (  int  frameNumber  )
+
+
+
+   bool QMovie::jumpToNextFrame (   )  [slot]
+
+
+
+   int QMovie::loopCount (   )  const
+
+
+
+   int QMovie::nextFrameDelay (   )  const
+
+
+
+   void QMovie::resized (  const QSize &  size  )  [signal]
+
+
+
+   void QMovie::setBackgroundColor (  const QColor &  color  )
+
+
+
+   void QMovie::setDevice (  QIODevice *  device  )
+
+
+
+   void QMovie::setFileName (  const QString &  fileName  )
+
+
+
+   void QMovie::setFormat (  const QByteArray &  format  )
+
+
+
+   void QMovie::setPaused (  bool  paused  )  [slot]
+
+
+
+   void QMovie::setSpeed (  int  percentSpeed  )
+
+
+
+   int QMovie::speed (   )  const
+
+
+
+   void QMovie::start (   )  [slot]
+
+
+
+   void QMovie::started (   )  [signal]
+
+
+
+   MovieState QMovie::state (   )  const
+
+
+
+   void QMovie::stateChanged (  MovieState  state  )  [signal]
+
+
+
+   void QMovie::stop (   )  [slot]
+
+
+
+   void QMovie::updated (  const QRect &  rect  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmovie.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

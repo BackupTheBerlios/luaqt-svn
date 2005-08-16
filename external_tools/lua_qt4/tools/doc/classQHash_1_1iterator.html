@@ -1,0 +1,180 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+   QHash::iterator
+
+                                                                                                                                                                                                                                     QHash< Key, T >::iterator Class Reference
+
+   #include <qhash.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef std::bidirectional_iterator_tag iterator_category
+     * typedef ptrdiff_t difference_type
+     * typedef T value_type
+     * typedef T * pointer
+     * typedef T & reference
+
+Public Member Functions
+
+     * operator Node * () const
+     * iterator ()
+     * iterator (void *node)
+     * const Key & key () const
+     * T & value () const
+     * T & operator * () const
+     * T * operator-> () const
+     * bool operator== (const iterator &o) const
+     * bool operator!= (const iterator &o) const
+     * bool operator== (const const_iterator &o) const
+     * bool operator!= (const const_iterator &o) const
+     * iterator & operator++ ()
+     * iterator operator++ (int)
+     * iterator & operator-- ()
+     * iterator operator-- (int)
+     * iterator operator+ (int j) const
+     * iterator operator- (int j) const
+     * iterator & operator+= (int j)
+     * iterator & operator-= (int j)
+
+  template<class Key, class T>
+  class QHash< Key, T >::iterator
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<class Key, class T>
+   typedef ptrdiff_t QHash< Key, T >::iterator::difference_type
+
+
+
+   template<class Key, class T>
+   typedef std::bidirectional_iterator_tag QHash< Key, T >::iterator::iterator_category
+
+
+
+   template<class Key, class T>
+   typedef T* QHash< Key, T >::iterator::pointer
+
+
+
+   template<class Key, class T>
+   typedef T& QHash< Key, T >::iterator::reference
+
+
+
+   template<class Key, class T>
+   typedef T QHash< Key, T >::iterator::value_type
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class Key, class T>
+   QHash< Key, T >::iterator::iterator (   )  [inline]
+
+
+
+   template<class Key, class T>
+   QHash< Key, T >::iterator::iterator (  void *  node  )  [inline, explicit]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class Key, class T>
+   const Key& QHash< Key, T >::iterator::key (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   T& QHash< Key, T >::iterator::operator * (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   QHash< Key, T >::iterator::operator Node * (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   bool QHash< Key, T >::iterator::operator!= (  const const_iterator &  o  )  const [inline]
+
+
+
+   template<class Key, class T>
+   bool QHash< Key, T >::iterator::operator!= (  const iterator &  o  )  const [inline]
+
+
+
+   template<class Key, class T>
+   iterator QHash< Key, T >::iterator::operator+ (  int  j  )  const [inline]
+
+
+
+   template<class Key, class T>
+   iterator QHash< Key, T >::iterator::operator++ (  int   )  [inline]
+
+
+
+   template<class Key, class T>
+   iterator& QHash< Key, T >::iterator::operator++ (   )  [inline]
+
+
+
+   template<class Key, class T>
+   iterator& QHash< Key, T >::iterator::operator+= (  int  j  )  [inline]
+
+
+
+   template<class Key, class T>
+   iterator QHash< Key, T >::iterator::operator- (  int  j  )  const [inline]
+
+
+
+   template<class Key, class T>
+   iterator QHash< Key, T >::iterator::operator-- (  int   )  [inline]
+
+
+
+   template<class Key, class T>
+   iterator& QHash< Key, T >::iterator::operator-- (   )  [inline]
+
+
+
+   template<class Key, class T>
+   iterator& QHash< Key, T >::iterator::operator-= (  int  j  )  [inline]
+
+
+
+   template<class Key, class T>
+   T* QHash< Key, T >::iterator::operator-> (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   bool QHash< Key, T >::iterator::operator== (  const const_iterator &  o  )  const [inline]
+
+
+
+   template<class Key, class T>
+   bool QHash< Key, T >::iterator::operator== (  const iterator &  o  )  const [inline]
+
+
+
+   template<class Key, class T>
+   T& QHash< Key, T >::iterator::value (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qhash.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,185 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                QDesignerFormWindowManagerInterface Class Reference
+
+   #include <abstractformwindowmanager.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Slots
+
+     * virtual void addFormWindow (QDesignerFormWindowInterface *formWindow)
+     * virtual void removeFormWindow (QDesignerFormWindowInterface *formWindow)
+     * virtual void setActiveFormWindow (QDesignerFormWindowInterface *formWindow)
+
+Signals
+
+     * void formWindowAdded (QDesignerFormWindowInterface *formWindow)
+     * void formWindowRemoved (QDesignerFormWindowInterface *formWindow)
+     * void activeFormWindowChanged (QDesignerFormWindowInterface *formWindow)
+
+Public Member Functions
+
+     * QDesignerFormWindowManagerInterface (QObject *parent=0)
+     * virtual ~QDesignerFormWindowManagerInterface ()
+     * virtual QAction * actionCut () const
+     * virtual QAction * actionCopy () const
+     * virtual QAction * actionPaste () const
+     * virtual QAction * actionDelete () const
+     * virtual QAction * actionSelectAll () const
+     * virtual QAction * actionLower () const
+     * virtual QAction * actionRaise () const
+     * virtual QAction * actionUndo () const
+     * virtual QAction * actionRedo () const
+     * virtual QAction * actionHorizontalLayout () const
+     * virtual QAction * actionVerticalLayout () const
+     * virtual QAction * actionSplitHorizontal () const
+     * virtual QAction * actionSplitVertical () const
+     * virtual QAction * actionGridLayout () const
+     * virtual QAction * actionBreakLayout () const
+     * virtual QAction * actionAdjustSize () const
+     * virtual QDesignerFormWindowInterface * activeFormWindow () const
+     * virtual int formWindowCount () const
+     * virtual QDesignerFormWindowInterface * formWindow (int index) const
+     * virtual QDesignerFormWindowInterface * createFormWindow (QWidget *parentWidget=0, Qt::WindowFlags flags=0)
+     * virtual QDesignerFormEditorInterface * core () const
+     * virtual void dragItems (const QList< QDesignerDnDItemInterface * > &item_list)=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface (  QObject *  parent = 0  )
+
+
+
+   virtual QDesignerFormWindowManagerInterface::~QDesignerFormWindowManagerInterface (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionAdjustSize (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionBreakLayout (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionCopy (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionCut (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionDelete (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionGridLayout (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionHorizontalLayout (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionLower (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionPaste (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionRaise (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionRedo (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionSelectAll (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionSplitHorizontal (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionSplitVertical (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionUndo (   )  const [virtual]
+
+
+
+   virtual QAction* QDesignerFormWindowManagerInterface::actionVerticalLayout (   )  const [virtual]
+
+
+
+   virtual QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface::activeFormWindow (   )  const [virtual]
+
+
+
+   void QDesignerFormWindowManagerInterface::activeFormWindowChanged (  QDesignerFormWindowInterface *  formWindow  )  [signal]
+
+
+
+   virtual void QDesignerFormWindowManagerInterface::addFormWindow (  QDesignerFormWindowInterface *  formWindow  )  [virtual, slot]
+
+
+
+   virtual QDesignerFormEditorInterface* QDesignerFormWindowManagerInterface::core (   )  const [virtual]
+
+
+
+   virtual QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface::createFormWindow (  QWidget *        parentWidget = 0,
+                                                                                                  Qt::WindowFlags  flags = 0
+                                                                                               )  [virtual]
+
+
+
+   virtual void QDesignerFormWindowManagerInterface::dragItems (  const QList< QDesignerDnDItemInterface * > &  item_list  )  [pure virtual]
+
+
+
+   virtual QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface::formWindow (  int  index  )  const [virtual]
+
+
+
+   void QDesignerFormWindowManagerInterface::formWindowAdded (  QDesignerFormWindowInterface *  formWindow  )  [signal]
+
+
+
+   virtual int QDesignerFormWindowManagerInterface::formWindowCount (   )  const [virtual]
+
+
+
+   void QDesignerFormWindowManagerInterface::formWindowRemoved (  QDesignerFormWindowInterface *  formWindow  )  [signal]
+
+
+
+   virtual void QDesignerFormWindowManagerInterface::removeFormWindow (  QDesignerFormWindowInterface *  formWindow  )  [virtual, slot]
+
+
+
+   virtual void QDesignerFormWindowManagerInterface::setActiveFormWindow (  QDesignerFormWindowInterface *  formWindow  )  [virtual, slot]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractformwindowmanager.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

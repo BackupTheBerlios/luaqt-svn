@@ -1,0 +1,170 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               Q3Dns Class Reference
+
+   #include <q3dns.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * enum RecordType {
+         None, A, Aaaa, Mx,
+         Srv, Cname, Ptr, Txt
+       }
+
+Signals
+
+     * void resultsReady ()
+
+Public Member Functions
+
+     * Q3Dns ()
+     * Q3Dns (const QString &label, RecordType rr=A)
+     * Q3Dns (const QHostAddress &address, RecordType rr=Ptr)
+     * virtual ~Q3Dns ()
+     * virtual void setLabel (const QString &label)
+     * virtual void setLabel (const QHostAddress &address)
+     * QString label () const
+     * virtual void setRecordType (RecordType rr=A)
+     * RecordType recordType () const
+     * bool isWorking () const
+     * Q3ValueList< QHostAddress > addresses () const
+     * Q3ValueList< MailServer > mailServers () const
+     * Q3ValueList< Server > servers () const
+     * QStringList hostNames () const
+     * QStringList texts () const
+     * QString canonicalName () const
+     * QStringList qualifiedNames () const
+
+Friends
+
+     * class Q3DnsAnswer
+     * class Q3DnsManager
+
+Classes
+
+     * class MailServer
+     * class Server
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3Dns::RecordType
+
+
+
+   Enumerator: 
+
+          None 
+          A    
+          Aaaa 
+          Mx   
+          Srv  
+          Cname
+          Ptr  
+          Txt  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Dns::Q3Dns (   )
+
+
+
+   Q3Dns::Q3Dns (  const QString &  label,
+                   RecordType       rr = A
+                )
+
+
+
+   Q3Dns::Q3Dns (  const QHostAddress &  address,
+                   RecordType            rr = Ptr
+                )
+
+
+
+   virtual Q3Dns::~Q3Dns (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3ValueList<QHostAddress> Q3Dns::addresses (   )  const
+
+
+
+   QString Q3Dns::canonicalName (   )  const
+
+
+
+   QStringList Q3Dns::hostNames (   )  const
+
+
+
+   bool Q3Dns::isWorking (   )  const
+
+
+
+   QString Q3Dns::label (   )  const [inline]
+
+
+
+   Q3ValueList<MailServer> Q3Dns::mailServers (   )  const
+
+
+
+   QStringList Q3Dns::qualifiedNames (   )  const [inline]
+
+
+
+   RecordType Q3Dns::recordType (   )  const [inline]
+
+
+
+   void Q3Dns::resultsReady (   )  [signal]
+
+
+
+   Q3ValueList<Server> Q3Dns::servers (   )  const
+
+
+
+   virtual void Q3Dns::setLabel (  const QHostAddress &  address  )  [virtual]
+
+
+
+   virtual void Q3Dns::setLabel (  const QString &  label  )  [virtual]
+
+
+
+   virtual void Q3Dns::setRecordType (  RecordType  rr = A  )  [virtual]
+
+
+
+   QStringList Q3Dns::texts (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3DnsAnswer [friend]
+
+
+
+   friend class Q3DnsManager [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3dns.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,57 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QExtensionFactory Class Reference
+
+   #include <default_extensionfactory.h>
+
+   Inherits QObject, and QAbstractExtensionFactory.
+
+   List of all members.
+
+Public Member Functions
+
+     * QExtensionFactory (QExtensionManager *parent=0)
+     * virtual QObject * extension (QObject *object, const QString &iid) const
+     * QExtensionManager * extensionManager () const
+
+Protected Member Functions
+
+     * virtual QObject * createExtension (QObject *object, const QString &iid, QObject *parent) const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QExtensionFactory::QExtensionFactory (  QExtensionManager *  parent = 0  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QObject* QExtensionFactory::createExtension (  QObject *        object,
+                                                          const QString &  iid,
+                                                          QObject *        parent
+                                                       )  const [protected, virtual]
+
+
+
+   virtual QObject* QExtensionFactory::extension (  QObject *        object,
+                                                    const QString &  iid
+                                                 )  const [virtual]
+
+
+
+   Implements QAbstractExtensionFactory.
+
+   QExtensionManager* QExtensionFactory::extensionManager (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/default_extensionfactory.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

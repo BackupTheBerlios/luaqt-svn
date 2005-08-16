@@ -1,0 +1,201 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QGroupBox Class Reference
+
+   The QGroupBox widget provides a group box frame with a title. More...
+#include <QGroupBox>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+
+   Inherited by Q3GroupBox.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * alignment : Qt::Alignment
+     * checkable : bool
+     * checked : bool
+
+     * flat : bool
+     * title : QString
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QGroupBox ( QWidget * parent = 0 )
+     * QGroupBox ( const QString & title, QWidget * parent = 0 )
+     * ~QGroupBox ()
+     * Qt::Alignment alignment () const
+     * bool isCheckable () const
+     * bool isChecked () const
+     * bool isFlat () const
+     * void setAlignment ( int )
+     * void setCheckable ( bool b )
+     * void setFlat ( bool b )
+     * void setTitle ( const QString & )
+     * QString title () const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void setChecked ( bool b )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void toggled ( bool on )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QGroupBox widget provides a group box frame with a title.
+
+   A group box provides a frame, a title and a keyboard shortcut, and
+   displays various other widgets inside itself. The title is on top, the
+   keyboard shortcut moves keyboard focus to one of the group box's child
+   widgets.
+
+   QGroupBox also lets you set the title (normally set in the
+   constructor) and the title's alignment(). If setCheckable(true) is
+   called then the group box is isCheckable(), and it can be
+   setChecked(). Checkable group boxes child widgets are enabled or
+   disabled depending on whether or not the group box is isChecked().
+
+   To minimize space consumption, you can remove the right, left and
+   bottom edges of the frame with setFlat().
+
+   Screenshot in Plastique style Screenshot in Windows style
+
+   See also QButtonGroup.
+     _________________________________________________________________
+
+Property Documentation
+
+  alignment : Qt::Alignment
+
+   This property holds the alignment of the group box title.
+
+   The title is always placed on the upper frame line. The horizontal
+   alignment can be specified by the alignment parameter.
+
+   The alignment is one of the following flags:
+     * Qt::AlignLeft aligns the title text to the left.
+     * Qt::AlignRight aligns the title text to the right.
+     * Qt::AlignHCenter aligns the title text centered.
+
+   The default alignment is Qt::AlignLeft.
+
+   Access functions:
+     * Qt::Alignment alignment () const
+     * void setAlignment ( int )
+
+   See also Qt::Alignment.
+
+  checkable : bool
+
+   This property holds whether the group box has a checkbox in its title.
+
+   If this property is true, the group box has a checkbox. If the
+   checkbox is checked (which is the default), the group box's children
+   are enabled.
+
+   setCheckable() controls whether or not the group box has a checkbox,
+   and isCheckable() controls whether the checkbox is checked or not.
+
+   Access functions:
+     * bool isCheckable () const
+     * void setCheckable ( bool b )
+
+  checked : bool
+
+   This property holds whether the group box's checkbox is checked.
+
+   If the group box has a check box (see isCheckable()), and the check
+   box is checked, the group box's children are enabled. If the checkbox
+   is unchecked the children are disabled.
+
+   Access functions:
+     * bool isChecked () const
+     * void setChecked ( bool b )
+
+  flat : bool
+
+   This property holds whether the group box is painted flat or has a
+   frame.
+
+   By default a group box has a surrounding frame, with the title being
+   placed on the upper frame line. In flat mode the right, left and
+   bottom frame lines are omitted, and only the thin line at the top is
+   drawn.
+
+   Access functions:
+     * bool isFlat () const
+     * void setFlat ( bool b )
+
+   See also title.
+
+  title : QString
+
+   This property holds the group box title text.
+
+   The group box title text will have a focus-change keyboard shortcut if
+   the title contains &, followed by a letter.
+    g->setTitle("&User information");
+
+   This produces "User information"; Alt+U moves the keyboard focus to
+   the group box.
+
+   There is no default title text.
+
+   Access functions:
+     * QString title () const
+     * void setTitle ( const QString & )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QGroupBox::QGroupBox ( QWidget * parent = 0 )
+
+   Constructs a group box widget with no title and parent parent.
+
+  QGroupBox::QGroupBox ( const QString & title, QWidget * parent = 0 )
+
+   Constructs a group box with the title title and parent parent.
+
+  QGroupBox::~QGroupBox ()
+
+   Destroys the group box.
+
+  void QGroupBox::toggled ( bool on )   [signal]
+
+   If the group box has a check box (see isCheckable()) this signal is
+   emitted when the check box is toggled. on is true if the check box is
+   checked; otherwise it is false.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,196 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QItemDelegate Class Reference
+
+   #include <qitemdelegate.h>
+
+   Inherits QAbstractItemDelegate.
+
+   List of all members.
+
+Public Member Functions
+
+     * QItemDelegate (QObject *parent=0)
+     * ~QItemDelegate ()
+     * void paint (QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+     * QSize sizeHint (const QStyleOptionViewItem &option, const QModelIndex &index) const
+     * QWidget * createEditor (QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+     * void setEditorData (QWidget *editor, const QModelIndex &index) const
+     * void setModelData (QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+     * void updateEditorGeometry (QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
+     * QItemEditorFactory * itemEditorFactory () const
+     * void setItemEditorFactory (QItemEditorFactory *factory)
+
+Protected Member Functions
+
+     * virtual void drawDisplay (QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect, const QString &text) const
+     * virtual void drawDecoration (QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect, const QPixmap &pixmap) const
+     * virtual void drawFocus (QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+     * virtual void drawCheck (QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect, Qt::CheckState state) const
+     * void doLayout (const QStyleOptionViewItem &option, QRect *checkRect, QRect *iconRect, QRect *textRect, bool hint) const
+     * QPixmap decoration (const QStyleOptionViewItem &option, const QVariant &variant) const
+     * QPixmap * selected (const QPixmap &pixmap, const QPalette &palette, bool enabled) const
+     * QRect check (const QStyleOptionViewItem &option, const QRect &bounding, const QVariant &variant) const
+     * bool eventFilter (QObject *object, QEvent *event)
+     * bool editorEvent (QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QItemDelegate::QItemDelegate (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QItemDelegate::~QItemDelegate (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QRect QItemDelegate::check (  const QStyleOptionViewItem &  option,
+                                 const QRect &                 bounding,
+                                 const QVariant &              variant
+                              )  const [protected]
+
+
+
+   QWidget* QItemDelegate::createEditor (  QWidget *                     parent,
+                                           const QStyleOptionViewItem &  option,
+                                           const QModelIndex &           index
+                                        )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemDelegate.
+
+   QPixmap QItemDelegate::decoration (  const QStyleOptionViewItem &  option,
+                                        const QVariant &              variant
+                                     )  const [protected]
+
+
+
+   void QItemDelegate::doLayout (  const QStyleOptionViewItem &  option,
+                                   QRect *                       checkRect,
+                                   QRect *                       iconRect,
+                                   QRect *                       textRect,
+                                   bool                          hint
+                                )  const [protected]
+
+
+
+   virtual void QItemDelegate::drawCheck (  QPainter *                    painter,
+                                            const QStyleOptionViewItem &  option,
+                                            const QRect &                 rect,
+                                            Qt::CheckState                state
+                                         )  const [protected, virtual]
+
+
+
+   virtual void QItemDelegate::drawDecoration (  QPainter *                    painter,
+                                                 const QStyleOptionViewItem &  option,
+                                                 const QRect &                 rect,
+                                                 const QPixmap &               pixmap
+                                              )  const [protected, virtual]
+
+
+
+   virtual void QItemDelegate::drawDisplay (  QPainter *                    painter,
+                                              const QStyleOptionViewItem &  option,
+                                              const QRect &                 rect,
+                                              const QString &               text
+                                           )  const [protected, virtual]
+
+
+
+   virtual void QItemDelegate::drawFocus (  QPainter *                    painter,
+                                            const QStyleOptionViewItem &  option,
+                                            const QRect &                 rect
+                                         )  const [protected, virtual]
+
+
+
+   bool QItemDelegate::editorEvent (  QEvent *                      event,
+                                      QAbstractItemModel *          model,
+                                      const QStyleOptionViewItem &  option,
+                                      const QModelIndex &           index
+                                   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemDelegate.
+
+   bool QItemDelegate::eventFilter (  QObject *  object,
+                                      QEvent *   event
+                                   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   QItemEditorFactory* QItemDelegate::itemEditorFactory (   )  const
+
+
+
+   void QItemDelegate::paint (  QPainter *                    painter,
+                                const QStyleOptionViewItem &  option,
+                                const QModelIndex &           index
+                             )  const [virtual]
+
+
+
+   Implements QAbstractItemDelegate.
+
+   QPixmap* QItemDelegate::selected (  const QPixmap &   pixmap,
+                                       const QPalette &  palette,
+                                       bool              enabled
+                                    )  const [protected]
+
+
+
+   void QItemDelegate::setEditorData (  QWidget *            editor,
+                                        const QModelIndex &  index
+                                     )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemDelegate.
+
+   void QItemDelegate::setItemEditorFactory (  QItemEditorFactory *  factory  )
+
+
+
+   void QItemDelegate::setModelData (  QWidget *             editor,
+                                       QAbstractItemModel *  model,
+                                       const QModelIndex &   index
+                                    )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemDelegate.
+
+   QSize QItemDelegate::sizeHint (  const QStyleOptionViewItem &  option,
+                                    const QModelIndex &           index
+                                 )  const [virtual]
+
+
+
+   Implements QAbstractItemDelegate.
+
+   void QItemDelegate::updateEditorGeometry (  QWidget *                     editor,
+                                               const QStyleOptionViewItem &  option,
+                                               const QModelIndex &           index
+                                            )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemDelegate.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qitemdelegate.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

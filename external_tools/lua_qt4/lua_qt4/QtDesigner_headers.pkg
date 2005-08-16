@@ -1,0 +1,651 @@
+$#include <QAbstractFormBuilder>
+
+class QAbstractFormBuilder {
+Q_OBJECT
+signals:
+public:
+
+	 QAbstractFormBuilder ();
+	 virtual ~QAbstractFormBuilder ();
+	 QDir workingDirectory () const;
+	 void setWorkingDirectory (const QDir &directory);
+	 virtual QWidget * load (QIODevice *dev, QWidget *parentWidget=0);
+	 virtual void save (QIODevice *dev, QWidget *widget);
+
+};
+$#include <QDesignerLayoutDecorationExtension>
+
+class QDesignerLayoutDecorationExtension {
+Q_OBJECT
+signals:
+public:
+	 enum InsertMode { InsertWidgetMode, InsertRowMode, InsertColumnMode };
+
+	 virtual ~QDesignerLayoutDecorationExtension ();
+	 virtual QList< QWidget * > widgets (QLayout *layout) const =0;
+	 virtual QRect itemInfo (int index) const =0;
+	 virtual int indexOf (QWidget *widget) const =0;
+	 virtual int indexOf (QLayoutItem *item) const =0;
+	 virtual InsertMode currentInsertMode () const =0;
+	 virtual int currentIndex () const =0;
+	 virtual QPair< int, int > currentCell () const =0;
+	 virtual void insertWidget (QWidget *widget, const QPair< int, int > &cell)=0;
+	 virtual void removeWidget (QWidget *widget)=0;
+	 virtual void insertRow (int row)=0;
+	 virtual void insertColumn (int column)=0;
+	 virtual void simplify ()=0;
+	 virtual int findItemAt (const QPoint &pos) const =0;
+	 virtual int findItemAt (int row, int column) const =0;
+	 virtual void adjustIndicator (const QPoint &pos, int index)=0;
+
+};
+$#include <QDesignerCustomWidgetInterface>
+
+class QDesignerCustomWidgetInterface {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerCustomWidgetInterface ();
+	 virtual QString name () const =0;
+	 virtual QString group () const =0;
+	 virtual QString toolTip () const =0;
+	 virtual QString whatsThis () const =0;
+	 virtual QString includeFile () const =0;
+	 virtual QIcon icon () const =0;
+	 virtual bool isContainer () const =0;
+	 virtual QWidget * createWidget (QWidget *parent)=0;
+	 virtual bool isInitialized () const;
+	 virtual void initialize (QDesignerFormEditorInterface *core);
+	 virtual QString domXml () const;
+	 virtual QString codeTemplate () const;
+
+};
+$#include <QAbstractExtensionFactory>
+
+class QAbstractExtensionFactory {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QAbstractExtensionFactory ();
+	 virtual QObject * extension (QObject *object, const QString &iid) const =0;
+
+};
+$#include <QAbstractExtensionManager>
+
+class QAbstractExtensionManager {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QAbstractExtensionManager ();
+	 virtual void registerExtensions (QAbstractExtensionFactory *factory, const QString &iid)=0;
+	 virtual void unregisterExtensions (QAbstractExtensionFactory *factory, const QString &iid)=0;
+	 virtual QObject * extension (QObject *object, const QString &iid) const =0;
+
+};
+$#include <QDesignerPropertySheetExtension>
+
+class QDesignerPropertySheetExtension {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerPropertySheetExtension ();
+	 virtual int count () const =0;
+	 virtual int indexOf (const QString &name) const =0;
+	 virtual QString propertyName (int index) const =0;
+	 virtual QString propertyGroup (int index) const =0;
+	 virtual void setPropertyGroup (int index, const QString &group)=0;
+	 virtual bool hasReset (int index) const =0;
+	 virtual bool reset (int index)=0;
+	 virtual bool isVisible (int index) const =0;
+	 virtual void setVisible (int index, bool b)=0;
+	 virtual bool isAttribute (int index) const =0;
+	 virtual void setAttribute (int index, bool b)=0;
+	 virtual QVariant property (int index) const =0;
+	 virtual void setProperty (int index, const QVariant &value)=0;
+	 virtual bool isChanged (int index) const =0;
+	 virtual void setChanged (int index, bool changed)=0;
+
+};
+$#include <QDesignerWidgetDataBaseItemInterface>
+
+class QDesignerWidgetDataBaseItemInterface {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerWidgetDataBaseItemInterface ();
+	 virtual QString name () const =0;
+	 virtual void setName (const QString &name)=0;
+	 virtual QString group () const =0;
+	 virtual void setGroup (const QString &group)=0;
+	 virtual QString toolTip () const =0;
+	 virtual void setToolTip (const QString &toolTip)=0;
+	 virtual QString whatsThis () const =0;
+	 virtual void setWhatsThis (const QString &whatsThis)=0;
+	 virtual QString includeFile () const =0;
+	 virtual void setIncludeFile (const QString &includeFile)=0;
+	 virtual QIcon icon () const =0;
+	 virtual void setIcon (const QIcon &icon)=0;
+	 virtual bool isCompat () const =0;
+	 virtual void setCompat (bool compat)=0;
+	 virtual bool isContainer () const =0;
+	 virtual void setContainer (bool container)=0;
+	 virtual bool isCustom () const =0;
+	 virtual void setCustom (bool custom)=0;
+	 virtual QString pluginPath () const =0;
+	 virtual void setPluginPath (const QString &path)=0;
+	 virtual bool isPromoted () const =0;
+	 virtual void setPromoted (bool b)=0;
+	 virtual QString extends () const =0;
+	 virtual void setExtends (const QString &s)=0;
+	 virtual void setDefaultPropertyValues (const QList< QVariant > &list)=0;
+	 virtual QList< QVariant > defaultPropertyValues () const =0;
+
+};
+$#include <QDesignerMetaDataBaseItemInterface>
+
+class QDesignerMetaDataBaseItemInterface {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerMetaDataBaseItemInterface ();
+	 virtual QString name () const =0;
+	 virtual void setName (const QString &name)=0;
+	 virtual QList< QWidget * > tabOrder () const =0;
+	 virtual void setTabOrder (const QList< QWidget * > &tabOrder)=0;
+	 virtual bool enabled () const =0;
+	 virtual void setEnabled (bool b)=0;
+
+};
+$#include <QDesignerContainerExtension>
+
+class QDesignerContainerExtension {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerContainerExtension ();
+	 virtual int count () const =0;
+	 virtual QWidget * widget (int index) const =0;
+	 virtual int currentIndex () const =0;
+	 virtual void setCurrentIndex (int index)=0;
+	 virtual void addWidget (QWidget *widget)=0;
+	 virtual void insertWidget (int index, QWidget *widget)=0;
+	 virtual void remove (int index)=0;
+
+};
+$#include <QDesignerMemberSheetExtension>
+
+class QDesignerMemberSheetExtension {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerMemberSheetExtension ();
+	 virtual int count () const =0;
+	 virtual int indexOf (const QString &name) const =0;
+	 virtual QString memberName (int index) const =0;
+	 virtual QString memberGroup (int index) const =0;
+	 virtual void setMemberGroup (int index, const QString &group)=0;
+	 virtual bool isVisible (int index) const =0;
+	 virtual void setVisible (int index, bool b)=0;
+	 virtual bool isSignal (int index) const =0;
+	 virtual bool isSlot (int index) const =0;
+	 virtual bool inheritedFromWidget (int index) const =0;
+	 virtual QString declaredInClass (int index) const =0;
+	 virtual QString signature (int index) const =0;
+	 virtual QList< QByteArray > parameterTypes (int index) const =0;
+	 virtual QList< QByteArray > parameterNames (int index) const =0;
+
+};
+$#include <QDesignerDnDItemInterface>
+
+class QDesignerDnDItemInterface {
+Q_OBJECT
+signals:
+public:
+	 enum DropType { MoveDrop, CopyDrop };
+
+	 virtual ~QDesignerDnDItemInterface ();
+	 virtual DomUI * domUi () const =0;
+	 virtual QWidget * widget () const =0;
+	 virtual QWidget * decoration () const =0;
+	 virtual QPoint hotSpot () const =0;
+	 virtual DropType type () const =0;
+	 virtual QWidget * source () const =0;
+
+};
+$#include <QDesignerCustomWidgetCollectionInterface>
+
+class QDesignerCustomWidgetCollectionInterface {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerCustomWidgetCollectionInterface ();
+	 virtual QList< QDesignerCustomWidgetInterface * > customWidgets () const =0;
+
+};
+$#include <QDesignerFormEditorPluginInterface>
+
+class QDesignerFormEditorPluginInterface {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerFormEditorPluginInterface ();
+	 virtual bool isInitialized () const =0;
+	 virtual void initialize (QDesignerFormEditorInterface *core)=0;
+	 virtual QAction * action () const =0;
+	 virtual QDesignerFormEditorInterface * core () const =0;
+
+};
+$#include <QDesignerTaskMenuExtension>
+
+class QDesignerTaskMenuExtension {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerTaskMenuExtension ();
+	 virtual QAction * preferredEditAction () const;
+	 virtual QList< QAction * > taskActions () const =0;
+
+};
+$#include <QDesignerFormWindowCursorInterface>
+
+class QDesignerFormWindowCursorInterface {
+Q_OBJECT
+signals:
+public:
+	 enum MoveOperation {         NoMove, Start, End, Next,         Prev, Left, Right, Up,         Down       };
+	 enum MoveMode { MoveAnchor, KeepAnchor };
+
+	 virtual ~QDesignerFormWindowCursorInterface ();
+	 virtual QDesignerFormWindowInterface * formWindow () const =0;
+	 virtual bool movePosition (MoveOperation op, MoveMode mode=MoveAnchor)=0;
+	 virtual int position () const =0;
+	 virtual void setPosition (int pos, MoveMode mode=MoveAnchor)=0;
+	 virtual QWidget * current () const =0;
+	 virtual int widgetCount () const =0;
+	 virtual QWidget * widget (int index) const =0;
+	 virtual bool hasSelection () const =0;
+	 virtual int selectedWidgetCount () const =0;
+	 virtual QWidget * selectedWidget (int index) const =0;
+	 virtual void setProperty (const QString &name, const QVariant &value)=0;
+	 virtual void setWidgetProperty (QWidget *widget, const QString &name, const QVariant &value)=0;
+	 virtual void resetWidgetProperty (QWidget *widget, const QString &name)=0;
+	 bool isWidgetSelected (QWidget *widget) const;
+
+};
+$#include <QDesignerExtraInfoExtension>
+
+class QDesignerExtraInfoExtension {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerExtraInfoExtension ();
+	 virtual QDesignerFormEditorInterface * core () const =0;
+	 virtual QWidget * widget () const =0;
+	 virtual bool saveUiExtraInfo (DomUi *ui)=0;
+	 virtual bool loadUiExtraInfo (DomUi *ui)=0;
+	 virtual bool saveWidgetExtraInfo (DomWidget *ui_widget)=0;
+	 virtual bool loadWidgetExtraInfo (DomWidget *ui_widget)=0;
+	 QString workingDirectory () const;
+	 void setWorkingDirectory (const QString &workingDirectory);
+
+};
+$#include <QDesignerFormWindowManagerInterface>
+
+class QDesignerFormWindowManagerInterface : public QObject {
+Q_OBJECT
+signals:
+	 void formWindowAdded (QDesignerFormWindowInterface *formWindow);
+	 void formWindowRemoved (QDesignerFormWindowInterface *formWindow);
+	 void activeFormWindowChanged (QDesignerFormWindowInterface *formWindow);
+public:
+
+	 virtual ~QDesignerFormWindowManagerInterface ();
+	 virtual QAction * actionCut () const;
+	 virtual QAction * actionCopy () const;
+	 virtual QAction * actionPaste () const;
+	 virtual QAction * actionDelete () const;
+	 virtual QAction * actionSelectAll () const;
+	 virtual QAction * actionLower () const;
+	 virtual QAction * actionRaise () const;
+	 virtual QAction * actionUndo () const;
+	 virtual QAction * actionRedo () const;
+	 virtual QAction * actionHorizontalLayout () const;
+	 virtual QAction * actionVerticalLayout () const;
+	 virtual QAction * actionSplitHorizontal () const;
+	 virtual QAction * actionSplitVertical () const;
+	 virtual QAction * actionGridLayout () const;
+	 virtual QAction * actionBreakLayout () const;
+	 virtual QAction * actionAdjustSize () const;
+	 virtual QDesignerFormWindowInterface * activeFormWindow () const;
+	 virtual int formWindowCount () const;
+	 virtual QDesignerFormWindowInterface * formWindow (int index) const;
+	 virtual QDesignerFormWindowInterface * createFormWindow (QWidget *parentWidget=0, Qt::WindowFlags flags=0);
+	 virtual QDesignerFormEditorInterface * core () const;
+	 virtual void dragItems (const QList< QDesignerDnDItemInterface * > &item_list)=0;
+	 virtual void addFormWindow (QDesignerFormWindowInterface *formWindow);
+	 virtual void removeFormWindow (QDesignerFormWindowInterface *formWindow);
+	 virtual void setActiveFormWindow (QDesignerFormWindowInterface *formWindow);
+
+};
+$#include <QDesignerImageCollectionInterface>
+
+class QDesignerImageCollectionInterface : public QObject {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerImageCollectionInterface ();
+	 virtual QDesignerFormEditorInterface * core () const =0;
+	 virtual QString fileName () const =0;
+	 virtual QString prefix () const =0;
+	 virtual int count () const =0;
+	 virtual QString item (int index) const =0;
+
+};
+$#include <QExtensionManager>
+
+class QExtensionManager : public QObject , public QAbstractExtensionManager {
+Q_OBJECT
+signals:
+public:
+
+	 QExtensionManager (QObject *parent=0);
+	 virtual void registerExtensions (QAbstractExtensionFactory *factory, const QString &iid=QString());
+	 virtual void unregisterExtensions (QAbstractExtensionFactory *factory, const QString &iid=QString());
+	 virtual QObject * extension (QObject *object, const QString &iid) const;
+
+};
+$#include <QDesignerFormWindowToolInterface>
+
+class QDesignerFormWindowToolInterface : public QObject {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerFormWindowToolInterface ();
+	 virtual QDesignerFormEditorInterface * core () const =0;
+	 virtual QDesignerFormWindowInterface * formWindow () const =0;
+	 virtual QWidget * editor () const =0;
+	 virtual QAction * action () const =0;
+	 virtual void activated ()=0;
+	 virtual void deactivated ()=0;
+	 virtual void saveToDom (DomUI *, QWidget *);
+	 virtual void loadFromDom (DomUI *, QWidget *);
+	 virtual bool handleEvent (QWidget *widget, QWidget *managedWidget, QEvent *event)=0;
+
+};
+$#include <QDesignerObjectInspectorInterface>
+
+class QDesignerObjectInspectorInterface : public QWidget {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerObjectInspectorInterface ();
+	 virtual QDesignerFormEditorInterface * core () const;
+	 virtual void setFormWindow (QDesignerFormWindowInterface *formWindow)=0;
+
+};
+$#include <QFormBuilder>
+
+class QFormBuilder : public QAbstractFormBuilder {
+Q_OBJECT
+signals:
+public:
+
+	 QFormBuilder ();
+	 QStringList pluginPaths () const;
+	 void clearPluginPaths ();
+	 void addPluginPath (const QString &pluginPath);
+	 void setPluginPath (const QStringList &pluginPaths);
+	 QList< QDesignerCustomWidgetInterface * > customWidgets () const;
+
+};
+$#include <QExtensionFactory>
+
+class QExtensionFactory : public QObject , public QAbstractExtensionFactory {
+Q_OBJECT
+signals:
+public:
+
+	 QExtensionFactory (QExtensionManager *parent=0);
+	 virtual QObject * extension (QObject *object, const QString &iid) const;
+	 QExtensionManager * extensionManager () const;
+
+};
+$#include <QDesignerFormWindowInterface>
+
+class QDesignerFormWindowInterface : public QWidget {
+Q_OBJECT
+signals:
+	 void mainContainerChanged (QWidget *mainContainer);
+	 void toolChanged (int toolIndex);
+	 void fileNameChanged (const QString &fileName);
+	 void featureChanged (Feature f);
+	 void selectionChanged ();
+	 void geometryChanged ();
+	 void resourceFilesChanged ();
+	 void widgetManaged (QWidget *widget);
+	 void widgetUnmanaged (QWidget *widget);
+	 void aboutToUnmanageWidget (QWidget *widget);
+	 void activated (QWidget *widget);
+	 void changed ();
+	 void widgetRemoved (QWidget *w);
+public:
+	 typedef LuaQtGenericFlags Feature;
+	 enum FeatureFlag { EditFeature = 0x01, GridFeature = 0x02, TabOrderFeature = 0x04, DefaultFeature = EditFeature | GridFeature };
+
+	 virtual ~QDesignerFormWindowInterface ();
+	 virtual QString fileName () const =0;
+	 virtual QDir absoluteDir () const =0;
+	 virtual QString contents () const =0;
+	 virtual void setContents (QIODevice *dev)=0;
+	 virtual Feature features () const =0;
+	 virtual bool hasFeature (Feature f) const =0;
+	 virtual QString author () const =0;
+	 virtual void setAuthor (const QString &author)=0;
+	 virtual QString comment () const =0;
+	 virtual void setComment (const QString &comment)=0;
+	 virtual void layoutDefault (int *margin, int *spacing)=0;
+	 virtual void setLayoutDefault (int margin, int spacing)=0;
+	 virtual void layoutFunction (QString *margin, QString *spacing)=0;
+	 virtual void setLayoutFunction (const QString &margin, const QString &spacing)=0;
+	 virtual QString pixmapFunction () const =0;
+	 virtual void setPixmapFunction (const QString &pixmapFunction)=0;
+	 virtual QString exportMacro () const =0;
+	 virtual void setExportMacro (const QString &exportMacro)=0;
+	 virtual QStringList includeHints () const =0;
+	 virtual void setIncludeHints (const QStringList &includeHints)=0;
+	 virtual QDesignerFormEditorInterface * core () const;
+	 virtual QDesignerFormWindowCursorInterface * cursor () const =0;
+	 virtual int toolCount () const =0;
+	 virtual int currentTool () const =0;
+	 virtual void setCurrentTool (int index)=0;
+	 virtual QDesignerFormWindowToolInterface * tool (int index) const =0;
+	 virtual void registerTool (QDesignerFormWindowToolInterface *tool)=0;
+	 virtual QPoint grid () const =0;
+	 virtual QWidget * mainContainer () const =0;
+	 virtual void setMainContainer (QWidget *mainContainer)=0;
+	 virtual bool isManaged (QWidget *widget) const =0;
+	 virtual bool isDirty () const =0;
+	 virtual QtUndoStack * commandHistory () const =0;
+	 virtual void beginCommand (const QString &description)=0;
+	 virtual void endCommand ()=0;
+	 virtual void simplifySelection (QList< QWidget * > *widgets) const =0;
+	 virtual void emitSelectionChanged ()=0;
+	 virtual QStringList resourceFiles () const =0;
+	 virtual void addResourceFile (const QString &path)=0;
+	 virtual void removeResourceFile (const QString &path)=0;
+	 virtual void ensureUniqueObjectName (QObject *object)=0;
+	 virtual void manageWidget (QWidget *widget)=0;
+	 virtual void unmanageWidget (QWidget *widget)=0;
+	 virtual void setFeatures (Feature f)=0;
+	 virtual void setDirty (bool dirty)=0;
+	 virtual void clearSelection (bool changePropertyDisplay=true)=0;
+	 virtual void selectWidget (QWidget *w, bool select=true)=0;
+	 virtual void setGrid (const QPoint &grid)=0;
+	 virtual void setFileName (const QString &fileName)=0;
+	 virtual void setContents (const QString &contents)=0;
+	 virtual void editWidgets ()=0;
+	 static QDesignerFormWindowInterface * findFormWindow (QWidget *w);
+
+};
+$#include <QDesignerWidgetBoxInterface>
+
+class QDesignerWidgetBoxInterface : public QWidget {
+Q_OBJECT
+signals:
+public:
+	 typedef QList< Widget > WidgetList;
+	 typedef QList< Category > CategoryList;
+	 class Category;
+	 class Widget;
+
+	 virtual ~QDesignerWidgetBoxInterface ();
+	 virtual int categoryCount () const =0;
+	 virtual Category category (int cat_idx) const =0;
+	 virtual void addCategory (const Category &cat)=0;
+	 virtual void removeCategory (int cat_idx)=0;
+	 virtual int widgetCount (int cat_idx) const =0;
+	 virtual Widget widget (int cat_idx, int wgt_idx) const =0;
+	 virtual void addWidget (int cat_idx, const Widget &wgt)=0;
+	 virtual void removeWidget (int cat_idx, int wgt_idx)=0;
+	 int findOrInsertCategory (const QString &categoryName);
+	 virtual void dropWidgets (const QList< QDesignerDnDItemInterface * > &item_list, const QPoint &global_mouse_pos)=0;
+	 virtual void setFileName (const QString &file_name)=0;
+	 virtual QString fileName () const =0;
+	 virtual bool load ()=0;
+	 virtual bool save ()=0;
+
+};
+$#include <QDesignerMetaDataBaseInterface>
+
+class QDesignerMetaDataBaseInterface : public QObject {
+Q_OBJECT
+signals:
+	 void changed ();
+public:
+
+	 virtual ~QDesignerMetaDataBaseInterface ();
+	 virtual QDesignerMetaDataBaseItemInterface * item (QObject *object) const =0;
+	 virtual void add (QObject *object)=0;
+	 virtual void remove (QObject *object)=0;
+	 virtual QList< QObject * > objects () const =0;
+	 virtual QDesignerFormEditorInterface * core () const =0;
+
+};
+$#include <QDesignerPropertyEditorInterface>
+
+class QDesignerPropertyEditorInterface : public QWidget {
+Q_OBJECT
+signals:
+	 void propertyChanged (const QString &name, const QVariant &value);
+public:
+
+	 virtual ~QDesignerPropertyEditorInterface ();
+	 virtual QDesignerFormEditorInterface * core () const;
+	 virtual bool isReadOnly () const =0;
+	 virtual QObject * object () const =0;
+	 virtual QString currentPropertyName () const =0;
+	 virtual void setObject (QObject *object)=0;
+	 virtual void setPropertyValue (const QString &name, const QVariant &value, bool changed=true)=0;
+	 virtual void setReadOnly (bool readOnly)=0;
+
+};
+$#include <QDesignerWidgetFactoryInterface>
+
+class QDesignerWidgetFactoryInterface : public QObject {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QDesignerWidgetFactoryInterface ();
+	 virtual QDesignerFormEditorInterface * core () const =0;
+	 virtual QWidget * containerOfWidget (QWidget *w) const =0;
+	 virtual QWidget * widgetOfContainer (QWidget *w) const =0;
+	 virtual QWidget * createWidget (const QString &name, QWidget *parentWidget=0) const =0;
+	 virtual QLayout * createLayout (QWidget *widget, QLayout *layout, int type) const =0;
+	 virtual bool isPassiveInteractor (QWidget *widget)=0;
+	 virtual void initialize (QObject *object) const =0;
+
+};
+$#include <QDesignerFormEditorInterface>
+
+class QDesignerFormEditorInterface : public QObject {
+Q_OBJECT
+signals:
+public:
+
+	 QDesignerFormEditorInterface (QObject *parent=0);
+	 virtual ~QDesignerFormEditorInterface ();
+	 QExtensionManager * extensionManager () const;
+	 QWidget * topLevel () const;
+	 QDesignerWidgetBoxInterface * widgetBox () const;
+	 QDesignerPropertyEditorInterface * propertyEditor () const;
+	 QDesignerObjectInspectorInterface * objectInspector () const;
+	 QDesignerFormWindowManagerInterface * formWindowManager () const;
+	 QDesignerWidgetDataBaseInterface * widgetDataBase () const;
+	 QDesignerMetaDataBaseInterface * metaDataBase () const;
+	 QDesignerWidgetFactoryInterface * widgetFactory () const;
+	 QDesignerIconCacheInterface * iconCache () const;
+	 PluginManager * pluginManager () const;
+	 QString resourceLocation () const;
+	 void setTopLevel (QWidget *topLevel);
+	 void setWidgetBox (QDesignerWidgetBoxInterface *widgetBox);
+	 void setPropertyEditor (QDesignerPropertyEditorInterface *propertyEditor);
+	 void setObjectInspector (QDesignerObjectInspectorInterface *objectInspector);
+	 void setPluginManager (PluginManager *pluginManager);
+
+};
+$#include <QDesignerIconCacheInterface>
+
+class QDesignerIconCacheInterface : public QObject {
+Q_OBJECT
+signals:
+public:
+
+	 virtual QIcon nameToIcon (const QString &filePath, const QString &qrcPath=QString())=0;
+	 virtual QPixmap nameToPixmap (const QString &filePath, const QString &qrcPath=QString())=0;
+	 virtual QString iconToFilePath (const QIcon &pm) const =0;
+	 virtual QString iconToQrcPath (const QIcon &pm) const =0;
+	 virtual QString pixmapToFilePath (const QPixmap &pm) const =0;
+	 virtual QString pixmapToQrcPath (const QPixmap &pm) const =0;
+	 virtual QList< QPixmap > pixmapList () const =0;
+	 virtual QList< QIcon > iconList () const =0;
+	 virtual QString resolveQrcPath (const QString &filePath, const QString &qrcPath, const QString &workingDirectory=QString()) const =0;
+
+};
+$#include <QDesignerWidgetDataBaseInterface>
+
+class QDesignerWidgetDataBaseInterface : public QObject {
+Q_OBJECT
+signals:
+	 void changed ();
+public:
+
+	 QDesignerWidgetDataBaseInterface (QObject *parent=0);
+	 virtual ~QDesignerWidgetDataBaseInterface ();
+	 virtual int count () const;
+	 virtual QDesignerWidgetDataBaseItemInterface * item (int index) const;
+	 virtual int indexOf (QDesignerWidgetDataBaseItemInterface *item) const;
+	 virtual void insert (int index, QDesignerWidgetDataBaseItemInterface *item);
+	 virtual void append (QDesignerWidgetDataBaseItemInterface *item);
+	 virtual int indexOfObject (QObject *object, bool resolveName=true) const;
+	 virtual int indexOfClassName (const QString &className, bool resolveName=true) const;
+	 virtual QDesignerFormEditorInterface * core () const;
+	 bool isContainer (QObject *object, bool resolveName=true) const;
+	 bool isCustom (QObject *object, bool resolveName=true) const;
+
+};

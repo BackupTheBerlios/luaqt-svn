@@ -1,0 +1,211 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    QAbstractTextDocumentLayout Class Reference
+
+   #include <qabstracttextdocumentlayout.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Signals
+
+     * void update (const QRectF &=QRectF(0., 0., 1000000000., 1000000000.))
+     * void documentSizeChanged (const QSizeF &newSize)
+     * void pageCountChanged (int newPages)
+
+Public Member Functions
+
+     * QAbstractTextDocumentLayout (QTextDocument *doc)
+     * ~QAbstractTextDocumentLayout ()
+     * virtual void draw (QPainter *painter, const PaintContext &context)=0
+     * virtual int hitTest (const QPointF &point, Qt::HitTestAccuracy accuracy) const =0
+     * QString anchorAt (const QPointF &pos) const
+     * virtual int pageCount () const =0
+     * virtual QSizeF documentSize () const =0
+     * virtual QRectF frameBoundingRect (QTextFrame *frame) const =0
+     * virtual QRectF blockBoundingRect (const QTextBlock &block) const =0
+     * void setPaintDevice (QPaintDevice *device)
+     * QPaintDevice * paintDevice () const
+     * QTextDocument * document () const
+     * void registerHandler (int objectType, QObject *component)
+     * QTextObjectInterface * handlerForObject (int objectType) const
+
+Protected Member Functions
+
+     * QAbstractTextDocumentLayout (QAbstractTextDocumentLayoutPrivate &, QTextDocument *)
+     * virtual void documentChanged (int from, int charsRemoved, int charsAdded)=0
+     * virtual void resizeInlineObject (QTextInlineObject item, int posInDocument, const QTextFormat &format)
+     * virtual void positionInlineObject (QTextInlineObject item, int posInDocument, const QTextFormat &format)
+     * virtual void drawInlineObject (QPainter *painter, const QRectF &rect, QTextInlineObject object, int posInDocument, const QTextFormat &format)
+     * int formatIndex (int pos)
+     * QTextCharFormat format (int pos)
+
+Friends
+
+     * class QTextDocument
+     * class QTextDocumentPrivate
+     * class QTextEngine
+     * class QTextLayout
+     * class QTextLine
+
+Classes
+
+     * struct PaintContext
+     * struct Selection
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractTextDocumentLayout::QAbstractTextDocumentLayout (  QTextDocument *  doc  )  [explicit]
+
+
+
+   QAbstractTextDocumentLayout::~QAbstractTextDocumentLayout (   )
+
+
+
+   QAbstractTextDocumentLayout::QAbstractTextDocumentLayout (  QAbstractTextDocumentLayoutPrivate &  ,
+                                                               QTextDocument *                     
+                                                            )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QAbstractTextDocumentLayout::anchorAt (  const QPointF &  pos  )  const
+
+
+
+   virtual QRectF QAbstractTextDocumentLayout::blockBoundingRect (  const QTextBlock &  block  )  const [pure virtual]
+
+
+
+   QTextDocument* QAbstractTextDocumentLayout::document (   )  const
+
+
+
+   virtual void QAbstractTextDocumentLayout::documentChanged (  int  from,
+                                                                int  charsRemoved,
+                                                                int  charsAdded
+                                                             )  [protected, pure virtual]
+
+
+
+   virtual QSizeF QAbstractTextDocumentLayout::documentSize (   )  const [pure virtual]
+
+
+
+   void QAbstractTextDocumentLayout::documentSizeChanged (  const QSizeF &  newSize  )  [signal]
+
+
+
+   virtual void QAbstractTextDocumentLayout::draw (  QPainter *            painter,
+                                                     const PaintContext &  context
+                                                  )  [pure virtual]
+
+
+
+   virtual void QAbstractTextDocumentLayout::drawInlineObject (  QPainter *           painter,
+                                                                 const QRectF &       rect,
+                                                                 QTextInlineObject    object,
+                                                                 int                  posInDocument,
+                                                                 const QTextFormat &  format
+                                                              )  [protected, virtual]
+
+
+
+   QTextCharFormat QAbstractTextDocumentLayout::format (  int  pos  )  [protected]
+
+
+
+   int QAbstractTextDocumentLayout::formatIndex (  int  pos  )  [protected]
+
+
+
+   virtual QRectF QAbstractTextDocumentLayout::frameBoundingRect (  QTextFrame *  frame  )  const [pure virtual]
+
+
+
+   QTextObjectInterface* QAbstractTextDocumentLayout::handlerForObject (  int  objectType  )  const
+
+
+
+   virtual int QAbstractTextDocumentLayout::hitTest (  const QPointF &      point,
+                                                       Qt::HitTestAccuracy  accuracy
+                                                    )  const [pure virtual]
+
+
+
+   virtual int QAbstractTextDocumentLayout::pageCount (   )  const [pure virtual]
+
+
+
+   void QAbstractTextDocumentLayout::pageCountChanged (  int  newPages  )  [signal]
+
+
+
+   QPaintDevice* QAbstractTextDocumentLayout::paintDevice (   )  const
+
+
+
+   virtual void QAbstractTextDocumentLayout::positionInlineObject (  QTextInlineObject    item,
+                                                                     int                  posInDocument,
+                                                                     const QTextFormat &  format
+                                                                  )  [protected, virtual]
+
+
+
+   void QAbstractTextDocumentLayout::registerHandler (  int        objectType,
+                                                        QObject *  component
+                                                     )
+
+
+
+   virtual void QAbstractTextDocumentLayout::resizeInlineObject (  QTextInlineObject    item,
+                                                                   int                  posInDocument,
+                                                                   const QTextFormat &  format
+                                                                )  [protected, virtual]
+
+
+
+   void QAbstractTextDocumentLayout::setPaintDevice (  QPaintDevice *  device  )
+
+
+
+   void QAbstractTextDocumentLayout::update (  const QRectF &  = QRectF(0., 0., 1000000000., 1000000000.)  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextDocument [friend]
+
+
+
+   friend class QTextDocumentPrivate [friend]
+
+
+
+   friend class QTextEngine [friend]
+
+
+
+   friend class QTextLayout [friend]
+
+
+
+   friend class QTextLine [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstracttextdocumentlayout.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

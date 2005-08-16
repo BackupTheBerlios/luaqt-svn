@@ -1,0 +1,126 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3SimpleRichText Class Reference
+
+   #include <q3simplerichtext.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3SimpleRichText (const QString &text, const QFont &fnt, const QString &context=QString(), const Q3StyleSheet *sheet=0)
+     * Q3SimpleRichText (const QString &text, const QFont &fnt, const QString &context, const Q3StyleSheet *sheet, const Q3MimeSourceFactory *factory, int pageBreak=-1, const QColor &linkColor=Qt::blue, bool linkUnderline=true)
+     * ~Q3SimpleRichText ()
+     * void setWidth (int)
+     * void setWidth (QPainter *, int)
+     * void setDefaultFont (const QFont &f)
+     * int width () const
+     * int widthUsed () const
+     * int height () const
+     * void adjustSize ()
+     * void draw (QPainter *p, int x, int y, const QRect &clipRect, const QColorGroup &cg, const QBrush *paper=0) const
+     * void draw (QPainter *p, int x, int y, const QRegion &clipRegion, const QColorGroup &cg, const QBrush *paper=0) const
+     * QString context () const
+     * QString anchorAt (const QPoint &pos) const
+     * bool inText (const QPoint &pos) const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3SimpleRichText::Q3SimpleRichText (  const QString &       text,
+                                         const QFont &         fnt,
+                                         const QString &       context = QString(),
+                                         const Q3StyleSheet *  sheet = 0
+                                      )
+
+
+
+   Q3SimpleRichText::Q3SimpleRichText (  const QString &              text,
+                                         const QFont &                fnt,
+                                         const QString &              context,
+                                         const Q3StyleSheet *         sheet,
+                                         const Q3MimeSourceFactory *  factory,
+                                         int                          pageBreak = -1,
+                                         const QColor &               linkColor = Qt::blue,
+                                         bool                         linkUnderline = true
+                                      )
+
+
+
+   Q3SimpleRichText::~Q3SimpleRichText (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3SimpleRichText::adjustSize (   )
+
+
+
+   QString Q3SimpleRichText::anchorAt (  const QPoint &  pos  )  const
+
+
+
+   QString Q3SimpleRichText::context (   )  const
+
+
+
+   void Q3SimpleRichText::draw (  QPainter *           p,
+                                  int                  x,
+                                  int                  y,
+                                  const QRegion &      clipRegion,
+                                  const QColorGroup &  cg,
+                                  const QBrush *       paper = 0
+                               )  const [inline]
+
+
+
+   void Q3SimpleRichText::draw (  QPainter *           p,
+                                  int                  x,
+                                  int                  y,
+                                  const QRect &        clipRect,
+                                  const QColorGroup &  cg,
+                                  const QBrush *       paper = 0
+                               )  const
+
+
+
+   int Q3SimpleRichText::height (   )  const
+
+
+
+   bool Q3SimpleRichText::inText (  const QPoint &  pos  )  const
+
+
+
+   void Q3SimpleRichText::setDefaultFont (  const QFont &  f  )
+
+
+
+   void Q3SimpleRichText::setWidth (  QPainter *  ,
+                                      int       
+                                   )
+
+
+
+   void Q3SimpleRichText::setWidth (  int   )
+
+
+
+   int Q3SimpleRichText::width (   )  const
+
+
+
+   int Q3SimpleRichText::widthUsed (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3simplerichtext.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

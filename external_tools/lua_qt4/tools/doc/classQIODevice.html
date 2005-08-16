@@ -1,0 +1,322 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QIODevice Class Reference
+
+   #include <qiodevice.h>
+
+   Inherits QObject.
+
+   Inherited by QAbstractSocket, QBuffer, QFile, and QProcess.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags OpenMode
+     * enum OpenModeFlag {
+         NotOpen = 0x0000, ReadOnly = 0x0001, WriteOnly = 0x0002, ReadWrite = ReadOnly | WriteOnly,
+         Append = 0x0004, Truncate = 0x0008, Text = 0x0010, Unbuffered = 0x0020
+       }
+
+Signals
+
+     * void readyRead ()
+     * void bytesWritten (qint64 bytes)
+     * void aboutToClose ()
+
+Public Member Functions
+
+     * QIODevice ()
+     * QIODevice (QObject *parent)
+     * virtual ~QIODevice ()
+     * OpenMode openMode () const
+     * void setTextModeEnabled (bool enabled)
+     * bool isTextModeEnabled () const
+     * bool isOpen () const
+     * bool isReadable () const
+     * bool isWritable () const
+     * virtual bool isSequential () const
+     * virtual bool open (OpenMode mode)
+     * virtual void close ()
+     * virtual qint64 pos () const
+     * virtual qint64 size () const
+     * virtual bool seek (qint64 pos)
+     * virtual bool atEnd () const
+     * virtual bool reset ()
+     * virtual qint64 bytesAvailable () const
+     * virtual qint64 bytesToWrite () const
+     * qint64 read (char *data, qint64 maxlen)
+     * QByteArray read (qint64 maxlen)
+     * QByteArray readAll ()
+     * qint64 readLine (char *data, qint64 maxlen)
+     * QByteArray readLine (qint64 maxlen=0)
+     * virtual bool canReadLine () const
+     * qint64 write (const char *data, qint64 len)
+     * qint64 write (const QByteArray &data)
+     * virtual bool waitForReadyRead (int msecs)
+     * virtual bool waitForBytesWritten (int msecs)
+     * void ungetChar (char c)
+     * bool putChar (char c)
+     * bool getChar (char *c)
+     * QString errorString () const
+
+Protected Member Functions
+
+     * QIODevice (QIODevicePrivate &dd, QObject *parent=0)
+     * virtual qint64 readData (char *data, qint64 maxlen)=0
+     * virtual qint64 readLineData (char *data, qint64 maxlen)
+     * virtual qint64 writeData (const char *data, qint64 len)=0
+     * void setOpenMode (OpenMode openMode)
+     * void setErrorString (const QString &errorString)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QIODevice::OpenMode
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QIODevice::OpenModeFlag
+
+
+
+   Enumerator: 
+
+          NotOpen   
+          ReadOnly  
+          WriteOnly 
+          ReadWrite 
+          Append    
+          Truncate  
+          Text      
+          Unbuffered
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QIODevice::QIODevice (   )
+
+
+
+   QIODevice::QIODevice (  QObject *  parent  )  [explicit]
+
+
+
+   virtual QIODevice::~QIODevice (   )  [virtual]
+
+
+
+   QIODevice::QIODevice (  QIODevicePrivate &  dd,
+                           QObject *           parent = 0
+                        )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QIODevice::aboutToClose (   )  [signal]
+
+
+
+   virtual bool QIODevice::atEnd (   )  const [virtual]
+
+
+
+   Reimplemented in QAbstractSocket, QBuffer, QFile, and QProcess.
+
+   virtual qint64 QIODevice::bytesAvailable (   )  const [virtual]
+
+
+
+   Reimplemented in QAbstractSocket, and QProcess.
+
+   virtual qint64 QIODevice::bytesToWrite (   )  const [virtual]
+
+
+
+   Reimplemented in QAbstractSocket, and QProcess.
+
+   void QIODevice::bytesWritten (  qint64  bytes  )  [signal]
+
+
+
+   virtual bool QIODevice::canReadLine (   )  const [virtual]
+
+
+
+   Reimplemented in QAbstractSocket, QBuffer, and QProcess.
+
+   virtual void QIODevice::close (   )  [virtual]
+
+
+
+   Reimplemented in QAbstractSocket, QBuffer, QFile, and QProcess.
+
+   QString QIODevice::errorString (   )  const
+
+
+
+   bool QIODevice::getChar (  char *  c  )  [inline]
+
+
+
+   bool QIODevice::isOpen (   )  const
+
+
+
+   bool QIODevice::isReadable (   )  const
+
+
+
+   virtual bool QIODevice::isSequential (   )  const [virtual]
+
+
+
+   Reimplemented in QAbstractSocket, QFile, and QProcess.
+
+   bool QIODevice::isTextModeEnabled (   )  const
+
+
+
+   bool QIODevice::isWritable (   )  const
+
+
+
+   virtual bool QIODevice::open (  OpenMode  mode  )  [virtual]
+
+
+
+   Reimplemented in QBuffer, QFile, and QTemporaryFile.
+
+   OpenMode QIODevice::openMode (   )  const
+
+
+
+   virtual qint64 QIODevice::pos (   )  const [virtual]
+
+
+
+   Reimplemented in QBuffer, and QFile.
+
+   bool QIODevice::putChar (  char  c  )  [inline]
+
+
+
+   QByteArray QIODevice::read (  qint64  maxlen  )
+
+
+
+   qint64 QIODevice::read (  char *  data,
+                             qint64  maxlen
+                          )
+
+
+
+   QByteArray QIODevice::readAll (   )
+
+
+
+   virtual qint64 QIODevice::readData (  char *  data,
+                                         qint64  maxlen
+                                      )  [protected, pure virtual]
+
+
+
+   Implemented in QAbstractSocket, QBuffer, QFile, and QProcess.
+
+   QByteArray QIODevice::readLine (  qint64  maxlen = 0  )
+
+
+
+   qint64 QIODevice::readLine (  char *  data,
+                                 qint64  maxlen
+                              )
+
+
+
+   virtual qint64 QIODevice::readLineData (  char *  data,
+                                             qint64  maxlen
+                                          )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractSocket, and QFile.
+
+   void QIODevice::readyRead (   )  [signal]
+
+
+
+   virtual bool QIODevice::reset (   )  [virtual]
+
+
+
+   virtual bool QIODevice::seek (  qint64  pos  )  [virtual]
+
+
+
+   Reimplemented in QBuffer, and QFile.
+
+   void QIODevice::setErrorString (  const QString &  errorString  )  [protected]
+
+
+
+   void QIODevice::setOpenMode (  OpenMode  openMode  )  [protected]
+
+
+
+   void QIODevice::setTextModeEnabled (  bool  enabled  )
+
+
+
+   virtual qint64 QIODevice::size (   )  const [virtual]
+
+
+
+   Reimplemented in QBuffer, and QFile.
+
+   void QIODevice::ungetChar (  char  c  )
+
+
+
+   virtual bool QIODevice::waitForBytesWritten (  int  msecs  )  [virtual]
+
+
+
+   Reimplemented in QAbstractSocket, and QProcess.
+
+   virtual bool QIODevice::waitForReadyRead (  int  msecs  )  [virtual]
+
+
+
+   Reimplemented in QAbstractSocket, and QProcess.
+
+   qint64 QIODevice::write (  const QByteArray &  data  )  [inline]
+
+
+
+   qint64 QIODevice::write (  const char *  data,
+                              qint64        len
+                           )
+
+
+
+   virtual qint64 QIODevice::writeData (  const char *  data,
+                                          qint64        len
+                                       )  [protected, pure virtual]
+
+
+
+   Implemented in QAbstractSocket, QBuffer, QFile, and QProcess.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qiodevice.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

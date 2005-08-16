@@ -1,0 +1,166 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QAbstractPrintDialog Class Reference
+
+   #include <qabstractprintdialog.h>
+
+   Inherits QDialog.
+
+   Inherited by QPrintDialog.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags PrintDialogOptions
+     * enum PrintRange { AllPages, Selection, PageRange }
+     * enum PrintDialogOption {
+         None = 0x0000, PrintToFile = 0x0001, PrintSelection = 0x0002, PrintPageRange = 0x0004,
+         PrintCollateCopies = 0x0010
+       }
+
+Public Member Functions
+
+     * QAbstractPrintDialog (QPrinter *printer, QWidget *parent=0)
+     * virtual int exec ()=0
+     * void addEnabledOption (PrintDialogOption option)
+     * void setEnabledOptions (PrintDialogOptions options)
+     * PrintDialogOptions enabledOptions () const
+     * bool isOptionEnabled (PrintDialogOption option) const
+     * void setPrintRange (PrintRange range)
+     * PrintRange printRange () const
+     * void setMinMax (int min, int max)
+     * int minPage () const
+     * int maxPage () const
+     * void setFromTo (int fromPage, int toPage)
+     * int fromPage () const
+     * int toPage () const
+     * QPrinter * printer () const
+
+Protected Member Functions
+
+     * QAbstractPrintDialog (QAbstractPrintDialogPrivate &ptr, QPrinter *printer, QWidget *parent=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QAbstractPrintDialog::PrintDialogOptions
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QAbstractPrintDialog::PrintDialogOption
+
+
+
+   Enumerator: 
+
+          None              
+          PrintToFile       
+          PrintSelection    
+          PrintPageRange    
+          PrintCollateCopies
+
+   enum QAbstractPrintDialog::PrintRange
+
+
+
+   Enumerator: 
+
+          AllPages 
+          Selection
+          PageRange
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractPrintDialog::QAbstractPrintDialog (  QPrinter *  printer,
+                                                 QWidget *   parent = 0
+                                              )  [explicit]
+
+
+
+   QAbstractPrintDialog::QAbstractPrintDialog (  QAbstractPrintDialogPrivate &  ptr,
+                                                 QPrinter *                     printer,
+                                                 QWidget *                      parent = 0
+                                              )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QAbstractPrintDialog::addEnabledOption (  PrintDialogOption  option  )
+
+
+
+   PrintDialogOptions QAbstractPrintDialog::enabledOptions (   )  const
+
+
+
+   virtual int QAbstractPrintDialog::exec (   )  [pure virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   Implemented in QPrintDialog.
+
+   int QAbstractPrintDialog::fromPage (   )  const
+
+
+
+   bool QAbstractPrintDialog::isOptionEnabled (  PrintDialogOption  option  )  const
+
+
+
+   int QAbstractPrintDialog::maxPage (   )  const
+
+
+
+   int QAbstractPrintDialog::minPage (   )  const
+
+
+
+   QPrinter* QAbstractPrintDialog::printer (   )  const
+
+
+
+   PrintRange QAbstractPrintDialog::printRange (   )  const
+
+
+
+   void QAbstractPrintDialog::setEnabledOptions (  PrintDialogOptions  options  )
+
+
+
+   void QAbstractPrintDialog::setFromTo (  int  fromPage,
+                                           int  toPage
+                                        )
+
+
+
+   void QAbstractPrintDialog::setMinMax (  int  min,
+                                           int  max
+                                        )
+
+
+
+   void QAbstractPrintDialog::setPrintRange (  PrintRange  range  )
+
+
+
+   int QAbstractPrintDialog::toPage (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractprintdialog.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,292 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3TimeEdit Class Reference
+
+   #include <q3datetimeedit.h>
+
+   Inherits Q3DateTimeEditBase.
+
+   List of all members.
+
+Public Types
+
+     * enum Display { Hours = 0x01, Minutes = 0x02, Seconds = 0x04, AMPM = 0x10 }
+
+Public Slots
+
+     * virtual void setTime (const QTime &time)
+
+Signals
+
+     * void valueChanged (const QTime &time)
+
+Public Member Functions
+
+     * Q3TimeEdit (QWidget *parent=0, const char *name=0)
+     * Q3TimeEdit (const QTime &time, QWidget *parent=0, const char *name=0)
+     * ~Q3TimeEdit ()
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * QTime time () const
+     * virtual void setAutoAdvance (bool advance)
+     * bool autoAdvance () const
+     * virtual void setMinValue (const QTime &d)
+     * QTime minValue () const
+     * virtual void setMaxValue (const QTime &d)
+     * QTime maxValue () const
+     * virtual void setRange (const QTime &min, const QTime &max)
+     * QString separator () const
+     * virtual void setSeparator (const QString &s)
+     * uint display () const
+     * void setDisplay (uint disp)
+     * void removeFirstNumber (int sec)
+
+Protected Slots
+
+     * void updateButtons ()
+
+Protected Member Functions
+
+     * bool event (QEvent *e)
+     * void timerEvent (QTimerEvent *e)
+     * void resizeEvent (QResizeEvent *)
+     * void stepUp ()
+     * void stepDown ()
+     * QString sectionFormattedText (int sec)
+     * void addNumber (int sec, int num)
+     * void removeLastNumber (int sec)
+     * bool setFocusSection (int s)
+     * virtual bool outOfRange (int h, int m, int s) const
+     * virtual void setHour (int h)
+     * virtual void setMinute (int m)
+     * virtual void setSecond (int s)
+
+Properties
+
+     * QTime time
+     * bool autoAdvance
+     * QTime maxValue
+     * QTime minValue
+     * Display display
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3TimeEdit::Display
+
+
+
+   Enumerator: 
+
+          Hours  
+          Minutes
+          Seconds
+          AMPM   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3TimeEdit::Q3TimeEdit (  QWidget *     parent = 0,
+                             const char *  name = 0
+                          )
+
+
+
+   Q3TimeEdit::Q3TimeEdit (  const QTime &  time,
+                             QWidget *      parent = 0,
+                             const char *   name = 0
+                          )
+
+
+
+   Q3TimeEdit::~Q3TimeEdit (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3TimeEdit::addNumber (  int  sec,
+                                 int  num
+                              )  [protected, virtual]
+
+
+
+   Implements Q3DateTimeEditBase.
+
+   bool Q3TimeEdit::autoAdvance (   )  const
+
+
+
+   uint Q3TimeEdit::display (   )  const
+
+
+
+   bool Q3TimeEdit::event (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QTime Q3TimeEdit::maxValue (   )  const
+
+
+
+   QSize Q3TimeEdit::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QTime Q3TimeEdit::minValue (   )  const
+
+
+
+   virtual bool Q3TimeEdit::outOfRange (  int  h,
+                                          int  m,
+                                          int  s
+                                       )  const [protected, virtual]
+
+
+
+   void Q3TimeEdit::removeFirstNumber (  int  sec  )
+
+
+
+   void Q3TimeEdit::removeLastNumber (  int  sec  )  [protected, virtual]
+
+
+
+   Implements Q3DateTimeEditBase.
+
+   void Q3TimeEdit::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QString Q3TimeEdit::sectionFormattedText (  int  sec  )  [protected, virtual]
+
+
+
+   Implements Q3DateTimeEditBase.
+
+   QString Q3TimeEdit::separator (   )  const
+
+
+
+   virtual void Q3TimeEdit::setAutoAdvance (  bool  advance  )  [virtual]
+
+
+
+   void Q3TimeEdit::setDisplay (  uint  disp  )
+
+
+
+   bool Q3TimeEdit::setFocusSection (  int  s  )  [protected, virtual]
+
+
+
+   Implements Q3DateTimeEditBase.
+
+   virtual void Q3TimeEdit::setHour (  int  h  )  [protected, virtual]
+
+
+
+   virtual void Q3TimeEdit::setMaxValue (  const QTime &  d  )  [inline, virtual]
+
+
+
+   virtual void Q3TimeEdit::setMinute (  int  m  )  [protected, virtual]
+
+
+
+   virtual void Q3TimeEdit::setMinValue (  const QTime &  d  )  [inline, virtual]
+
+
+
+   virtual void Q3TimeEdit::setRange (  const QTime &  min,
+                                        const QTime &  max
+                                     )  [virtual]
+
+
+
+   virtual void Q3TimeEdit::setSecond (  int  s  )  [protected, virtual]
+
+
+
+   virtual void Q3TimeEdit::setSeparator (  const QString &  s  )  [virtual]
+
+
+
+   virtual void Q3TimeEdit::setTime (  const QTime &  time  )  [virtual, slot]
+
+
+
+   QSize Q3TimeEdit::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3TimeEdit::stepDown (   )  [protected, virtual]
+
+
+
+   Implements Q3DateTimeEditBase.
+
+   void Q3TimeEdit::stepUp (   )  [protected, virtual]
+
+
+
+   Implements Q3DateTimeEditBase.
+
+   QTime Q3TimeEdit::time (   )  const
+
+
+
+   void Q3TimeEdit::timerEvent (  QTimerEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void Q3TimeEdit::updateButtons (   )  [protected, slot]
+
+
+
+   void Q3TimeEdit::valueChanged (  const QTime &  time  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3TimeEdit::autoAdvance [read, write]
+
+
+
+   Display Q3TimeEdit::display [read, write]
+
+
+
+   QTime Q3TimeEdit::maxValue [read, write]
+
+
+
+   QTime Q3TimeEdit::minValue [read, write]
+
+
+
+   QTime Q3TimeEdit::time [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3datetimeedit.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

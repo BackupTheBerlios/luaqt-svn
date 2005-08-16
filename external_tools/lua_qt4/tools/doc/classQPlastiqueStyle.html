@@ -1,0 +1,176 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QPlastiqueStyle Class Reference
+
+   #include <qplastiquestyle.h>
+
+   Inherits QWindowsStyle.
+
+   List of all members.
+
+Public Member Functions
+
+     * QPlastiqueStyle ()
+     * ~QPlastiqueStyle ()
+     * void drawPrimitive (PrimitiveElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget=0) const
+     * void drawControl (ControlElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const
+     * void drawComplexControl (ComplexControl control, const QStyleOptionComplex *option, QPainter *painter, const QWidget *widget) const
+     * QSize sizeFromContents (ContentsType type, const QStyleOption *option, const QSize &size, const QWidget *widget) const
+     * QRect subElementRect (SubElement element, const QStyleOption *option, const QWidget *widget) const
+     * QRect subControlRect (ComplexControl cc, const QStyleOptionComplex *opt, SubControl sc, const QWidget *widget) const
+     * int styleHint (StyleHint hint, const QStyleOption *option=0, const QWidget *widget=0, QStyleHintReturn *returnData=0) const
+     * SubControl hitTestComplexControl (ComplexControl control, const QStyleOptionComplex *option, const QPoint &pos, const QWidget *widget=0) const
+     * int pixelMetric (PixelMetric metric, const QStyleOption *option=0, const QWidget *widget=0) const
+     * void polish (QWidget *widget)
+     * void polish (QApplication *app)
+     * void polish (QPalette &pal)
+     * void unpolish (QWidget *widget)
+     * void unpolish (QApplication *app)
+     * QPalette standardPalette () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPlastiqueStyle::QPlastiqueStyle (   )
+
+
+
+   QPlastiqueStyle::~QPlastiqueStyle (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QPlastiqueStyle::drawComplexControl (  ComplexControl               control,
+                                               const QStyleOptionComplex *  option,
+                                               QPainter *                   painter,
+                                               const QWidget *              widget
+                                            )  const [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   void QPlastiqueStyle::drawControl (  ControlElement        element,
+                                        const QStyleOption *  option,
+                                        QPainter *            painter,
+                                        const QWidget *       widget
+                                     )  const [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   void QPlastiqueStyle::drawPrimitive (  PrimitiveElement      element,
+                                          const QStyleOption *  option,
+                                          QPainter *            painter,
+                                          const QWidget *       widget = 0
+                                       )  const [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   SubControl QPlastiqueStyle::hitTestComplexControl (  ComplexControl               control,
+                                                        const QStyleOptionComplex *  option,
+                                                        const QPoint &               pos,
+                                                        const QWidget *              widget = 0
+                                                     )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   int QPlastiqueStyle::pixelMetric (  PixelMetric           metric,
+                                       const QStyleOption *  option = 0,
+                                       const QWidget *       widget = 0
+                                    )  const [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   void QPlastiqueStyle::polish (  QPalette &  pal  )  [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   void QPlastiqueStyle::polish (  QApplication *  app  )  [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   void QPlastiqueStyle::polish (  QWidget *  widget  )  [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   QSize QPlastiqueStyle::sizeFromContents (  ContentsType          type,
+                                              const QStyleOption *  option,
+                                              const QSize &         size,
+                                              const QWidget *       widget
+                                           )  const [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   QPalette QPlastiqueStyle::standardPalette (   )  const [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   int QPlastiqueStyle::styleHint (  StyleHint             hint,
+                                     const QStyleOption *  option = 0,
+                                     const QWidget *       widget = 0,
+                                     QStyleHintReturn *    returnData = 0
+                                  )  const
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   QRect QPlastiqueStyle::subControlRect (  ComplexControl               cc,
+                                            const QStyleOptionComplex *  opt,
+                                            SubControl                   sc,
+                                            const QWidget *              widget
+                                         )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   QRect QPlastiqueStyle::subElementRect (  SubElement            element,
+                                            const QStyleOption *  option,
+                                            const QWidget *       widget
+                                         )  const [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   void QPlastiqueStyle::unpolish (  QApplication *  app  )  [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+
+   void QPlastiqueStyle::unpolish (  QWidget *  widget  )  [virtual]
+
+
+
+   Reimplemented from QWindowsStyle.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qplastiquestyle.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,597 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QComboBox Class Reference
+
+   The QComboBox widget is a combined button and popup list. More...
+#include <QComboBox>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum InsertPolicy { NoInsert, InsertAtTop, InsertAtCurrent,
+       InsertAtBottom, InsertAfterCurrent, InsertBeforeCurrent }
+     * enum SizeAdjustPolicy { AdjustToContents,
+       AdjustToContentsOnFirstShow, AdjustToMinimumContentsLength }
+
+  Properties
+
+     * autoCompletion : bool
+     * count : const int
+     * currentIndex : int
+     * currentText : const QString
+     * duplicatesEnabled : bool
+     * editable : bool
+     * frame : bool
+
+     * iconSize : QSize
+     * insertPolicy : InsertPolicy
+     * maxCount : int
+     * maxVisibleItems : int
+     * minimumContentsLength : int
+     * modelColumn : bool
+     * sizeAdjustPolicy : SizeAdjustPolicy
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QComboBox ( QWidget * parent = 0 )
+     * ~QComboBox ()
+     * void addItem ( const QString & text, const QVariant & userData =
+       QVariant() )
+     * void addItem ( const QIcon & icon, const QString & text, const
+       QVariant & userData = QVariant() )
+     * void addItems ( const QStringList & texts )
+     * bool autoCompletion () const
+     * int count () const
+     * int currentIndex () const
+     * QString currentText () const
+     * bool duplicatesEnabled () const
+     * int findData ( const QVariant & data, int role = Qt::UserRole,
+       Qt::MatchFlags flags = Qt::MatchExactly | Qt::MatchCaseSensitive )
+       const
+     * int findText ( const QString & text, Qt::MatchFlags flags =
+       Qt::MatchExactly | Qt::MatchCaseSensitive ) const
+     * bool hasFrame () const
+     * virtual void hidePopup ()
+     * QSize iconSize () const
+     * void insertItem ( int index, const QString & text, const QVariant
+       & userData = QVariant() )
+     * void insertItem ( int index, const QIcon & icon, const QString &
+       text, const QVariant & userData = QVariant() )
+     * void insertItems ( int index, const QStringList & list )
+     * InsertPolicy insertPolicy () const
+     * bool isEditable () const
+     * QVariant itemData ( int index, int role = Qt::UserRole ) const
+     * QAbstractItemDelegate * itemDelegate () const
+     * QIcon itemIcon ( int index ) const
+     * QString itemText ( int index ) const
+     * QLineEdit * lineEdit () const
+     * int maxCount () const
+     * int maxVisibleItems () const
+     * int minimumContentsLength () const
+     * QAbstractItemModel * model () const
+     * int modelColumn () const
+     * void setAutoCompletion ( bool enable )
+     * void setCurrentIndex ( int index )
+     * void setDuplicatesEnabled ( bool enable )
+     * void setEditable ( bool editable )
+     * void setFrame ( bool )
+     * void setIconSize ( const QSize & size )
+     * void setInsertPolicy ( InsertPolicy policy )
+     * void setItemData ( int index, const QVariant & value, int role =
+       Qt::UserRole )
+     * void setItemDelegate ( QAbstractItemDelegate * delegate )
+     * void setItemIcon ( int index, const QIcon & icon )
+     * void setItemText ( int index, const QString & text )
+     * void setLineEdit ( QLineEdit * edit )
+     * void setMaxCount ( int max )
+     * void setMaxVisibleItems ( int maxItems )
+     * void setMinimumContentsLength ( int characters )
+     * void setModel ( QAbstractItemModel * model )
+     * void setModelColumn ( int visibleColumn )
+     * void setSizeAdjustPolicy ( SizeAdjustPolicy policy )
+     * void setValidator ( const QValidator * validator )
+     * void setView ( QAbstractItemView * itemView )
+     * virtual void showPopup ()
+     * SizeAdjustPolicy sizeAdjustPolicy () const
+     * const QValidator * validator () const
+     * QAbstractItemView * view () const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void clearEditText ()
+     * void setEditText ( const QString & text )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void activated ( int index )
+     * void activated ( const QString & text )
+     * void editTextChanged ( const QString & text )
+     * void highlighted ( int index )
+     * void highlighted ( const QString & text )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QComboBox widget is a combined button and popup list.
+
+   A QComboBox provides a means of presenting a list of options to the
+   user in a way that takes up the minimum amount of screen space.
+
+   A combobox is a selection widget that displays the current item, and
+   can pop up a list of selectable items. A combobox may be editable,
+   allowing the user to modify each item in the list.
+
+   QComboBox supports three different display styles: Aqua/Motif 1.x,
+   Motif 2.0 and Windows. In Motif 1.x, a combobox was called
+   XmOptionMenu. In Motif 2.0, OSF introduced an improved combobox and
+   named that XmComboBox. QComboBox provides both.
+
+   QComboBox provides two different constructors. The simplest
+   constructor creates an "old-style" combobox in Motif (or Aqua) style:
+    QComboBox *c = new QComboBox(this, "read-only combobox");
+
+   The other constructor creates a new-style combobox in Motif style, and
+   can create both read-only and editable comboboxes:
+    QComboBox *c1 = new QComboBox(false, this, "read-only combobox" );
+    QComboBox *c2 = new QComboBox(true, this, "editable combobox" );
+
+   New-style comboboxes use a list box in both Motif and Windows styles,
+   and both the content size and the on-screen size of the list box can
+   be limited with maxVisibleItems() and setMaxCount() respectively.
+   Old-style comboboxes use a popup in Aqua and Motif style, and that
+   popup will happily grow larger than the desktop if you put enough data
+   into it.
+
+   The two constructors create identical-looking comboboxes in Windows
+   style.
+
+   Comboboxes can contain pixmaps as well as strings; the insertItem()
+   and changeItem() functions are suitably overloaded. For editable
+   comboboxes, the function clearEdit() is provided, to clear the
+   displayed string without changing the combobox's contents.
+
+   A combobox emits two signals, activated() and highlighted(), when a
+   new item has been activated (selected) or highlighted (made current).
+   Both signals exist in two versions, one with a QString argument and
+   one with an int argument. If the user highlights or activates a
+   pixmap, only the int signals are emitted. Whenever the text of an
+   editable combobox is changed the editTextChanged() signal is emitted.
+
+   When the user enters a new string in an editable combobox, the widget
+   may or may not insert it, and it can insert it in several locations.
+   The default policy is is AtBottom but you can change this using
+   setInsertPolicy().
+
+   It is possible to constrain the input to an editable combobox using
+   QValidator; see setValidator(). By default, any input is accepted.
+
+   A combobox can be populated using the insert functions,
+   insertStringList() and insertItem() for example. Items can be changed
+   with changeItem(). An item can be removed with removeItem() and all
+   items can be removed with clear(). The text of the current item is
+   returned by currentText(), and the text of a numbered item is returned
+   with text(). The current item can be set with setCurrentIndex(). The
+   number of items in the combobox is returned by count(); the maximum
+   number of items can be set with setMaxCount(). You can allow editing
+   using setEditable(). For editable comboboxes you can set
+   auto-completion using setAutoCompletion() and whether or not the user
+   can add duplicates is set with setDuplicatesEnabled().
+
+   Screenshot in Macintosh style Screenshot in Windows style
+
+   See also QLineEdit, QSpinBox, QRadioButton, QButtonGroup, and GUI
+   Design Handbook: Combo Box, Drop-Down List Box.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QComboBox::InsertPolicy
+
+   This enum specifies what the QComboBox should do when a new string is
+   entered by the user.
+
+   Constant Value Description
+   QComboBox::NoInsert 0 The string will not be inserted into the
+   combobox.
+   QComboBox::InsertAtTop 1 The string will be inserted as the first item
+   in the combobox.
+   QComboBox::InsertAtCurrent 2 The current item will be replaced by the
+   string.
+   QComboBox::InsertAtBottom 3 The string will be inserted after the last
+   item in the combobox.
+   QComboBox::InsertAfterCurrent 4 The string is inserted after the
+   current item in the combobox.
+   QComboBox::InsertBeforeCurrent 5 The string is inserted before the
+   current item in the combobox.
+
+  enum QComboBox::SizeAdjustPolicy
+
+   This enum specifies how the size of the QComboBox should adjust when
+   new content is added or content changes.
+
+   Constant Value Description
+   QComboBox::AdjustToContents 0 The combobox will always adjust to the
+   contens
+   QComboBox::AdjustToContentsOnFirstShow 1 The combobox will adjust to
+   its contents the first time it is show.
+   QComboBox::AdjustToMinimumContentsLength 2 The combobox only adjusts
+   to the minimumContentsLength
+     _________________________________________________________________
+
+Property Documentation
+
+  autoCompletion : bool
+
+   This property holds whether the combobox provides auto-completion for
+   editable items.
+
+   Access functions:
+     * bool autoCompletion () const
+     * void setAutoCompletion ( bool enable )
+
+   See also editable.
+
+  count : const int
+
+   This property holds the number of items in the combobox.
+
+   Access functions:
+     * int count () const
+
+  currentIndex : int
+
+   This property holds the index of the current item in the combobox. The
+   index can change when inserting or removing items.
+
+   Access functions:
+     * int currentIndex () const
+     * void setCurrentIndex ( int index )
+
+  currentText : const QString
+
+   This property holds the text of the current item.
+
+   Access functions:
+     * QString currentText () const
+
+  duplicatesEnabled : bool
+
+   This property holds whether the combobox can contain duplicate items.
+
+   Access functions:
+     * bool duplicatesEnabled () const
+     * void setDuplicatesEnabled ( bool enable )
+
+  editable : bool
+
+   This property holds whether the combobox can be edited by the user.
+
+   Access functions:
+     * bool isEditable () const
+     * void setEditable ( bool editable )
+
+  frame : bool
+
+   This property holds whether the combo box draws itself with a frame.
+
+   If enabled (the default) the combo box draws itself inside a frame,
+   otherwise the combo box draws itself without any frame.
+
+   Access functions:
+     * bool hasFrame () const
+     * void setFrame ( bool )
+
+  iconSize : QSize
+
+   This property holds the size of the icons shown in the combobox.
+
+   Unless explicitly set this returns the default value of the current
+   style.
+
+   Access functions:
+     * QSize iconSize () const
+     * void setIconSize ( const QSize & size )
+
+  insertPolicy : InsertPolicy
+
+   This property holds the policy used to determine where user-inserted
+   items should appear in the combobox.
+
+   The default value is AtBottom, indicating that new items will appear
+   at the bottom of the list of items.
+
+   Access functions:
+     * InsertPolicy insertPolicy () const
+     * void setInsertPolicy ( InsertPolicy policy )
+
+   See also InsertPolicy.
+
+  maxCount : int
+
+   This property holds the maximum number of items allowed in the
+   combobox.
+
+   Note: If you set the maximum number to be less then the current amount
+   of items in the combobox, the extra items will be truncated. This also
+   applies if you have set an external model on the combobox.
+
+   Access functions:
+     * int maxCount () const
+     * void setMaxCount ( int max )
+
+  maxVisibleItems : int
+
+   This property holds the maximum allowed size on screen of the
+   combobox.
+
+   Access functions:
+     * int maxVisibleItems () const
+     * void setMaxVisibleItems ( int maxItems )
+
+  minimumContentsLength : int
+
+   This property holds the value describing the minimum number of
+   characters that will fit into the combobox.
+
+   This value is ignored if AdjustToMinimumContentsLength is not set. The
+   default value is 0.
+
+   Access functions:
+     * int minimumContentsLength () const
+     * void setMinimumContentsLength ( int characters )
+
+   See also sizeAdjustPolicy.
+
+  modelColumn : bool
+
+   This property holds the column in the model that is visible.
+
+   Access functions:
+     * int modelColumn () const
+     * void setModelColumn ( int visibleColumn )
+
+  sizeAdjustPolicy : SizeAdjustPolicy
+
+   This property holds the policy describing how the size of the combobox
+   changes when the content changes.
+
+   The default value is AdjustToContentsOnFirstShow
+
+   Access functions:
+     * SizeAdjustPolicy sizeAdjustPolicy () const
+     * void setSizeAdjustPolicy ( SizeAdjustPolicy policy )
+
+   See also SizeAdjustPolicy.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QComboBox::QComboBox ( QWidget * parent = 0 )
+
+   Constructs a combobox with the given parent, using the default model
+   QStandardItemModel.
+
+  QComboBox::~QComboBox ()
+
+   Destroys the combobox.
+
+  void QComboBox::activated ( int index )   [signal]
+
+   This signal is sent when an item in the combobox is activated. The
+   item's index is given.
+
+  void QComboBox::activated ( const QString & text )   [signal]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   This signal is sent when an item in the combobox is activated. The
+   item's text is given.
+
+  void QComboBox::addItem ( const QString & text, const QVariant & userData =
+  QVariant() )
+
+   Adds an item to the combobox with the given text, and containing the
+   specified userData. The item is appended to the list of existing
+   items.
+
+  void QComboBox::addItem ( const QIcon & icon, const QString & text, const
+  QVariant & userData = QVariant() )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Adds an item to the combobox with the given icon and text, and
+   containing the specified userData. The item is appended to the list of
+   existing items.
+
+  void QComboBox::addItems ( const QStringList & texts )
+
+   Adds each of the strings in the given texts to the combobox. Each item
+   is appended to the list of existing items in turn.
+
+  void QComboBox::clearEditText ()   [slot]
+
+   Clears the contents of the line edit used for editing in the combobox.
+
+  void QComboBox::editTextChanged ( const QString & text )   [signal]
+
+   This signal is emitted when the text in the combobox's line edit
+   widget is changed. The new text is specified by text.
+
+  int QComboBox::findData ( const QVariant & data, int role = Qt::UserRole,
+  Qt::MatchFlags flags = Qt::MatchExactly | Qt::MatchCaseSensitive ) const
+
+   Returns the index of the item containing the given data for the given
+   role; otherwise returns -1.
+
+   The flags specify how the items in the combobox are searched.
+
+  int QComboBox::findText ( const QString & text, Qt::MatchFlags flags =
+  Qt::MatchExactly | Qt::MatchCaseSensitive ) const
+
+   Returns the index of the item containing the given text; otherwise
+   returns -1.
+
+   The flags specify how the items in the combobox are searched.
+
+  void QComboBox::hidePopup ()   [virtual]
+
+   Hides the list of items in the combobox if it is currently visible;
+   otherwise this function does nothing.
+
+  void QComboBox::highlighted ( int index )   [signal]
+
+   This signal is sent when an item in the combobox is highlighted. The
+   item's index is given.
+
+  void QComboBox::highlighted ( const QString & text )   [signal]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   This signal is sent when an item in the combobox is highlighted. The
+   item's text is given.
+
+  void QComboBox::insertItem ( int index, const QString & text, const QVariant
+  & userData = QVariant() )
+
+   Inserts the text and userData into the combobox at the given index.
+
+  void QComboBox::insertItem ( int index, const QIcon & icon, const QString &
+  text, const QVariant & userData = QVariant() )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Inserts the icon, text and userData into the combobox at the given
+   index.
+
+  void QComboBox::insertItems ( int index, const QStringList & list )
+
+   Inserts the strings from the list into the combobox as separate items,
+   starting at the index specified.
+
+  QVariant QComboBox::itemData ( int index, int role = Qt::UserRole ) const
+
+   Returns the data for the given role in the given index in the
+   combobox, or QVariant::Invalid if there is no data for this role.
+
+  QAbstractItemDelegate * QComboBox::itemDelegate () const
+
+   Returns the item delegate used by the popup list view.
+
+   See also setItemDelegate().
+
+  QIcon QComboBox::itemIcon ( int index ) const
+
+   Returns the icon for the given index in the combobox.
+
+  QString QComboBox::itemText ( int index ) const
+
+   Returns the text for the given index in the combobox.
+
+  QLineEdit * QComboBox::lineEdit () const
+
+   Returns the line edit used to edit items in the combobox, or 0 if
+   there is no line edit.
+
+   Only editable combo boxes have a line edit.
+
+  QAbstractItemModel * QComboBox::model () const
+
+   Returns the model used by the combobox.
+
+  void QComboBox::setEditText ( const QString & text )   [slot]
+
+   Sets the text in the combobox's text edit.
+
+  void QComboBox::setItemData ( int index, const QVariant & value, int role =
+  Qt::UserRole )
+
+   Sets the data role for the item on the given index in the combobox to
+   the specified value.
+
+  void QComboBox::setItemDelegate ( QAbstractItemDelegate * delegate )
+
+   Sets the item delegate for the popup list view. The combobox takes
+   ownership of the delegate.
+
+   See also itemDelegate().
+
+  void QComboBox::setItemIcon ( int index, const QIcon & icon )
+
+   Sets the icon for the item on the given index in the combobox.
+
+  void QComboBox::setItemText ( int index, const QString & text )
+
+   Sets the text for the item on the given index in the combobox.
+
+  void QComboBox::setLineEdit ( QLineEdit * edit )
+
+   Sets the line edit to use instead of the current line edit widget.
+
+  void QComboBox::setModel ( QAbstractItemModel * model )
+
+   Sets the model to be model. model must not be 0. If you want to clear
+   the contents of a model, call clear().
+
+   See also clear().
+
+  void QComboBox::setValidator ( const QValidator * validator )
+
+   Sets the validator to use instead of the current validator.
+
+  void QComboBox::setView ( QAbstractItemView * itemView )
+
+   Sets the view to be used in the combobox popup to the given itemView.
+   The combobox takes ownership of the view.
+
+  void QComboBox::showPopup ()   [virtual]
+
+   Displays the list of items in the combobox. If the list is empty then
+   the no items will be shown.
+
+  const QValidator * QComboBox::validator () const
+
+   Returns the validator that is used to constrain text input for the
+   combobox.
+
+   See also editable.
+
+  QAbstractItemView * QComboBox::view () const
+
+   Returns the list view used for the combobox popup.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

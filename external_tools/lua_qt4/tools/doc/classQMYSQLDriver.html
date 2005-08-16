@@ -1,0 +1,150 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QMYSQLDriver Class Reference
+
+   #include <qsql_mysql.h>
+
+   Inherits QSqlDriver.
+
+   List of all members.
+
+Public Member Functions
+
+     * QMYSQLDriver (QObject *parent=0)
+     * QMYSQLDriver (MYSQL *con, QObject *parent=0)
+     * ~QMYSQLDriver ()
+     * bool hasFeature (DriverFeature f) const
+     * bool open (const QString &db, const QString &user, const QString &password, const QString &host, int port, const QString &connOpts)
+     * void close ()
+     * QSqlResult * createResult () const
+     * QStringList tables (QSql::TableType) const
+     * QSqlIndex primaryIndex (const QString &tablename) const
+     * QSqlRecord record (const QString &tablename) const
+     * QString formatValue (const QSqlField &field, bool trimStrings) const
+     * QVariant handle () const
+
+Protected Member Functions
+
+     * bool beginTransaction ()
+     * bool commitTransaction ()
+     * bool rollbackTransaction ()
+
+Friends
+
+     * class QMYSQLResult
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMYSQLDriver::QMYSQLDriver (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QMYSQLDriver::QMYSQLDriver (  MYSQL *    con,
+                                 QObject *  parent = 0
+                              )  [explicit]
+
+
+
+   QMYSQLDriver::~QMYSQLDriver (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QMYSQLDriver::beginTransaction (   )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   void QMYSQLDriver::close (   )  [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   bool QMYSQLDriver::commitTransaction (   )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QSqlResult* QMYSQLDriver::createResult (   )  const [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   QString QMYSQLDriver::formatValue (  const QSqlField &  field,
+                                        bool               trimStrings
+                                     )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QVariant QMYSQLDriver::handle (   )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   bool QMYSQLDriver::hasFeature (  DriverFeature  f  )  const [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   bool QMYSQLDriver::open (  const QString &  db,
+                              const QString &  user,
+                              const QString &  password,
+                              const QString &  host,
+                              int              port,
+                              const QString &  connOpts
+                           )  [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   QSqlIndex QMYSQLDriver::primaryIndex (  const QString &  tablename  )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QSqlRecord QMYSQLDriver::record (  const QString &  tablename  )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   bool QMYSQLDriver::rollbackTransaction (   )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QStringList QMYSQLDriver::tables (  QSql::TableType   )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QMYSQLResult [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsql_mysql.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

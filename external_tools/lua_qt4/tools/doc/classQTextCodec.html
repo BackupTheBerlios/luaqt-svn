@@ -1,0 +1,218 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTextCodec Class Reference
+
+   #include <qtextcodec.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags ConversionFlags
+     * enum ConversionFlag { DefaultConversion, ConvertInvalidToNull = 0x80000000, IgnoreHeader = 0x1 }
+
+Public Member Functions
+
+     * QTextDecoder * makeDecoder () const
+     * QTextEncoder * makeEncoder () const
+     * bool canEncode (QChar) const
+     * bool canEncode (const QString &) const
+     * QString toUnicode (const QByteArray &) const
+     * QString toUnicode (const char *chars) const
+     * QByteArray fromUnicode (const QString &uc) const
+     * QString toUnicode (const char *in, int length, ConverterState *state=0) const
+     * QByteArray fromUnicode (const QChar *in, int length, ConverterState *state=0) const
+     * virtual QByteArray name () const =0
+     * virtual QList< QByteArray > aliases () const
+     * virtual int mibEnum () const =0
+
+Static Public Member Functions
+
+     * static QTextCodec * codecForName (const QByteArray &name)
+     * static QTextCodec * codecForName (const char *name)
+     * static QTextCodec * codecForMib (int mib)
+     * static QList< QByteArray > availableCodecs ()
+     * static QList< int > availableMibs ()
+     * static QTextCodec * codecForLocale ()
+     * static void setCodecForLocale (QTextCodec *c)
+     * static QTextCodec * codecForTr ()
+     * static void setCodecForTr (QTextCodec *c)
+     * static QTextCodec * codecForCStrings ()
+     * static void setCodecForCStrings (QTextCodec *c)
+
+Protected Member Functions
+
+     * virtual QString convertToUnicode (const char *in, int length, ConverterState *state) const =0
+     * virtual QByteArray convertFromUnicode (const QChar *in, int length, ConverterState *state) const =0
+     * QTextCodec ()
+     * virtual ~QTextCodec ()
+
+Friends
+
+     * class QTextCodecCleanup
+
+Classes
+
+     * struct ConverterState
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QTextCodec::ConversionFlags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextCodec::ConversionFlag
+
+
+
+   Enumerator: 
+
+          DefaultConversion   
+          ConvertInvalidToNull
+          IgnoreHeader        
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextCodec::QTextCodec (   )  [protected]
+
+
+
+   virtual QTextCodec::~QTextCodec (   )  [protected, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QList<QByteArray> QTextCodec::aliases (   )  const [virtual]
+
+
+
+   static QList<QByteArray> QTextCodec::availableCodecs (   )  [static]
+
+
+
+   static QList<int> QTextCodec::availableMibs (   )  [static]
+
+
+
+   bool QTextCodec::canEncode (  const QString &   )  const
+
+
+
+   bool QTextCodec::canEncode (  QChar   )  const
+
+
+
+   QTextCodec * QTextCodec::codecForCStrings (   )  [inline, static]
+
+
+
+   static QTextCodec* QTextCodec::codecForLocale (   )  [static]
+
+
+
+   static QTextCodec* QTextCodec::codecForMib (  int  mib  )  [static]
+
+
+
+   static QTextCodec* QTextCodec::codecForName (  const char *  name  )  [inline, static]
+
+
+
+   static QTextCodec* QTextCodec::codecForName (  const QByteArray &  name  )  [static]
+
+
+
+   QTextCodec * QTextCodec::codecForTr (   )  [inline, static]
+
+
+
+   virtual QByteArray QTextCodec::convertFromUnicode (  const QChar *     in,
+                                                        int               length,
+                                                        ConverterState *  state
+                                                     )  const [protected, pure virtual]
+
+
+
+   virtual QString QTextCodec::convertToUnicode (  const char *      in,
+                                                   int               length,
+                                                   ConverterState *  state
+                                                )  const [protected, pure virtual]
+
+
+
+   QByteArray QTextCodec::fromUnicode (  const QChar *     in,
+                                         int               length,
+                                         ConverterState *  state = 0
+                                      )  const [inline]
+
+
+
+   QByteArray QTextCodec::fromUnicode (  const QString &  uc  )  const
+
+
+
+   QTextDecoder* QTextCodec::makeDecoder (   )  const
+
+
+
+   QTextEncoder* QTextCodec::makeEncoder (   )  const
+
+
+
+   virtual int QTextCodec::mibEnum (   )  const [pure virtual]
+
+
+
+   virtual QByteArray QTextCodec::name (   )  const [pure virtual]
+
+
+
+   void QTextCodec::setCodecForCStrings (  QTextCodec *  c  )  [inline, static]
+
+
+
+   static void QTextCodec::setCodecForLocale (  QTextCodec *  c  )  [static]
+
+
+
+   void QTextCodec::setCodecForTr (  QTextCodec *  c  )  [inline, static]
+
+
+
+   QString QTextCodec::toUnicode (  const char *      in,
+                                    int               length,
+                                    ConverterState *  state = 0
+                                 )  const [inline]
+
+
+
+   QString QTextCodec::toUnicode (  const char *  chars  )  const
+
+
+
+   QString QTextCodec::toUnicode (  const QByteArray &   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextCodecCleanup [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextcodec.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

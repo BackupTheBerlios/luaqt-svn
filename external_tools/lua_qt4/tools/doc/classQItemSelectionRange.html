@@ -1,0 +1,132 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QItemSelectionRange Class Reference
+
+   #include <qitemselectionmodel.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QItemSelectionRange ()
+     * QItemSelectionRange (const QItemSelectionRange &other)
+     * QItemSelectionRange (const QModelIndex &topLeft, const QModelIndex &bottomRight)
+     * QItemSelectionRange (const QModelIndex &index)
+     * int top () const
+     * int left () const
+     * int bottom () const
+     * int right () const
+     * int width () const
+     * int height () const
+     * QModelIndex topLeft () const
+     * QModelIndex bottomRight () const
+     * QModelIndex parent () const
+     * const QAbstractItemModel * model () const
+     * bool contains (const QModelIndex &index) const
+     * bool intersects (const QItemSelectionRange &other) const
+     * QItemSelectionRange intersect (const QItemSelectionRange &other) const
+     * bool operator== (const QItemSelectionRange &other) const
+     * bool operator!= (const QItemSelectionRange &other) const
+     * bool isValid () const
+     * QModelIndexList indexes () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QItemSelectionRange::QItemSelectionRange (   )  [inline]
+
+
+
+   QItemSelectionRange::QItemSelectionRange (  const QItemSelectionRange &  other  )  [inline]
+
+
+
+   QItemSelectionRange::QItemSelectionRange (  const QModelIndex &  topLeft,
+                                               const QModelIndex &  bottomRight
+                                            )  [inline]
+
+
+
+   QItemSelectionRange::QItemSelectionRange (  const QModelIndex &  index  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QItemSelectionRange::bottom (   )  const [inline]
+
+
+
+   QModelIndex QItemSelectionRange::bottomRight (   )  const [inline]
+
+
+
+   bool QItemSelectionRange::contains (  const QModelIndex &  index  )  const [inline]
+
+
+
+   int QItemSelectionRange::height (   )  const [inline]
+
+
+
+   QModelIndexList QItemSelectionRange::indexes (   )  const
+
+
+
+   QItemSelectionRange QItemSelectionRange::intersect (  const QItemSelectionRange &  other  )  const
+
+
+
+   bool QItemSelectionRange::intersects (  const QItemSelectionRange &  other  )  const
+
+
+
+   bool QItemSelectionRange::isValid (   )  const [inline]
+
+
+
+   int QItemSelectionRange::left (   )  const [inline]
+
+
+
+   const QAbstractItemModel* QItemSelectionRange::model (   )  const [inline]
+
+
+
+   bool QItemSelectionRange::operator!= (  const QItemSelectionRange &  other  )  const [inline]
+
+
+
+   bool QItemSelectionRange::operator== (  const QItemSelectionRange &  other  )  const [inline]
+
+
+
+   QModelIndex QItemSelectionRange::parent (   )  const [inline]
+
+
+
+   int QItemSelectionRange::right (   )  const [inline]
+
+
+
+   int QItemSelectionRange::top (   )  const [inline]
+
+
+
+   QModelIndex QItemSelectionRange::topLeft (   )  const [inline]
+
+
+
+   int QItemSelectionRange::width (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qitemselectionmodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

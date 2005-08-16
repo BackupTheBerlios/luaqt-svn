@@ -1,0 +1,94 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QTextDocumentFragment Class Reference
+
+   #include <qtextdocumentfragment.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QTextDocumentFragment ()
+     * QTextDocumentFragment (const QTextDocument *document)
+     * QTextDocumentFragment (const QTextCursor &range)
+     * QTextDocumentFragment (const QTextDocumentFragment &rhs)
+     * QTextDocumentFragment & operator= (const QTextDocumentFragment &rhs)
+     * ~QTextDocumentFragment ()
+     * bool isEmpty () const
+     * QString toPlainText () const
+     * QString toHtml () const
+
+Static Public Member Functions
+
+     * static QTextDocumentFragment fromPlainText (const QString &plainText)
+     * static QTextDocumentFragment fromHtml (const QString &html)
+
+Friends
+
+     * class QTextCursor
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextDocumentFragment::QTextDocumentFragment (   )
+
+
+
+   QTextDocumentFragment::QTextDocumentFragment (  const QTextDocument *  document  )  [explicit]
+
+
+
+   QTextDocumentFragment::QTextDocumentFragment (  const QTextCursor &  range  )  [explicit]
+
+
+
+   QTextDocumentFragment::QTextDocumentFragment (  const QTextDocumentFragment &  rhs  )
+
+
+
+   QTextDocumentFragment::~QTextDocumentFragment (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static QTextDocumentFragment QTextDocumentFragment::fromHtml (  const QString &  html  )  [static]
+
+
+
+   static QTextDocumentFragment QTextDocumentFragment::fromPlainText (  const QString &  plainText  )  [static]
+
+
+
+   bool QTextDocumentFragment::isEmpty (   )  const
+
+
+
+   QTextDocumentFragment& QTextDocumentFragment::operator= (  const QTextDocumentFragment &  rhs  )
+
+
+
+   QString QTextDocumentFragment::toHtml (   )  const
+
+
+
+   QString QTextDocumentFragment::toPlainText (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextCursor [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextdocumentfragment.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

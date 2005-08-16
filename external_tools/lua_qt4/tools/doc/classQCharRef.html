@@ -1,0 +1,218 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QCharRef Class Reference
+
+   #include <qstring.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * operator QChar () const
+     * QCharRef & operator= (const QChar &c)
+     * QCharRef & operator= (char c)
+     * QCharRef & operator= (uchar c)
+     * QCharRef & operator= (const QCharRef &c)
+     * QCharRef & operator= (ushort rc)
+     * QCharRef & operator= (short rc)
+     * QCharRef & operator= (uint rc)
+     * QCharRef & operator= (int rc)
+     * bool isNull () const
+     * bool isPrint () const
+     * bool isPunct () const
+     * bool isSpace () const
+     * bool isMark () const
+     * bool isLetter () const
+     * bool isNumber () const
+     * bool isLetterOrNumber ()
+     * bool isDigit () const
+     * int digitValue () const
+     * QChar toLower () const
+     * QChar toUpper () const
+     * QChar::Category category () const
+     * QChar::Direction direction () const
+     * QChar::Joining joining () const
+     * bool hasMirrored () const
+     * QChar mirroredChar () const
+     * QString decomposition () const
+     * QChar::Decomposition decompositionTag () const
+     * uchar combiningClass () const
+     * QChar::UnicodeVersion unicodeVersion () const
+     * uchar cell () const
+     * uchar row () const
+     * void setCell (uchar cell)
+     * void setRow (uchar row)
+     * const char toAscii () const
+     * const char toLatin1 () const
+     * const ushort unicode () const
+
+Friends
+
+     * class QString
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QChar::Category QCharRef::category (   )  const [inline]
+
+
+
+   uchar QCharRef::cell (   )  const [inline]
+
+
+
+   uchar QCharRef::combiningClass (   )  const [inline]
+
+
+
+   QString QCharRef::decomposition (   )  const [inline]
+
+
+
+   QChar::Decomposition QCharRef::decompositionTag (   )  const [inline]
+
+
+
+   int QCharRef::digitValue (   )  const [inline]
+
+
+
+   QChar::Direction QCharRef::direction (   )  const [inline]
+
+
+
+   bool QCharRef::hasMirrored (   )  const [inline]
+
+
+
+   bool QCharRef::isDigit (   )  const [inline]
+
+
+
+   bool QCharRef::isLetter (   )  const [inline]
+
+
+
+   bool QCharRef::isLetterOrNumber (   )  [inline]
+
+
+
+   bool QCharRef::isMark (   )  const [inline]
+
+
+
+   bool QCharRef::isNull (   )  const [inline]
+
+
+
+   bool QCharRef::isNumber (   )  const [inline]
+
+
+
+   bool QCharRef::isPrint (   )  const [inline]
+
+
+
+   bool QCharRef::isPunct (   )  const [inline]
+
+
+
+   bool QCharRef::isSpace (   )  const [inline]
+
+
+
+   QChar::Joining QCharRef::joining (   )  const [inline]
+
+
+
+   QChar QCharRef::mirroredChar (   )  const [inline]
+
+
+
+   QCharRef::operator QChar (   )  const [inline]
+
+
+
+   QCharRef& QCharRef::operator= (  int  rc  )  [inline]
+
+
+
+   QCharRef& QCharRef::operator= (  uint  rc  )  [inline]
+
+
+
+   QCharRef& QCharRef::operator= (  short  rc  )  [inline]
+
+
+
+   QCharRef& QCharRef::operator= (  ushort  rc  )  [inline]
+
+
+
+   QCharRef& QCharRef::operator= (  const QCharRef &  c  )  [inline]
+
+
+
+   QCharRef& QCharRef::operator= (  uchar  c  )  [inline]
+
+
+
+   QCharRef& QCharRef::operator= (  char  c  )  [inline]
+
+
+
+   QCharRef& QCharRef::operator= (  const QChar &  c  )  [inline]
+
+
+
+   uchar QCharRef::row (   )  const [inline]
+
+
+
+   void QCharRef::setCell (  uchar  cell  )  [inline]
+
+
+
+   void QCharRef::setRow (  uchar  row  )  [inline]
+
+
+
+   const char QCharRef::toAscii (   )  const [inline]
+
+
+
+   const char QCharRef::toLatin1 (   )  const [inline]
+
+
+
+   QChar QCharRef::toLower (   )  const [inline]
+
+
+
+   QChar QCharRef::toUpper (   )  const [inline]
+
+
+
+   const ushort QCharRef::unicode (   )  const [inline]
+
+
+
+   QChar::UnicodeVersion QCharRef::unicodeVersion (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QString [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstring.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

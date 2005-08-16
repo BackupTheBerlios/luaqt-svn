@@ -1,0 +1,113 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+   QTextFrame::iterator
+
+                                                                                                                                                                                                                                       QTextFrame::iterator Class Reference
+
+   #include <qtextobject.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * iterator ()
+     * iterator (const iterator &o)
+     * iterator & operator= (const iterator &o)
+     * QTextFrame * parentFrame () const
+     * QTextFrame * currentFrame () const
+     * QTextBlock currentBlock () const
+     * bool atEnd () const
+     * bool operator== (const iterator &o) const
+     * bool operator!= (const iterator &o) const
+     * iterator & operator++ ()
+     * iterator operator++ (int)
+     * iterator & operator-- ()
+     * iterator operator-- (int)
+
+Friends
+
+     * class QTextFrame
+     * class QTextTableCell
+     * class QTextDocumentLayoutPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextFrame::iterator::iterator (   )
+
+
+
+   QTextFrame::iterator::iterator (  const iterator &  o  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QTextFrame::iterator::atEnd (   )  const [inline]
+
+
+
+   QTextBlock QTextFrame::iterator::currentBlock (   )  const
+
+
+
+   QTextFrame* QTextFrame::iterator::currentFrame (   )  const
+
+
+
+   bool QTextFrame::iterator::operator!= (  const iterator &  o  )  const [inline]
+
+
+
+   iterator QTextFrame::iterator::operator++ (  int   )  [inline]
+
+
+
+   iterator& QTextFrame::iterator::operator++ (   )
+
+
+
+   iterator QTextFrame::iterator::operator-- (  int   )  [inline]
+
+
+
+   iterator& QTextFrame::iterator::operator-- (   )
+
+
+
+   iterator& QTextFrame::iterator::operator= (  const iterator &  o  )
+
+
+
+   bool QTextFrame::iterator::operator== (  const iterator &  o  )  const [inline]
+
+
+
+   QTextFrame* QTextFrame::iterator::parentFrame (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextDocumentLayoutPrivate [friend]
+
+
+
+   friend class QTextFrame [friend]
+
+
+
+   friend class QTextTableCell [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

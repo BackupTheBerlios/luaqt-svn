@@ -1,0 +1,337 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QLCDNumber Class Reference
+
+   The QLCDNumber widget displays a number with LCD-like digits. More...
+#include <QLCDNumber>
+
+   Part of the QtGui module.
+
+   Inherits QFrame.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum Mode { Hex, Dec, Oct, Bin }
+     * enum SegmentStyle { Outline, Filled, Flat }
+
+  Properties
+
+     * intValue : int
+     * mode : Mode
+     * numDigits : int
+
+     * segmentStyle : SegmentStyle
+     * smallDecimalPoint : bool
+     * value : double
+
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QLCDNumber ( QWidget * parent = 0 )
+     * QLCDNumber ( uint numDigits, QWidget * parent = 0 )
+     * ~QLCDNumber ()
+     * bool checkOverflow ( double num ) const
+     * bool checkOverflow ( int num ) const
+     * int intValue () const
+     * Mode mode () const
+     * int numDigits () const
+     * SegmentStyle segmentStyle () const
+     * void setMode ( Mode )
+     * void setNumDigits ( int nDigits )
+     * void setSegmentStyle ( SegmentStyle )
+     * bool smallDecimalPoint () const
+     * double value () const
+
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void display ( const QString & s )
+     * void display ( double num )
+     * void display ( int num )
+     * void setBinMode ()
+     * void setDecMode ()
+     * void setHexMode ()
+     * void setOctMode ()
+     * void setSmallDecimalPoint ( bool )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void overflow ()
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QLCDNumber widget displays a number with LCD-like digits.
+
+   It can display a number in just about any size. It can display
+   decimal, hexadecimal, octal or binary numbers. It is easy to connect
+   to data sources using the display() slot, which is overloaded to take
+   any of five argument types.
+
+   There are also slots to change the base with setMode() and the decimal
+   point with setSmallDecimalPoint().
+
+   QLCDNumber emits the overflow() signal when it is asked to display
+   something beyond its range. The range is set by setNumDigits(), but
+   setSmallDecimalPoint() also influences it. If the display is set to
+   hexadecimal, octal or binary, the integer equivalent of the value is
+   displayed.
+
+   These digits and other symbols can be shown: 0/O, 1, 2, 3, 4, 5/S, 6,
+   7, 8, 9/g, minus, decimal point, A, B, C, D, E, F, h, H, L, o, P, r,
+   u, U, Y, colon, degree sign (which is specified as single quote in the
+   string) and space. QLCDNumber substitutes spaces for illegal
+   characters.
+
+   It is not possible to retrieve the contents of a QLCDNumber object,
+   although you can retrieve the numeric value with value(). If you
+   really need the text, we recommend that you connect the signals that
+   feed the display() slot to another slot as well and store the value
+   there.
+
+   Incidentally, QLCDNumber is the very oldest part of Qt, tracing its
+   roots back to a BASIC program on the Sinclair Spectrum.
+
+   Screenshot in Motif style Screenshot in Windows style
+
+   See also QLabel and QFrame.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QLCDNumber::Mode
+
+   This type determines how numbers are shown.
+
+      Constant     Value Description
+   QLCDNumber::Hex   0   Hexadecimal
+   QLCDNumber::Dec   1   Decimal
+   QLCDNumber::Oct   2   Octal
+   QLCDNumber::Bin   3   Binary
+
+   If the display is set to hexadecimal, octal or binary, the integer
+   equivalent of the value is displayed.
+
+  enum QLCDNumber::SegmentStyle
+
+   This type determines the visual appearance of the QLCDNumber widget.
+
+   Constant Value Description
+   QLCDNumber::Outline 0 gives raised segments filled with the background
+   brush.
+   QLCDNumber::Filled 1 gives raised segments filled with the foreground
+   brush.
+   QLCDNumber::Flat 2 gives flat segments filled with the foreground
+   brush.
+     _________________________________________________________________
+
+Property Documentation
+
+  intValue : int
+
+   This property holds the displayed value rounded to the nearest
+   integer.
+
+   This property corresponds to the nearest integer to the current value
+   displayed by the LCDNumber. This is the value used for hexadecimal,
+   octal and binary modes.
+
+   If the displayed value is not a number, the property has a value of 0.
+
+   Access functions:
+     * int intValue () const
+     * void display ( const QString & s )
+     * void display ( int num )
+     * void display ( double num )
+
+  mode : Mode
+
+   This property holds the current display mode (number base).
+
+   Corresponds to the current display mode, which is one of Bin, Oct, Dec
+   (the default) and Hex. Dec mode can display floating point values, the
+   other modes display the integer equivalent.
+
+   Access functions:
+     * Mode mode () const
+     * void setMode ( Mode )
+
+   See also smallDecimalPoint(), setHexMode(), setDecMode(),
+   setOctMode(), and setBinMode().
+
+  numDigits : int
+
+   This property holds the current number of digits displayed.
+
+   Corresponds to the current number of digits. If
+   QLCDNumber::smallDecimalPoint is false, the decimal point occupies one
+   digit position.
+
+   Access functions:
+     * int numDigits () const
+     * void setNumDigits ( int nDigits )
+
+   See also smallDecimalPoint.
+
+  segmentStyle : SegmentStyle
+
+   This property holds the style of the LCDNumber.
+
+                                Style Result
+     Outline Produces raised segments filled with the background color
+                           (this is the default).
+     Filled Produces raised segments filled with the foreground color.
+       Flat Produces flat segments filled with the foreground color.
+
+   Outline and Filled will additionally use QPalette::light() and
+   QPalette::dark() for shadow effects.
+
+   Access functions:
+     * SegmentStyle segmentStyle () const
+     * void setSegmentStyle ( SegmentStyle )
+
+  smallDecimalPoint : bool
+
+   This property holds the style of the decimal point.
+
+   If true the decimal point is drawn between two digit positions.
+   Otherwise it occupies a digit position of its own, i.e. is drawn in a
+   digit position. The default is false.
+
+   The inter-digit space is made slightly wider when the decimal point is
+   drawn between the digits.
+
+   Access functions:
+     * bool smallDecimalPoint () const
+     * void setSmallDecimalPoint ( bool )
+
+   See also mode.
+
+  value : double
+
+   This property holds the displayed value.
+
+   This property corresponds to the current value displayed by the
+   LCDNumber.
+
+   If the displayed value is not a number, the property has a value of 0.
+
+   Access functions:
+     * double value () const
+     * void display ( const QString & s )
+     * void display ( int num )
+     * void display ( double num )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QLCDNumber::QLCDNumber ( QWidget * parent = 0 )
+
+   Constructs an LCD number, sets the number of digits to 5, the base to
+   decimal, the decimal point mode to 'small' and the frame style to a
+   raised box. The segmentStyle() is set to Outline.
+
+   The parent argument is passed to the QFrame constructor.
+
+   See also setNumDigits() and setSmallDecimalPoint().
+
+  QLCDNumber::QLCDNumber ( uint numDigits, QWidget * parent = 0 )
+
+   Constructs an LCD number, sets the number of digits to numDigits, the
+   base to decimal, the decimal point mode to 'small' and the frame style
+   to a raised box. The segmentStyle() is set to Outline.
+
+   The parent argument is passed to the QFrame constructor.
+
+   See also setNumDigits() and setSmallDecimalPoint().
+
+  QLCDNumber::~QLCDNumber ()
+
+   Destroys the LCD number.
+
+  bool QLCDNumber::checkOverflow ( double num ) const
+
+   Returns true if num is too big to be displayed in its entirety;
+   otherwise returns false.
+
+   See also display(), numDigits(), and smallDecimalPoint().
+
+  bool QLCDNumber::checkOverflow ( int num ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if num is too big to be displayed in its entirety;
+   otherwise returns false.
+
+   See also display(), numDigits(), and smallDecimalPoint().
+
+  void QLCDNumber::overflow ()   [signal]
+
+   This signal is emitted whenever the QLCDNumber is asked to display a
+   too-large number or a too-long string.
+
+   It is never emitted by setNumDigits().
+
+  void QLCDNumber::setBinMode ()   [slot]
+
+   Calls setMode(Bin). Provided for convenience (e.g. for connecting
+   buttons to it).
+
+   See also setMode(), setHexMode(), setDecMode(), setOctMode(), and
+   mode().
+
+  void QLCDNumber::setDecMode ()   [slot]
+
+   Calls setMode(Dec). Provided for convenience (e.g. for connecting
+   buttons to it).
+
+   See also setMode(), setHexMode(), setOctMode(), setBinMode(), and
+   mode().
+
+  void QLCDNumber::setHexMode ()   [slot]
+
+   Calls setMode(Hex). Provided for convenience (e.g. for connecting
+   buttons to it).
+
+   See also setMode(), setDecMode(), setOctMode(), setBinMode(), and
+   mode().
+
+  void QLCDNumber::setOctMode ()   [slot]
+
+   Calls setMode(Oct). Provided for convenience (e.g. for connecting
+   buttons to it).
+
+   See also setMode(), setHexMode(), setDecMode(), setBinMode(), and
+   mode().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

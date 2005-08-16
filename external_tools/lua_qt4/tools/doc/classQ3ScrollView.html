@@ -1,0 +1,848 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3ScrollView Class Reference
+
+   #include <q3scrollview.h>
+
+   Inherits Q3Frame.
+
+   Inherited by Q3CanvasView, Q3GridView, Q3IconView, Q3ListBox, Q3ListView, Q3Table, and Q3TextEdit.
+
+   List of all members.
+
+Public Types
+
+     * enum ResizePolicy { Default, Manual, AutoOne, AutoOneFit }
+     * enum ScrollBarMode { Auto, AlwaysOff, AlwaysOn }
+
+Public Slots
+
+     * virtual void resizeContents (int w, int h)
+     * void scrollBy (int dx, int dy)
+     * virtual void setContentsPos (int x, int y)
+     * void ensureVisible (int x, int y)
+     * void ensureVisible (int x, int y, int xmargin, int ymargin)
+     * void center (int x, int y)
+     * void center (int x, int y, float xmargin, float ymargin)
+     * void updateScrollBars ()
+     * void setEnabled (bool enable)
+
+Signals
+
+     * void contentsMoving (int x, int y)
+     * void horizontalSliderPressed ()
+     * void horizontalSliderReleased ()
+     * void verticalSliderPressed ()
+     * void verticalSliderReleased ()
+
+Public Member Functions
+
+     * Q3ScrollView (QWidget *parent=0, const char *name=0, Qt::WFlags f=0)
+     * ~Q3ScrollView ()
+     * virtual void setResizePolicy (ResizePolicy)
+     * ResizePolicy resizePolicy () const
+     * void styleChange (QStyle &)
+     * void removeChild (QWidget *child)
+     * virtual void addChild (QWidget *child, int x=0, int y=0)
+     * virtual void moveChild (QWidget *child, int x, int y)
+     * int childX (QWidget *child)
+     * int childY (QWidget *child)
+     * bool childIsVisible (QWidget *child)
+     * void showChild (QWidget *child, bool yes=true)
+     * ScrollBarMode vScrollBarMode () const
+     * virtual void setVScrollBarMode (ScrollBarMode)
+     * ScrollBarMode hScrollBarMode () const
+     * virtual void setHScrollBarMode (ScrollBarMode)
+     * QWidget * cornerWidget () const
+     * virtual void setCornerWidget (QWidget *)
+     * QScrollBar * horizontalScrollBar () const
+     * QScrollBar * verticalScrollBar () const
+     * QWidget * viewport () const
+     * QWidget * clipper () const
+     * int visibleWidth () const
+     * int visibleHeight () const
+     * int contentsWidth () const
+     * int contentsHeight () const
+     * int contentsX () const
+     * int contentsY () const
+     * void resize (int w, int h)
+     * void resize (const QSize &)
+     * void setVisible (bool visible)
+     * void updateContents (int x, int y, int w, int h)
+     * void updateContents (const QRect &r)
+     * void updateContents ()
+     * void repaintContents (int x, int y, int w, int h, bool erase=true)
+     * void repaintContents (const QRect &r, bool erase=true)
+     * void repaintContents (bool erase=true)
+     * void contentsToViewport (int x, int y, int &vx, int &vy) const
+     * void viewportToContents (int vx, int vy, int &x, int &y) const
+     * QPoint contentsToViewport (const QPoint &) const
+     * QPoint viewportToContents (const QPoint &) const
+     * void enableClipper (bool y)
+     * void setStaticBackground (bool y)
+     * bool hasStaticBackground () const
+     * QSize viewportSize (int, int) const
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * void removeChild (QObject *child)
+     * bool isHorizontalSliderPressed ()
+     * bool isVerticalSliderPressed ()
+     * virtual void setDragAutoScroll (bool b)
+     * bool dragAutoScroll () const
+     * virtual void setMargins (int left, int top, int right, int bottom)
+     * int leftMargin () const
+     * int topMargin () const
+     * int rightMargin () const
+     * int bottomMargin () const
+     * void disableSizeHintCaching ()
+
+Protected Member Functions
+
+     * virtual void drawContents (QPainter *, int cx, int cy, int cw, int ch)
+     * virtual void drawContentsOffset (QPainter *, int ox, int oy, int cx, int cy, int cw, int ch)
+     * virtual void contentsMousePressEvent (QMouseEvent *)
+     * virtual void contentsMouseReleaseEvent (QMouseEvent *)
+     * virtual void contentsMouseDoubleClickEvent (QMouseEvent *)
+     * virtual void contentsMouseMoveEvent (QMouseEvent *)
+     * virtual void contentsDragEnterEvent (QDragEnterEvent *)
+     * virtual void contentsDragMoveEvent (QDragMoveEvent *)
+     * virtual void contentsDragLeaveEvent (QDragLeaveEvent *)
+     * virtual void contentsDropEvent (QDropEvent *)
+     * virtual void contentsWheelEvent (QWheelEvent *)
+     * virtual void contentsContextMenuEvent (QContextMenuEvent *)
+     * virtual void viewportPaintEvent (QPaintEvent *)
+     * virtual void viewportResizeEvent (QResizeEvent *)
+     * virtual void viewportMousePressEvent (QMouseEvent *)
+     * virtual void viewportMouseReleaseEvent (QMouseEvent *)
+     * virtual void viewportMouseDoubleClickEvent (QMouseEvent *)
+     * virtual void viewportMouseMoveEvent (QMouseEvent *)
+     * virtual void viewportDragEnterEvent (QDragEnterEvent *)
+     * virtual void viewportDragMoveEvent (QDragMoveEvent *)
+     * virtual void viewportDragLeaveEvent (QDragLeaveEvent *)
+     * virtual void viewportDropEvent (QDropEvent *)
+     * virtual void viewportWheelEvent (QWheelEvent *)
+     * virtual void viewportContextMenuEvent (QContextMenuEvent *)
+     * void frameChanged ()
+     * bool focusNextPrevChild (bool next)
+     * virtual void setHBarGeometry (QScrollBar &hbar, int x, int y, int w, int h)
+     * virtual void setVBarGeometry (QScrollBar &vbar, int x, int y, int w, int h)
+     * void resizeEvent (QResizeEvent *)
+     * void mousePressEvent (QMouseEvent *)
+     * void mouseReleaseEvent (QMouseEvent *)
+     * void mouseDoubleClickEvent (QMouseEvent *)
+     * void mouseMoveEvent (QMouseEvent *)
+     * void wheelEvent (QWheelEvent *)
+     * void contextMenuEvent (QContextMenuEvent *)
+     * bool eventFilter (QObject *, QEvent *e)
+     * void setCachedSizeHint (const QSize &sh) const
+     * QSize cachedSizeHint () const
+     * void fontChange (const QFont &)
+
+Properties
+
+     * ResizePolicy resizePolicy
+     * ScrollBarMode vScrollBarMode
+     * ScrollBarMode hScrollBarMode
+     * int visibleWidth
+     * int visibleHeight
+     * int contentsWidth
+     * int contentsHeight
+     * int contentsX
+     * int contentsY
+     * bool dragAutoScroll
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3ScrollView::ResizePolicy
+
+
+
+   Enumerator: 
+
+          Default   
+          Manual    
+          AutoOne   
+          AutoOneFit
+
+   enum Q3ScrollView::ScrollBarMode
+
+
+
+   Enumerator: 
+
+          Auto     
+          AlwaysOff
+          AlwaysOn 
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ScrollView::Q3ScrollView (  QWidget *     parent = 0,
+                                 const char *  name = 0,
+                                 Qt::WFlags    f = 0
+                              )
+
+
+
+   Q3ScrollView::~Q3ScrollView (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3ScrollView::addChild (  QWidget *  child,
+                                          int        x = 0,
+                                          int        y = 0
+                                       )  [virtual]
+
+
+
+   int Q3ScrollView::bottomMargin (   )  const
+
+
+
+   QSize Q3ScrollView::cachedSizeHint (   )  const [protected]
+
+
+
+   void Q3ScrollView::center (  int    x,
+                                int    y,
+                                float  xmargin,
+                                float  ymargin
+                             )  [slot]
+
+
+
+   void Q3ScrollView::center (  int  x,
+                                int  y
+                             )  [slot]
+
+
+
+   bool Q3ScrollView::childIsVisible (  QWidget *  child  )  [inline]
+
+
+
+   int Q3ScrollView::childX (  QWidget *  child  )
+
+
+
+   int Q3ScrollView::childY (  QWidget *  child  )
+
+
+
+   QWidget* Q3ScrollView::clipper (   )  const
+
+
+
+   virtual void Q3ScrollView::contentsContextMenuEvent (  QContextMenuEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3DataTable, Q3IconView, Q3ListBox, Q3ListView, Q3Table, and Q3TextEdit.
+
+   virtual void Q3ScrollView::contentsDragEnterEvent (  QDragEnterEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3IconView, Q3ListView, Q3Table, and Q3TextEdit.
+
+   virtual void Q3ScrollView::contentsDragLeaveEvent (  QDragLeaveEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3IconView, Q3ListView, Q3Table, and Q3TextEdit.
+
+   virtual void Q3ScrollView::contentsDragMoveEvent (  QDragMoveEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3IconView, Q3ListView, Q3Table, and Q3TextEdit.
+
+   virtual void Q3ScrollView::contentsDropEvent (  QDropEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3IconView, Q3ListView, Q3Table, and Q3TextEdit.
+
+   int Q3ScrollView::contentsHeight (   )  const
+
+
+
+   virtual void Q3ScrollView::contentsMouseDoubleClickEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3IconView, Q3ListView, Q3Table, and Q3TextEdit.
+
+   virtual void Q3ScrollView::contentsMouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3IconView, Q3ListView, Q3Table, and Q3TextEdit.
+
+   virtual void Q3ScrollView::contentsMousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3DataTable, Q3IconView, Q3ListView, Q3Table, and Q3TextEdit.
+
+   virtual void Q3ScrollView::contentsMouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3IconView, Q3ListView, Q3Table, and Q3TextEdit.
+
+   void Q3ScrollView::contentsMoving (  int  x,
+                                        int  y
+                                     )  [signal]
+
+
+
+   QPoint Q3ScrollView::contentsToViewport (  const QPoint &   )  const
+
+
+
+   void Q3ScrollView::contentsToViewport (  int    x,
+                                            int    y,
+                                            int &  vx,
+                                            int &  vy
+                                         )  const
+
+
+
+   virtual void Q3ScrollView::contentsWheelEvent (  QWheelEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3TextEdit.
+
+   int Q3ScrollView::contentsWidth (   )  const
+
+
+
+   int Q3ScrollView::contentsX (   )  const
+
+
+
+   int Q3ScrollView::contentsY (   )  const
+
+
+
+   void Q3ScrollView::contextMenuEvent (  QContextMenuEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QWidget* Q3ScrollView::cornerWidget (   )  const
+
+
+
+   void Q3ScrollView::disableSizeHintCaching (   )
+
+
+
+   bool Q3ScrollView::dragAutoScroll (   )  const
+
+
+
+   virtual void Q3ScrollView::drawContents (  QPainter *  ,
+                                              int         cx,
+                                              int         cy,
+                                              int         cw,
+                                              int         ch
+                                           )  [protected, virtual]
+
+
+
+   Reimplemented in Q3CanvasView, Q3DataTable, Q3GridView, Q3IconView, Q3Table, and Q3TextEdit.
+
+   virtual void Q3ScrollView::drawContentsOffset (  QPainter *  ,
+                                                    int         ox,
+                                                    int         oy,
+                                                    int         cx,
+                                                    int         cy,
+                                                    int         cw,
+                                                    int         ch
+                                                 )  [protected, virtual]
+
+
+
+   Reimplemented in Q3ListView.
+
+   void Q3ScrollView::enableClipper (  bool  y  )
+
+
+
+   void Q3ScrollView::ensureVisible (  int  x,
+                                       int  y,
+                                       int  xmargin,
+                                       int  ymargin
+                                    )  [slot]
+
+
+
+   void Q3ScrollView::ensureVisible (  int  x,
+                                       int  y
+                                    )  [slot]
+
+
+
+   bool Q3ScrollView::eventFilter (  QObject *  ,
+                                     QEvent *   e
+                                  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   Reimplemented in Q3DataTable, Q3IconView, Q3ListBox, Q3ListView, Q3Table, and Q3TextEdit.
+
+   bool Q3ScrollView::focusNextPrevChild (  bool  next  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3TextEdit.
+
+   void Q3ScrollView::fontChange (  const QFont &   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ScrollView::frameChanged (   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Frame.
+
+   bool Q3ScrollView::hasStaticBackground (   )  const
+
+
+
+   QScrollBar* Q3ScrollView::horizontalScrollBar (   )  const
+
+
+
+   void Q3ScrollView::horizontalSliderPressed (   )  [signal]
+
+
+
+   void Q3ScrollView::horizontalSliderReleased (   )  [signal]
+
+
+
+   ScrollBarMode Q3ScrollView::hScrollBarMode (   )  const
+
+
+
+   bool Q3ScrollView::isHorizontalSliderPressed (   )
+
+
+
+   bool Q3ScrollView::isVerticalSliderPressed (   )
+
+
+
+   int Q3ScrollView::leftMargin (   )  const
+
+
+
+   QSize Q3ScrollView::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3IconView, Q3ListBox, and Q3ListView.
+
+   void Q3ScrollView::mouseDoubleClickEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3ListBox.
+
+   void Q3ScrollView::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3ListBox.
+
+   void Q3ScrollView::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3ListBox.
+
+   void Q3ScrollView::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3ListBox.
+
+   virtual void Q3ScrollView::moveChild (  QWidget *  child,
+                                           int        x,
+                                           int        y
+                                        )  [virtual]
+
+
+
+   void Q3ScrollView::removeChild (  QObject *  child  )
+
+
+
+   void Q3ScrollView::removeChild (  QWidget *  child  )
+
+
+
+   void Q3ScrollView::repaintContents (  bool  erase = true  )
+
+
+
+   void Q3ScrollView::repaintContents (  const QRect &  r,
+                                         bool           erase = true
+                                      )
+
+
+
+   void Q3ScrollView::repaintContents (  int   x,
+                                         int   y,
+                                         int   w,
+                                         int   h,
+                                         bool  erase = true
+                                      )
+
+
+
+   void Q3ScrollView::resize (  const QSize &   )
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ScrollView::resize (  int  w,
+                                int  h
+                             )
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3ScrollView::resizeContents (  int  w,
+                                                int  h
+                                             )  [virtual, slot]
+
+
+
+   void Q3ScrollView::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Frame.
+
+   Reimplemented in Q3DataTable, Q3IconView, Q3ListBox, Q3ListView, and Q3TextEdit.
+
+   ResizePolicy Q3ScrollView::resizePolicy (   )  const
+
+
+
+   int Q3ScrollView::rightMargin (   )  const
+
+
+
+   void Q3ScrollView::scrollBy (  int  dx,
+                                  int  dy
+                               )  [slot]
+
+
+
+   void Q3ScrollView::setCachedSizeHint (  const QSize &  sh  )  const [protected]
+
+
+
+   virtual void Q3ScrollView::setContentsPos (  int  x,
+                                                int  y
+                                             )  [virtual, slot]
+
+
+
+   Reimplemented in Q3IconView, and Q3ListView.
+
+   virtual void Q3ScrollView::setCornerWidget (  QWidget *   )  [virtual]
+
+
+
+   virtual void Q3ScrollView::setDragAutoScroll (  bool  b  )  [virtual]
+
+
+
+   void Q3ScrollView::setEnabled (  bool  enable  )  [slot]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3Table.
+
+   virtual void Q3ScrollView::setHBarGeometry (  QScrollBar &  hbar,
+                                                 int           x,
+                                                 int           y,
+                                                 int           w,
+                                                 int           h
+                                              )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::setHScrollBarMode (  ScrollBarMode   )  [virtual]
+
+
+
+   virtual void Q3ScrollView::setMargins (  int  left,
+                                            int  top,
+                                            int  right,
+                                            int  bottom
+                                         )  [virtual]
+
+
+
+   virtual void Q3ScrollView::setResizePolicy (  ResizePolicy   )  [virtual]
+
+
+
+   void Q3ScrollView::setStaticBackground (  bool  y  )
+
+
+
+   virtual void Q3ScrollView::setVBarGeometry (  QScrollBar &  vbar,
+                                                 int           x,
+                                                 int           y,
+                                                 int           w,
+                                                 int           h
+                                              )  [protected, virtual]
+
+
+
+   void Q3ScrollView::setVisible (  bool  visible  )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3ScrollView::setVScrollBarMode (  ScrollBarMode   )  [virtual]
+
+
+
+   void Q3ScrollView::showChild (  QWidget *  child,
+                                   bool       yes = true
+                                )  [inline]
+
+
+
+   QSize Q3ScrollView::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   Reimplemented in Q3CanvasView, Q3IconView, Q3ListBox, Q3ListView, Q3Table, and Q3TextEdit.
+
+   void Q3ScrollView::styleChange (  QStyle &   )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int Q3ScrollView::topMargin (   )  const
+
+
+
+   void Q3ScrollView::updateContents (   )
+
+
+
+   Reimplemented in Q3IconView, and Q3ListView.
+
+   void Q3ScrollView::updateContents (  const QRect &  r  )
+
+
+
+   void Q3ScrollView::updateContents (  int  x,
+                                        int  y,
+                                        int  w,
+                                        int  h
+                                     )
+
+
+
+   void Q3ScrollView::updateScrollBars (   )  [slot]
+
+
+
+   QScrollBar* Q3ScrollView::verticalScrollBar (   )  const
+
+
+
+   void Q3ScrollView::verticalSliderPressed (   )  [signal]
+
+
+
+   void Q3ScrollView::verticalSliderReleased (   )  [signal]
+
+
+
+   QWidget* Q3ScrollView::viewport (   )  const
+
+
+
+   virtual void Q3ScrollView::viewportContextMenuEvent (  QContextMenuEvent *   )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::viewportDragEnterEvent (  QDragEnterEvent *   )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::viewportDragLeaveEvent (  QDragLeaveEvent *   )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::viewportDragMoveEvent (  QDragMoveEvent *   )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::viewportDropEvent (  QDropEvent *   )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::viewportMouseDoubleClickEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::viewportMouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::viewportMousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::viewportMouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   virtual void Q3ScrollView::viewportPaintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3ListBox.
+
+   virtual void Q3ScrollView::viewportResizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3ListView, Q3Table, and Q3TextEdit.
+
+   QSize Q3ScrollView::viewportSize (  int  ,
+                                       int
+                                    )  const
+
+
+
+   QPoint Q3ScrollView::viewportToContents (  const QPoint &   )  const
+
+
+
+   void Q3ScrollView::viewportToContents (  int    vx,
+                                            int    vy,
+                                            int &  x,
+                                            int &  y
+                                         )  const
+
+
+
+   virtual void Q3ScrollView::viewportWheelEvent (  QWheelEvent *   )  [protected, virtual]
+
+
+
+   int Q3ScrollView::visibleHeight (   )  const
+
+
+
+   int Q3ScrollView::visibleWidth (   )  const
+
+
+
+   ScrollBarMode Q3ScrollView::vScrollBarMode (   )  const
+
+
+
+   void Q3ScrollView::wheelEvent (  QWheelEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int Q3ScrollView::contentsHeight [read]
+
+
+
+   int Q3ScrollView::contentsWidth [read]
+
+
+
+   int Q3ScrollView::contentsX [read]
+
+
+
+   int Q3ScrollView::contentsY [read]
+
+
+
+   bool Q3ScrollView::dragAutoScroll [read, write]
+
+
+
+   ScrollBarMode Q3ScrollView::hScrollBarMode [read, write]
+
+
+
+   ResizePolicy Q3ScrollView::resizePolicy [read, write]
+
+
+
+   int Q3ScrollView::visibleHeight [read]
+
+
+
+   int Q3ScrollView::visibleWidth [read]
+
+
+
+   ScrollBarMode Q3ScrollView::vScrollBarMode [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3scrollview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

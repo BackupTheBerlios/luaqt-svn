@@ -1,0 +1,265 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QPushButton Class Reference
+
+   The QPushButton widget provides a command button. More...
+#include <QPushButton>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractButton.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * autoDefault : bool
+     * default : bool
+     * flat : bool
+
+     * 9 properties inherited from QAbstractButton
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QPushButton ( QWidget * parent = 0 )
+     * QPushButton ( const QString & text, QWidget * parent = 0 )
+     * QPushButton ( const QIcon & icon, const QString & text, QWidget *
+       parent = 0 )
+     * ~QPushButton ()
+     * bool autoDefault () const
+     * bool isDefault () const
+     * bool isFlat () const
+     * QMenu * menu () const
+     * void setAutoDefault ( bool )
+     * void setDefault ( bool )
+     * void setFlat ( bool )
+     * void setMenu ( QMenu * menu )
+
+     * 17 public functions inherited from QAbstractButton
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void showMenu ()
+
+     * 5 public slots inherited from QAbstractButton
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 signals inherited from QAbstractButton
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 3 protected functions inherited from QAbstractButton
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QPushButton widget provides a command button.
+
+   The push button, or command button, is perhaps the most commonly used
+   widget in any graphical user interface. Push (click) a button to
+   command the computer to perform some action, or to answer a question.
+   Typical buttons are OK, Apply, Cancel, Close, Yes, No and Help.
+
+   A command button is rectangular and typically displays a text label
+   describing its action. An underlined character in the label (signified
+   by preceding it with an ampersand in the text) indicates a shortcut
+   key, e.g.
+    QPushButton *pb = new QPushButton("&Download", this);
+
+   In this example the shortcut is Alt+D, and the label text will be
+   displayed as Download.
+
+   Push buttons display a textual label, and optionally a small icon.
+   These can be set using the constructors and changed later using
+   setText() and setIcon(). If the button is disabled the appearance of
+   the text and icon will be manipulated with respect to the GUI style to
+   make the button look "disabled".
+
+   A push button emits the signal clicked() when it is activated by the
+   mouse, the Spacebar or by a keyboard shortcut. Connect to this signal
+   to perform the button's action. Push buttons also provide less
+   commonly used signals, for example, pressed() and released().
+
+   Command buttons in dialogs are by default auto-default buttons, i.e.
+   they become the default push button automatically when they receive
+   the keyboard input focus. A default button is a push button that is
+   activated when the user presses the Enter or Return key in a dialog.
+   You can change this with setAutoDefault(). Note that auto-default
+   buttons reserve a little extra space which is necessary to draw a
+   default-button indicator. If you do not want this space around your
+   buttons, call setAutoDefault(false).
+
+   Being so central, the button widget has grown to accommodate a great
+   many variations in the past decade. The Microsoft style guide now
+   shows about ten different states of Windows push buttons and the text
+   implies that there are dozens more when all the combinations of
+   features are taken into consideration.
+
+   The most important modes or states are:
+     * Available or not (grayed out, disabled).
+     * Standard push button, toggling push button or menu button.
+     * On or off (only for toggling push buttons).
+     * Default or normal. The default button in a dialog can generally be
+       "clicked" using the Enter or Return key.
+     * Auto-repeat or not.
+     * Pressed down or not.
+
+   As a general rule, use a push button when the application or dialog
+   window performs an action when the user clicks on it (such as Apply,
+   Cancel, Close and Help) and when the widget is supposed to have a
+   wide, rectangular shape with a text label. Small, typically square
+   buttons that change the state of the window rather than performing an
+   action (such as the buttons in the top-right corner of the
+   QFileDialog) are not command buttons, but tool buttons. Qt provides a
+   special class (QToolButton) for these buttons.
+
+   If you need toggle behavior (see setCheckable()) or a button that
+   auto-repeats the activation signal when being pushed down like the
+   arrows in a scroll bar (see setAutoRepeat()), a command button is
+   probably not what you want. When in doubt, use a tool button.
+
+   A variation of a command button is a menu button. These provide not
+   just one command, but several, since when they are clicked they pop up
+   a menu of options. Use the method setMenu() to associate a popup menu
+   with a push button.
+
+   Other classes of buttons are option buttons (see QRadioButton) and
+   check boxes (see QCheckBox).
+
+   Screenshot in Macintosh style Screenshot in Windows style
+
+   In Qt, the QAbstractButton base class provides most of the modes and
+   other API, and QPushButton provides GUI logic. See QAbstractButton for
+   more information about the API.
+
+   See also QToolButton, QRadioButton, QCheckBox, and GUI Design
+   Handbook: Push Button.
+     _________________________________________________________________
+
+Property Documentation
+
+  autoDefault : bool
+
+   This property holds whether the push button is the auto default
+   button.
+
+   If this property is set to true then the push button is the auto
+   default button in a dialog.
+
+   In some GUI styles a default button is drawn with an extra frame
+   around it, up to 3 pixels or more. Qt automatically keeps this space
+   free around auto-default buttons, i.e. auto-default buttons may have a
+   slightly larger size hint.
+
+   This property's default is true for buttons that have a QDialog
+   parent; otherwise it defaults to false.
+
+   See the default property for details of how default and auto-default
+   interact.
+
+   Access functions:
+     * bool autoDefault () const
+     * void setAutoDefault ( bool )
+
+  default : bool
+
+   This property holds whether the push button is the default button.
+
+   If this property is set to true then the push button will be pressed
+   if the user presses the Enter (or Return) key in a dialog.
+
+   Regardless of focus, if the user presses Enter: If there is a default
+   button the default button is pressed; otherwise, if there are one or
+   more autoDefault buttons the first autoDefault button that is next in
+   the tab order is pressed. If there are no default or autoDefault
+   buttons only pressing Space on a button with focus, mouse clicking, or
+   using a shortcut will press a button.
+
+   In a dialog, only one push button at a time can be the default button.
+   This button is then displayed with an additional frame (depending on
+   the GUI style).
+
+   The default button behavior is provided only in dialogs. Buttons can
+   always be clicked from the keyboard by pressing Enter (or Return) or
+   the Spacebar when the button has focus.
+
+   This property's default is false.
+
+   Access functions:
+     * bool isDefault () const
+     * void setDefault ( bool )
+
+  flat : bool
+
+   This property holds whether the border is disabled.
+
+   This property's default is false.
+
+   Access functions:
+     * bool isFlat () const
+     * void setFlat ( bool )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QPushButton::QPushButton ( QWidget * parent = 0 )
+
+   Constructs a push button with no text and a parent.
+
+  QPushButton::QPushButton ( const QString & text, QWidget * parent = 0 )
+
+   Constructs a push button with the parent parent and the text text.
+
+  QPushButton::QPushButton ( const QIcon & icon, const QString & text, QWidget
+  * parent = 0 )
+
+   Constructs a push button with an icon and a text, and a parent.
+
+   Note that you can also pass a QPixmap object as an icon (thanks to the
+   implicit type conversion provided by C++).
+
+  QPushButton::~QPushButton ()
+
+   Destroys the push button.
+
+  QMenu * QPushButton::menu () const
+
+   Returns the button's associated popup menu or 0 if no popup menu has
+   been set.
+
+   See also setMenu().
+
+  void QPushButton::setMenu ( QMenu * menu )
+
+   Associates the popup menu menu with this push button. This turns the
+   button into a menu button, which in some styles will produce a small
+   triangle to the right of the button's text.
+
+   Ownership of the menu is not transferred to the push button.
+
+   See also menu().
+
+  void QPushButton::showMenu ()   [slot]
+
+   Shows (pops up) the associated popup menu. If there is no such menu,
+   this function does nothing. This function does not return until the
+   popup menu has been closed by the user.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

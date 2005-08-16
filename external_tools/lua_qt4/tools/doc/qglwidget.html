@@ -1,0 +1,657 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QGLWidget Class Reference
+
+   The QGLWidget class is a widget for rendering OpenGL graphics. More...
+#include <QGLWidget>
+
+   Part of the QtOpenGL module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+     * Obsolete members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QGLWidget ( QWidget * parent = 0, const QGLWidget * shareWidget =
+       0, Qt::WFlags f = 0 )
+     * QGLWidget ( QGLContext * context, QWidget * parent = 0, const
+       QGLWidget * shareWidget = 0, Qt::WFlags f = 0 )
+     * QGLWidget ( const QGLFormat & format, QWidget * parent = 0, const
+       QGLWidget * shareWidget = 0, Qt::WFlags f = 0 )
+     * ~QGLWidget ()
+     * GLuint bindTexture ( const QImage & image, GLenum target =
+       GL_TEXTURE_2D, GLint format = GL_RGBA8 )
+     * GLuint bindTexture ( const QPixmap & pixmap, GLenum target =
+       GL_TEXTURE_2D, GLint format = GL_RGBA8 )
+     * GLuint bindTexture ( const QString & fileName )
+     * const QGLColormap & colormap () const
+     * const QGLContext * context () const
+     * void deleteTexture ( GLuint id )
+     * void doneCurrent ()
+     * bool doubleBuffer () const
+     * QGLFormat format () const
+     * QImage grabFrameBuffer ( bool withAlpha = false )
+     * bool isSharing () const
+     * bool isValid () const
+     * void makeCurrent ()
+     * void makeOverlayCurrent ()
+     * const QGLContext * overlayContext () const
+     * void qglClearColor ( const QColor & c ) const
+     * void qglColor ( const QColor & c ) const
+     * QPixmap renderPixmap ( int w = 0, int h = 0, bool useContext =
+       false )
+     * void renderText ( int x, int y, const QString & str, const QFont &
+       fnt = QFont(), int listBase = 2000 )
+     * void renderText ( double x, double y, double z, const QString &
+       str, const QFont & fnt = QFont(), int listBase = 2000 )
+     * void setColormap ( const QGLColormap & cmap )
+     * void setMouseTracking ( bool enable )
+     * void swapBuffers ()
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * virtual void updateGL ()
+     * virtual void updateOverlayGL ()
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Static Public Members
+
+     * QImage convertToGLFormat ( const QImage & img )
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+
+  Protected Functions
+
+     * bool autoBufferSwap () const
+     * int fontDisplayListBase ( const QFont & fnt, int listBase = 2000 )
+     * virtual void glDraw ()
+     * virtual void glInit ()
+     * virtual void initializeGL ()
+     * virtual void initializeOverlayGL ()
+     * virtual void paintEvent ( QPaintEvent * event )
+     * virtual void paintGL ()
+     * virtual void paintOverlayGL ()
+     * virtual void resizeEvent ( QResizeEvent * event )
+     * virtual void resizeGL ( int width, int height )
+     * virtual void resizeOverlayGL ( int width, int height )
+     * void setAutoBufferSwap ( bool on )
+
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QGLWidget class is a widget for rendering OpenGL graphics.
+
+   QGLWidget provides functionality for displaying OpenGL
+   graphics integrated into a Qt application. It is very simple to use.
+   You inherit from it and use the subclass like any other QWidget,
+   except that instead of drawing the widget's contents using QPainter
+   etc. you use the standard OpenGL rendering commands.
+
+   QGLWidget provides three convenient virtual functions that you can
+   reimplement in your subclass to perform the typical OpenGL tasks:
+     * paintGL() - Renders the OpenGL scene. Gets called whenever the
+       widget needs to be updated.
+     * resizeGL() - Sets up the OpenGL viewport, projection, etc. Gets
+       called whenever the the widget has been resized (and also when it
+       is shown for the first time because all newly created widgets get
+       a resize event automatically).
+     * initializeGL() - Sets up the OpenGL rendering context, defines
+       display lists, etc. Gets called once before the first time
+       resizeGL() or paintGL() is called.
+
+   Here is a rough outline of how a QGLWidget subclass might look:
+    class MyGLDrawer : public QGLWidget
+    {
+        Q_OBJECT        // must include this if you use Qt signals/slots
+
+    public:
+        MyGLDrawer(QWidget *parent)
+            : QGLWidget(parent) {}
+
+    protected:
+
+        void initializeGL()
+        {
+            // Set up the rendering context, define display lists etc.:
+            ...
+            glClearColor(0.0, 0.0, 0.0, 0.0);
+            glEnable(GL_DEPTH_TEST);
+            ...
+        }
+
+        void resizeGL(int w, int h)
+        {
+            // setup viewport, projection etc.:
+            glViewport(0, 0, (GLint)w, (GLint)h);
+            ...
+            glFrustum(...);
+            ...
+        }
+
+        void paintGL()
+        {
+            // draw the scene:
+            ...
+            glRotatef(...);
+            glMaterialfv(...);
+            glBegin(GL_QUADS);
+            glVertex3f(...);
+            glVertex3f(...);
+            ...
+            glEnd();
+            ...
+        }
+
+    };
+
+   If you need to trigger a repaint from places other than paintGL() (a
+   typical example is when using timers to animate scenes), you should
+   call the widget's updateGL() function.
+
+   Your widget's OpenGL rendering context is made current when paintGL(),
+   resizeGL(), or initializeGL() is called. If you need to call the
+   standard OpenGL API functions from other places (e.g. in your widget's
+   constructor or in your own paint functions), you must call
+   makeCurrent() first.
+
+   QGLWidget provides functions for requesting a new display format and
+   you can also create widgets with customized rendering contexts.
+
+   You can also share OpenGL display lists between QGLWidgets (see the
+   documentation of the QGLWidget constructors for details).
+
+  Overlays
+
+   The QGLWidget creates a GL overlay context in addition to the normal
+   context if overlays are supported by the underlying system.
+
+   If you want to use overlays, you specify it in the format. (Note:
+   Overlay must be requested in the format passed to the QGLWidget
+   constructor.) Your GL widget should also implement some or all of
+   these virtual methods:
+     * paintOverlayGL()
+     * resizeOverlayGL()
+     * initializeOverlayGL()
+
+   These methods work in the same way as the normal paintGL() etc.
+   functions, except that they will be called when the overlay context is
+   made current. You can explicitly make the overlay context current by
+   using makeOverlayCurrent(), and you can access the overlay context
+   directly (e.g. to ask for its transparent color) by calling
+   overlayContext().
+
+   On X servers in which the default visual is in an overlay plane,
+   non-GL Qt windows can also be used for overlays.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QGLWidget::QGLWidget ( QWidget * parent = 0, const QGLWidget * shareWidget =
+  0, Qt::WFlags f = 0 )
+
+   Constructs an OpenGL widget with a parent widget.
+
+   The default format is used. The widget will be invalid if the system
+   has no OpenGL support.
+
+   The parent and widget flag, f, arguments are passed to the QWidget
+   constructor.
+
+   If the shareWidget parameter points to a valid QGLWidget, this widget
+   will share OpenGL display lists with shareWidget. If this widget and
+   shareWidget have different formats, display list sharing may fail. You
+   can check whether display list sharing succeeded by calling
+   isSharing().
+
+   The initialization of OpenGL rendering state, etc. should be done by
+   overriding the initializeGL() function, rather than in the constructor
+   of your QGLWidget subclass.
+
+   See also QGLFormat::defaultFormat().
+
+  QGLWidget::QGLWidget ( QGLContext * context, QWidget * parent = 0, const
+  QGLWidget * shareWidget = 0, Qt::WFlags f = 0 )
+
+   Constructs an OpenGL widget with parent parent.
+
+   The context argument is a pointer to the QGLContext that you wish to
+   be bound to this widget. This allows you to pass in your own
+   QGLContext sub-classes.
+
+   The widget will be invalid if the system has no OpenGL support.
+
+   The parent and widget flag, f, arguments are passed to the QWidget
+   constructor.
+
+   If the shareWidget parameter points to a valid QGLWidget, this widget
+   will share OpenGL display lists with shareWidget. If this widget and
+   shareWidget have different formats, display list sharing may fail. You
+   can check whether display list sharing succeeded by calling
+   isSharing().
+
+   The initialization of OpenGL rendering state, etc. should be done by
+   overriding the initializeGL() function, rather than in the constructor
+   of your QGLWidget subclass.
+
+   See also QGLFormat::defaultFormat() and isValid().
+
+  QGLWidget::QGLWidget ( const QGLFormat & format, QWidget * parent = 0, const
+  QGLWidget * shareWidget = 0, Qt::WFlags f = 0 )
+
+   Constructs an OpenGL widget with parent parent.
+
+   The format argument specifies the desired rendering options. If the
+   underlying OpenGL/Window system cannot satisfy all the features
+   requested in format, the nearest subset of features will be used.
+   After creation, the format() method will return the actual format
+   obtained.
+
+   The widget will be invalid if the system has no OpenGL support.
+
+   The parent and widget flag, f, arguments are passed to the QWidget
+   constructor.
+
+   If the shareWidget parameter points to a valid QGLWidget, this widget
+   will share OpenGL display lists with shareWidget. If this widget and
+   shareWidget have different formats, display list sharing may fail. You
+   can check whether display list sharing succeeded by calling
+   isSharing().
+
+   The initialization of OpenGL rendering state, etc. should be done by
+   overriding the initializeGL() function, rather than in the constructor
+   of your QGLWidget subclass.
+
+   See also QGLFormat::defaultFormat() and isValid().
+
+  QGLWidget::~QGLWidget ()
+
+   Destroys the widget.
+
+  bool QGLWidget::autoBufferSwap () const   [protected]
+
+   Returns true if the widget is doing automatic GL buffer swapping;
+   otherwise returns false.
+
+   See also setAutoBufferSwap().
+
+  GLuint QGLWidget::bindTexture ( const QImage & image, GLenum target =
+  GL_TEXTURE_2D, GLint format = GL_RGBA8 )
+
+   Calls QGLContext:::bindTexture(image, target, format) on the currently
+   set context.
+
+   See also deleteTexture().
+
+  GLuint QGLWidget::bindTexture ( const QPixmap & pixmap, GLenum target =
+  GL_TEXTURE_2D, GLint format = GL_RGBA8 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Calls QGLContext:::bindTexture(pixmap, target, format) on the
+   currently set context.
+
+   See also deleteTexture().
+
+  GLuint QGLWidget::bindTexture ( const QString & fileName )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Calls QGLContext::bindTexture(fileName) on the currently set context.
+
+   See also deleteTexture().
+
+  const QGLColormap & QGLWidget::colormap () const
+
+   Returns the colormap for this widget.
+
+   Usually it is only top-level widgets that can have different colormaps
+   installed. Asking for the colormap of a child widget will return the
+   colormap for the child's top-level widget.
+
+   If no colormap has been set for this widget, the QColormap returned
+   will be empty.
+
+   See also setColormap().
+
+  const QGLContext * QGLWidget::context () const
+
+   Returns the context of this widget.
+
+   It is possible that the context is not valid (see isValid()), for
+   example, if the underlying hardware does not support the format
+   attributes that were requested.
+
+  QImage QGLWidget::convertToGLFormat ( const QImage & img )   [static]
+
+   Converts the image img into the unnamed format expected by OpenGL
+   functions such as glTexImage2D(). The returned image is not usable as
+   a QImage, but QImage::width(), QImage::height() and QImage::bits() may
+   be used with OpenGL.
+
+  void QGLWidget::deleteTexture ( GLuint id )
+
+   Calls QGLContext::deleteTexture(id) on the currently set context.
+
+   See also bindTexture().
+
+  void QGLWidget::doneCurrent ()
+
+   Makes no GL context the current context. Normally, you do not need to
+   call this function; QGLContext calls it as necessary. However, it may
+   be useful in multithreaded environments.
+
+  bool QGLWidget::doubleBuffer () const
+
+   Returns true if the contained GL rendering context has double
+   buffering; otherwise returns false.
+
+   See also QGLFormat::doubleBuffer().
+
+  int QGLWidget::fontDisplayListBase ( const QFont & fnt, int listBase = 2000
+  )   [protected]
+
+   Returns the value of the first display list that is generated for the
+   characters in font fnt. listBase indicates the base value used when
+   generating the display lists for the font. The default value is 2000.
+
+  QGLFormat QGLWidget::format () const
+
+   Returns the format of the contained GL rendering context.
+
+  void QGLWidget::glDraw ()   [virtual protected]
+
+   Executes the virtual function paintGL().
+
+   The widget's rendering context will become the current context and
+   initializeGL() will be called if it hasn't already been called.
+
+  void QGLWidget::glInit ()   [virtual protected]
+
+   Initializes OpenGL for this widget's context. Calls the virtual
+   function initializeGL().
+
+  QImage QGLWidget::grabFrameBuffer ( bool withAlpha = false )
+
+   Returns an image of the frame buffer. If withAlpha is true the alpha
+   channel is included.
+
+   Depending on your hardware, you can explicitly select which color
+   buffer to grab with a glReadBuffer() call before calling this
+   function.
+
+  void QGLWidget::initializeGL ()   [virtual protected]
+
+   This virtual function is called once before the first call to
+   paintGL() or resizeGL(), and then once whenever the widget has been
+   assigned a new QGLContext. Reimplement it in a subclass.
+
+   This function should set up any required OpenGL context rendering
+   flags, defining display lists, etc.
+
+   There is no need to call makeCurrent() because this has already been
+   done when this function is called.
+
+  void QGLWidget::initializeOverlayGL ()   [virtual protected]
+
+   This virtual function is used in the same manner as initializeGL()
+   except that it operates on the widget's overlay context instead of the
+   widget's main context. This means that initializeOverlayGL() is called
+   once before the first call to paintOverlayGL() or resizeOverlayGL().
+   Reimplement it in a subclass.
+
+   This function should set up any required OpenGL context rendering
+   flags, defining display lists, etc. for the overlay context.
+
+   There is no need to call makeOverlayCurrent() because this has already
+   been done when this function is called.
+
+  bool QGLWidget::isSharing () const
+
+   Returns true if this widget's GL context is shared with another GL
+   context, otherwise false is returned. The GL system may fail to
+   provide context sharing if the two QGLWidgets use different formats.
+
+   See also format().
+
+  bool QGLWidget::isValid () const
+
+   Returns true if the widget has a valid GL rendering context; otherwise
+   returns false. A widget will be invalid if the system has no OpenGL
+   support.
+
+  void QGLWidget::makeCurrent ()
+
+   Makes this widget the current widget for OpenGL operations, i.e. makes
+   the widget's rendering context the current OpenGL rendering context.
+
+  void QGLWidget::makeOverlayCurrent ()
+
+   Makes the overlay context of this widget current. Use this if you need
+   to issue OpenGL commands to the overlay context outside of
+   initializeOverlayGL(), resizeOverlayGL(), and paintOverlayGL().
+
+   Does nothing if this widget has no overlay.
+
+   See also makeCurrent().
+
+  const QGLContext * QGLWidget::overlayContext () const
+
+   Returns the overlay context of this widget, or 0 if this widget has no
+   overlay.
+
+   See also context().
+
+  void QGLWidget::paintEvent ( QPaintEvent * event )   [virtual protected]
+
+   Handles paint events passed in the event parameter. Will cause the
+   virtual paintGL() function to be called.
+
+   The widget's rendering context will become the current context and
+   initializeGL() will be called if it hasn't already been called.
+
+   Reimplemented from QWidget.
+
+  void QGLWidget::paintGL ()   [virtual protected]
+
+   This virtual function is called whenever the widget needs to be
+   painted. Reimplement it in a subclass.
+
+   There is no need to call makeCurrent() because this has already been
+   done when this function is called.
+
+  void QGLWidget::paintOverlayGL ()   [virtual protected]
+
+   This virtual function is used in the same manner as paintGL() except
+   that it operates on the widget's overlay context instead of the
+   widget's main context. This means that paintOverlayGL() is called
+   whenever the widget's overlay needs to be painted. Reimplement it in a
+   subclass.
+
+   There is no need to call makeOverlayCurrent() because this has already
+   been done when this function is called.
+
+  void QGLWidget::qglClearColor ( const QColor & c ) const
+
+   Convenience function for specifying the clearing color to OpenGL.
+   Calls glClearColor (in RGBA mode) or glClearIndex (in color-index
+   mode) with the color c. Applies to the current GL context.
+
+   See also qglColor(), QGLContext::currentContext(), and QColor.
+
+  void QGLWidget::qglColor ( const QColor & c ) const
+
+   Convenience function for specifying a drawing color to OpenGL. Calls
+   glColor4 (in RGBA mode) or glIndex (in color-index mode) with the
+   color c. Applies to the current GL context.
+
+   See also qglClearColor(), QGLContext::currentContext(), and QColor.
+
+  QPixmap QGLWidget::renderPixmap ( int w = 0, int h = 0, bool useContext =
+  false )
+
+   Renders the current scene on a pixmap and returns the pixmap.
+
+   You can use this method on both visible and invisible QGLWidgets.
+
+   This method will create a pixmap and a temporary QGLContext to render
+   on the pixmap. It will then call initializeGL(), resizeGL(), and
+   paintGL() on this context. Finally, the widget's original GL context
+   is restored.
+
+   The size of the pixmap will be w pixels wide and h pixels high unless
+   one of these parameters is 0 (the default), in which case the pixmap
+   will have the same size as the widget.
+
+   If useContext is true, this method will try to be more efficient by
+   using the existing GL context to render the pixmap. The default is
+   false. Only use true if you understand the risks.
+
+   Overlays are not rendered onto the pixmap.
+
+   If the GL rendering context and the desktop have different bit depths,
+   the result will most likely look surprising.
+
+   Note that the creation of display lists, modifications of the view
+   frustum etc. should be done from within initializeGL(). If this is not
+   done, the temporary QGLContext will not be initialized properly, and
+   the rendered pixmap may be incomplete/corrupted.
+
+  void QGLWidget::renderText ( int x, int y, const QString & str, const QFont &
+  fnt = QFont(), int listBase = 2000 )
+
+   Renders the string str into the GL context of this widget.
+
+   x and y are specified in window coordinates, with the origin in the
+   upper left-hand corner of the window. If fnt is not specified, the
+   currently set application font will be used to render the string. To
+   change the color of the rendered text you can use the glColor() call
+   (or the qglColor() convenience function), just before the renderText()
+   call. Note that if you have GL_LIGHTING enabled, the string will not
+   appear in the color you want. You should therefore switch lighting off
+   before using renderText().
+
+   listBase specifies the index of the first display list that is
+   generated by this function. The default value is 2000. 256 display
+   lists will be generated, one for each of the first 256 characters in
+   the font that is used to render the string. If several fonts are used
+   in the same widget, the display lists for these fonts will follow the
+   last generated list. You would normally not have to change this value
+   unless you are using lists in the same range. The lists are deleted
+   when the widget is destroyed.
+
+  void QGLWidget::renderText ( double x, double y, double z, const QString &
+  str, const QFont & fnt = QFont(), int listBase = 2000 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   x, y and z are specified in scene or object coordinates relative to
+   the currently set projection and model matrices. This can be useful if
+   you want to annotate models with text labels and have the labels move
+   with the model as it is rotated etc.
+
+  void QGLWidget::resizeEvent ( QResizeEvent * event )   [virtual protected]
+
+   Handles resize events that are passed in the event parameter. Calls
+   the virtual function resizeGL().
+
+   Reimplemented from QWidget.
+
+  void QGLWidget::resizeGL ( int width, int height )   [virtual protected]
+
+   This virtual function is called whenever the widget has been resized.
+   The new size is passed in width and height. Reimplement it in a
+   subclass.
+
+   There is no need to call makeCurrent() because this has already been
+   done when this function is called.
+
+  void QGLWidget::resizeOverlayGL ( int width, int height )   [virtual
+  protected]
+
+   This virtual function is used in the same manner as paintGL() except
+   that it operates on the widget's overlay context instead of the
+   widget's main context. This means that resizeOverlayGL() is called
+   whenever the widget has been resized. The new size is passed in width
+   and height. Reimplement it in a subclass.
+
+   There is no need to call makeOverlayCurrent() because this has already
+   been done when this function is called.
+
+  void QGLWidget::setAutoBufferSwap ( bool on )   [protected]
+
+   If on is true automatic GL buffer swapping is switched on; otherwise
+   it is switched off.
+
+   If on is true and the widget is using a double-buffered format, the
+   background and foreground GL buffers will automatically be swapped
+   after each paintGL() call.
+
+   The buffer auto-swapping is on by default.
+
+   See also autoBufferSwap(), doubleBuffer(), and swapBuffers().
+
+  void QGLWidget::setColormap ( const QGLColormap & cmap )
+
+   Set the colormap for this widget to cmap. Usually it is only top-level
+   widgets that can have colormaps installed.
+
+   See also colormap().
+
+  void QGLWidget::setMouseTracking ( bool enable )
+
+   If enable is true then mouse tracking is enabled; otherwise it is
+   disabled.
+
+  void QGLWidget::swapBuffers ()
+
+   Swaps the screen contents with an off-screen buffer. This only works
+   if the widget's format specifies double buffer mode.
+
+   Normally, there is no need to explicitly call this function because it
+   is done automatically after each widget repaint, i.e. each time after
+   paintGL() has been executed.
+
+   See also doubleBuffer(), setAutoBufferSwap(), and
+   QGLFormat::setDoubleBuffer().
+
+  void QGLWidget::updateGL ()   [virtual slot]
+
+   Updates the widget by calling glDraw().
+
+  void QGLWidget::updateOverlayGL ()   [virtual slot]
+
+   Updates the widget's overlay (if any). Will cause the virtual function
+   paintOverlayGL() to be executed.
+
+   The widget's rendering context will become the current context and
+   initializeGL() will be called if it hasn't already been called.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

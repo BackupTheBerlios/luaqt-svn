@@ -1,0 +1,329 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QListWidget Class Reference
+
+   #include <qlistwidget.h>
+
+   Inherits QListView.
+
+   List of all members.
+
+Public Slots
+
+     * void scrollToItem (const QListWidgetItem *item, ScrollHint hint=EnsureVisible)
+     * void clear ()
+
+Signals
+
+     * void itemPressed (QListWidgetItem *item)
+     * void itemClicked (QListWidgetItem *item)
+     * void itemDoubleClicked (QListWidgetItem *item)
+     * void itemActivated (QListWidgetItem *item)
+     * void itemEntered (QListWidgetItem *item)
+     * void itemChanged (QListWidgetItem *item)
+     * void currentItemChanged (QListWidgetItem *current, QListWidgetItem *previous)
+     * void currentTextChanged (const QString &currentText)
+     * void currentRowChanged (int currentRow)
+     * void itemSelectionChanged ()
+
+Public Member Functions
+
+     * QListWidget (QWidget *parent=0)
+     * ~QListWidget ()
+     * QListWidgetItem * item (int row) const
+     * int row (const QListWidgetItem *item) const
+     * void insertItem (int row, QListWidgetItem *item)
+     * void insertItem (int row, const QString &label)
+     * void insertItems (int row, const QStringList &labels)
+     * void addItem (const QString &label)
+     * void addItem (QListWidgetItem *item)
+     * void addItems (const QStringList &labels)
+     * QListWidgetItem * takeItem (int row)
+     * int count () const
+     * QListWidgetItem * currentItem () const
+     * void setCurrentItem (QListWidgetItem *item)
+     * int currentRow () const
+     * void setCurrentRow (int row)
+     * QListWidgetItem * itemAt (const QPoint &p) const
+     * QListWidgetItem * itemAt (int x, int y) const
+     * QRect visualItemRect (const QListWidgetItem *item) const
+     * void sortItems (Qt::SortOrder order=Qt::AscendingOrder)
+     * void editItem (QListWidgetItem *item)
+     * void openPersistentEditor (QListWidgetItem *item)
+     * void closePersistentEditor (QListWidgetItem *item)
+     * bool isItemSelected (const QListWidgetItem *item) const
+     * void setItemSelected (const QListWidgetItem *item, bool select)
+     * QList< QListWidgetItem * > selectedItems () const
+     * QList< QListWidgetItem * > findItems (const QString &text, Qt::MatchFlags flags) const
+     * bool isItemHidden (const QListWidgetItem *item) const
+     * void setItemHidden (const QListWidgetItem *item, bool hide)
+
+Protected Member Functions
+
+     * virtual QStringList mimeTypes () const
+     * virtual QMimeData * mimeData (const QList< QListWidgetItem * > items) const
+     * virtual bool dropMimeData (int index, const QMimeData *data, Qt::DropAction action)
+     * virtual Qt::DropActions supportedDropActions () const
+     * QList< QListWidgetItem * > items (const QMimeData *data) const
+     * QModelIndex indexFromItem (QListWidgetItem *item) const
+     * QListWidgetItem * itemFromIndex (const QModelIndex &index) const
+
+Properties
+
+     * int count
+     * int currentRow
+
+Friends
+
+     * class QListWidgetItem
+     * class QListModel
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QListWidget::QListWidget (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QListWidget::~QListWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QListWidget::addItem (  QListWidgetItem *  item  )  [inline]
+
+
+
+   void QListWidget::addItem (  const QString &  label  )  [inline]
+
+
+
+   void QListWidget::addItems (  const QStringList &  labels  )  [inline]
+
+
+
+   void QListWidget::clear (   )  [slot]
+
+
+
+   void QListWidget::closePersistentEditor (  QListWidgetItem *  item  )
+
+
+
+   int QListWidget::count (   )  const
+
+
+
+   QListWidgetItem* QListWidget::currentItem (   )  const
+
+
+
+   void QListWidget::currentItemChanged (  QListWidgetItem *  current,
+                                           QListWidgetItem *  previous
+                                        )  [signal]
+
+
+
+   int QListWidget::currentRow (   )  const
+
+
+
+   void QListWidget::currentRowChanged (  int  currentRow  )  [signal]
+
+
+
+   void QListWidget::currentTextChanged (  const QString &  currentText  )  [signal]
+
+
+
+   virtual bool QListWidget::dropMimeData (  int                index,
+                                             const QMimeData *  data,
+                                             Qt::DropAction     action
+                                          )  [protected, virtual]
+
+
+
+   void QListWidget::editItem (  QListWidgetItem *  item  )
+
+
+
+   QList<QListWidgetItem*> QListWidget::findItems (  const QString &  text,
+                                                     Qt::MatchFlags   flags
+                                                  )  const
+
+
+
+   QModelIndex QListWidget::indexFromItem (  QListWidgetItem *  item  )  const [protected]
+
+
+
+   void QListWidget::insertItem (  int              row,
+                                   const QString &  label
+                                )
+
+
+
+   void QListWidget::insertItem (  int                row,
+                                   QListWidgetItem *  item
+                                )
+
+
+
+   void QListWidget::insertItems (  int                  row,
+                                    const QStringList &  labels
+                                 )
+
+
+
+   bool QListWidget::isItemHidden (  const QListWidgetItem *  item  )  const
+
+
+
+   bool QListWidget::isItemSelected (  const QListWidgetItem *  item  )  const
+
+
+
+   QListWidgetItem* QListWidget::item (  int  row  )  const
+
+
+
+   void QListWidget::itemActivated (  QListWidgetItem *  item  )  [signal]
+
+
+
+   QListWidgetItem * QListWidget::itemAt (  int  x,
+                                            int  y
+                                         )  const [inline]
+
+
+
+   QListWidgetItem* QListWidget::itemAt (  const QPoint &  p  )  const
+
+
+
+   void QListWidget::itemChanged (  QListWidgetItem *  item  )  [signal]
+
+
+
+   void QListWidget::itemClicked (  QListWidgetItem *  item  )  [signal]
+
+
+
+   void QListWidget::itemDoubleClicked (  QListWidgetItem *  item  )  [signal]
+
+
+
+   void QListWidget::itemEntered (  QListWidgetItem *  item  )  [signal]
+
+
+
+   QListWidgetItem* QListWidget::itemFromIndex (  const QModelIndex &  index  )  const [protected]
+
+
+
+   void QListWidget::itemPressed (  QListWidgetItem *  item  )  [signal]
+
+
+
+   QList<QListWidgetItem*> QListWidget::items (  const QMimeData *  data  )  const [protected]
+
+
+
+   void QListWidget::itemSelectionChanged (   )  [signal]
+
+
+
+   virtual QMimeData* QListWidget::mimeData (  const QList< QListWidgetItem * >  items  )  const [protected, virtual]
+
+
+
+   virtual QStringList QListWidget::mimeTypes (   )  const [protected, virtual]
+
+
+
+   void QListWidget::openPersistentEditor (  QListWidgetItem *  item  )
+
+
+
+   int QListWidget::row (  const QListWidgetItem *  item  )  const
+
+
+
+   void QListWidget::scrollToItem (  const QListWidgetItem *  item,
+                                     ScrollHint               hint = EnsureVisible
+                                  )  [slot]
+
+
+
+   QList<QListWidgetItem*> QListWidget::selectedItems (   )  const
+
+
+
+   void QListWidget::setCurrentItem (  QListWidgetItem *  item  )
+
+
+
+   void QListWidget::setCurrentRow (  int  row  )
+
+
+
+   void QListWidget::setItemHidden (  const QListWidgetItem *  item,
+                                      bool                     hide
+                                   )
+
+
+
+   void QListWidget::setItemSelected (  const QListWidgetItem *  item,
+                                        bool                     select
+                                     )
+
+
+
+   void QListWidget::sortItems (  Qt::SortOrder  order = Qt::AscendingOrder  )
+
+
+
+   virtual Qt::DropActions QListWidget::supportedDropActions (   )  const [protected, virtual]
+
+
+
+   QListWidgetItem* QListWidget::takeItem (  int  row  )
+
+
+
+   QRect QListWidget::visualItemRect (  const QListWidgetItem *  item  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QListModel [friend]
+
+
+
+   friend class QListWidgetItem [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QListWidget::count [read]
+
+
+
+   int QListWidget::currentRow [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlistwidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,236 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QToolButton Class Reference
+
+   #include <qtoolbutton.h>
+
+   Inherits QAbstractButton.
+
+   List of all members.
+
+Public Types
+
+     * enum ToolButtonPopupMode { DelayedPopup, MenuButtonPopup, InstantPopup }
+
+Public Slots
+
+     * void showMenu ()
+     * void setToolButtonStyle (Qt::ToolButtonStyle style)
+     * void setDefaultAction (QAction *)
+
+Signals
+
+     * void triggered (QAction *)
+
+Public Member Functions
+
+     * QToolButton (QWidget *parent=0)
+     * ~QToolButton ()
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * Qt::ToolButtonStyle toolButtonStyle () const
+     * Qt::ArrowType arrowType () const
+     * void setArrowType (Qt::ArrowType type)
+     * void setMenu (QMenu *menu)
+     * QMenu * menu () const
+     * void setPopupMode (ToolButtonPopupMode mode)
+     * ToolButtonPopupMode popupMode () const
+     * QAction * defaultAction () const
+     * void setAutoRaise (bool enable)
+     * bool autoRaise () const
+
+Protected Member Functions
+
+     * QToolButton (QToolButtonPrivate &, QWidget *parent)
+     * void mousePressEvent (QMouseEvent *)
+     * void paintEvent (QPaintEvent *)
+     * void actionEvent (QActionEvent *)
+     * void enterEvent (QEvent *)
+     * void leaveEvent (QEvent *)
+     * void timerEvent (QTimerEvent *)
+     * void changeEvent (QEvent *)
+     * void nextCheckState ()
+
+Properties
+
+     * ToolButtonPopupMode popupMode
+     * Qt ToolButtonStyle
+     * bool autoRaise
+     * Qt ArrowType
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QToolButton::ToolButtonPopupMode
+
+
+
+   Enumerator: 
+
+          DelayedPopup   
+          MenuButtonPopup
+          InstantPopup   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QToolButton::QToolButton (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QToolButton::~QToolButton (   )
+
+
+
+   QToolButton::QToolButton (  QToolButtonPrivate &  ,
+                               QWidget *             parent
+                            )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QToolButton::actionEvent (  QActionEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Qt::ArrowType QToolButton::arrowType (   )  const
+
+
+
+   bool QToolButton::autoRaise (   )  const
+
+
+
+   void QToolButton::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractButton.
+
+   QAction* QToolButton::defaultAction (   )  const
+
+
+
+   void QToolButton::enterEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QToolButton::leaveEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QMenu* QToolButton::menu (   )  const
+
+
+
+   QSize QToolButton::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QToolButton::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractButton.
+
+   void QToolButton::nextCheckState (   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractButton.
+
+   void QToolButton::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Implements QAbstractButton.
+
+   ToolButtonPopupMode QToolButton::popupMode (   )  const
+
+
+
+   void QToolButton::setArrowType (  Qt::ArrowType  type  )
+
+
+
+   void QToolButton::setAutoRaise (  bool  enable  )
+
+
+
+   void QToolButton::setDefaultAction (  QAction *   )  [slot]
+
+
+
+   void QToolButton::setMenu (  QMenu *  menu  )
+
+
+
+   void QToolButton::setPopupMode (  ToolButtonPopupMode  mode  )
+
+
+
+   void QToolButton::setToolButtonStyle (  Qt::ToolButtonStyle  style  )  [slot]
+
+
+
+   void QToolButton::showMenu (   )  [slot]
+
+
+
+   QSize QToolButton::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QToolButton::timerEvent (  QTimerEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractButton.
+
+   Qt::ToolButtonStyle QToolButton::toolButtonStyle (   )  const
+
+
+
+   void QToolButton::triggered (  QAction *   )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Qt QToolButton::ArrowType [read, write]
+
+
+
+   bool QToolButton::autoRaise [read, write]
+
+
+
+   ToolButtonPopupMode QToolButton::popupMode [read, write]
+
+
+
+   Qt QToolButton::ToolButtonStyle [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtoolbutton.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

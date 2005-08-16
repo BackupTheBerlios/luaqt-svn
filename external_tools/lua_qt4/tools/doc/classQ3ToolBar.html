@@ -1,0 +1,182 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3ToolBar Class Reference
+
+   #include <q3toolbar.h>
+
+   Inherits Q3DockWindow.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3ToolBar (const QString &label, Q3MainWindow *, Qt::ToolBarDock=Qt::DockTop, bool newLine=false, const char *name=0)
+     * Q3ToolBar (const QString &label, Q3MainWindow *, QWidget *, bool newLine=false, const char *name=0, Qt::WFlags f=0)
+     * Q3ToolBar (Q3MainWindow *parent=0, const char *name=0)
+     * ~Q3ToolBar ()
+     * void addSeparator ()
+     * void setVisible (bool visible)
+     * Q3MainWindow * mainWindow () const
+     * virtual void setStretchableWidget (QWidget *)
+     * bool event (QEvent *e)
+     * virtual void setLabel (const QString &)
+     * QString label () const
+     * virtual void clear ()
+     * QSize minimumSize () const
+     * QSize minimumSizeHint () const
+     * void setOrientation (Qt::Orientation o)
+     * void setMinimumSize (int minw, int minh)
+
+Protected Member Functions
+
+     * void resizeEvent (QResizeEvent *e)
+     * void styleChange (QStyle &)
+     * void actionEvent (QActionEvent *)
+
+Properties
+
+     * QString label
+
+Friends
+
+     * class Q3MainWindow
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ToolBar::Q3ToolBar (  const QString &  label,
+                           Q3MainWindow *   ,
+                           Qt::ToolBarDock  = Qt::DockTop,
+                           bool             newLine = false,
+                           const char *     name = 0
+                        )
+
+
+
+   Q3ToolBar::Q3ToolBar (  const QString &  label,
+                           Q3MainWindow *   ,
+                           QWidget *        ,
+                           bool             newLine = false,
+                           const char *     name = 0,
+                           Qt::WFlags       f = 0
+                        )
+
+
+
+   Q3ToolBar::Q3ToolBar (  Q3MainWindow *  parent = 0,
+                           const char *    name = 0
+                        )
+
+
+
+   Q3ToolBar::~Q3ToolBar (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3ToolBar::actionEvent (  QActionEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ToolBar::addSeparator (   )
+
+
+
+   virtual void Q3ToolBar::clear (   )  [virtual]
+
+
+
+   bool Q3ToolBar::event (  QEvent *  e  )  [virtual]
+
+
+
+   Reimplemented from Q3DockWindow.
+
+   QString Q3ToolBar::label (   )  const
+
+
+
+   Q3MainWindow* Q3ToolBar::mainWindow (   )  const
+
+
+
+   QSize Q3ToolBar::minimumSize (   )  const
+
+
+
+   Reimplemented from Q3DockWindow.
+
+   QSize Q3ToolBar::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3DockWindow.
+
+   void Q3ToolBar::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3DockWindow.
+
+   virtual void Q3ToolBar::setLabel (  const QString &   )  [virtual]
+
+
+
+   void Q3ToolBar::setMinimumSize (  int  minw,
+                                     int  minh
+                                  )
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ToolBar::setOrientation (  Qt::Orientation  o  )  [virtual]
+
+
+
+   Reimplemented from Q3DockWindow.
+
+   virtual void Q3ToolBar::setStretchableWidget (  QWidget *   )  [virtual]
+
+
+
+   void Q3ToolBar::setVisible (  bool  visible  )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ToolBar::styleChange (  QStyle &   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3MainWindow [friend]
+
+
+
+   Reimplemented from Q3DockWindow.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QString Q3ToolBar::label [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3toolbar.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,300 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QFileInfo Class Reference
+
+   #include <qfileinfo.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QFileInfo ()
+     * QFileInfo (const QString &file)
+     * QFileInfo (const QFile &file)
+     * QFileInfo (const QDir &dir, const QString &file)
+     * QFileInfo (const QFileInfo &fileinfo)
+     * ~QFileInfo ()
+     * QFileInfo & operator= (const QFileInfo &fileinfo)
+     * bool operator== (const QFileInfo &fileinfo)
+     * bool operator!= (const QFileInfo &fileinfo)
+     * void setFile (const QString &file)
+     * void setFile (const QFile &file)
+     * void setFile (const QDir &dir, const QString &file)
+     * bool exists () const
+     * void refresh ()
+     * QString filePath () const
+     * QString absoluteFilePath () const
+     * QString canonicalFilePath () const
+     * QString fileName () const
+     * QString baseName () const
+     * QString completeBaseName () const
+     * QString suffix () const
+     * QString completeSuffix () const
+     * QString path () const
+     * QString absolutePath () const
+     * QString canonicalPath () const
+     * QDir dir () const
+     * QDir absoluteDir () const
+     * bool isReadable () const
+     * bool isWritable () const
+     * bool isExecutable () const
+     * bool isHidden () const
+     * bool isRelative () const
+     * bool isAbsolute () const
+     * bool makeAbsolute ()
+     * bool isFile () const
+     * bool isDir () const
+     * bool isSymLink () const
+     * bool isRoot () const
+     * QString readLink () const
+     * QString owner () const
+     * uint ownerId () const
+     * QString group () const
+     * uint groupId () const
+     * bool permission (QFile::Permissions permissions) const
+     * QFile::Permissions permissions () const
+     * qint64 size () const
+     * QDateTime created () const
+     * QDateTime lastModified () const
+     * QDateTime lastRead () const
+     * void detach ()
+     * bool caching () const
+     * void setCaching (bool on)
+
+Protected Attributes
+
+     * QFileInfoPrivate * d_ptr
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QFileInfo::QFileInfo (   )
+
+
+
+   QFileInfo::QFileInfo (  const QString &  file  )
+
+
+
+   QFileInfo::QFileInfo (  const QFile &  file  )
+
+
+
+   QFileInfo::QFileInfo (  const QDir &     dir,
+                           const QString &  file
+                        )
+
+
+
+   QFileInfo::QFileInfo (  const QFileInfo &  fileinfo  )
+
+
+
+   QFileInfo::~QFileInfo (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QDir QFileInfo::absoluteDir (   )  const
+
+
+
+   QString QFileInfo::absoluteFilePath (   )  const
+
+
+
+   QString QFileInfo::absolutePath (   )  const
+
+
+
+   QString QFileInfo::baseName (   )  const
+
+
+
+   bool QFileInfo::caching (   )  const
+
+
+
+   QString QFileInfo::canonicalFilePath (   )  const
+
+
+
+   QString QFileInfo::canonicalPath (   )  const
+
+
+
+   QString QFileInfo::completeBaseName (   )  const
+
+
+
+   QString QFileInfo::completeSuffix (   )  const
+
+
+
+   QDateTime QFileInfo::created (   )  const
+
+
+
+   void QFileInfo::detach (   )
+
+
+
+   QDir QFileInfo::dir (   )  const
+
+
+
+   bool QFileInfo::exists (   )  const
+
+
+
+   QString QFileInfo::fileName (   )  const
+
+
+
+   QString QFileInfo::filePath (   )  const
+
+
+
+   QString QFileInfo::group (   )  const
+
+
+
+   uint QFileInfo::groupId (   )  const
+
+
+
+   bool QFileInfo::isAbsolute (   )  const [inline]
+
+
+
+   bool QFileInfo::isDir (   )  const
+
+
+
+   bool QFileInfo::isExecutable (   )  const
+
+
+
+   bool QFileInfo::isFile (   )  const
+
+
+
+   bool QFileInfo::isHidden (   )  const
+
+
+
+   bool QFileInfo::isReadable (   )  const
+
+
+
+   bool QFileInfo::isRelative (   )  const
+
+
+
+   bool QFileInfo::isRoot (   )  const
+
+
+
+   bool QFileInfo::isSymLink (   )  const
+
+
+
+   bool QFileInfo::isWritable (   )  const
+
+
+
+   QDateTime QFileInfo::lastModified (   )  const
+
+
+
+   QDateTime QFileInfo::lastRead (   )  const
+
+
+
+   bool QFileInfo::makeAbsolute (   )
+
+
+
+   bool QFileInfo::operator!= (  const QFileInfo &  fileinfo  )  [inline]
+
+
+
+   QFileInfo& QFileInfo::operator= (  const QFileInfo &  fileinfo  )
+
+
+
+   bool QFileInfo::operator== (  const QFileInfo &  fileinfo  )
+
+
+
+   QString QFileInfo::owner (   )  const
+
+
+
+   uint QFileInfo::ownerId (   )  const
+
+
+
+   QString QFileInfo::path (   )  const
+
+
+
+   bool QFileInfo::permission (  QFile::Permissions  permissions  )  const
+
+
+
+   QFile::Permissions QFileInfo::permissions (   )  const
+
+
+
+   QString QFileInfo::readLink (   )  const
+
+
+
+   void QFileInfo::refresh (   )
+
+
+
+   void QFileInfo::setCaching (  bool  on  )
+
+
+
+   void QFileInfo::setFile (  const QDir &     dir,
+                              const QString &  file
+                           )
+
+
+
+   void QFileInfo::setFile (  const QFile &  file  )
+
+
+
+   void QFileInfo::setFile (  const QString &  file  )
+
+
+
+   qint64 QFileInfo::size (   )  const
+
+
+
+   QString QFileInfo::suffix (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QFileInfoPrivate* QFileInfo::d_ptr [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qfileinfo.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

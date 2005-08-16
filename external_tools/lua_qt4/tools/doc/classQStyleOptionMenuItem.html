@@ -1,0 +1,152 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QStyleOptionMenuItem Class Reference
+
+   #include <qstyleoption.h>
+
+   Inherits QStyleOption.
+
+   List of all members.
+
+Public Types
+
+     * enum { Type = SO_MenuItem }
+     * enum { Version = 1 }
+     * enum MenuItemType {
+         Normal, DefaultItem, Separator, SubMenu,
+         Scroller, TearOff, Margin, EmptyArea
+       }
+     * enum CheckType { NotCheckable, Exclusive, NonExclusive }
+
+Public Member Functions
+
+     * QStyleOptionMenuItem ()
+     * QStyleOptionMenuItem (const QStyleOptionMenuItem &other)
+
+Public Attributes
+
+     * MenuItemType menuItemType
+     * CheckType checkType
+     * bool checked
+     * bool menuHasCheckableItems
+     * QRect menuRect
+     * QString text
+     * QIcon icon
+     * int maxIconWidth
+     * int tabWidth
+     * QFont font
+
+Protected Member Functions
+
+     * QStyleOptionMenuItem (int version)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Type
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Version
+
+   enum QStyleOptionMenuItem::CheckType
+
+
+
+   Enumerator: 
+
+          NotCheckable
+          Exclusive   
+          NonExclusive
+
+   enum QStyleOptionMenuItem::MenuItemType
+
+
+
+   Enumerator: 
+
+          Normal     
+          DefaultItem
+          Separator  
+          SubMenu    
+          Scroller   
+          TearOff    
+          Margin     
+          EmptyArea  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QStyleOptionMenuItem::QStyleOptionMenuItem (   )
+
+
+
+   QStyleOptionMenuItem::QStyleOptionMenuItem (  const QStyleOptionMenuItem &  other  )  [inline]
+
+
+
+   QStyleOptionMenuItem::QStyleOptionMenuItem (  int  version  )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   bool QStyleOptionMenuItem::checked
+
+
+
+   CheckType QStyleOptionMenuItem::checkType
+
+
+
+   QFont QStyleOptionMenuItem::font
+
+
+
+   QIcon QStyleOptionMenuItem::icon
+
+
+
+   int QStyleOptionMenuItem::maxIconWidth
+
+
+
+   bool QStyleOptionMenuItem::menuHasCheckableItems
+
+
+
+   MenuItemType QStyleOptionMenuItem::menuItemType
+
+
+
+   QRect QStyleOptionMenuItem::menuRect
+
+
+
+   int QStyleOptionMenuItem::tabWidth
+
+
+
+   QString QStyleOptionMenuItem::text
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstyleoption.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

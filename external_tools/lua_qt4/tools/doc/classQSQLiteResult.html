@@ -1,0 +1,101 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QSQLiteResult Class Reference
+
+   #include <qsql_sqlite.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QSQLiteResult (const QSQLiteDriver *db)
+     * ~QSQLiteResult ()
+     * QVariant handle () const
+
+Protected Member Functions
+
+     * bool gotoNext (QSqlCachedResult::ValueCache &row, int idx)
+     * bool reset (const QString &query)
+     * bool prepare (const QString &query)
+     * bool exec ()
+     * int size ()
+     * int numRowsAffected ()
+     * QVariant lastInsertId () const
+     * QSqlRecord record () const
+
+Friends
+
+     * class QSQLiteDriver
+     * class QSQLiteResultPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSQLiteResult::QSQLiteResult (  const QSQLiteDriver *  db  )  [explicit]
+
+
+
+   QSQLiteResult::~QSQLiteResult (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QSQLiteResult::exec (   )  [protected]
+
+
+
+   bool QSQLiteResult::gotoNext (  QSqlCachedResult::ValueCache &  row,
+                                   int                             idx
+                                )  [protected]
+
+
+
+   QVariant QSQLiteResult::handle (   )  const
+
+
+
+   QVariant QSQLiteResult::lastInsertId (   )  const [protected]
+
+
+
+   int QSQLiteResult::numRowsAffected (   )  [protected]
+
+
+
+   bool QSQLiteResult::prepare (  const QString &  query  )  [protected]
+
+
+
+   QSqlRecord QSQLiteResult::record (   )  const [protected]
+
+
+
+   bool QSQLiteResult::reset (  const QString &  query  )  [protected]
+
+
+
+   int QSQLiteResult::size (   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QSQLiteDriver [friend]
+
+
+
+   friend class QSQLiteResultPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsql_sqlite.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

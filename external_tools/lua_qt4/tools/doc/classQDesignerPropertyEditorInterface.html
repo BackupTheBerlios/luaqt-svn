@@ -1,0 +1,90 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                 QDesignerPropertyEditorInterface Class Reference
+
+   #include <abstractpropertyeditor.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Slots
+
+     * virtual void setObject (QObject *object)=0
+     * virtual void setPropertyValue (const QString &name, const QVariant &value, bool changed=true)=0
+     * virtual void setReadOnly (bool readOnly)=0
+
+Signals
+
+     * void propertyChanged (const QString &name, const QVariant &value)
+
+Public Member Functions
+
+     * QDesignerPropertyEditorInterface (QWidget *parent, Qt::WindowFlags flags=0)
+     * virtual ~QDesignerPropertyEditorInterface ()
+     * virtual QDesignerFormEditorInterface * core () const
+     * virtual bool isReadOnly () const =0
+     * virtual QObject * object () const =0
+     * virtual QString currentPropertyName () const =0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface (  QWidget *        parent,
+                                                                         Qt::WindowFlags  flags = 0
+                                                                      )
+
+
+
+   virtual QDesignerPropertyEditorInterface::~QDesignerPropertyEditorInterface (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QDesignerFormEditorInterface* QDesignerPropertyEditorInterface::core (   )  const [virtual]
+
+
+
+   virtual QString QDesignerPropertyEditorInterface::currentPropertyName (   )  const [pure virtual]
+
+
+
+   virtual bool QDesignerPropertyEditorInterface::isReadOnly (   )  const [pure virtual]
+
+
+
+   virtual QObject* QDesignerPropertyEditorInterface::object (   )  const [pure virtual]
+
+
+
+   void QDesignerPropertyEditorInterface::propertyChanged (  const QString &   name,
+                                                             const QVariant &  value
+                                                          )  [signal]
+
+
+
+   virtual void QDesignerPropertyEditorInterface::setObject (  QObject *  object  )  [pure virtual, slot]
+
+
+
+   virtual void QDesignerPropertyEditorInterface::setPropertyValue (  const QString &   name,
+                                                                      const QVariant &  value,
+                                                                      bool              changed = true
+                                                                   )  [pure virtual, slot]
+
+
+
+   virtual void QDesignerPropertyEditorInterface::setReadOnly (  bool  readOnly  )  [pure virtual, slot]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractpropertyeditor.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

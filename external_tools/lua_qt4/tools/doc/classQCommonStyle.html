@@ -1,0 +1,174 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QCommonStyle Class Reference
+
+   #include <qcommonstyle.h>
+
+   Inherits QStyle.
+
+   Inherited by QMotifStyle, and QWindowsStyle.
+
+   List of all members.
+
+Public Member Functions
+
+     * QCommonStyle ()
+     * ~QCommonStyle ()
+     * void drawPrimitive (PrimitiveElement pe, const QStyleOption *opt, QPainter *p, const QWidget *w=0) const
+     * void drawControl (ControlElement element, const QStyleOption *opt, QPainter *p, const QWidget *w=0) const
+     * QRect subElementRect (SubElement r, const QStyleOption *opt, const QWidget *widget=0) const
+     * void drawComplexControl (ComplexControl cc, const QStyleOptionComplex *opt, QPainter *p, const QWidget *w=0) const
+     * SubControl hitTestComplexControl (ComplexControl cc, const QStyleOptionComplex *opt, const QPoint &pt, const QWidget *w=0) const
+     * QRect subControlRect (ComplexControl cc, const QStyleOptionComplex *opt, SubControl sc, const QWidget *w=0) const
+     * QSize sizeFromContents (ContentsType ct, const QStyleOption *opt, const QSize &contentsSize, const QWidget *widget=0) const
+     * int pixelMetric (PixelMetric m, const QStyleOption *opt=0, const QWidget *widget=0) const
+     * int styleHint (StyleHint sh, const QStyleOption *opt=0, const QWidget *w=0, QStyleHintReturn *shret=0) const
+     * QPixmap standardPixmap (StandardPixmap sp, const QStyleOption *opt=0, const QWidget *widget=0) const
+     * QPixmap generatedIconPixmap (QIcon::Mode iconMode, const QPixmap &pixmap, const QStyleOption *opt) const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QCommonStyle::QCommonStyle (   )
+
+
+
+   QCommonStyle::~QCommonStyle (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QCommonStyle::drawComplexControl (  ComplexControl               cc,
+                                            const QStyleOptionComplex *  opt,
+                                            QPainter *                   p,
+                                            const QWidget *              w = 0
+                                         )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   Reimplemented in QMotifStyle, QPlastiqueStyle, QWindowsStyle, and QWindowsXPStyle.
+
+   void QCommonStyle::drawControl (  ControlElement        element,
+                                     const QStyleOption *  opt,
+                                     QPainter *            p,
+                                     const QWidget *       w = 0
+                                  )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   Reimplemented in QCDEStyle, QMotifStyle, QPlastiqueStyle, QWindowsStyle, and QWindowsXPStyle.
+
+   void QCommonStyle::drawPrimitive (  PrimitiveElement      pe,
+                                       const QStyleOption *  opt,
+                                       QPainter *            p,
+                                       const QWidget *       w = 0
+                                    )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   Reimplemented in QCDEStyle, QMotifStyle, QPlastiqueStyle, QWindowsStyle, and QWindowsXPStyle.
+
+   QPixmap QCommonStyle::generatedIconPixmap (  QIcon::Mode           iconMode,
+                                                const QPixmap &       pixmap,
+                                                const QStyleOption *  opt
+                                             )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   SubControl QCommonStyle::hitTestComplexControl (  ComplexControl               cc,
+                                                     const QStyleOptionComplex *  opt,
+                                                     const QPoint &               pt,
+                                                     const QWidget *              w = 0
+                                                  )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   Reimplemented in QPlastiqueStyle.
+
+   int QCommonStyle::pixelMetric (  PixelMetric           m,
+                                    const QStyleOption *  opt = 0,
+                                    const QWidget *       widget = 0
+                                 )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   Reimplemented in QCDEStyle, QMotifStyle, QPlastiqueStyle, QWindowsStyle, and QWindowsXPStyle.
+
+   QSize QCommonStyle::sizeFromContents (  ContentsType          ct,
+                                           const QStyleOption *  opt,
+                                           const QSize &         contentsSize,
+                                           const QWidget *       widget = 0
+                                        )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   Reimplemented in QMotifStyle, QPlastiqueStyle, QWindowsStyle, and QWindowsXPStyle.
+
+   QPixmap QCommonStyle::standardPixmap (  StandardPixmap        sp,
+                                           const QStyleOption *  opt = 0,
+                                           const QWidget *       widget = 0
+                                        )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   Reimplemented in QMotifStyle, and QWindowsStyle.
+
+   int QCommonStyle::styleHint (  StyleHint             sh,
+                                  const QStyleOption *  opt = 0,
+                                  const QWidget *       w = 0,
+                                  QStyleHintReturn *    shret = 0
+                               )  const
+
+
+
+   Reimplemented in QMotifStyle, QPlastiqueStyle, QWindowsStyle, and QWindowsXPStyle.
+
+   QRect QCommonStyle::subControlRect (  ComplexControl               cc,
+                                         const QStyleOptionComplex *  opt,
+                                         SubControl                   sc,
+                                         const QWidget *              w = 0
+                                      )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   Reimplemented in QMotifStyle, QPlastiqueStyle, and QWindowsXPStyle.
+
+   QRect QCommonStyle::subElementRect (  SubElement            r,
+                                         const QStyleOption *  opt,
+                                         const QWidget *       widget = 0
+                                      )  const [virtual]
+
+
+
+   Implements QStyle.
+
+   Reimplemented in QMotifStyle, QPlastiqueStyle, QWindowsStyle, and QWindowsXPStyle.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qcommonstyle.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

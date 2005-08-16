@@ -1,0 +1,467 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               Q3Ftp Class Reference
+
+   #include <q3ftp.h>
+
+   Inherits Q3NetworkProtocol.
+
+   List of all members.
+
+Public Types
+
+     * enum State {
+         Unconnected, HostLookup, Connecting, Connected,
+         LoggedIn, Closing
+       }
+     * enum Error {
+         NoError, UnknownError, HostNotFound, ConnectionRefused,
+         NotConnected
+       }
+     * enum Command {
+         None, ConnectToHost, Login, Close,
+         List, Cd, Get, Put,
+         Remove, Mkdir, Rmdir, Rename,
+         RawCommand
+       }
+
+Public Slots
+
+     * void abort ()
+
+Signals
+
+     * void stateChanged (int)
+     * void listInfo (const QUrlInfo &)
+     * void readyRead ()
+     * void dataTransferProgress (int, int)
+     * void rawCommandReply (int, const QString &)
+     * void commandStarted (int)
+     * void commandFinished (int, bool)
+     * void done (bool)
+
+Public Member Functions
+
+     * Q3Ftp ()
+     * Q3Ftp (QObject *parent, const char *name=0)
+     * virtual ~Q3Ftp ()
+     * int supportedOperations () const
+     * int connectToHost (const QString &host, Q_UINT16 port=21)
+     * int login (const QString &user=QString(), const QString &password=QString())
+     * int close ()
+     * int list (const QString &dir=QString())
+     * int cd (const QString &dir)
+     * int get (const QString &file, QIODevice *dev=0)
+     * int put (const QByteArray &data, const QString &file)
+     * int put (QIODevice *dev, const QString &file)
+     * int remove (const QString &file)
+     * int mkdir (const QString &dir)
+     * int rmdir (const QString &dir)
+     * int rename (const QString &oldname, const QString &newname)
+     * int rawCommand (const QString &command)
+     * Q_ULONG bytesAvailable () const
+     * Q_LONG readBlock (char *data, Q_ULONG maxlen)
+     * QByteArray readAll ()
+     * int currentId () const
+     * QIODevice * currentDevice () const
+     * Command currentCommand () const
+     * bool hasPendingCommands () const
+     * void clearPendingCommands ()
+     * State state () const
+     * Error error () const
+     * QString errorString () const
+
+Protected Slots
+
+     * void hostFound ()
+     * void connected ()
+     * void closed ()
+     * void dataHostFound ()
+     * void dataConnected ()
+     * void dataClosed ()
+     * void dataReadyRead ()
+     * void dataBytesWritten (int nbytes)
+     * void error (int)
+
+Protected Member Functions
+
+     * void parseDir (const QString &buffer, QUrlInfo &info)
+     * void operationListChildren (Q3NetworkOperation *op)
+     * void operationMkDir (Q3NetworkOperation *op)
+     * void operationRemove (Q3NetworkOperation *op)
+     * void operationRename (Q3NetworkOperation *op)
+     * void operationGet (Q3NetworkOperation *op)
+     * void operationPut (Q3NetworkOperation *op)
+
+Protected Attributes
+
+     * Q3Socket * commandSocket
+     * Q3Socket * dataSocket
+     * bool connectionReady
+     * bool passiveMode
+     * int getTotalSize
+     * int getDoneSize
+     * bool startGetOnFail
+     * int putToWrite
+     * int putWritten
+     * bool errorInListChildren
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3Ftp::Command
+
+
+
+   Enumerator: 
+
+          None         
+          ConnectToHost
+          Login        
+          Close        
+          List         
+          Cd           
+          Get          
+          Put          
+          Remove       
+          Mkdir        
+          Rmdir        
+          Rename       
+          RawCommand   
+
+   enum Q3Ftp::Error
+
+
+
+   Enumerator: 
+
+          NoError          
+          UnknownError     
+          HostNotFound     
+          ConnectionRefused
+          NotConnected     
+
+   Reimplemented from Q3NetworkProtocol.
+
+   enum Q3Ftp::State
+
+
+
+   Enumerator: 
+
+          Unconnected
+          HostLookup 
+          Connecting 
+          Connected  
+          LoggedIn   
+          Closing    
+
+   Reimplemented from Q3NetworkProtocol.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Ftp::Q3Ftp (   )
+
+
+
+   Q3Ftp::Q3Ftp (  QObject *     parent,
+                   const char *  name = 0
+                )
+
+
+
+   virtual Q3Ftp::~Q3Ftp (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3Ftp::abort (   )  [slot]
+
+
+
+   Q_ULONG Q3Ftp::bytesAvailable (   )  const
+
+
+
+   int Q3Ftp::cd (  const QString &  dir  )
+
+
+
+   void Q3Ftp::clearPendingCommands (   )
+
+
+
+   int Q3Ftp::close (   )
+
+
+
+   void Q3Ftp::closed (   )  [protected, slot]
+
+
+
+   void Q3Ftp::commandFinished (  int   ,
+                                  bool
+                               )  [signal]
+
+
+
+   void Q3Ftp::commandStarted (  int   )  [signal]
+
+
+
+   void Q3Ftp::connected (   )  [protected, slot]
+
+
+
+   int Q3Ftp::connectToHost (  const QString &  host,
+                               Q_UINT16         port = 21
+                            )
+
+
+
+   Command Q3Ftp::currentCommand (   )  const
+
+
+
+   QIODevice* Q3Ftp::currentDevice (   )  const
+
+
+
+   int Q3Ftp::currentId (   )  const
+
+
+
+   void Q3Ftp::dataBytesWritten (  int  nbytes  )  [protected, slot]
+
+
+
+   void Q3Ftp::dataClosed (   )  [protected, slot]
+
+
+
+   void Q3Ftp::dataConnected (   )  [protected, slot]
+
+
+
+   void Q3Ftp::dataHostFound (   )  [protected, slot]
+
+
+
+   void Q3Ftp::dataReadyRead (   )  [protected, slot]
+
+
+
+   void Q3Ftp::dataTransferProgress (  int  ,
+                                       int
+                                    )  [signal]
+
+
+
+   void Q3Ftp::done (  bool   )  [signal]
+
+
+
+   void Q3Ftp::error (  int   )  [protected, slot]
+
+
+
+   Error Q3Ftp::error (   )  const
+
+
+
+   QString Q3Ftp::errorString (   )  const
+
+
+
+   int Q3Ftp::get (  const QString &  file,
+                     QIODevice *      dev = 0
+                  )
+
+
+
+   bool Q3Ftp::hasPendingCommands (   )  const
+
+
+
+   void Q3Ftp::hostFound (   )  [protected, slot]
+
+
+
+   int Q3Ftp::list (  const QString &  dir = QString()  )
+
+
+
+   void Q3Ftp::listInfo (  const QUrlInfo &   )  [signal]
+
+
+
+   int Q3Ftp::login (  const QString &  user = QString(),
+                       const QString &  password = QString()
+                    )
+
+
+
+   int Q3Ftp::mkdir (  const QString &  dir  )
+
+
+
+   void Q3Ftp::operationGet (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+
+   void Q3Ftp::operationListChildren (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+
+   void Q3Ftp::operationMkDir (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+
+   void Q3Ftp::operationPut (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+
+   void Q3Ftp::operationRemove (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+
+   void Q3Ftp::operationRename (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+
+   void Q3Ftp::parseDir (  const QString &  buffer,
+                           QUrlInfo &       info
+                        )  [protected]
+
+
+
+   int Q3Ftp::put (  QIODevice *      dev,
+                     const QString &  file
+                  )
+
+
+
+   int Q3Ftp::put (  const QByteArray &  data,
+                     const QString &     file
+                  )
+
+
+
+   int Q3Ftp::rawCommand (  const QString &  command  )
+
+
+
+   void Q3Ftp::rawCommandReply (  int              ,
+                                  const QString &
+                               )  [signal]
+
+
+
+   QByteArray Q3Ftp::readAll (   )
+
+
+
+   Q_LONG Q3Ftp::readBlock (  char *   data,
+                              Q_ULONG  maxlen
+                           )
+
+
+
+   void Q3Ftp::readyRead (   )  [signal]
+
+
+
+   int Q3Ftp::remove (  const QString &  file  )
+
+
+
+   int Q3Ftp::rename (  const QString &  oldname,
+                        const QString &  newname
+                     )
+
+
+
+   int Q3Ftp::rmdir (  const QString &  dir  )
+
+
+
+   State Q3Ftp::state (   )  const
+
+
+
+   void Q3Ftp::stateChanged (  int   )  [signal]
+
+
+
+   int Q3Ftp::supportedOperations (   )  const [virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   Q3Socket* Q3Ftp::commandSocket [protected]
+
+
+
+   bool Q3Ftp::connectionReady [protected]
+
+
+
+   Q3Socket * Q3Ftp::dataSocket [protected]
+
+
+
+   bool Q3Ftp::errorInListChildren [protected]
+
+
+
+   int Q3Ftp::getDoneSize [protected]
+
+
+
+   int Q3Ftp::getTotalSize [protected]
+
+
+
+   bool Q3Ftp::passiveMode [protected]
+
+
+
+   int Q3Ftp::putToWrite [protected]
+
+
+
+   int Q3Ftp::putWritten [protected]
+
+
+
+   bool Q3Ftp::startGetOnFail [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3ftp.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

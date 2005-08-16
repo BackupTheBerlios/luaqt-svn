@@ -1,0 +1,411 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QAbstractSpinBox Class Reference
+
+   #include <qabstractspinbox.h>
+
+   Inherits QWidget.
+
+   Inherited by QDateTimeEdit, QDoubleSpinBox, and QSpinBox.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags StepEnabled
+     * enum StepEnabledFlag { StepNone = 0x00, StepUpEnabled = 0x01, StepDownEnabled = 0x02 }
+     * enum ButtonSymbols { UpDownArrows, PlusMinus }
+
+Public Slots
+
+     * void stepUp ()
+     * void stepDown ()
+     * void selectAll ()
+     * virtual void clear ()
+
+Signals
+
+     * void editingFinished ()
+
+Public Member Functions
+
+     * QAbstractSpinBox (QWidget *parent=0)
+     * ~QAbstractSpinBox ()
+     * ButtonSymbols buttonSymbols () const
+     * void setButtonSymbols (ButtonSymbols bs)
+     * QString text () const
+     * QString specialValueText () const
+     * void setSpecialValueText (const QString &s)
+     * bool wrapping () const
+     * void setWrapping (bool w)
+     * void setReadOnly (bool r)
+     * bool isReadOnly () const
+     * void setAlignment (Qt::Alignment flag)
+     * Qt::Alignment alignment () const
+     * void setFrame (bool)
+     * bool hasFrame () const
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * void interpretText ()
+     * bool event (QEvent *event)
+     * virtual QValidator::State validate (QString &input, int &pos) const
+     * virtual void fixup (QString &input) const
+     * virtual void stepBy (int steps)
+
+Protected Member Functions
+
+     * void resizeEvent (QResizeEvent *e)
+     * void keyPressEvent (QKeyEvent *e)
+     * void keyReleaseEvent (QKeyEvent *e)
+     * void wheelEvent (QWheelEvent *e)
+     * void focusInEvent (QFocusEvent *e)
+     * void focusOutEvent (QFocusEvent *e)
+     * void contextMenuEvent (QContextMenuEvent *e)
+     * void changeEvent (QEvent *e)
+     * void closeEvent (QCloseEvent *e)
+     * void hideEvent (QHideEvent *e)
+     * void mousePressEvent (QMouseEvent *e)
+     * void mouseReleaseEvent (QMouseEvent *e)
+     * void mouseMoveEvent (QMouseEvent *e)
+     * void timerEvent (QTimerEvent *e)
+     * void paintEvent (QPaintEvent *e)
+     * void showEvent (QShowEvent *e)
+     * QLineEdit * lineEdit () const
+     * void setLineEdit (QLineEdit *e)
+     * virtual StepEnabled stepEnabled () const
+     * QAbstractSpinBox (QAbstractSpinBoxPrivate &dd, QWidget *parent=0)
+
+Properties
+
+     * bool wrapping
+     * bool frame
+     * Qt Alignment
+     * bool readOnly
+     * ButtonSymbols buttonSymbols
+     * QString specialValueText
+     * QString text
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QAbstractSpinBox::StepEnabled
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QAbstractSpinBox::ButtonSymbols
+
+
+
+   Enumerator: 
+
+          UpDownArrows
+          PlusMinus   
+
+   enum QAbstractSpinBox::StepEnabledFlag
+
+
+
+   Enumerator: 
+
+          StepNone       
+          StepUpEnabled  
+          StepDownEnabled
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractSpinBox::QAbstractSpinBox (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QAbstractSpinBox::~QAbstractSpinBox (   )
+
+
+
+   QAbstractSpinBox::QAbstractSpinBox (  QAbstractSpinBoxPrivate &  dd,
+                                         QWidget *                  parent = 0
+                                      )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Alignment QAbstractSpinBox::alignment (   )  const
+
+
+
+   ButtonSymbols QAbstractSpinBox::buttonSymbols (   )  const
+
+
+
+   void QAbstractSpinBox::changeEvent (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void QAbstractSpinBox::clear (   )  [virtual, slot]
+
+
+
+   Reimplemented in QDateTimeEdit.
+
+   void QAbstractSpinBox::closeEvent (  QCloseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractSpinBox::contextMenuEvent (  QContextMenuEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractSpinBox::editingFinished (   )  [signal]
+
+
+
+   bool QAbstractSpinBox::event (  QEvent *  event  )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QDateTimeEdit.
+
+   virtual void QAbstractSpinBox::fixup (  QString &  input  )  const [virtual]
+
+
+
+   Reimplemented in QSpinBox, and QDoubleSpinBox.
+
+   void QAbstractSpinBox::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QDateTimeEdit.
+
+   void QAbstractSpinBox::focusOutEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QAbstractSpinBox::hasFrame (   )  const
+
+
+
+   void QAbstractSpinBox::hideEvent (  QHideEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractSpinBox::interpretText (   )
+
+
+
+   bool QAbstractSpinBox::isReadOnly (   )  const
+
+
+
+   void QAbstractSpinBox::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QDateTimeEdit.
+
+   void QAbstractSpinBox::keyReleaseEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QLineEdit* QAbstractSpinBox::lineEdit (   )  const [protected]
+
+
+
+   QSize QAbstractSpinBox::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractSpinBox::mouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractSpinBox::mousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractSpinBox::mouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractSpinBox::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractSpinBox::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractSpinBox::selectAll (   )  [slot]
+
+
+
+   void QAbstractSpinBox::setAlignment (  Qt::Alignment  flag  )
+
+
+
+   void QAbstractSpinBox::setButtonSymbols (  ButtonSymbols  bs  )
+
+
+
+   void QAbstractSpinBox::setFrame (  bool   )
+
+
+
+   void QAbstractSpinBox::setLineEdit (  QLineEdit *  e  )  [protected]
+
+
+
+   void QAbstractSpinBox::setReadOnly (  bool  r  )
+
+
+
+   void QAbstractSpinBox::setSpecialValueText (  const QString &  s  )
+
+
+
+   void QAbstractSpinBox::setWrapping (  bool  w  )
+
+
+
+   void QAbstractSpinBox::showEvent (  QShowEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QAbstractSpinBox::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QDateTimeEdit.
+
+   QString QAbstractSpinBox::specialValueText (   )  const
+
+
+
+   virtual void QAbstractSpinBox::stepBy (  int  steps  )  [virtual]
+
+
+
+   Reimplemented in QDateTimeEdit.
+
+   void QAbstractSpinBox::stepDown (   )  [slot]
+
+
+
+   virtual StepEnabled QAbstractSpinBox::stepEnabled (   )  const [protected, virtual]
+
+
+
+   Reimplemented in QDateTimeEdit.
+
+   void QAbstractSpinBox::stepUp (   )  [slot]
+
+
+
+   QString QAbstractSpinBox::text (   )  const
+
+
+
+   void QAbstractSpinBox::timerEvent (  QTimerEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   virtual QValidator::State QAbstractSpinBox::validate (  QString &  input,
+                                                           int &      pos
+                                                        )  const [virtual]
+
+
+
+   Reimplemented in QDateTimeEdit, QSpinBox, and QDoubleSpinBox.
+
+   void QAbstractSpinBox::wheelEvent (  QWheelEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QDateTimeEdit.
+
+   bool QAbstractSpinBox::wrapping (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Qt QAbstractSpinBox::Alignment [read, write]
+
+
+
+   ButtonSymbols QAbstractSpinBox::buttonSymbols [read, write]
+
+
+
+   bool QAbstractSpinBox::frame [read, write]
+
+
+
+   bool QAbstractSpinBox::readOnly [read, write]
+
+
+
+   QString QAbstractSpinBox::specialValueText [read, write]
+
+
+
+   QString QAbstractSpinBox::text [read]
+
+
+
+   bool QAbstractSpinBox::wrapping [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractspinbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

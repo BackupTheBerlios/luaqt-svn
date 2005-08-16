@@ -1,0 +1,227 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QSqlQuery Class Reference
+
+   #include <qsqlquery.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QSqlQuery (QSqlResult *r)
+     * QSqlQuery (const QString &query=QString(), QSqlDatabase db=QSqlDatabase())
+     * QSqlQuery (QSqlDatabase db)
+     * QSqlQuery (const QSqlQuery &other)
+     * QSqlQuery & operator= (const QSqlQuery &other)
+     * ~QSqlQuery ()
+     * bool isValid () const
+     * bool isActive () const
+     * bool isNull (int field) const
+     * int at () const
+     * QString lastQuery () const
+     * int numRowsAffected () const
+     * QSqlError lastError () const
+     * bool isSelect () const
+     * int size () const
+     * const QSqlDriver * driver () const
+     * const QSqlResult * result () const
+     * bool isForwardOnly () const
+     * QSqlRecord record () const
+     * void setForwardOnly (bool forward)
+     * bool exec (const QString &query)
+     * QVariant value (int i) const
+     * bool seek (int i, bool relative=false)
+     * bool next ()
+     * bool previous ()
+     * bool first ()
+     * bool last ()
+     * void clear ()
+     * bool exec ()
+     * bool prepare (const QString &query)
+     * void bindValue (const QString &placeholder, const QVariant &val, QSql::ParamType type=QSql::In)
+     * void bindValue (int pos, const QVariant &val, QSql::ParamType type=QSql::In)
+     * void addBindValue (const QVariant &val, QSql::ParamType type=QSql::In)
+     * QVariant boundValue (const QString &placeholder) const
+     * QVariant boundValue (int pos) const
+     * QMap< QString, QVariant > boundValues () const
+     * QString executedQuery () const
+     * QVariant lastInsertId () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSqlQuery::QSqlQuery (  QSqlResult *  r  )
+
+
+
+   QSqlQuery::QSqlQuery (  const QString &  query = QString(),
+                           QSqlDatabase     db = QSqlDatabase()
+                        )
+
+
+
+   QSqlQuery::QSqlQuery (  QSqlDatabase  db  )  [explicit]
+
+
+
+   QSqlQuery::QSqlQuery (  const QSqlQuery &  other  )
+
+
+
+   QSqlQuery::~QSqlQuery (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QSqlQuery::addBindValue (  const QVariant &  val,
+                                   QSql::ParamType   type = QSql::In
+                                )
+
+
+
+   int QSqlQuery::at (   )  const
+
+
+
+   void QSqlQuery::bindValue (  int               pos,
+                                const QVariant &  val,
+                                QSql::ParamType   type = QSql::In
+                             )
+
+
+
+   void QSqlQuery::bindValue (  const QString &   placeholder,
+                                const QVariant &  val,
+                                QSql::ParamType   type = QSql::In
+                             )
+
+
+
+   QVariant QSqlQuery::boundValue (  int  pos  )  const
+
+
+
+   QVariant QSqlQuery::boundValue (  const QString &  placeholder  )  const
+
+
+
+   QMap<QString, QVariant> QSqlQuery::boundValues (   )  const
+
+
+
+   void QSqlQuery::clear (   )
+
+
+
+   const QSqlDriver* QSqlQuery::driver (   )  const
+
+
+
+   bool QSqlQuery::exec (   )
+
+
+
+   bool QSqlQuery::exec (  const QString &  query  )
+
+
+
+   QString QSqlQuery::executedQuery (   )  const
+
+
+
+   bool QSqlQuery::first (   )
+
+
+
+   bool QSqlQuery::isActive (   )  const
+
+
+
+   bool QSqlQuery::isForwardOnly (   )  const
+
+
+
+   bool QSqlQuery::isNull (  int  field  )  const
+
+
+
+   bool QSqlQuery::isSelect (   )  const
+
+
+
+   bool QSqlQuery::isValid (   )  const
+
+
+
+   bool QSqlQuery::last (   )
+
+
+
+   QSqlError QSqlQuery::lastError (   )  const
+
+
+
+   QVariant QSqlQuery::lastInsertId (   )  const
+
+
+
+   QString QSqlQuery::lastQuery (   )  const
+
+
+
+   bool QSqlQuery::next (   )
+
+
+
+   int QSqlQuery::numRowsAffected (   )  const
+
+
+
+   QSqlQuery& QSqlQuery::operator= (  const QSqlQuery &  other  )
+
+
+
+   bool QSqlQuery::prepare (  const QString &  query  )
+
+
+
+   bool QSqlQuery::previous (   )
+
+
+
+   QSqlRecord QSqlQuery::record (   )  const
+
+
+
+   const QSqlResult* QSqlQuery::result (   )  const
+
+
+
+   bool QSqlQuery::seek (  int   i,
+                           bool  relative = false
+                        )
+
+
+
+   void QSqlQuery::setForwardOnly (  bool  forward  )
+
+
+
+   int QSqlQuery::size (   )  const
+
+
+
+   QVariant QSqlQuery::value (  int  i  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqlquery.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

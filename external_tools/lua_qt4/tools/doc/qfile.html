@@ -1,0 +1,617 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QFile Class Reference
+
+   The QFile class provides an interface for reading from and writing to
+   files. More...
+#include <QFile>
+
+   Part of the QtCore module.
+
+   Inherits QIODevice.
+
+   Inherited by QTemporaryFile.
+
+   Note: All the functions in this class are reentrant, except
+   setEncodingFunction() and setDecodingFunction().
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * typedef DecoderFn
+     * typedef EncoderFn
+     * enum FileError { NoError, ReadError, WriteError, FatalError, ...,
+       CopyError }
+     * enum Permission { ReadOwner, WriteOwner, ExeOwner, ReadUser, ...,
+       ExeOther }
+     * typedef PermissionSpec
+     * flags Permissions
+
+  Public Functions
+
+     * QFile ( const QString & name )
+     * QFile ( QObject * parent )
+     * QFile ( const QString & name, QObject * parent )
+     * ~QFile ()
+     * bool copy ( const QString & newName )
+     * FileError error () const
+     * bool exists () const
+     * QString fileName () const
+     * bool flush ()
+     * int handle () const
+     * virtual bool isSequential () const
+     * bool link ( const QString & newName )
+     * virtual bool open ( OpenMode mode )
+     * bool open ( FILE * fh, OpenMode mode )
+     * bool open ( int fd, OpenMode mode )
+     * Permissions permissions () const
+     * QString readLink () const
+     * bool remove ()
+     * bool rename ( const QString & newName )
+     * bool resize ( qint64 sz )
+     * void setFileName ( const QString & name )
+     * bool setPermissions ( Permissions permissions )
+     * void unsetError ()
+
+     * 30 public functions inherited from QIODevice
+     * 28 public functions inherited from QObject
+
+  Static Public Members
+
+     * bool copy ( const QString & fileName, const QString & newName )
+     * QString decodeName ( const QByteArray & localFileName )
+     * QString decodeName ( const char * localFileName )
+     * QByteArray encodeName ( const QString & fileName )
+     * bool exists ( const QString & fileName )
+     * bool link ( const QString & oldName, const QString & newName )
+     * Permissions permissions ( const QString & fileName )
+     * QString readLink ( const QString & fileName )
+     * bool remove ( const QString & fileName )
+     * bool rename ( const QString & oldName, const QString & newName )
+     * bool resize ( const QString & fileName, qint64 sz )
+     * void setDecodingFunction ( DecoderFn function )
+     * void setEncodingFunction ( EncoderFn function )
+     * bool setPermissions ( const QString & fileName, Permissions
+       permissions )
+
+     * 4 static public members inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 property inherited from QObject
+     * 1 public slot inherited from QObject
+     * 3 signals inherited from QIODevice
+     * 1 signal inherited from QObject
+     * 5 protected functions inherited from QIODevice
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QFile class provides an interface for reading from and writing to
+   files.
+
+   QFile is an I/O device for reading and writing text and binary files
+   and resources. A QFile may be used by itself or, more conveniently,
+   with a QTextStream or QDataStream.
+
+   The file name is usually passed in the constructor, but it can be set
+   at any time using setFileName(). You can check for a file's existence
+   using exists(), and remove a file using remove(). (More advanced file
+   system related operations are provided by QFileInfo and QDir.)
+
+   The file is opened with open(), closed with close(), and flushed with
+   flush(). Data is usually read and written using QDataStream or
+   QTextStream, but you can also call the QIODevice-inherited functions
+   read(), readLine(), readAll(), write(). QFile also inherits getChar(),
+   putChar(), and ungetChar(), which work one character at a time.
+
+   The size of the file is returned by size(). You can get the current
+   file position using pos(), or move to a new file position using
+   seek(). If you've reached the end of the file, atEnd() returns true.
+
+   The following example reads a text file line by line:
+        QFile file("in.txt");
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+            return;
+
+        while (!file.atEnd()) {
+            QByteArray line = in.readLine();
+            process_line(line);
+        }
+
+   The QIODevice::Text flag passed to open() tells Qt to convert
+   Windows-style line terminators ("\r\n") into C++-style terminators
+   ("\n"). By default, QFile assumes binary, i.e. it doesn't perform any
+   conversion on the bytes stored in the file.
+
+   The next example uses QTextStream to read a text file line by line:
+        QFile file("in.txt");
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+            return;
+
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            process_line(line);
+        }
+
+   QTextStream takes care of converting the 8-bit data stored on disk
+   into a 16-bit Unicode QString. By default, it assumes that the user
+   system's local 8-bit encoding is used (e.g., ISO 8859-1 for most of
+   Europe; see QTextCodec::codecForLocale() for details). This can be
+   changed using setCodec().
+
+   To write text, we can use operator<<(), which is overloaded to take a
+   QTextStream on the left and various data types (including QString) on
+   the right:
+        QFile file("out.txt");
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+            return;
+
+        QTextStream out(&file);
+        out << "The magic number is: " << 49 << "\n";
+
+   QDataStream is similar, in that you can use operator<<() to write data
+   and operator>>() to read it back. See the class documentation for
+   details.
+
+   When you use QFile, QFileInfo, and QDir to access the file system with
+   Qt, you can use Unicode file names. On Unix, these file names are
+   converted to an 8-bit encoding. If you want to use standard C++ APIs
+   (<cstdio> or <iostream>) or platform-specific APIs to access files
+   instead of QFile, you can use the encodeName() and decodeName()
+   functions to convert between Unicode file names and 8-bit file names.
+
+   See also QTextStream, QDataStream, QFileInfo, QDir, and The Qt
+   Resource System.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  typedef QFile::DecoderFn
+
+   This is a typedef for a pointer to a function with the following
+   signature:
+    QString myDecoderFunc(const QByteArray &localFileName);
+
+   See also setDecodingFunction().
+
+  typedef QFile::EncoderFn
+
+   This is a typedef for a pointer to a function with the following
+   signature:
+    QByteArray myEncoderFunc(const QString &fileName);
+
+   See also setEncodingFunction() and encodeName().
+
+  enum QFile::FileError
+
+   This enum describes the errors that may be returned by the error()
+   function.
+
+          Constant         Value                  Description
+   QFile::NoError            0   No error occurred.
+   QFile::ReadError          1   An error occurred when reading from the file.
+   QFile::WriteError         2   An error occurred when writing to the file.
+   QFile::FatalError         3   A fatal error occurred.
+   QFile::ResourceError      4  
+   QFile::OpenError          5   The file could not be opened.
+   QFile::AbortError         6   The operation was aborted.
+   QFile::TimeOutError       7   A timeout occurred.
+   QFile::UnspecifiedError   8   An unspecified error occurred.
+   QFile::RemoveError        9   The file could not be removed.
+   QFile::RenameError       10   The file could not be renamed.
+   QFile::PositionError     11   The position in the file could not be changed.
+   QFile::ResizeError       12   The file could not be resized.
+   QFile::PermissionsError  13   The file could not be accessed.
+   QFile::CopyError         14   The file could not be copied.
+
+  enum QFile::Permission
+  flags QFile::Permissions
+
+   This enum is used by the permission() function to report the
+   permissions and ownership of a file. The values may be OR-ed together
+   to test multiple permissions and ownership values.
+
+   Constant Value Description
+   QFile::ReadOwner 0x4000 The file is readable by the owner of the file.
+   QFile::WriteOwner 0x2000 The file is writable by the owner of the
+   file.
+   QFile::ExeOwner 0x1000 The file is executable by the owner of the
+   file.
+   QFile::ReadUser 0x0400 The file is readable by the user.
+   QFile::WriteUser 0x0200 The file is writable by the user.
+   QFile::ExeUser 0x0100 The file is executable by the user.
+   QFile::ReadGroup 0x0040 The file is readable by the group.
+   QFile::WriteGroup 0x0020 The file is writable by the group.
+   QFile::ExeGroup 0x0010 The file is executable by the group.
+   QFile::ReadOther 0x0004 The file is readable by anyone.
+   QFile::WriteOther 0x0002 The file is writable by anyone.
+   QFile::ExeOther 0x0001 The file is executable by anyone.
+
+   Warning: Because of differences in the platforms supported by Qt, the
+   semantics of ReadUser, WriteUser and ExeUser are platform-dependent:
+   On Unix, the rights of the owner of the file are returned and on
+   Windows the rights of the current user are returned. This behavior
+   might change in a future Qt version.
+
+   The Permissions type is a typedef for QFlags<Permission>. It stores an
+   OR combination of Permission values.
+
+  typedef QFile::PermissionSpec
+
+   Use QFile::Permission instead.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QFile::QFile ( const QString & name )
+
+   Constructs a new file object to represent the file with the given
+   name.
+
+  QFile::QFile ( QObject * parent )
+
+   Constructs a new file object with the given parent.
+
+  QFile::QFile ( const QString & name, QObject * parent )
+
+   Constructs a new file object with the given parent to represent the
+   file with the specified name.
+
+  QFile::~QFile ()
+
+   Destroys the file object, closing it if necessary.
+
+  bool QFile::copy ( const QString & newName )
+
+   Copies the file currently specified by fileName() to newName. Returns
+   true if successful; otherwise returns false.
+
+   The file is closed before it is copied.
+
+   See also setFileName().
+
+  bool QFile::copy ( const QString & fileName, const QString & newName )
+  [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Copies the file fileName to newName. Returns true if successful;
+   otherwise returns false.
+
+   See also rename().
+
+  QString QFile::decodeName ( const QByteArray & localFileName )   [static]
+
+   This does the reverse of QFile::encodeName() using localFileName.
+
+   See also setDecodingFunction() and encodeName().
+
+  QString QFile::decodeName ( const char * localFileName )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the Unicode version of the given localFileName. See
+   encodeName() for details.
+
+  QByteArray QFile::encodeName ( const QString & fileName )   [static]
+
+   By default, this function converts fileName to the local 8-bit
+   encoding determined by the user's locale. This is sufficient for file
+   names that the user chooses. File names hard-coded into the
+   application should only use 7-bit ASCII filename characters.
+
+   See also decodeName() and setEncodingFunction().
+
+  FileError QFile::error () const
+
+   Returns the file error status.
+
+   The I/O device status returns an error code. For example, if open()
+   returns false, or a read/write operation returns -1, this function can
+   be called to find out the reason why the operation failed.
+
+   See also unsetError().
+
+  bool QFile::exists ( const QString & fileName )   [static]
+
+   Returns true if the file specified by fileName exists; otherwise
+   returns false.
+
+  bool QFile::exists () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if the file specified by fileName() exists; otherwise
+   returns false.
+
+   See also fileName() and setFileName().
+
+  QString QFile::fileName () const
+
+   Returns the name set by setFileName().
+
+   See also setFileName() and QFileInfo::fileName().
+
+  bool QFile::flush ()
+
+   Flushes any buffered data to the file.
+
+  int QFile::handle () const
+
+   Returns the file handle of the file.
+
+   This is a small positive integer, suitable for use with C library
+   functions such as fdopen() and fcntl(). On systems that use file
+   descriptors for sockets (i.e. Unix systems, but not Windows) the
+   handle can be used with QSocketNotifier as well.
+
+   If the file is not open, or there is an error, handle() returns -1.
+
+   See also QSocketNotifier.
+
+  bool QFile::isSequential () const   [virtual]
+
+   Returns true if the file can only be manipulated sequentially;
+   otherwise returns false.
+
+   Most files support random-access, but some special files may not.
+
+   Reimplemented from QIODevice.
+
+   See also QIODevice::isSequential().
+
+  bool QFile::link ( const QString & newName )
+
+   Creates a link from the file currently specified by fileName() to
+   newName. What a link is depends on the underlying filesystem (be it a
+   shortcut on Windows or a symbolic link on Unix). Returns true if
+   successful; otherwise returns false.
+
+   See also setFileName().
+
+  bool QFile::link ( const QString & oldName, const QString & newName )
+  [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Creates a link from oldName to newName. What a link is depends on the
+   underlying filesystem (be it a shortcut on Windows or a symbolic link
+   on Unix). Returns true if successful; otherwise returns false.
+
+   See also link().
+
+  bool QFile::open ( OpenMode mode )   [virtual]
+
+   Opens the file using OpenMode mode.
+
+   The mode must be QIODevice::ReadOnly, QIODevice::WriteOnly, or
+   QIODevice::ReadWrite. It may also have additional flags, such as
+   QIODevice::Text and QIODevice::Unbuffered.
+
+   Reimplemented from QIODevice.
+
+   See also QIODevice::OpenMode.
+
+  bool QFile::open ( FILE * fh, OpenMode mode )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Opens the existing file handle fh in the given mode. Returns true if
+   successful; otherwise returns false.
+
+   Example:
+    #include <stdio.h>
+
+    void printError(const char* msg)
+    {
+        QFile file;
+        file.open(stderr, QIODevice::WriteOnly);
+        file.write(msg, qstrlen(msg));        // write to stderr
+        file.close();
+    }
+
+   When a QFile is opened using this function, close() does not actually
+   close the file, but only flushes it.
+
+   Warning: If fh is stdin, stdout, or stderr, you may not be able to
+   seek(). See QIODevice::isSequentialAccess() for more information.
+
+   See also close().
+
+  bool QFile::open ( int fd, OpenMode mode )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Opens the existing file descripter fd in the given mode. Returns true
+   if successful; otherwise returns false.
+
+   When a QFile is opened using this function, close() does not actually
+   close the file.
+
+   The QFile that is opened using this function is automatically set to
+   be in raw mode; this means that the file input/output functions are
+   slow. If you run into performance issues, you should try to use one of
+   the other open functions.
+
+   Warning: If fd is 0 (stdin), 1 (stdout), or 2 (stderr), you may not be
+   able to seek(). size() is set to LLONG_MAX (in <climits>).
+
+   See also close().
+
+  Permissions QFile::permissions () const
+
+   Returns the complete OR-ed together combination of QFile::Permission
+   for the file.
+
+   See also setPermissions() and setFileName().
+
+  Permissions QFile::permissions ( const QString & fileName )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the complete OR-ed together combination of QFile::Permission
+   for fileName.
+
+  QString QFile::readLink ( const QString & fileName )   [static]
+
+   Returns the filename referred to by the symlink (or shortcut on
+   Windows) specified by fileName, or returns an empty string if the
+   fileName does not correspond to a symbolic link.
+
+   This name may not represent an existing file; it is only a string.
+   QFile::exists() returns true if the symlink points to an existing
+   file.
+
+  QString QFile::readLink () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the name a symlink (or shortcut on Windows) points to, or a an
+   empty string if the object isn't a symbolic link.
+
+   This name may not represent an existing file; it is only a string.
+   QFie::exists() returns true if the symlink points to an existing file.
+
+   See also fileName() and setFileName().
+
+  bool QFile::remove ()
+
+   Removes the file specified by fileName(). Returns true if successful;
+   otherwise returns false.
+
+   The file is closed before it is removed.
+
+   See also setFileName().
+
+  bool QFile::remove ( const QString & fileName )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Removes the file specified by the fileName given.
+
+   Returns true if successful; otherwise returns false.
+
+   See also remove().
+
+  bool QFile::rename ( const QString & newName )
+
+   Renames the file currently specified by fileName() to newName. Returns
+   true if successful; otherwise returns false.
+
+   The file is closed before it is renamed.
+
+   See also setFileName().
+
+  bool QFile::rename ( const QString & oldName, const QString & newName )
+  [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Renames the file oldName to newName. Returns true if successful;
+   otherwise returns false.
+
+   See also rename().
+
+  bool QFile::resize ( qint64 sz )
+
+   Sets the file size (in bytes) sz. Returns true if the file if the
+   resize succeeds; false otherwise. If sz is larger than the file
+   currently is the new bytes will be set to 0, if sz is smaller the file
+   is simply truncated.
+
+   See also size() and setFileName().
+
+  bool QFile::resize ( const QString & fileName, qint64 sz )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Sets fileName to size (in bytes) sz. Returns true if the file if the
+   resize succeeds; false otherwise. If sz is larger than fileName
+   currently is the new bytes will be set to 0, if sz is smaller the file
+   is simply truncated.
+
+   See also resize().
+
+  void QFile::setDecodingFunction ( DecoderFn function )   [static]
+
+   Sets the function for decoding 8-bit file names. The default uses the
+   locale-specific 8-bit encoding.
+
+   Warning: This function is not reentrant.
+
+   See also setEncodingFunction() and decodeName().
+
+  void QFile::setEncodingFunction ( EncoderFn function )   [static]
+
+   Sets the function for encoding Unicode file names. The default encodes
+   in the locale-specific 8-bit encoding.
+
+   Warning: This function is not reentrant.
+
+   See also encodeName() and setDecodingFunction().
+
+  void QFile::setFileName ( const QString & name )
+
+   Sets the name of the file. The name can have no path, a relative path,
+   or an absolute absolute path.
+
+   Do not call this function if the file has already been opened.
+
+   If the file name has no path or a relative path, the path used will be
+   the application's current directory path at the time of the open()
+   call.
+
+   Example:
+    QFile file;
+    QDir::setCurrent("/tmp");
+    file.setFileName("readme.txt");
+    QDir::setCurrent("/home");
+    file.open(QIODevice::ReadOnly);      // opens "/home/readme.txt" under Unix
+
+   Note that the directory separator "/" works for all operating systems
+   supported by Qt.
+
+   See also fileName(), QFileInfo, and QDir.
+
+  bool QFile::setPermissions ( Permissions permissions )
+
+   Sets the permissions for the file to permissions.
+
+   See also permissions() and setFileName().
+
+  bool QFile::setPermissions ( const QString & fileName, Permissions
+  permissions )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Sets the permissions for fileName file to permissions.
+
+  void QFile::unsetError ()
+
+   Sets the file's error to QFile::NoError.
+
+   See also error().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

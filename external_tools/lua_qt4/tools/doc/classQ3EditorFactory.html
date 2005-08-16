@@ -1,0 +1,63 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3EditorFactory Class Reference
+
+   #include <q3editorfactory.h>
+
+   Inherits QObject.
+
+   Inherited by Q3SqlEditorFactory.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3EditorFactory (QObject *parent=0)
+     * ~Q3EditorFactory ()
+     * virtual QWidget * createEditor (QWidget *parent, const QVariant &v)
+
+Static Public Member Functions
+
+     * static Q3EditorFactory * defaultFactory ()
+     * static void installDefaultFactory (Q3EditorFactory *factory)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3EditorFactory::Q3EditorFactory (  QObject *  parent = 0  )
+
+
+
+   Q3EditorFactory::~Q3EditorFactory (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QWidget* Q3EditorFactory::createEditor (  QWidget *         parent,
+                                                     const QVariant &  v
+                                                  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlEditorFactory.
+
+   static Q3EditorFactory* Q3EditorFactory::defaultFactory (   )  [static]
+
+
+
+   Reimplemented in Q3SqlEditorFactory.
+
+   static void Q3EditorFactory::installDefaultFactory (  Q3EditorFactory *  factory  )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3editorfactory.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

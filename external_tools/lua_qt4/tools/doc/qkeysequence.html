@@ -1,0 +1,258 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QKeySequence Class Reference
+
+   The QKeySequence class encapsulates a key sequence as used by
+   shortcuts. More...
+#include <QKeySequence>
+
+   Part of the QtGui module.
+     * List of all members, including inherited members
+     * Obsolete members
+
+  Public Types
+
+     * enum SequenceMatch { NoMatch, PartialMatch, ExactMatch }
+
+  Public Functions
+
+     * QKeySequence ()
+     * QKeySequence ( const QString & key )
+     * QKeySequence ( int k1, int k2 = 0, int k3 = 0, int k4 = 0 )
+     * QKeySequence ( const QKeySequence & keysequence )
+     * ~QKeySequence ()
+     * uint count () const
+     * bool isEmpty () const
+     * SequenceMatch matches ( const QKeySequence & seq ) const
+     * operator QString () const
+     * operator QVariant () const
+     * bool operator!= ( const QKeySequence & other ) const
+     * bool operator< ( const QKeySequence & other ) const
+     * bool operator<= ( const QKeySequence & other ) const
+     * QKeySequence & operator= ( const QKeySequence & other )
+     * bool operator== ( const QKeySequence & other ) const
+     * bool operator> ( const QKeySequence & other ) const
+     * bool operator>= ( const QKeySequence & other ) const
+     * int operator[] ( uint index ) const
+
+  Static Public Members
+
+     * QKeySequence mnemonic ( const QString & text )
+
+  Related Non-Members
+
+     * QDataStream & operator<< ( QDataStream & stream, const
+       QKeySequence & sequence )
+     * QDataStream & operator>> ( QDataStream & stream, QKeySequence &
+       sequence )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QKeySequence class encapsulates a key sequence as used by
+   shortcuts.
+
+   A key sequence consists of up to four keyboard codes, each optionally
+   combined with modifiers, such as Qt::SHIFT, Qt::CTRL, Qt::ALT or
+   Qt::META. For example, Qt::CTRL + Qt::Key_P might be a sequence used
+   as a shortcut for printing a document. Valid codes for keys and
+   modifiers are listed in Qt::Key and Qt::Modifier. As an alternative,
+   use the unicode code point of the character; for example, 'A' gives
+   the same key sequence as Qt::Key_A.
+
+   Key sequences can be constructed either from an integer key code, or
+   from a human readable translatable string such as "Ctrl+X,Alt+Space".
+   A key sequence can be cast to a QString to obtain a human readable
+   translated version of the sequence. Translations are done in the
+   "QShortcut" context.
+
+   In code that does not inherit the Qt namespace class, you must include
+   the namespace when writing keycodes; for example, instead of
+   Qt::ALT+Qt::Key_Q you would write Qt::ALT+Qt::Key_Q.
+
+   See also QShortcut.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QKeySequence::SequenceMatch
+
+   Constant Value Description
+   QKeySequence::NoMatch 0 The key sequences are different; not even
+   partially matching.
+   QKeySequence::PartialMatch 1 The key sequences match partially, but
+   are not the same.
+   QKeySequence::ExactMatch 2 The key sequences are the same.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QKeySequence::QKeySequence ()
+
+   Constructs an empty key sequence.
+
+  QKeySequence::QKeySequence ( const QString & key )
+
+   Creates a key sequence from the key string. For example "Ctrl+O" gives
+   CTRL+'O'. The strings "Ctrl", "Shift", "Alt" and "Meta" are
+   recognized, as well as their translated equivalents in the "QShortcut"
+   context (using QObject::tr()).
+
+   Up to four key codes may be entered by separating them with commas,
+   e.g. "Alt+X,Ctrl+S,Q".
+
+   This contructor is typically used with tr(), so that shortcut keys can
+   be replaced in translations:
+    QMenu *file = new QMenu(this);
+    file->addAction(tr("&Open..."), this, SLOT(open()),
+                      QKeySequence(tr("Ctrl+O", "File|Open")));
+
+   Note the "File|Open" translator comment. It is by no means necessary,
+   but it provides some context for the human translator.
+
+  QKeySequence::QKeySequence ( int k1, int k2 = 0, int k3 = 0, int k4 = 0 )
+
+   Constructs a key sequence with up to 4 keys k1, k2, k3 and k4.
+
+   The key codes are listed in Qt::Key and can be combined with modifiers
+   (see Qt::Modifier) such as Qt::SHIFT, Qt::CTRL, Qt::ALT or Qt::META.
+
+  QKeySequence::QKeySequence ( const QKeySequence & keysequence )
+
+   Copy constructor. Makes a copy of keysequence.
+
+  QKeySequence::~QKeySequence ()
+
+   Destroys the key sequence.
+
+  uint QKeySequence::count () const
+
+   Returns the number of keys in the key sequence. The maximum is 4.
+
+  bool QKeySequence::isEmpty () const
+
+   Returns true if the key sequence is empty; otherwise returns false.
+
+  SequenceMatch QKeySequence::matches ( const QKeySequence & seq ) const
+
+   Matches the sequence with seq. Returns ExactMatch if successful,
+   PartialMatch if seq matches incompletely, and NoMatch if the sequences
+   have nothing in common. Returns NoMatch if seq is shorter.
+
+  QKeySequence QKeySequence::mnemonic ( const QString & text )   [static]
+
+   Returns the shortcut key sequence for the mnemonic in text, or an
+   empty key sequence if no mnemonics are found.
+
+   For example, mnemonic("E&amp;xit") returns Qt::ALT+Qt::Key_X,
+   mnemonic("&amp;Quit") returns ALT+Key_Q, and mnemonic("Quit") returns
+   an empty QKeySequence.
+
+   We provide a list of common mnemonics in English. At the time of
+   writing, Microsoft and Open Group do not appear to have issued
+   equivalent recommendations for other languages.
+
+  QKeySequence::operator QString () const
+
+   Creates a shortcut string for the key sequence.
+
+   For example, the value Qt::CTRL+Qt::Key_O results in "Ctrl+O". If the
+   key sequence has multiple key codes, each is separated by commas in
+   the string returned, such as "Alt+X, Ctrl+Y, Z". The strings, "Ctrl",
+   "Shift", etc. are translated using QObject::tr() in the "QShortcut"
+   scope.
+
+   If the key sequence has no keys, an empty string is returned.
+
+   On Mac OS X, the string returned resembles the sequence that is shown
+   in the menubar.
+
+  QKeySequence::operator QVariant () const
+
+   Returns the key sequence as a QVariant
+
+  bool QKeySequence::operator!= ( const QKeySequence & other ) const
+
+   Returns true if this key sequence is not equal to the other key
+   sequence; otherwise returns false.
+
+  bool QKeySequence::operator< ( const QKeySequence & other ) const
+
+   Provides an arbitrary comparison of this key sequence and other key
+   sequence. All that is guaranteed is that the operator returns false if
+   both key sequences are equal and that (ks1 < ks2) == !( ks2 < ks1) if
+   the key sequences are not equal.
+
+   This function is useful in some circumstances, for example if you want
+   to use QKeySequence objects as keys in a QMap.
+
+   See also operator==(), operator!=(), operator>(), operator<=(), and
+   operator>=().
+
+  bool QKeySequence::operator<= ( const QKeySequence & other ) const
+
+   Returns true if this key sequence is smaller or equal to the other key
+   sequence; otherwise returns false.
+
+   See also operator==(), operator!=(), operator<(), operator>(), and
+   operator>=().
+
+  QKeySequence & QKeySequence::operator= ( const QKeySequence & other )
+
+   Assignment operator. Assigns the other key sequence to this object.
+
+  bool QKeySequence::operator== ( const QKeySequence & other ) const
+
+   Returns true if this key sequence is equal to the other key sequence;
+   otherwise returns false.
+
+  bool QKeySequence::operator> ( const QKeySequence & other ) const
+
+   Returns true if this key sequence is larger than the other key
+   sequence; otherwise returns false.
+
+   See also operator==(), operator!=(), operator<(), operator<=(), and
+   operator>=().
+
+  bool QKeySequence::operator>= ( const QKeySequence & other ) const
+
+   Returns true if this key sequence is larger or equal to the other key
+   sequence; otherwise returns false.
+
+   See also operator==(), operator!=(), operator<(), operator>(), and
+   operator<=().
+
+  int QKeySequence::operator[] ( uint index ) const
+
+   Returns a reference to the element at position index in the key
+   sequence. This can only be used to read an element.
+     _________________________________________________________________
+
+Related Non-Members
+
+  QDataStream & operator<< ( QDataStream & stream, const QKeySequence &
+  sequence )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Writes the key sequence to the stream.
+
+   See also Format of the QDataStream operators.
+
+  QDataStream & operator>> ( QDataStream & stream, QKeySequence & sequence )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads a key sequence from the stream into the key sequence.
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,376 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTreeWidget Class Reference
+
+   #include <qtreewidget.h>
+
+   Inherits QTreeView.
+
+   List of all members.
+
+Public Slots
+
+     * void scrollToItem (const QTreeWidgetItem *item, ScrollHint hint=EnsureVisible)
+     * void expandItem (const QTreeWidgetItem *item)
+     * void collapseItem (const QTreeWidgetItem *item)
+     * void clear ()
+
+Signals
+
+     * void itemPressed (QTreeWidgetItem *item, int column)
+     * void itemClicked (QTreeWidgetItem *item, int column)
+     * void itemDoubleClicked (QTreeWidgetItem *item, int column)
+     * void itemActivated (QTreeWidgetItem *item, int column)
+     * void itemEntered (QTreeWidgetItem *item, int column)
+     * void itemChanged (QTreeWidgetItem *item, int column)
+     * void itemExpanded (QTreeWidgetItem *item)
+     * void itemCollapsed (QTreeWidgetItem *item)
+     * void currentItemChanged (QTreeWidgetItem *current, QTreeWidgetItem *previous)
+     * void itemSelectionChanged ()
+
+Public Member Functions
+
+     * QTreeWidget (QWidget *parent=0)
+     * ~QTreeWidget ()
+     * int columnCount () const
+     * void setColumnCount (int columns)
+     * QTreeWidgetItem * topLevelItem (int index) const
+     * int topLevelItemCount () const
+     * void insertTopLevelItem (int index, QTreeWidgetItem *item)
+     * void addTopLevelItem (QTreeWidgetItem *item)
+     * QTreeWidgetItem * takeTopLevelItem (int index)
+     * int indexOfTopLevelItem (QTreeWidgetItem *item)
+     * QTreeWidgetItem * headerItem () const
+     * void setHeaderItem (QTreeWidgetItem *item)
+     * void setHeaderLabels (const QStringList &labels)
+     * QTreeWidgetItem * currentItem () const
+     * void setCurrentItem (QTreeWidgetItem *item)
+     * QTreeWidgetItem * itemAt (const QPoint &p) const
+     * QTreeWidgetItem * itemAt (int x, int y) const
+     * QRect visualItemRect (const QTreeWidgetItem *item) const
+     * void sortItems (int column, Qt::SortOrder order)
+     * void setSortingEnabled (bool enable)
+     * bool isSortingEnabled () const
+     * void editItem (QTreeWidgetItem *item, int column=0)
+     * void openPersistentEditor (QTreeWidgetItem *item, int column=0)
+     * void closePersistentEditor (QTreeWidgetItem *item, int column=0)
+     * bool isItemSelected (const QTreeWidgetItem *item) const
+     * void setItemSelected (const QTreeWidgetItem *item, bool select)
+     * QList< QTreeWidgetItem * > selectedItems () const
+     * QList< QTreeWidgetItem * > findItems (const QString &text, Qt::MatchFlags flags, int column=0) const
+     * bool isItemHidden (const QTreeWidgetItem *item) const
+     * void setItemHidden (const QTreeWidgetItem *item, bool hide)
+     * bool isItemExpanded (const QTreeWidgetItem *item) const
+     * void setItemExpanded (const QTreeWidgetItem *item, bool expand)
+
+Protected Member Functions
+
+     * virtual QStringList mimeTypes () const
+     * virtual QMimeData * mimeData (const QList< QTreeWidgetItem * > items) const
+     * virtual bool dropMimeData (QTreeWidgetItem *parent, int index, const QMimeData *data, Qt::DropAction action)
+     * virtual Qt::DropActions supportedDropActions () const
+     * QList< QTreeWidgetItem * > items (const QMimeData *data) const
+     * QModelIndex indexFromItem (QTreeWidgetItem *item, int column=0) const
+     * QTreeWidgetItem * itemFromIndex (const QModelIndex &index) const
+
+Properties
+
+     * int columnCount
+     * bool sortingEnabled
+     * int topLevelItemCount
+
+Friends
+
+     * class QTreeModel
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTreeWidget::QTreeWidget (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QTreeWidget::~QTreeWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QTreeWidget::addTopLevelItem (  QTreeWidgetItem *  item  )
+
+
+
+   void QTreeWidget::clear (   )  [slot]
+
+
+
+   void QTreeWidget::closePersistentEditor (  QTreeWidgetItem *  item,
+                                              int                column = 0
+                                           )
+
+
+
+   void QTreeWidget::collapseItem (  const QTreeWidgetItem *  item  )  [slot]
+
+
+
+   int QTreeWidget::columnCount (   )  const
+
+
+
+   QTreeWidgetItem* QTreeWidget::currentItem (   )  const
+
+
+
+   void QTreeWidget::currentItemChanged (  QTreeWidgetItem *  current,
+                                           QTreeWidgetItem *  previous
+                                        )  [signal]
+
+
+
+   virtual bool QTreeWidget::dropMimeData (  QTreeWidgetItem *  parent,
+                                             int                index,
+                                             const QMimeData *  data,
+                                             Qt::DropAction     action
+                                          )  [protected, virtual]
+
+
+
+   void QTreeWidget::editItem (  QTreeWidgetItem *  item,
+                                 int                column = 0
+                              )
+
+
+
+   void QTreeWidget::expandItem (  const QTreeWidgetItem *  item  )  [slot]
+
+
+
+   QList<QTreeWidgetItem*> QTreeWidget::findItems (  const QString &  text,
+                                                     Qt::MatchFlags   flags,
+                                                     int              column = 0
+                                                  )  const
+
+
+
+   QTreeWidgetItem* QTreeWidget::headerItem (   )  const
+
+
+
+   QModelIndex QTreeWidget::indexFromItem (  QTreeWidgetItem *  item,
+                                             int                column = 0
+                                          )  const [protected]
+
+
+
+   int QTreeWidget::indexOfTopLevelItem (  QTreeWidgetItem *  item  )
+
+
+
+   void QTreeWidget::insertTopLevelItem (  int                index,
+                                           QTreeWidgetItem *  item
+                                        )
+
+
+
+   bool QTreeWidget::isItemExpanded (  const QTreeWidgetItem *  item  )  const
+
+
+
+   bool QTreeWidget::isItemHidden (  const QTreeWidgetItem *  item  )  const
+
+
+
+   bool QTreeWidget::isItemSelected (  const QTreeWidgetItem *  item  )  const
+
+
+
+   bool QTreeWidget::isSortingEnabled (   )  const
+
+
+
+   void QTreeWidget::itemActivated (  QTreeWidgetItem *  item,
+                                      int                column
+                                   )  [signal]
+
+
+
+   QTreeWidgetItem * QTreeWidget::itemAt (  int  x,
+                                            int  y
+                                         )  const [inline]
+
+
+
+   QTreeWidgetItem* QTreeWidget::itemAt (  const QPoint &  p  )  const
+
+
+
+   void QTreeWidget::itemChanged (  QTreeWidgetItem *  item,
+                                    int                column
+                                 )  [signal]
+
+
+
+   void QTreeWidget::itemClicked (  QTreeWidgetItem *  item,
+                                    int                column
+                                 )  [signal]
+
+
+
+   void QTreeWidget::itemCollapsed (  QTreeWidgetItem *  item  )  [signal]
+
+
+
+   void QTreeWidget::itemDoubleClicked (  QTreeWidgetItem *  item,
+                                          int                column
+                                       )  [signal]
+
+
+
+   void QTreeWidget::itemEntered (  QTreeWidgetItem *  item,
+                                    int                column
+                                 )  [signal]
+
+
+
+   void QTreeWidget::itemExpanded (  QTreeWidgetItem *  item  )  [signal]
+
+
+
+   QTreeWidgetItem* QTreeWidget::itemFromIndex (  const QModelIndex &  index  )  const [protected]
+
+
+
+   void QTreeWidget::itemPressed (  QTreeWidgetItem *  item,
+                                    int                column
+                                 )  [signal]
+
+
+
+   QList<QTreeWidgetItem*> QTreeWidget::items (  const QMimeData *  data  )  const [protected]
+
+
+
+   void QTreeWidget::itemSelectionChanged (   )  [signal]
+
+
+
+   virtual QMimeData* QTreeWidget::mimeData (  const QList< QTreeWidgetItem * >  items  )  const [protected, virtual]
+
+
+
+   virtual QStringList QTreeWidget::mimeTypes (   )  const [protected, virtual]
+
+
+
+   void QTreeWidget::openPersistentEditor (  QTreeWidgetItem *  item,
+                                             int                column = 0
+                                          )
+
+
+
+   void QTreeWidget::scrollToItem (  const QTreeWidgetItem *  item,
+                                     ScrollHint               hint = EnsureVisible
+                                  )  [slot]
+
+
+
+   QList<QTreeWidgetItem*> QTreeWidget::selectedItems (   )  const
+
+
+
+   void QTreeWidget::setColumnCount (  int  columns  )
+
+
+
+   void QTreeWidget::setCurrentItem (  QTreeWidgetItem *  item  )
+
+
+
+   void QTreeWidget::setHeaderItem (  QTreeWidgetItem *  item  )
+
+
+
+   void QTreeWidget::setHeaderLabels (  const QStringList &  labels  )
+
+
+
+   void QTreeWidget::setItemExpanded (  const QTreeWidgetItem *  item,
+                                        bool                     expand
+                                     )
+
+
+
+   void QTreeWidget::setItemHidden (  const QTreeWidgetItem *  item,
+                                      bool                     hide
+                                   )
+
+
+
+   void QTreeWidget::setItemSelected (  const QTreeWidgetItem *  item,
+                                        bool                     select
+                                     )
+
+
+
+   void QTreeWidget::setSortingEnabled (  bool  enable  )
+
+
+
+   void QTreeWidget::sortItems (  int            column,
+                                  Qt::SortOrder  order
+                               )
+
+
+
+   virtual Qt::DropActions QTreeWidget::supportedDropActions (   )  const [protected, virtual]
+
+
+
+   QTreeWidgetItem* QTreeWidget::takeTopLevelItem (  int  index  )
+
+
+
+   QTreeWidgetItem* QTreeWidget::topLevelItem (  int  index  )  const
+
+
+
+   int QTreeWidget::topLevelItemCount (   )  const
+
+
+
+   QRect QTreeWidget::visualItemRect (  const QTreeWidgetItem *  item  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTreeModel [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QTreeWidget::columnCount [read, write]
+
+
+
+   bool QTreeWidget::sortingEnabled [read, write]
+
+
+
+   int QTreeWidget::topLevelItemCount [read]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtreewidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,96 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3StyleSheet Class Reference
+
+   #include <q3stylesheet.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3StyleSheet (QObject *parent=0, const char *name=0)
+     * virtual ~Q3StyleSheet ()
+     * Q3StyleSheetItem * item (const QString &name)
+     * const Q3StyleSheetItem * item (const QString &name) const
+     * void insert (Q3StyleSheetItem *item)
+     * virtual void scaleFont (QFont &font, int logicalSize) const
+     * virtual void error (const QString &) const
+
+Static Public Member Functions
+
+     * static Q3StyleSheet * defaultSheet ()
+     * static void setDefaultSheet (Q3StyleSheet *)
+     * static QString escape (const QString &)
+     * static QString convertFromPlainText (const QString &, Q3StyleSheetItem::WhiteSpaceMode mode=Q3StyleSheetItem::WhiteSpacePre)
+     * static bool mightBeRichText (const QString &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3StyleSheet::Q3StyleSheet (  QObject *     parent = 0,
+                                 const char *  name = 0
+                              )
+
+
+
+   virtual Q3StyleSheet::~Q3StyleSheet (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static QString Q3StyleSheet::convertFromPlainText (  const QString &                   ,
+                                                        Q3StyleSheetItem::WhiteSpaceMode  mode = Q3StyleSheetItem::WhiteSpacePre
+                                                     )  [static]
+
+
+
+   static Q3StyleSheet* Q3StyleSheet::defaultSheet (   )  [static]
+
+
+
+   virtual void Q3StyleSheet::error (  const QString &   )  const [virtual]
+
+
+
+   static QString Q3StyleSheet::escape (  const QString &   )  [static]
+
+
+
+   void Q3StyleSheet::insert (  Q3StyleSheetItem *  item  )
+
+
+
+   const Q3StyleSheetItem* Q3StyleSheet::item (  const QString &  name  )  const
+
+
+
+   Q3StyleSheetItem* Q3StyleSheet::item (  const QString &  name  )
+
+
+
+   static bool Q3StyleSheet::mightBeRichText (  const QString &   )  [static]
+
+
+
+   virtual void Q3StyleSheet::scaleFont (  QFont &  font,
+                                           int      logicalSize
+                                        )  const [virtual]
+
+
+
+   static void Q3StyleSheet::setDefaultSheet (  Q3StyleSheet *   )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3stylesheet.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,142 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                 QSharedDataPointer< T > Class Template Reference
+
+   #include <qshareddata.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * void detach ()
+     * T & operator * ()
+     * const T & operator * () const
+     * T * operator-> ()
+     * const T * operator-> () const
+     * operator T * ()
+     * operator const T * () const
+     * T * data ()
+     * const T * data () const
+     * const T * constData () const
+     * bool operator== (const QSharedDataPointer< T > &other) const
+     * bool operator!= (const QSharedDataPointer< T > &other) const
+     * QSharedDataPointer ()
+     * ~QSharedDataPointer ()
+     * QSharedDataPointer (T *data)
+     * QSharedDataPointer (const QSharedDataPointer &o)
+     * QSharedDataPointer & operator= (const QSharedDataPointer &o)
+     * QSharedDataPointer & operator= (T *o)
+     * bool operator! () const
+
+  template<class T>
+  class QSharedDataPointer< T >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class T>
+   QSharedDataPointer< T >::QSharedDataPointer (   )  [inline]
+
+
+
+   template<class T>
+   QSharedDataPointer< T >::~QSharedDataPointer (   )  [inline]
+
+
+
+   template<class T>
+   Q_INLINE_TEMPLATE QSharedDataPointer< T >::QSharedDataPointer (  T *  data  )  [explicit]
+
+
+
+   template<class T>
+   QSharedDataPointer< T >::QSharedDataPointer (  const QSharedDataPointer< T > &  o  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class T>
+   const T* QSharedDataPointer< T >::constData (   )  const [inline]
+
+
+
+   template<class T>
+   const T* QSharedDataPointer< T >::data (   )  const [inline]
+
+
+
+   template<class T>
+   T* QSharedDataPointer< T >::data (   )  [inline]
+
+
+
+   template<class T>
+   void QSharedDataPointer< T >::detach (   )  [inline]
+
+
+
+   template<class T>
+   const T& QSharedDataPointer< T >::operator * (   )  const [inline]
+
+
+
+   template<class T>
+   T& QSharedDataPointer< T >::operator * (   )  [inline]
+
+
+
+   template<class T>
+   QSharedDataPointer< T >::operator const T * (   )  const [inline]
+
+
+
+   template<class T>
+   QSharedDataPointer< T >::operator T * (   )  [inline]
+
+
+
+   template<class T>
+   bool QSharedDataPointer< T >::operator! (   )  const [inline]
+
+
+
+   template<class T>
+   bool QSharedDataPointer< T >::operator!= (  const QSharedDataPointer< T > &  other  )  const [inline]
+
+
+
+   template<class T>
+   const T* QSharedDataPointer< T >::operator-> (   )  const [inline]
+
+
+
+   template<class T>
+   T* QSharedDataPointer< T >::operator-> (   )  [inline]
+
+
+
+   template<class T>
+   QSharedDataPointer& QSharedDataPointer< T >::operator= (  T *  o  )  [inline]
+
+
+
+   template<class T>
+   QSharedDataPointer& QSharedDataPointer< T >::operator= (  const QSharedDataPointer< T > &  o  )  [inline]
+
+
+
+   template<class T>
+   bool QSharedDataPointer< T >::operator== (  const QSharedDataPointer< T > &  other  )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qshareddata.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

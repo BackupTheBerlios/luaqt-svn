@@ -1,0 +1,333 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3CString Class Reference
+
+   #include <q3cstring.h>
+
+   Inherits QByteArray.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CString ()
+     * Q3CString (int size)
+     * Q3CString (const Q3CString &s)
+     * Q3CString (const QByteArray &ba)
+     * Q3CString (const char *str)
+     * Q3CString (const char *str, uint maxlen)
+     * Q3CString & operator= (const Q3CString &s)
+     * Q3CString & operator= (const char *str)
+     * Q3CString & operator= (const QByteArray &ba)
+     * Q3CString copy () const
+     * Q3CString & sprintf (const char *format,...)
+     * Q3CString left (uint len) const
+     * Q3CString right (uint len) const
+     * Q3CString mid (uint index, uint len=0xffffffff) const
+     * Q3CString leftJustify (uint width, char fill=' ', bool trunc=false) const
+     * Q3CString rightJustify (uint width, char fill=' ', bool trunc=false) const
+     * Q3CString lower () const
+     * Q3CString upper () const
+     * Q3CString stripWhiteSpace () const
+     * Q3CString simplifyWhiteSpace () const
+     * Q3CString & insert (uint index, const char *c)
+     * Q3CString & insert (uint index, char c)
+     * Q3CString & append (const char *c)
+     * Q3CString & prepend (const char *c)
+     * Q3CString & remove (uint index, uint len)
+     * Q3CString & replace (uint index, uint len, const char *c)
+     * Q3CString & replace (char c, const Q3CString &after)
+     * Q3CString & replace (char c, const char *after)
+     * Q3CString & replace (const Q3CString &b, const Q3CString &a)
+     * Q3CString & replace (const char *b, const char *a)
+     * Q3CString & replace (char b, char a)
+     * short toShort (bool *ok=0) const
+     * ushort toUShort (bool *ok=0) const
+     * int toInt (bool *ok=0) const
+     * uint toUInt (bool *ok=0) const
+     * long toLong (bool *ok=0) const
+     * ulong toULong (bool *ok=0) const
+     * float toFloat (bool *ok=0) const
+     * double toDouble (bool *ok=0) const
+     * Q3CString & setStr (const char *s)
+     * Q3CString & setNum (short)
+     * Q3CString & setNum (ushort)
+     * Q3CString & setNum (int)
+     * Q3CString & setNum (uint)
+     * Q3CString & setNum (long)
+     * Q3CString & setNum (ulong)
+     * Q3CString & setNum (float, char f='g', int prec=6)
+     * Q3CString & setNum (double, char f='g', int prec=6)
+     * bool setExpand (uint index, char c)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CString::Q3CString (   )  [inline]
+
+
+
+   Q3CString::Q3CString (  int  size  )  [inline]
+
+
+
+   Q3CString::Q3CString (  const Q3CString &  s  )  [inline]
+
+
+
+   Q3CString::Q3CString (  const QByteArray &  ba  )  [inline]
+
+
+
+   Q3CString::Q3CString (  const char *  str  )  [inline]
+
+
+
+   Q3CString::Q3CString (  const char *  str,
+                           uint          maxlen
+                        )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3CString& Q3CString::append (  const char *  c  )  [inline]
+
+
+
+   Reimplemented from QByteArray.
+
+   Q3CString Q3CString::copy (   )  const [inline]
+
+
+
+   Q3CString& Q3CString::insert (  uint  index,
+                                   char  c
+                                )  [inline]
+
+
+
+   Q3CString& Q3CString::insert (  uint          index,
+                                   const char *  c
+                                )  [inline]
+
+
+
+   Q3CString Q3CString::left (  uint  len  )  const [inline]
+
+
+
+   Q3CString Q3CString::leftJustify (  uint  width,
+                                       char  fill = ' ',
+                                       bool  trunc = false
+                                    )  const
+
+
+
+   Q3CString Q3CString::lower (   )  const [inline]
+
+
+
+   Q3CString Q3CString::mid (  uint  index,
+                               uint  len = 0xffffffff
+                            )  const [inline]
+
+
+
+   Q3CString& Q3CString::operator= (  const QByteArray &  ba  )  [inline]
+
+
+
+   Reimplemented from QByteArray.
+
+   Q3CString& Q3CString::operator= (  const char *  str  )  [inline]
+
+
+
+   Reimplemented from QByteArray.
+
+   Q3CString& Q3CString::operator= (  const Q3CString &  s  )  [inline]
+
+
+
+   Q3CString& Q3CString::prepend (  const char *  c  )  [inline]
+
+
+
+   Reimplemented from QByteArray.
+
+   Q3CString& Q3CString::remove (  uint  index,
+                                   uint  len
+                                )  [inline]
+
+
+
+   Q3CString& Q3CString::replace (  char  b,
+                                    char  a
+                                 )  [inline]
+
+
+
+   Reimplemented from QByteArray.
+
+   Q3CString& Q3CString::replace (  const char *  b,
+                                    const char *  a
+                                 )  [inline]
+
+
+
+   Reimplemented from QByteArray.
+
+   Q3CString& Q3CString::replace (  const Q3CString &  b,
+                                    const Q3CString &  a
+                                 )  [inline]
+
+
+
+   Q3CString& Q3CString::replace (  char          c,
+                                    const char *  after
+                                 )  [inline]
+
+
+
+   Reimplemented from QByteArray.
+
+   Q3CString& Q3CString::replace (  char               c,
+                                    const Q3CString &  after
+                                 )  [inline]
+
+
+
+   Q3CString& Q3CString::replace (  uint          index,
+                                    uint          len,
+                                    const char *  c
+                                 )  [inline]
+
+
+
+   Q3CString Q3CString::right (  uint  len  )  const [inline]
+
+
+
+   Q3CString Q3CString::rightJustify (  uint  width,
+                                        char  fill = ' ',
+                                        bool  trunc = false
+                                     )  const
+
+
+
+   bool Q3CString::setExpand (  uint  index,
+                                char  c
+                             )
+
+
+
+   Q3CString& Q3CString::setNum (  double  ,
+                                   char    f = 'g',
+                                   int     prec = 6
+                                )
+
+
+
+   Reimplemented from QByteArray.
+
+   Q3CString & Q3CString::setNum (  float  ,
+                                    char   f = 'g',
+                                    int    prec = 6
+                                 )  [inline]
+
+
+
+   Reimplemented from QByteArray.
+
+   Q3CString& Q3CString::setNum (  ulong   )
+
+
+
+   Q3CString& Q3CString::setNum (  long   )
+
+
+
+   Q3CString & Q3CString::setNum (  uint   )  [inline]
+
+
+
+   Q3CString & Q3CString::setNum (  int   )  [inline]
+
+
+
+   Q3CString & Q3CString::setNum (  ushort   )  [inline]
+
+
+
+   Q3CString & Q3CString::setNum (  short   )  [inline]
+
+
+
+   Q3CString& Q3CString::setStr (  const char *  s  )  [inline]
+
+
+
+   Q3CString Q3CString::simplifyWhiteSpace (   )  const [inline]
+
+
+
+   Q3CString& Q3CString::sprintf (  const char *  format,
+                                                  ...
+                                 )
+
+
+
+   Q3CString Q3CString::stripWhiteSpace (   )  const [inline]
+
+
+
+   double Q3CString::toDouble (  bool *  ok = 0  )  const
+
+
+
+   Reimplemented from QByteArray.
+
+   float Q3CString::toFloat (  bool *  ok = 0  )  const
+
+
+
+   Reimplemented from QByteArray.
+
+   int Q3CString::toInt (  bool *  ok = 0  )  const
+
+
+
+   long Q3CString::toLong (  bool *  ok = 0  )  const
+
+
+
+   short Q3CString::toShort (  bool *  ok = 0  )  const
+
+
+
+   uint Q3CString::toUInt (  bool *  ok = 0  )  const
+
+
+
+   ulong Q3CString::toULong (  bool *  ok = 0  )  const
+
+
+
+   ushort Q3CString::toUShort (  bool *  ok = 0  )  const
+
+
+
+   Q3CString Q3CString::upper (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3cstring.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

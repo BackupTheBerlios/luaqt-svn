@@ -1,0 +1,84 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    QDesignerIconCacheInterface Class Reference
+
+   #include <abstracticoncache.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Member Functions
+
+     * QDesignerIconCacheInterface (QObject *parent_)
+     * virtual QIcon nameToIcon (const QString &filePath, const QString &qrcPath=QString())=0
+     * virtual QPixmap nameToPixmap (const QString &filePath, const QString &qrcPath=QString())=0
+     * virtual QString iconToFilePath (const QIcon &pm) const =0
+     * virtual QString iconToQrcPath (const QIcon &pm) const =0
+     * virtual QString pixmapToFilePath (const QPixmap &pm) const =0
+     * virtual QString pixmapToQrcPath (const QPixmap &pm) const =0
+     * virtual QList< QPixmap > pixmapList () const =0
+     * virtual QList< QIcon > iconList () const =0
+     * virtual QString resolveQrcPath (const QString &filePath, const QString &qrcPath, const QString &workingDirectory=QString()) const =0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesignerIconCacheInterface::QDesignerIconCacheInterface (  QObject *  parent_  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QList<QIcon> QDesignerIconCacheInterface::iconList (   )  const [pure virtual]
+
+
+
+   virtual QString QDesignerIconCacheInterface::iconToFilePath (  const QIcon &  pm  )  const [pure virtual]
+
+
+
+   virtual QString QDesignerIconCacheInterface::iconToQrcPath (  const QIcon &  pm  )  const [pure virtual]
+
+
+
+   virtual QIcon QDesignerIconCacheInterface::nameToIcon (  const QString &  filePath,
+                                                            const QString &  qrcPath = QString()
+                                                         )  [pure virtual]
+
+
+
+   virtual QPixmap QDesignerIconCacheInterface::nameToPixmap (  const QString &  filePath,
+                                                                const QString &  qrcPath = QString()
+                                                             )  [pure virtual]
+
+
+
+   virtual QList<QPixmap> QDesignerIconCacheInterface::pixmapList (   )  const [pure virtual]
+
+
+
+   virtual QString QDesignerIconCacheInterface::pixmapToFilePath (  const QPixmap &  pm  )  const [pure virtual]
+
+
+
+   virtual QString QDesignerIconCacheInterface::pixmapToQrcPath (  const QPixmap &  pm  )  const [pure virtual]
+
+
+
+   virtual QString QDesignerIconCacheInterface::resolveQrcPath (  const QString &  filePath,
+                                                                  const QString &  qrcPath,
+                                                                  const QString &  workingDirectory = QString()
+                                                               )  const [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstracticoncache.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

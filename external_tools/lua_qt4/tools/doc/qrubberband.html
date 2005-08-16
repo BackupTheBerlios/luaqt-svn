@@ -1,0 +1,151 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QRubberBand Class Reference
+
+   The QRubberBand class provides a rectangle or line that can indicate a
+   selection or a boundary. More...
+#include <QRubberBand>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum Shape { Line, Rectangle }
+
+  Public Functions
+
+     * QRubberBand ( Shape s, QWidget * p = 0 )
+     * ~QRubberBand ()
+     * void move ( int x, int y )
+     * void move ( const QPoint & p )
+     * void resize ( int width, int height )
+     * void resize ( const QSize & size )
+     * void setGeometry ( const QRect & rect )
+     * void setGeometry ( int x, int y, int w, int h )
+     * Shape shape () const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Additional Inherited Members
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QRubberBand class provides a rectangle or line that can indicate a
+   selection or a boundary.
+
+   A rubber band is often used to show a new bounding area (as in a
+   QSplitter or a QDockWidget that is undocking). Historically this has
+   been implemented using a QPainter and XOR, but this approach doesn't
+   always work properly since rendering can happen in the window below
+   the rubber band, but before the rubber band has been "erased".
+
+   You can create a QRubberBand whenever you need to render a rubber band
+   around a given area (or to represent a single line), then call
+   setGeometry(), move() or resize() to position and size it; hiding (or
+   destroying) the widget will make the rubber band disappear. The rubber
+   band can be a Rectangle or a Line, depending on the shape() it was
+   given when constructed.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QRubberBand::Shape
+
+          Constant        Value
+   QRubberBand::Line        0
+   QRubberBand::Rectangle   1
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QRubberBand::QRubberBand ( Shape s, QWidget * p = 0 )
+
+   Constructs a rubber band of shape s, with parent p.
+
+   By default a rectangular QRubberBand (s is Rectangle) will be set to
+   auto mask, so that the boundary of the rectangle is all that is
+   visible. Some styles (for example native Mac OS X) will change this
+   and call QWidget::setWindowOpacity() to make the window only partially
+   opaque.
+
+  QRubberBand::~QRubberBand ()
+
+   Destructor.
+
+  void QRubberBand::move ( int x, int y )
+
+   Moves the rubberband to point (x, y).
+
+   See also resize().
+
+  void QRubberBand::move ( const QPoint & p )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Moves the rubberband to point p.
+
+   See also resize().
+
+  void QRubberBand::resize ( int width, int height )
+
+   Resizes the rubberband so that its width is width, and its height is
+   height.
+
+   See also move().
+
+  void QRubberBand::resize ( const QSize & size )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Resizes the rubberband so that its new size is size.
+
+   See also move().
+
+  void QRubberBand::setGeometry ( const QRect & rect )
+
+   Changes the rubberband's geometry to the geometry of the rectangle
+   rect.
+
+   See also move() and resize().
+
+  void QRubberBand::setGeometry ( int x, int y, int w, int h )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Changes the rubberband's geometry to have a top-left corner of (x, y),
+   a width of w, and a height of h.
+
+   See also move() and resize().
+
+  Shape QRubberBand::shape () const
+
+   Returns the shape of this rubber band. The shape can only be set upon
+   construction.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

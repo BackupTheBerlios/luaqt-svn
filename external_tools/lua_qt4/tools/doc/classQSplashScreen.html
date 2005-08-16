@@ -1,0 +1,108 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QSplashScreen Class Reference
+
+   #include <qsplashscreen.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Slots
+
+     * void showMessage (const QString &message, int alignment=Qt::AlignLeft, const QColor &color=Qt::black)
+     * void clearMessage ()
+
+Signals
+
+     * void messageChanged (const QString &message)
+
+Public Member Functions
+
+     * QSplashScreen (const QPixmap &pixmap=QPixmap(), Qt::WFlags f=0)
+     * QSplashScreen (QWidget *parent, const QPixmap &pixmap=QPixmap(), Qt::WFlags f=0)
+     * virtual ~QSplashScreen ()
+     * void setPixmap (const QPixmap &pixmap)
+     * const QPixmap pixmap () const
+     * void finish (QWidget *w)
+     * void repaint ()
+
+Protected Member Functions
+
+     * virtual void drawContents (QPainter *painter)
+     * void mousePressEvent (QMouseEvent *)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSplashScreen::QSplashScreen (  const QPixmap &  pixmap = QPixmap(),
+                                   Qt::WFlags       f = 0
+                                )  [explicit]
+
+
+
+   QSplashScreen::QSplashScreen (  QWidget *        parent,
+                                   const QPixmap &  pixmap = QPixmap(),
+                                   Qt::WFlags       f = 0
+                                )
+
+
+
+   virtual QSplashScreen::~QSplashScreen (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QSplashScreen::clearMessage (   )  [slot]
+
+
+
+   virtual void QSplashScreen::drawContents (  QPainter *  painter  )  [protected, virtual]
+
+
+
+   void QSplashScreen::finish (  QWidget *  w  )
+
+
+
+   void QSplashScreen::messageChanged (  const QString &  message  )  [signal]
+
+
+
+   void QSplashScreen::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   const QPixmap QSplashScreen::pixmap (   )  const
+
+
+
+   void QSplashScreen::repaint (   )
+
+
+
+   Reimplemented from QWidget.
+
+   void QSplashScreen::setPixmap (  const QPixmap &  pixmap  )
+
+
+
+   void QSplashScreen::showMessage (  const QString &  message,
+                                      int              alignment = Qt::AlignLeft,
+                                      const QColor &   color = Qt::black
+                                   )  [slot]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsplashscreen.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

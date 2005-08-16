@@ -1,0 +1,188 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3GCache Class Reference
+
+   #include <q3gcache.h>
+
+   Inherits Q3PtrCollection.
+
+   Inherited by Q3AsciiCache< type >, Q3Cache< type >, and Q3IntCache< type >.
+
+   List of all members.
+
+Protected Types
+
+     * enum KeyType { StringKey, AsciiKey, IntKey, PtrKey }
+
+Protected Member Functions
+
+     * Q3GCache (int maxCost, uint size, KeyType kt, bool caseSensitive, bool copyKeys)
+     * Q3GCache (const Q3GCache &)
+     * ~Q3GCache ()
+     * Q3GCache & operator= (const Q3GCache &)
+     * uint count () const
+     * uint size () const
+     * int maxCost () const
+     * int totalCost () const
+     * void setMaxCost (int maxCost)
+     * void clear ()
+     * bool insert_string (const QString &key, Q3PtrCollection::Item, int cost, int priority)
+     * bool insert_other (const char *key, Q3PtrCollection::Item, int cost, int priority)
+     * bool remove_string (const QString &key)
+     * bool remove_other (const char *key)
+     * Q3PtrCollection::Item take_string (const QString &key)
+     * Q3PtrCollection::Item take_other (const char *key)
+     * Q3PtrCollection::Item find_string (const QString &key, bool ref=true) const
+     * Q3PtrCollection::Item find_other (const char *key, bool ref=true) const
+     * void statistics () const
+
+Friends
+
+     * class Q3GCacheIterator
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3GCache::KeyType [protected]
+
+
+
+   Enumerator: 
+
+          StringKey
+          AsciiKey 
+          IntKey   
+          PtrKey   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3GCache::Q3GCache (  int      maxCost,
+                         uint     size,
+                         KeyType  kt,
+                         bool     caseSensitive,
+                         bool     copyKeys
+                      )  [protected]
+
+
+
+   Q3GCache::Q3GCache (  const Q3GCache &   )  [protected]
+
+
+
+   Q3GCache::~Q3GCache (   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3GCache::clear (   )  [protected, virtual]
+
+
+
+   Implements Q3PtrCollection.
+
+   Reimplemented in Q3AsciiCache< type >, Q3Cache< type >, and Q3IntCache< type >.
+
+   uint Q3GCache::count (   )  const [protected, virtual]
+
+
+
+   Implements Q3PtrCollection.
+
+   Reimplemented in Q3AsciiCache< type >, Q3Cache< type >, and Q3IntCache< type >.
+
+   Q3PtrCollection::Item Q3GCache::find_other (  const char *  key,
+                                                 bool          ref = true
+                                              )  const [protected]
+
+
+
+   Q3PtrCollection::Item Q3GCache::find_string (  const QString &  key,
+                                                  bool             ref = true
+                                               )  const [protected]
+
+
+
+   bool Q3GCache::insert_other (  const char *           key,
+                                  Q3PtrCollection::Item  ,
+                                  int                    cost,
+                                  int                    priority
+                               )  [protected]
+
+
+
+   bool Q3GCache::insert_string (  const QString &        key,
+                                   Q3PtrCollection::Item  ,
+                                   int                    cost,
+                                   int                    priority
+                                )  [protected]
+
+
+
+   int Q3GCache::maxCost (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3AsciiCache< type >, Q3Cache< type >, and Q3IntCache< type >.
+
+   Q3GCache& Q3GCache::operator= (  const Q3GCache &   )  [protected]
+
+
+
+   bool Q3GCache::remove_other (  const char *  key  )  [protected]
+
+
+
+   bool Q3GCache::remove_string (  const QString &  key  )  [protected]
+
+
+
+   void Q3GCache::setMaxCost (  int  maxCost  )  [protected]
+
+
+
+   Reimplemented in Q3AsciiCache< type >, Q3Cache< type >, and Q3IntCache< type >.
+
+   uint Q3GCache::size (   )  const [protected]
+
+
+
+   Reimplemented in Q3AsciiCache< type >, Q3Cache< type >, and Q3IntCache< type >.
+
+   void Q3GCache::statistics (   )  const [protected]
+
+
+
+   Reimplemented in Q3AsciiCache< type >, Q3Cache< type >, and Q3IntCache< type >.
+
+   Q3PtrCollection::Item Q3GCache::take_other (  const char *  key  )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GCache::take_string (  const QString &  key  )  [protected]
+
+
+
+   int Q3GCache::totalCost (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3AsciiCache< type >, Q3Cache< type >, and Q3IntCache< type >.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3GCacheIterator [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3gcache.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

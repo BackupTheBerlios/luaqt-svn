@@ -1,0 +1,97 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QFocusFrame Class Reference
+
+   The QFocusFrame widget provides a focus frame which can be outside of
+   a widget's normal paintable area. More...
+#include <QFocusFrame>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QFocusFrame ( QWidget * parent = 0 )
+     * ~QFocusFrame ()
+     * void setWidget ( QWidget * widget )
+     * QWidget * widget () const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Additional Inherited Members
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QFocusFrame widget provides a focus frame which can be outside of
+   a widget's normal paintable area.
+
+   Normally an application will not need to create its own QFocusFrame as
+   QStyle will handle this detail for you. A style writer can optionally
+   use a QFocusFrame to have a focus area outside of the widget's
+   paintable geometry. In this way space need not be reserved for the
+   widget to have focus but only set on a QWidget with
+   QFocusFrame::setWidget. It is, however, legal to create your own
+   QFocusFrame on a custom widget and set its geometry manually via
+   QWidget::setGeometry however you will not get auto-placement when the
+   focused widget changes size or placement.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QFocusFrame::QFocusFrame ( QWidget * parent = 0 )
+
+   Constructs a QFocusFrame.
+
+   The focus frame will not monitor parent for updates but rather can be
+   placed manually or by using QFocusFrame::setWidget. A QFocusFrame sets
+   Qt::WA_NoChildEventsForParent attribute; as a result the parent will
+   not receive a QEvent::ChildInserted event, this will make it possible
+   to manually set the geometry of the QFocusFrame inside of a QSplitter
+   or other child event monitoring widget.
+
+   See also QFocusFrame::setWidget().
+
+  QFocusFrame::~QFocusFrame ()
+
+   Destructor.
+
+  void QFocusFrame::setWidget ( QWidget * widget )
+
+   QFocusFrame will track changes to widget and resize itself
+   automatically. If the monitored widget's parent changes, QFocusFrame
+   will follow the widget and place itself around the widget
+   automatically. If the monitored widget is deleted, QFocusFrame will
+   set it to zero.
+
+   See also QFocusFrame::widget().
+
+  QWidget * QFocusFrame::widget () const
+
+   Returns the currently monitored widget for automatically resize and
+   update.
+
+   See also QFocusFrame::setWidget().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

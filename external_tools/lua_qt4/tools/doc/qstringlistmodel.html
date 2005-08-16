@@ -1,0 +1,182 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                      QStringListModel Class Reference
+
+   The QStringListModel class provides a model that supplies strings to
+   views. More...
+#include <QStringListModel>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractListModel.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QStringListModel ( QObject * parent = 0 )
+     * QStringListModel ( const QStringList & strings, QObject * parent =
+       0 )
+     * virtual QVariant data ( const QModelIndex & index, int role )
+       const
+     * virtual Qt::ItemFlags flags ( const QModelIndex & index ) const
+     * virtual bool insertRows ( int row, int count, const QModelIndex &
+       parent = QModelIndex() )
+     * virtual bool removeRows ( int row, int count, const QModelIndex &
+       parent = QModelIndex() )
+     * virtual int rowCount ( const QModelIndex & parent = QModelIndex()
+       ) const
+     * virtual bool setData ( const QModelIndex & index, const QVariant &
+       value, int role = Qt::EditRole )
+     * void setStringList ( const QStringList & strings )
+     * QStringList stringList () const
+
+     * 1 public function inherited from QAbstractListModel
+     * 32 public functions inherited from QAbstractItemModel
+     * 28 public functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 property inherited from QObject
+     * 2 public slots inherited from QAbstractItemModel
+     * 1 public slot inherited from QObject
+     * 3 signals inherited from QAbstractItemModel
+     * 1 signal inherited from QObject
+     * 4 static public members inherited from QObject
+     * 12 protected functions inherited from QAbstractItemModel
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QStringListModel class provides a model that supplies strings to
+   views.
+
+   QStringListModel is an editable model that can be used for simple
+   cases where you need to display a number of strings in a view widget,
+   such as a QListView or a QComboBox.
+
+   The model provides all the standard functions of an editable model,
+   representing the data in the string list as a model with one column
+   and a number of rows equal to the number of items in the list.
+
+   Model indexes corresponding to items are obtained with the index()
+   function, and item flags are obtained with flags(). Item data is read
+   with the data() function and written with setData(). The number of
+   rows (and number of items in the string list) can be found with the
+   rowCount() function.
+
+   The model can be constructed with an existing string list, or strings
+   can be set later with the setStringList() convenience function.
+   Strings can also be inserted in the usual way with the insertRows()
+   function, and removed with removeRows(). The contents of the string
+   list can be retrieved with the stringList() convenience function.
+
+   See also QAbstractListModel and QAbstractItemModel.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QStringListModel::QStringListModel ( QObject * parent = 0 )
+
+   Constructs a string list model with the given parent.
+
+  QStringListModel::QStringListModel ( const QStringList & strings, QObject *
+  parent = 0 )
+
+   Constructs a string list model containing the specified strings with
+   the given parent.
+
+  QVariant QStringListModel::data ( const QModelIndex & index, int role )
+  const   [virtual]
+
+   Returns data from the item with the given index for the specified
+   role.
+
+   If the view requests an invalid index, an invalid variant is returned.
+
+   Reimplemented from QAbstractItemModel.
+
+   See also setData().
+
+  Qt::ItemFlags QStringListModel::flags ( const QModelIndex & index ) const
+  [virtual]
+
+   Returns the flags for the item that corresponds to the given index.
+
+   Valid items are enabled, selectable, and editable.
+
+   Reimplemented from QAbstractItemModel.
+
+  bool QStringListModel::insertRows ( int row, int count, const QModelIndex &
+  parent = QModelIndex() )   [virtual]
+
+   Inserts count rows into the model beginning at the given row.
+
+   The parent index of the rows is optional and is only used for
+   consistency with QAbstractItemModel. By default, a null index is
+   specified, indicating that the rows are inserted in the top level of
+   the model.
+
+   Reimplemented from QAbstractItemModel.
+
+   See also QAbstractItemModel::insertRows().
+
+  bool QStringListModel::removeRows ( int row, int count, const QModelIndex &
+  parent = QModelIndex() )   [virtual]
+
+   Removes count rows from the model beginning at the given row.
+
+   The parent index of the rows is optional and is only used for
+   consistency with QAbstractItemModel. By default, a null index is
+   specified, indicating that the rows are removed in the top level of
+   the model.
+
+   Reimplemented from QAbstractItemModel.
+
+   See also QAbstractItemModel::removeRows().
+
+  int QStringListModel::rowCount ( const QModelIndex & parent = QModelIndex() )
+  const   [virtual]
+
+   Returns the number of rows in the model. This value corresponds to the
+   number of items in the model's internal string list.
+
+   The optional parent argument is used in most models to specify the
+   parent of the rows to be counted. In this model, the parent is
+   ignored.
+
+   Reimplemented from QAbstractItemModel.
+
+   See also insertRows(), removeRows(), and
+   QAbstractItemModel::rowCount().
+
+  bool QStringListModel::setData ( const QModelIndex & index, const QVariant &
+  value, int role = Qt::EditRole )   [virtual]
+
+   Sets the data for the item corresponding to the given index in the
+   model to the value for the specifed role.
+
+   The dataChanged() signal is emitted if the item is changed.
+
+   Reimplemented from QAbstractItemModel.
+
+   See also data().
+
+  void QStringListModel::setStringList ( const QStringList & strings )
+
+   Sets the model's internal string list to strings. The model will
+   notify any attached views that its underlying data has changed.
+
+   See also dataChanged().
+
+  QStringList QStringListModel::stringList () const
+
+   Returns the string list used by the model to store data.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,235 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QDateTime Class Reference
+
+   #include <qdatetime.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QDateTime ()
+     * QDateTime (const QDate &)
+     * QDateTime (const QDate &, const QTime &, Qt::TimeSpec spec=Qt::LocalTime)
+     * QDateTime (const QDateTime &other)
+     * ~QDateTime ()
+     * QDateTime & operator= (const QDateTime &other)
+     * bool isNull () const
+     * bool isValid () const
+     * QDate date () const
+     * QTime time () const
+     * Qt::TimeSpec timeSpec () const
+     * uint toTime_t () const
+     * void setDate (const QDate &date)
+     * void setTime (const QTime &time)
+     * void setTimeSpec (Qt::TimeSpec spec)
+     * void setTime_t (uint secsSince1Jan1970UTC)
+     * QString toString (Qt::DateFormat f=Qt::TextDate) const
+     * QString toString (const QString &format) const
+     * QDateTime addDays (int days) const
+     * QDateTime addMonths (int months) const
+     * QDateTime addYears (int years) const
+     * QDateTime addSecs (int secs) const
+     * QDateTime toTimeSpec (Qt::TimeSpec spec) const
+     * QDateTime toLocalTime () const
+     * QDateTime toUTC () const
+     * int daysTo (const QDateTime &) const
+     * int secsTo (const QDateTime &) const
+     * bool operator== (const QDateTime &other) const
+     * bool operator!= (const QDateTime &other) const
+     * bool operator< (const QDateTime &other) const
+     * bool operator<= (const QDateTime &other) const
+     * bool operator> (const QDateTime &other) const
+     * bool operator>= (const QDateTime &other) const
+
+Static Public Member Functions
+
+     * static QDateTime currentDateTime ()
+     * static QDateTime fromString (const QString &s, Qt::DateFormat f=Qt::TextDate)
+     * static QDateTime fromString (const QString &s, const QString &format)
+
+Friends
+
+     * Q_CORE_EXPORT QDataStream & operator<< (QDataStream &, const QDateTime &)
+     * Q_CORE_EXPORT QDataStream & operator>> (QDataStream &, QDateTime &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDateTime::QDateTime (   )
+
+
+
+   QDateTime::QDateTime (  const QDate &   )  [explicit]
+
+
+
+   QDateTime::QDateTime (  const QDate &  ,
+                           const QTime &  ,
+                           Qt::TimeSpec   spec = Qt::LocalTime
+                        )
+
+
+
+   QDateTime::QDateTime (  const QDateTime &  other  )
+
+
+
+   QDateTime::~QDateTime (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QDateTime QDateTime::addDays (  int  days  )  const
+
+
+
+   QDateTime QDateTime::addMonths (  int  months  )  const
+
+
+
+   QDateTime QDateTime::addSecs (  int  secs  )  const
+
+
+
+   QDateTime QDateTime::addYears (  int  years  )  const
+
+
+
+   static QDateTime QDateTime::currentDateTime (   )  [static]
+
+
+
+   QDate QDateTime::date (   )  const
+
+
+
+   int QDateTime::daysTo (  const QDateTime &   )  const
+
+
+
+   static QDateTime QDateTime::fromString (  const QString &  s,
+                                             const QString &  format
+                                          )  [static]
+
+
+
+   static QDateTime QDateTime::fromString (  const QString &  s,
+                                             Qt::DateFormat   f = Qt::TextDate
+                                          )  [static]
+
+
+
+   bool QDateTime::isNull (   )  const
+
+
+
+   bool QDateTime::isValid (   )  const
+
+
+
+   bool QDateTime::operator!= (  const QDateTime &  other  )  const [inline]
+
+
+
+   bool QDateTime::operator< (  const QDateTime &  other  )  const
+
+
+
+   bool QDateTime::operator<= (  const QDateTime &  other  )  const [inline]
+
+
+
+   QDateTime& QDateTime::operator= (  const QDateTime &  other  )
+
+
+
+   bool QDateTime::operator== (  const QDateTime &  other  )  const
+
+
+
+   bool QDateTime::operator> (  const QDateTime &  other  )  const [inline]
+
+
+
+   bool QDateTime::operator>= (  const QDateTime &  other  )  const [inline]
+
+
+
+   int QDateTime::secsTo (  const QDateTime &   )  const
+
+
+
+   void QDateTime::setDate (  const QDate &  date  )
+
+
+
+   void QDateTime::setTime (  const QTime &  time  )
+
+
+
+   void QDateTime::setTime_t (  uint  secsSince1Jan1970UTC  )
+
+
+
+   void QDateTime::setTimeSpec (  Qt::TimeSpec  spec  )
+
+
+
+   QTime QDateTime::time (   )  const
+
+
+
+   Qt::TimeSpec QDateTime::timeSpec (   )  const
+
+
+
+   QDateTime QDateTime::toLocalTime (   )  const [inline]
+
+
+
+   QString QDateTime::toString (  const QString &  format  )  const
+
+
+
+   QString QDateTime::toString (  Qt::DateFormat  f = Qt::TextDate  )  const
+
+
+
+   uint QDateTime::toTime_t (   )  const
+
+
+
+   QDateTime QDateTime::toTimeSpec (  Qt::TimeSpec  spec  )  const
+
+
+
+   QDateTime QDateTime::toUTC (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_CORE_EXPORT QDataStream& operator<< (  QDataStream &      ,
+                                            const QDateTime &
+                                         )  [friend]
+
+
+
+   Q_CORE_EXPORT QDataStream& operator>> (  QDataStream &  ,
+                                            QDateTime &  
+                                         )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdatetime.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

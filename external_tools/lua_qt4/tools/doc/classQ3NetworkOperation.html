@@ -1,0 +1,125 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        Q3NetworkOperation Class Reference
+
+   #include <q3networkprotocol.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3NetworkOperation (Q3NetworkProtocol::Operation operation, const QString &arg0, const QString &arg1, const QString &arg2)
+     * Q3NetworkOperation (Q3NetworkProtocol::Operation operation, const QByteArray &arg0, const QByteArray &arg1, const QByteArray &arg2)
+     * ~Q3NetworkOperation ()
+     * void setState (Q3NetworkProtocol::State state)
+     * void setProtocolDetail (const QString &detail)
+     * void setErrorCode (int ec)
+     * void setArg (int num, const QString &arg)
+     * void setRawArg (int num, const QByteArray &arg)
+     * Q3NetworkProtocol::Operation operation () const
+     * Q3NetworkProtocol::State state () const
+     * QString arg (int num) const
+     * QByteArray rawArg (int num) const
+     * QString protocolDetail () const
+     * int errorCode () const
+     * void free ()
+
+Friends
+
+     * class Q3UrlOperator
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3NetworkOperation::Q3NetworkOperation (  Q3NetworkProtocol::Operation  operation,
+                                             const QString &               arg0,
+                                             const QString &               arg1,
+                                             const QString &               arg2
+                                          )
+
+
+
+   Q3NetworkOperation::Q3NetworkOperation (  Q3NetworkProtocol::Operation  operation,
+                                             const QByteArray &            arg0,
+                                             const QByteArray &            arg1,
+                                             const QByteArray &            arg2
+                                          )
+
+
+
+   Q3NetworkOperation::~Q3NetworkOperation (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString Q3NetworkOperation::arg (  int  num  )  const
+
+
+
+   int Q3NetworkOperation::errorCode (   )  const
+
+
+
+   void Q3NetworkOperation::free (   )
+
+
+
+   Q3NetworkProtocol::Operation Q3NetworkOperation::operation (   )  const
+
+
+
+   QString Q3NetworkOperation::protocolDetail (   )  const
+
+
+
+   QByteArray Q3NetworkOperation::rawArg (  int  num  )  const
+
+
+
+   void Q3NetworkOperation::setArg (  int              num,
+                                      const QString &  arg
+                                   )
+
+
+
+   void Q3NetworkOperation::setErrorCode (  int  ec  )
+
+
+
+   void Q3NetworkOperation::setProtocolDetail (  const QString &  detail  )
+
+
+
+   void Q3NetworkOperation::setRawArg (  int                 num,
+                                         const QByteArray &  arg
+                                      )
+
+
+
+   void Q3NetworkOperation::setState (  Q3NetworkProtocol::State  state  )
+
+
+
+   Q3NetworkProtocol::State Q3NetworkOperation::state (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3UrlOperator [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3networkprotocol.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,265 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QProgressDialog Class Reference
+
+   #include <qprogressdialog.h>
+
+   Inherits QDialog.
+
+   List of all members.
+
+Public Slots
+
+     * void cancel ()
+     * void reset ()
+     * void setMaximum (int maximum)
+     * void setMinimum (int minimum)
+     * void setValue (int progress)
+     * void setLabelText (const QString &)
+     * void setCancelButtonText (const QString &)
+     * void setMinimumDuration (int ms)
+
+Signals
+
+     * void canceled ()
+
+Public Member Functions
+
+     * QProgressDialog (QWidget *parent=0, Qt::WFlags f=0)
+     * QProgressDialog (const QString &labelText, const QString &cancelButtonText, int minimum, int maximum, QWidget *parent=0, Qt::WFlags f=0)
+     * ~QProgressDialog ()
+     * void setLabel (QLabel *label)
+     * void setCancelButton (QPushButton *button)
+     * void setBar (QProgressBar *bar)
+     * bool wasCanceled () const
+     * int minimum () const
+     * int maximum () const
+     * void setRange (int minimum, int maximum)
+     * int value () const
+     * QSize sizeHint () const
+     * QString labelText () const
+     * int minimumDuration () const
+     * void setAutoReset (bool b)
+     * bool autoReset () const
+     * void setAutoClose (bool b)
+     * bool autoClose () const
+
+Protected Slots
+
+     * void forceShow ()
+
+Protected Member Functions
+
+     * void resizeEvent (QResizeEvent *)
+     * void closeEvent (QCloseEvent *)
+     * void changeEvent (QEvent *)
+     * void showEvent (QShowEvent *e)
+
+Properties
+
+     * bool wasCanceled
+     * int minimum
+     * int maximum
+     * int value
+     * bool autoReset
+     * bool autoClose
+     * int minimumDuration
+     * QString labelText
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QProgressDialog::QProgressDialog (  QWidget *   parent = 0,
+                                       Qt::WFlags  f = 0
+                                    )  [explicit]
+
+
+
+   QProgressDialog::QProgressDialog (  const QString &  labelText,
+                                       const QString &  cancelButtonText,
+                                       int              minimum,
+                                       int              maximum,
+                                       QWidget *        parent = 0,
+                                       Qt::WFlags       f = 0
+                                    )
+
+
+
+   QProgressDialog::~QProgressDialog (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QProgressDialog::autoClose (   )  const
+
+
+
+   bool QProgressDialog::autoReset (   )  const
+
+
+
+   void QProgressDialog::cancel (   )  [slot]
+
+
+
+   void QProgressDialog::canceled (   )  [signal]
+
+
+
+   void QProgressDialog::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QProgressDialog::closeEvent (  QCloseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   void QProgressDialog::forceShow (   )  [protected, slot]
+
+
+
+   QString QProgressDialog::labelText (   )  const
+
+
+
+   int QProgressDialog::maximum (   )  const
+
+
+
+   int QProgressDialog::minimum (   )  const
+
+
+
+   int QProgressDialog::minimumDuration (   )  const
+
+
+
+   void QProgressDialog::reset (   )  [slot]
+
+
+
+   void QProgressDialog::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   void QProgressDialog::setAutoClose (  bool  b  )
+
+
+
+   void QProgressDialog::setAutoReset (  bool  b  )
+
+
+
+   void QProgressDialog::setBar (  QProgressBar *  bar  )
+
+
+
+   void QProgressDialog::setCancelButton (  QPushButton *  button  )
+
+
+
+   void QProgressDialog::setCancelButtonText (  const QString &   )  [slot]
+
+
+
+   void QProgressDialog::setLabel (  QLabel *  label  )
+
+
+
+   void QProgressDialog::setLabelText (  const QString &   )  [slot]
+
+
+
+   void QProgressDialog::setMaximum (  int  maximum  )  [slot]
+
+
+
+   void QProgressDialog::setMinimum (  int  minimum  )  [slot]
+
+
+
+   void QProgressDialog::setMinimumDuration (  int  ms  )  [slot]
+
+
+
+   void QProgressDialog::setRange (  int  minimum,
+                                     int  maximum
+                                  )
+
+
+
+   void QProgressDialog::setValue (  int  progress  )  [slot]
+
+
+
+   void QProgressDialog::showEvent (  QShowEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   QSize QProgressDialog::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   int QProgressDialog::value (   )  const
+
+
+
+   bool QProgressDialog::wasCanceled (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QProgressDialog::autoClose [read, write]
+
+
+
+   bool QProgressDialog::autoReset [read, write]
+
+
+
+   QString QProgressDialog::labelText [read, write]
+
+
+
+   int QProgressDialog::maximum [read, write]
+
+
+
+   int QProgressDialog::minimum [read, write]
+
+
+
+   int QProgressDialog::minimumDuration [read, write]
+
+
+
+   int QProgressDialog::value [read, write]
+
+
+
+   bool QProgressDialog::wasCanceled [read]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qprogressdialog.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

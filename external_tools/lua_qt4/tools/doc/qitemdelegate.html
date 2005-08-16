@@ -1,0 +1,207 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                       QItemDelegate Class Reference
+
+   The QItemDelegate class provides display and editing facilities for
+   data items from a model. More...
+#include <QItemDelegate>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractItemDelegate.
+
+   Inherited by QSqlRelationalDelegate.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QItemDelegate ( QObject * parent = 0 )
+     * ~QItemDelegate ()
+     * virtual QWidget * createEditor ( QWidget * parent, const
+       QStyleOptionViewItem & option, const QModelIndex & index ) const
+     * QItemEditorFactory * itemEditorFactory () const
+     * virtual void paint ( QPainter * painter, const
+       QStyleOptionViewItem & option, const QModelIndex & index ) const
+     * virtual void setEditorData ( QWidget * editor, const QModelIndex &
+       index ) const
+     * void setItemEditorFactory ( QItemEditorFactory * factory )
+     * virtual void setModelData ( QWidget * editor, QAbstractItemModel *
+       model, const QModelIndex & index ) const
+     * virtual QSize sizeHint ( const QStyleOptionViewItem & option,
+       const QModelIndex & index ) const
+     * virtual void updateEditorGeometry ( QWidget * editor, const
+       QStyleOptionViewItem & option, const QModelIndex & index ) const
+
+     * 7 public functions inherited from QAbstractItemDelegate
+     * 28 public functions inherited from QObject
+
+  Protected Functions
+
+     * virtual void drawCheck ( QPainter * painter, const
+       QStyleOptionViewItem & option, const QRect & rect, Qt::CheckState
+       state ) const
+     * virtual void drawDecoration ( QPainter * painter, const
+       QStyleOptionViewItem & option, const QRect & rect, const QPixmap &
+       pixmap ) const
+     * virtual void drawDisplay ( QPainter * painter, const
+       QStyleOptionViewItem & option, const QRect & rect, const QString &
+       text ) const
+     * virtual void drawFocus ( QPainter * painter, const
+       QStyleOptionViewItem & option, const QRect & rect ) const
+
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 property inherited from QObject
+     * 1 public slot inherited from QObject
+     * 2 signals inherited from QAbstractItemDelegate
+     * 1 signal inherited from QObject
+     * 1 static public member inherited from QAbstractItemDelegate
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QItemDelegate class provides display and editing facilities for
+   data items from a model.
+
+   A QItemDelegate can be used to provide an editor for an item view
+   class that is subclassed from QAbstractItemView. Using a delegate for
+   this purpose allows the editing mechanism to be customized and
+   developed independently from the model and view.
+
+   The QItemDelegate class is one of the Model/View Classes and is part
+   of Qt's model/view framework.
+
+   Delegates can be used to manipulate data in two complementary ways: by
+   processing events in the normal manner, or by implementing a custom
+   editor widget. The item delegate takes the approach of providing a
+   widget for editing purposes that can be supplied to
+   QAbstractItemView::setDelegate() or the equivalent function in
+   subclasses of QAbstractItemView.
+
+   This class demonstrates how to implement the functions for painting
+   the delegate, and editing data from the model. The paint() and
+   sizeHint() virtual functions defined in QAbstractItemDelegate are
+   implemented to ensure that the delegate is presented correctly. Only
+   the standard editing functions for widget-based delegates are
+   reimplemented here: editor() returns the widget used to change data
+   from the model; setEditorData() provides the widget with data to
+   manipulate; updateEditorGeometry() ensures that the editor is
+   displayed correctly with respect to the item view; setModelData()
+   returns the updated data to the model; releaseEditor() indicates that
+   the user has completed editing the data, and that the editor widget
+   can be destroyed.
+
+   See also Model/View Programming and QAbstractItemDelegate.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QItemDelegate::QItemDelegate ( QObject * parent = 0 )
+
+   Constructs an item delegate with the given parent.
+
+  QItemDelegate::~QItemDelegate ()
+
+   Destroys the item delegate.
+
+  QWidget * QItemDelegate::createEditor ( QWidget * parent, const
+  QStyleOptionViewItem & option, const QModelIndex & index ) const   [virtual]
+
+   Returns the widget used to edit the item specified by index for
+   editing. The parent widget and style option are used to control how
+   the editor widget appears.
+
+   Reimplemented from QAbstractItemDelegate.
+
+   See also QAbstractItemDelegate::createEditor().
+
+  void QItemDelegate::drawCheck ( QPainter * painter, const
+  QStyleOptionViewItem & option, const QRect & rect, Qt::CheckState state )
+  const   [virtual protected]
+
+   Renders a check indicator within the rectangle specified by rect,
+   using the given painter and style option, using the given state.
+
+  void QItemDelegate::drawDecoration ( QPainter * painter, const
+  QStyleOptionViewItem & option, const QRect & rect, const QPixmap & pixmap )
+  const   [virtual protected]
+
+   Renders the decoration pixmap within the rectangle specified by rect
+   using the given painter and style option.
+
+  void QItemDelegate::drawDisplay ( QPainter * painter, const
+  QStyleOptionViewItem & option, const QRect & rect, const QString & text )
+  const   [virtual protected]
+
+   Renders the item view text within the rectangle specified by rect
+   using the given painter and style option.
+
+  void QItemDelegate::drawFocus ( QPainter * painter, const
+  QStyleOptionViewItem & option, const QRect & rect ) const   [virtual
+  protected]
+
+   Renders the region within the rectangle specified by rect, indicating
+   that it has the focus, using the given painter and style option.
+
+  QItemEditorFactory * QItemDelegate::itemEditorFactory () const
+
+   Returns the editor factory used by the item delegate. If no editor
+   factory is set, the function will return null.
+
+  void QItemDelegate::paint ( QPainter * painter, const QStyleOptionViewItem &
+  option, const QModelIndex & index ) const   [virtual]
+
+   Renders the delegate using the given painter and style option for the
+   item specified by index.
+
+   Reimplemented from QAbstractItemDelegate.
+
+  void QItemDelegate::setEditorData ( QWidget * editor, const QModelIndex &
+  index ) const   [virtual]
+
+   Sets the data to be displayed and edited by the editor for the item
+   specified by index.
+
+   Reimplemented from QAbstractItemDelegate.
+
+  void QItemDelegate::setItemEditorFactory ( QItemEditorFactory * factory )
+
+   Sets the editor factory to be used by the item delegate to be the
+   factory specified. If no editor factory is set, the item delegate will
+   use the default editor factory.
+
+  void QItemDelegate::setModelData ( QWidget * editor, QAbstractItemModel *
+  model, const QModelIndex & index ) const   [virtual]
+
+   Sets the data for the specified model and item index from that
+   supplied by the editor.
+
+   Reimplemented from QAbstractItemDelegate.
+
+  QSize QItemDelegate::sizeHint ( const QStyleOptionViewItem & option, const
+  QModelIndex & index ) const   [virtual]
+
+   Returns the size needed by the delegate to display the item specified
+   by index, taking into account the style information provided by
+   option.
+
+   Reimplemented from QAbstractItemDelegate.
+
+  void QItemDelegate::updateEditorGeometry ( QWidget * editor, const
+  QStyleOptionViewItem & option, const QModelIndex & index ) const   [virtual]
+
+   Updates the editor for the item specified by index according to the
+   style option given.
+
+   Reimplemented from QAbstractItemDelegate.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

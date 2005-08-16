@@ -1,0 +1,81 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                     QDesignerDnDItemInterface Class Reference
+
+   #include <abstractdnditem.h>
+
+   List of all members.
+
+Public Types
+
+     * enum DropType { MoveDrop, CopyDrop }
+
+Public Member Functions
+
+     * QDesignerDnDItemInterface ()
+     * virtual ~QDesignerDnDItemInterface ()
+     * virtual DomUI * domUi () const =0
+     * virtual QWidget * widget () const =0
+     * virtual QWidget * decoration () const =0
+     * virtual QPoint hotSpot () const =0
+     * virtual DropType type () const =0
+     * virtual QWidget * source () const =0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDesignerDnDItemInterface::DropType
+
+
+
+   Enumerator: 
+
+          MoveDrop
+          CopyDrop
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesignerDnDItemInterface::QDesignerDnDItemInterface (   )  [inline]
+
+
+
+   virtual QDesignerDnDItemInterface::~QDesignerDnDItemInterface (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QWidget* QDesignerDnDItemInterface::decoration (   )  const [pure virtual]
+
+
+
+   virtual DomUI* QDesignerDnDItemInterface::domUi (   )  const [pure virtual]
+
+
+
+   virtual QPoint QDesignerDnDItemInterface::hotSpot (   )  const [pure virtual]
+
+
+
+   virtual QWidget* QDesignerDnDItemInterface::source (   )  const [pure virtual]
+
+
+
+   virtual DropType QDesignerDnDItemInterface::type (   )  const [pure virtual]
+
+
+
+   virtual QWidget* QDesignerDnDItemInterface::widget (   )  const [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractdnditem.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,547 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QLinkedList Class Reference
+
+   The QLinkedList class is a template class that provides linked lists.
+   More...
+#include <QLinkedList>
+
+   Part of the QtCore module.
+
+   Inherited by Q3ValueList.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * class const_iterator
+     * class iterator
+     * typedef ConstIterator
+     * typedef Iterator
+     * typedef const_pointer
+     * typedef const_reference
+     * typedef pointer
+     * typedef reference
+     * typedef size_type
+     * typedef value_type
+
+  Public Functions
+
+     * QLinkedList ()
+     * QLinkedList ( const QLinkedList & other )
+     * ~QLinkedList ()
+     * void append ( const T & value )
+     * T & back ()
+     * const T & back () const
+     * iterator begin ()
+     * const_iterator begin () const
+     * void clear ()
+     * const_iterator constBegin () const
+     * const_iterator constEnd () const
+     * bool contains ( const T & value ) const
+     * int count ( const T & value ) const
+     * int count () const
+     * bool empty () const
+     * iterator end ()
+     * const_iterator end () const
+     * iterator erase ( iterator pos )
+     * iterator erase ( iterator begin, iterator end )
+     * T & first ()
+     * const T & first () const
+     * T & front ()
+     * const T & front () const
+     * iterator insert ( iterator before, const T & value )
+     * bool isEmpty () const
+     * T & last ()
+     * const T & last () const
+     * void pop_back ()
+     * void pop_front ()
+     * void prepend ( const T & value )
+     * void push_back ( const T & value )
+     * void push_front ( const T & value )
+     * int removeAll ( const T & value )
+     * void removeFirst ()
+     * void removeLast ()
+     * int size () const
+     * T takeFirst ()
+     * T takeLast ()
+     * bool operator!= ( const QLinkedList & other ) const
+     * QLinkedList operator+ ( const QLinkedList & other ) const
+     * QLinkedList & operator+= ( const QLinkedList & other )
+     * QLinkedList & operator+= ( const T & value )
+     * QLinkedList & operator<< ( const QLinkedList & other )
+     * QLinkedList & operator<< ( const T & value )
+     * QLinkedList<T> & operator= ( const QLinkedList & other )
+     * bool operator== ( const QLinkedList & other ) const
+
+  Related Non-Members
+
+     * QDataStream & operator<< ( QDataStream & out, const QLinkedList<T>
+       & list )
+     * QDataStream & operator>> ( QDataStream & in, QLinkedList<T> & list
+       )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QLinkedList class is a template class that provides linked lists.
+
+   QLinkedList<T> is one of Qt's generic container classes. It stores a
+   list of values and provides iterator-based access as well as constant
+   time insertions and removals.
+
+   QList<T>, QLinkedList<T>, and QVector<T> provide similar
+   functionality. Here's an overview:
+     * For most purposes, QList is the right class to use. Its
+       index-based API is more convenient than QLinkedList's
+       iterator-based API, and it is usually faster than QVector because
+       of the way it stores its items in memory. It also expands to less
+       code in your executable.
+     * If you need a real linked list, with guarantees of constant time
+       insertions in the middle of the list and iterators to items rather
+       than indexes, use QLinkedList.
+     * If you want the items to occupy adjacent memory positions, use
+       QVector.
+
+   Here's an example of a QLinkedList that stores integers and a
+   QLinkedList that stores QTime values:
+    QLinkedList<int> integerList;
+    QLinkedList<QTime> timeList;
+
+   QLinkedList stores a list of items. The default constructor creates an
+   empty list. To insert items into the list, you can use operator<<():
+    QLinkedList<QString> list;
+    list << "one" << "two" << "three";
+    // list: ["one", "two", "three"]
+
+   If you want to get the first or last item in a linked list, use
+   first() or last(). If you want to remove an item from either end of
+   the list, use removeFirst() or removeLast(). If you want to remove all
+   occurrences of a given value in the list, use removeAll().
+
+   A common requirement is to remove the first or last item in the list
+   and do something with it. For this, QLinkedList provides takeFirst()
+   and takeLast(). Here's a loop that removes the items from a list one
+   at a time and calls delete on them:
+    QLinkedList<QWidget *> list;
+    ...
+    while (!list.isEmpty())
+        delete list.takeFirst();
+
+   QLinkedList's value type must be an assignable data type. This covers
+   most data types that are commonly used, but the compiler won't let
+   you, for example, store a QWidget as a value; instead, store a QWidget
+   *. A few functions have additional requirements; for example,
+   contains() and removeAll() expect the value type to support
+   operator==(). These requirements are documented on a per-function
+   basis.
+
+   If you want to insert, modify, or remove items in the middle of the
+   list, you must use an iterator. QLinkedList provides both Java-style
+   iterators (QLinkedListIterator and QMutableLinkedListIterator) and
+   STL-style iterators (QLinkedList::const_iterator and
+   QLinkedList::iterator). See the documentation for these classes for
+   details.
+
+   See also QListIterator, QMutableListIterator, QList, and QVector.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  typedef QLinkedList::ConstIterator
+
+   Qt-style synonym for QList::const_iterator.
+
+  typedef QLinkedList::Iterator
+
+   Qt-style synonym for QList::iterator.
+
+  typedef QLinkedList::const_pointer
+
+   Typedef for const T *. Provided for STL compatibility.
+
+  typedef QLinkedList::const_reference
+
+   Typedef for const T &. Provided for STL compatibility.
+
+  typedef QLinkedList::pointer
+
+   Typedef for T *. Provided for STL compatibility.
+
+  typedef QLinkedList::reference
+
+   Typedef for T &. Provided for STL compatibility.
+
+  typedef QLinkedList::size_type
+
+   Typedef for int. Provided for STL compatibility.
+
+  typedef QLinkedList::value_type
+
+   Typedef for T. Provided for STL compatibility.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QLinkedList::QLinkedList ()
+
+   Constructs an empty list.
+
+  QLinkedList::QLinkedList ( const QLinkedList & other )
+
+   Constructs a copy of other.
+
+   This operation occurs in constant time, because QLinkedList is
+   implicitly shared. This makes returning a QLinkedList from a function
+   very fast. If a shared instance is modified, it will be copied
+   (copy-on-write), and this takes linear time.
+
+   See also operator=().
+
+  QLinkedList::~QLinkedList ()
+
+   Destroys the list. References to the values in the list, and all
+   iterators over this list, become invalid.
+
+  void QLinkedList::append ( const T & value )
+
+   Inserts value at the end of the list.
+
+   Example:
+    QLinkedList<QString> list;
+    list.append("one");
+    list.append("two");
+    list.append("three");
+    // list: ["one", "two", "three"]
+
+   This is the same as list.insert(end(), value).
+
+   See also operator<<(), prepend(), and insert().
+
+  T & QLinkedList::back ()
+
+   This function is provided for STL compatibility. It is equivalent to
+   last().
+
+  const T & QLinkedList::back () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  iterator QLinkedList::begin ()
+
+   Returns an STL-style iterator pointing to the first item in the list.
+
+   See also constBegin() and end().
+
+  const_iterator QLinkedList::begin () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  void QLinkedList::clear ()
+
+   Removes all the items in the list.
+
+   See also removeAll().
+
+  const_iterator QLinkedList::constBegin () const
+
+   Returns a const STL-style iterator pointing to the first item in the
+   list.
+
+   See also begin() and constEnd().
+
+  const_iterator QLinkedList::constEnd () const
+
+   Returns a const STL-style iterator pointing to the imaginary item
+   after the last item in the list.
+
+   See also constBegin() and end().
+
+  bool QLinkedList::contains ( const T & value ) const
+
+   Returns true if the list contains an occurrence of value; otherwise
+   returns false.
+
+   This function requires the value type to have an implementation of
+   operator==().
+
+   See also QListIterator::findNext() and QListIterator::findPrevious().
+
+  int QLinkedList::count ( const T & value ) const
+
+   Returns the number of occurrences of value in the list.
+
+   This function requires the value type to have an implementation of
+   operator==().
+
+   See also contains().
+
+  int QLinkedList::count () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Same as size().
+
+  bool QLinkedList::empty () const
+
+   This function is provided for STL compatibility. It is equivalent to
+   isEmpty().
+
+  iterator QLinkedList::end ()
+
+   Returns an STL-style iterator pointing to the imaginary item after the
+   last item in the list.
+
+   See also begin() and constEnd().
+
+  const_iterator QLinkedList::end () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  iterator QLinkedList::erase ( iterator pos )
+
+   Removes the item pointed to by the iterator pos from the list, and
+   returns an iterator to the next item in the list (which may be end()).
+
+   See also insert().
+
+  iterator QLinkedList::erase ( iterator begin, iterator end )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Removes all the items from begin up to (but not including) end.
+
+  T & QLinkedList::first ()
+
+   Returns a reference to the first item in the list. This function
+   assumes that the list isn't empty.
+
+   See also last() and isEmpty().
+
+  const T & QLinkedList::first () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  T & QLinkedList::front ()
+
+   This function is provided for STL compatibility. It is equivalent to
+   first().
+
+  const T & QLinkedList::front () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  iterator QLinkedList::insert ( iterator before, const T & value )
+
+   Inserts value in front of the item pointed to by the iterator before.
+   Returns an iterator pointing at the inserted item.
+
+   See also erase().
+
+  bool QLinkedList::isEmpty () const
+
+   Returns true if the list contains no items; otherwise returns false.
+
+   See also size().
+
+  T & QLinkedList::last ()
+
+   Returns a reference to the last item in the list. This function
+   assumes that the list isn't empty.
+
+   See also first() and isEmpty().
+
+  const T & QLinkedList::last () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  void QLinkedList::pop_back ()
+
+   This function is provided for STL compatibility. It is equivalent to
+   removeLast().
+
+  void QLinkedList::pop_front ()
+
+   This function is provided for STL compatibility. It is equivalent to
+   removeFirst().
+
+  void QLinkedList::prepend ( const T & value )
+
+   Inserts value at the beginning of the list.
+
+   Example:
+    QLinkedList<QString> list;
+    list.prepend("one");
+    list.prepend("two");
+    list.prepend("three");
+    // list: ["three", "two", "one"]
+
+   This is the same as list.insert(begin(), value).
+
+   See also append() and insert().
+
+  void QLinkedList::push_back ( const T & value )
+
+   This function is provided for STL compatibility. It is equivalent to
+   append(value).
+
+  void QLinkedList::push_front ( const T & value )
+
+   This function is provided for STL compatibility. It is equivalent to
+   prepend(value).
+
+  int QLinkedList::removeAll ( const T & value )
+
+   Removes all occurrences of value in the list.
+
+   Example:
+    QList<QString> list;
+    list << "sun" << "cloud" << "sun" << "rain";
+    list.removeAll("sun");
+    // list: ["cloud", "rain"]
+
+   This function requires the value type to have an implementation of
+   operator==().
+
+   See also insert().
+
+  void QLinkedList::removeFirst ()
+
+   Removes the first item in the list.
+
+   This is the same as erase(begin()).
+
+   See also removeLast() and erase().
+
+  void QLinkedList::removeLast ()
+
+   Removes the last item in the list.
+
+   See also removeFirst() and erase().
+
+  int QLinkedList::size () const
+
+   Returns the number of items in the list.
+
+   See also isEmpty() and count().
+
+  T QLinkedList::takeFirst ()
+
+   Removes the first item in the list and returns it.
+
+   If you don't use the return value, removeFirst() is more efficient.
+
+   See also takeLast() and removeFirst().
+
+  T QLinkedList::takeLast ()
+
+   Removes the last item in the list and returns it.
+
+   If you don't use the return value, removeLast() is more efficient.
+
+   See also takeFirst() and removeLast().
+
+  bool QLinkedList::operator!= ( const QLinkedList & other ) const
+
+   Returns true if other is not equal to this list; otherwise returns
+   false.
+
+   Two lists are considered equal if they contain the same values in the
+   same order.
+
+   This function requires the value type to implement operator==().
+
+   See also operator==().
+
+  QLinkedList QLinkedList::operator+ ( const QLinkedList & other ) const
+
+   Returns a list that contains all the items in this list followed by
+   all the items in the other list.
+
+   See also operator+=().
+
+  QLinkedList & QLinkedList::operator+= ( const QLinkedList & other )
+
+   Appends the items of the other list to this list and returns a
+   reference to this list.
+
+   See also operator+() and append().
+
+  QLinkedList & QLinkedList::operator+= ( const T & value )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends value to the list.
+
+  QLinkedList & QLinkedList::operator<< ( const QLinkedList & other )
+
+   Appends the items of the other list to this list and returns a
+   reference to this list.
+
+   See also operator+=() and append().
+
+  QLinkedList & QLinkedList::operator<< ( const T & value )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends value to the list.
+
+  QLinkedList<T> & QLinkedList::operator= ( const QLinkedList & other )
+
+   Assigns other to this list and returns a reference to this list.
+
+  bool QLinkedList::operator== ( const QLinkedList & other ) const
+
+   Returns true if other is equal to this list; otherwise returns false.
+
+   Two lists are considered equal if they contain the same values in the
+   same order.
+
+   This function requires the value type to implement operator==().
+
+   See also operator!=().
+     _________________________________________________________________
+
+Related Non-Members
+
+  QDataStream & operator<< ( QDataStream & out, const QLinkedList<T> & list )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Writes the linked list list to stream out.
+
+   This function requires the value type to implement operator<<().
+
+   See also Format of the QDataStream operators.
+
+  QDataStream & operator>> ( QDataStream & in, QLinkedList<T> & list )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads a linked list from stream in into list.
+
+   This function requires the value type to implement operator>>().
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

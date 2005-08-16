@@ -1,0 +1,180 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QClipboard Class Reference
+
+   #include <qclipboard.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * enum Mode { Clipboard, Selection }
+
+Signals
+
+     * void selectionChanged ()
+     * void dataChanged ()
+
+Public Member Functions
+
+     * void clear (Mode mode=Clipboard)
+     * bool supportsSelection () const
+     * bool ownsSelection () const
+     * bool ownsClipboard () const
+     * QString text (Mode mode=Clipboard) const
+     * QString text (QString &subtype, Mode mode=Clipboard) const
+     * void setText (const QString &, Mode mode=Clipboard)
+     * const QMimeData * mimeData (Mode mode=Clipboard) const
+     * void setMimeData (QMimeData *data, Mode mode=Clipboard)
+     * QImage image (Mode mode=Clipboard) const
+     * QPixmap pixmap (Mode mode=Clipboard) const
+     * void setImage (const QImage &, Mode mode=Clipboard)
+     * void setPixmap (const QPixmap &, Mode mode=Clipboard)
+
+Protected Member Functions
+
+     * void connectNotify (const char *)
+     * bool event (QEvent *)
+
+Friends
+
+     * class QApplication
+     * class QApplicationPrivate
+     * class QBaseApplication
+     * class QDragManager
+     * class QMimeSource
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QClipboard::Mode
+
+
+
+   Enumerator: 
+
+          Clipboard
+          Selection
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QClipboard::clear (  Mode  mode = Clipboard  )
+
+
+
+   void QClipboard::connectNotify (  const char *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void QClipboard::dataChanged (   )  [signal]
+
+
+
+   bool QClipboard::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   QImage QClipboard::image (  Mode  mode = Clipboard  )  const
+
+
+
+   const QMimeData* QClipboard::mimeData (  Mode  mode = Clipboard  )  const
+
+
+
+   bool QClipboard::ownsClipboard (   )  const
+
+
+
+   bool QClipboard::ownsSelection (   )  const
+
+
+
+   QPixmap QClipboard::pixmap (  Mode  mode = Clipboard  )  const
+
+
+
+   void QClipboard::selectionChanged (   )  [signal]
+
+
+
+   void QClipboard::setImage (  const QImage &  ,
+                                Mode            mode = Clipboard
+                             )
+
+
+
+   void QClipboard::setMimeData (  QMimeData *  data,
+                                   Mode         mode = Clipboard
+                                )
+
+
+
+   void QClipboard::setPixmap (  const QPixmap &  ,
+                                 Mode             mode = Clipboard
+                              )
+
+
+
+   void QClipboard::setText (  const QString &  ,
+                               Mode             mode = Clipboard
+                            )
+
+
+
+   bool QClipboard::supportsSelection (   )  const
+
+
+
+   QString QClipboard::text (  QString &  subtype,
+                               Mode       mode = Clipboard
+                            )  const
+
+
+
+   QString QClipboard::text (  Mode  mode = Clipboard  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QApplication [friend]
+
+
+
+   Reimplemented from QObject.
+
+   friend class QApplicationPrivate [friend]
+
+
+
+   Reimplemented from QObject.
+
+   friend class QBaseApplication [friend]
+
+
+
+   friend class QDragManager [friend]
+
+
+
+   friend class QMimeSource [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qclipboard.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

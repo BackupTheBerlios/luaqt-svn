@@ -1,0 +1,261 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                   QAbstractItemDelegate Class Reference
+
+   The QAbstractItemDelegate class is used to display and edit data items
+   from a model. More...
+#include <QAbstractItemDelegate>
+
+   Part of the QtGui module.
+
+   Inherits QObject.
+
+   Inherited by QItemDelegate.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum EndEditHint { NoHint, EditNextItem, EditPreviousItem,
+       SubmitModelCache, RevertModelCache }
+
+  Public Functions
+
+     * QAbstractItemDelegate ( QObject * parent = 0 )
+     * virtual ~QAbstractItemDelegate ()
+     * virtual QWidget * createEditor ( QWidget * parent, const
+       QStyleOptionViewItem & option, const QModelIndex & index ) const
+     * virtual bool editorEvent ( QEvent * event, QAbstractItemModel *
+       model, const QStyleOptionViewItem & option, const QModelIndex &
+       index )
+     * virtual void paint ( QPainter * painter, const
+       QStyleOptionViewItem & option, const QModelIndex & index ) const =
+       0
+     * virtual void setEditorData ( QWidget * editor, const QModelIndex &
+       index ) const
+     * virtual void setModelData ( QWidget * editor, QAbstractItemModel *
+       model, const QModelIndex & index ) const
+     * virtual QSize sizeHint ( const QStyleOptionViewItem & option,
+       const QModelIndex & index ) const = 0
+     * virtual void updateEditorGeometry ( QWidget * editor, const
+       QStyleOptionViewItem & option, const QModelIndex & index ) const
+
+     * 28 public functions inherited from QObject
+
+  Signals
+
+     * void closeEditor ( QWidget * editor, EndEditHint hint = NoHint )
+     * void commitData ( QWidget * editor )
+
+     * 1 signal inherited from QObject
+
+  Static Public Members
+
+     * QString elidedText ( const QFontMetrics & fontMetrics, int width,
+       Qt::TextElideMode mode, const QString & text )
+
+     * 4 static public members inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 property inherited from QObject
+     * 1 public slot inherited from QObject
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QAbstractItemDelegate class is used to display and edit data items
+   from a model.
+
+   A QAbstractItemDelegate provides the interface and common
+   functionality for delegates in the model/view architecture. Delegates
+   display individual items in views, and handle the editing of model
+   data.
+
+   The QAbstractItemDelegate class is one of the Model/View Classes and
+   is part of Qt's model/view framework.
+
+   To render an item in a custom way, you must implement paint() and
+   sizeHint(). The QItemDelegate class provides default implementations
+   for these functions; if you do not need custom rendering, subclass
+   that class instead.
+
+   To provide custom editing, there are two approaches that can be used.
+   The first approach is to create an editor widget and display it
+   directly on top of the item. To do this you must reimplement
+   createEditor() to provide an editor widget, setEditorData() to
+   populate the editor with the data from the model, and setModelData()
+   so that the delegate can update the model with data from the editor.
+
+   The second approach is to handle user events directly by
+   reimplementing editorEvent().
+
+   See also Model/View Programming and QItemDelegate.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QAbstractItemDelegate::EndEditHint
+
+   This enum describes the different hints that the delegate can give to
+   the model and view components to make editing data in a model a
+   comfortable experience for the user.
+
+   Constant Value Description
+   QAbstractItemDelegate::NoHint 0 There is no recommended action to be
+   performed.
+
+   These hints let the delegate influence the behavior of the view:
+
+   Constant Value Description
+   QAbstractItemDelegate::EditNextItem 1 The view should use the delegate
+   to open an editor on the next item in the view.
+   QAbstractItemDelegate::EditPreviousItem 2 The view should use the
+   delegate to open an editor on the previous item in the view.
+
+   Note that custom views may interpret the concepts of next and previous
+   differently.
+
+   The following hints are most useful when models are used that cache
+   data, such as those that manipulate date locally in order to increase
+   performance or conserve network bandwidth.
+
+   Constant Value Description
+   QAbstractItemDelegate::SubmitModelCache 3 If the model caches data, it
+   should write out cached data to the underlying data store.
+   QAbstractItemDelegate::RevertModelCache 4 If the model caches data, it
+   should discard cached data and replace it with data from the
+   underlying data store.
+
+   Although models and views should respond to these hints in appropriate
+   ways, custom components may ignore any or all of them if they are not
+   relevant.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QAbstractItemDelegate::QAbstractItemDelegate ( QObject * parent = 0 )
+
+   Creates a new abstract item delegate with the given parent.
+
+  QAbstractItemDelegate::~QAbstractItemDelegate ()   [virtual]
+
+   Destroys the abstract item delegate.
+
+  void QAbstractItemDelegate::closeEditor ( QWidget * editor, EndEditHint hint
+  = NoHint )   [signal]
+
+   This signal is emitted when the user has finished editing an item
+   using the specified editor.
+
+   The hint provides a way for the delegate to influence how the model
+   and view behave after editing is completed. It indicates to these
+   components what action should be performed next to provide a
+   comfortable editing experience for the user. For example, if
+   EditNextItem is specified, the view should use a delegate to open an
+   editor on the next item in the model.
+
+   See also EndEditHint.
+
+  void QAbstractItemDelegate::commitData ( QWidget * editor )   [signal]
+
+   This signal must be emitted when the editor widget has completed
+   editing the data, and wants to write it back into the model.
+
+  QWidget * QAbstractItemDelegate::createEditor ( QWidget * parent, const
+  QStyleOptionViewItem & option, const QModelIndex & index ) const   [virtual]
+
+   Returns the editor to be used for editing the data item with the given
+   index. Note that the index contains information about the model being
+   used. The editor's parent widget is specified by parent, and the item
+   options by option.
+
+   The base implementation returns 0. If you want custom editing you will
+   need to reimplement this function.
+
+   See also setModelData() and setEditorData().
+
+  bool QAbstractItemDelegate::editorEvent ( QEvent * event, QAbstractItemModel
+  * model, const QStyleOptionViewItem & option, const QModelIndex & index )
+  [virtual]
+
+   Whenever an event occurs, this function is called with the event model
+   option and the index that corresponds to the item being edited.
+
+   The base implementation returns false (indicating that it has not
+   handled the event).
+
+  QString QAbstractItemDelegate::elidedText ( const QFontMetrics & fontMetrics,
+  int width, Qt::TextElideMode mode, const QString & text )   [static]
+
+   If the string text is wider than width, returns an elided version of
+   the string (i.e., a string with "..." in it). Otherwise, returns the
+   original string.
+
+   The mode parameter specifies whether the text is elided on the left
+   (e.g., "...tech"), in the middle (e.g., "Tr...ch"), or on the right
+   (e.g., "Trol...").
+
+   The width is specified in pixels, not characters. The font metrics to
+   be used are given by fontMetrics.
+
+  void QAbstractItemDelegate::paint ( QPainter * painter, const
+  QStyleOptionViewItem & option, const QModelIndex & index ) const   [pure
+  virtual]
+
+   This pure abstract function must be reimplemented if you want to
+   provide custom rendering. Use the painter and style option to render
+   the item specified by the item index.
+
+   If you reimplement this you must also reimplement sizeHint().
+
+  void QAbstractItemDelegate::setEditorData ( QWidget * editor, const
+  QModelIndex & index ) const   [virtual]
+
+   Sets the contents of the given editor to the data for the item at the
+   given index. Note that the index contains information about the model
+   being used.
+
+   The base implementation does nothing. If you want custom editing you
+   will need to reimplement this function.
+
+   See also setModelData().
+
+  void QAbstractItemDelegate::setModelData ( QWidget * editor,
+  QAbstractItemModel * model, const QModelIndex & index ) const   [virtual]
+
+   Sets the data for the item at the given index in the model to the
+   contents of the given editor.
+
+   The base implementation does nothing. If you want custom editing you
+   will need to reimplement this function.
+
+   See also setEditorData().
+
+  QSize QAbstractItemDelegate::sizeHint ( const QStyleOptionViewItem & option,
+  const QModelIndex & index ) const   [pure virtual]
+
+   This pure abstract function must be reimplemented if you want to
+   provide custom rendering. The options are specified by option and the
+   model item by index.
+
+   If you reimplement this you must also reimplement paint().
+
+  void QAbstractItemDelegate::updateEditorGeometry ( QWidget * editor, const
+  QStyleOptionViewItem & option, const QModelIndex & index ) const   [virtual]
+
+   Updates the geometry of the editor for the item with the given index,
+   according to the rectangle specified in the option. If the item has an
+   internal layout, the editor will be laid out accordingly. Note that
+   the index contains information about the model being used.
+
+   The base implementation does nothing. If you want custom editing you
+   must reimplement this function.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

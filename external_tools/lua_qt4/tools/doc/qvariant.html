@@ -1,0 +1,822 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QVariant Class Reference
+
+   The QVariant class acts like a union for the most common Qt data
+   types. More...
+#include <QVariant>
+
+   Part of the QtCore module.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum Type { Invalid, BitArray, ByteArray, Bitmap, ..., UserType }
+
+  Public Functions
+
+     * QVariant ()
+     * QVariant ( Type type )
+     * QVariant ( int typeOrUserType, const void * copy )
+     * QVariant ( const QVariant & p )
+     * QVariant ( QDataStream & s )
+     * QVariant ( int val )
+     * QVariant ( uint val )
+     * QVariant ( qlonglong val )
+     * QVariant ( qulonglong val )
+     * QVariant ( bool val )
+     * QVariant ( double val )
+     * QVariant ( const char * val )
+     * QVariant ( const QByteArray & val )
+     * QVariant ( const QBitArray & val )
+     * QVariant ( const QString & val )
+     * QVariant ( const QLatin1String & val )
+     * QVariant ( const QStringList & val )
+     * QVariant ( const QChar & c )
+     * QVariant ( const QDate & val )
+     * QVariant ( const QTime & val )
+     * QVariant ( const QDateTime & val )
+     * QVariant ( const QList<QVariant> & val )
+     * QVariant ( const QMap<QString, QVariant> & val )
+     * QVariant ( const QSize & val )
+     * QVariant ( const QSizeF & val )
+     * QVariant ( const QPoint & val )
+     * QVariant ( const QPointF & val )
+     * QVariant ( const QLine & val )
+     * QVariant ( const QLineF & val )
+     * QVariant ( const QRect & val )
+     * QVariant ( const QRectF & val )
+     * QVariant ( const QUrl & val )
+     * QVariant ( const QLocale & l )
+     * ~QVariant ()
+     * bool canConvert ( Type t ) const
+     * bool canConvert () const
+     * void clear ()
+     * bool convert ( Type t )
+     * bool isNull () const
+     * bool isValid () const
+     * void setValue ( const T & value )
+     * QBitArray toBitArray () const
+     * bool toBool () const
+     * QByteArray toByteArray () const
+     * QChar toChar () const
+     * QDate toDate () const
+     * QDateTime toDateTime () const
+     * double toDouble ( bool * ok = 0 ) const
+     * int toInt ( bool * ok = 0 ) const
+     * QLine toLine () const
+     * QLineF toLineF () const
+     * QList<QVariant> toList () const
+     * QLocale toLocale () const
+     * qlonglong toLongLong ( bool * ok = 0 ) const
+     * QMap<QString, QVariant> toMap () const
+     * QPoint toPoint () const
+     * QPointF toPointF () const
+     * QRect toRect () const
+     * QRectF toRectF () const
+     * QSize toSize () const
+     * QSizeF toSizeF () const
+     * QString toString () const
+     * QStringList toStringList () const
+     * QTime toTime () const
+     * uint toUInt ( bool * ok = 0 ) const
+     * qulonglong toULongLong ( bool * ok = 0 ) const
+     * QUrl toUrl () const
+     * Type type () const
+     * const char * typeName () const
+     * int userType () const
+     * T value () const
+     * bool operator!= ( const QVariant & v ) const
+     * QVariant & operator= ( const QVariant & variant )
+     * bool operator== ( const QVariant & v ) const
+
+  Static Public Members
+
+     * QVariant fromValue ( const T & value )
+     * Type nameToType ( const char * name )
+     * const char * typeToName ( Type typ )
+
+  Related Non-Members
+
+     * bool qVariantCanConvert ( const QVariant & value )
+     * QVariant qVariantFromValue ( const T & value )
+     * void qVariantSetValue ( QVariant & variant, const T & value )
+     * T qVariantValue ( const QVariant & value )
+     * bool operator!= ( const QVariant & v1, const QVariant & v2 )
+     * bool operator== ( const QVariant & v1, const QVariant & v2 )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QVariant class acts like a union for the most common Qt data
+   types.
+
+   Because C++ forbids unions from including types that have non-default
+   constructors or destructors, most interesting Qt classes cannot be
+   used in unions. Without QVariant, this would be a problem for
+   QObject::property() and for database work, etc.
+
+   A QVariant object holds a single value of a single type() at a time.
+   (Some type()s are multi-valued, for example a string list.) You can
+   find out what type, T, the variant holds, convert it to a different
+   type using convert(), get its value using one of the toT() functions
+   (e.g., toSize()) and check whether the type can be converted to a
+   particular type using canConvert().
+
+   The methods named toT() (for any supported T, see the Type
+   documentation for a list) are const. If you ask for the stored type,
+   they return a copy of the stored object. If you ask for a type that
+   can be generated from the stored type, toT() copies and converts and
+   leaves the object itself unchanged. If you ask for a type that cannot
+   be generated from the stored type, the result depends on the type; see
+   the function documentation for details.
+
+   Here is some example code to demonstrate the use of QVariant:
+    QDataStream out(...);
+    QVariant v(123);            // The variant now contains an int
+    int x = v.toInt();              // x = 123
+    out << v;                       // Writes a type tag and an int to out
+    v = QVariant("hello");      // The variant now contains a QByteArray
+    v = QVariant(tr("hello"));  // The variant now contains a QString
+    int y = v.toInt();              // y = 0 since v cannot be converted to an
+int
+    QString s = v.toString();       // s = tr("hello")  (see QObject::tr())
+    out << v;                       // Writes a type tag and a QString to out
+    ...
+    QDataStream in(...);            // (opening the previously written stream)
+    in >> v;                        // Reads an Int variant
+    int z = v.toInt();              // z = 123
+    qDebug("Type is %s",            // prints "Type is int"
+            v.typeName());
+    v = v.toInt() + 100;            // The variant now hold the value 223.
+    v = QVariant(QStringList());
+
+   You can even store QList<QVariant> and QMap<QString, QVariant> values
+   in a variant, so you can easily construct arbitrarily complex data
+   structures of arbitrary types. This is very powerful and versatile,
+   but may prove less memory and speed efficient than storing specific
+   types in standard data structures.
+
+   QVariant also supports the notion of null values, where you have a
+   defined type with no value set.
+    QVariant x, y(QString()), z(QString(""));
+    x.convert(QVariant::Int);
+    // x.isNull() == true
+    // y.isNull() == true, z.isNull() == false
+    // y.isEmpty() == true, z.Empty() == true
+
+   QVariant can be extended to support other types than those mentioned
+   in the Type enum. See the QMetaType documentation for details.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QVariant::Type
+
+   This enum type defines the types of variable that a QVariant can
+   contain.
+
+         Constant         Value                Description
+   QVariant::Invalid        0    no type
+   QVariant::BitArray      13    a QBitArray
+   QVariant::ByteArray     12    a QByteArray
+   QVariant::Bitmap        73    a QBitmap
+   QVariant::Bool           1    a bool
+   QVariant::Brush         66    a QBrush
+   QVariant::Color         67    a QColor
+   QVariant::Cursor        74    a QCursor
+   QVariant::Date          14    a QDate
+   QVariant::DateTime      16    a QDateTime
+   QVariant::Double         6    a double
+   QVariant::Font          64    a QFont
+   QVariant::Icon          69    a QIcon
+   QVariant::Image         70    a QImage
+   QVariant::Int            2    an int
+   QVariant::KeySequence   76    a QKeySequence
+   QVariant::LineF         24    a QLineF
+   QVariant::Line          23    a QLine
+   QVariant::List           9    a QVariantList (QList<QVariant>)
+   QVariant::LongLong       4    a long long
+   QVariant::ULongLong      5    an unsigned long long
+   QVariant::Map            8    a QVariantMap (QMap<QString, QVariant>)
+   QVariant::Palette       68    a QPalette
+   QVariant::Pen           77    a QPen
+   QVariant::Pixmap        65    a QPixmap
+   QVariant::Point         25    a QPoint
+   QVariant::PointF        26    a QPointF
+   QVariant::Polygon       71    a QPolygon
+   QVariant::Rect          19    a QRect
+   QVariant::RectF         20    a QRectF
+   QVariant::Region        72    a QRegion
+   QVariant::Size          21    a QSize
+   QVariant::SizeF         22    a QSizeF
+   QVariant::SizePolicy    75    a QSizePolicy
+   QVariant::String        10    a QString
+   QVariant::StringList    11    a QStringList
+   QVariant::Time          15    a QTime
+   QVariant::UInt           3    an unsigned int
+   QVariant::TextLength    78    a QTextLength
+   QVariant::TextFormat    79    a QTextFormat
+   QVariant::Char           7    a QChar
+   QVariant::Locale        18    a QLocale
+   QVariant::Url           17    a QUrl
+   QVariant::PointArray  Polygon a QPointArray
+   QVariant::UserType      127   Base value for user-defined types.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QVariant::QVariant ()
+
+   Constructs an invalid variant.
+
+  QVariant::QVariant ( Type type )
+
+   Constructs a null variant of type type.
+
+  QVariant::QVariant ( int typeOrUserType, const void * copy )
+
+   Constructs variant of type typeOrUserType, and initializes with copy
+   if copy is not 0.
+
+  QVariant::QVariant ( const QVariant & p )
+
+   Constructs a copy of the variant, p, passed as the argument to this
+   constructor.
+
+  QVariant::QVariant ( QDataStream & s )
+
+   Reads the variant from the data stream, s.
+
+  QVariant::QVariant ( int val )
+
+   Constructs a new variant with an integer value, val.
+
+  QVariant::QVariant ( uint val )
+
+   Constructs a new variant with an unsigned integer value, val.
+
+  QVariant::QVariant ( qlonglong val )
+
+   Constructs a new variant with a long long integer value, val.
+
+  QVariant::QVariant ( qulonglong val )
+
+   Constructs a new variant with an unsigned long long integer value,
+   val.
+
+  QVariant::QVariant ( bool val )
+
+   Constructs a new variant with a boolean value, val. The integer
+   argument is a dummy, necessary for compatibility with some compilers.
+
+  QVariant::QVariant ( double val )
+
+   Constructs a new variant with a floating point value, val.
+
+  QVariant::QVariant ( const char * val )
+
+   Constructs a new variant with a C-string value of val if val is
+   non-null. The variant creates a deep copy of val.
+
+   If val is null, the resulting variant has type Invalid.
+
+  QVariant::QVariant ( const QByteArray & val )
+
+   Constructs a new variant with a bytearray value, val.
+
+  QVariant::QVariant ( const QBitArray & val )
+
+   Constructs a new variant with a bitarray value, val.
+
+  QVariant::QVariant ( const QString & val )
+
+   Constructs a new variant with a string value, val.
+
+  QVariant::QVariant ( const QLatin1String & val )
+
+   Constructs a new variant with a string value, val.
+
+  QVariant::QVariant ( const QStringList & val )
+
+   Constructs a new variant with a string list value, val.
+
+  QVariant::QVariant ( const QChar & c )
+
+   Constructs a new variant with a char value, c.
+
+  QVariant::QVariant ( const QDate & val )
+
+   Constructs a new variant with a date value, val.
+
+  QVariant::QVariant ( const QTime & val )
+
+   Constructs a new variant with a time value, val.
+
+  QVariant::QVariant ( const QDateTime & val )
+
+   Constructs a new variant with a date/time value, val.
+
+  QVariant::QVariant ( const QList<QVariant> & val )
+
+   Constructs a new variant with a list value, val.
+
+  QVariant::QVariant ( const QMap<QString, QVariant> & val )
+
+   Constructs a new variant with a map of QVariants, val.
+
+  QVariant::QVariant ( const QSize & val )
+
+   Constructs a new variant with a size value of val.
+
+  QVariant::QVariant ( const QSizeF & val )
+
+   Constructs a new variant with a size value of val.
+
+  QVariant::QVariant ( const QPoint & val )
+
+   Constructs a new variant with a point value of val.
+
+  QVariant::QVariant ( const QPointF & val )
+
+   Constructs a new variant with a point value of val.
+
+  QVariant::QVariant ( const QLine & val )
+
+   Constructs a new variant with a line value of val.
+
+  QVariant::QVariant ( const QLineF & val )
+
+   Constructs a new variant with a line value of val.
+
+  QVariant::QVariant ( const QRect & val )
+
+   Constructs a new variant with a rect value of val.
+
+  QVariant::QVariant ( const QRectF & val )
+
+   Constructs a new variant with a rect value of val.
+
+  QVariant::QVariant ( const QUrl & val )
+
+   Constructs a new variant with a url value of val.
+
+  QVariant::QVariant ( const QLocale & l )
+
+   Constructs a new variant with a locale value, l.
+
+  QVariant::~QVariant ()
+
+   Destroys the QVariant and the contained object.
+
+   Note that subclasses that reimplement clear() should reimplement the
+   destructor to call clear(). This destructor calls clear(), but because
+   it is the destructor, QVariant::clear() is called rather than a
+   subclass's clear().
+
+  bool QVariant::canConvert ( Type t ) const
+
+   Returns true if the variant's type can be cast to the requested type,
+   t. Such casting is done automatically when calling the toInt(),
+   toBool(), ... methods.
+
+   The following casts are done automatically:
+
+                         Type Automatically Cast To
+                Bool Double, Int, UInt, LongLong, ULongLong
+                                Color String
+                           Date String, DateTime
+                        DateTime String, Date, Time
+                       Double String, Int, Bool, UInt
+                                Font String
+                       Int String, Double, Bool, UInt
+   List StringList (if the list contains strings or something that can be
+                             cast to a string)
+       String CString, Int, UInt, Bool, Double, Date, Time, DateTime,
+                          KeySequence, Font, Color
+                               CString String
+                              StringList List
+                                Time String
+                       UInt String, Double, Bool, Int
+                          KeySequence String, Int
+
+  bool QVariant::canConvert () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if the variant can be converted to the template type T,
+   otherwise false.
+
+   Example:
+    QVariant v = 42;
+
+    v.canConvert<int>(); // returns true
+    v.canConvert<QString>(); // returns true
+
+    MyCustomStruct s;
+    v.setValue(s);
+
+    v.canConvert<int>(); // returns false
+    v.canConvert<MyCustomStruct>(); // returns true
+
+   Warning: This function is not available with MSVC 6. Use
+   qVariantCanConvert() instead if you need to support that version of
+   the compiler.
+
+   See also convert().
+
+  void QVariant::clear ()
+
+   Convert this variant to type Invalid and free up any resources used.
+
+  bool QVariant::convert ( Type t )
+
+   Casts the variant to the requested type. If the cast cannot be done,
+   the variant is set to the default value of the requested type (e.g. an
+   empty string if the requested type t is QVariant::String, an empty
+   point array if the requested type t is QVariant::Polygon, etc).
+   Returns true if the current type of the variant was successfully cast;
+   otherwise returns false.
+
+   See also canConvert().
+
+  QVariant QVariant::fromValue ( const T & value )   [static]
+
+   Returns a QVariant containing a copy of value. Behaves exactly like
+   setValue() otherwise.
+
+   Example:
+    MyCustomStruct s;
+    return QVariant::fromValue(s);
+
+   Warning: This function is not available with MSVC 6. Use
+   qVariantFromValue() instead if you need to support that version of the
+   compiler.
+
+   See also setValue() and value().
+
+  bool QVariant::isNull () const
+
+   Returns true if this is a NULL variant, false otherwise.
+
+  bool QVariant::isValid () const
+
+   Returns true if the storage type of this variant is not
+   QVariant::Invalid; otherwise returns false.
+
+  Type QVariant::nameToType ( const char * name )   [static]
+
+   Converts the string representation of the storage type given in name,
+   to its enum representation.
+
+   If the string representation cannot be converted to any enum
+   representation, the variant is set to Invalid.
+
+  void QVariant::setValue ( const T & value )
+
+   Stores a copy of value. If T is a type that QVariant doesn't support,
+   QMetaType is used to store the value. A compile error will occur if
+   QMetaType doesn't handle the type.
+
+   Example:
+    QVariant v;
+
+    v.setValue(5);
+    int i = v.toInt(); // i is now 5
+    QString s = v.toString() // s is now "5"
+
+    MyCustomStruct c;
+    v.setValue(c);
+
+    ...
+
+    MyCustomStruct c2 = v.value<MyCustomStruct>();
+
+   Warning: This function is not available with MSVC 6. Use
+   qVariantSetValue() instead if you need to support that version of the
+   compiler.
+
+   See also value(), fromValue(), and canConvert().
+
+  QBitArray QVariant::toBitArray () const
+
+   Returns the variant as a QBitArray if the variant has type() BitArray;
+   otherwise returns an empty bitarray.
+
+  bool QVariant::toBool () const
+
+   Returns the variant as a bool if the variant has type() Bool.
+
+   Returns true if the variant has type Int, UInt or Double and its value
+   is non-zero, or if the variant has type String and its lower-case
+   content is not empty, "0" or "false"; otherwise returns false.
+
+  QByteArray QVariant::toByteArray () const
+
+   Returns the variant as a QByteArray if the variant has type()
+   ByteArray; otherwise returns an empty bytearray.
+
+  QChar QVariant::toChar () const
+
+   Returns the variant as a QChar if the variant has type() Char, String
+   or contains a numeric value; otherwise returns an invalid QChar.
+
+  QDate QVariant::toDate () const
+
+   Returns the variant as a QDate if the variant has type() Date,
+   DateTime or String; otherwise returns an invalid date.
+
+   Note that if the type() is String an invalid date will be returned if
+   the string cannot be parsed as a Qt::ISODate format date.
+
+  QDateTime QVariant::toDateTime () const
+
+   Returns the variant as a QDateTime if the variant has type() DateTime,
+   Date or String; otherwise returns an invalid date/time.
+
+   Note that if the type() is String an invalid date/time will be
+   returned if the string cannot be parsed as a Qt::ISODate format
+   date/time.
+
+  double QVariant::toDouble ( bool * ok = 0 ) const
+
+   Returns the variant as a double if the variant has type() String,
+   ByteArray, Double, Int, UInt, LongLong, ULongLong or Bool; otherwise
+   returns 0.0.
+
+   If ok is non-null: *ok is set to true if the value could be converted
+   to a double; otherwise *ok is set to false.
+
+  int QVariant::toInt ( bool * ok = 0 ) const
+
+   Returns the variant as an int if the variant has type() String, Int,
+   UInt, Double, Bool or KeySequence; otherwise returns 0.
+
+   If ok is non-null: *ok is set to true if the value could be converted
+   to an int; otherwise *ok is set to false.
+
+   See also canConvert().
+
+  QLine QVariant::toLine () const
+
+   Returns the variant as a QLine if the variant has type() Line;
+   otherwise returns an invalid QLine.
+
+  QLineF QVariant::toLineF () const
+
+   Returns the variant as a QLineF if the variant has type() LineF;
+   otherwise returns an invalid QLineF.
+
+  QList<QVariant> QVariant::toList () const
+
+   Returns the variant as a QVariantList if the variant has type() List
+   or StringList; otherwise returns an empty list.
+
+   Note that if you want to iterate over the list, you should iterate
+   over a copy, e.g.
+    QVariantList list = myVariant.toList();
+    QVariantList::Iterator it = list.begin();
+    while(it != list.end()) {
+        myProcessing(*it);
+        ++it;
+    }
+
+  QLocale QVariant::toLocale () const
+
+   Returns the variant as a QLocale if the variant has type() Locale;
+   otherwise returns an invalid QLocale.
+
+  qlonglong QVariant::toLongLong ( bool * ok = 0 ) const
+
+   Returns the variant as a long long int if the variant has type()
+   LongLong, ULongLong, any type allowing a toInt() conversion; otherwise
+   returns 0.
+
+   If ok is non-null: *ok is set to true if the value could be converted
+   to an int; otherwise *ok is set to false.
+
+   See also canConvert().
+
+  QMap<QString, QVariant> QVariant::toMap () const
+
+   Returns the variant as a QMap<QString, QVariant> if the variant has
+   type() Map; otherwise returns an empty map.
+
+   Note that if you want to iterate over the map, you should iterate over
+   a copy, e.g.
+    QVariantMap map = myVariant.toMap();
+    QVariantMap::Iterator it = map.begin();
+    while(it != map.end()) {
+        myProcessing(*it);
+        ++it;
+    }
+
+  QPoint QVariant::toPoint () const
+
+   Returns the variant as a QPoint if the variant has type() Point;
+   otherwise returns a null QPoint.
+
+  QPointF QVariant::toPointF () const
+
+   Returns the variant as a QPointF if the variant has type() Point or
+   PointF; otherwise returns an invalid QPointF.
+
+  QRect QVariant::toRect () const
+
+   Returns the variant as a QRect if the variant has type() Rect;
+   otherwise returns an invalid QRect.
+
+  QRectF QVariant::toRectF () const
+
+   Returns the variant as a QRectF if the variant has type() Rect or
+   RectF; otherwise returns an invalid QRectF.
+
+  QSize QVariant::toSize () const
+
+   Returns the variant as a QSize if the variant has type() Size or
+   SizeF; otherwise returns an invalid QSize.
+
+  QSizeF QVariant::toSizeF () const
+
+   Returns the variant as a QSizeF if the variant has type() SizeF or
+   Size; otherwise returns an invalid QSizeF.
+
+  QString QVariant::toString () const
+
+   Returns the variant as a QString if the variant has type() String,
+   ByteArray, Int, UInt, Bool, Double, Date, Time, DateTime, KeySequence,
+   Font or Color; otherwise returns an empty string.
+
+  QStringList QVariant::toStringList () const
+
+   Returns the variant as a QStringList if the variant has type()
+   StringList or List of a type that can be converted to QString;
+   otherwise returns an empty list.
+
+  QTime QVariant::toTime () const
+
+   Returns the variant as a QTime if the variant has type() Time,
+   DateTime or String; otherwise returns an invalid time.
+
+   Note that if the type() is String an invalid time will be returned if
+   the string cannot be parsed as a Qt::ISODate format time.
+
+  uint QVariant::toUInt ( bool * ok = 0 ) const
+
+   Returns the variant as an unsigned int if the variant has type()
+   String, ByteArray, UInt, Int, Double, or Bool; otherwise returns 0.
+
+   If ok is non-null: *ok is set to true if the value could be converted
+   to an unsigned int; otherwise *ok is set to false.
+
+  qulonglong QVariant::toULongLong ( bool * ok = 0 ) const
+
+   Returns the variant as as an unsigned long long int if the variant has
+   type() LongLong, ULongLong, any type allowing a toUInt() conversion;
+   otherwise returns 0.
+
+   If ok is non-null: *ok is set to true if the value could be converted
+   to an int; otherwise *ok is set to false.
+
+   See also canConvert().
+
+  QUrl QVariant::toUrl () const
+
+   Returns the variant as a QUrl if the variant has type() Url; otherwise
+   returns an invalid QUrl.
+
+  Type QVariant::type () const
+
+   Returns the storage type of the value stored in the variant. Usually
+   it's best to test with canConvert() whether the variant can deliver
+   the data type you are interested in.
+
+  const char * QVariant::typeName () const
+
+   Returns the name of the type stored in the variant. The returned
+   strings describe the C++ datatype used to store the data: for example,
+   "QFont", "QString", or "QVariantList". An Invalid variant returns 0.
+
+  const char * QVariant::typeToName ( Type typ )   [static]
+
+   Converts the enum representation of the storage type, typ, to its
+   string representation.
+
+  int QVariant::userType () const
+
+   Returns the storage type of the value stored in the variant. For
+   non-user types, this is the same as type().
+
+   See also type().
+
+  T QVariant::value () const
+
+   Returns the stored value converted to the template type T. Call
+   canConvert() to find out whether a type can be converted. If the value
+   cannot be converted, default-constructed value will be returned.
+
+   If the type T is supported by QVariant, this function behaves exactly
+   as toString(), toInt() etc.
+
+   Example:
+    QVariant v;
+
+    MyCustomStruct c;
+    if (v.canConvert<MyCustomStruct>())
+        c = v.value<MyCustomStruct>(v);
+
+    v = 7;
+    int i = v.value<int>(); // same as v.toInt()
+    QString s = v.value<QString>(); // same as v.toString(), s is now "7"
+    MyCustomStruct c2 = v.value<MyCustomStruct>(); // conversion failed, c2 is
+empty
+
+   Warning: This function is not available with MSVC 6. Use
+   qVariantValue() or qvariant_cast() instead if you need to support that
+   version of the compiler.
+
+   See also setValue(), fromValue(), and canConvert().
+
+  bool QVariant::operator!= ( const QVariant & v ) const
+
+   Compares this QVariant with v and returns true if they are not equal;
+   otherwise returns false.
+
+  QVariant & QVariant::operator= ( const QVariant & variant )
+
+   Assigns the value of the variant variant to this variant.
+
+  bool QVariant::operator== ( const QVariant & v ) const
+
+   Compares this QVariant with v and returns true if they are equal;
+   otherwise returns false.
+     _________________________________________________________________
+
+Related Non-Members
+
+  bool qVariantCanConvert ( const QVariant & value )
+
+   Returns true if the given value can be converted to the template type
+   specified; otherwise returns false.
+
+   This function is equivalent to QVariant::canConvert(value). It is
+   provided as a work-around for MSVC 6, which doesn't support member
+   template functions.
+
+   See also QVariant::canConvert().
+
+  QVariant qVariantFromValue ( const T & value )
+
+   Returns a variant containing a copy of the given value with template
+   type T.
+
+   This function is equivalent to QVariant::fromValue(value). It is
+   provided as a work-around for MSVC 6, which doesn't support member
+   template functions.
+
+   See also QVariant::fromValue().
+
+  void qVariantSetValue ( QVariant & variant, const T & value )
+
+   Sets the contents of the given variant to a copy of the value with the
+   specified template type T.
+
+   This function is equivalent to QVariant::setValue(value). It is
+   provided as a work-around for MSVC 6, which doesn't support member
+   template functions.
+
+   See also QVariant::setValue().
+
+  T qVariantValue ( const QVariant & value )
+
+   Returns the given value converted to the template type T.
+
+   This function is equivalent to QVariant::value<T>(value). It is
+   provided as a work-around for MSVC 6, which doesn't support member
+   template functions.
+
+   See also QVariant::value() and qvariant_cast().
+
+  bool operator!= ( const QVariant & v1, const QVariant & v2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns false if v1 and v2 are equal; otherwise returns true.
+
+  bool operator== ( const QVariant & v1, const QVariant & v2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if v1 and v2 are equal; otherwise returns false.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

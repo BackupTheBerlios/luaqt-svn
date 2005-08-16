@@ -1,0 +1,220 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QFontDatabase Class Reference
+
+   #include <qfontdatabase.h>
+
+   List of all members.
+
+Public Types
+
+     * enum WritingSystem {
+         Any, Latin, Greek, Cyrillic,
+         Armenian, Hebrew, Arabic, Syriac,
+         Thaana, Devanagari, Bengali, Gurmukhi,
+         Gujarati, Oriya, Tamil, Telugu,
+         Kannada, Malayalam, Sinhala, Thai,
+         Lao, Tibetan, Myanmar, Georgian,
+         Khmer, SimplifiedChinese, TraditionalChinese, Japanese,
+         Korean, Vietnamese, Other, WritingSystemsCount
+       }
+
+Public Member Functions
+
+     * QFontDatabase ()
+     * QList< WritingSystem > writingSystems () const
+     * QStringList families (WritingSystem writingSystem=Any) const
+     * QStringList styles (const QString &family) const
+     * QList< int > pointSizes (const QString &family, const QString &style=QString())
+     * QList< int > smoothSizes (const QString &family, const QString &style)
+     * QString styleString (const QFont &font)
+     * QFont font (const QString &family, const QString &style, int pointSize) const
+     * bool isBitmapScalable (const QString &family, const QString &style=QString()) const
+     * bool isSmoothlyScalable (const QString &family, const QString &style=QString()) const
+     * bool isScalable (const QString &family, const QString &style=QString()) const
+     * bool isFixedPitch (const QString &family, const QString &style=QString()) const
+     * bool italic (const QString &family, const QString &style) const
+     * bool bold (const QString &family, const QString &style) const
+     * int weight (const QString &family, const QString &style) const
+
+Static Public Member Functions
+
+     * static QList< int > standardSizes ()
+     * static QString writingSystemName (WritingSystem writingSystem)
+     * static QString writingSystemSample (WritingSystem writingSystem)
+
+Friends
+
+     * struct QFontDef
+     * class QFontPrivate
+     * class QFontDialog
+     * class QFontEngineMultiXLFD
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QFontDatabase::WritingSystem
+
+
+
+   Enumerator: 
+
+          Any                
+          Latin              
+          Greek              
+          Cyrillic           
+          Armenian           
+          Hebrew             
+          Arabic             
+          Syriac             
+          Thaana             
+          Devanagari         
+          Bengali            
+          Gurmukhi           
+          Gujarati           
+          Oriya              
+          Tamil              
+          Telugu             
+          Kannada            
+          Malayalam          
+          Sinhala            
+          Thai               
+          Lao                
+          Tibetan            
+          Myanmar            
+          Georgian           
+          Khmer              
+          SimplifiedChinese  
+          TraditionalChinese 
+          Japanese           
+          Korean             
+          Vietnamese         
+          Other              
+          WritingSystemsCount
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QFontDatabase::QFontDatabase (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QFontDatabase::bold (  const QString &  family,
+                               const QString &  style
+                            )  const
+
+
+
+   QStringList QFontDatabase::families (  WritingSystem  writingSystem = Any  )  const
+
+
+
+   QFont QFontDatabase::font (  const QString &  family,
+                                const QString &  style,
+                                int              pointSize
+                             )  const
+
+
+
+   bool QFontDatabase::isBitmapScalable (  const QString &  family,
+                                           const QString &  style = QString()
+                                        )  const
+
+
+
+   bool QFontDatabase::isFixedPitch (  const QString &  family,
+                                       const QString &  style = QString()
+                                    )  const
+
+
+
+   bool QFontDatabase::isScalable (  const QString &  family,
+                                     const QString &  style = QString()
+                                  )  const
+
+
+
+   bool QFontDatabase::isSmoothlyScalable (  const QString &  family,
+                                             const QString &  style = QString()
+                                          )  const
+
+
+
+   bool QFontDatabase::italic (  const QString &  family,
+                                 const QString &  style
+                              )  const
+
+
+
+   QList<int> QFontDatabase::pointSizes (  const QString &  family,
+                                           const QString &  style = QString()
+                                        )
+
+
+
+   QList<int> QFontDatabase::smoothSizes (  const QString &  family,
+                                            const QString &  style
+                                         )
+
+
+
+   static QList<int> QFontDatabase::standardSizes (   )  [static]
+
+
+
+   QStringList QFontDatabase::styles (  const QString &  family  )  const
+
+
+
+   QString QFontDatabase::styleString (  const QFont &  font  )
+
+
+
+   int QFontDatabase::weight (  const QString &  family,
+                                const QString &  style
+                             )  const
+
+
+
+   static QString QFontDatabase::writingSystemName (  WritingSystem  writingSystem  )  [static]
+
+
+
+   QList<WritingSystem> QFontDatabase::writingSystems (   )  const
+
+
+
+   static QString QFontDatabase::writingSystemSample (  WritingSystem  writingSystem  )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend struct QFontDef [friend]
+
+
+
+   friend class QFontDialog [friend]
+
+
+
+   friend class QFontEngineMultiXLFD [friend]
+
+
+
+   friend class QFontPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qfontdatabase.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

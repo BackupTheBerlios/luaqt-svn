@@ -1,0 +1,306 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3MultiLineEdit Class Reference
+
+   #include <q3multilineedit.h>
+
+   Inherits Q3TextEdit.
+
+   List of all members.
+
+Public Slots
+
+     * void deselect ()
+
+Public Member Functions
+
+     * Q3MultiLineEdit (QWidget *parent=0, const char *name=0)
+     * ~Q3MultiLineEdit ()
+     * QString textLine (int line) const
+     * int numLines () const
+     * virtual void insertLine (const QString &s, int line=-1)
+     * virtual void insertAt (const QString &s, int line, int col)
+     * virtual void insertAt (const QString &s, int line, int col, bool mark)
+     * virtual void removeLine (int line)
+     * virtual void setCursorPosition (int line, int col)
+     * virtual void setCursorPosition (int line, int col, bool mark)
+     * bool atBeginning () const
+     * bool atEnd () const
+     * void setAlignment (Qt::Alignment flags)
+     * Qt::Alignment alignment () const
+     * void setEdited (bool)
+     * bool edited () const
+     * bool hasMarkedText () const
+     * QString markedText () const
+     * void cursorWordForward (bool mark)
+     * void cursorWordBackward (bool mark)
+     * bool autoUpdate () const
+     * virtual void setAutoUpdate (bool)
+     * int totalWidth () const
+     * int totalHeight () const
+     * int maxLines () const
+     * void setMaxLines (int)
+
+Protected Member Functions
+
+     * QPoint cursorPoint () const
+     * virtual void insertAndMark (const QString &, bool mark)
+     * virtual void newLine ()
+     * virtual void killLine ()
+     * virtual void pageUp (bool mark=false)
+     * virtual void pageDown (bool mark=false)
+     * virtual void cursorLeft (bool mark=false, bool wrap=true)
+     * virtual void cursorRight (bool mark=false, bool wrap=true)
+     * virtual void cursorUp (bool mark=false)
+     * virtual void cursorDown (bool mark=false)
+     * virtual void backspace ()
+     * virtual void home (bool mark=false)
+     * virtual void end (bool mark=false)
+     * bool getMarkedRegion (int *line1, int *col1, int *line2, int *col2) const
+     * int lineLength (int row) const
+
+Properties
+
+     * int numLines
+     * bool atBeginning
+     * bool atEnd
+     * Qt Alignment
+     * bool edited
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3MultiLineEdit::Q3MultiLineEdit (  QWidget *     parent = 0,
+                                       const char *  name = 0
+                                    )
+
+
+
+   Q3MultiLineEdit::~Q3MultiLineEdit (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Alignment Q3MultiLineEdit::alignment (   )  const
+
+
+
+   Reimplemented from Q3TextEdit.
+
+   bool Q3MultiLineEdit::atBeginning (   )  const
+
+
+
+   bool Q3MultiLineEdit::atEnd (   )  const
+
+
+
+   bool Q3MultiLineEdit::autoUpdate (   )  const [inline]
+
+
+
+   virtual void Q3MultiLineEdit::backspace (   )  [protected, virtual]
+
+
+
+   virtual void Q3MultiLineEdit::cursorDown (  bool  mark = false  )  [protected, virtual]
+
+
+
+   virtual void Q3MultiLineEdit::cursorLeft (  bool  mark = false,
+                                               bool  wrap = true
+                                            )  [protected, virtual]
+
+
+
+   QPoint Q3MultiLineEdit::cursorPoint (   )  const [protected]
+
+
+
+   virtual void Q3MultiLineEdit::cursorRight (  bool  mark = false,
+                                                bool  wrap = true
+                                             )  [protected, virtual]
+
+
+
+   virtual void Q3MultiLineEdit::cursorUp (  bool  mark = false  )  [protected, virtual]
+
+
+
+   void Q3MultiLineEdit::cursorWordBackward (  bool  mark  )
+
+
+
+   void Q3MultiLineEdit::cursorWordForward (  bool  mark  )
+
+
+
+   void Q3MultiLineEdit::deselect (   )  [inline, slot]
+
+
+
+   bool Q3MultiLineEdit::edited (   )  const
+
+
+
+   virtual void Q3MultiLineEdit::end (  bool  mark = false  )  [protected, virtual]
+
+
+
+   bool Q3MultiLineEdit::getMarkedRegion (  int *  line1,
+                                            int *  col1,
+                                            int *  line2,
+                                            int *  col2
+                                         )  const [protected]
+
+
+
+   bool Q3MultiLineEdit::hasMarkedText (   )  const
+
+
+
+   virtual void Q3MultiLineEdit::home (  bool  mark = false  )  [protected, virtual]
+
+
+
+   virtual void Q3MultiLineEdit::insertAndMark (  const QString &  ,
+                                                  bool             mark
+                                               )  [protected, virtual]
+
+
+
+   virtual void Q3MultiLineEdit::insertAt (  const QString &  s,
+                                             int              line,
+                                             int              col,
+                                             bool             mark
+                                          )  [virtual]
+
+
+
+   virtual void Q3MultiLineEdit::insertAt (  const QString &  s,
+                                             int              line,
+                                             int              col
+                                          )  [inline, virtual]
+
+
+
+   Reimplemented from Q3TextEdit.
+
+   virtual void Q3MultiLineEdit::insertLine (  const QString &  s,
+                                               int              line = -1
+                                            )  [virtual]
+
+
+
+   virtual void Q3MultiLineEdit::killLine (   )  [protected, virtual]
+
+
+
+   int Q3MultiLineEdit::lineLength (  int  row  )  const [protected]
+
+
+
+   QString Q3MultiLineEdit::markedText (   )  const
+
+
+
+   int Q3MultiLineEdit::maxLines (   )  const [inline]
+
+
+
+   virtual void Q3MultiLineEdit::newLine (   )  [protected, virtual]
+
+
+
+   int Q3MultiLineEdit::numLines (   )  const
+
+
+
+   virtual void Q3MultiLineEdit::pageDown (  bool  mark = false  )  [protected, virtual]
+
+
+
+   virtual void Q3MultiLineEdit::pageUp (  bool  mark = false  )  [protected, virtual]
+
+
+
+   virtual void Q3MultiLineEdit::removeLine (  int  line  )  [virtual]
+
+
+
+   void Q3MultiLineEdit::setAlignment (  Qt::Alignment  flags  )
+
+
+
+   virtual void Q3MultiLineEdit::setAutoUpdate (  bool   )  [inline, virtual]
+
+
+
+   virtual void Q3MultiLineEdit::setCursorPosition (  int   line,
+                                                      int   col,
+                                                      bool  mark
+                                                   )  [virtual]
+
+
+
+   virtual void Q3MultiLineEdit::setCursorPosition (  int  line,
+                                                      int  col
+                                                   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3TextEdit.
+
+   void Q3MultiLineEdit::setEdited (  bool   )
+
+
+
+   void Q3MultiLineEdit::setMaxLines (  int   )  [inline]
+
+
+
+   QString Q3MultiLineEdit::textLine (  int  line  )  const
+
+
+
+   int Q3MultiLineEdit::totalHeight (   )  const [inline]
+
+
+
+   int Q3MultiLineEdit::totalWidth (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Qt Q3MultiLineEdit::Alignment [read, write]
+
+
+
+   bool Q3MultiLineEdit::atBeginning [read]
+
+
+
+   bool Q3MultiLineEdit::atEnd [read]
+
+
+
+   bool Q3MultiLineEdit::edited [read, write]
+
+
+
+   int Q3MultiLineEdit::numLines [read]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3multilineedit.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

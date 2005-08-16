@@ -1,0 +1,1315 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QPainter Class Reference
+
+   #include <qpainter.h>
+
+   Inherited by QStylePainter.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags RenderHints
+     * enum RenderHint { Antialiasing = 0x01, TextAntialiasing = 0x02, SmoothPixmapTransform = 0x04 }
+     * enum CompositionMode {
+         CompositionMode_SourceOver, CompositionMode_DestinationOver, CompositionMode_Clear, CompositionMode_Source,
+         CompositionMode_Destination, CompositionMode_SourceIn, CompositionMode_DestinationIn, CompositionMode_SourceOut,
+         CompositionMode_DestinationOut, CompositionMode_SourceAtop, CompositionMode_DestinationAtop, CompositionMode_Xor
+       }
+
+Public Member Functions
+
+     * QPainter ()
+     * QPainter (QPaintDevice *)
+     * ~QPainter ()
+     * QPaintDevice * device () const
+     * bool begin (QPaintDevice *)
+     * bool end ()
+     * bool isActive () const
+     * void initFrom (const QWidget *widget)
+     * void setCompositionMode (CompositionMode mode)
+     * CompositionMode compositionMode () const
+     * const QFont & font () const
+     * void setFont (const QFont &f)
+     * QFontMetrics fontMetrics () const
+     * QFontInfo fontInfo () const
+     * void setPen (const QColor &color)
+     * void setPen (const QPen &pen)
+     * void setPen (Qt::PenStyle style)
+     * const QPen & pen () const
+     * void setBrush (const QBrush &brush)
+     * void setBrush (Qt::BrushStyle style)
+     * const QBrush & brush () const
+     * void setBackgroundMode (Qt::BGMode mode)
+     * Qt::BGMode backgroundMode () const
+     * QPoint brushOrigin () const
+     * void setBrushOrigin (int x, int y)
+     * void setBrushOrigin (const QPoint &)
+     * void setBrushOrigin (const QPointF &)
+     * void setBackground (const QBrush &bg)
+     * const QBrush & background () const
+     * QRegion clipRegion () const
+     * QPainterPath clipPath () const
+     * void setClipRect (const QRectF &, Qt::ClipOperation op=Qt::ReplaceClip)
+     * void setClipRect (const QRect &, Qt::ClipOperation op=Qt::ReplaceClip)
+     * void setClipRect (int x, int y, int w, int h, Qt::ClipOperation op=Qt::ReplaceClip)
+     * void setClipRegion (const QRegion &, Qt::ClipOperation op=Qt::ReplaceClip)
+     * void setClipPath (const QPainterPath &path, Qt::ClipOperation op=Qt::ReplaceClip)
+     * void setClipping (bool enable)
+     * bool hasClipping () const
+     * void save ()
+     * void restore ()
+     * void setMatrix (const QMatrix &matrix, bool combine=false)
+     * const QMatrix & matrix () const
+     * const QMatrix & deviceMatrix () const
+     * void resetMatrix ()
+     * void setMatrixEnabled (bool enabled)
+     * bool matrixEnabled () const
+     * void scale (qreal sx, qreal sy)
+     * void shear (qreal sh, qreal sv)
+     * void rotate (qreal a)
+     * void translate (const QPointF &offset)
+     * void translate (const QPoint &offset)
+     * void translate (qreal dx, qreal dy)
+     * QRect window () const
+     * void setWindow (const QRect &window)
+     * void setWindow (int x, int y, int w, int h)
+     * QRect viewport () const
+     * void setViewport (const QRect &viewport)
+     * void setViewport (int x, int y, int w, int h)
+     * void setViewTransformEnabled (bool enable)
+     * bool viewTransformEnabled () const
+     * void strokePath (const QPainterPath &path, const QPen &pen)
+     * void fillPath (const QPainterPath &path, const QBrush &brush)
+     * void drawPath (const QPainterPath &path)
+     * void drawPoint (const QPointF &pt)
+     * void drawPoint (const QPoint &p)
+     * void drawPoint (int x, int y)
+     * void drawPoints (const QPointF *points, int pointCount)
+     * void drawPoints (const QPolygonF &points)
+     * void drawPoints (const QPoint *points, int pointCount)
+     * void drawPoints (const QPolygon &points)
+     * void drawLine (const QLineF &line)
+     * void drawLine (const QLine &line)
+     * void drawLine (int x1, int y1, int x2, int y2)
+     * void drawLine (const QPoint &p1, const QPoint &p2)
+     * void drawLine (const QPointF &p1, const QPointF &p2)
+     * void drawLines (const QLineF *lines, int lineCount)
+     * void drawLines (const QVector< QLineF > &lines)
+     * void drawLines (const QPointF *pointPairs, int lineCount)
+     * void drawLines (const QVector< QPointF > &pointPairs)
+     * void drawLines (const QLine *lines, int lineCount)
+     * void drawLines (const QVector< QLine > &lines)
+     * void drawLines (const QPoint *pointPairs, int lineCount)
+     * void drawLines (const QVector< QPoint > &pointPairs)
+     * void drawRect (const QRectF &rect)
+     * void drawRect (int x1, int y1, int w, int h)
+     * void drawRect (const QRect &rect)
+     * void drawRects (const QRectF *rects, int rectCount)
+     * void drawRects (const QVector< QRectF > &rectangles)
+     * void drawRects (const QRect *rects, int rectCount)
+     * void drawRects (const QVector< QRect > &rectangles)
+     * void drawEllipse (const QRectF &r)
+     * void drawEllipse (const QRect &r)
+     * void drawEllipse (int x, int y, int w, int h)
+     * void drawPolyline (const QPointF *points, int pointCount)
+     * void drawPolyline (const QPolygonF &polyline)
+     * void drawPolyline (const QPoint *points, int pointCount)
+     * void drawPolyline (const QPolygon &polygon)
+     * void drawPolygon (const QPointF *points, int pointCount, Qt::FillRule fillRule=Qt::OddEvenFill)
+     * void drawPolygon (const QPolygonF &polygon, Qt::FillRule fillRule=Qt::OddEvenFill)
+     * void drawPolygon (const QPoint *points, int pointCount, Qt::FillRule fillRule=Qt::OddEvenFill)
+     * void drawPolygon (const QPolygon &polygon, Qt::FillRule fillRule=Qt::OddEvenFill)
+     * void drawConvexPolygon (const QPointF *points, int pointCount)
+     * void drawConvexPolygon (const QPolygonF &polygon)
+     * void drawConvexPolygon (const QPoint *points, int pointCount)
+     * void drawConvexPolygon (const QPolygon &polygon)
+     * void drawArc (const QRectF &rect, int a, int alen)
+     * void drawArc (const QRect &, int a, int alen)
+     * void drawArc (int x, int y, int w, int h, int a, int alen)
+     * void drawPie (const QRectF &rect, int a, int alen)
+     * void drawPie (int x, int y, int w, int h, int a, int alen)
+     * void drawPie (const QRect &, int a, int alen)
+     * void drawChord (const QRectF &rect, int a, int alen)
+     * void drawChord (int x, int y, int w, int h, int a, int alen)
+     * void drawChord (const QRect &, int a, int alen)
+     * void drawRoundRect (const QRectF &r, int xround=25, int yround=25)
+     * void drawRoundRect (int x, int y, int w, int h, int=25, int=25)
+     * void drawRoundRect (const QRect &r, int xround=25, int yround=25)
+     * void drawTiledPixmap (const QRectF &rect, const QPixmap &pm, const QPointF &offset=QPointF())
+     * void drawTiledPixmap (int x, int y, int w, int h, const QPixmap &, int sx=0, int sy=0)
+     * void drawTiledPixmap (const QRect &, const QPixmap &, const QPoint &=QPoint())
+     * void drawPicture (const QPointF &p, const QPicture &picture)
+     * void drawPicture (int x, int y, const QPicture &picture)
+     * void drawPicture (const QPoint &p, const QPicture &picture)
+     * void drawPixmap (const QRectF &targetRect, const QPixmap &pixmap, const QRectF &sourceRect)
+     * void drawPixmap (const QRect &targetRect, const QPixmap &pixmap, const QRect &sourceRect)
+     * void drawPixmap (int x, int y, int w, int h, const QPixmap &pm, int sx, int sy, int sw, int sh)
+     * void drawPixmap (int x, int y, const QPixmap &pm, int sx, int sy, int sw, int sh)
+     * void drawPixmap (const QPointF &p, const QPixmap &pm, const QRectF &sr)
+     * void drawPixmap (const QPoint &p, const QPixmap &pm, const QRect &sr)
+     * void drawPixmap (const QPointF &p, const QPixmap &pm)
+     * void drawPixmap (const QPoint &p, const QPixmap &pm)
+     * void drawPixmap (int x, int y, const QPixmap &pm)
+     * void drawPixmap (const QRect &r, const QPixmap &pm)
+     * void drawPixmap (int x, int y, int w, int h, const QPixmap &pm)
+     * void drawImage (const QRectF &targetRect, const QImage &image, const QRectF &sourceRect, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * void drawImage (const QRect &targetRect, const QImage &image, const QRect &sourceRect, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * void drawImage (const QPointF &p, const QImage &image, const QRectF &sr, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * void drawImage (const QPoint &p, const QImage &image, const QRect &sr, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * void drawImage (const QRectF &r, const QImage &image)
+     * void drawImage (const QRect &r, const QImage &image)
+     * void drawImage (const QPointF &p, const QImage &image)
+     * void drawImage (const QPoint &p, const QImage &image)
+     * void drawImage (int x, int y, const QImage &image, int sx=0, int sy=0, int sw=-1, int sh=-1, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * void setLayoutDirection (Qt::LayoutDirection direction)
+     * Qt::LayoutDirection layoutDirection () const
+     * void drawText (const QPointF &p, const QString &s)
+     * void drawText (const QPoint &p, const QString &s)
+     * void drawText (int x, int y, const QString &s)
+     * void drawText (const QRectF &r, int flags, const QString &text, QRectF *br=0)
+     * void drawText (const QRect &r, int flags, const QString &text, QRect *br=0)
+     * void drawText (int x, int y, int w, int h, int flags, const QString &text, QRect *br=0)
+     * void drawText (const QRectF &r, const QString &text, const QTextOption &o=QTextOption())
+     * QRectF boundingRect (const QRectF &rect, int flags, const QString &text)
+     * QRect boundingRect (const QRect &rect, int flags, const QString &text)
+     * QRect boundingRect (int x, int y, int w, int h, int flags, const QString &text)
+     * QRectF boundingRect (const QRectF &rect, const QString &text, const QTextOption &o=QTextOption())
+     * void drawTextItem (const QPointF &p, const QTextItem &ti)
+     * void drawTextItem (int x, int y, const QTextItem &ti)
+     * void drawTextItem (const QPoint &p, const QTextItem &ti)
+     * void fillRect (const QRectF &, const QBrush &)
+     * void fillRect (int x, int y, int w, int h, const QBrush &)
+     * void fillRect (const QRect &, const QBrush &)
+     * void eraseRect (const QRectF &)
+     * void eraseRect (int x, int y, int w, int h)
+     * void eraseRect (const QRect &)
+     * void setRenderHint (RenderHint hint, bool on=true)
+     * RenderHints renderHints () const
+     * QPaintEngine * paintEngine () const
+
+Static Public Member Functions
+
+     * static void setRedirected (const QPaintDevice *device, QPaintDevice *replacement, const QPoint &offset=QPoint())
+     * static QPaintDevice * redirected (const QPaintDevice *device, QPoint *offset=0)
+     * static void restoreRedirected (const QPaintDevice *device)
+
+Friends
+
+     * class Q3Painter
+     * class QFontEngine
+     * class QFontEngineBox
+     * class QFontEngineFT
+     * class QFontEngineMac
+     * class QFontEngineWin
+     * class QFontEngineXLFD
+     * class QWSManager
+     * class QPaintEngine
+     * class QX11PaintEngine
+     * class QX11PaintEnginePrivate
+     * class QWin32PaintEngine
+     * class QWin32PaintEnginePrivate
+     * void qt_format_text (const QFont &font, const QRectF &_r, int tf, const QString &str, QRectF *brect, int tabstops, int *tabarray, int tabarraylen, QPainter *painter)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QPainter::RenderHints
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QPainter::CompositionMode
+
+
+
+   Enumerator: 
+
+          CompositionMode_SourceOver     
+          CompositionMode_DestinationOver
+          CompositionMode_Clear          
+          CompositionMode_Source         
+          CompositionMode_Destination    
+          CompositionMode_SourceIn       
+          CompositionMode_DestinationIn  
+          CompositionMode_SourceOut      
+          CompositionMode_DestinationOut 
+          CompositionMode_SourceAtop     
+          CompositionMode_DestinationAtop
+          CompositionMode_Xor            
+
+   enum QPainter::RenderHint
+
+
+
+   Enumerator: 
+
+          Antialiasing         
+          TextAntialiasing     
+          SmoothPixmapTransform
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPainter::QPainter (   )
+
+
+
+   QPainter::QPainter (  QPaintDevice *   )  [explicit]
+
+
+
+   QPainter::~QPainter (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   const QBrush& QPainter::background (   )  const
+
+
+
+   Qt::BGMode QPainter::backgroundMode (   )  const
+
+
+
+   bool QPainter::begin (  QPaintDevice *   )
+
+
+
+   QRectF QPainter::boundingRect (  const QRectF &       rect,
+                                    const QString &      text,
+                                    const QTextOption &  o = QTextOption()
+                                 )
+
+
+
+   QRect QPainter::boundingRect (  int              x,
+                                   int              y,
+                                   int              w,
+                                   int              h,
+                                   int              flags,
+                                   const QString &  text
+                                )  [inline]
+
+
+
+   QRect QPainter::boundingRect (  const QRect &    rect,
+                                   int              flags,
+                                   const QString &  text
+                                )
+
+
+
+   QRectF QPainter::boundingRect (  const QRectF &   rect,
+                                    int              flags,
+                                    const QString &  text
+                                 )
+
+
+
+   const QBrush& QPainter::brush (   )  const
+
+
+
+   QPoint QPainter::brushOrigin (   )  const
+
+
+
+   QPainterPath QPainter::clipPath (   )  const
+
+
+
+   QRegion QPainter::clipRegion (   )  const
+
+
+
+   CompositionMode QPainter::compositionMode (   )  const
+
+
+
+   QPaintDevice* QPainter::device (   )  const
+
+
+
+   const QMatrix& QPainter::deviceMatrix (   )  const
+
+
+
+   void QPainter::drawArc (  int  x,
+                             int  y,
+                             int  w,
+                             int  h,
+                             int  a,
+                             int  alen
+                          )  [inline]
+
+
+
+   void QPainter::drawArc (  const QRect &  ,
+                             int            a,
+                             int            alen
+                          )  [inline]
+
+
+
+   void QPainter::drawArc (  const QRectF &  rect,
+                             int             a,
+                             int             alen
+                          )
+
+
+
+   void QPainter::drawChord (  const QRect &  ,
+                               int            a,
+                               int            alen
+                            )  [inline]
+
+
+
+   void QPainter::drawChord (  int  x,
+                               int  y,
+                               int  w,
+                               int  h,
+                               int  a,
+                               int  alen
+                            )  [inline]
+
+
+
+   void QPainter::drawChord (  const QRectF &  rect,
+                               int             a,
+                               int             alen
+                            )
+
+
+
+   void QPainter::drawConvexPolygon (  const QPolygon &  polygon  )  [inline]
+
+
+
+   void QPainter::drawConvexPolygon (  const QPoint *  points,
+                                       int             pointCount
+                                    )
+
+
+
+   void QPainter::drawConvexPolygon (  const QPolygonF &  polygon  )  [inline]
+
+
+
+   void QPainter::drawConvexPolygon (  const QPointF *  points,
+                                       int              pointCount
+                                    )
+
+
+
+   void QPainter::drawEllipse (  int  x,
+                                 int  y,
+                                 int  w,
+                                 int  h
+                              )  [inline]
+
+
+
+   void QPainter::drawEllipse (  const QRect &  r  )
+
+
+
+   void QPainter::drawEllipse (  const QRectF &  r  )
+
+
+
+   void QPainter::drawImage (  int                       x,
+                               int                       y,
+                               const QImage &            image,
+                               int                       sx = 0,
+                               int                       sy = 0,
+                               int                       sw = -1,
+                               int                       sh = -1,
+                               Qt::ImageConversionFlags  flags = Qt::AutoColor
+                            )  [inline]
+
+
+
+   void QPainter::drawImage (  const QPoint &  p,
+                               const QImage &  image
+                            )  [inline]
+
+
+
+   void QPainter::drawImage (  const QPointF &  p,
+                               const QImage &   image
+                            )  [inline]
+
+
+
+   void QPainter::drawImage (  const QRect &   r,
+                               const QImage &  image
+                            )  [inline]
+
+
+
+   void QPainter::drawImage (  const QRectF &  r,
+                               const QImage &  image
+                            )  [inline]
+
+
+
+   void QPainter::drawImage (  const QPoint &            p,
+                               const QImage &            image,
+                               const QRect &             sr,
+                               Qt::ImageConversionFlags  flags = Qt::AutoColor
+                            )  [inline]
+
+
+
+   void QPainter::drawImage (  const QPointF &           p,
+                               const QImage &            image,
+                               const QRectF &            sr,
+                               Qt::ImageConversionFlags  flags = Qt::AutoColor
+                            )  [inline]
+
+
+
+   void QPainter::drawImage (  const QRect &             targetRect,
+                               const QImage &            image,
+                               const QRect &             sourceRect,
+                               Qt::ImageConversionFlags  flags = Qt::AutoColor
+                            )  [inline]
+
+
+
+   void QPainter::drawImage (  const QRectF &            targetRect,
+                               const QImage &            image,
+                               const QRectF &            sourceRect,
+                               Qt::ImageConversionFlags  flags = Qt::AutoColor
+                            )
+
+
+
+   void QPainter::drawLine (  const QPointF &  p1,
+                              const QPointF &  p2
+                           )  [inline]
+
+
+
+   void QPainter::drawLine (  const QPoint &  p1,
+                              const QPoint &  p2
+                           )  [inline]
+
+
+
+   void QPainter::drawLine (  int  x1,
+                              int  y1,
+                              int  x2,
+                              int  y2
+                           )  [inline]
+
+
+
+   void QPainter::drawLine (  const QLine &  line  )  [inline]
+
+
+
+   void QPainter::drawLine (  const QLineF &  line  )  [inline]
+
+
+
+   void QPainter::drawLines (  const QVector< QPoint > &  pointPairs  )  [inline]
+
+
+
+   void QPainter::drawLines (  const QPoint *  pointPairs,
+                               int             lineCount
+                            )
+
+
+
+   void QPainter::drawLines (  const QVector< QLine > &  lines  )  [inline]
+
+
+
+   void QPainter::drawLines (  const QLine *  lines,
+                               int            lineCount
+                            )
+
+
+
+   void QPainter::drawLines (  const QVector< QPointF > &  pointPairs  )  [inline]
+
+
+
+   void QPainter::drawLines (  const QPointF *  pointPairs,
+                               int              lineCount
+                            )
+
+
+
+   void QPainter::drawLines (  const QVector< QLineF > &  lines  )  [inline]
+
+
+
+   void QPainter::drawLines (  const QLineF *  lines,
+                               int             lineCount
+                            )
+
+
+
+   void QPainter::drawPath (  const QPainterPath &  path  )
+
+
+
+   void QPainter::drawPicture (  const QPoint &    p,
+                                 const QPicture &  picture
+                              )  [inline]
+
+
+
+   void QPainter::drawPicture (  int               x,
+                                 int               y,
+                                 const QPicture &  picture
+                              )  [inline]
+
+
+
+   void QPainter::drawPicture (  const QPointF &   p,
+                                 const QPicture &  picture
+                              )
+
+
+
+   void QPainter::drawPie (  const QRect &  ,
+                             int            a,
+                             int            alen
+                          )  [inline]
+
+
+
+   void QPainter::drawPie (  int  x,
+                             int  y,
+                             int  w,
+                             int  h,
+                             int  a,
+                             int  alen
+                          )  [inline]
+
+
+
+   void QPainter::drawPie (  const QRectF &  rect,
+                             int             a,
+                             int             alen
+                          )
+
+
+
+   void QPainter::drawPixmap (  int              x,
+                                int              y,
+                                int              w,
+                                int              h,
+                                const QPixmap &  pm
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  const QRect &    r,
+                                const QPixmap &  pm
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  int              x,
+                                int              y,
+                                const QPixmap &  pm
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  const QPoint &   p,
+                                const QPixmap &  pm
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  const QPointF &  p,
+                                const QPixmap &  pm
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  const QPoint &   p,
+                                const QPixmap &  pm,
+                                const QRect &    sr
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  const QPointF &  p,
+                                const QPixmap &  pm,
+                                const QRectF &   sr
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  int              x,
+                                int              y,
+                                const QPixmap &  pm,
+                                int              sx,
+                                int              sy,
+                                int              sw,
+                                int              sh
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  int              x,
+                                int              y,
+                                int              w,
+                                int              h,
+                                const QPixmap &  pm,
+                                int              sx,
+                                int              sy,
+                                int              sw,
+                                int              sh
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  const QRect &    targetRect,
+                                const QPixmap &  pixmap,
+                                const QRect &    sourceRect
+                             )  [inline]
+
+
+
+   void QPainter::drawPixmap (  const QRectF &   targetRect,
+                                const QPixmap &  pixmap,
+                                const QRectF &   sourceRect
+                             )
+
+
+
+   void QPainter::drawPoint (  int  x,
+                               int  y
+                            )  [inline]
+
+
+
+   void QPainter::drawPoint (  const QPoint &  p  )  [inline]
+
+
+
+   void QPainter::drawPoint (  const QPointF &  pt  )  [inline]
+
+
+
+   void QPainter::drawPoints (  const QPolygon &  points  )  [inline]
+
+
+
+   void QPainter::drawPoints (  const QPoint *  points,
+                                int             pointCount
+                             )
+
+
+
+   void QPainter::drawPoints (  const QPolygonF &  points  )  [inline]
+
+
+
+   void QPainter::drawPoints (  const QPointF *  points,
+                                int              pointCount
+                             )
+
+
+
+   void QPainter::drawPolygon (  const QPolygon &  polygon,
+                                 Qt::FillRule      fillRule = Qt::OddEvenFill
+                              )  [inline]
+
+
+
+   void QPainter::drawPolygon (  const QPoint *  points,
+                                 int             pointCount,
+                                 Qt::FillRule    fillRule = Qt::OddEvenFill
+                              )
+
+
+
+   void QPainter::drawPolygon (  const QPolygonF &  polygon,
+                                 Qt::FillRule       fillRule = Qt::OddEvenFill
+                              )  [inline]
+
+
+
+   void QPainter::drawPolygon (  const QPointF *  points,
+                                 int              pointCount,
+                                 Qt::FillRule     fillRule = Qt::OddEvenFill
+                              )
+
+
+
+   void QPainter::drawPolyline (  const QPolygon &  polygon  )  [inline]
+
+
+
+   void QPainter::drawPolyline (  const QPoint *  points,
+                                  int             pointCount
+                               )
+
+
+
+   void QPainter::drawPolyline (  const QPolygonF &  polyline  )  [inline]
+
+
+
+   void QPainter::drawPolyline (  const QPointF *  points,
+                                  int              pointCount
+                               )
+
+
+
+   void QPainter::drawRect (  const QRect &  rect  )  [inline]
+
+
+
+   void QPainter::drawRect (  int  x1,
+                              int  y1,
+                              int  w,
+                              int  h
+                           )  [inline]
+
+
+
+   void QPainter::drawRect (  const QRectF &  rect  )  [inline]
+
+
+
+   void QPainter::drawRects (  const QVector< QRect > &  rectangles  )  [inline]
+
+
+
+   void QPainter::drawRects (  const QRect *  rects,
+                               int            rectCount
+                            )
+
+
+
+   void QPainter::drawRects (  const QVector< QRectF > &  rectangles  )  [inline]
+
+
+
+   void QPainter::drawRects (  const QRectF *  rects,
+                               int             rectCount
+                            )
+
+
+
+   void QPainter::drawRoundRect (  const QRect &  r,
+                                   int            xround = 25,
+                                   int            yround = 25
+                                )  [inline]
+
+
+
+   void QPainter::drawRoundRect (  int  x,
+                                   int  y,
+                                   int  w,
+                                   int  h,
+                                   int  = 25,
+                                   int  = 25
+                                )  [inline]
+
+
+
+   void QPainter::drawRoundRect (  const QRectF &  r,
+                                   int             xround = 25,
+                                   int             yround = 25
+                                )
+
+
+
+   void QPainter::drawText (  const QRectF &       r,
+                              const QString &      text,
+                              const QTextOption &  o = QTextOption()
+                           )
+
+
+
+   void QPainter::drawText (  int              x,
+                              int              y,
+                              int              w,
+                              int              h,
+                              int              flags,
+                              const QString &  text,
+                              QRect *          br = 0
+                           )  [inline]
+
+
+
+   void QPainter::drawText (  const QRect &    r,
+                              int              flags,
+                              const QString &  text,
+                              QRect *          br = 0
+                           )
+
+
+
+   void QPainter::drawText (  const QRectF &   r,
+                              int              flags,
+                              const QString &  text,
+                              QRectF *         br = 0
+                           )
+
+
+
+   void QPainter::drawText (  int              x,
+                              int              y,
+                              const QString &  s
+                           )  [inline]
+
+
+
+   void QPainter::drawText (  const QPoint &   p,
+                              const QString &  s
+                           )  [inline]
+
+
+
+   void QPainter::drawText (  const QPointF &  p,
+                              const QString &  s
+                           )
+
+
+
+   void QPainter::drawTextItem (  const QPoint &     p,
+                                  const QTextItem &  ti
+                               )  [inline]
+
+
+
+   void QPainter::drawTextItem (  int                x,
+                                  int                y,
+                                  const QTextItem &  ti
+                               )  [inline]
+
+
+
+   void QPainter::drawTextItem (  const QPointF &    p,
+                                  const QTextItem &  ti
+                               )
+
+
+
+   void QPainter::drawTiledPixmap (  const QRect &    ,
+                                     const QPixmap &  ,
+                                     const QPoint &   = QPoint()
+                                  )  [inline]
+
+
+
+   void QPainter::drawTiledPixmap (  int              x,
+                                     int              y,
+                                     int              w,
+                                     int              h,
+                                     const QPixmap &  ,
+                                     int              sx = 0,
+                                     int              sy = 0
+                                  )  [inline]
+
+
+
+   void QPainter::drawTiledPixmap (  const QRectF &   rect,
+                                     const QPixmap &  pm,
+                                     const QPointF &  offset = QPointF()
+                                  )
+
+
+
+   bool QPainter::end (   )
+
+
+
+   void QPainter::eraseRect (  const QRect &   )  [inline]
+
+
+
+   void QPainter::eraseRect (  int  x,
+                               int  y,
+                               int  w,
+                               int  h
+                            )  [inline]
+
+
+
+   void QPainter::eraseRect (  const QRectF &   )
+
+
+
+   void QPainter::fillPath (  const QPainterPath &  path,
+                              const QBrush &        brush
+                           )
+
+
+
+   void QPainter::fillRect (  const QRect &   ,
+                              const QBrush &
+                           )
+
+
+
+   void QPainter::fillRect (  int             x,
+                              int             y,
+                              int             w,
+                              int             h,
+                              const QBrush &
+                           )  [inline]
+
+
+
+   void QPainter::fillRect (  const QRectF &  ,
+                              const QBrush &
+                           )
+
+
+
+   const QFont& QPainter::font (   )  const
+
+
+
+   QFontInfo QPainter::fontInfo (   )  const
+
+
+
+   QFontMetrics QPainter::fontMetrics (   )  const
+
+
+
+   bool QPainter::hasClipping (   )  const
+
+
+
+   void QPainter::initFrom (  const QWidget *  widget  )
+
+
+
+   bool QPainter::isActive (   )  const
+
+
+
+   Qt::LayoutDirection QPainter::layoutDirection (   )  const
+
+
+
+   const QMatrix& QPainter::matrix (   )  const
+
+
+
+   bool QPainter::matrixEnabled (   )  const
+
+
+
+   QPaintEngine* QPainter::paintEngine (   )  const
+
+
+
+   const QPen& QPainter::pen (   )  const
+
+
+
+   static QPaintDevice* QPainter::redirected (  const QPaintDevice *  device,
+                                                QPoint *              offset = 0
+                                             )  [static]
+
+
+
+   RenderHints QPainter::renderHints (   )  const
+
+
+
+   void QPainter::resetMatrix (   )
+
+
+
+   void QPainter::restore (   )
+
+
+
+   static void QPainter::restoreRedirected (  const QPaintDevice *  device  )  [static]
+
+
+
+   void QPainter::rotate (  qreal  a  )
+
+
+
+   void QPainter::save (   )
+
+
+
+   void QPainter::scale (  qreal  sx,
+                           qreal  sy
+                        )
+
+
+
+   void QPainter::setBackground (  const QBrush &  bg  )
+
+
+
+   void QPainter::setBackgroundMode (  Qt::BGMode  mode  )
+
+
+
+   void QPainter::setBrush (  Qt::BrushStyle  style  )
+
+
+
+   void QPainter::setBrush (  const QBrush &  brush  )
+
+
+
+   void QPainter::setBrushOrigin (  const QPointF &   )
+
+
+
+   void QPainter::setBrushOrigin (  const QPoint &   )  [inline]
+
+
+
+   void QPainter::setBrushOrigin (  int  x,
+                                    int  y
+                                 )  [inline]
+
+
+
+   void QPainter::setClipPath (  const QPainterPath &  path,
+                                 Qt::ClipOperation     op = Qt::ReplaceClip
+                              )
+
+
+
+   void QPainter::setClipping (  bool  enable  )
+
+
+
+   void QPainter::setClipRect (  int                x,
+                                 int                y,
+                                 int                w,
+                                 int                h,
+                                 Qt::ClipOperation  op = Qt::ReplaceClip
+                              )  [inline]
+
+
+
+   void QPainter::setClipRect (  const QRect &      ,
+                                 Qt::ClipOperation  op = Qt::ReplaceClip
+                              )  [inline]
+
+
+
+   void QPainter::setClipRect (  const QRectF &     ,
+                                 Qt::ClipOperation  op = Qt::ReplaceClip
+                              )
+
+
+
+   void QPainter::setClipRegion (  const QRegion &    ,
+                                   Qt::ClipOperation  op = Qt::ReplaceClip
+                                )
+
+
+
+   void QPainter::setCompositionMode (  CompositionMode  mode  )
+
+
+
+   void QPainter::setFont (  const QFont &  f  )
+
+
+
+   void QPainter::setLayoutDirection (  Qt::LayoutDirection  direction  )
+
+
+
+   void QPainter::setMatrix (  const QMatrix &  matrix,
+                               bool             combine = false
+                            )
+
+
+
+   void QPainter::setMatrixEnabled (  bool  enabled  )
+
+
+
+   void QPainter::setPen (  Qt::PenStyle  style  )
+
+
+
+   void QPainter::setPen (  const QPen &  pen  )
+
+
+
+   void QPainter::setPen (  const QColor &  color  )
+
+
+
+   static void QPainter::setRedirected (  const QPaintDevice *  device,
+                                          QPaintDevice *        replacement,
+                                          const QPoint &        offset = QPoint()
+                                       )  [static]
+
+
+
+   void QPainter::setRenderHint (  RenderHint  hint,
+                                   bool        on = true
+                                )
+
+
+
+   void QPainter::setViewport (  int  x,
+                                 int  y,
+                                 int  w,
+                                 int  h
+                              )  [inline]
+
+
+
+   void QPainter::setViewport (  const QRect &  viewport  )
+
+
+
+   void QPainter::setViewTransformEnabled (  bool  enable  )
+
+
+
+   void QPainter::setWindow (  int  x,
+                               int  y,
+                               int  w,
+                               int  h
+                            )  [inline]
+
+
+
+   void QPainter::setWindow (  const QRect &  window  )
+
+
+
+   void QPainter::shear (  qreal  sh,
+                           qreal  sv
+                        )
+
+
+
+   void QPainter::strokePath (  const QPainterPath &  path,
+                                const QPen &          pen
+                             )
+
+
+
+   void QPainter::translate (  qreal  dx,
+                               qreal  dy
+                            )  [inline]
+
+
+
+   void QPainter::translate (  const QPoint &  offset  )  [inline]
+
+
+
+   void QPainter::translate (  const QPointF &  offset  )
+
+
+
+   QRect QPainter::viewport (   )  const
+
+
+
+   bool QPainter::viewTransformEnabled (   )  const
+
+
+
+   QRect QPainter::window (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3Painter [friend]
+
+
+
+   friend class QFontEngine [friend]
+
+
+
+   friend class QFontEngineBox [friend]
+
+
+
+   friend class QFontEngineFT [friend]
+
+
+
+   friend class QFontEngineMac [friend]
+
+
+
+   friend class QFontEngineWin [friend]
+
+
+
+   friend class QFontEngineXLFD [friend]
+
+
+
+   friend class QPaintEngine [friend]
+
+
+
+   void qt_format_text (  const QFont &    font,
+                          const QRectF &   _r,
+                          int              tf,
+                          const QString &  str,
+                          QRectF *         brect,
+                          int              tabstops,
+                          int *            tabarray,
+                          int              tabarraylen,
+                          QPainter *       painter
+                       )  [friend]
+
+
+
+   friend class QWin32PaintEngine [friend]
+
+
+
+   friend class QWin32PaintEnginePrivate [friend]
+
+
+
+   friend class QWSManager [friend]
+
+
+
+   friend class QX11PaintEngine [friend]
+
+
+
+   friend class QX11PaintEnginePrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpainter.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

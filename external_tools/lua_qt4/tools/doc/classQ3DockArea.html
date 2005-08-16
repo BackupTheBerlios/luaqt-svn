@@ -1,0 +1,199 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3DockArea Class Reference
+
+   #include <q3dockarea.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum HandlePosition { Normal, Reverse }
+
+Public Slots
+
+     * void lineUp (bool keepNewLines)
+
+Public Member Functions
+
+     * Q3DockArea (Qt::Orientation o, HandlePosition h=Normal, QWidget *parent=0, const char *name=0)
+     * ~Q3DockArea ()
+     * void moveDockWindow (Q3DockWindow *w, const QPoint &globalPos, const QRect &rect, bool swap)
+     * void removeDockWindow (Q3DockWindow *w, bool makeFloating, bool swap, bool fixNewLines=true)
+     * void moveDockWindow (Q3DockWindow *w, int index=-1)
+     * bool hasDockWindow (Q3DockWindow *w, int *index=0)
+     * void invalidNextOffset (Q3DockWindow *dw)
+     * Qt::Orientation orientation () const
+     * HandlePosition handlePosition () const
+     * bool eventFilter (QObject *, QEvent *)
+     * bool isEmpty () const
+     * int count () const
+     * QList< Q3DockWindow * > dockWindowList () const
+     * bool isDockWindowAccepted (Q3DockWindow *dw)
+     * void setAcceptDockWindow (Q3DockWindow *dw, bool accept)
+
+Properties
+
+     * Qt Orientation
+     * int count
+     * bool empty
+     * HandlePosition handlePosition
+
+Friends
+
+     * class Q3DockWindow
+     * class Q3DockWindowResizeHandle
+     * class Q3DockAreaLayout
+
+Classes
+
+     * struct DockWindowData
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3DockArea::HandlePosition
+
+
+
+   Enumerator: 
+
+          Normal 
+          Reverse
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3DockArea::Q3DockArea (  Qt::Orientation  o,
+                             HandlePosition   h = Normal,
+                             QWidget *        parent = 0,
+                             const char *     name = 0
+                          )
+
+
+
+   Q3DockArea::~Q3DockArea (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int Q3DockArea::count (   )  const
+
+
+
+   QList<Q3DockWindow *> Q3DockArea::dockWindowList (   )  const
+
+
+
+   bool Q3DockArea::eventFilter (  QObject *  ,
+                                   QEvent * 
+                                )  [virtual]
+
+
+
+   Reimplemented from QObject.
+
+   HandlePosition Q3DockArea::handlePosition (   )  const [inline]
+
+
+
+   bool Q3DockArea::hasDockWindow (  Q3DockWindow *  w,
+                                     int *           index = 0
+                                  )
+
+
+
+   void Q3DockArea::invalidNextOffset (  Q3DockWindow *  dw  )
+
+
+
+   bool Q3DockArea::isDockWindowAccepted (  Q3DockWindow *  dw  )
+
+
+
+   bool Q3DockArea::isEmpty (   )  const
+
+
+
+   void Q3DockArea::lineUp (  bool  keepNewLines  )  [slot]
+
+
+
+   void Q3DockArea::moveDockWindow (  Q3DockWindow *  w,
+                                      int             index = -1
+                                   )
+
+
+
+   void Q3DockArea::moveDockWindow (  Q3DockWindow *  w,
+                                      const QPoint &  globalPos,
+                                      const QRect &   rect,
+                                      bool            swap
+                                   )
+
+
+
+   Qt::Orientation Q3DockArea::orientation (   )  const [inline]
+
+
+
+   void Q3DockArea::removeDockWindow (  Q3DockWindow *  w,
+                                        bool            makeFloating,
+                                        bool            swap,
+                                        bool            fixNewLines = true
+                                     )
+
+
+
+   void Q3DockArea::setAcceptDockWindow (  Q3DockWindow *  dw,
+                                           bool            accept
+                                        )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3DockAreaLayout [friend]
+
+
+
+   friend class Q3DockWindow [friend]
+
+
+
+   friend class Q3DockWindowResizeHandle [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int Q3DockArea::count [read]
+
+
+
+   bool Q3DockArea::empty [read]
+
+
+
+   HandlePosition Q3DockArea::handlePosition [read]
+
+
+
+   Qt Q3DockArea::Orientation [read]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3dockarea.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

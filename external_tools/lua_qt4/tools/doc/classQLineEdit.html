@@ -1,0 +1,572 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QLineEdit Class Reference
+
+   #include <qlineedit.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum EchoMode { Normal, NoEcho, Password }
+
+Public Slots
+
+     * void setText (const QString &)
+     * void clear ()
+     * void selectAll ()
+     * void undo ()
+     * void redo ()
+     * void cut ()
+     * void copy () const
+     * void paste ()
+
+Signals
+
+     * void textChanged (const QString &)
+     * void textEdited (const QString &)
+     * void cursorPositionChanged (int, int)
+     * void returnPressed ()
+     * void editingFinished ()
+     * void selectionChanged ()
+
+Public Member Functions
+
+     * QLineEdit (QWidget *parent=0)
+     * QLineEdit (const QString &, QWidget *parent=0)
+     * ~QLineEdit ()
+     * QString text () const
+     * QString displayText () const
+     * int maxLength () const
+     * void setMaxLength (int)
+     * void setFrame (bool)
+     * bool hasFrame () const
+     * EchoMode echoMode () const
+     * void setEchoMode (EchoMode)
+     * bool isReadOnly () const
+     * void setReadOnly (bool)
+     * void setValidator (const QValidator *)
+     * const QValidator * validator () const
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * int cursorPosition () const
+     * void setCursorPosition (int)
+     * int cursorPositionAt (const QPoint &pos)
+     * void setAlignment (Qt::Alignment flag)
+     * Qt::Alignment alignment () const
+     * void cursorForward (bool mark, int steps=1)
+     * void cursorBackward (bool mark, int steps=1)
+     * void cursorWordForward (bool mark)
+     * void cursorWordBackward (bool mark)
+     * void backspace ()
+     * void del ()
+     * void home (bool mark)
+     * void end (bool mark)
+     * bool isModified () const
+     * void setModified (bool)
+     * void setSelection (int, int)
+     * bool hasSelectedText () const
+     * QString selectedText () const
+     * int selectionStart () const
+     * bool isUndoAvailable () const
+     * bool isRedoAvailable () const
+     * void setDragEnabled (bool b)
+     * bool dragEnabled () const
+     * QString inputMask () const
+     * void setInputMask (const QString &inputMask)
+     * bool hasAcceptableInput () const
+     * void deselect ()
+     * void insert (const QString &)
+     * QMenu * createStandardContextMenu ()
+     * QVariant inputMethodQuery (Qt::InputMethodQuery) const
+     * bool event (QEvent *)
+
+Protected Member Functions
+
+     * void mousePressEvent (QMouseEvent *)
+     * void mouseMoveEvent (QMouseEvent *)
+     * void mouseReleaseEvent (QMouseEvent *)
+     * void mouseDoubleClickEvent (QMouseEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * void focusInEvent (QFocusEvent *)
+     * void focusOutEvent (QFocusEvent *)
+     * void paintEvent (QPaintEvent *)
+     * void dragEnterEvent (QDragEnterEvent *)
+     * void dragMoveEvent (QDragMoveEvent *e)
+     * void dragLeaveEvent (QDragLeaveEvent *e)
+     * void dropEvent (QDropEvent *)
+     * void changeEvent (QEvent *)
+     * void contextMenuEvent (QContextMenuEvent *)
+     * void inputMethodEvent (QInputMethodEvent *)
+
+Properties
+
+     * QString inputMask
+     * QString text
+     * int maxLength
+     * bool frame
+     * EchoMode echoMode
+     * QString displayText
+     * int cursorPosition
+     * Qt Alignment
+     * bool modified
+     * bool hasSelectedText
+     * QString selectedText
+     * bool dragEnabled
+     * bool readOnly
+     * bool undoAvailable
+     * bool redoAvailable
+     * bool acceptableInput
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QLineEdit::EchoMode
+
+
+
+   Enumerator: 
+
+          Normal  
+          NoEcho  
+          Password
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QLineEdit::QLineEdit (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QLineEdit::QLineEdit (  const QString &  ,
+                           QWidget *        parent = 0
+                        )  [explicit]
+
+
+
+   QLineEdit::~QLineEdit (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Alignment QLineEdit::alignment (   )  const
+
+
+
+   void QLineEdit::backspace (   )
+
+
+
+   void QLineEdit::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::clear (   )  [slot]
+
+
+
+   void QLineEdit::contextMenuEvent (  QContextMenuEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::copy (   )  const [slot]
+
+
+
+   QMenu* QLineEdit::createStandardContextMenu (   )
+
+
+
+   void QLineEdit::cursorBackward (  bool  mark,
+                                     int   steps = 1
+                                  )
+
+
+
+   void QLineEdit::cursorForward (  bool  mark,
+                                    int   steps = 1
+                                 )
+
+
+
+   int QLineEdit::cursorPosition (   )  const
+
+
+
+   int QLineEdit::cursorPositionAt (  const QPoint &  pos  )
+
+
+
+   void QLineEdit::cursorPositionChanged (  int  ,
+                                            int
+                                         )  [signal]
+
+
+
+   void QLineEdit::cursorWordBackward (  bool  mark  )
+
+
+
+   void QLineEdit::cursorWordForward (  bool  mark  )
+
+
+
+   void QLineEdit::cut (   )  [slot]
+
+
+
+   void QLineEdit::del (   )
+
+
+
+   void QLineEdit::deselect (   )
+
+
+
+   QString QLineEdit::displayText (   )  const
+
+
+
+   bool QLineEdit::dragEnabled (   )  const
+
+
+
+   void QLineEdit::dragEnterEvent (  QDragEnterEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::dragLeaveEvent (  QDragLeaveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::dragMoveEvent (  QDragMoveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::dropEvent (  QDropEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   EchoMode QLineEdit::echoMode (   )  const
+
+
+
+   void QLineEdit::editingFinished (   )  [signal]
+
+
+
+   void QLineEdit::end (  bool  mark  )
+
+
+
+   bool QLineEdit::event (  QEvent *   )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::focusInEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::focusOutEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QLineEdit::hasAcceptableInput (   )  const
+
+
+
+   bool QLineEdit::hasFrame (   )  const
+
+
+
+   bool QLineEdit::hasSelectedText (   )  const
+
+
+
+   void QLineEdit::home (  bool  mark  )
+
+
+
+   QString QLineEdit::inputMask (   )  const
+
+
+
+   void QLineEdit::inputMethodEvent (  QInputMethodEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QVariant QLineEdit::inputMethodQuery (  Qt::InputMethodQuery   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::insert (  const QString &   )
+
+
+
+   bool QLineEdit::isModified (   )  const
+
+
+
+   bool QLineEdit::isReadOnly (   )  const
+
+
+
+   bool QLineEdit::isRedoAvailable (   )  const
+
+
+
+   bool QLineEdit::isUndoAvailable (   )  const
+
+
+
+   void QLineEdit::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int QLineEdit::maxLength (   )  const
+
+
+
+   QSize QLineEdit::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::mouseDoubleClickEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QLineEdit::paste (   )  [slot]
+
+
+
+   void QLineEdit::redo (   )  [slot]
+
+
+
+   void QLineEdit::returnPressed (   )  [signal]
+
+
+
+   void QLineEdit::selectAll (   )  [slot]
+
+
+
+   QString QLineEdit::selectedText (   )  const
+
+
+
+   void QLineEdit::selectionChanged (   )  [signal]
+
+
+
+   int QLineEdit::selectionStart (   )  const
+
+
+
+   void QLineEdit::setAlignment (  Qt::Alignment  flag  )
+
+
+
+   void QLineEdit::setCursorPosition (  int   )
+
+
+
+   void QLineEdit::setDragEnabled (  bool  b  )
+
+
+
+   void QLineEdit::setEchoMode (  EchoMode   )
+
+
+
+   void QLineEdit::setFrame (  bool   )
+
+
+
+   void QLineEdit::setInputMask (  const QString &  inputMask  )
+
+
+
+   void QLineEdit::setMaxLength (  int   )
+
+
+
+   void QLineEdit::setModified (  bool   )
+
+
+
+   void QLineEdit::setReadOnly (  bool   )
+
+
+
+   void QLineEdit::setSelection (  int  ,
+                                   int
+                                )
+
+
+
+   void QLineEdit::setText (  const QString &   )  [slot]
+
+
+
+   void QLineEdit::setValidator (  const QValidator *   )
+
+
+
+   QSize QLineEdit::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QString QLineEdit::text (   )  const
+
+
+
+   void QLineEdit::textChanged (  const QString &   )  [signal]
+
+
+
+   void QLineEdit::textEdited (  const QString &   )  [signal]
+
+
+
+   void QLineEdit::undo (   )  [slot]
+
+
+
+   const QValidator* QLineEdit::validator (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QLineEdit::acceptableInput [read]
+
+
+
+   Qt QLineEdit::Alignment [read, write]
+
+
+
+   int QLineEdit::cursorPosition [read, write]
+
+
+
+   QString QLineEdit::displayText [read]
+
+
+
+   bool QLineEdit::dragEnabled [read, write]
+
+
+
+   EchoMode QLineEdit::echoMode [read, write]
+
+
+
+   bool QLineEdit::frame [read, write]
+
+
+
+   bool QLineEdit::hasSelectedText [read]
+
+
+
+   QString QLineEdit::inputMask [read, write]
+
+
+
+   int QLineEdit::maxLength [read, write]
+
+
+
+   bool QLineEdit::modified [read, write]
+
+
+
+   bool QLineEdit::readOnly [read, write]
+
+
+
+   bool QLineEdit::redoAvailable [read]
+
+
+
+   QString QLineEdit::selectedText [read]
+
+
+
+   QString QLineEdit::text [read, write]
+
+
+
+   bool QLineEdit::undoAvailable [read]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlineedit.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

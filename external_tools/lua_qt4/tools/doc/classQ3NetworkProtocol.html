@@ -1,0 +1,320 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3NetworkProtocol Class Reference
+
+   #include <q3networkprotocol.h>
+
+   Inherits QObject.
+
+   Inherited by Q3Ftp, Q3Http, and Q3LocalFs.
+
+   List of all members.
+
+Public Types
+
+     * enum State {
+         StWaiting = 0, StInProgress, StDone, StFailed,
+         StStopped
+       }
+     * enum Operation {
+         OpListChildren = 1, OpMkDir = 2, OpMkdir = OpMkDir, OpRemove = 4,
+         OpRename = 8, OpGet = 32, OpPut = 64
+       }
+     * enum ConnectionState { ConHostFound, ConConnected, ConClosed }
+     * enum Error {
+         NoError = 0, ErrValid, ErrUnknownProtocol, ErrUnsupported,
+         ErrParse, ErrLoginIncorrect, ErrHostNotFound, ErrListChildren,
+         ErrListChlidren = ErrListChildren, ErrMkDir, ErrMkdir = ErrMkDir, ErrRemove,
+         ErrRename, ErrGet, ErrPut, ErrFileNotExisting,
+         ErrPermissionDenied
+       }
+
+Signals
+
+     * void data (const QByteArray &, Q3NetworkOperation *res)
+     * void connectionStateChanged (int state, const QString &data)
+     * void finished (Q3NetworkOperation *res)
+     * void start (Q3NetworkOperation *res)
+     * void newChildren (const Q3ValueList< QUrlInfo > &, Q3NetworkOperation *res)
+     * void newChild (const QUrlInfo &, Q3NetworkOperation *res)
+     * void createdDirectory (const QUrlInfo &, Q3NetworkOperation *res)
+     * void removed (Q3NetworkOperation *res)
+     * void itemChanged (Q3NetworkOperation *res)
+     * void dataTransferProgress (int bytesDone, int bytesTotal, Q3NetworkOperation *res)
+
+Public Member Functions
+
+     * Q3NetworkProtocol ()
+     * virtual ~Q3NetworkProtocol ()
+     * virtual void setUrl (Q3UrlOperator *u)
+     * virtual void setAutoDelete (bool b, int i=10000)
+     * bool autoDelete () const
+     * virtual int supportedOperations () const
+     * virtual void addOperation (Q3NetworkOperation *op)
+     * Q3UrlOperator * url () const
+     * Q3NetworkOperation * operationInProgress () const
+     * virtual void clearOperationQueue ()
+     * virtual void stop ()
+
+Static Public Member Functions
+
+     * static void registerNetworkProtocol (const QString &protocol, Q3NetworkProtocolFactoryBase *protocolFactory)
+     * static Q3NetworkProtocol * getNetworkProtocol (const QString &protocol)
+     * static bool hasOnlyLocalFileSystem ()
+
+Protected Member Functions
+
+     * virtual void processOperation (Q3NetworkOperation *op)
+     * virtual void operationListChildren (Q3NetworkOperation *op)
+     * virtual void operationMkDir (Q3NetworkOperation *op)
+     * virtual void operationRemove (Q3NetworkOperation *op)
+     * virtual void operationRename (Q3NetworkOperation *op)
+     * virtual void operationGet (Q3NetworkOperation *op)
+     * virtual void operationPut (Q3NetworkOperation *op)
+     * virtual void operationPutChunk (Q3NetworkOperation *op)
+     * virtual bool checkConnection (Q3NetworkOperation *op)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3NetworkProtocol::ConnectionState
+
+
+
+   Enumerator: 
+
+          ConHostFound
+          ConConnected
+          ConClosed   
+
+   enum Q3NetworkProtocol::Error
+
+
+
+   Enumerator: 
+
+          NoError            
+          ErrValid           
+          ErrUnknownProtocol 
+          ErrUnsupported     
+          ErrParse           
+          ErrLoginIncorrect  
+          ErrHostNotFound    
+          ErrListChildren    
+          ErrListChlidren    
+          ErrMkDir           
+          ErrMkdir           
+          ErrRemove          
+          ErrRename          
+          ErrGet             
+          ErrPut             
+          ErrFileNotExisting 
+          ErrPermissionDenied
+
+   Reimplemented in Q3Ftp, and Q3Http.
+
+   enum Q3NetworkProtocol::Operation
+
+
+
+   Enumerator: 
+
+          OpListChildren
+          OpMkDir       
+          OpMkdir       
+          OpRemove      
+          OpRename      
+          OpGet         
+          OpPut         
+
+   enum Q3NetworkProtocol::State
+
+
+
+   Enumerator: 
+
+          StWaiting   
+          StInProgress
+          StDone      
+          StFailed    
+          StStopped   
+
+   Reimplemented in Q3Ftp, and Q3Http.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3NetworkProtocol::Q3NetworkProtocol (   )
+
+
+
+   virtual Q3NetworkProtocol::~Q3NetworkProtocol (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3NetworkProtocol::addOperation (  Q3NetworkOperation *  op  )  [virtual]
+
+
+
+   bool Q3NetworkProtocol::autoDelete (   )  const
+
+
+
+   virtual bool Q3NetworkProtocol::checkConnection (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   virtual void Q3NetworkProtocol::clearOperationQueue (   )  [virtual]
+
+
+
+   void Q3NetworkProtocol::connectionStateChanged (  int              state,
+                                                     const QString &  data
+                                                  )  [signal]
+
+
+
+   void Q3NetworkProtocol::createdDirectory (  const QUrlInfo &      ,
+                                               Q3NetworkOperation *  res
+                                            )  [signal]
+
+
+
+   void Q3NetworkProtocol::data (  const QByteArray &    ,
+                                   Q3NetworkOperation *  res
+                                )  [signal]
+
+
+
+   void Q3NetworkProtocol::dataTransferProgress (  int                   bytesDone,
+                                                   int                   bytesTotal,
+                                                   Q3NetworkOperation *  res
+                                                )  [signal]
+
+
+
+   void Q3NetworkProtocol::finished (  Q3NetworkOperation *  res  )  [signal]
+
+
+
+   static Q3NetworkProtocol* Q3NetworkProtocol::getNetworkProtocol (  const QString &  protocol  )  [static]
+
+
+
+   static bool Q3NetworkProtocol::hasOnlyLocalFileSystem (   )  [static]
+
+
+
+   void Q3NetworkProtocol::itemChanged (  Q3NetworkOperation *  res  )  [signal]
+
+
+
+   void Q3NetworkProtocol::newChild (  const QUrlInfo &      ,
+                                       Q3NetworkOperation *  res
+                                    )  [signal]
+
+
+
+   void Q3NetworkProtocol::newChildren (  const Q3ValueList< QUrlInfo > &  ,
+                                          Q3NetworkOperation *             res
+                                       )  [signal]
+
+
+
+   virtual void Q3NetworkProtocol::operationGet (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented in Q3Ftp, Q3Http, and Q3LocalFs.
+
+   Q3NetworkOperation* Q3NetworkProtocol::operationInProgress (   )  const
+
+
+
+   virtual void Q3NetworkProtocol::operationListChildren (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented in Q3Ftp, and Q3LocalFs.
+
+   virtual void Q3NetworkProtocol::operationMkDir (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented in Q3Ftp, and Q3LocalFs.
+
+   virtual void Q3NetworkProtocol::operationPut (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented in Q3Ftp, Q3Http, and Q3LocalFs.
+
+   virtual void Q3NetworkProtocol::operationPutChunk (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   virtual void Q3NetworkProtocol::operationRemove (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented in Q3Ftp, and Q3LocalFs.
+
+   virtual void Q3NetworkProtocol::operationRename (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented in Q3Ftp, and Q3LocalFs.
+
+   virtual void Q3NetworkProtocol::processOperation (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   static void Q3NetworkProtocol::registerNetworkProtocol (  const QString &                 protocol,
+                                                             Q3NetworkProtocolFactoryBase *  protocolFactory
+                                                          )  [static]
+
+
+
+   void Q3NetworkProtocol::removed (  Q3NetworkOperation *  res  )  [signal]
+
+
+
+   virtual void Q3NetworkProtocol::setAutoDelete (  bool  b,
+                                                    int   i = 10000
+                                                 )  [virtual]
+
+
+
+   virtual void Q3NetworkProtocol::setUrl (  Q3UrlOperator *  u  )  [virtual]
+
+
+
+   void Q3NetworkProtocol::start (  Q3NetworkOperation *  res  )  [signal]
+
+
+
+   virtual void Q3NetworkProtocol::stop (   )  [virtual]
+
+
+
+   virtual int Q3NetworkProtocol::supportedOperations (   )  const [virtual]
+
+
+
+   Reimplemented in Q3Ftp, Q3Http, and Q3LocalFs.
+
+   Q3UrlOperator* Q3NetworkProtocol::url (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3networkprotocol.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

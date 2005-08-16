@@ -1,0 +1,618 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QComboBox Class Reference
+
+   #include <qcombobox.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum InsertPolicy {
+         NoInsert, InsertAtTop, InsertAtCurrent, InsertAtBottom,
+         InsertAfterCurrent, InsertBeforeCurrent
+       }
+     * enum SizeAdjustPolicy { AdjustToContents, AdjustToContentsOnFirstShow, AdjustToMinimumContentsLength }
+
+Public Slots
+
+     * void clear ()
+     * void clearEditText ()
+     * void setEditText (const QString &text)
+
+Signals
+
+     * void editTextChanged (const QString &)
+     * void activated (int index)
+     * void activated (const QString &)
+     * void highlighted (int index)
+     * void highlighted (const QString &)
+
+Public Member Functions
+
+     * QComboBox (QWidget *parent=0)
+     * ~QComboBox ()
+     * int maxVisibleItems () const
+     * void setMaxVisibleItems (int maxItems)
+     * int count () const
+     * void setMaxCount (int max)
+     * int maxCount () const
+     * bool autoCompletion () const
+     * void setAutoCompletion (bool enable)
+     * bool duplicatesEnabled () const
+     * void setDuplicatesEnabled (bool enable)
+     * void setFrame (bool)
+     * bool hasFrame () const
+     * int findText (const QString &text, Qt::MatchFlags flags=Qt::MatchExactly|Qt::MatchCaseSensitive) const
+     * int findData (const QVariant &data, int role=Qt::UserRole, Qt::MatchFlags flags=Qt::MatchExactly|Qt::MatchCaseSensitive) const
+     * InsertPolicy insertPolicy () const
+     * void setInsertPolicy (InsertPolicy policy)
+     * SizeAdjustPolicy sizeAdjustPolicy () const
+     * void setSizeAdjustPolicy (SizeAdjustPolicy policy)
+     * int minimumContentsLength () const
+     * void setMinimumContentsLength (int characters)
+     * QSize iconSize () const
+     * void setIconSize (const QSize &size)
+     * bool isEditable () const
+     * void setEditable (bool editable)
+     * void setLineEdit (QLineEdit *edit)
+     * QLineEdit * lineEdit () const
+     * void setValidator (const QValidator *v)
+     * const QValidator * validator () const
+     * QAbstractItemDelegate * itemDelegate () const
+     * void setItemDelegate (QAbstractItemDelegate *delegate)
+     * QAbstractItemModel * model () const
+     * void setModel (QAbstractItemModel *model)
+     * QModelIndex rootModelIndex () const
+     * void setRootModelIndex (const QModelIndex &index)
+     * int modelColumn () const
+     * void setModelColumn (int visibleColumn)
+     * int currentIndex () const
+     * void setCurrentIndex (int index)
+     * QString currentText () const
+     * QString itemText (int index) const
+     * QIcon itemIcon (int index) const
+     * QVariant itemData (int index, int role=Qt::UserRole) const
+     * void addItem (const QString &text, const QVariant &userData=QVariant())
+     * void addItem (const QIcon &icon, const QString &text, const QVariant &userData=QVariant())
+     * void addItems (const QStringList &texts)
+     * void insertItem (int index, const QString &text, const QVariant &userData=QVariant())
+     * void insertItem (int index, const QIcon &icon, const QString &text, const QVariant &userData=QVariant())
+     * void insertItems (int index, const QStringList &texts)
+     * void removeItem (int index)
+     * void setItemText (int index, const QString &text)
+     * void setItemIcon (int index, const QIcon &icon)
+     * void setItemData (int index, const QVariant &value, int role=Qt::UserRole)
+     * QAbstractItemView * view () const
+     * void setView (QAbstractItemView *itemView)
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * virtual void showPopup ()
+     * virtual void hidePopup ()
+     * bool event (QEvent *event)
+
+Protected Member Functions
+
+     * void focusInEvent (QFocusEvent *e)
+     * void focusOutEvent (QFocusEvent *e)
+     * void changeEvent (QEvent *e)
+     * void resizeEvent (QResizeEvent *e)
+     * void paintEvent (QPaintEvent *e)
+     * void showEvent (QShowEvent *e)
+     * void hideEvent (QHideEvent *e)
+     * void mousePressEvent (QMouseEvent *e)
+     * void mouseReleaseEvent (QMouseEvent *e)
+     * void keyPressEvent (QKeyEvent *e)
+     * void keyReleaseEvent (QKeyEvent *e)
+     * void wheelEvent (QWheelEvent *e)
+     * void inputMethodEvent (QInputMethodEvent *)
+     * QVariant inputMethodQuery (Qt::InputMethodQuery) const
+
+Properties
+
+     * bool editable
+     * int count
+     * QString currentText
+     * int currentIndex
+     * int maxVisibleItems
+     * int maxCount
+     * InsertPolicy insertPolicy
+     * SizeAdjustPolicy sizeAdjustPolicy
+     * int minimumContentsLength
+     * QSize iconSize
+     * bool autoCompletion
+     * bool duplicatesEnabled
+     * bool frame
+     * bool modelColumn
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QComboBox::InsertPolicy
+
+
+
+   Enumerator: 
+
+          NoInsert           
+          InsertAtTop        
+          InsertAtCurrent    
+          InsertAtBottom     
+          InsertAfterCurrent 
+          InsertBeforeCurrent
+
+   enum QComboBox::SizeAdjustPolicy
+
+
+
+   Enumerator: 
+
+          AdjustToContents             
+          AdjustToContentsOnFirstShow  
+          AdjustToMinimumContentsLength
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QComboBox::QComboBox (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QComboBox::~QComboBox (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QComboBox::activated (  const QString &   )  [signal]
+
+
+
+   void QComboBox::activated (  int  index  )  [signal]
+
+
+
+   void QComboBox::addItem (  const QIcon &     icon,
+                              const QString &   text,
+                              const QVariant &  userData = QVariant()
+                           )  [inline]
+
+
+
+   void QComboBox::addItem (  const QString &   text,
+                              const QVariant &  userData = QVariant()
+                           )  [inline]
+
+
+
+   void QComboBox::addItems (  const QStringList &  texts  )  [inline]
+
+
+
+   bool QComboBox::autoCompletion (   )  const
+
+
+
+   void QComboBox::changeEvent (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QComboBox::clear (   )  [slot]
+
+
+
+   void QComboBox::clearEditText (   )  [slot]
+
+
+
+   int QComboBox::count (   )  const
+
+
+
+   int QComboBox::currentIndex (   )  const
+
+
+
+   QString QComboBox::currentText (   )  const
+
+
+
+   bool QComboBox::duplicatesEnabled (   )  const
+
+
+
+   void QComboBox::editTextChanged (  const QString &   )  [signal]
+
+
+
+   bool QComboBox::event (  QEvent *  event  )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int QComboBox::findData (  const QVariant &  data,
+                              int               role = Qt::UserRole,
+                              Qt::MatchFlags    flags = Qt::MatchExactly|Qt::MatchCaseSensitive
+                           )  const
+
+
+
+   int QComboBox::findText (  const QString &  text,
+                              Qt::MatchFlags   flags = Qt::MatchExactly|Qt::MatchCaseSensitive
+                           )  const [inline]
+
+
+
+   void QComboBox::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QComboBox::focusOutEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QComboBox::hasFrame (   )  const
+
+
+
+   void QComboBox::hideEvent (  QHideEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void QComboBox::hidePopup (   )  [virtual]
+
+
+
+   void QComboBox::highlighted (  const QString &   )  [signal]
+
+
+
+   void QComboBox::highlighted (  int  index  )  [signal]
+
+
+
+   QSize QComboBox::iconSize (   )  const
+
+
+
+   void QComboBox::inputMethodEvent (  QInputMethodEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QVariant QComboBox::inputMethodQuery (  Qt::InputMethodQuery   )  const [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QComboBox::insertItem (  int               index,
+                                 const QIcon &     icon,
+                                 const QString &   text,
+                                 const QVariant &  userData = QVariant()
+                              )
+
+
+
+   void QComboBox::insertItem (  int               index,
+                                 const QString &   text,
+                                 const QVariant &  userData = QVariant()
+                              )  [inline]
+
+
+
+   void QComboBox::insertItems (  int                  index,
+                                  const QStringList &  texts
+                               )
+
+
+
+   InsertPolicy QComboBox::insertPolicy (   )  const
+
+
+
+   bool QComboBox::isEditable (   )  const
+
+
+
+   QVariant QComboBox::itemData (  int  index,
+                                   int  role = Qt::UserRole
+                                )  const
+
+
+
+   QAbstractItemDelegate* QComboBox::itemDelegate (   )  const
+
+
+
+   QIcon QComboBox::itemIcon (  int  index  )  const
+
+
+
+   QString QComboBox::itemText (  int  index  )  const
+
+
+
+   void QComboBox::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QComboBox::keyReleaseEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QLineEdit* QComboBox::lineEdit (   )  const
+
+
+
+   int QComboBox::maxCount (   )  const
+
+
+
+   int QComboBox::maxVisibleItems (   )  const
+
+
+
+   int QComboBox::minimumContentsLength (   )  const
+
+
+
+   QSize QComboBox::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QAbstractItemModel* QComboBox::model (   )  const
+
+
+
+   int QComboBox::modelColumn (   )  const
+
+
+
+   void QComboBox::mousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QComboBox::mouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QComboBox::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QComboBox::removeItem (  int  index  )
+
+
+
+   void QComboBox::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QModelIndex QComboBox::rootModelIndex (   )  const
+
+
+
+   void QComboBox::setAutoCompletion (  bool  enable  )
+
+
+
+   void QComboBox::setCurrentIndex (  int  index  )
+
+
+
+   void QComboBox::setDuplicatesEnabled (  bool  enable  )
+
+
+
+   void QComboBox::setEditable (  bool  editable  )
+
+
+
+   void QComboBox::setEditText (  const QString &  text  )  [slot]
+
+
+
+   void QComboBox::setFrame (  bool   )
+
+
+
+   void QComboBox::setIconSize (  const QSize &  size  )
+
+
+
+   void QComboBox::setInsertPolicy (  InsertPolicy  policy  )
+
+
+
+   void QComboBox::setItemData (  int               index,
+                                  const QVariant &  value,
+                                  int               role = Qt::UserRole
+                               )
+
+
+
+   void QComboBox::setItemDelegate (  QAbstractItemDelegate *  delegate  )
+
+
+
+   void QComboBox::setItemIcon (  int            index,
+                                  const QIcon &  icon
+                               )
+
+
+
+   void QComboBox::setItemText (  int              index,
+                                  const QString &  text
+                               )
+
+
+
+   void QComboBox::setLineEdit (  QLineEdit *  edit  )
+
+
+
+   void QComboBox::setMaxCount (  int  max  )
+
+
+
+   void QComboBox::setMaxVisibleItems (  int  maxItems  )
+
+
+
+   void QComboBox::setMinimumContentsLength (  int  characters  )
+
+
+
+   void QComboBox::setModel (  QAbstractItemModel *  model  )
+
+
+
+   void QComboBox::setModelColumn (  int  visibleColumn  )
+
+
+
+   void QComboBox::setRootModelIndex (  const QModelIndex &  index  )
+
+
+
+   void QComboBox::setSizeAdjustPolicy (  SizeAdjustPolicy  policy  )
+
+
+
+   void QComboBox::setValidator (  const QValidator *  v  )
+
+
+
+   void QComboBox::setView (  QAbstractItemView *  itemView  )
+
+
+
+   void QComboBox::showEvent (  QShowEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void QComboBox::showPopup (   )  [virtual]
+
+
+
+   SizeAdjustPolicy QComboBox::sizeAdjustPolicy (   )  const
+
+
+
+   QSize QComboBox::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   const QValidator* QComboBox::validator (   )  const
+
+
+
+   QAbstractItemView* QComboBox::view (   )  const
+
+
+
+   void QComboBox::wheelEvent (  QWheelEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QComboBox::autoCompletion [read, write]
+
+
+
+   int QComboBox::count [read]
+
+
+
+   int QComboBox::currentIndex [read, write]
+
+
+
+   QString QComboBox::currentText [read]
+
+
+
+   bool QComboBox::duplicatesEnabled [read, write]
+
+
+
+   bool QComboBox::editable [read, write]
+
+
+
+   bool QComboBox::frame [read, write]
+
+
+
+   QSize QComboBox::iconSize [read, write]
+
+
+
+   InsertPolicy QComboBox::insertPolicy [read, write]
+
+
+
+   int QComboBox::maxCount [read, write]
+
+
+
+   int QComboBox::maxVisibleItems [read, write]
+
+
+
+   int QComboBox::minimumContentsLength [read, write]
+
+
+
+   bool QComboBox::modelColumn [read, write]
+
+
+
+   SizeAdjustPolicy QComboBox::sizeAdjustPolicy [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qcombobox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

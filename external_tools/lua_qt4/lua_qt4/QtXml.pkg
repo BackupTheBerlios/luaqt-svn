@@ -1,0 +1,7 @@
+$pfile "lua_qt4/qt_defines.pkg"
+
+$ifile "lua_qt4/qnamespace.pkg",qns
+
+$ifile "lua_qt4/QtXml_headers.pkg",qt
+
+

@@ -1,0 +1,109 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3CanvasLine Class Reference
+
+   #include <q3canvas.h>
+
+   Inherits Q3CanvasPolygonalItem.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CanvasLine (Q3Canvas *canvas)
+     * ~Q3CanvasLine ()
+     * void setPoints (int x1, int y1, int x2, int y2)
+     * QPoint startPoint () const
+     * QPoint endPoint () const
+     * int rtti () const
+     * void setPen (QPen p)
+     * void moveBy (double dx, double dy)
+
+Static Public Attributes
+
+     * static int RTTI
+
+Protected Member Functions
+
+     * void drawShape (QPainter &)
+     * Q3PointArray areaPoints () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasLine::Q3CanvasLine (  Q3Canvas *  canvas  )
+
+
+
+   Q3CanvasLine::~Q3CanvasLine (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3PointArray Q3CanvasLine::areaPoints (   )  const [protected, virtual]
+
+
+
+   Implements Q3CanvasPolygonalItem.
+
+   void Q3CanvasLine::drawShape (  QPainter &   )  [protected, virtual]
+
+
+
+   Implements Q3CanvasPolygonalItem.
+
+   QPoint Q3CanvasLine::endPoint (   )  const [inline]
+
+
+
+   void Q3CanvasLine::moveBy (  double  dx,
+                                double  dy
+                             )  [virtual]
+
+
+
+   Reimplemented from Q3CanvasItem.
+
+   int Q3CanvasLine::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+
+   void Q3CanvasLine::setPen (  QPen  p  )  [virtual]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+
+   void Q3CanvasLine::setPoints (  int  x1,
+                                   int  y1,
+                                   int  x2,
+                                   int  y2
+                                )
+
+
+
+   QPoint Q3CanvasLine::startPoint (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3CanvasLine::RTTI [static]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

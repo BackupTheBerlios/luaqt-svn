@@ -1,0 +1,98 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3ListBoxText Class Reference
+
+   #include <q3listbox.h>
+
+   Inherits Q3ListBoxItem.
+
+   List of all members.
+
+Public Types
+
+     * enum { RTTI = 1 }
+
+Public Member Functions
+
+     * Q3ListBoxText (Q3ListBox *listbox, const QString &text=QString())
+     * Q3ListBoxText (const QString &text=QString())
+     * Q3ListBoxText (Q3ListBox *listbox, const QString &text, Q3ListBoxItem *after)
+     * ~Q3ListBoxText ()
+     * int height (const Q3ListBox *) const
+     * int width (const Q3ListBox *) const
+     * int rtti () const
+
+Protected Member Functions
+
+     * void paint (QPainter *)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          RTTI
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ListBoxText::Q3ListBoxText (  Q3ListBox *      listbox,
+                                   const QString &  text = QString()
+                                )
+
+
+
+   Q3ListBoxText::Q3ListBoxText (  const QString &  text = QString()  )
+
+
+
+   Q3ListBoxText::Q3ListBoxText (  Q3ListBox *      listbox,
+                                   const QString &  text,
+                                   Q3ListBoxItem *  after
+                                )
+
+
+
+   Q3ListBoxText::~Q3ListBoxText (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int Q3ListBoxText::height (  const Q3ListBox *   )  const [virtual]
+
+
+
+   Reimplemented from Q3ListBoxItem.
+
+   void Q3ListBoxText::paint (  QPainter *   )  [protected, virtual]
+
+
+
+   Implements Q3ListBoxItem.
+
+   int Q3ListBoxText::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ListBoxItem.
+
+   int Q3ListBoxText::width (  const Q3ListBox *   )  const [virtual]
+
+
+
+   Reimplemented from Q3ListBoxItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3listbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

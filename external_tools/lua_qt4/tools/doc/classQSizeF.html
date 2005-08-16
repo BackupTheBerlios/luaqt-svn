@@ -1,0 +1,197 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QSizeF Class Reference
+
+   #include <qsize.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QSizeF ()
+     * QSizeF (const QSize &sz)
+     * QSizeF (qreal w, qreal h)
+     * bool isNull () const
+     * bool isEmpty () const
+     * bool isValid () const
+     * qreal width () const
+     * qreal height () const
+     * void setWidth (qreal w)
+     * void setHeight (qreal h)
+     * void transpose ()
+     * void scale (qreal w, qreal h, Qt::AspectRatioMode mode)
+     * void scale (const QSizeF &s, Qt::AspectRatioMode mode)
+     * QSizeF expandedTo (const QSizeF &) const
+     * QSizeF boundedTo (const QSizeF &) const
+     * qreal & rwidth ()
+     * qreal & rheight ()
+     * QSizeF & operator+= (const QSizeF &)
+     * QSizeF & operator-= (const QSizeF &)
+     * QSizeF & operator *= (qreal c)
+     * QSizeF & operator/= (qreal c)
+     * QSize toSize () const
+
+Friends
+
+     * bool operator== (const QSizeF &, const QSizeF &)
+     * bool operator!= (const QSizeF &, const QSizeF &)
+     * const QSizeF operator+ (const QSizeF &, const QSizeF &)
+     * const QSizeF operator- (const QSizeF &, const QSizeF &)
+     * const QSizeF operator * (const QSizeF &, qreal)
+     * const QSizeF operator * (qreal, const QSizeF &)
+     * const QSizeF operator/ (const QSizeF &, qreal)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSizeF::QSizeF (   )  [inline]
+
+
+
+   QSizeF::QSizeF (  const QSize &  sz  )  [inline]
+
+
+
+   QSizeF::QSizeF (  qreal  w,
+                     qreal  h
+                  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QSizeF QSizeF::boundedTo (  const QSizeF &   )  const [inline]
+
+
+
+   QSizeF QSizeF::expandedTo (  const QSizeF &   )  const [inline]
+
+
+
+   qreal QSizeF::height (   )  const [inline]
+
+
+
+   bool QSizeF::isEmpty (   )  const [inline]
+
+
+
+   bool QSizeF::isNull (   )  const [inline]
+
+
+
+   bool QSizeF::isValid (   )  const [inline]
+
+
+
+   QSizeF & QSizeF::operator *= (  qreal  c  )  [inline]
+
+
+
+   QSizeF & QSizeF::operator+= (  const QSizeF &   )  [inline]
+
+
+
+   QSizeF & QSizeF::operator-= (  const QSizeF &   )  [inline]
+
+
+
+   QSizeF & QSizeF::operator/= (  qreal  c  )  [inline]
+
+
+
+   qreal & QSizeF::rheight (   )  [inline]
+
+
+
+   qreal & QSizeF::rwidth (   )  [inline]
+
+
+
+   void QSizeF::scale (  const QSizeF &       s,
+                         Qt::AspectRatioMode  mode
+                      )
+
+
+
+   void QSizeF::scale (  qreal                w,
+                         qreal                h,
+                         Qt::AspectRatioMode  mode
+                      )  [inline]
+
+
+
+   void QSizeF::setHeight (  qreal  h  )  [inline]
+
+
+
+   void QSizeF::setWidth (  qreal  w  )  [inline]
+
+
+
+   QSize QSizeF::toSize (   )  const [inline]
+
+
+
+   void QSizeF::transpose (   )
+
+
+
+   qreal QSizeF::width (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   const QSizeF operator * (  qreal           c,
+                              const QSizeF &  s
+                           )  [friend]
+
+
+
+   const QSizeF operator * (  const QSizeF &  s,
+                              qreal           c
+                           )  [friend]
+
+
+
+   bool operator!= (  const QSizeF &  s1,
+                      const QSizeF &  s2
+                   )  [friend]
+
+
+
+   const QSizeF operator+ (  const QSizeF &  s1,
+                             const QSizeF &  s2
+                          )  [friend]
+
+
+
+   const QSizeF operator- (  const QSizeF &  s1,
+                             const QSizeF &  s2
+                          )  [friend]
+
+
+
+   const QSizeF operator/ (  const QSizeF &  s,
+                             qreal           c
+                          )  [friend]
+
+
+
+   bool operator== (  const QSizeF &  s1,
+                      const QSizeF &  s2
+                   )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsize.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

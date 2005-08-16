@@ -1,0 +1,188 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QGroupBox Class Reference
+
+   #include <qgroupbox.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Slots
+
+     * void setChecked (bool b)
+
+Signals
+
+     * void toggled (bool)
+
+Public Member Functions
+
+     * QGroupBox (QWidget *parent=0)
+     * QGroupBox (const QString &title, QWidget *parent=0)
+     * ~QGroupBox ()
+     * QString title () const
+     * void setTitle (const QString &)
+     * Qt::Alignment alignment () const
+     * void setAlignment (int)
+     * QSize minimumSizeHint () const
+     * bool isFlat () const
+     * void setFlat (bool b)
+     * bool isCheckable () const
+     * void setCheckable (bool b)
+     * bool isChecked () const
+
+Protected Member Functions
+
+     * bool event (QEvent *)
+     * void childEvent (QChildEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void paintEvent (QPaintEvent *)
+     * void focusInEvent (QFocusEvent *)
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * QString title
+     * Qt Alignment
+     * bool flat
+     * bool checkable
+     * bool checked
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QGroupBox::QGroupBox (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QGroupBox::QGroupBox (  const QString &  title,
+                           QWidget *        parent = 0
+                        )  [explicit]
+
+
+
+   QGroupBox::~QGroupBox (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Alignment QGroupBox::alignment (   )  const
+
+
+
+   void QGroupBox::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QGroupBox::childEvent (  QChildEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   bool QGroupBox::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QGroupBox::focusInEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QGroupBox::isCheckable (   )  const
+
+
+
+   bool QGroupBox::isChecked (   )  const
+
+
+
+   bool QGroupBox::isFlat (   )  const
+
+
+
+   QSize QGroupBox::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QGroupBox::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QGroupBox::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QGroupBox::setAlignment (  int   )
+
+
+
+   void QGroupBox::setCheckable (  bool  b  )
+
+
+
+   void QGroupBox::setChecked (  bool  b  )  [slot]
+
+
+
+   void QGroupBox::setFlat (  bool  b  )
+
+
+
+   void QGroupBox::setTitle (  const QString &   )
+
+
+
+   QString QGroupBox::title (   )  const
+
+
+
+   void QGroupBox::toggled (  bool   )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Qt QGroupBox::Alignment [read, write]
+
+
+
+   bool QGroupBox::checkable [read, write]
+
+
+
+   bool QGroupBox::checked [read, write]
+
+
+
+   bool QGroupBox::flat [read, write]
+
+
+
+   QString QGroupBox::title [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qgroupbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

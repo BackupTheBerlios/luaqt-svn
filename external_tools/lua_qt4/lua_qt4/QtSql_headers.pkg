@@ -1,0 +1,396 @@
+$#include <QSqlDatabase>
+
+class QSqlDatabase {
+Q_OBJECT
+signals:
+public:
+
+	 QSqlDatabase ();
+	 QSqlDatabase (const QSqlDatabase &other);
+	 ~QSqlDatabase ();
+	 QSqlDatabase & operator= (const QSqlDatabase &other);
+	 bool open ();
+	 bool open (const QString &user, const QString &password);
+	 void close ();
+	 bool isOpen () const;
+	 bool isOpenError () const;
+	 QStringList tables (QSql::TableType type=QSql::Tables) const;
+	 QSqlIndex primaryIndex (const QString &tablename) const;
+	 QSqlRecord record (const QString &tablename) const;
+	 QSqlQuery exec (const QString &query=QString()) const;
+	 QSqlError lastError () const;
+	 bool isValid () const;
+	 bool transaction ();
+	 bool commit ();
+	 bool rollback ();
+	 void setDatabaseName (const QString &name);
+	 void setUserName (const QString &name);
+	 void setPassword (const QString &password);
+	 void setHostName (const QString &host);
+	 void setPort (int p);
+	 void setConnectOptions (const QString &options=QString());
+	 QString databaseName () const;
+	 QString userName () const;
+	 QString password () const;
+	 QString hostName () const;
+	 QString driverName () const;
+	 int port () const;
+	 QString connectOptions () const;
+	 QSqlDriver * driver () const;
+	 static QSqlDatabase addDatabase (const QString &type, const QString &connectionName=QLatin1String(defaultConnection));
+	 static QSqlDatabase addDatabase (QSqlDriver *driver, const QString &connectionName=QLatin1String(defaultConnection));
+	 static QSqlDatabase cloneDatabase (const QSqlDatabase &other, const QString &connectionName);
+	 static QSqlDatabase database (const QString &connectionName=QLatin1String(defaultConnection), bool open=true);
+	 static void removeDatabase (const QString &connectionName);
+	 static bool contains (const QString &connectionName=QLatin1String(defaultConnection));
+	 static QStringList drivers ();
+	 static QStringList connectionNames ();
+	 static void registerSqlDriver (const QString &name, QSqlDriverCreatorBase *creator);
+	 static bool isDriverAvailable (const QString &name);
+	 static const char * defaultConnection;
+
+};
+$#include <QSqlQuery>
+
+class QSqlQuery {
+Q_OBJECT
+signals:
+public:
+
+	 QSqlQuery (QSqlResult *r);
+	 QSqlQuery (const QString &query=QString(), QSqlDatabase db=QSqlDatabase());
+	 QSqlQuery (QSqlDatabase db);
+	 QSqlQuery (const QSqlQuery &other);
+	 QSqlQuery & operator= (const QSqlQuery &other);
+	 ~QSqlQuery ();
+	 bool isValid () const;
+	 bool isActive () const;
+	 bool isNull (int field) const;
+	 int at () const;
+	 QString lastQuery () const;
+	 int numRowsAffected () const;
+	 QSqlError lastError () const;
+	 bool isSelect () const;
+	 int size () const;
+	 const QSqlDriver * driver () const;
+	 const QSqlResult * result () const;
+	 bool isForwardOnly () const;
+	 QSqlRecord record () const;
+	 void setForwardOnly (bool forward);
+	 bool exec (const QString &query);
+	 QVariant value (int i) const;
+	 bool seek (int i, bool relative=false);
+	 bool next ();
+	 bool previous ();
+	 bool first ();
+	 bool last ();
+	 void clear ();
+	 bool exec ();
+	 bool prepare (const QString &query);
+	 void bindValue (const QString &placeholder, const QVariant &val, QSql::ParamType type=QSql::In);
+	 void bindValue (int pos, const QVariant &val, QSql::ParamType type=QSql::In);
+	 void addBindValue (const QVariant &val, QSql::ParamType type=QSql::In);
+	 QVariant boundValue (const QString &placeholder) const;
+	 QVariant boundValue (int pos) const;
+	 QMap< QString, QVariant > boundValues () const;
+	 QString executedQuery () const;
+	 QVariant lastInsertId () const;
+
+};
+$#include <QSqlRelation>
+
+class QSqlRelation {
+Q_OBJECT
+signals:
+public:
+
+	 QSqlRelation ();
+	 QSqlRelation (const QString &aTableName, const QString &indexCol, const QString &displayCol);
+	 QString tableName () const;
+	 QString indexColumn () const;
+	 QString displayColumn () const;
+	 bool isValid () const;
+
+};
+$#include <QSqlError>
+
+class QSqlError {
+Q_OBJECT
+signals:
+public:
+	 enum ErrorType {         NoError, ConnectionError, StatementError, TransactionError,         UnknownError       };
+
+	 QSqlError (const QString &driverText=QString(), const QString &databaseText=QString(), ErrorType type=NoError, int number=-1);
+	 QSqlError (const QSqlError &other);
+	 QSqlError & operator= (const QSqlError &other);
+	 ~QSqlError ();
+	 QString driverText () const;
+	 void setDriverText (const QString &driverText);
+	 QString databaseText () const;
+	 void setDatabaseText (const QString &databaseText);
+	 ErrorType type () const;
+	 void setType (ErrorType type);
+	 int number () const;
+	 void setNumber (int number);
+	 QString text () const;
+
+};
+$#include <QSqlRecord>
+
+class QSqlRecord {
+Q_OBJECT
+signals:
+public:
+
+	 QSqlRecord ();
+	 QSqlRecord (const QSqlRecord &other);
+	 QSqlRecord & operator= (const QSqlRecord &other);
+	 ~QSqlRecord ();
+	 bool operator== (const QSqlRecord &other) const;
+	 bool operator!= (const QSqlRecord &other) const;
+	 QVariant value (int i) const;
+	 QVariant value (const QString &name) const;
+	 void setValue (int i, const QVariant &val);
+	 void setValue (const QString &name, const QVariant &val);
+	 void setNull (int i);
+	 void setNull (const QString &name);
+	 bool isNull (int i) const;
+	 bool isNull (const QString &name) const;
+	 int indexOf (const QString &name) const;
+	 QString fieldName (int i) const;
+	 QSqlField field (int i) const;
+	 QSqlField field (const QString &name) const;
+	 bool isGenerated (int i) const;
+	 bool isGenerated (const QString &name) const;
+	 void setGenerated (const QString &name, bool generated);
+	 void setGenerated (int i, bool generated);
+	 void append (const QSqlField &field);
+	 void replace (int pos, const QSqlField &field);
+	 void insert (int pos, const QSqlField &field);
+	 void remove (int pos);
+	 bool isEmpty () const;
+	 bool contains (const QString &name) const;
+	 void clear ();
+	 void clearValues ();
+	 int count () const;
+
+};
+$#include <QSqlDriverCreatorBase>
+
+class QSqlDriverCreatorBase {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QSqlDriverCreatorBase ();
+	 virtual QSqlDriver * createObject () const =0;
+
+};
+$#include <QSqlField>
+
+class QSqlField {
+Q_OBJECT
+signals:
+public:
+	 enum RequiredStatus { Unknown = -1, Optional = 0, Required = 1 };
+
+	 QSqlField (const QString &fieldName=QString(), QVariant::Type type=QVariant::Invalid);
+	 QSqlField (const QSqlField &other);
+	 QSqlField & operator= (const QSqlField &other);
+	 bool operator== (const QSqlField &other) const;
+	 bool operator!= (const QSqlField &other) const;
+	 ~QSqlField ();
+	 void setValue (const QVariant &value);
+	 QVariant value () const;
+	 void setName (const QString &name);
+	 QString name () const;
+	 bool isNull () const;
+	 void setReadOnly (bool readOnly);
+	 bool isReadOnly () const;
+	 void clear ();
+	 QVariant::Type type () const;
+	 bool isAutoValue () const;
+	 void setType (QVariant::Type type);
+	 void setRequiredStatus (RequiredStatus status);
+	 void setRequired (bool required);
+	 void setLength (int fieldLength);
+	 void setPrecision (int precision);
+	 void setDefaultValue (const QVariant &value);
+	 void setSqlType (int type);
+	 void setGenerated (bool gen);
+	 void setAutoValue (bool autoVal);
+	 RequiredStatus requiredStatus () const;
+	 int length () const;
+	 int precision () const;
+	 QVariant defaultValue () const;
+	 int typeID () const;
+	 bool isGenerated () const;
+	 bool isValid () const;
+
+};
+$#include <QSqlResult>
+
+class QSqlResult {
+Q_OBJECT
+signals:
+public:
+
+	 virtual ~QSqlResult ();
+	 virtual QVariant handle () const;
+
+};
+$#include <QSqlDriverPlugin>
+
+class QSqlDriverPlugin : public QObject , public QSqlDriverFactoryInterface {
+Q_OBJECT
+signals:
+public:
+
+	 ~QSqlDriverPlugin ();
+	 virtual QStringList keys () const =0;
+	 virtual QSqlDriver * create (const QString &key)=0;
+
+};
+$#include <QSqlIndex>
+
+class QSqlIndex : public QSqlRecord {
+Q_OBJECT
+signals:
+public:
+
+	 QSqlIndex (const QString &cursorName=QString(), const QString &name=QString());
+	 QSqlIndex (const QSqlIndex &other);
+	 ~QSqlIndex ();
+	 QSqlIndex & operator= (const QSqlIndex &other);
+	 void setCursorName (const QString &cursorName);
+	 QString cursorName () const;
+	 void setName (const QString &name);
+	 QString name () const;
+	 void append (const QSqlField &field);
+	 void append (const QSqlField &field, bool desc);
+	 bool isDescending (int i) const;
+	 void setDescending (int i, bool desc);
+
+};
+$#include <QSqlQueryModel>
+
+class QSqlQueryModel : public QAbstractTableModel {
+Q_OBJECT
+signals:
+public:
+
+	 QSqlQueryModel (QObject *parent=0);
+	 virtual ~QSqlQueryModel ();
+	 int rowCount (const QModelIndex &parent=QModelIndex()) const;
+	 int columnCount (const QModelIndex &parent=QModelIndex()) const;
+	 QSqlRecord record (int row) const;
+	 QSqlRecord record () const;
+	 QVariant data (const QModelIndex &item, int role=Qt::DisplayRole) const;
+	 QVariant headerData (int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const;
+	 bool setHeaderData (int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole);
+	 bool insertColumns (int column, int count, const QModelIndex &parent=QModelIndex());
+	 bool removeColumns (int column, int count, const QModelIndex &parent=QModelIndex());
+	 void setQuery (const QSqlQuery &query);
+	 void setQuery (const QString &query, const QSqlDatabase &db=QSqlDatabase());
+	 QSqlQuery query () const;
+	 virtual void clear ();
+	 QSqlError lastError () const;
+	 void fetchMore (const QModelIndex &parent=QModelIndex());
+	 bool canFetchMore (const QModelIndex &parent=QModelIndex()) const;
+
+};
+$#include <QSqlDriver>
+
+class QSqlDriver : public QObject {
+Q_OBJECT
+signals:
+public:
+	 enum DriverFeature {         Transactions, QuerySize, BLOB, Unicode,         PreparedQueries, NamedPlaceholders, PositionalPlaceholders, LastInsertId       };
+	 enum StatementType {         WhereStatement, SelectStatement, UpdateStatement, InsertStatement,         DeleteStatement       };
+	 enum IdentifierType { FieldName, TableName };
+
+	 ~QSqlDriver ();
+	 virtual bool isOpen () const;
+	 bool isOpenError () const;
+	 virtual bool beginTransaction ();
+	 virtual bool commitTransaction ();
+	 virtual bool rollbackTransaction ();
+	 virtual QStringList tables (QSql::TableType tableType) const;
+	 virtual QSqlIndex primaryIndex (const QString &tableName) const;
+	 virtual QSqlRecord record (const QString &tableName) const;
+	 virtual QString formatValue (const QSqlField &field, bool trimStrings=false) const;
+	 virtual QString escapeIdentifier (const QString &identifier, IdentifierType type) const;
+	 virtual QString sqlStatement (StatementType type, const QString &tableName, const QSqlRecord &rec, bool preparedStatement) const;
+	 QSqlError lastError () const;
+	 virtual QVariant handle () const;
+	 virtual bool hasFeature (DriverFeature f) const =0;
+	 virtual void close ()=0;
+	 virtual QSqlResult * createResult () const =0;
+	 virtual bool open (const QString &db, const QString &user=QString(), const QString &password=QString(), const QString &host=QString(), int port=-1, const QString &connOpts=QString())=0;
+
+};
+$#include <QSqlTableModel>
+
+class QSqlTableModel : public QSqlQueryModel {
+Q_OBJECT
+signals:
+	 void primeInsert (int row, QSqlRecord &record);
+	 void beforeInsert (QSqlRecord &record);
+	 void beforeUpdate (int row, QSqlRecord &record);
+	 void beforeDelete (int row);
+public:
+	 enum EditStrategy { OnFieldChange, OnRowChange, OnManualSubmit };
+
+	 QSqlTableModel (QObject *parent=0, QSqlDatabase db=QSqlDatabase());
+	 virtual ~QSqlTableModel ();
+	 virtual bool select ();
+	 virtual void setTable (const QString &tableName);
+	 QString tableName () const;
+	 Qt::ItemFlags flags (const QModelIndex &index) const;
+	 QVariant data (const QModelIndex &idx, int role=Qt::DisplayRole) const;
+	 bool setData (const QModelIndex &index, const QVariant &value, int role=Qt::EditRole);
+	 QVariant headerData (int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const;
+	 bool isDirty (const QModelIndex &index) const;
+	 void clear ();
+	 virtual void setEditStrategy (EditStrategy strategy);
+	 EditStrategy editStrategy () const;
+	 QSqlIndex primaryKey () const;
+	 QSqlDatabase database () const;
+	 int fieldIndex (const QString &fieldName) const;
+	 void sort (int column, Qt::SortOrder order);
+	 virtual void setSort (int column, Qt::SortOrder order);
+	 QString filter () const;
+	 virtual void setFilter (const QString &filter);
+	 int rowCount (const QModelIndex &parent=QModelIndex()) const;
+	 bool removeColumns (int column, int count, const QModelIndex &parent=QModelIndex());
+	 bool removeRows (int row, int count, const QModelIndex &parent=QModelIndex());
+	 bool insertRows (int row, int count, const QModelIndex &parent=QModelIndex());
+	 bool insertRecord (int row, const QSqlRecord &record);
+	 bool setRecord (int row, const QSqlRecord &record);
+	 virtual void revertRow (int row);
+	 bool submit ();
+	 void revert ();
+	 bool submitAll ();
+	 void revertAll ();
+
+};
+$#include <QSqlRelationalTableModel>
+
+class QSqlRelationalTableModel : public QSqlTableModel {
+Q_OBJECT
+signals:
+public:
+
+	 QSqlRelationalTableModel (QObject *parent=0, QSqlDatabase db=QSqlDatabase());
+	 virtual ~QSqlRelationalTableModel ();
+	 QVariant data (const QModelIndex &item, int role=Qt::DisplayRole) const;
+	 bool setData (const QModelIndex &item, const QVariant &value, int role=Qt::EditRole);
+	 void clear ();
+	 bool select ();
+	 void setTable (const QString &tableName);
+	 virtual void setRelation (int column, const QSqlRelation &relation);
+	 QSqlRelation relation (int column) const;
+	 virtual QSqlTableModel * relationModel (int column) const;
+	 void revertRow (int row);
+
+};

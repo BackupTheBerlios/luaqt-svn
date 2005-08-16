@@ -1,0 +1,146 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QActionGroup Class Reference
+
+   #include <qactiongroup.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Slots
+
+     * void setEnabled (bool)
+     * void setDisabled (bool b)
+     * void setVisible (bool)
+     * void setExclusive (bool)
+
+Signals
+
+     * void triggered (QAction *)
+     * QT_MOC_COMPAT void selected (QAction *)
+     * void hovered (QAction *)
+
+Public Member Functions
+
+     * QActionGroup (QObject *parent)
+     * ~QActionGroup ()
+     * QAction * addAction (QAction *a)
+     * QAction * addAction (const QString &text)
+     * QAction * addAction (const QIcon &icon, const QString &text)
+     * void removeAction (QAction *a)
+     * QList< QAction * > actions () const
+     * QAction * checkedAction () const
+     * bool isExclusive () const
+     * bool isEnabled () const
+     * bool isVisible () const
+
+Properties
+
+     * bool exclusive
+     * bool enabled
+     * bool visible
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QActionGroup::QActionGroup (  QObject *  parent  )  [explicit]
+
+
+
+   QActionGroup::~QActionGroup (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QList<QAction*> QActionGroup::actions (   )  const
+
+
+
+   QAction* QActionGroup::addAction (  const QIcon &    icon,
+                                       const QString &  text
+                                    )
+
+
+
+   QAction* QActionGroup::addAction (  const QString &  text  )
+
+
+
+   QAction* QActionGroup::addAction (  QAction *  a  )
+
+
+
+   QAction* QActionGroup::checkedAction (   )  const
+
+
+
+   void QActionGroup::hovered (  QAction *   )  [signal]
+
+
+
+   bool QActionGroup::isEnabled (   )  const
+
+
+
+   bool QActionGroup::isExclusive (   )  const
+
+
+
+   bool QActionGroup::isVisible (   )  const
+
+
+
+   void QActionGroup::removeAction (  QAction *  a  )
+
+
+
+   QT_MOC_COMPAT void QActionGroup::selected (  QAction *   )  [signal]
+
+
+
+   void QActionGroup::setDisabled (  bool  b  )  [inline, slot]
+
+
+
+   void QActionGroup::setEnabled (  bool   )  [slot]
+
+
+
+   void QActionGroup::setExclusive (  bool   )  [slot]
+
+
+
+   void QActionGroup::setVisible (  bool   )  [slot]
+
+
+
+   void QActionGroup::triggered (  QAction *   )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QActionGroup::enabled [read, write]
+
+
+
+   bool QActionGroup::exclusive [read, write]
+
+
+
+   bool QActionGroup::visible [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qactiongroup.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

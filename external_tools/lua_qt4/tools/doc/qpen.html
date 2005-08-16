@@ -1,0 +1,278 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                            QPen Class Reference
+
+   The QPen class defines how a QPainter should draw lines and outlines
+   of shapes. More...
+#include <QPen>
+
+   Part of the QtGui module.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QPen ()
+     * QPen ( Qt::PenStyle style )
+     * QPen ( const QColor & color )
+     * QPen ( const QBrush & brush, qreal width, Qt::PenStyle s =
+       Qt::SolidLine, Qt::PenCapStyle c = Qt::SquareCap, Qt::PenJoinStyle
+       j = Qt::BevelJoin )
+     * QPen ( const QPen & p )
+     * ~QPen ()
+     * QBrush brush () const
+     * Qt::PenCapStyle capStyle () const
+     * QColor color () const
+     * bool isSolid () const
+     * Qt::PenJoinStyle joinStyle () const
+     * void setBrush ( const QBrush & brush )
+     * void setCapStyle ( Qt::PenCapStyle c )
+     * void setColor ( const QColor & c )
+     * void setJoinStyle ( Qt::PenJoinStyle j )
+     * void setStyle ( Qt::PenStyle s )
+     * void setWidth ( int width )
+     * void setWidthF ( qreal width )
+     * Qt::PenStyle style () const
+     * int width () const
+     * qreal widthF () const
+     * operator QVariant () const
+     * bool operator!= ( const QPen & p ) const
+     * QPen & operator= ( const QPen & p )
+     * bool operator== ( const QPen & p ) const
+
+  Related Non-Members
+
+     * QDataStream & operator>> ( QDataStream & s, QPen & p )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QPen class defines how a QPainter should draw lines and outlines
+   of shapes.
+
+   A pen has a style, width, brush, cap style and join style.
+
+   The pen style defines the line type. The default pen style is
+   Qt::SolidLine. Setting the style to Qt::NoPen tells the painter to not
+   draw lines or outlines.
+
+   The pen brush defines the fill of lines and text. The default pen is a
+   solid black brush. The QColor documentation lists predefined colors.
+
+   The cap style defines how the end points of lines are drawn. The join
+   style defines how the joins between two lines are drawn when multiple
+   connected lines are drawn (QPainter::drawPolyline() etc.). The cap and
+   join styles only apply to wide lines, i.e. when the width is 1 or
+   greater.
+
+   Use the QBrush class to specify fill styles.
+
+   Example:
+            QPainter painter;
+            QPen pen(Qt::red, 2);                 // red solid line, 2 pixels w
+ide
+            painter.begin(&anyPaintDevice);   // paint something
+            painter.setPen(pen);              // set the red, wide pen
+            painter.drawRect(40,30, 200,100); // draw a rectangle
+            painter.setPen(Qt::blue);             // set blue pen, 0 pixel widt
+h
+            painter.drawLine(40,30, 240,130); // draw a diagonal in rectangle
+            painter.end();                    // painting done
+
+   See the Qt::PenStyle enum type for a complete list of pen styles.
+
+   Whether or not end points are drawn when the pen width is zero or one
+   depends on the cap style. Using SquareCap (the default) or RoundCap
+   they are drawn, using FlatCap they are not drawn.
+
+   A pen's color(), brush(), width(), style(), capStyle() and joinStyle()
+   can be set in the constructor or later with setColor(), setWidth(),
+   setStyle(), setCapStyle() and setJoinStyle(). Pens may also be
+   compared and streamed.
+
+                                 Pen styles
+
+   See also QPainter and QPainter::setPen().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QPen::QPen ()
+
+   Constructs a default black solid line pen with 0 width.
+
+  QPen::QPen ( Qt::PenStyle style )
+
+   Constructs a black pen with 0 width and style style.
+
+   See also setStyle().
+
+  QPen::QPen ( const QColor & color )
+
+   Constructs a pen of color color with 0 width.
+
+   See also setBrush() and setColor().
+
+  QPen::QPen ( const QBrush & brush, qreal width, Qt::PenStyle s =
+  Qt::SolidLine, Qt::PenCapStyle c = Qt::SquareCap, Qt::PenJoinStyle j =
+  Qt::BevelJoin )
+
+   Constructs a pen with the specified brush brush and width width. The
+   pen style is set to s, the pen cap style to c and the pen join style
+   to j.
+
+   See also setWidth(), setStyle(), and setBrush().
+
+  QPen::QPen ( const QPen & p )
+
+   Constructs a pen that is a copy of p.
+
+  QPen::~QPen ()
+
+   Destroys the pen.
+
+  QBrush QPen::brush () const
+
+   Returns the brush used to fill strokes generated with this pen.
+
+  Qt::PenCapStyle QPen::capStyle () const
+
+   Returns the pen's cap style.
+
+   See also setCapStyle().
+
+  QColor QPen::color () const
+
+   Returns the pen color.
+
+   See also setColor().
+
+  bool QPen::isSolid () const
+
+   Returns true if the pen has a solid fill
+
+  Qt::PenJoinStyle QPen::joinStyle () const
+
+   Returns the pen's join style.
+
+   See also setJoinStyle().
+
+  void QPen::setBrush ( const QBrush & brush )
+
+   Sets the brush used to fill strokes generated with this pen to the
+   given brush.
+
+  void QPen::setCapStyle ( Qt::PenCapStyle c )
+
+   Sets the pen's cap style to c.
+
+   The default value is Qt::SquareCap.
+
+                               Pen Cap Styles
+
+   See also capStyle().
+
+  void QPen::setColor ( const QColor & c )
+
+   Sets the pen color to c.
+
+   See also color().
+
+  void QPen::setJoinStyle ( Qt::PenJoinStyle j )
+
+   Sets the pen's join style to j.
+
+   The default value is Qt::BevelJoin.
+
+                              Pen Join Styles
+
+   See also joinStyle().
+
+  void QPen::setStyle ( Qt::PenStyle s )
+
+   Sets the pen style to s.
+
+   See the Qt::PenStyle documentation for a list of all the styles.
+
+   See also style().
+
+  void QPen::setWidth ( int width )
+
+   Sets the pen width to width
+
+   A line width of zero indicates cosmetic pen. This means that the pen
+   width is always drawn one pixel wide, independent of the
+   transformation set on the painter.
+
+   Setting a pen width with a negative value is not supported.
+
+   See also setWidthF() and width().
+
+  void QPen::setWidthF ( qreal width )
+
+   Sets the pen width to width.
+
+   See also setWidth() and widthF().
+
+  Qt::PenStyle QPen::style () const
+
+   Returns the pen style.
+
+   See also setStyle().
+
+  int QPen::width () const
+
+   Returns the pen width with integer preceision.
+
+   See also setWidth().
+
+  qreal QPen::widthF () const
+
+   Returns the pen width with floating point precision.
+
+   See also setWidthF() and width().
+
+  QPen::operator QVariant () const
+
+   Returns the pen as a QVariant
+
+  bool QPen::operator!= ( const QPen & p ) const
+
+   Returns true if the pen is different from p; otherwise returns false.
+
+   Two pens are different if they have different styles, widths or
+   colors.
+
+   See also operator==().
+
+  QPen & QPen::operator= ( const QPen & p )
+
+   Assigns p to this pen and returns a reference to this pen.
+
+  bool QPen::operator== ( const QPen & p ) const
+
+   Returns true if the pen is equal to p; otherwise returns false.
+
+   Two pens are equal if they have equal styles, widths and colors.
+
+   See also operator!=().
+     _________________________________________________________________
+
+Related Non-Members
+
+  QDataStream & operator>> ( QDataStream & s, QPen & p )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads a pen from the stream s into p and returns a reference to the
+   stream.
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

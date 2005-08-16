@@ -1,0 +1,429 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3IconViewItem Class Reference
+
+   #include <q3iconview.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3IconViewItem (Q3IconView *parent)
+     * Q3IconViewItem (Q3IconView *parent, Q3IconViewItem *after)
+     * Q3IconViewItem (Q3IconView *parent, const QString &text)
+     * Q3IconViewItem (Q3IconView *parent, Q3IconViewItem *after, const QString &text)
+     * Q3IconViewItem (Q3IconView *parent, const QString &text, const QPixmap &icon)
+     * Q3IconViewItem (Q3IconView *parent, Q3IconViewItem *after, const QString &text, const QPixmap &icon)
+     * Q3IconViewItem (Q3IconView *parent, const QString &text, const QPicture &picture)
+     * Q3IconViewItem (Q3IconView *parent, Q3IconViewItem *after, const QString &text, const QPicture &picture)
+     * virtual ~Q3IconViewItem ()
+     * virtual void setRenameEnabled (bool allow)
+     * virtual void setDragEnabled (bool allow)
+     * virtual void setDropEnabled (bool allow)
+     * virtual QString text () const
+     * virtual QPixmap * pixmap () const
+     * virtual QPicture * picture () const
+     * virtual QString key () const
+     * bool renameEnabled () const
+     * bool dragEnabled () const
+     * bool dropEnabled () const
+     * Q3IconView * iconView () const
+     * Q3IconViewItem * prevItem () const
+     * Q3IconViewItem * nextItem () const
+     * int index () const
+     * virtual void setSelected (bool s, bool cb)
+     * virtual void setSelected (bool s)
+     * virtual void setSelectable (bool s)
+     * bool isSelected () const
+     * bool isSelectable () const
+     * virtual void repaint ()
+     * virtual bool move (int x, int y)
+     * virtual void moveBy (int dx, int dy)
+     * virtual bool move (const QPoint &pnt)
+     * virtual void moveBy (const QPoint &pnt)
+     * QRect rect () const
+     * int x () const
+     * int y () const
+     * int width () const
+     * int height () const
+     * QSize size () const
+     * QPoint pos () const
+     * QRect textRect (bool relative=true) const
+     * QRect pixmapRect (bool relative=true) const
+     * bool contains (const QPoint &pnt) const
+     * bool intersects (const QRect &r) const
+     * virtual bool acceptDrop (const QMimeSource *mime) const
+     * void rename ()
+     * virtual int compare (Q3IconViewItem *i) const
+     * virtual void setText (const QString &text)
+     * virtual void setPixmap (const QPixmap &icon)
+     * virtual void setPicture (const QPicture &icon)
+     * virtual void setText (const QString &text, bool recalc, bool redraw=true)
+     * virtual void setPixmap (const QPixmap &icon, bool recalc, bool redraw=true)
+     * virtual void setKey (const QString &k)
+     * virtual int rtti () const
+
+Static Public Attributes
+
+     * static int RTTI
+
+Protected Member Functions
+
+     * virtual void removeRenameBox ()
+     * virtual void calcRect (const QString &text_=QString())
+     * virtual void paintItem (QPainter *p, const QColorGroup &cg)
+     * virtual void paintFocus (QPainter *p, const QColorGroup &cg)
+     * virtual void dropped (QDropEvent *e, const Q3ValueList< Q3IconDragItem > &lst)
+     * virtual void dragEntered ()
+     * virtual void dragLeft ()
+     * void setItemRect (const QRect &r)
+     * void setTextRect (const QRect &r)
+     * void setPixmapRect (const QRect &r)
+     * void calcTmpText ()
+     * QString tempText () const
+
+Friends
+
+     * class Q3IconView
+     * class Q3IconViewToolTip
+     * class Q3IconViewItemLineEdit
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3IconViewItem::Q3IconViewItem (  Q3IconView *  parent  )
+
+
+
+   Q3IconViewItem::Q3IconViewItem (  Q3IconView *      parent,
+                                     Q3IconViewItem *  after
+                                  )
+
+
+
+   Q3IconViewItem::Q3IconViewItem (  Q3IconView *     parent,
+                                     const QString &  text
+                                  )
+
+
+
+   Q3IconViewItem::Q3IconViewItem (  Q3IconView *      parent,
+                                     Q3IconViewItem *  after,
+                                     const QString &   text
+                                  )
+
+
+
+   Q3IconViewItem::Q3IconViewItem (  Q3IconView *     parent,
+                                     const QString &  text,
+                                     const QPixmap &  icon
+                                  )
+
+
+
+   Q3IconViewItem::Q3IconViewItem (  Q3IconView *      parent,
+                                     Q3IconViewItem *  after,
+                                     const QString &   text,
+                                     const QPixmap &   icon
+                                  )
+
+
+
+   Q3IconViewItem::Q3IconViewItem (  Q3IconView *      parent,
+                                     const QString &   text,
+                                     const QPicture &  picture
+                                  )
+
+
+
+   Q3IconViewItem::Q3IconViewItem (  Q3IconView *      parent,
+                                     Q3IconViewItem *  after,
+                                     const QString &   text,
+                                     const QPicture &  picture
+                                  )
+
+
+
+   virtual Q3IconViewItem::~Q3IconViewItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual bool Q3IconViewItem::acceptDrop (  const QMimeSource *  mime  )  const [virtual]
+
+
+
+   virtual void Q3IconViewItem::calcRect (  const QString &  text_ = QString()  )  [protected, virtual]
+
+
+
+   void Q3IconViewItem::calcTmpText (   )  [protected]
+
+
+
+   virtual int Q3IconViewItem::compare (  Q3IconViewItem *  i  )  const [virtual]
+
+
+
+   bool Q3IconViewItem::contains (  const QPoint &  pnt  )  const
+
+
+
+   bool Q3IconViewItem::dragEnabled (   )  const
+
+
+
+   virtual void Q3IconViewItem::dragEntered (   )  [protected, virtual]
+
+
+
+   virtual void Q3IconViewItem::dragLeft (   )  [protected, virtual]
+
+
+
+   bool Q3IconViewItem::dropEnabled (   )  const
+
+
+
+   virtual void Q3IconViewItem::dropped (  QDropEvent *                           e,
+                                           const Q3ValueList< Q3IconDragItem > &  lst
+                                        )  [protected, virtual]
+
+
+
+   int Q3IconViewItem::height (   )  const
+
+
+
+   Q3IconView* Q3IconViewItem::iconView (   )  const
+
+
+
+   int Q3IconViewItem::index (   )  const
+
+
+
+   bool Q3IconViewItem::intersects (  const QRect &  r  )  const
+
+
+
+   bool Q3IconViewItem::isSelectable (   )  const
+
+
+
+   bool Q3IconViewItem::isSelected (   )  const
+
+
+
+   virtual QString Q3IconViewItem::key (   )  const [virtual]
+
+
+
+   virtual bool Q3IconViewItem::move (  const QPoint &  pnt  )  [virtual]
+
+
+
+   virtual bool Q3IconViewItem::move (  int  x,
+                                        int  y
+                                     )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::moveBy (  const QPoint &  pnt  )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::moveBy (  int  dx,
+                                          int  dy
+                                       )  [virtual]
+
+
+
+   Q3IconViewItem* Q3IconViewItem::nextItem (   )  const
+
+
+
+   virtual void Q3IconViewItem::paintFocus (  QPainter *           p,
+                                              const QColorGroup &  cg
+                                           )  [protected, virtual]
+
+
+
+   virtual void Q3IconViewItem::paintItem (  QPainter *           p,
+                                             const QColorGroup &  cg
+                                          )  [protected, virtual]
+
+
+
+   virtual QPicture* Q3IconViewItem::picture (   )  const [virtual]
+
+
+
+   virtual QPixmap* Q3IconViewItem::pixmap (   )  const [virtual]
+
+
+
+   QRect Q3IconViewItem::pixmapRect (  bool  relative = true  )  const
+
+
+
+   QPoint Q3IconViewItem::pos (   )  const
+
+
+
+   Q3IconViewItem* Q3IconViewItem::prevItem (   )  const
+
+
+
+   QRect Q3IconViewItem::rect (   )  const
+
+
+
+   virtual void Q3IconViewItem::removeRenameBox (   )  [protected, virtual]
+
+
+
+   void Q3IconViewItem::rename (   )
+
+
+
+   bool Q3IconViewItem::renameEnabled (   )  const
+
+
+
+   virtual void Q3IconViewItem::repaint (   )  [virtual]
+
+
+
+   virtual int Q3IconViewItem::rtti (   )  const [virtual]
+
+
+
+   virtual void Q3IconViewItem::setDragEnabled (  bool  allow  )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::setDropEnabled (  bool  allow  )  [virtual]
+
+
+
+   void Q3IconViewItem::setItemRect (  const QRect &  r  )  [protected]
+
+
+
+   virtual void Q3IconViewItem::setKey (  const QString &  k  )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::setPicture (  const QPicture &  icon  )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::setPixmap (  const QPixmap &  icon,
+                                             bool             recalc,
+                                             bool             redraw = true
+                                          )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::setPixmap (  const QPixmap &  icon  )  [virtual]
+
+
+
+   void Q3IconViewItem::setPixmapRect (  const QRect &  r  )  [protected]
+
+
+
+   virtual void Q3IconViewItem::setRenameEnabled (  bool  allow  )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::setSelectable (  bool  s  )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::setSelected (  bool  s  )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::setSelected (  bool  s,
+                                               bool  cb
+                                            )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::setText (  const QString &  text,
+                                           bool             recalc,
+                                           bool             redraw = true
+                                        )  [virtual]
+
+
+
+   virtual void Q3IconViewItem::setText (  const QString &  text  )  [virtual]
+
+
+
+   void Q3IconViewItem::setTextRect (  const QRect &  r  )  [protected]
+
+
+
+   QSize Q3IconViewItem::size (   )  const
+
+
+
+   QString Q3IconViewItem::tempText (   )  const [protected]
+
+
+
+   virtual QString Q3IconViewItem::text (   )  const [virtual]
+
+
+
+   QRect Q3IconViewItem::textRect (  bool  relative = true  )  const
+
+
+
+   int Q3IconViewItem::width (   )  const
+
+
+
+   int Q3IconViewItem::x (   )  const
+
+
+
+   int Q3IconViewItem::y (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3IconView [friend]
+
+
+
+   friend class Q3IconViewItemLineEdit [friend]
+
+
+
+   friend class Q3IconViewToolTip [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3IconViewItem::RTTI [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3iconview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

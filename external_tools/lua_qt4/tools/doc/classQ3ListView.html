@@ -1,0 +1,929 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3ListView Class Reference
+
+   #include <q3listview.h>
+
+   Inherits Q3ScrollView.
+
+   List of all members.
+
+Public Types
+
+     * typedef uint ComparisonFlags
+     * enum WidthMode { Manual, Maximum }
+     * enum SelectionMode { Single, Multi, Extended, NoSelection }
+     * enum ResizeMode { NoColumn, AllColumns, LastColumn }
+     * enum StringComparisonMode {
+         CaseSensitive = 0x00001, BeginsWith = 0x00002, EndsWith = 0x00004, Contains = 0x00008,
+         ExactMatch = 0x00010
+       }
+     * enum RenameAction { Accept, Reject }
+
+Public Slots
+
+     * virtual void clear ()
+     * virtual void invertSelection ()
+     * virtual void selectAll (bool select)
+     * void triggerUpdate ()
+     * void setContentsPos (int x, int y)
+     * void adjustColumn (int col)
+
+Signals
+
+     * void selectionChanged ()
+     * void selectionChanged (Q3ListViewItem *)
+     * void currentChanged (Q3ListViewItem *)
+     * void clicked (Q3ListViewItem *)
+     * void clicked (Q3ListViewItem *, const QPoint &, int)
+     * void pressed (Q3ListViewItem *)
+     * void pressed (Q3ListViewItem *, const QPoint &, int)
+     * void doubleClicked (Q3ListViewItem *)
+     * void doubleClicked (Q3ListViewItem *, const QPoint &, int)
+     * void returnPressed (Q3ListViewItem *)
+     * void spacePressed (Q3ListViewItem *)
+     * void rightButtonClicked (Q3ListViewItem *, const QPoint &, int)
+     * void rightButtonPressed (Q3ListViewItem *, const QPoint &, int)
+     * void mouseButtonPressed (int, Q3ListViewItem *, const QPoint &, int)
+     * void mouseButtonClicked (int, Q3ListViewItem *, const QPoint &, int)
+     * void contextMenuRequested (Q3ListViewItem *, const QPoint &, int)
+     * void onItem (Q3ListViewItem *item)
+     * void onViewport ()
+     * void expanded (Q3ListViewItem *item)
+     * void collapsed (Q3ListViewItem *item)
+     * void dropped (QDropEvent *e)
+     * void itemRenamed (Q3ListViewItem *item, int col, const QString &)
+     * void itemRenamed (Q3ListViewItem *item, int col)
+
+Public Member Functions
+
+     * Q3ListView (QWidget *parent=0, const char *name=0, Qt::WFlags f=0)
+     * ~Q3ListView ()
+     * int treeStepSize () const
+     * virtual void setTreeStepSize (int)
+     * virtual void insertItem (Q3ListViewItem *)
+     * virtual void takeItem (Q3ListViewItem *)
+     * virtual void removeItem (Q3ListViewItem *item)
+     * Q3Header * header () const
+     * virtual int addColumn (const QString &label, int size=-1)
+     * virtual int addColumn (const QIcon &icon, const QString &label, int size=-1)
+     * virtual void removeColumn (int index)
+     * virtual void setColumnText (int column, const QString &label)
+     * virtual void setColumnText (int column, const QIcon &icon, const QString &label)
+     * QString columnText (int column) const
+     * virtual void setColumnWidth (int column, int width)
+     * int columnWidth (int column) const
+     * virtual void setColumnWidthMode (int column, WidthMode)
+     * WidthMode columnWidthMode (int column) const
+     * int columns () const
+     * virtual void setColumnAlignment (int, int)
+     * int columnAlignment (int) const
+     * void show ()
+     * QVariant inputMethodQuery (Qt::InputMethodQuery query) const
+     * Q3ListViewItem * itemAt (const QPoint &screenPos) const
+     * QRect itemRect (const Q3ListViewItem *) const
+     * int itemPos (const Q3ListViewItem *)
+     * void ensureItemVisible (const Q3ListViewItem *)
+     * void repaintItem (const Q3ListViewItem *) const
+     * virtual void setMultiSelection (bool enable)
+     * bool isMultiSelection () const
+     * void setSelectionMode (SelectionMode mode)
+     * SelectionMode selectionMode () const
+     * virtual void clearSelection ()
+     * virtual void setSelected (Q3ListViewItem *, bool)
+     * void setSelectionAnchor (Q3ListViewItem *)
+     * bool isSelected (const Q3ListViewItem *) const
+     * Q3ListViewItem * selectedItem () const
+     * virtual void setOpen (Q3ListViewItem *, bool)
+     * bool isOpen (const Q3ListViewItem *) const
+     * virtual void setCurrentItem (Q3ListViewItem *)
+     * Q3ListViewItem * currentItem () const
+     * Q3ListViewItem * firstChild () const
+     * Q3ListViewItem * lastItem () const
+     * int childCount () const
+     * virtual void setAllColumnsShowFocus (bool)
+     * bool allColumnsShowFocus () const
+     * virtual void setItemMargin (int)
+     * int itemMargin () const
+     * virtual void setRootIsDecorated (bool)
+     * bool rootIsDecorated () const
+     * virtual void setSorting (int column, bool ascending=true)
+     * int sortColumn () const
+     * void setSortColumn (int column)
+     * Qt::SortOrder sortOrder () const
+     * void setSortOrder (Qt::SortOrder order)
+     * virtual void sort ()
+     * bool eventFilter (QObject *o, QEvent *)
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * virtual void setShowSortIndicator (bool show)
+     * bool showSortIndicator () const
+     * virtual void setShowToolTips (bool b)
+     * bool showToolTips () const
+     * virtual void setResizeMode (ResizeMode m)
+     * ResizeMode resizeMode () const
+     * Q3ListViewItem * findItem (const QString &text, int column, ComparisonFlags=ExactMatch|Qt::CaseSensitive) const
+     * virtual void setDefaultRenameAction (RenameAction a)
+     * RenameAction defaultRenameAction () const
+     * bool isRenaming () const
+     * void hideColumn (int column)
+
+Protected Slots
+
+     * void updateContents ()
+     * void doAutoScroll ()
+
+Protected Member Functions
+
+     * void contentsMousePressEvent (QMouseEvent *e)
+     * void contentsMouseReleaseEvent (QMouseEvent *e)
+     * void contentsMouseMoveEvent (QMouseEvent *e)
+     * void contentsMouseDoubleClickEvent (QMouseEvent *e)
+     * void contentsContextMenuEvent (QContextMenuEvent *e)
+     * void contentsDragEnterEvent (QDragEnterEvent *e)
+     * void contentsDragMoveEvent (QDragMoveEvent *e)
+     * void contentsDragLeaveEvent (QDragLeaveEvent *e)
+     * void contentsDropEvent (QDropEvent *e)
+     * virtual Q3DragObject * dragObject ()
+     * virtual void startDrag ()
+     * void focusInEvent (QFocusEvent *e)
+     * void focusOutEvent (QFocusEvent *e)
+     * void keyPressEvent (QKeyEvent *e)
+     * void resizeEvent (QResizeEvent *e)
+     * void viewportResizeEvent (QResizeEvent *e)
+     * void showEvent (QShowEvent *)
+     * void drawContentsOffset (QPainter *, int ox, int oy, int cx, int cy, int cw, int ch)
+     * virtual void paintEmptyArea (QPainter *, const QRect &)
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * int columns
+     * bool multiSelection
+     * SelectionMode selectionMode
+     * int childCount
+     * bool allColumnsShowFocus
+     * bool showSortIndicator
+     * int itemMargin
+     * bool rootIsDecorated
+     * bool showToolTips
+     * ResizeMode resizeMode
+     * int treeStepSize
+     * RenameAction defaultRenameAction
+
+Friends
+
+     * class Q3ListViewItemIterator
+     * class Q3ListViewItem
+     * class Q3CheckListItem
+     * class Q3ListViewToolTip
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef uint Q3ListView::ComparisonFlags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3ListView::RenameAction
+
+
+
+   Enumerator: 
+
+          Accept
+          Reject
+
+   enum Q3ListView::ResizeMode
+
+
+
+   Enumerator: 
+
+          NoColumn  
+          AllColumns
+          LastColumn
+
+   enum Q3ListView::SelectionMode
+
+
+
+   Enumerator: 
+
+          Single     
+          Multi      
+          Extended   
+          NoSelection
+
+   enum Q3ListView::StringComparisonMode
+
+
+
+   Enumerator: 
+
+          CaseSensitive
+          BeginsWith   
+          EndsWith     
+          Contains     
+          ExactMatch   
+
+   enum Q3ListView::WidthMode
+
+
+
+   Enumerator: 
+
+          Manual 
+          Maximum
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ListView::Q3ListView (  QWidget *     parent = 0,
+                             const char *  name = 0,
+                             Qt::WFlags    f = 0
+                          )
+
+
+
+   Q3ListView::~Q3ListView (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual int Q3ListView::addColumn (  const QIcon &    icon,
+                                        const QString &  label,
+                                        int              size = -1
+                                     )  [virtual]
+
+
+
+   virtual int Q3ListView::addColumn (  const QString &  label,
+                                        int              size = -1
+                                     )  [virtual]
+
+
+
+   void Q3ListView::adjustColumn (  int  col  )  [slot]
+
+
+
+   bool Q3ListView::allColumnsShowFocus (   )  const
+
+
+
+   void Q3ListView::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   int Q3ListView::childCount (   )  const
+
+
+
+   virtual void Q3ListView::clear (   )  [virtual, slot]
+
+
+
+   virtual void Q3ListView::clearSelection (   )  [virtual]
+
+
+
+   void Q3ListView::clicked (  Q3ListViewItem *  ,
+                               const QPoint &    ,
+                               int             
+                            )  [signal]
+
+
+
+   void Q3ListView::clicked (  Q3ListViewItem *   )  [signal]
+
+
+
+   void Q3ListView::collapsed (  Q3ListViewItem *  item  )  [signal]
+
+
+
+   int Q3ListView::columnAlignment (  int   )  const
+
+
+
+   int Q3ListView::columns (   )  const
+
+
+
+   QString Q3ListView::columnText (  int  column  )  const
+
+
+
+   int Q3ListView::columnWidth (  int  column  )  const
+
+
+
+   WidthMode Q3ListView::columnWidthMode (  int  column  )  const
+
+
+
+   void Q3ListView::contentsContextMenuEvent (  QContextMenuEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::contentsDragEnterEvent (  QDragEnterEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::contentsDragLeaveEvent (  QDragLeaveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::contentsDragMoveEvent (  QDragMoveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::contentsDropEvent (  QDropEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::contentsMouseDoubleClickEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::contentsMouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::contentsMousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::contentsMouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::contextMenuRequested (  Q3ListViewItem *  ,
+                                            const QPoint &    ,
+                                            int             
+                                         )  [signal]
+
+
+
+   void Q3ListView::currentChanged (  Q3ListViewItem *   )  [signal]
+
+
+
+   Q3ListViewItem* Q3ListView::currentItem (   )  const
+
+
+
+   RenameAction Q3ListView::defaultRenameAction (   )  const
+
+
+
+   void Q3ListView::doAutoScroll (   )  [protected, slot]
+
+
+
+   void Q3ListView::doubleClicked (  Q3ListViewItem *  ,
+                                     const QPoint &    ,
+                                     int             
+                                  )  [signal]
+
+
+
+   void Q3ListView::doubleClicked (  Q3ListViewItem *   )  [signal]
+
+
+
+   virtual Q3DragObject* Q3ListView::dragObject (   )  [protected, virtual]
+
+
+
+   void Q3ListView::drawContentsOffset (  QPainter *  ,
+                                          int         ox,
+                                          int         oy,
+                                          int         cx,
+                                          int         cy,
+                                          int         cw,
+                                          int         ch
+                                       )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::dropped (  QDropEvent *  e  )  [signal]
+
+
+
+   void Q3ListView::ensureItemVisible (  const Q3ListViewItem *   )
+
+
+
+   bool Q3ListView::eventFilter (  QObject *  o,
+                                   QEvent * 
+                                )  [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::expanded (  Q3ListViewItem *  item  )  [signal]
+
+
+
+   Q3ListViewItem* Q3ListView::findItem (  const QString &  text,
+                                           int              column,
+                                           ComparisonFlags  = ExactMatch|Qt::CaseSensitive
+                                        )  const
+
+
+
+   Q3ListViewItem* Q3ListView::firstChild (   )  const
+
+
+
+   void Q3ListView::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ListView::focusOutEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Q3Header* Q3ListView::header (   )  const
+
+
+
+   void Q3ListView::hideColumn (  int  column  )
+
+
+
+   QVariant Q3ListView::inputMethodQuery (  Qt::InputMethodQuery  query  )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3ListView::insertItem (  Q3ListViewItem *   )  [virtual]
+
+
+
+   virtual void Q3ListView::invertSelection (   )  [virtual, slot]
+
+
+
+   bool Q3ListView::isMultiSelection (   )  const
+
+
+
+   bool Q3ListView::isOpen (  const Q3ListViewItem *   )  const
+
+
+
+   bool Q3ListView::isRenaming (   )  const
+
+
+
+   bool Q3ListView::isSelected (  const Q3ListViewItem *   )  const
+
+
+
+   Q3ListViewItem* Q3ListView::itemAt (  const QPoint &  screenPos  )  const
+
+
+
+   int Q3ListView::itemMargin (   )  const
+
+
+
+   int Q3ListView::itemPos (  const Q3ListViewItem *   )
+
+
+
+   QRect Q3ListView::itemRect (  const Q3ListViewItem *   )  const
+
+
+
+   void Q3ListView::itemRenamed (  Q3ListViewItem *  item,
+                                   int               col
+                                )  [signal]
+
+
+
+   void Q3ListView::itemRenamed (  Q3ListViewItem *  item,
+                                   int               col,
+                                   const QString & 
+                                )  [signal]
+
+
+
+   void Q3ListView::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Q3ListViewItem* Q3ListView::lastItem (   )  const
+
+
+
+   QSize Q3ListView::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::mouseButtonClicked (  int               ,
+                                          Q3ListViewItem *  ,
+                                          const QPoint &    ,
+                                          int             
+                                       )  [signal]
+
+
+
+   void Q3ListView::mouseButtonPressed (  int               ,
+                                          Q3ListViewItem *  ,
+                                          const QPoint &    ,
+                                          int             
+                                       )  [signal]
+
+
+
+   void Q3ListView::onItem (  Q3ListViewItem *  item  )  [signal]
+
+
+
+   void Q3ListView::onViewport (   )  [signal]
+
+
+
+   virtual void Q3ListView::paintEmptyArea (  QPainter *     ,
+                                              const QRect &
+                                           )  [protected, virtual]
+
+
+
+   void Q3ListView::pressed (  Q3ListViewItem *  ,
+                               const QPoint &    ,
+                               int             
+                            )  [signal]
+
+
+
+   void Q3ListView::pressed (  Q3ListViewItem *   )  [signal]
+
+
+
+   virtual void Q3ListView::removeColumn (  int  index  )  [virtual]
+
+
+
+   virtual void Q3ListView::removeItem (  Q3ListViewItem *  item  )  [inline, virtual]
+
+
+
+   void Q3ListView::repaintItem (  const Q3ListViewItem *   )  const
+
+
+
+   void Q3ListView::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   ResizeMode Q3ListView::resizeMode (   )  const
+
+
+
+   void Q3ListView::returnPressed (  Q3ListViewItem *   )  [signal]
+
+
+
+   void Q3ListView::rightButtonClicked (  Q3ListViewItem *  ,
+                                          const QPoint &    ,
+                                          int             
+                                       )  [signal]
+
+
+
+   void Q3ListView::rightButtonPressed (  Q3ListViewItem *  ,
+                                          const QPoint &    ,
+                                          int             
+                                       )  [signal]
+
+
+
+   bool Q3ListView::rootIsDecorated (   )  const
+
+
+
+   virtual void Q3ListView::selectAll (  bool  select  )  [virtual, slot]
+
+
+
+   Q3ListViewItem* Q3ListView::selectedItem (   )  const
+
+
+
+   void Q3ListView::selectionChanged (  Q3ListViewItem *   )  [signal]
+
+
+
+   void Q3ListView::selectionChanged (   )  [signal]
+
+
+
+   SelectionMode Q3ListView::selectionMode (   )  const
+
+
+
+   virtual void Q3ListView::setAllColumnsShowFocus (  bool   )  [virtual]
+
+
+
+   virtual void Q3ListView::setColumnAlignment (  int  ,
+                                                  int
+                                               )  [virtual]
+
+
+
+   virtual void Q3ListView::setColumnText (  int              column,
+                                             const QIcon &    icon,
+                                             const QString &  label
+                                          )  [virtual]
+
+
+
+   virtual void Q3ListView::setColumnText (  int              column,
+                                             const QString &  label
+                                          )  [virtual]
+
+
+
+   virtual void Q3ListView::setColumnWidth (  int  column,
+                                              int  width
+                                           )  [virtual]
+
+
+
+   virtual void Q3ListView::setColumnWidthMode (  int        column,
+                                                  WidthMode
+                                               )  [virtual]
+
+
+
+   void Q3ListView::setContentsPos (  int  x,
+                                      int  y
+                                   )  [virtual, slot]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3ListView::setCurrentItem (  Q3ListViewItem *   )  [virtual]
+
+
+
+   virtual void Q3ListView::setDefaultRenameAction (  RenameAction  a  )  [virtual]
+
+
+
+   virtual void Q3ListView::setItemMargin (  int   )  [virtual]
+
+
+
+   virtual void Q3ListView::setMultiSelection (  bool  enable  )  [virtual]
+
+
+
+   virtual void Q3ListView::setOpen (  Q3ListViewItem *  ,
+                                       bool            
+                                    )  [virtual]
+
+
+
+   virtual void Q3ListView::setResizeMode (  ResizeMode  m  )  [virtual]
+
+
+
+   virtual void Q3ListView::setRootIsDecorated (  bool   )  [virtual]
+
+
+
+   virtual void Q3ListView::setSelected (  Q3ListViewItem *  ,
+                                           bool            
+                                        )  [virtual]
+
+
+
+   void Q3ListView::setSelectionAnchor (  Q3ListViewItem *   )
+
+
+
+   void Q3ListView::setSelectionMode (  SelectionMode  mode  )
+
+
+
+   virtual void Q3ListView::setShowSortIndicator (  bool  show  )  [virtual]
+
+
+
+   virtual void Q3ListView::setShowToolTips (  bool  b  )  [virtual]
+
+
+
+   void Q3ListView::setSortColumn (  int  column  )
+
+
+
+   virtual void Q3ListView::setSorting (  int   column,
+                                          bool  ascending = true
+                                       )  [virtual]
+
+
+
+   void Q3ListView::setSortOrder (  Qt::SortOrder  order  )
+
+
+
+   virtual void Q3ListView::setTreeStepSize (  int   )  [virtual]
+
+
+
+   void Q3ListView::show (   )
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ListView::showEvent (  QShowEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool Q3ListView::showSortIndicator (   )  const
+
+
+
+   bool Q3ListView::showToolTips (   )  const
+
+
+
+   QSize Q3ListView::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3ListView::sort (   )  [virtual]
+
+
+
+   int Q3ListView::sortColumn (   )  const
+
+
+
+   Qt::SortOrder Q3ListView::sortOrder (   )  const
+
+
+
+   void Q3ListView::spacePressed (  Q3ListViewItem *   )  [signal]
+
+
+
+   virtual void Q3ListView::startDrag (   )  [protected, virtual]
+
+
+
+   virtual void Q3ListView::takeItem (  Q3ListViewItem *   )  [virtual]
+
+
+
+   int Q3ListView::treeStepSize (   )  const
+
+
+
+   void Q3ListView::triggerUpdate (   )  [slot]
+
+
+
+   void Q3ListView::updateContents (   )  [protected, slot]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListView::viewportResizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3CheckListItem [friend]
+
+
+
+   friend class Q3ListViewItem [friend]
+
+
+
+   friend class Q3ListViewItemIterator [friend]
+
+
+
+   friend class Q3ListViewToolTip [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3ListView::allColumnsShowFocus [read, write]
+
+
+
+   int Q3ListView::childCount [read]
+
+
+
+   int Q3ListView::columns [read]
+
+
+
+   RenameAction Q3ListView::defaultRenameAction [read, write]
+
+
+
+   int Q3ListView::itemMargin [read, write]
+
+
+
+   bool Q3ListView::multiSelection [read, write]
+
+
+
+   ResizeMode Q3ListView::resizeMode [read, write]
+
+
+
+   bool Q3ListView::rootIsDecorated [read, write]
+
+
+
+   SelectionMode Q3ListView::selectionMode [read, write]
+
+
+
+   bool Q3ListView::showSortIndicator [read, write]
+
+
+
+   bool Q3ListView::showToolTips [read, write]
+
+
+
+   int Q3ListView::treeStepSize [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3listview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

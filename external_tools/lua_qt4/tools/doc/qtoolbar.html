@@ -1,0 +1,338 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QToolBar Class Reference
+
+   The QToolBar class provides a movable panel that contains a set of
+   controls. More...
+#include <QToolBar>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * allowedAreas : Qt::ToolBarAreas
+     * iconSize : QSize
+     * movable : bool
+
+     * orientation : Qt::Orientation
+     * toolButtonStyle : Qt::ToolButtonStyle
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QToolBar ( const QString & title, QWidget * parent = 0 )
+     * QToolBar ( QWidget * parent = 0 )
+     * ~QToolBar ()
+     * QAction * actionAt ( const QPoint & p ) const
+     * QAction * actionAt ( int x, int y ) const
+     * QAction * addAction ( const QString & text )
+     * QAction * addAction ( const QIcon & icon, const QString & text )
+     * QAction * addAction ( const QString & text, const QObject *
+       receiver, const char * member )
+     * QAction * addAction ( const QIcon & icon, const QString & text,
+       const QObject * receiver, const char * member )
+     * QAction * addSeparator ()
+     * QAction * addWidget ( QWidget * widget )
+     * Qt::ToolBarAreas allowedAreas () const
+     * void clear ()
+     * QSize iconSize () const
+     * QAction * insertSeparator ( QAction * before )
+     * QAction * insertWidget ( QAction * before, QWidget * widget )
+     * bool isAreaAllowed ( Qt::ToolBarArea area ) const
+     * bool isMovable () const
+     * Qt::Orientation orientation () const
+     * void setAllowedAreas ( Qt::ToolBarAreas areas )
+     * void setMovable ( bool movable )
+     * void setOrientation ( Qt::Orientation orientation )
+     * QAction * toggleViewAction () const
+     * Qt::ToolButtonStyle toolButtonStyle () const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void setIconSize ( const QSize & iconSize )
+     * void setToolButtonStyle ( Qt::ToolButtonStyle toolButtonStyle )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void actionTriggered ( QAction * action )
+     * void allowedAreasChanged ( Qt::ToolBarAreas allowedAreas )
+     * void iconSizeChanged ( const QSize & iconSize )
+     * void movableChanged ( bool movable )
+     * void orientationChanged ( Qt::Orientation orientation )
+     * void toolButtonStyleChanged ( Qt::ToolButtonStyle toolButtonStyle
+       )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QToolBar class provides a movable panel that contains a set of
+   controls.
+
+   Toolbar buttons are added by adding actions, using addAction() or
+   insertAction(). Groups of buttons can be separated using
+   addSeparator() or insertSeparator(). If a toolbar button is not
+   appropriate, a widget can be inserted instead using addWidget() or
+   insertWidget(); examples of suitable widgets are QSpinBox,
+   QDoubleSpinBox, and QComboBox. When a toolbar button is pressed it
+   emits the actionTriggered() signal. Toolbars may only be added to
+   QMainWindow and QMainWindow subclasses.
+
+   A toolbar can be fixed in place in a particular area (e.g. at the top
+   of the window), or it can be movable (isMovable()) between toolbar
+   areas; see allowedAreas() and isAreaAllowed().
+
+   See also QToolButton.
+     _________________________________________________________________
+
+Property Documentation
+
+  allowedAreas : Qt::ToolBarAreas
+
+   This property holds areas where the toolbar may be placed.
+
+   The default is Qt::AllToolBarAreas.
+
+   This property only makes sense if the toolbar is in a QMainWindow.
+
+   Access functions:
+     * Qt::ToolBarAreas allowedAreas () const
+     * void setAllowedAreas ( Qt::ToolBarAreas areas )
+
+   See also movable.
+
+  iconSize : QSize
+
+   This property holds size of icons in the toolbar.
+
+   The default is Qt::AutomaticIconSize.
+
+   Access functions:
+     * QSize iconSize () const
+     * void setIconSize ( const QSize & iconSize )
+
+  movable : bool
+
+   This property holds whether the user can move the toolbar within the
+   toolbar area, or between toolbar areas.
+
+   By default, this property is true.
+
+   This property only makes sense if the toolbar is in a QMainWindow.
+
+   Access functions:
+     * bool isMovable () const
+     * void setMovable ( bool movable )
+
+   See also allowedAreas.
+
+  orientation : Qt::Orientation
+
+   This property holds orientation of the toolbar.
+
+   The default is Qt::Horizontal.
+
+   The orientation is updated automatically when the toolbar is managed
+   by QMainWindow.
+
+   Access functions:
+     * Qt::Orientation orientation () const
+     * void setOrientation ( Qt::Orientation orientation )
+
+  toolButtonStyle : Qt::ToolButtonStyle
+
+   This property holds style of toolbar buttons.
+
+   The defaults is Qt::ToolButtonIconOnly.
+
+   Access functions:
+     * Qt::ToolButtonStyle toolButtonStyle () const
+     * void setToolButtonStyle ( Qt::ToolButtonStyle toolButtonStyle )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QToolBar::QToolBar ( const QString & title, QWidget * parent = 0 )
+
+   Constructs a QToolBar with the given parent.
+
+   The window title is set to title. This title is used when the toolbar
+   is floating as an independent window. It is also shown in the context
+   menu provided by QMainWindow.
+
+   See also setWindowTitle().
+
+  QToolBar::QToolBar ( QWidget * parent = 0 )
+
+   Constructs a QToolBar with the given parent.
+
+  QToolBar::~QToolBar ()
+
+   Destroys the toolbar.
+
+  QAction * QToolBar::actionAt ( const QPoint & p ) const
+
+   Returns the action at point p. This function returns zero if no action
+   was found.
+
+   See also QWidget::childAt().
+
+  QAction * QToolBar::actionAt ( int x, int y ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the action at the point x, y. This function returns zero if no
+   action was found.
+
+  void QToolBar::actionTriggered ( QAction * action )   [signal]
+
+   This signal is emitted when a toolbar button is pressed. The parameter
+   holds the toolbar button's associated action.
+
+  QAction * QToolBar::addAction ( const QString & text )
+
+   Creates a new action with the given text. This action is added to the
+   end of the toolbar.
+
+  QAction * QToolBar::addAction ( const QIcon & icon, const QString & text )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Creates a new action with the given icon and text. This action is
+   added to the end of the toolbar.
+
+  QAction * QToolBar::addAction ( const QString & text, const QObject *
+  receiver, const char * member )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Creates a new action with the given text. This action is added to the
+   end of the toolbar. The action's triggered() signal is connected to
+   member in receiver.
+
+  QAction * QToolBar::addAction ( const QIcon & icon, const QString & text,
+  const QObject * receiver, const char * member )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Creates a new action with the icon icon and text text. This action is
+   added to the end of the toolbar. The action's triggered() signal is
+   connected to member in receiver.
+
+  QAction * QToolBar::addSeparator ()
+
+   Adds a separator to the end of the toolbar.
+
+   See also insertSeparator().
+
+  QAction * QToolBar::addWidget ( QWidget * widget )
+
+   Adds the given widget to the toolbar as the toolbar's last item.
+
+   See also insertWidget().
+
+  void QToolBar::allowedAreasChanged ( Qt::ToolBarAreas allowedAreas )
+  [signal]
+
+   This signal is emitted when the collection of allowed areas for the
+   toolbar is changed. The new areas in which the toolbar can be
+   positioned are specified by allowedAreas.
+
+   See also allowedAreas.
+
+  void QToolBar::clear ()
+
+   Removes all actions from the toolbar.
+
+   See also removeAction().
+
+  void QToolBar::iconSizeChanged ( const QSize & iconSize )   [signal]
+
+   This signal is emitted when the icon size is changed. The iconSize
+   parameter holds the toolbar's new icon size.
+
+   See also iconSize and QMainWindow::iconSize.
+
+  QAction * QToolBar::insertSeparator ( QAction * before )
+
+   Inserts a separator into the toolbar in front of the toolbar item
+   associated with the before action.
+
+   See also addSeparator().
+
+  QAction * QToolBar::insertWidget ( QAction * before, QWidget * widget )
+
+   Inserts the given widget in front of the toolbar item associated with
+   the before action.
+
+   See also addWidget().
+
+  bool QToolBar::isAreaAllowed ( Qt::ToolBarArea area ) const
+
+   Returns true if this toolbar is dockable in the given area; otherwise
+   returns false.
+
+  void QToolBar::movableChanged ( bool movable )   [signal]
+
+   This signal is emitted when the toolbar becomes movable or fixed. If
+   the toolbar can be moved, movable is true; otherwise it is false.
+
+   See also movable.
+
+  void QToolBar::orientationChanged ( Qt::Orientation orientation )   [signal]
+
+   This signal is emitted when the orientation of the toolbar changes.
+   The new orientation is specified by the orientation given.
+
+   See also orientation.
+
+  QAction * QToolBar::toggleViewAction () const
+
+   Returns a checkable action that can be used to show or hide this
+   toolbar.
+
+   The action's text is set to the toolbar's window title.
+
+   See also QAction::text and QWidget::windowTitle.
+
+  void QToolBar::toolButtonStyleChanged ( Qt::ToolButtonStyle toolButtonStyle
+  )   [signal]
+
+   This signal is emitted when the tool button style is changed. The
+   toolButtonStyle parameter holds the toolbar's new tool button style.
+
+   See also toolButtonStyle and QMainWindow::toolButtonStyle.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

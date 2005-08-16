@@ -1,0 +1,453 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QChar Class Reference
+
+   #include <qchar.h>
+
+   List of all members.
+
+Public Types
+
+     * enum SpecialCharacter {
+         Null = 0x0000, Nbsp = 0x00a0, ReplacementCharacter = 0xfffd, ObjectReplacementCharacter = 0xfffc,
+         ByteOrderMark = 0xfeff, ByteOrderSwapped = 0xfffe, ParagraphSeparator = 0x2029, LineSeparator = 0x2028
+       }
+     * enum Category {
+         NoCategory, Mark_NonSpacing, Mark_SpacingCombining, Mark_Enclosing,
+         Number_DecimalDigit, Number_Letter, Number_Other, Separator_Space,
+         Separator_Line, Separator_Paragraph, Other_Control, Other_Format,
+         Other_Surrogate, Other_PrivateUse, Other_NotAssigned, Letter_Uppercase,
+         Letter_Lowercase, Letter_Titlecase, Letter_Modifier, Letter_Other,
+         Punctuation_Connector, Punctuation_Dash, Punctuation_Open, Punctuation_Close,
+         Punctuation_InitialQuote, Punctuation_FinalQuote, Punctuation_Other, Symbol_Math,
+         Symbol_Currency, Symbol_Modifier, Symbol_Other, Punctuation_Dask = Punctuation_Dash
+       }
+     * enum Direction {
+         DirL, DirR, DirEN, DirES,
+         DirET, DirAN, DirCS, DirB,
+         DirS, DirWS, DirON, DirLRE,
+         DirLRO, DirAL, DirRLE, DirRLO,
+         DirPDF, DirNSM, DirBN
+       }
+     * enum Decomposition {
+         NoDecomposition, Canonical, Font, NoBreak,
+         Initial, Medial, Final, Isolated,
+         Circle, Super, Sub, Vertical,
+         Wide, Narrow, Small, Square,
+         Compat, Fraction
+       }
+     * enum Joining { OtherJoining, Dual, Right, Center }
+     * enum CombiningClass {
+         Combining_BelowLeftAttached = 200, Combining_BelowAttached = 202, Combining_BelowRightAttached = 204, Combining_LeftAttached = 208,
+         Combining_RightAttached = 210, Combining_AboveLeftAttached = 212, Combining_AboveAttached = 214, Combining_AboveRightAttached = 216,
+         Combining_BelowLeft = 218, Combining_Below = 220, Combining_BelowRight = 222, Combining_Left = 224,
+         Combining_Right = 226, Combining_AboveLeft = 228, Combining_Above = 230, Combining_AboveRight = 232,
+         Combining_DoubleBelow = 233, Combining_DoubleAbove = 234, Combining_IotaSubscript = 240
+       }
+     * enum UnicodeVersion {
+         Unicode_Unassigned, Unicode_1_1, Unicode_2_0, Unicode_2_1_2,
+         Unicode_3_0, Unicode_3_1, Unicode_3_2, Unicode_4_0
+       }
+
+Public Member Functions
+
+     * QChar ()
+     * QChar (char c)
+     * QChar (uchar c)
+     * QChar (QLatin1Char ch)
+     * QChar (uchar c, uchar r)
+     * QChar (ushort rc)
+     * QChar (short rc)
+     * QChar (uint rc)
+     * QChar (int rc)
+     * QChar (SpecialCharacter sc)
+     * int digitValue () const
+     * QChar toLower () const
+     * QChar toUpper () const
+     * Category category () const
+     * Direction direction () const
+     * Joining joining () const
+     * bool hasMirrored () const
+     * bool isLower () const
+     * bool isUpper () const
+     * QChar mirroredChar () const
+     * QString decomposition () const
+     * Decomposition decompositionTag () const
+     * unsigned char combiningClass () const
+     * UnicodeVersion unicodeVersion () const
+     * const char toAscii () const
+     * const char toLatin1 () const
+     * const ushort unicode () const
+     * ushort & unicode ()
+     * bool isNull () const
+     * bool isPrint () const
+     * bool isPunct () const
+     * bool isSpace () const
+     * bool isMark () const
+     * bool isLetter () const
+     * bool isNumber () const
+     * bool isLetterOrNumber () const
+     * bool isDigit () const
+     * bool isSymbol () const
+     * uchar cell () const
+     * uchar row () const
+     * void setCell (uchar cell)
+     * void setRow (uchar row)
+
+Static Public Member Functions
+
+     * static QChar fromAscii (char c)
+     * static QChar fromLatin1 (char c)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QChar::Category
+
+
+
+   Enumerator: 
+
+          NoCategory              
+          Mark_NonSpacing         
+          Mark_SpacingCombining   
+          Mark_Enclosing          
+          Number_DecimalDigit     
+          Number_Letter           
+          Number_Other            
+          Separator_Space         
+          Separator_Line          
+          Separator_Paragraph     
+          Other_Control           
+          Other_Format            
+          Other_Surrogate         
+          Other_PrivateUse        
+          Other_NotAssigned       
+          Letter_Uppercase        
+          Letter_Lowercase        
+          Letter_Titlecase        
+          Letter_Modifier         
+          Letter_Other            
+          Punctuation_Connector   
+          Punctuation_Dash        
+          Punctuation_Open        
+          Punctuation_Close       
+          Punctuation_InitialQuote
+          Punctuation_FinalQuote  
+          Punctuation_Other       
+          Symbol_Math             
+          Symbol_Currency         
+          Symbol_Modifier         
+          Symbol_Other            
+          Punctuation_Dask        
+
+   enum QChar::CombiningClass
+
+
+
+   Enumerator: 
+
+          Combining_BelowLeftAttached 
+          Combining_BelowAttached     
+          Combining_BelowRightAttached
+          Combining_LeftAttached      
+          Combining_RightAttached     
+          Combining_AboveLeftAttached 
+          Combining_AboveAttached     
+          Combining_AboveRightAttached
+          Combining_BelowLeft         
+          Combining_Below             
+          Combining_BelowRight        
+          Combining_Left              
+          Combining_Right             
+          Combining_AboveLeft         
+          Combining_Above             
+          Combining_AboveRight        
+          Combining_DoubleBelow       
+          Combining_DoubleAbove       
+          Combining_IotaSubscript     
+
+   enum QChar::Decomposition
+
+
+
+   Enumerator: 
+
+          NoDecomposition
+          Canonical      
+          Font           
+          NoBreak        
+          Initial        
+          Medial         
+          Final          
+          Isolated       
+          Circle         
+          Super          
+          Sub            
+          Vertical       
+          Wide           
+          Narrow         
+          Small          
+          Square         
+          Compat         
+          Fraction       
+
+   enum QChar::Direction
+
+
+
+   Enumerator: 
+
+          DirL  
+          DirR  
+          DirEN 
+          DirES 
+          DirET 
+          DirAN 
+          DirCS 
+          DirB  
+          DirS  
+          DirWS 
+          DirON 
+          DirLRE
+          DirLRO
+          DirAL 
+          DirRLE
+          DirRLO
+          DirPDF
+          DirNSM
+          DirBN 
+
+   enum QChar::Joining
+
+
+
+   Enumerator: 
+
+          OtherJoining
+          Dual        
+          Right       
+          Center      
+
+   enum QChar::SpecialCharacter
+
+
+
+   Enumerator: 
+
+          Null                      
+          Nbsp                      
+          ReplacementCharacter      
+          ObjectReplacementCharacter
+          ByteOrderMark             
+          ByteOrderSwapped          
+          ParagraphSeparator        
+          LineSeparator             
+
+   enum QChar::UnicodeVersion
+
+
+
+   Enumerator: 
+
+          Unicode_Unassigned
+          Unicode_1_1       
+          Unicode_2_0       
+          Unicode_2_1_2     
+          Unicode_3_0       
+          Unicode_3_1       
+          Unicode_3_2       
+          Unicode_4_0       
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QChar::QChar (   )  [inline]
+
+
+
+   QChar::QChar (  char  c  )
+
+
+
+   QChar::QChar (  uchar  c  )
+
+
+
+   QChar::QChar (  QLatin1Char  ch  )  [inline]
+
+
+
+   QChar::QChar (  uchar  c,
+                   uchar  r
+                )  [inline]
+
+
+
+   QChar::QChar (  ushort  rc  )  [inline]
+
+
+
+   QChar::QChar (  short  rc  )  [inline]
+
+
+
+   QChar::QChar (  uint  rc  )  [inline]
+
+
+
+   QChar::QChar (  int  rc  )  [inline]
+
+
+
+   QChar::QChar (  SpecialCharacter  sc  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Category QChar::category (   )  const
+
+
+
+   uchar QChar::cell (   )  const [inline]
+
+
+
+   unsigned char QChar::combiningClass (   )  const
+
+
+
+   QString QChar::decomposition (   )  const
+
+
+
+   Decomposition QChar::decompositionTag (   )  const
+
+
+
+   int QChar::digitValue (   )  const
+
+
+
+   Direction QChar::direction (   )  const
+
+
+
+   static QChar QChar::fromAscii (  char  c  )  [static]
+
+
+
+   QChar QChar::fromLatin1 (  char  c  )  [inline, static]
+
+
+
+   bool QChar::hasMirrored (   )  const
+
+
+
+   bool QChar::isDigit (   )  const
+
+
+
+   bool QChar::isLetter (   )  const
+
+
+
+   bool QChar::isLetterOrNumber (   )  const
+
+
+
+   bool QChar::isLower (   )  const [inline]
+
+
+
+   bool QChar::isMark (   )  const
+
+
+
+   bool QChar::isNull (   )  const [inline]
+
+
+
+   bool QChar::isNumber (   )  const
+
+
+
+   bool QChar::isPrint (   )  const
+
+
+
+   bool QChar::isPunct (   )  const
+
+
+
+   bool QChar::isSpace (   )  const
+
+
+
+   bool QChar::isSymbol (   )  const
+
+
+
+   bool QChar::isUpper (   )  const [inline]
+
+
+
+   Joining QChar::joining (   )  const
+
+
+
+   QChar QChar::mirroredChar (   )  const
+
+
+
+   uchar QChar::row (   )  const [inline]
+
+
+
+   void QChar::setCell (  uchar  cell  )  [inline]
+
+
+
+   void QChar::setRow (  uchar  row  )  [inline]
+
+
+
+   const char QChar::toAscii (   )  const
+
+
+
+   const char QChar::toLatin1 (   )  const [inline]
+
+
+
+   QChar QChar::toLower (   )  const
+
+
+
+   QChar QChar::toUpper (   )  const
+
+
+
+   ushort& QChar::unicode (   )  [inline]
+
+
+
+   const ushort QChar::unicode (   )  const [inline]
+
+
+
+   UnicodeVersion QChar::unicodeVersion (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qchar.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

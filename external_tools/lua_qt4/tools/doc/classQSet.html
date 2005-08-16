@@ -1,0 +1,293 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QSet< T > Class Template Reference
+
+   #include <qset.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef const_iterator ConstIterator
+
+Public Member Functions
+
+     * QSet ()
+     * QSet (const QSet< T > &other)
+     * QSet< T > & operator= (const QSet< T > &other)
+     * bool operator== (const QSet< T > &other) const
+     * bool operator!= (const QSet< T > &other) const
+     * int size () const
+     * bool isEmpty () const
+     * int capacity () const
+     * void reserve (int size)
+     * void squeeze ()
+     * void detach ()
+     * bool isDetached () const
+     * void clear ()
+     * bool remove (const T &value)
+     * bool contains (const T &value) const
+     * const_iterator begin () const
+     * const_iterator constBegin () const
+     * const_iterator end () const
+     * const_iterator constEnd () const
+     * int count () const
+     * const_iterator insert (const T &value)
+     * QSet< T > & unite (const QSet< T > &other)
+     * QSet< T > & intersect (const QSet< T > &other)
+     * QSet< T > & subtract (const QSet< T > &other)
+     * bool empty () const
+     * QSet< T > & operator<< (const T &value)
+     * QSet< T > & operator|= (const QSet< T > &other)
+     * QSet< T > & operator|= (const T &value)
+     * QSet< T > & operator &= (const QSet< T > &other)
+     * QSet< T > & operator &= (const T &value)
+     * QSet< T > & operator+= (const QSet< T > &other)
+     * QSet< T > & operator+= (const T &value)
+     * QSet< T > & operator-= (const QSet< T > &other)
+     * QSet< T > & operator-= (const T &value)
+     * QSet< T > operator| (const QSet< T > &other)
+     * QSet< T > operator & (const QSet< T > &other)
+     * QSet< T > operator+ (const QSet< T > &other)
+     * QSet< T > operator- (const QSet< T > &other)
+     * QList< T > toList () const
+     * QList< T > values () const
+
+Static Public Member Functions
+
+     * static QSet< T > fromList (const QList< T > &list)
+
+Classes
+
+     * class const_iterator
+
+  template<class T>
+  class QSet< T >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<class T>
+   typedef const_iterator QSet< T >::ConstIterator
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class T>
+   QSet< T >::QSet (   )  [inline]
+
+
+
+   template<class T>
+   QSet< T >::QSet (  const QSet< T > &  other  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class T>
+   const_iterator QSet< T >::begin (   )  const [inline]
+
+
+
+   template<class T>
+   int QSet< T >::capacity (   )  const [inline]
+
+
+
+   template<class T>
+   void QSet< T >::clear (   )  [inline]
+
+
+
+   template<class T>
+   const_iterator QSet< T >::constBegin (   )  const [inline]
+
+
+
+   template<class T>
+   const_iterator QSet< T >::constEnd (   )  const [inline]
+
+
+
+   template<class T>
+   bool QSet< T >::contains (  const T &  value  )  const [inline]
+
+
+
+   template<class T>
+   int QSet< T >::count (   )  const [inline]
+
+
+
+   template<class T>
+   void QSet< T >::detach (   )  [inline]
+
+
+
+   template<class T>
+   bool QSet< T >::empty (   )  const [inline]
+
+
+
+   template<class T>
+   const_iterator QSet< T >::end (   )  const [inline]
+
+
+
+   template<typename T>
+   QSet< T > QSet< T >::fromList (  const QList< T > &  list  )  [static]
+
+
+
+   template<class T>
+   const_iterator QSet< T >::insert (  const T &  value  )  [inline]
+
+
+
+   template<class T>
+   Q_INLINE_TEMPLATE QSet< T > & QSet< T >::intersect (  const QSet< T > &  other  )
+
+
+
+   template<class T>
+   bool QSet< T >::isDetached (   )  const [inline]
+
+
+
+   template<class T>
+   bool QSet< T >::isEmpty (   )  const [inline]
+
+
+
+   template<class T>
+   QSet<T> QSet< T >::operator & (  const QSet< T > &  other  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator &= (  const T &  value  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator &= (  const QSet< T > &  other  )  [inline]
+
+
+
+   template<class T>
+   bool QSet< T >::operator!= (  const QSet< T > &  other  )  const [inline]
+
+
+
+   template<class T>
+   QSet<T> QSet< T >::operator+ (  const QSet< T > &  other  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator+= (  const T &  value  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator+= (  const QSet< T > &  other  )  [inline]
+
+
+
+   template<class T>
+   QSet<T> QSet< T >::operator- (  const QSet< T > &  other  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator-= (  const T &  value  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator-= (  const QSet< T > &  other  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator<< (  const T &  value  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator= (  const QSet< T > &  other  )  [inline]
+
+
+
+   template<class T>
+   bool QSet< T >::operator== (  const QSet< T > &  other  )  const [inline]
+
+
+
+   template<class T>
+   QSet<T> QSet< T >::operator| (  const QSet< T > &  other  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator|= (  const T &  value  )  [inline]
+
+
+
+   template<class T>
+   QSet<T>& QSet< T >::operator|= (  const QSet< T > &  other  )  [inline]
+
+
+
+   template<class T>
+   bool QSet< T >::remove (  const T &  value  )  [inline]
+
+
+
+   template<class T>
+   Q_INLINE_TEMPLATE void QSet< T >::reserve (  int  size  )  [inline]
+
+
+
+   template<class T>
+   int QSet< T >::size (   )  const [inline]
+
+
+
+   template<class T>
+   void QSet< T >::squeeze (   )  [inline]
+
+
+
+   template<class T>
+   Q_INLINE_TEMPLATE QSet< T > & QSet< T >::subtract (  const QSet< T > &  other  )
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE QList< T > QSet< T >::toList (   )  const
+
+
+
+   template<class T>
+   Q_INLINE_TEMPLATE QSet< T > & QSet< T >::unite (  const QSet< T > &  other  )
+
+
+
+   template<class T>
+   QList<T> QSet< T >::values (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qset.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

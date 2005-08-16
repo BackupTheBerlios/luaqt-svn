@@ -1,0 +1,897 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QLocale Class Reference
+
+   The QLocale class converts between numbers and their string
+   representations in various languages. More...
+#include <QLocale>
+
+   Part of the QtCore module.
+
+   Note: All the functions in this class are reentrant, except
+   setDefault().
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum Country { AnyCountry, Afghanistan, Albania, Algeria, ...,
+       Zimbabwe }
+     * enum Language { C, Abkhazian, Afan, Afar, ..., Zulu }
+
+  Public Functions
+
+     * QLocale ()
+     * QLocale ( const QString & name )
+     * QLocale ( Language language, Country country = AnyCountry )
+     * QLocale ( const QLocale & other )
+     * Country country () const
+     * Language language () const
+     * QString name () const
+     * double toDouble ( const QString & s, bool * ok = 0 ) const
+     * float toFloat ( const QString & s, bool * ok = 0 ) const
+     * int toInt ( const QString & s, bool * ok = 0, int base = 0 ) const
+     * qlonglong toLongLong ( const QString & s, bool * ok = 0, int base
+       = 0 ) const
+     * short toShort ( const QString & s, bool * ok = 0, int base = 0 )
+       const
+     * QString toString ( qlonglong i ) const
+     * QString toString ( qulonglong i ) const
+     * QString toString ( double i, char f = 'g', int prec = 6 ) const
+     * QString toString ( short i ) const
+     * QString toString ( ushort i ) const
+     * QString toString ( int i ) const
+     * QString toString ( uint i ) const
+     * QString toString ( float i, char f = 'g', int prec = 6 ) const
+     * uint toUInt ( const QString & s, bool * ok = 0, int base = 0 )
+       const
+     * qlonglong toULongLong ( const QString & s, bool * ok = 0, int base
+       = 0 ) const
+     * ushort toUShort ( const QString & s, bool * ok = 0, int base = 0 )
+       const
+     * bool operator!= ( const QLocale & other ) const
+     * QLocale & operator= ( const QLocale & other )
+     * bool operator== ( const QLocale & other ) const
+
+  Static Public Members
+
+     * QLocale c ()
+     * QString countryToString ( Country country )
+     * QString languageToString ( Language language )
+     * void setDefault ( const QLocale & locale )
+     * QLocale system ()
+     _________________________________________________________________
+
+Detailed Description
+
+   The QLocale class converts between numbers and their string
+   representations in various languages.
+
+   QLocale is initialized with a language/country pair in its constructor
+   and offers number-to-string and string-to-number conversion functions
+   similar to those in QString.
+
+   Example:
+    QLocale egyptian(QLocale::Arabic, QLocale::Egypt);
+    QString s1 = egyptian.toString(1.571429E+07, 'e');
+    QString s2 = egyptian.toString(10);
+
+    double d = egyptian.toDouble(s1);
+    int i = egyptian.toInt(s2);
+
+   QLocale supports the concept of a default locale, which is determined
+   from the system's locale settings at application startup. The default
+   locale can be changed by calling the static member setDefault(). The
+   default locale has the following effects:
+     * If a QLocale object is constructed with the default constructor,
+       it will use the default locale's settings.
+     * QString::toInt(), QString::toDouble(), etc., interpret the string
+       according to the default locale. If this fails, it falls back on
+       the "C" locale.
+     * QString::arg() uses the default locale to format a number when its
+       position specifier in the format string contains an 'L', e.g.
+       "%L1".
+
+   The following example illustrates how to use QLocale directly:
+    QLocale::setDefault(QLocale::Hebrew, QLocale::Israel);
+    QLocale hebrew; // Constructs a default QLocale
+    QString s1 = hebrew.toString(15714.3, 'e');
+
+    bool ok;
+    double d;
+
+    QLocale::setDefault(QLocale::C);
+    d = QString("1234,56").toDouble(&ok);   // ok == false
+    d = QString("1234.56").toDouble(&ok);   // ok == true, d == 1234.56
+
+    QLocale::setDefault(QLocale::German);
+    d = QString("1234,56").toDouble(&ok);   // ok == true, d == 1234.56
+    d = QString("1234.56").toDouble(&ok);   // ok == true, d == 1234.56
+
+    QLocale::setDefault(QLocale::English, QLocale::UnitedStates);
+    str = QString("%1 %L2 %L3")
+          .arg(12345).arg(12345).arg(12345, 0, 16);
+    // str == "12345 12,345 3039"
+
+   When a language/country pair is specified in the constructor, one of
+   three things can happen:
+     * If the language/country pair is found in the database, it is used.
+     * If the language is found but the country is not, or if the country
+       is AnyCountry, the language is used with the most appropriate
+       available country (for example, Germany for German),
+     * If neither the language nor the country are found, QLocale
+       defaults to the default locale (see setDefault()).
+
+   The "C" locale is identical to English/UnitedStates.
+
+   Use language() and country() to determine the actual language and
+   country values used.
+
+   An alternative method for constructing a QLocale object is by
+   specifying the locale name.
+    QLocale korean("ko");
+    QLocale swiss("de_CH");
+
+   This constructor converts the locale name to a language/country pair;
+   it does not use the system locale database.
+
+   The double-to-string and string-to-double conversion functions are
+   covered by the following licenses:
+    Copyright (c) 1991 by AT&T.
+
+    Permission to use, copy, modify, and distribute this software for any
+    purpose without fee is hereby granted, provided that this entire notice
+    is included in all copies of any software which is or includes a copy
+    or modification of this software and in all copies of the supporting
+    documentation for such software.
+
+    THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED
+    WARRANTY.  IN PARTICULAR, NEITHER THE AUTHOR NOR AT&T MAKES ANY
+    REPRESENTATION OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY
+    OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
+
+    This product includes software developed by the University of
+    California, Berkeley and its contributors.
+
+   See also QString::arg(), QString::toInt(), and QString::toDouble().
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QLocale::Country
+
+   This enumerated type is used to specify a country.
+
+                      Constant                     Value
+   QLocale::AnyCountry                               0
+   QLocale::Afghanistan                              1
+   QLocale::Albania                                  2
+   QLocale::Algeria                                  3
+   QLocale::AmericanSamoa                            4
+   QLocale::Andorra                                  5
+   QLocale::Angola                                   6
+   QLocale::Anguilla                                 7
+   QLocale::Antarctica                               8
+   QLocale::AntiguaAndBarbuda                        9
+   QLocale::Argentina                               10
+   QLocale::Armenia                                 11
+   QLocale::Aruba                                   12
+   QLocale::Australia                               13
+   QLocale::Austria                                 14
+   QLocale::Azerbaijan                              15
+   QLocale::Bahamas                                 16
+   QLocale::Bahrain                                 17
+   QLocale::Bangladesh                              18
+   QLocale::Barbados                                19
+   QLocale::Belarus                                 20
+   QLocale::Belgium                                 21
+   QLocale::Belize                                  22
+   QLocale::Benin                                   23
+   QLocale::Bermuda                                 24
+   QLocale::Bhutan                                  25
+   QLocale::Bolivia                                 26
+   QLocale::BosniaAndHerzegowina                    27
+   QLocale::Botswana                                28
+   QLocale::BouvetIsland                            29
+   QLocale::Brazil                                  30
+   QLocale::BritishIndianOceanTerritory             31
+   QLocale::BruneiDarussalam                        32
+   QLocale::Bulgaria                                33
+   QLocale::BurkinaFaso                             34
+   QLocale::Burundi                                 35
+   QLocale::Cambodia                                36
+   QLocale::Cameroon                                37
+   QLocale::Canada                                  38
+   QLocale::CapeVerde                               39
+   QLocale::CaymanIslands                           40
+   QLocale::CentralAfricanRepublic                  41
+   QLocale::Chad                                    42
+   QLocale::Chile                                   43
+   QLocale::China                                   44
+   QLocale::ChristmasIsland                         45
+   QLocale::CocosIslands                            46
+   QLocale::Colombia                                47
+   QLocale::Comoros                                 48
+   QLocale::DemocraticRepublicOfCongo               49
+   QLocale::PeoplesRepublicOfCongo                  50
+   QLocale::CookIslands                             51
+   QLocale::CostaRica                               52
+   QLocale::IvoryCoast                              53
+   QLocale::Croatia                                 54
+   QLocale::Cuba                                    55
+   QLocale::Cyprus                                  56
+   QLocale::CzechRepublic                           57
+   QLocale::Denmark                                 58
+   QLocale::Djibouti                                59
+   QLocale::Dominica                                60
+   QLocale::DominicanRepublic                       61
+   QLocale::EastTimor                               62
+   QLocale::Ecuador                                 63
+   QLocale::Egypt                                   64
+   QLocale::ElSalvador                              65
+   QLocale::EquatorialGuinea                        66
+   QLocale::Eritrea                                 67
+   QLocale::Estonia                                 68
+   QLocale::Ethiopia                                69
+   QLocale::FalklandIslands                         70
+   QLocale::FaroeIslands                            71
+   QLocale::FijiCountry                             72
+   QLocale::Finland                                 73
+   QLocale::France                                  74
+   QLocale::MetropolitanFrance                      75
+   QLocale::FrenchGuiana                            76
+   QLocale::FrenchPolynesia                         77
+   QLocale::FrenchSouthernTerritories               78
+   QLocale::Gabon                                   79
+   QLocale::Gambia                                  80
+   QLocale::Georgia                                 81
+   QLocale::Germany                                 82
+   QLocale::Ghana                                   83
+   QLocale::Gibraltar                               84
+   QLocale::Greece                                  85
+   QLocale::Greenland                               86
+   QLocale::Grenada                                 87
+   QLocale::Guadeloupe                              88
+   QLocale::Guam                                    89
+   QLocale::Guatemala                               90
+   QLocale::Guinea                                  91
+   QLocale::GuineaBissau                            92
+   QLocale::Guyana                                  93
+   QLocale::Haiti                                   94
+   QLocale::HeardAndMcDonaldIslands                 95
+   QLocale::Honduras                                96
+   QLocale::HongKong                                97
+   QLocale::Hungary                                 98
+   QLocale::Iceland                                 99
+   QLocale::India                                   100
+   QLocale::Indonesia                               101
+   QLocale::Iran                                    102
+   QLocale::Iraq                                    103
+   QLocale::Ireland                                 104
+   QLocale::Israel                                  105
+   QLocale::Italy                                   106
+   QLocale::Jamaica                                 107
+   QLocale::Japan                                   108
+   QLocale::Jordan                                  109
+   QLocale::Kazakhstan                              110
+   QLocale::Kenya                                   111
+   QLocale::Kiribati                                112
+   QLocale::DemocraticRepublicOfKorea               113
+   QLocale::RepublicOfKorea                         114
+   QLocale::Kuwait                                  115
+   QLocale::Kyrgyzstan                              116
+   QLocale::Lao                                     117
+   QLocale::Latvia                                  118
+   QLocale::Lebanon                                 119
+   QLocale::Lesotho                                 120
+   QLocale::Liberia                                 121
+   QLocale::LibyanArabJamahiriya                    122
+   QLocale::Liechtenstein                           123
+   QLocale::Lithuania                               124
+   QLocale::Luxembourg                              125
+   QLocale::Macau                                   126
+   QLocale::Macedonia                               127
+   QLocale::Madagascar                              128
+   QLocale::Malawi                                  129
+   QLocale::Malaysia                                130
+   QLocale::Maldives                                131
+   QLocale::Mali                                    132
+   QLocale::Malta                                   133
+   QLocale::MarshallIslands                         134
+   QLocale::Martinique                              135
+   QLocale::Mauritania                              136
+   QLocale::Mauritius                               137
+   QLocale::Mayotte                                 138
+   QLocale::Mexico                                  139
+   QLocale::Micronesia                              140
+   QLocale::Moldova                                 141
+   QLocale::Monaco                                  142
+   QLocale::Mongolia                                143
+   QLocale::Montserrat                              144
+   QLocale::Morocco                                 145
+   QLocale::Mozambique                              146
+   QLocale::Myanmar                                 147
+   QLocale::Namibia                                 148
+   QLocale::NauruCountry                            149
+   QLocale::Nepal                                   150
+   QLocale::Netherlands                             151
+   QLocale::NetherlandsAntilles                     152
+   QLocale::NewCaledonia                            153
+   QLocale::NewZealand                              154
+   QLocale::Nicaragua                               155
+   QLocale::Niger                                   156
+   QLocale::Nigeria                                 157
+   QLocale::Niue                                    158
+   QLocale::NorfolkIsland                           159
+   QLocale::NorthernMarianaIslands                  160
+   QLocale::Norway                                  161
+   QLocale::Oman                                    162
+   QLocale::Pakistan                                163
+   QLocale::Palau                                   164
+   QLocale::PalestinianTerritory                    165
+   QLocale::Panama                                  166
+   QLocale::PapuaNewGuinea                          167
+   QLocale::Paraguay                                168
+   QLocale::Peru                                    169
+   QLocale::Philippines                             170
+   QLocale::Pitcairn                                171
+   QLocale::Poland                                  172
+   QLocale::Portugal                                173
+   QLocale::PuertoRico                              174
+   QLocale::Qatar                                   175
+   QLocale::Reunion                                 176
+   QLocale::Romania                                 177
+   QLocale::RussianFederation                       178
+   QLocale::Rwanda                                  179
+   QLocale::SaintKittsAndNevis                      180
+   QLocale::StLucia                                 181
+   QLocale::StVincentAndTheGrenadines               182
+   QLocale::Samoa                                   183
+   QLocale::SanMarino                               184
+   QLocale::SaoTomeAndPrincipe                      185
+   QLocale::SaudiArabia                             186
+   QLocale::Senegal                                 187
+   QLocale::Seychelles                              188
+   QLocale::SierraLeone                             189
+   QLocale::Singapore                               190
+   QLocale::Slovakia                                191
+   QLocale::Slovenia                                192
+   QLocale::SolomonIslands                          193
+   QLocale::Somalia                                 194
+   QLocale::SouthAfrica                             195
+   QLocale::SouthGeorgiaAndTheSouthSandwichIslands  196
+   QLocale::Spain                                   197
+   QLocale::SriLanka                                198
+   QLocale::StHelena                                199
+   QLocale::StPierreAndMiquelon                     200
+   QLocale::Sudan                                   201
+   QLocale::Suriname                                202
+   QLocale::SvalbardAndJanMayenIslands              203
+   QLocale::Swaziland                               204
+   QLocale::Sweden                                  205
+   QLocale::Switzerland                             206
+   QLocale::SyrianArabRepublic                      207
+   QLocale::Taiwan                                  208
+   QLocale::Tajikistan                              209
+   QLocale::Tanzania                                210
+   QLocale::Thailand                                211
+   QLocale::Togo                                    212
+   QLocale::Tokelau                                 213
+   QLocale::TongaCountry                            214
+   QLocale::TrinidadAndTobago                       215
+   QLocale::Tunisia                                 216
+   QLocale::Turkey                                  217
+   QLocale::Turkmenistan                            218
+   QLocale::TurksAndCaicosIslands                   219
+   QLocale::Tuvalu                                  220
+   QLocale::Uganda                                  221
+   QLocale::Ukraine                                 222
+   QLocale::UnitedArabEmirates                      223
+   QLocale::UnitedKingdom                           224
+   QLocale::UnitedStates                            225
+   QLocale::UnitedStatesMinorOutlyingIslands        226
+   QLocale::Uruguay                                 227
+   QLocale::Uzbekistan                              228
+   QLocale::Vanuatu                                 229
+   QLocale::VaticanCityState                        230
+   QLocale::Venezuela                               231
+   QLocale::VietNam                                 232
+   QLocale::BritishVirginIslands                    233
+   QLocale::USVirginIslands                         234
+   QLocale::WallisAndFutunaIslands                  235
+   QLocale::WesternSahara                           236
+   QLocale::Yemen                                   237
+   QLocale::Yugoslavia                              238
+   QLocale::Zambia                                  239
+   QLocale::Zimbabwe                                240
+
+   See also country().
+
+  enum QLocale::Language
+
+   This enumerated type is used to specify a language.
+
+          Constant        Value
+   QLocale::C               1
+   QLocale::Abkhazian       2
+   QLocale::Afan            3
+   QLocale::Afar            4
+   QLocale::Afrikaans       5
+   QLocale::Albanian        6
+   QLocale::Amharic         7
+   QLocale::Arabic          8
+   QLocale::Armenian        9
+   QLocale::Assamese       10
+   QLocale::Aymara         11
+   QLocale::Azerbaijani    12
+   QLocale::Bashkir        13
+   QLocale::Basque         14
+   QLocale::Bengali        15
+   QLocale::Bhutani        16
+   QLocale::Bihari         17
+   QLocale::Bislama        18
+   QLocale::Breton         19
+   QLocale::Bulgarian      20
+   QLocale::Burmese        21
+   QLocale::Byelorussian   22
+   QLocale::Cambodian      23
+   QLocale::Catalan        24
+   QLocale::Chinese        25
+   QLocale::Corsican       26
+   QLocale::Croatian       27
+   QLocale::Czech          28
+   QLocale::Danish         29
+   QLocale::Dutch          30
+   QLocale::English        31
+   QLocale::Esperanto      32
+   QLocale::Estonian       33
+   QLocale::Faroese        34
+   QLocale::FijiLanguage   35
+   QLocale::Finnish        36
+   QLocale::French         37
+   QLocale::Frisian        38
+   QLocale::Gaelic         39
+   QLocale::Galician       40
+   QLocale::Georgian       41
+   QLocale::German         42
+   QLocale::Greek          43
+   QLocale::Greenlandic    44
+   QLocale::Guarani        45
+   QLocale::Gujarati       46
+   QLocale::Hausa          47
+   QLocale::Hebrew         48
+   QLocale::Hindi          49
+   QLocale::Hungarian      50
+   QLocale::Icelandic      51
+   QLocale::Indonesian     52
+   QLocale::Interlingua    53
+   QLocale::Interlingue    54
+   QLocale::Inuktitut      55
+   QLocale::Inupiak        56
+   QLocale::Irish          57
+   QLocale::Italian        58
+   QLocale::Japanese       59
+   QLocale::Javanese       60
+   QLocale::Kannada        61
+   QLocale::Kashmiri       62
+   QLocale::Kazakh         63
+   QLocale::Kinyarwanda    64
+   QLocale::Kirghiz        65
+   QLocale::Korean         66
+   QLocale::Kurdish        67
+   QLocale::Kurundi        68
+   QLocale::Laothian       69
+   QLocale::Latin          70
+   QLocale::Latvian        71
+   QLocale::Lingala        72
+   QLocale::Lithuanian     73
+   QLocale::Macedonian     74
+   QLocale::Malagasy       75
+   QLocale::Malay          76
+   QLocale::Malayalam      77
+   QLocale::Maltese        78
+   QLocale::Maori          79
+   QLocale::Marathi        80
+   QLocale::Moldavian      81
+   QLocale::Mongolian      82
+   QLocale::NauruLanguage  83
+   QLocale::Nepali         84
+   QLocale::Norwegian      85
+   QLocale::Nynorsk        141
+   QLocale::Occitan        86
+   QLocale::Oriya          87
+   QLocale::Pashto         88
+   QLocale::Persian        89
+   QLocale::Polish         90
+   QLocale::Portuguese     91
+   QLocale::Punjabi        92
+   QLocale::Quechua        93
+   QLocale::RhaetoRomance  94
+   QLocale::Romanian       95
+   QLocale::Russian        96
+   QLocale::Samoan         97
+   QLocale::Sangho         98
+   QLocale::Sanskrit       99
+   QLocale::Serbian        100
+   QLocale::SerboCroatian  101
+   QLocale::Sesotho        102
+   QLocale::Setswana       103
+   QLocale::Shona          104
+   QLocale::Sindhi         105
+   QLocale::Singhalese     106
+   QLocale::Siswati        107
+   QLocale::Slovak         108
+   QLocale::Slovenian      109
+   QLocale::Somali         110
+   QLocale::Spanish        111
+   QLocale::Sundanese      112
+   QLocale::Swahili        113
+   QLocale::Swedish        114
+   QLocale::Tagalog        115
+   QLocale::Tajik          116
+   QLocale::Tamil          117
+   QLocale::Tatar          118
+   QLocale::Telugu         119
+   QLocale::Thai           120
+   QLocale::Tibetan        121
+   QLocale::Tigrinya       122
+   QLocale::TongaLanguage  123
+   QLocale::Tsonga         124
+   QLocale::Turkish        125
+   QLocale::Turkmen        126
+   QLocale::Twi            127
+   QLocale::Uigur          128
+   QLocale::Ukrainian      129
+   QLocale::Urdu           130
+   QLocale::Uzbek          131
+   QLocale::Vietnamese     132
+   QLocale::Volapuk        133
+   QLocale::Welsh          134
+   QLocale::Wolof          135
+   QLocale::Xhosa          136
+   QLocale::Yiddish        137
+   QLocale::Yoruba         138
+   QLocale::Zhuang         139
+   QLocale::Zulu           140
+
+   See also language().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QLocale::QLocale ()
+
+   Constructs a QLocale object initialized with the default locale.
+
+   See also setDefault().
+
+  QLocale::QLocale ( const QString & name )
+
+   Constructs a QLocale object with the specified name, which has the
+   format "language[_country][.codeset][@modifier]" or "C", where:
+     * language is a lowercase, two-letter, ISO 639 language code,
+     * territory is an uppercase, two-letter, ISO 3166 country code,
+     * and codeset and modifier are ignored.
+
+   If the string violates the locale format, or language is not a valid
+   ISO 369 code, the "C" locale is used instead. If country is not
+   present, or is not a valid ISO 3166 code, the most appropriate country
+   is chosen for the specified language.
+
+   The language and country codes are converted to their respective
+   Language and Country enums. After this conversion is performed the
+   constructor behaves exactly like QLocale(Country, Language).
+
+   This constructor is much slower than QLocale(Country, Language).
+
+   See also name().
+
+  QLocale::QLocale ( Language language, Country country = AnyCountry )
+
+   Constructs a QLocale object with the specified language and country.
+     * If the language/country pair is found in the database, it is used.
+     * If the language is found but the country is not, or if the country
+       is AnyCountry, the language is used with the most appropriate
+       available country (for example, Germany for German),
+     * If neither the language nor the country are found, QLocale
+       defaults to the default locale (see setDefault()).
+
+   The language and country that are actually used can be queried using
+   language() and country().
+
+   See also setDefault(), language(), and country().
+
+  QLocale::QLocale ( const QLocale & other )
+
+   Constructs a QLocale object as a copy of other.
+
+  QLocale QLocale::c ()   [static]
+
+   Returns a QLocale object initialized to the "C" locale.
+
+   See also system().
+
+  Country QLocale::country () const
+
+   Returns the country of this locale.
+
+   See also language(), countryToString(), and name().
+
+  QString QLocale::countryToString ( Country country )   [static]
+
+   Returns a QString containing the name of country.
+
+   See also country() and name().
+
+  Language QLocale::language () const
+
+   Returns the language of this locale.
+
+   See also country(), languageToString(), and name().
+
+  QString QLocale::languageToString ( Language language )   [static]
+
+   Returns a QString containing the name of language.
+
+   See also countryToString() and name().
+
+  QString QLocale::name () const
+
+   Returns the language and country of this locale as a string of the
+   form "language_country", where language is a lowercase, two-letter ISO
+   639 language code, and country is an uppercase, two-letter ISO 3166
+   country code.
+
+   See also language() and country().
+
+  void QLocale::setDefault ( const QLocale & locale )   [static]
+
+   Sets the global default locale to locale. These values are used when a
+   QLocale object is constructed with no arguments. If this function is
+   not called, the system's locale is used.
+
+   Warning: In a multithreaded application, the default locale should be
+   set at application startup, before any non-GUI threads are created.
+
+   Warning: This function is not reentrant.
+
+   See also system() and c().
+
+  QLocale QLocale::system ()   [static]
+
+   Returns a QLocale object initialized to the system locale.
+
+   See also QTextCodec::locale() and c().
+
+  double QLocale::toDouble ( const QString & s, bool * ok = 0 ) const
+
+   Returns the double represented by the localized string s, or 0.0 if
+   the conversion failed.
+
+   If ok is not 0, reports failure by setting *ok to false and success by
+   setting *ok to true.
+
+   Unlike QString::toDouble(), this function does not fall back to the
+   "C" locale if the string cannot be interpreted in this locale.
+    bool ok;
+    double d;
+
+    QLocale c(QLocale::C);
+    d = c.toDouble( "1234.56", &ok );  // ok == true, d == 1234.56
+    d = c.toDouble( "1,234.56", &ok ); // ok == true, d == 1234.56
+    d = c.toDouble( "1234,56", &ok );  // ok == false
+
+    QLocale german(QLocale::German);
+    d = german.toDouble( "1234,56", &ok );  // ok == true, d == 1234.56
+    d = german.toDouble( "1.234,56", &ok ); // ok == true, d == 1234.56
+    d = german.toDouble( "1234.56", &ok );  // ok == false
+
+    d = german.toDouble( "1.234", &ok );    // ok == true, d == 1234.0
+
+   Notice that the last conversion returns 1234.0, because '.' is the
+   thousands group separator in the German locale.
+
+   This function ignores leading and trailing whitespace.
+
+   See also toFloat(), toInt(), and toString().
+
+  float QLocale::toFloat ( const QString & s, bool * ok = 0 ) const
+
+   Returns the float represented by the localized string s, or 0.0 if the
+   conversion failed.
+
+   If ok is not 0, reports failure by setting *ok to false and success by
+   setting *ok to true.
+
+   This function ignores leading and trailing whitespace.
+
+   See also toDouble(), toInt(), and toString().
+
+  int QLocale::toInt ( const QString & s, bool * ok = 0, int base = 0 ) const
+
+   Returns the int represented by the localized string s, using base
+   base. If base is 0 the base is determined automatically using the
+   following rules: If the string begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   If the conversion fails the function returns 0.
+
+   If ok is not 0, failure is reported by setting *ok to false, and
+   success by setting *ok to true.
+
+   This function ignores leading and trailing whitespace.
+
+   See also toUInt() and toString().
+
+  qlonglong QLocale::toLongLong ( const QString & s, bool * ok = 0, int base =
+  0 ) const
+
+   Returns the long long int represented by the localized string s, using
+   base base. If base is 0 the base is determined automatically using the
+   following rules: If the string begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   If the conversion fails the function returns 0.
+
+   If ok is not 0, failure is reported by setting *ok to false, and
+   success by setting *ok to true.
+
+   This function ignores leading and trailing whitespace.
+
+   See also toInt(), toULongLong(), toDouble(), and toString().
+
+  short QLocale::toShort ( const QString & s, bool * ok = 0, int base = 0 )
+  const
+
+   Returns the short int represented by the localized string s, using
+   base base. If base is 0 the base is determined automatically using the
+   following rules: If the string begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   If the conversion fails the function returns 0.
+
+   If ok is not 0, failure is reported by setting *ok to false, and
+   success by setting *ok to true.
+
+   This function ignores leading and trailing whitespace.
+
+   See also toUShort() and toString().
+
+  QString QLocale::toString ( qlonglong i ) const
+
+   Returns a localized string representation of i.
+
+   See also toLongLong().
+
+  QString QLocale::toString ( qulonglong i ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toULongLong().
+
+  QString QLocale::toString ( double i, char f = 'g', int prec = 6 ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   f and prec have the same meaning as in QString::number(double, char,
+   int).
+
+   See also toDouble().
+
+  QString QLocale::toString ( short i ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toShort().
+
+  QString QLocale::toString ( ushort i ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toUShort().
+
+  QString QLocale::toString ( int i ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toInt().
+
+  QString QLocale::toString ( uint i ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toUInt().
+
+  QString QLocale::toString ( float i, char f = 'g', int prec = 6 ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   f and prec have the same meaning as in QString::number(double, char,
+   int).
+
+   See also toDouble().
+
+  uint QLocale::toUInt ( const QString & s, bool * ok = 0, int base = 0 ) const
+
+   Returns the unsigned int represented by the localized string s, using
+   base base. If base is 0 the base is determined automatically using the
+   following rules: If the string begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   If the conversion fails the function returns 0.
+
+   If ok is not 0, failure is reported by setting *ok to false, and
+   success by setting *ok to true.
+
+   This function ignores leading and trailing whitespace.
+
+   See also toInt() and toString().
+
+  qlonglong QLocale::toULongLong ( const QString & s, bool * ok = 0, int base =
+  0 ) const
+
+   Returns the unsigned long long int represented by the localized string
+   s, using base base. If base is 0 the base is determined automatically
+   using the following rules: If the string begins with "0x", it is
+   assumed to be hexadecimal; if it begins with "0", it is assumed to be
+   octal; otherwise it is assumed to be decimal.
+
+   If the conversion fails the function returns 0.
+
+   If ok is not 0, failure is reported by setting *ok to false, and
+   success by setting *ok to true.
+
+   This function ignores leading and trailing whitespace.
+
+   See also toLongLong(), toInt(), toDouble(), and toString().
+
+  ushort QLocale::toUShort ( const QString & s, bool * ok = 0, int base = 0 )
+  const
+
+   Returns the unsigned short int represented by the localized string s,
+   using base base. If base is 0 the base is determined automatically
+   using the following rules: If the string begins with "0x", it is
+   assumed to be hexadecimal; if it begins with "0", it is assumed to be
+   octal; otherwise it is assumed to be decimal.
+
+   If the conversion fails the function returns 0.
+
+   If ok is not 0, failure is reported by setting *ok to false, and
+   success by setting *ok to true.
+
+   This function ignores leading and trailing whitespace.
+
+   See also toShort() and toString().
+
+  bool QLocale::operator!= ( const QLocale & other ) const
+
+   Returns true if the QLocale object is not the same as the other locale
+   specified; otherwise returns false.
+
+  QLocale & QLocale::operator= ( const QLocale & other )
+
+   Assigns other to this QLocale object and returns a reference to this
+   QLocale object.
+
+  bool QLocale::operator== ( const QLocale & other ) const
+
+   Returns true if the QLocale object is the same as the other locale
+   specified; otherwise returns false.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

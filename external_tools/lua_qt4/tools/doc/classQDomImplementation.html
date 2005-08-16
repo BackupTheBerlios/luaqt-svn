@@ -1,0 +1,94 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QDomImplementation Class Reference
+
+   #include <qdom.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QDomImplementation ()
+     * QDomImplementation (const QDomImplementation &)
+     * ~QDomImplementation ()
+     * QDomImplementation & operator= (const QDomImplementation &)
+     * bool operator== (const QDomImplementation &) const
+     * bool operator!= (const QDomImplementation &) const
+     * bool hasFeature (const QString &feature, const QString &version) const
+     * QDomDocumentType createDocumentType (const QString &qName, const QString &publicId, const QString &systemId)
+     * QDomDocument createDocument (const QString &nsURI, const QString &qName, const QDomDocumentType &doctype)
+     * bool isNull ()
+
+Friends
+
+     * class QDomDocument
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDomImplementation::QDomImplementation (   )
+
+
+
+   QDomImplementation::QDomImplementation (  const QDomImplementation &   )
+
+
+
+   QDomImplementation::~QDomImplementation (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QDomDocument QDomImplementation::createDocument (  const QString &           nsURI,
+                                                      const QString &           qName,
+                                                      const QDomDocumentType &  doctype
+                                                   )
+
+
+
+   QDomDocumentType QDomImplementation::createDocumentType (  const QString &  qName,
+                                                              const QString &  publicId,
+                                                              const QString &  systemId
+                                                           )
+
+
+
+   bool QDomImplementation::hasFeature (  const QString &  feature,
+                                          const QString &  version
+                                       )  const
+
+
+
+   bool QDomImplementation::isNull (   )
+
+
+
+   bool QDomImplementation::operator!= (  const QDomImplementation &   )  const
+
+
+
+   QDomImplementation& QDomImplementation::operator= (  const QDomImplementation &   )
+
+
+
+   bool QDomImplementation::operator== (  const QDomImplementation &   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QDomDocument [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdom.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

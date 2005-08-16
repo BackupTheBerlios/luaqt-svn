@@ -1,0 +1,153 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QHostAddress Class Reference
+
+   #include <qhostaddress.h>
+
+   List of all members.
+
+Public Types
+
+     * enum SpecialAddress {
+         Null, Broadcast, LocalHost, LocalHostIPv6,
+         Any, AnyIPv6
+       }
+
+Public Member Functions
+
+     * QHostAddress ()
+     * QHostAddress (quint32 ip4Addr)
+     * QHostAddress (quint8 *ip6Addr)
+     * QHostAddress (const Q_IPV6ADDR &ip6Addr)
+     * QHostAddress (const QString &address)
+     * QHostAddress (const QHostAddress &copy)
+     * QHostAddress (SpecialAddress address)
+     * ~QHostAddress ()
+     * QHostAddress & operator= (const QHostAddress &)
+     * void setAddress (quint32 ip4Addr)
+     * void setAddress (quint8 *ip6Addr)
+     * void setAddress (const Q_IPV6ADDR &ip6Addr)
+     * bool setAddress (const QString &address)
+     * QAbstractSocket::NetworkLayerProtocol protocol () const
+     * quint32 toIPv4Address () const
+     * Q_IPV6ADDR toIPv6Address () const
+     * QString toString () const
+     * bool operator== (const QHostAddress &address) const
+     * bool operator== (SpecialAddress address) const
+     * bool isNull () const
+     * void clear ()
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QHostAddress::SpecialAddress
+
+
+
+   Enumerator: 
+
+          Null         
+          Broadcast    
+          LocalHost    
+          LocalHostIPv6
+          Any          
+          AnyIPv6      
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QHostAddress::QHostAddress (   )
+
+
+
+   QHostAddress::QHostAddress (  quint32  ip4Addr  )  [explicit]
+
+
+
+   QHostAddress::QHostAddress (  quint8 *  ip6Addr  )  [explicit]
+
+
+
+   QHostAddress::QHostAddress (  const Q_IPV6ADDR &  ip6Addr  )  [explicit]
+
+
+
+   QHostAddress::QHostAddress (  const QString &  address  )  [explicit]
+
+
+
+   QHostAddress::QHostAddress (  const QHostAddress &  copy  )
+
+
+
+   QHostAddress::QHostAddress (  SpecialAddress  address  )
+
+
+
+   QHostAddress::~QHostAddress (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QHostAddress::clear (   )
+
+
+
+   bool QHostAddress::isNull (   )  const
+
+
+
+   QHostAddress& QHostAddress::operator= (  const QHostAddress &   )
+
+
+
+   bool QHostAddress::operator== (  SpecialAddress  address  )  const
+
+
+
+   bool QHostAddress::operator== (  const QHostAddress &  address  )  const
+
+
+
+   QAbstractSocket::NetworkLayerProtocol QHostAddress::protocol (   )  const
+
+
+
+   bool QHostAddress::setAddress (  const QString &  address  )
+
+
+
+   void QHostAddress::setAddress (  const Q_IPV6ADDR &  ip6Addr  )
+
+
+
+   void QHostAddress::setAddress (  quint8 *  ip6Addr  )
+
+
+
+   void QHostAddress::setAddress (  quint32  ip4Addr  )
+
+
+
+   quint32 QHostAddress::toIPv4Address (   )  const
+
+
+
+   Q_IPV6ADDR QHostAddress::toIPv6Address (   )  const
+
+
+
+   QString QHostAddress::toString (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qhostaddress.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

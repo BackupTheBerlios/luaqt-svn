@@ -1,0 +1,478 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3DockWindow Class Reference
+
+   #include <q3dockwindow.h>
+
+   Inherits Q3Frame.
+
+   Inherited by Q3ToolBar.
+
+   List of all members.
+
+Public Types
+
+     * enum Place { InDock, OutsideDock }
+     * enum CloseMode { Never = 0, Docked = 1, Undocked = 2, Always = Docked | Undocked }
+
+Public Slots
+
+     * virtual void undock (QWidget *w)
+     * virtual void undock ()
+     * virtual void dock ()
+     * virtual void setOrientation (Qt::Orientation o)
+
+Signals
+
+     * void orientationChanged (Qt::Orientation o)
+     * void placeChanged (Q3DockWindow::Place p)
+     * void visibilityChanged (bool)
+
+Public Member Functions
+
+     * Q3DockWindow (Place p=InDock, QWidget *parent=0, const char *name=0, Qt::WFlags f=0)
+     * Q3DockWindow (QWidget *parent, const char *name=0, Qt::WFlags f=0)
+     * ~Q3DockWindow ()
+     * virtual void setWidget (QWidget *w)
+     * QWidget * widget () const
+     * Place place () const
+     * Q3DockArea * area () const
+     * virtual void setCloseMode (int m)
+     * bool isCloseEnabled () const
+     * int closeMode () const
+     * virtual void setResizeEnabled (bool b)
+     * virtual void setMovingEnabled (bool b)
+     * bool isResizeEnabled () const
+     * bool isMovingEnabled () const
+     * virtual void setHorizontallyStretchable (bool b)
+     * virtual void setVerticallyStretchable (bool b)
+     * bool isHorizontallyStretchable () const
+     * bool isVerticallyStretchable () const
+     * void setHorizontalStretchable (bool b)
+     * void setVerticalStretchable (bool b)
+     * bool isHorizontalStretchable () const
+     * bool isVerticalStretchable () const
+     * bool isStretchable () const
+     * virtual void setOffset (int o)
+     * int offset () const
+     * virtual void setFixedExtentWidth (int w)
+     * virtual void setFixedExtentHeight (int h)
+     * QSize fixedExtent () const
+     * virtual void setNewLine (bool b)
+     * bool newLine () const
+     * Qt::Orientation orientation () const
+     * QSize sizeHint () const
+     * QSize minimumSize () const
+     * QSize minimumSizeHint () const
+     * QBoxLayout * boxLayout ()
+     * virtual void setOpaqueMoving (bool b)
+     * bool opaqueMoving () const
+     * bool eventFilter (QObject *o, QEvent *e)
+     * QString windowTitle () const
+
+Protected Member Functions
+
+     * void resizeEvent (QResizeEvent *e)
+     * void showEvent (QShowEvent *e)
+     * void hideEvent (QHideEvent *e)
+     * void contextMenuEvent (QContextMenuEvent *e)
+     * void drawFrame (QPainter *)
+     * void drawContents (QPainter *)
+     * bool event (QEvent *e)
+
+Properties
+
+     * int closeMode
+     * bool resizeEnabled
+     * bool movingEnabled
+     * bool horizontallyStretchable
+     * bool verticallyStretchable
+     * bool stretchable
+     * bool newLine
+     * bool opaqueMoving
+     * int offset
+     * Place place
+
+Friends
+
+     * class Q3DockWindowHandle
+     * class Q3DockWindowTitleBar
+     * class Q3DockArea
+     * class Q3DockAreaLayout
+     * class Q3MainWindow
+     * class QCEMainWindow
+     * class Q3ToolBar
+     * class QWindowsXPStyle
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3DockWindow::CloseMode
+
+
+
+   Enumerator: 
+
+          Never   
+          Docked  
+          Undocked
+          Always  
+
+   enum Q3DockWindow::Place
+
+
+
+   Enumerator: 
+
+          InDock     
+          OutsideDock
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3DockWindow::Q3DockWindow (  Place         p = InDock,
+                                 QWidget *     parent = 0,
+                                 const char *  name = 0,
+                                 Qt::WFlags    f = 0
+                              )
+
+
+
+   Q3DockWindow::Q3DockWindow (  QWidget *     parent,
+                                 const char *  name = 0,
+                                 Qt::WFlags    f = 0
+                              )
+
+
+
+   Q3DockWindow::~Q3DockWindow (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3DockArea * Q3DockWindow::area (   )  const [inline]
+
+
+
+   QBoxLayout* Q3DockWindow::boxLayout (   )
+
+
+
+   int Q3DockWindow::closeMode (   )  const
+
+
+
+   void Q3DockWindow::contextMenuEvent (  QContextMenuEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3DockWindow::dock (   )  [virtual, slot]
+
+
+
+   void Q3DockWindow::drawContents (  QPainter *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Frame.
+
+   void Q3DockWindow::drawFrame (  QPainter *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Frame.
+
+   bool Q3DockWindow::event (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3ToolBar.
+
+   bool Q3DockWindow::eventFilter (  QObject *  o,
+                                     QEvent *   e
+                                  )  [virtual]
+
+
+
+   Reimplemented from QObject.
+
+   QSize Q3DockWindow::fixedExtent (   )  const
+
+
+
+   void Q3DockWindow::hideEvent (  QHideEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool Q3DockWindow::isCloseEnabled (   )  const
+
+
+
+   bool Q3DockWindow::isHorizontallyStretchable (   )  const
+
+
+
+   bool Q3DockWindow::isHorizontalStretchable (   )  const [inline]
+
+
+
+   bool Q3DockWindow::isMovingEnabled (   )  const
+
+
+
+   bool Q3DockWindow::isResizeEnabled (   )  const
+
+
+
+   bool Q3DockWindow::isStretchable (   )  const
+
+
+
+   bool Q3DockWindow::isVerticallyStretchable (   )  const
+
+
+
+   bool Q3DockWindow::isVerticalStretchable (   )  const [inline]
+
+
+
+   QSize Q3DockWindow::minimumSize (   )  const
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3ToolBar.
+
+   QSize Q3DockWindow::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3ToolBar.
+
+   bool Q3DockWindow::newLine (   )  const
+
+
+
+   int Q3DockWindow::offset (   )  const
+
+
+
+   bool Q3DockWindow::opaqueMoving (   )  const
+
+
+
+   Qt::Orientation Q3DockWindow::orientation (   )  const
+
+
+
+   void Q3DockWindow::orientationChanged (  Qt::Orientation  o  )  [signal]
+
+
+
+   Place Q3DockWindow::place (   )  const [inline]
+
+
+
+   void Q3DockWindow::placeChanged (  Q3DockWindow::Place  p  )  [signal]
+
+
+
+   void Q3DockWindow::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Frame.
+
+   Reimplemented in Q3ToolBar.
+
+   virtual void Q3DockWindow::setCloseMode (  int  m  )  [virtual]
+
+
+
+   virtual void Q3DockWindow::setFixedExtentHeight (  int  h  )  [virtual]
+
+
+
+   virtual void Q3DockWindow::setFixedExtentWidth (  int  w  )  [virtual]
+
+
+
+   virtual void Q3DockWindow::setHorizontallyStretchable (  bool  b  )  [virtual]
+
+
+
+   void Q3DockWindow::setHorizontalStretchable (  bool  b  )  [inline]
+
+
+
+   virtual void Q3DockWindow::setMovingEnabled (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3DockWindow::setNewLine (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3DockWindow::setOffset (  int  o  )  [virtual]
+
+
+
+   virtual void Q3DockWindow::setOpaqueMoving (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3DockWindow::setOrientation (  Qt::Orientation  o  )  [virtual, slot]
+
+
+
+   Reimplemented in Q3ToolBar.
+
+   virtual void Q3DockWindow::setResizeEnabled (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3DockWindow::setVerticallyStretchable (  bool  b  )  [virtual]
+
+
+
+   void Q3DockWindow::setVerticalStretchable (  bool  b  )  [inline]
+
+
+
+   virtual void Q3DockWindow::setWidget (  QWidget *  w  )  [virtual]
+
+
+
+   void Q3DockWindow::showEvent (  QShowEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize Q3DockWindow::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   virtual void Q3DockWindow::undock (   )  [inline, virtual, slot]
+
+
+
+   virtual void Q3DockWindow::undock (  QWidget *  w  )  [virtual, slot]
+
+
+
+   void Q3DockWindow::visibilityChanged (  bool   )  [signal]
+
+
+
+   QWidget* Q3DockWindow::widget (   )  const
+
+
+
+   QString Q3DockWindow::windowTitle (   )  const
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3DockArea [friend]
+
+
+
+   friend class Q3DockAreaLayout [friend]
+
+
+
+   friend class Q3DockWindowHandle [friend]
+
+
+
+   friend class Q3DockWindowTitleBar [friend]
+
+
+
+   friend class Q3MainWindow [friend]
+
+
+
+   Reimplemented in Q3ToolBar.
+
+   friend class Q3ToolBar [friend]
+
+
+
+   friend class QCEMainWindow [friend]
+
+
+
+   friend class QWindowsXPStyle [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int Q3DockWindow::closeMode [read, write]
+
+
+
+   bool Q3DockWindow::horizontallyStretchable [read, write]
+
+
+
+   bool Q3DockWindow::movingEnabled [read, write]
+
+
+
+   bool Q3DockWindow::newLine [read, write]
+
+
+
+   int Q3DockWindow::offset [read, write]
+
+
+
+   bool Q3DockWindow::opaqueMoving [read, write]
+
+
+
+   Place Q3DockWindow::place [read]
+
+
+
+   bool Q3DockWindow::resizeEnabled [read, write]
+
+
+
+   bool Q3DockWindow::stretchable [read]
+
+
+
+   bool Q3DockWindow::verticallyStretchable [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3dockwindow.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

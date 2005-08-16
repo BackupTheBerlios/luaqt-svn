@@ -1,0 +1,114 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QDoubleValidator Class Reference
+
+   #include <qvalidator.h>
+
+   Inherits QValidator.
+
+   List of all members.
+
+Public Member Functions
+
+     * QDoubleValidator (QObject *parent)
+     * QDoubleValidator (double bottom, double top, int decimals, QObject *parent)
+     * ~QDoubleValidator ()
+     * QValidator::State validate (QString &, int &) const
+     * virtual void setRange (double bottom, double top, int decimals=0)
+     * void setBottom (double)
+     * void setTop (double)
+     * void setDecimals (int)
+     * double bottom () const
+     * double top () const
+     * int decimals () const
+
+Properties
+
+     * double bottom
+     * double top
+     * int decimals
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDoubleValidator::QDoubleValidator (  QObject *  parent  )  [explicit]
+
+
+
+   QDoubleValidator::QDoubleValidator (  double     bottom,
+                                         double     top,
+                                         int        decimals,
+                                         QObject *  parent
+                                      )
+
+
+
+   QDoubleValidator::~QDoubleValidator (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   double QDoubleValidator::bottom (   )  const [inline]
+
+
+
+   int QDoubleValidator::decimals (   )  const [inline]
+
+
+
+   void QDoubleValidator::setBottom (  double   )
+
+
+
+   void QDoubleValidator::setDecimals (  int   )
+
+
+
+   virtual void QDoubleValidator::setRange (  double  bottom,
+                                              double  top,
+                                              int     decimals = 0
+                                           )  [virtual]
+
+
+
+   void QDoubleValidator::setTop (  double   )
+
+
+
+   double QDoubleValidator::top (   )  const [inline]
+
+
+
+   QValidator::State QDoubleValidator::validate (  QString &  ,
+                                                   int &    
+                                                )  const [virtual]
+
+
+
+   Implements QValidator.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   double QDoubleValidator::bottom [read, write]
+
+
+
+   int QDoubleValidator::decimals [read, write]
+
+
+
+   double QDoubleValidator::top [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qvalidator.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

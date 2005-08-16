@@ -1,0 +1,370 @@
+$#include <Q3ListViewItemIterator>
+
+class Q3ListViewItemIterator {
+Q_OBJECT
+signals:
+public:
+	 enum IteratorFlag {         Visible = 0x00000001, Invisible = 0x00000002, Selected = 0x00000004, Unselected = 0x00000008,         Selectable = 0x00000010, NotSelectable = 0x00000020, DragEnabled = 0x00000040, DragDisabled = 0x00000080,         DropEnabled = 0x00000100, DropDisabled = 0x00000200, Expandable = 0x00000400, NotExpandable = 0x00000800,         Checked = 0x00001000, NotChecked = 0x00002000       };
+
+	 Q3ListViewItemIterator ();
+	 Q3ListViewItemIterator (Q3ListViewItem *item);
+	 Q3ListViewItemIterator (Q3ListViewItem *item, int iteratorFlags);
+	 Q3ListViewItemIterator (const Q3ListViewItemIterator &it);
+	 Q3ListViewItemIterator (Q3ListView *lv);
+	 Q3ListViewItemIterator (Q3ListView *lv, int iteratorFlags);
+	 Q3ListViewItemIterator & operator= (const Q3ListViewItemIterator &it);
+	 ~Q3ListViewItemIterator ();
+	 Q3ListViewItemIterator & operator++ ();
+	 const Q3ListViewItemIterator operator++ (int);
+	 Q3ListViewItemIterator & operator+= (int j);
+	 Q3ListViewItemIterator & operator-- ();
+	 const Q3ListViewItemIterator operator-- (int);
+	 Q3ListViewItemIterator & operator-= (int j);
+	 Q3ListViewItem * operator * ();
+	 Q3ListViewItem * current () const;
+
+};
+$#include <Q3ListViewItem>
+
+class Q3ListViewItem {
+Q_OBJECT
+signals:
+public:
+	 enum { RTTI = 0 };
+
+	 Q3ListViewItem (Q3ListView *parent);
+	 Q3ListViewItem (Q3ListViewItem *parent);
+	 Q3ListViewItem (Q3ListView *parent, Q3ListViewItem *after);
+	 Q3ListViewItem (Q3ListViewItem *parent, Q3ListViewItem *after);
+	 Q3ListViewItem (Q3ListView *parent, const QString &, const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString());
+	 Q3ListViewItem (Q3ListViewItem *parent, const QString &, const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString());
+	 Q3ListViewItem (Q3ListView *parent, Q3ListViewItem *after, const QString &, const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString());
+	 Q3ListViewItem (Q3ListViewItem *parent, Q3ListViewItem *after, const QString &, const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString());
+	 virtual ~Q3ListViewItem ();
+	 virtual void insertItem (Q3ListViewItem *);
+	 virtual void takeItem (Q3ListViewItem *);
+	 virtual void removeItem (Q3ListViewItem *item);
+	 int height () const;
+	 virtual void invalidateHeight ();
+	 int totalHeight () const;
+	 virtual int width (const QFontMetrics &, const Q3ListView *, int column) const;
+	 void widthChanged (int column=-1) const;
+	 int depth () const;
+	 virtual void setText (int, const QString &);
+	 virtual QString text (int) const;
+	 virtual void setPixmap (int, const QPixmap &);
+	 virtual const QPixmap * pixmap (int) const;
+	 virtual QString key (int, bool) const;
+	 virtual int compare (Q3ListViewItem *i, int col, bool) const;
+	 virtual void sortChildItems (int, bool);
+	 int childCount () const;
+	 bool isOpen () const;
+	 virtual void setOpen (bool);
+	 virtual void setup ();
+	 virtual void setSelected (bool);
+	 bool isSelected () const;
+	 virtual void paintCell (QPainter *, const QColorGroup &cg, int column, int width, int alignment);
+	 virtual void paintBranches (QPainter *p, const QColorGroup &cg, int w, int y, int h);
+	 virtual void paintFocus (QPainter *, const QColorGroup &cg, const QRect &r);
+	 Q3ListViewItem * firstChild () const;
+	 Q3ListViewItem * nextSibling () const;
+	 Q3ListViewItem * parent () const;
+	 Q3ListViewItem * itemAbove () const;
+	 Q3ListViewItem * itemBelow () const;
+	 int itemPos () const;
+	 Q3ListView * listView () const;
+	 virtual void setSelectable (bool enable);
+	 bool isSelectable () const;
+	 virtual void setExpandable (bool);
+	 bool isExpandable () const;
+	 void repaint () const;
+	 virtual void sort ();
+	 void moveItem (Q3ListViewItem *after);
+	 virtual void setDragEnabled (bool allow);
+	 virtual void setDropEnabled (bool allow);
+	 bool dragEnabled () const;
+	 bool dropEnabled () const;
+	 virtual bool acceptDrop (const QMimeSource *mime) const;
+	 void setVisible (bool b);
+	 bool isVisible () const;
+	 virtual void setRenameEnabled (int col, bool b);
+	 bool renameEnabled (int col) const;
+	 virtual void startRename (int col);
+	 virtual void setEnabled (bool b);
+	 bool isEnabled () const;
+	 virtual int rtti () const;
+	 virtual void setMultiLinesEnabled (bool b);
+	 bool multiLinesEnabled () const;
+
+};
+$#include <Q3Frame>
+
+class Q3Frame : public QFrame {
+Q_OBJECT
+signals:
+public:
+
+	 Q3Frame (QWidget *parent, const char *name=0, Qt::WFlags f=0);
+	 ~Q3Frame ();
+	 bool lineShapesOk () const;
+	 int margin () const;
+	 void setMargin (int);
+	 QRect contentsRect () const;
+	 int frameWidth () const;
+
+};
+$#include <Q3CheckListItem>
+
+class Q3CheckListItem : public Q3ListViewItem {
+Q_OBJECT
+signals:
+public:
+	 enum Type {         RadioButton, CheckBox, Controller, RadioButtonController = Controller,         CheckBoxController       };
+	 enum ToggleState { Off, NoChange, On };
+	 enum { RTTI = 1 };
+
+	 Q3CheckListItem (Q3CheckListItem *parent, const QString &text, Type=RadioButtonController);
+	 Q3CheckListItem (Q3CheckListItem *parent, Q3ListViewItem *after, const QString &text, Type=RadioButtonController);
+	 Q3CheckListItem (Q3ListViewItem *parent, const QString &text, Type=RadioButtonController);
+	 Q3CheckListItem (Q3ListViewItem *parent, Q3ListViewItem *after, const QString &text, Type=RadioButtonController);
+	 Q3CheckListItem (Q3ListView *parent, const QString &text, Type=RadioButtonController);
+	 Q3CheckListItem (Q3ListView *parent, Q3ListViewItem *after, const QString &text, Type=RadioButtonController);
+	 Q3CheckListItem (Q3ListViewItem *parent, const QString &text, const QPixmap &);
+	 Q3CheckListItem (Q3ListView *parent, const QString &text, const QPixmap &);
+	 ~Q3CheckListItem ();
+	 void paintCell (QPainter *, const QColorGroup &cg, int column, int width, int alignment);
+	 virtual void paintFocus (QPainter *, const QColorGroup &cg, const QRect &r);
+	 int width (const QFontMetrics &, const Q3ListView *, int column) const;
+	 void setup ();
+	 virtual void setOn (bool);
+	 bool isOn () const;
+	 Type type () const;
+	 QString text () const;
+	 QString text (int n) const;
+	 void setTristate (bool);
+	 bool isTristate () const;
+	 ToggleState state () const;
+	 void setState (ToggleState s);
+	 int rtti () const;
+
+};
+$#include <Q3ScrollView>
+
+class Q3ScrollView : public Q3Frame {
+Q_OBJECT
+signals:
+	 void contentsMoving (int x, int y);
+	 void horizontalSliderPressed ();
+	 void horizontalSliderReleased ();
+	 void verticalSliderPressed ();
+	 void verticalSliderReleased ();
+public:
+	 enum ResizePolicy { Default, Manual, AutoOne, AutoOneFit };
+	 enum ScrollBarMode { Auto, AlwaysOff, AlwaysOn };
+
+	 Q3ScrollView (QWidget *parent=0, const char *name=0, Qt::WFlags f=0);
+	 ~Q3ScrollView ();
+	 virtual void setResizePolicy (ResizePolicy);
+	 ResizePolicy resizePolicy () const;
+	 void styleChange (QStyle &);
+	 void removeChild (QWidget *child);
+	 virtual void addChild (QWidget *child, int x=0, int y=0);
+	 virtual void moveChild (QWidget *child, int x, int y);
+	 int childX (QWidget *child);
+	 int childY (QWidget *child);
+	 bool childIsVisible (QWidget *child);
+	 void showChild (QWidget *child, bool yes=true);
+	 ScrollBarMode vScrollBarMode () const;
+	 virtual void setVScrollBarMode (ScrollBarMode);
+	 ScrollBarMode hScrollBarMode () const;
+	 virtual void setHScrollBarMode (ScrollBarMode);
+	 QWidget * cornerWidget () const;
+	 virtual void setCornerWidget (QWidget *);
+	 QScrollBar * horizontalScrollBar () const;
+	 QScrollBar * verticalScrollBar () const;
+	 QWidget * viewport () const;
+	 QWidget * clipper () const;
+	 int visibleWidth () const;
+	 int visibleHeight () const;
+	 int contentsWidth () const;
+	 int contentsHeight () const;
+	 int contentsX () const;
+	 int contentsY () const;
+	 void resize (int w, int h);
+	 void resize (const QSize &);
+	 void setVisible (bool visible);
+	 void updateContents (int x, int y, int w, int h);
+	 void updateContents (const QRect &r);
+	 void updateContents ();
+	 void repaintContents (int x, int y, int w, int h, bool erase=true);
+	 void repaintContents (const QRect &r, bool erase=true);
+	 void repaintContents (bool erase=true);
+	 void contentsToViewport (int x, int y, int &vx, int &vy) const;
+	 void viewportToContents (int vx, int vy, int &x, int &y) const;
+	 QPoint contentsToViewport (const QPoint &) const;
+	 QPoint viewportToContents (const QPoint &) const;
+	 void enableClipper (bool y);
+	 void setStaticBackground (bool y);
+	 bool hasStaticBackground () const;
+	 QSize viewportSize (int, int) const;
+	 QSize sizeHint () const;
+	 QSize minimumSizeHint () const;
+	 void removeChild (QObject *child);
+	 bool isHorizontalSliderPressed ();
+	 bool isVerticalSliderPressed ();
+	 virtual void setDragAutoScroll (bool b);
+	 bool dragAutoScroll () const;
+	 virtual void setMargins (int left, int top, int right, int bottom);
+	 int leftMargin () const;
+	 int topMargin () const;
+	 int rightMargin () const;
+	 int bottomMargin () const;
+	 void disableSizeHintCaching ();
+	 virtual void resizeContents (int w, int h);
+	 void scrollBy (int dx, int dy);
+	 virtual void setContentsPos (int x, int y);
+	 void ensureVisible (int x, int y);
+	 void ensureVisible (int x, int y, int xmargin, int ymargin);
+	 void center (int x, int y);
+	 void center (int x, int y, float xmargin, float ymargin);
+	 void updateScrollBars ();
+	 void setEnabled (bool enable);
+
+};
+$#include <Q3HBox>
+
+class Q3HBox : public Q3Frame {
+Q_OBJECT
+signals:
+public:
+
+	 Q3HBox (QWidget *parent=0, const char *name=0, Qt::WFlags f=0);
+	 void setSpacing (int);
+	 bool setStretchFactor (QWidget *, int stretch);
+	 QSize sizeHint () const;
+
+};
+$#include <Q3ListView>
+
+class Q3ListView : public Q3ScrollView {
+Q_OBJECT
+signals:
+	 void selectionChanged ();
+	 void selectionChanged (Q3ListViewItem *);
+	 void currentChanged (Q3ListViewItem *);
+	 void clicked (Q3ListViewItem *);
+	 void clicked (Q3ListViewItem *, const QPoint &, int);
+	 void pressed (Q3ListViewItem *);
+	 void pressed (Q3ListViewItem *, const QPoint &, int);
+	 void doubleClicked (Q3ListViewItem *);
+	 void doubleClicked (Q3ListViewItem *, const QPoint &, int);
+	 void returnPressed (Q3ListViewItem *);
+	 void spacePressed (Q3ListViewItem *);
+	 void rightButtonClicked (Q3ListViewItem *, const QPoint &, int);
+	 void rightButtonPressed (Q3ListViewItem *, const QPoint &, int);
+	 void mouseButtonPressed (int, Q3ListViewItem *, const QPoint &, int);
+	 void mouseButtonClicked (int, Q3ListViewItem *, const QPoint &, int);
+	 void contextMenuRequested (Q3ListViewItem *, const QPoint &, int);
+	 void onItem (Q3ListViewItem *item);
+	 void onViewport ();
+	 void expanded (Q3ListViewItem *item);
+	 void collapsed (Q3ListViewItem *item);
+	 void dropped (QDropEvent *e);
+	 void itemRenamed (Q3ListViewItem *item, int col, const QString &);
+	 void itemRenamed (Q3ListViewItem *item, int col);
+public:
+	 typedef uint ComparisonFlags;
+	 enum WidthMode { Manual, Maximum };
+	 enum SelectionMode { Single, Multi, Extended, NoSelection };
+	 enum ResizeMode { NoColumn, AllColumns, LastColumn };
+	 enum StringComparisonMode {         CaseSensitive = 0x00001, BeginsWith = 0x00002, EndsWith = 0x00004, Contains = 0x00008,         ExactMatch = 0x00010       };
+	 enum RenameAction { Accept, Reject };
+
+	 Q3ListView (QWidget *parent=0, const char *name=0, Qt::WFlags f=0);
+	 ~Q3ListView ();
+	 int treeStepSize () const;
+	 virtual void setTreeStepSize (int);
+	 virtual void insertItem (Q3ListViewItem *);
+	 virtual void takeItem (Q3ListViewItem *);
+	 virtual void removeItem (Q3ListViewItem *item);
+	 Q3Header * header () const;
+	 virtual int addColumn (const QString &label, int size=-1);
+	 virtual int addColumn (const QIcon &icon, const QString &label, int size=-1);
+	 virtual void removeColumn (int index);
+	 virtual void setColumnText (int column, const QString &label);
+	 virtual void setColumnText (int column, const QIcon &icon, const QString &label);
+	 QString columnText (int column) const;
+	 virtual void setColumnWidth (int column, int width);
+	 int columnWidth (int column) const;
+	 virtual void setColumnWidthMode (int column, WidthMode);
+	 WidthMode columnWidthMode (int column) const;
+	 int columns () const;
+	 virtual void setColumnAlignment (int, int);
+	 int columnAlignment (int) const;
+	 void show ();
+	 QVariant inputMethodQuery (Qt::InputMethodQuery query) const;
+	 Q3ListViewItem * itemAt (const QPoint &screenPos) const;
+	 QRect itemRect (const Q3ListViewItem *) const;
+	 int itemPos (const Q3ListViewItem *);
+	 void ensureItemVisible (const Q3ListViewItem *);
+	 void repaintItem (const Q3ListViewItem *) const;
+	 virtual void setMultiSelection (bool enable);
+	 bool isMultiSelection () const;
+	 void setSelectionMode (SelectionMode mode);
+	 SelectionMode selectionMode () const;
+	 virtual void clearSelection ();
+	 virtual void setSelected (Q3ListViewItem *, bool);
+	 void setSelectionAnchor (Q3ListViewItem *);
+	 bool isSelected (const Q3ListViewItem *) const;
+	 Q3ListViewItem * selectedItem () const;
+	 virtual void setOpen (Q3ListViewItem *, bool);
+	 bool isOpen (const Q3ListViewItem *) const;
+	 virtual void setCurrentItem (Q3ListViewItem *);
+	 Q3ListViewItem * currentItem () const;
+	 Q3ListViewItem * firstChild () const;
+	 Q3ListViewItem * lastItem () const;
+	 int childCount () const;
+	 virtual void setAllColumnsShowFocus (bool);
+	 bool allColumnsShowFocus () const;
+	 virtual void setItemMargin (int);
+	 int itemMargin () const;
+	 virtual void setRootIsDecorated (bool);
+	 bool rootIsDecorated () const;
+	 virtual void setSorting (int column, bool ascending=true);
+	 int sortColumn () const;
+	 void setSortColumn (int column);
+	 Qt::SortOrder sortOrder () const;
+	 void setSortOrder (Qt::SortOrder order);
+	 virtual void sort ();
+	 bool eventFilter (QObject *o, QEvent *);
+	 QSize sizeHint () const;
+	 QSize minimumSizeHint () const;
+	 virtual void setShowSortIndicator (bool show);
+	 bool showSortIndicator () const;
+	 virtual void setShowToolTips (bool b);
+	 bool showToolTips () const;
+	 virtual void setResizeMode (ResizeMode m);
+	 ResizeMode resizeMode () const;
+	 Q3ListViewItem * findItem (const QString &text, int column, ComparisonFlags=ExactMatch|Qt::CaseSensitive) const;
+	 virtual void setDefaultRenameAction (RenameAction a);
+	 RenameAction defaultRenameAction () const;
+	 bool isRenaming () const;
+	 void hideColumn (int column);
+	 virtual void clear ();
+	 virtual void invertSelection ();
+	 virtual void selectAll (bool select);
+	 void triggerUpdate ();
+	 void setContentsPos (int x, int y);
+	 void adjustColumn (int col);
+
+};
+$#include <Q3VBox>
+
+class Q3VBox : public Q3HBox {
+Q_OBJECT
+signals:
+public:
+
+	 Q3VBox (QWidget *parent=0, const char *name=0, Qt::WFlags f=0);
+
+};

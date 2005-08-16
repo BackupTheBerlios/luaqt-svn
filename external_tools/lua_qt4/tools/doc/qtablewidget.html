@@ -1,0 +1,515 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QTableWidget Class Reference
+
+   The QTableWidget class provides an item-based table view with a
+   default model. More...
+#include <QTableWidget>
+
+   Part of the QtGui module.
+
+   Inherits QTableView.
+     * List of all members, including inherited members
+
+  Properties
+
+     * columnCount : int
+     * rowCount : int
+     * sortingEnabled : bool
+
+     * 2 properties inherited from QTableView
+     * 10 properties inherited from QAbstractItemView
+     * 2 properties inherited from QAbstractScrollArea
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QTableWidget ( QWidget * parent = 0 )
+     * QTableWidget ( int rows, int columns, QWidget * parent = 0 )
+     * ~QTableWidget ()
+     * void closePersistentEditor ( QTableWidgetItem * item )
+     * int column ( const QTableWidgetItem * item ) const
+     * int columnCount () const
+     * int currentColumn () const
+     * QTableWidgetItem * currentItem () const
+     * int currentRow () const
+     * void editItem ( QTableWidgetItem * item )
+     * QList<QTableWidgetItem *> findItems ( const QString & text,
+       Qt::MatchFlags flags ) const
+     * QTableWidgetItem * horizontalHeaderItem ( int column ) const
+     * bool isItemSelected ( const QTableWidgetItem * item ) const
+     * bool isSortingEnabled () const
+     * QTableWidgetItem * item ( int row, int column ) const
+     * QTableWidgetItem * itemAt ( const QPoint & p ) const
+     * QTableWidgetItem * itemAt ( int ax, int ay ) const
+     * const QTableWidgetItem * itemPrototype () const
+     * void openPersistentEditor ( QTableWidgetItem * item )
+     * int row ( const QTableWidgetItem * item ) const
+     * int rowCount () const
+     * QList<QTableWidgetItem *> selectedItems ()
+     * QList<QTableWidgetSelectionRange> selectedRanges () const
+     * void setColumnCount ( int columns )
+     * void setCurrentItem ( QTableWidgetItem * item )
+     * void setHorizontalHeaderItem ( int column, QTableWidgetItem * item
+       )
+     * void setHorizontalHeaderLabels ( const QStringList & labels )
+     * void setItem ( int row, int column, QTableWidgetItem * item )
+     * void setItemPrototype ( const QTableWidgetItem * item )
+     * void setItemSelected ( const QTableWidgetItem * item, bool select
+       )
+     * void setRangeSelected ( const QTableWidgetSelectionRange & range,
+       bool select )
+     * void setRowCount ( int rows )
+     * void setSortingEnabled ( bool enable )
+     * void setVerticalHeaderItem ( int row, QTableWidgetItem * item )
+     * void setVerticalHeaderLabels ( const QStringList & labels )
+     * void sortItems ( int column, Qt::SortOrder order =
+       Qt::AscendingOrder )
+     * QTableWidgetItem * takeItem ( int row, int column )
+     * QTableWidgetItem * verticalHeaderItem ( int row ) const
+     * int visualColumn ( int logicalColumn ) const
+     * QRect visualItemRect ( const QTableWidgetItem * item ) const
+     * int visualRow ( int logicalRow ) const
+
+     * 19 public functions inherited from QTableView
+     * 37 public functions inherited from QAbstractItemView
+     * 8 public functions inherited from QAbstractScrollArea
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void clear ()
+     * void insertColumn ( int column )
+     * void insertRow ( int row )
+     * void removeColumn ( int column )
+     * void removeRow ( int row )
+     * void scrollToItem ( const QTableWidgetItem * item, ScrollHint hint
+       = EnsureVisible )
+
+     * 9 public slots inherited from QTableView
+     * 6 public slots inherited from QAbstractItemView
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void currentItemChanged ( QTableWidgetItem * current,
+       QTableWidgetItem * previous )
+     * void itemActivated ( QTableWidgetItem * item )
+     * void itemChanged ( QTableWidgetItem * item )
+     * void itemClicked ( QTableWidgetItem * item )
+     * void itemDoubleClicked ( QTableWidgetItem * item )
+     * void itemEntered ( QTableWidgetItem * item )
+     * void itemPressed ( QTableWidgetItem * item )
+     * void itemSelectionChanged ()
+
+     * 6 signals inherited from QAbstractItemView
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * virtual bool dropMimeData ( int row, int column, const QMimeData *
+       data, Qt::DropAction action )
+     * QModelIndex indexFromItem ( QTableWidgetItem * item ) const
+     * QTableWidgetItem * itemFromIndex ( const QModelIndex & index )
+       const
+     * QList<QTableWidgetItem *> items ( const QMimeData * data ) const
+     * virtual QMimeData * mimeData ( const QList<QTableWidgetItem *>
+       items ) const
+     * virtual QStringList mimeTypes () const
+     * virtual Qt::DropActions supportedDropActions () const
+
+     * 7 protected functions inherited from QTableView
+     * 35 protected functions inherited from QAbstractItemView
+     * 17 protected functions inherited from QAbstractScrollArea
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 6 protected slots inherited from QTableView
+     * 8 protected slots inherited from QAbstractItemView
+     _________________________________________________________________
+
+Detailed Description
+
+   The QTableWidget class provides an item-based table view with a
+   default model.
+
+   Table widgets provide standard table display facilities for
+   applications. The items in a QTableWidget are provided by
+   QTableWidgetItem.
+
+   If you want a table that uses your own data model you should use
+   QTableView rather than this class.
+
+   Table widgets can be constructed with the required numbers of rows and
+   columns:
+        tableWidget = new QTableWidget(12, 3, this);
+
+   Alternatively, tables can be constructed without a given size and
+   resized later:
+        tableWidget = new QTableWidget(this);
+        tableWidget->setRowCount(10);
+        tableWidget->setColumnCount(5);
+
+   Items are created ouside the table (with no parent widget) and
+   inserted into the table with setItem():
+        QTableWidgetItem *newItem = new QTableWidgetItem(tr("%1").arg(
+            (row+1)*(column+1)));
+        tableWidget->setItem(row, column, newItem);
+
+   Tables can be given both horizontal and vertical headers. The simplest
+   way to create the headers is to supply a list of strings to the
+   setHorizontalHeaderLabels() and setVerticalHeaderLabels() functions.
+   These will provide simple textual headers for the table's columns and
+   rows. More sophisticated headers can be created from existing table
+   items that are usually constructed outside the table. For example, we
+   can construct a table item with an icon and aligned text, and use it
+   as the header for a particular column:
+        QTableWidgetItem *cubesHeaderItem = new QTableWidgetItem(tr("Cubes"));
+        cubesHeaderItem->setIcon(QIcon(QPixmap(":/Images/cubed.png")));
+        cubesHeaderItem->setTextAlignment(Qt::AlignVCenter);
+
+   The number of rows in the table can be found with rowCount(), and the
+   number of columns with columnCount(). The table can be cleared with
+   the clear() function.
+
+   See also QTableWidgetItem and Model/View Programming.
+     _________________________________________________________________
+
+Property Documentation
+
+  columnCount : int
+
+   This property holds the number of columns in the table.
+
+   Access functions:
+     * int columnCount () const
+     * void setColumnCount ( int columns )
+
+  rowCount : int
+
+   This property holds the number of rows in the table.
+
+   Access functions:
+     * int rowCount () const
+     * void setRowCount ( int rows )
+
+  sortingEnabled : bool
+
+   This property holds whether the items in the table can be sorted by
+   clicking on the horizontal header.
+
+   Access functions:
+     * bool isSortingEnabled () const
+     * void setSortingEnabled ( bool enable )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QTableWidget::QTableWidget ( QWidget * parent = 0 )
+
+   Creates a new table view with the given parent.
+
+  QTableWidget::QTableWidget ( int rows, int columns, QWidget * parent = 0 )
+
+   Creates a new table view with the given rows and columns, and with the
+   given parent.
+
+  QTableWidget::~QTableWidget ()
+
+   Destroys this QTableWidget.
+
+  void QTableWidget::clear ()   [slot]
+
+   Removes all items and selections in the view.
+
+  void QTableWidget::closePersistentEditor ( QTableWidgetItem * item )
+
+   Closes the persistent editor for item.
+
+   See also openPersistentEditor().
+
+  int QTableWidget::column ( const QTableWidgetItem * item ) const
+
+   Returns the column for the item.
+
+  int QTableWidget::currentColumn () const
+
+   Returns the column of the current item.
+
+  QTableWidgetItem * QTableWidget::currentItem () const
+
+   Returns the current item.
+
+  void QTableWidget::currentItemChanged ( QTableWidgetItem * current,
+  QTableWidgetItem * previous )   [signal]
+
+   This signal is emitted whenever the current item changes. The previous
+   item is the item that previously had the focus, current is the new
+   current item.
+
+  int QTableWidget::currentRow () const
+
+   Returns the row of the current item.
+
+  bool QTableWidget::dropMimeData ( int row, int column, const QMimeData *
+  data, Qt::DropAction action )   [virtual protected]
+
+   Handles the data supplied by a drag and drop operation that ended with
+   the given action in the given row and column.
+
+   See also supportedDropActions().
+
+  void QTableWidget::editItem ( QTableWidgetItem * item )
+
+   Starts editing the item if it is editable.
+
+  QList<QTableWidgetItem *> QTableWidget::findItems ( const QString & text,
+  Qt::MatchFlags flags ) const
+
+   Finds items that matches the text using the given flags.
+
+  QTableWidgetItem * QTableWidget::horizontalHeaderItem ( int column ) const
+
+   Returns the horizontal header item for column column.
+
+  QModelIndex QTableWidget::indexFromItem ( QTableWidgetItem * item ) const
+  [protected]
+
+   Returns the QModelIndex assocated with the given item.
+
+  void QTableWidget::insertColumn ( int column )   [slot]
+
+   Inserts an empty column into the table at column.
+
+  void QTableWidget::insertRow ( int row )   [slot]
+
+   Inserts an empty row into the table at row.
+
+  bool QTableWidget::isItemSelected ( const QTableWidgetItem * item ) const
+
+   Returns true if the item is selected, otherwise returns false.
+
+  QTableWidgetItem * QTableWidget::item ( int row, int column ) const
+
+   Returns the item for the given row and column.
+
+   See also setItem().
+
+  void QTableWidget::itemActivated ( QTableWidgetItem * item )   [signal]
+
+   This signal is emitted when the specified item has been activated
+
+  QTableWidgetItem * QTableWidget::itemAt ( const QPoint & p ) const
+
+   Returns a pointer to the item at the coordinates p.
+
+  QTableWidgetItem * QTableWidget::itemAt ( int ax, int ay ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the item at the position (ax, ay) in the table's coordinate
+   system.
+
+  void QTableWidget::itemChanged ( QTableWidgetItem * item )   [signal]
+
+   This signal is emitted whenever the data of item has changed.
+
+  void QTableWidget::itemClicked ( QTableWidgetItem * item )   [signal]
+
+   This signal is emitted whenever an item in the table is clicked. The
+   item specified is the item that was clicked.
+
+  void QTableWidget::itemDoubleClicked ( QTableWidgetItem * item )   [signal]
+
+   This signal is emitted whenever an item in the table is double
+   clicked. The item specified is the item that was double clicked.
+
+  void QTableWidget::itemEntered ( QTableWidgetItem * item )   [signal]
+
+   This signal is emitted when the mouse cursor enters an item. The item
+   is the item entered.
+
+   This signal is only emitted when mouseTracking is turned on, or when a
+   mouse button is pressed while moving into an item.
+
+  QTableWidgetItem * QTableWidget::itemFromIndex ( const QModelIndex & index )
+  const   [protected]
+
+   Returns a pointer to the QTableWidgetItem assocated with the given
+   index.
+
+  void QTableWidget::itemPressed ( QTableWidgetItem * item )   [signal]
+
+   This signal is emitted whenever an item in the table is pressed. The
+   item specified is the item that was pressed.
+
+  const QTableWidgetItem * QTableWidget::itemPrototype () const
+
+   Returns the item prototype used by the table.
+
+   Copies of the item prototype are returned by the createItem()
+   function.
+
+   See also setItemPrototype().
+
+  void QTableWidget::itemSelectionChanged ()   [signal]
+
+   This signal is emitted whenever the selection changes.
+
+   See also selectedItems() and isItemSelected().
+
+  QList<QTableWidgetItem *> QTableWidget::items ( const QMimeData * data )
+  const   [protected]
+
+   Returns a list of pointers to the items contained in the data object.
+   If the object was not created by a QTreeWidget in the same process,
+   the list is empty.
+
+  QMimeData * QTableWidget::mimeData ( const QList<QTableWidgetItem *> items )
+  const   [virtual protected]
+
+   Returns an object that contains a serialized description of the
+   specified items. The format used to describe the items is obtained
+   from the mimeTypes() function.
+
+   If the list of items is empty, 0 is returned rather than a serialized
+   empty list.
+
+  QStringList QTableWidget::mimeTypes () const   [virtual protected]
+
+   Returns a list of MIME types that can be used to describe a list of
+   tablewidget items.
+
+   See also mimeData().
+
+  void QTableWidget::openPersistentEditor ( QTableWidgetItem * item )
+
+   Opens an editor for the give item. The editor remains open after
+   editing.
+
+   See also closePersistentEditor().
+
+  void QTableWidget::removeColumn ( int column )   [slot]
+
+   Removes the column column and all its items from the table.
+
+  void QTableWidget::removeRow ( int row )   [slot]
+
+   Removes the row row and all its items from the table.
+
+  int QTableWidget::row ( const QTableWidgetItem * item ) const
+
+   Returns the row for the item.
+
+  void QTableWidget::scrollToItem ( const QTableWidgetItem * item, ScrollHint
+  hint = EnsureVisible )   [slot]
+
+   Scrolls the view if necessary to ensure that the item is visible. The
+   hint parameter specifies more precisely where the item should be
+   located after the operation.
+
+  QList<QTableWidgetItem *> QTableWidget::selectedItems ()
+
+   Returns a list of all selected items.
+
+  QList<QTableWidgetSelectionRange> QTableWidget::selectedRanges () const
+
+   Returns a list of all selected ranges.
+
+   See also QTableWidgetSelectionRange.
+
+  void QTableWidget::setCurrentItem ( QTableWidgetItem * item )
+
+   Sets the current item to item.
+
+  void QTableWidget::setHorizontalHeaderItem ( int column, QTableWidgetItem *
+  item )
+
+   Sets the horizontal header item for column column to item.
+
+  void QTableWidget::setHorizontalHeaderLabels ( const QStringList & labels )
+
+   Sets the horizontal header labels using labels.
+
+  void QTableWidget::setItem ( int row, int column, QTableWidgetItem * item )
+
+   Sets the item for the given row and column to item.
+
+   See also item().
+
+  void QTableWidget::setItemPrototype ( const QTableWidgetItem * item )
+
+   Sets the item prototype for the table to the specified item.
+
+   See also itemPrototype().
+
+  void QTableWidget::setItemSelected ( const QTableWidgetItem * item, bool
+  select )
+
+   Selects or deselects item depending on select.
+
+  void QTableWidget::setRangeSelected ( const QTableWidgetSelectionRange &
+  range, bool select )
+
+   Selects or deselects the range depending on select.
+
+  void QTableWidget::setVerticalHeaderItem ( int row, QTableWidgetItem * item )
+
+   Sets the vertical header item for row row to item.
+
+  void QTableWidget::setVerticalHeaderLabels ( const QStringList & labels )
+
+   Sets the vertical header labels using labels.
+
+  void QTableWidget::sortItems ( int column, Qt::SortOrder order =
+  Qt::AscendingOrder )
+
+   Sorts all the rows in the table widget based on column and order.
+
+  Qt::DropActions QTableWidget::supportedDropActions () const   [virtual
+  protected]
+
+   Returns the drop actions supported by this view.
+
+   See also Qt::DropActions.
+
+  QTableWidgetItem * QTableWidget::takeItem ( int row, int column )
+
+   Removes the item at row and column from the table without deleting it.
+
+  QTableWidgetItem * QTableWidget::verticalHeaderItem ( int row ) const
+
+   Returns the vertical header item for row row.
+
+  int QTableWidget::visualColumn ( int logicalColumn ) const
+
+   Returns the visual column of the given logicalColumn.
+
+  QRect QTableWidget::visualItemRect ( const QTableWidgetItem * item ) const
+
+   Returns the rectangle on the viewport occupied by the item at item.
+
+  int QTableWidget::visualRow ( int logicalRow ) const
+
+   Returns the visual row of the given logicalRow.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

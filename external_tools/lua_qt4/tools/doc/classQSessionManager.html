@@ -1,0 +1,151 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QSessionManager Class Reference
+
+   #include <qsessionmanager.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * enum RestartHint { RestartIfRunning, RestartAnyway, RestartImmediately, RestartNever }
+
+Public Member Functions
+
+     * QString sessionId () const
+     * QString sessionKey () const
+     * bool allowsInteraction ()
+     * bool allowsErrorInteraction ()
+     * void release ()
+     * void cancel ()
+     * void setRestartHint (RestartHint)
+     * RestartHint restartHint () const
+     * void setRestartCommand (const QStringList &)
+     * QStringList restartCommand () const
+     * void setDiscardCommand (const QStringList &)
+     * QStringList discardCommand () const
+     * void setManagerProperty (const QString &name, const QString &value)
+     * void setManagerProperty (const QString &name, const QStringList &value)
+     * bool isPhase2 () const
+     * void requestPhase2 ()
+
+Friends
+
+     * class QApplication
+     * class QApplicationPrivate
+     * class QBaseApplication
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QSessionManager::RestartHint
+
+
+
+   Enumerator: 
+
+          RestartIfRunning  
+          RestartAnyway     
+          RestartImmediately
+          RestartNever      
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QSessionManager::allowsErrorInteraction (   )
+
+
+
+   bool QSessionManager::allowsInteraction (   )
+
+
+
+   void QSessionManager::cancel (   )
+
+
+
+   QStringList QSessionManager::discardCommand (   )  const
+
+
+
+   bool QSessionManager::isPhase2 (   )  const
+
+
+
+   void QSessionManager::release (   )
+
+
+
+   void QSessionManager::requestPhase2 (   )
+
+
+
+   QStringList QSessionManager::restartCommand (   )  const
+
+
+
+   RestartHint QSessionManager::restartHint (   )  const
+
+
+
+   QString QSessionManager::sessionId (   )  const
+
+
+
+   QString QSessionManager::sessionKey (   )  const
+
+
+
+   void QSessionManager::setDiscardCommand (  const QStringList &   )
+
+
+
+   void QSessionManager::setManagerProperty (  const QString &      name,
+                                               const QStringList &  value
+                                            )
+
+
+
+   void QSessionManager::setManagerProperty (  const QString &  name,
+                                               const QString &  value
+                                            )
+
+
+
+   void QSessionManager::setRestartCommand (  const QStringList &   )
+
+
+
+   void QSessionManager::setRestartHint (  RestartHint   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QApplication [friend]
+
+
+
+   Reimplemented from QObject.
+
+   friend class QApplicationPrivate [friend]
+
+
+
+   Reimplemented from QObject.
+
+   friend class QBaseApplication [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsessionmanager.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

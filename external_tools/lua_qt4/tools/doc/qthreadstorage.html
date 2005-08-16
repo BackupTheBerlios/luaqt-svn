@@ -1,0 +1,162 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                       QThreadStorage Class Reference
+
+   The QThreadStorage class provides per-thread data storage. More...
+#include <QThreadStorage>
+
+   Part of the QtCore module.
+
+   Note: All the functions in this class are thread-safe.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QThreadStorage ()
+     * ~QThreadStorage ()
+     * bool hasLocalData () const
+     * T & localData ()
+     * T localData () const
+     * void setLocalData ( T data )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QThreadStorage class provides per-thread data storage.
+
+   QThreadStorage is a template class that provides per-thread data
+   storage.
+
+   Note that due to compiler limitations, QThreadStorage can only store
+   pointers.
+
+   The setLocalData() function stores a single thread-specific value for
+   the calling thread. The data can be accessed later using localData().
+   QThreadStorage takes ownership of the data (which must be created on
+   the heap with new) and deletes it when the thread exits, either
+   normally or via termination.
+
+   The hasLocalData() function allows the programmer to determine if data
+   has previously been set using the setLocalData() function. This is
+   also useful for lazy initializiation.
+
+   For example, the following code uses QThreadStorage to store a single
+   cache for each thread that calls the cacheObject() and
+   removeFromCache() functions. The cache is automatically deleted when
+   the calling thread exits.
+    QThreadStorage<QCache<QString, SomeClass> *> caches;
+
+    void cacheObject(const QString &key, SomeClass *object)
+    {
+        if (!caches.hasLocalData())
+            caches.setLocalData(new QCache<QString, SomeClass>);
+
+        caches.localData()->insert(key, object);
+    }
+
+    void removeFromCache(const QString &key)
+    {
+        if (!caches.hasLocalData())
+            return;
+
+        caches.localData()->remove(key);
+    }
+
+  Caveats
+
+     * As noted above, QThreadStorage can only store pointers due to
+       compiler limitations.
+     * The QThreadStorage destructor does not delete per-thread data.
+       QThreadStorage only deletes per-thread data when the thread exits
+       or when setLocalData() is called multiple times.
+     * QThreadStorage can only be used with threads started with QThread.
+       It cannot be used with threads started using platform-specific
+       APIs.
+     * As a corollary to the above, platform-specific APIs cannot be used
+       to exit or terminate a QThread using QThreadStorage. Doing so will
+       cause all per-thread data to be leaked. See QThread::exit() and
+       QThread::terminate().
+     * QThreadStorage can be used to store data for the main() thread
+       after QApplication has been constructed. QThreadStorage deletes
+       all data set for the main() thread when QApplication is destroyed,
+       regardless of whether or not the main() thread has actually
+       finished.
+     * The implementation of QThreadStorage limits the total number of
+       QThreadStorage objects to 256. An unlimited number of threads can
+       store per-thread data in each QThreadStorage object.
+
+   See also QThread.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QThreadStorage::QThreadStorage ()
+
+   Constructs a new per-thread data storage object.
+
+  QThreadStorage::~QThreadStorage ()
+
+   Destroys the per-thread data storage object.
+
+   Note: The per-thread data stored is not deleted. Any data left in
+   QThreadStorage is leaked. Make sure that all threads using
+   QThreadStorage have exited before deleting the QThreadStorage.
+
+   See also hasLocalData().
+
+  bool QThreadStorage::hasLocalData () const
+
+   Returns true if the calling thread has non-zero data available;
+   otherwise returns false.
+
+   See also localData().
+
+  T & QThreadStorage::localData ()
+
+   Returns a reference to the data that was set by the calling thread.
+
+   Note: QThreadStorage can only store pointers. This function returns a
+   reference to the pointer that was set by the calling thread. The value
+   of this reference is 0 if no data was set by the calling thread,
+
+   See also hasLocalData().
+
+  T QThreadStorage::localData () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a copy of the data that was set by the calling thread.
+
+   Note: QThreadStorage can only store pointers. This function returns a
+   pointer to the data that was set by the calling thread. If no data was
+   set by the calling thread, this function returns 0.
+
+   See also hasLocalData().
+
+  void QThreadStorage::setLocalData ( T data )
+
+   Sets the local data for the calling thread to data. It can be accessed
+   later using the localData() functions.
+
+   If data is 0, this function deletes the previous data (if any) and
+   returns immediately.
+
+   If data is non-zero, QThreadStorage takes ownership of the data and
+   deletes it automatically either when the thread exits (either normally
+   or via termination) or when setLocalData() is called again.
+
+   Note: QThreadStorage can only store pointers. The data argument must
+   be either a pointer to an object created on the heap (i.e. using new)
+   or 0. You should not delete data yourself; QThreadStorage takes
+   ownership and will delete the data itself.
+
+   See also localData() and hasLocalData().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

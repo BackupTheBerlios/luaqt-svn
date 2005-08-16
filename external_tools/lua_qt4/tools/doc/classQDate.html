@@ -1,0 +1,263 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QDate Class Reference
+
+   #include <qdatetime.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QDate ()
+     * QDate (int y, int m, int d)
+     * bool isNull () const
+     * bool isValid () const
+     * int year () const
+     * int month () const
+     * int day () const
+     * int dayOfWeek () const
+     * int dayOfYear () const
+     * int daysInMonth () const
+     * int daysInYear () const
+     * int weekNumber (int *yearNum=0) const
+     * QString toString (Qt::DateFormat f=Qt::TextDate) const
+     * QString toString (const QString &format) const
+     * bool setYMD (int y, int m, int d)
+     * QDate addDays (int days) const
+     * QDate addMonths (int months) const
+     * QDate addYears (int years) const
+     * int daysTo (const QDate &) const
+     * bool operator== (const QDate &other) const
+     * bool operator!= (const QDate &other) const
+     * bool operator< (const QDate &other) const
+     * bool operator<= (const QDate &other) const
+     * bool operator> (const QDate &other) const
+     * bool operator>= (const QDate &other) const
+     * int toJulianDay () const
+
+Static Public Member Functions
+
+     * static QString shortMonthName (int month)
+     * static QString shortDayName (int weekday)
+     * static QString longMonthName (int month)
+     * static QString longDayName (int weekday)
+     * static QDate currentDate ()
+     * static QDate fromString (const QString &s, Qt::DateFormat f=Qt::TextDate)
+     * static QDate fromString (const QString &s, const QString &format)
+     * static bool isValid (int y, int m, int d)
+     * static bool isLeapYear (int year)
+     * static uint gregorianToJulian (int y, int m, int d)
+     * static void julianToGregorian (uint jd, int &y, int &m, int &d)
+     * static QDate fromJulianDay (int jd)
+
+Friends
+
+     * class QDateTime
+     * Q_CORE_EXPORT QDataStream & operator<< (QDataStream &, const QDate &)
+     * Q_CORE_EXPORT QDataStream & operator>> (QDataStream &, QDate &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDate::QDate (   )  [inline]
+
+
+
+   QDate::QDate (  int  y,
+                   int  m,
+                   int  d
+                )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QDate QDate::addDays (  int  days  )  const
+
+
+
+   QDate QDate::addMonths (  int  months  )  const
+
+
+
+   QDate QDate::addYears (  int  years  )  const
+
+
+
+   static QDate QDate::currentDate (   )  [static]
+
+
+
+   int QDate::day (   )  const
+
+
+
+   int QDate::dayOfWeek (   )  const
+
+
+
+   int QDate::dayOfYear (   )  const
+
+
+
+   int QDate::daysInMonth (   )  const
+
+
+
+   int QDate::daysInYear (   )  const
+
+
+
+   int QDate::daysTo (  const QDate &   )  const
+
+
+
+   static QDate QDate::fromJulianDay (  int  jd  )  [inline, static]
+
+
+
+   static QDate QDate::fromString (  const QString &  s,
+                                     const QString &  format
+                                  )  [static]
+
+
+
+   static QDate QDate::fromString (  const QString &  s,
+                                     Qt::DateFormat   f = Qt::TextDate
+                                  )  [static]
+
+
+
+   static uint QDate::gregorianToJulian (  int  y,
+                                           int  m,
+                                           int  d
+                                        )  [static]
+
+
+
+   static bool QDate::isLeapYear (  int  year  )  [static]
+
+
+
+   bool QDate::isNull (   )  const [inline]
+
+
+
+   static bool QDate::isValid (  int  y,
+                                 int  m,
+                                 int  d
+                              )  [static]
+
+
+
+   bool QDate::isValid (   )  const
+
+
+
+   static void QDate::julianToGregorian (  uint   jd,
+                                           int &  y,
+                                           int &  m,
+                                           int &  d
+                                        )  [static]
+
+
+
+   static QString QDate::longDayName (  int  weekday  )  [static]
+
+
+
+   static QString QDate::longMonthName (  int  month  )  [static]
+
+
+
+   int QDate::month (   )  const
+
+
+
+   bool QDate::operator!= (  const QDate &  other  )  const [inline]
+
+
+
+   bool QDate::operator< (  const QDate &  other  )  const [inline]
+
+
+
+   bool QDate::operator<= (  const QDate &  other  )  const [inline]
+
+
+
+   bool QDate::operator== (  const QDate &  other  )  const [inline]
+
+
+
+   bool QDate::operator> (  const QDate &  other  )  const [inline]
+
+
+
+   bool QDate::operator>= (  const QDate &  other  )  const [inline]
+
+
+
+   bool QDate::setYMD (  int  y,
+                         int  m,
+                         int  d
+                      )
+
+
+
+   static QString QDate::shortDayName (  int  weekday  )  [static]
+
+
+
+   static QString QDate::shortMonthName (  int  month  )  [static]
+
+
+
+   int QDate::toJulianDay (   )  const [inline]
+
+
+
+   QString QDate::toString (  const QString &  format  )  const
+
+
+
+   QString QDate::toString (  Qt::DateFormat  f = Qt::TextDate  )  const
+
+
+
+   int QDate::weekNumber (  int *  yearNum = 0  )  const
+
+
+
+   int QDate::year (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_CORE_EXPORT QDataStream& operator<< (  QDataStream &  ,
+                                            const QDate &
+                                         )  [friend]
+
+
+
+   Q_CORE_EXPORT QDataStream& operator>> (  QDataStream &  ,
+                                            QDate &      
+                                         )  [friend]
+
+
+
+   friend class QDateTime [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdatetime.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

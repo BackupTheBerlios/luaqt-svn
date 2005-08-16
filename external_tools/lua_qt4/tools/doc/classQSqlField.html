@@ -1,0 +1,204 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QSqlField Class Reference
+
+   #include <qsqlfield.h>
+
+   List of all members.
+
+Public Types
+
+     * enum RequiredStatus { Unknown = -1, Optional = 0, Required = 1 }
+
+Public Member Functions
+
+     * QSqlField (const QString &fieldName=QString(), QVariant::Type type=QVariant::Invalid)
+     * QSqlField (const QSqlField &other)
+     * QSqlField & operator= (const QSqlField &other)
+     * bool operator== (const QSqlField &other) const
+     * bool operator!= (const QSqlField &other) const
+     * ~QSqlField ()
+     * void setValue (const QVariant &value)
+     * QVariant value () const
+     * void setName (const QString &name)
+     * QString name () const
+     * bool isNull () const
+     * void setReadOnly (bool readOnly)
+     * bool isReadOnly () const
+     * void clear ()
+     * QVariant::Type type () const
+     * bool isAutoValue () const
+     * void setType (QVariant::Type type)
+     * void setRequiredStatus (RequiredStatus status)
+     * void setRequired (bool required)
+     * void setLength (int fieldLength)
+     * void setPrecision (int precision)
+     * void setDefaultValue (const QVariant &value)
+     * void setSqlType (int type)
+     * void setGenerated (bool gen)
+     * void setAutoValue (bool autoVal)
+     * RequiredStatus requiredStatus () const
+     * int length () const
+     * int precision () const
+     * QVariant defaultValue () const
+     * int typeID () const
+     * bool isGenerated () const
+     * bool isValid () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QSqlField::RequiredStatus
+
+
+
+   Enumerator: 
+
+          Unknown 
+          Optional
+          Required
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSqlField::QSqlField (  const QString &  fieldName = QString(),
+                           QVariant::Type   type = QVariant::Invalid
+                        )
+
+
+
+   QSqlField::QSqlField (  const QSqlField &  other  )
+
+
+
+   QSqlField::~QSqlField (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QSqlField::clear (   )
+
+
+
+   QVariant QSqlField::defaultValue (   )  const
+
+
+
+   bool QSqlField::isAutoValue (   )  const
+
+
+
+   bool QSqlField::isGenerated (   )  const
+
+
+
+   bool QSqlField::isNull (   )  const
+
+
+
+   bool QSqlField::isReadOnly (   )  const
+
+
+
+   bool QSqlField::isValid (   )  const
+
+
+
+   int QSqlField::length (   )  const
+
+
+
+   QString QSqlField::name (   )  const
+
+
+
+   bool QSqlField::operator!= (  const QSqlField &  other  )  const [inline]
+
+
+
+   QSqlField& QSqlField::operator= (  const QSqlField &  other  )
+
+
+
+   bool QSqlField::operator== (  const QSqlField &  other  )  const
+
+
+
+   int QSqlField::precision (   )  const
+
+
+
+   RequiredStatus QSqlField::requiredStatus (   )  const
+
+
+
+   void QSqlField::setAutoValue (  bool  autoVal  )
+
+
+
+   void QSqlField::setDefaultValue (  const QVariant &  value  )
+
+
+
+   void QSqlField::setGenerated (  bool  gen  )
+
+
+
+   void QSqlField::setLength (  int  fieldLength  )
+
+
+
+   void QSqlField::setName (  const QString &  name  )
+
+
+
+   void QSqlField::setPrecision (  int  precision  )
+
+
+
+   void QSqlField::setReadOnly (  bool  readOnly  )
+
+
+
+   void QSqlField::setRequired (  bool  required  )  [inline]
+
+
+
+   void QSqlField::setRequiredStatus (  RequiredStatus  status  )
+
+
+
+   void QSqlField::setSqlType (  int  type  )
+
+
+
+   void QSqlField::setType (  QVariant::Type  type  )
+
+
+
+   void QSqlField::setValue (  const QVariant &  value  )
+
+
+
+   QVariant::Type QSqlField::type (   )  const
+
+
+
+   int QSqlField::typeID (   )  const
+
+
+
+   QVariant QSqlField::value (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqlfield.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

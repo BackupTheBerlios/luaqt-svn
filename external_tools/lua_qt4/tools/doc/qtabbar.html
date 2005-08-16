@@ -1,0 +1,341 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QTabBar Class Reference
+
+   The QTabBar class provides a tab bar, e.g. for use in tabbed dialogs.
+   More...
+#include <QTabBar>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum Shape { RoundedNorth, RoundedSouth, RoundedWest, RoundedEast,
+       ..., TriangularEast }
+
+  Properties
+
+     * count : const int
+     * currentIndex : int
+     * drawBase : bool
+     * shape : Shape
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QTabBar ( QWidget * parent = 0 )
+     * ~QTabBar ()
+     * int addTab ( const QString & text )
+     * int addTab ( const QIcon & icon, const QString & text )
+     * int count () const
+     * int currentIndex () const
+     * bool drawBase () const
+     * int insertTab ( int index, const QString & text )
+     * int insertTab ( int index, const QIcon & icon, const QString &
+       text )
+     * bool isTabEnabled ( int index ) const
+     * void removeTab ( int index )
+     * void setDrawBase ( bool drawTheBase )
+     * void setShape ( Shape shape )
+     * void setTabData ( int index, const QVariant & data )
+     * void setTabEnabled ( int index, bool enabled )
+     * void setTabIcon ( int index, const QIcon & icon )
+     * void setTabText ( int index, const QString & text )
+     * void setTabToolTip ( int index, const QString & tip )
+     * Shape shape () const
+     * QVariant tabData ( int index ) const
+     * QIcon tabIcon ( int index ) const
+     * QRect tabRect ( int index ) const
+     * QString tabText ( int index ) const
+     * QString tabToolTip ( int index ) const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void setCurrentIndex ( int index )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void currentChanged ( int index )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * virtual void tabInserted ( int index )
+     * virtual void tabLayoutChange ()
+     * virtual void tabRemoved ( int index )
+     * virtual QSize tabSizeHint ( int index ) const
+
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QTabBar class provides a tab bar, e.g. for use in tabbed dialogs.
+
+   QTabBar is straightforward to use; it draws the tabs using one of the
+   predefined shapes, and emits a signal when a tab is selected. It can
+   be subclassed to tailor the look and feel. Qt also provides a
+   ready-made QTabWidget.
+
+   Each tab has a tabText(), an optional tabIcon(), an optional
+   tabToolTip(), and optional tabData(). The tabs's attributes can be
+   changed with setTabText(), setTabIcon(), setTabToolTip(), and
+   setTabData(). Each tabs can be enabled or disabled individually with
+   setTabEnabled().
+
+   Tabs are added using addTab(), or inserted at particular positions
+   using insertTab(). The total number of tabs is given by count(). Tabs
+   can be removed from the tab bar with removeTab(). Combining
+   removeTab() and insertTab() allows you to move tabs to different
+   positions.
+
+   The shape property defines the tabs' appearance. The choice of shape
+   is a matter of taste, although tab dialogs (for preferences and
+   similar) invariably use RoundedNorth. Tab controls in windows other
+   than dialogs almost always use either RoundedSouth or TriangularSouth.
+   Many spreadsheets and other tab controls in which all the pages are
+   essentially similar use TriangularSouth, whereas RoundedSouth is used
+   mostly when the pages are different (e.g. a multi-page tool palette).
+   The default in QTabBar is RoundedNorth.
+
+   The most important part of QTabBar's API is the currentChanged()
+   signal. This is emitted whenever the current tab changes (even at
+   startup, when the current tab changes from 'none'). There is also a
+   slot, setCurrentIndex(), which can be used to select a tab
+   programmatically. The function currentIndex() returns the index of the
+   current tab, count holds the number of tabs.
+
+   QTabBar creates automatic mnemonic keys in the manner of
+   QAbstractButton; e.g. if a tab's label is "&Graphics", Alt+G becomes a
+   shortcut key for switching to that tab.
+
+   The following virtual functions may need to be reimplemented in order
+   to tailor the look and feel or store extra data with each tab:
+     * tabSizeHint() calcuates the size of a tab.
+     * tabInserted() notifies that a new tab was added.
+     * tabRemoved() notifies that a tab was removed.
+     * tabLayoutChange() notifies that the tabs have been re-laid out.
+     * paintEvent() paints all tabs.
+
+   For subclasses, you might also need the tabRect() functions which
+   returns the visual geometry of a single tab.
+
+   Screenshot in Motif style Screenshot in Windows style
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QTabBar::Shape
+
+   This enum type lists the built-in shapes supported by QTabBar. Treat
+   these as hints as some styles may not render some of the shapes.
+   However, position should be honored.
+
+   Constant Value Description
+   QTabBar::RoundedNorth 0 The normal rounded look above the pages
+   QTabBar::RoundedSouth 1 The normal rounded look below the pages
+   QTabBar::RoundedWest 2 The normal rounded look on the left side of the
+   pages
+   QTabBar::RoundedEast 3 The normal rounded look on the right side the
+   pages
+   QTabBar::TriangularNorth 4 Triangular tabs above the pages.
+   QTabBar::TriangularSouth 5 Triangular tabs similar to those used in
+   the Excel spreadsheet, for example
+   QTabBar::TriangularWest 6 Triangular tabs on the left of the pages.
+   QTabBar::TriangularEast 7 Triangular tabs on the right of the pages.
+     _________________________________________________________________
+
+Property Documentation
+
+  count : const int
+
+   This property holds the number of tabs in the tab bar.
+
+   Access functions:
+     * int count () const
+
+  currentIndex : int
+
+   This property holds the index of the tab bar's visible tab.
+
+   Access functions:
+     * int currentIndex () const
+     * void setCurrentIndex ( int index )
+
+  drawBase : bool
+
+   This property holds defines whether or not tabbar should draw it's
+   base.
+
+   If true then QTabBar draws a base in relation to the styles overlab.
+   Otherwise only the tabs are drawn.
+
+   Access functions:
+     * bool drawBase () const
+     * void setDrawBase ( bool drawTheBase )
+
+   See also QStyle::pixelMetric() and QStyle::PM_TabBarBaseOverlap.
+
+  shape : Shape
+
+   This property holds the shape of the tabs in the tab bar.
+
+   The value of this property is one of the following: RoundedNorth
+   (default), RoundedSouth, TriangularNorth or TriangularBelow.
+
+   Access functions:
+     * Shape shape () const
+     * void setShape ( Shape shape )
+
+   See also Shape.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QTabBar::QTabBar ( QWidget * parent = 0 )
+
+   Creates a new tab bar with the given parent.
+
+  QTabBar::~QTabBar ()
+
+   Destroys the tab bar.
+
+  int QTabBar::addTab ( const QString & text )
+
+   Adds a new tab with text text. Returns the new tab's index.
+
+  int QTabBar::addTab ( const QIcon & icon, const QString & text )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Adds a new tab with icon icon and text text. Returns the new tab's
+   index.
+
+  void QTabBar::currentChanged ( int index )   [signal]
+
+   This signal is emitted when the tab bar's current tab changes. The new
+   current has the given index.
+
+  int QTabBar::insertTab ( int index, const QString & text )
+
+   Inserts a new tab with text text at position index. If index is out of
+   range, the new tab is appened. Returns the new tab's index.
+
+  int QTabBar::insertTab ( int index, const QIcon & icon, const QString & text
+  )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Inserts a new tab with icon icon and text text at position index. If
+   index is out of range, the new tab is appended. Returns the new tab's
+   index.
+
+  bool QTabBar::isTabEnabled ( int index ) const
+
+   Returns true if the tab at position index is enabled; otherwise
+   returns false.
+
+  void QTabBar::removeTab ( int index )
+
+   Removes the tab at position index.
+
+  void QTabBar::setTabData ( int index, const QVariant & data )
+
+   Sets the data of the tab at position index to data.
+
+  void QTabBar::setTabEnabled ( int index, bool enabled )
+
+   If enabled is true then the tab at position index is enabled;
+   otherwise the item at position index is disabled.
+
+  void QTabBar::setTabIcon ( int index, const QIcon & icon )
+
+   Sets the icon of the tab at position index to icon.
+
+  void QTabBar::setTabText ( int index, const QString & text )
+
+   Sets the text of the tab at position index to text.
+
+  void QTabBar::setTabToolTip ( int index, const QString & tip )
+
+   Sets the tool tip of the tab at position index to tip.
+
+  QVariant QTabBar::tabData ( int index ) const
+
+   Returns the datad of the tab at position index, or a null variant if
+   index is out of range.
+
+  QIcon QTabBar::tabIcon ( int index ) const
+
+   Returns the icon of the tab at position index, or a null icon if index
+   is out of range.
+
+  void QTabBar::tabInserted ( int index )   [virtual protected]
+
+   This virtual handler is called after a new tab was added or inserted
+   at position index.
+
+   See also tabRemoved().
+
+  void QTabBar::tabLayoutChange ()   [virtual protected]
+
+   This virtual handler is called whenever the tab layout changes.
+
+   See also tabRect().
+
+  QRect QTabBar::tabRect ( int index ) const
+
+   Returns the visual rectangle of the of the tab at position index, or a
+   null rectangle if index is out of range.
+
+  void QTabBar::tabRemoved ( int index )   [virtual protected]
+
+   This virtual handler is called after a tab was removed from position
+   index.
+
+   See also tabInserted().
+
+  QSize QTabBar::tabSizeHint ( int index ) const   [virtual protected]
+
+   Returns the size hint for the tab at position index.
+
+  QString QTabBar::tabText ( int index ) const
+
+   Returns the text of the tab at position index, or an empty string if
+   index is out of range.
+
+  QString QTabBar::tabToolTip ( int index ) const
+
+   Returns the tool tip of the tab at position index, or an empty string
+   if index is out of range.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,149 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QMimeData Class Reference
+
+   #include <qmimedata.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Member Functions
+
+     * QMimeData ()
+     * ~QMimeData ()
+     * QList< QUrl > urls () const
+     * void setUrls (const QList< QUrl > &urls)
+     * bool hasUrls () const
+     * QString text () const
+     * void setText (const QString &text)
+     * bool hasText () const
+     * QString html () const
+     * void setHtml (const QString &html)
+     * bool hasHtml () const
+     * QVariant imageData () const
+     * void setImageData (const QVariant &image)
+     * bool hasImage () const
+     * QVariant colorData () const
+     * void setColorData (const QVariant &color)
+     * bool hasColor () const
+     * QByteArray data (const QString &mimetype) const
+     * void setData (const QString &mimetype, const QByteArray &data)
+     * virtual bool hasFormat (const QString &mimetype) const
+     * virtual QStringList formats () const
+     * void clear ()
+
+Protected Member Functions
+
+     * virtual QVariant retrieveData (const QString &mimetype, QVariant::Type preferredType) const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMimeData::QMimeData (   )
+
+
+
+   QMimeData::~QMimeData (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QMimeData::clear (   )
+
+
+
+   QVariant QMimeData::colorData (   )  const
+
+
+
+   QByteArray QMimeData::data (  const QString &  mimetype  )  const
+
+
+
+   virtual QStringList QMimeData::formats (   )  const [virtual]
+
+
+
+   bool QMimeData::hasColor (   )  const
+
+
+
+   virtual bool QMimeData::hasFormat (  const QString &  mimetype  )  const [virtual]
+
+
+
+   bool QMimeData::hasHtml (   )  const
+
+
+
+   bool QMimeData::hasImage (   )  const
+
+
+
+   bool QMimeData::hasText (   )  const
+
+
+
+   bool QMimeData::hasUrls (   )  const
+
+
+
+   QString QMimeData::html (   )  const
+
+
+
+   QVariant QMimeData::imageData (   )  const
+
+
+
+   virtual QVariant QMimeData::retrieveData (  const QString &  mimetype,
+                                               QVariant::Type   preferredType
+                                            )  const [protected, virtual]
+
+
+
+   void QMimeData::setColorData (  const QVariant &  color  )
+
+
+
+   void QMimeData::setData (  const QString &     mimetype,
+                              const QByteArray &  data
+                           )
+
+
+
+   void QMimeData::setHtml (  const QString &  html  )
+
+
+
+   void QMimeData::setImageData (  const QVariant &  image  )
+
+
+
+   void QMimeData::setText (  const QString &  text  )
+
+
+
+   void QMimeData::setUrls (  const QList< QUrl > &  urls  )
+
+
+
+   QString QMimeData::text (   )  const
+
+
+
+   QList<QUrl> QMimeData::urls (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmimedata.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

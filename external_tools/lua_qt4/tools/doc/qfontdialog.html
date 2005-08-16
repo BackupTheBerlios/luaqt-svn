@@ -1,0 +1,160 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QFontDialog Class Reference
+
+   The QFontDialog class provides a dialog widget for selecting a font.
+   More...
+#include <QFontDialog>
+
+   Part of the QtGui module.
+
+   Inherits QDialog.
+     * List of all members, including inherited members
+
+  Static Public Members
+
+     * QFont getFont ( bool * ok, const QFont & initial, QWidget * parent
+       = 0 )
+     * QFont getFont ( bool * ok, const QFont & def, QWidget * parent,
+       const char * name )
+     * QFont getFont ( bool * ok, QWidget * parent, const char * name )
+     * QFont getFont ( bool * ok, QWidget * parent = 0 )
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+
+  Additional Inherited Members
+
+     * 2 properties inherited from QDialog
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+     * 9 public functions inherited from QDialog
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+     * 5 public slots inherited from QDialog
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QFontDialog class provides a dialog widget for selecting a font.
+
+   The usual way to use this class is to call one of the static
+   convenience functions, e.g. getFont().
+
+   Examples:
+    bool ok;
+    QFont font = QFontDialog::getFont(
+                    &ok, QFont("Helvetica [Cronyx]", 10), this);
+    if (ok) {
+        // the user clicked OK and font is set to the font the user selected
+    } else {
+        // the user canceled the dialog; font is set to the initial
+        // value, in this case Helvetica [Cronyx], 10
+    }
+
+   The dialog can also be used to set a widget's font directly:
+    myWidget.setFont(QFontDialog::getFont(0, myWidget.font()));
+
+   If the user clicks OK the font they chose will be used for myWidget,
+   and if they click Cancel the original font is used.
+
+                        Screenshot in Windows style
+
+   See also QFont, QFontInfo, and QFontMetrics.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QFont QFontDialog::getFont ( bool * ok, const QFont & initial, QWidget *
+  parent = 0 )   [static]
+
+   Executes a modal font dialog and returns a font.
+
+   If the user clicks OK, the selected font is returned. If the user
+   clicks Cancel, the initial font is returned.
+
+   The dialog is constructed with the given parent. initial is the
+   initially selected font. If the ok parameter is not-null, *a ok is set
+   to true if the user clicked OK, and set to false if the user clicked
+   Cancel.
+
+   This static function is less flexible than the full QFontDialog
+   object, but is convenient and easy to use.
+
+   Examples:
+    bool ok;
+    QFont font = QFontDialog::getFont(&ok, QFont("Times", 12), this);
+    if (ok) {
+        // font is set to the font the user selected
+    } else {
+        // the user canceled the dialog; font is set to the initial
+        // value, in this case Times, 12.
+    }
+
+   The dialog can also be used to set a widget's font directly:
+    myWidget.setFont(QFontDialog::getFont(0, myWidget.font()));
+
+   In this example, if the user clicks OK the font they chose will be
+   used, and if they click Cancel the original font is used.
+
+  QFont QFontDialog::getFont ( bool * ok, const QFont & def, QWidget * parent,
+  const char * name )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Call getFont(ok, def, parent) instead.
+
+   The name parameter is ignored.
+
+  QFont QFontDialog::getFont ( bool * ok, QWidget * parent, const char * name
+  )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Call getFont(ok, parent) instead.
+
+   The name parameter is ignored.
+
+  QFont QFontDialog::getFont ( bool * ok, QWidget * parent = 0 )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Executes a modal font dialog and returns a font.
+
+   If the user clicks OK, the selected font is returned. If the user
+   clicks Cancel, the Qt default font is returned.
+
+   The dialog is constructed with the given parent. If the ok parameter
+   is not-null, *a ok is set to true if the user clicked OK, and false if
+   the user clicked Cancel.
+
+   This static function is less functional than the full QFontDialog
+   object, but is convenient and easy to use.
+
+   Example:
+    bool ok;
+    QFont font = QFontDialog::getFont(&ok, this);
+    if (ok) {
+        // font is set to the font the user selected
+    } else {
+        // the user canceled the dialog; font is set to the default
+        // application font, QApplication::font()
+    }
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

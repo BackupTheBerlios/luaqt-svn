@@ -1,0 +1,79 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QTextBlockGroup Class Reference
+
+   #include <qtextobject.h>
+
+   Inherits QTextObject.
+
+   Inherited by QTextList.
+
+   List of all members.
+
+Protected Member Functions
+
+     * QTextBlockGroup (QTextDocument *doc)
+     * ~QTextBlockGroup ()
+     * virtual void blockInserted (const QTextBlock &block)
+     * virtual void blockRemoved (const QTextBlock &block)
+     * virtual void blockFormatChanged (const QTextBlock &block)
+     * QList< QTextBlock > blockList () const
+     * QTextBlockGroup (QTextBlockGroupPrivate &p, QTextDocument *doc)
+
+Friends
+
+     * class QTextDocumentPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextBlockGroup::QTextBlockGroup (  QTextDocument *  doc  )  [explicit, protected]
+
+
+
+   QTextBlockGroup::~QTextBlockGroup (   )  [protected]
+
+
+
+   QTextBlockGroup::QTextBlockGroup (  QTextBlockGroupPrivate &  p,
+                                       QTextDocument *           doc
+                                    )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void QTextBlockGroup::blockFormatChanged (  const QTextBlock &  block  )  [protected, virtual]
+
+
+
+   virtual void QTextBlockGroup::blockInserted (  const QTextBlock &  block  )  [protected, virtual]
+
+
+
+   QList<QTextBlock> QTextBlockGroup::blockList (   )  const [protected]
+
+
+
+   virtual void QTextBlockGroup::blockRemoved (  const QTextBlock &  block  )  [protected, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextDocumentPrivate [friend]
+
+
+
+   Reimplemented from QTextObject.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

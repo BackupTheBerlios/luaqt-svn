@@ -1,0 +1,286 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QEvent Class Reference
+
+   #include <qcoreevent.h>
+
+   Inherited by QAccessibleEvent, QActionEvent, QChildEvent, QClipboardEvent, QCloseEvent, QDragLeaveEvent, QDragResponseEvent, QDropEvent, QFileOpenEvent, QFocusEvent, QHelpEvent, QHideEvent, QHoverEvent, QIconDragEvent, QInputEvent, QInputMethodEvent, QMoveEvent, QPaintEvent, QResizeEvent, QShortcutEvent, QShowEvent, QStatusTipEvent, QTimerEvent, QToolBarChangeEvent, QWhatsThisClickedEvent, and QWindowStateChangeEvent.
+
+   List of all members.
+
+Public Types
+
+     * enum Type {
+         None = 0, Timer = 1, MouseButtonPress = 2, MouseButtonRelease = 3,
+         MouseButtonDblClick = 4, MouseMove = 5, KeyPress = 6, KeyRelease = 7,
+         FocusIn = 8, FocusOut = 9, Enter = 10, Leave = 11,
+         Paint = 12, Move = 13, Resize = 14, Create = 15,
+         Destroy = 16, Show = 17, Hide = 18, Close = 19,
+         Quit = 20, ParentChange = 21, ParentAboutToChange = 131, ThreadChange = 22,
+         WindowActivate = 24, WindowDeactivate = 25, ShowToParent = 26, HideToParent = 27,
+         Wheel = 31, WindowTitleChange = 33, WindowIconChange = 34, ApplicationWindowIconChange = 35,
+         ApplicationFontChange = 36, ApplicationLayoutDirectionChange = 37, ApplicationPaletteChange = 38, PaletteChange = 39,
+         Clipboard = 40, Speech = 42, MetaCall = 43, SockAct = 50,
+         WinEventAct = 132, DeferredDelete = 52, DragEnter = 60, DragMove = 61,
+         DragLeave = 62, Drop = 63, DragResponse = 64, ChildAdded = 68,
+         ChildPolished = 69, ChildRemoved = 71, ShowWindowRequest = 73, PolishRequest = 74,
+         Polish = 75, LayoutRequest = 76, UpdateRequest = 77, EmbeddingControl = 79,
+         ActivateControl = 80, DeactivateControl = 81, ContextMenu = 82, InputMethod = 83,
+         AccessibilityPrepare = 86, TabletMove = 87, LocaleChange = 88, LanguageChange = 89,
+         LayoutDirectionChange = 90, Style = 91, TabletPress = 92, TabletRelease = 93,
+         OkRequest = 94, HelpRequest = 95, IconDrag = 96, FontChange = 97,
+         EnabledChange = 98, ActivationChange = 99, StyleChange = 100, IconTextChange = 101,
+         ModifiedChange = 102, MouseTrackingChange = 109, WindowBlocked = 103, WindowUnblocked = 104,
+         WindowStateChange = 105, ToolTip = 110, WhatsThis = 111, StatusTip = 112,
+         ActionChanged = 113, ActionAdded = 114, ActionRemoved = 115, FileOpen = 116,
+         Shortcut = 117, ShortcutOverride = 51, WhatsThisClicked = 118, ToolBarChange = 120,
+         ApplicationActivated = 121, ApplicationDeactivated = 122, QueryWhatsThis = 123, EnterWhatsThisMode = 124,
+         LeaveWhatsThisMode = 125, ZOrderChange = 126, HoverEnter = 127, HoverLeave = 128,
+         HoverMove = 129, AccessibilityHelp = 119, AccessibilityDescription = 130, User = 1000,
+         MaxUser = 65535
+       }
+
+Public Member Functions
+
+     * QEvent (Type type)
+     * virtual ~QEvent ()
+     * Type type () const
+     * bool spontaneous () const
+     * void setAccepted (bool accepted)
+     * bool isAccepted () const
+     * void accept ()
+     * void ignore ()
+
+Protected Attributes
+
+     * QEventPrivate * d
+     * ushort t
+
+Friends
+
+     * class QCoreApplication
+     * class QCoreApplicationPrivate
+     * class QThreadData
+     * class QApplication
+     * class QApplicationPrivate
+     * class Q3AccelManager
+     * class QShortcutMap
+     * class QETWidget
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QEvent::Type
+
+
+
+   Enumerator: 
+
+          None                            
+          Timer                           
+          MouseButtonPress                
+          MouseButtonRelease              
+          MouseButtonDblClick             
+          MouseMove                       
+          KeyPress                        
+          KeyRelease                      
+          FocusIn                         
+          FocusOut                        
+          Enter                           
+          Leave                           
+          Paint                           
+          Move                            
+          Resize                          
+          Create                          
+          Destroy                         
+          Show                            
+          Hide                            
+          Close                           
+          Quit                            
+          ParentChange                    
+          ParentAboutToChange             
+          ThreadChange                    
+          WindowActivate                  
+          WindowDeactivate                
+          ShowToParent                    
+          HideToParent                    
+          Wheel                           
+          WindowTitleChange               
+          WindowIconChange                
+          ApplicationWindowIconChange     
+          ApplicationFontChange           
+          ApplicationLayoutDirectionChange
+          ApplicationPaletteChange        
+          PaletteChange                   
+          Clipboard                       
+          Speech                          
+          MetaCall                        
+          SockAct                         
+          WinEventAct                     
+          DeferredDelete                  
+          DragEnter                       
+          DragMove                        
+          DragLeave                       
+          Drop                            
+          DragResponse                    
+          ChildAdded                      
+          ChildPolished                   
+          ChildRemoved                    
+          ShowWindowRequest               
+          PolishRequest                   
+          Polish                          
+          LayoutRequest                   
+          UpdateRequest                   
+          EmbeddingControl                
+          ActivateControl                 
+          DeactivateControl               
+          ContextMenu                     
+          InputMethod                     
+          AccessibilityPrepare            
+          TabletMove                      
+          LocaleChange                    
+          LanguageChange                  
+          LayoutDirectionChange           
+          Style                           
+          TabletPress                     
+          TabletRelease                   
+          OkRequest                       
+          HelpRequest                     
+          IconDrag                        
+          FontChange                      
+          EnabledChange                   
+          ActivationChange                
+          StyleChange                     
+          IconTextChange                  
+          ModifiedChange                  
+          MouseTrackingChange             
+          WindowBlocked                   
+          WindowUnblocked                 
+          WindowStateChange               
+          ToolTip                         
+          WhatsThis                       
+          StatusTip                       
+          ActionChanged                   
+          ActionAdded                     
+          ActionRemoved                   
+          FileOpen                        
+          Shortcut                        
+          ShortcutOverride                
+          WhatsThisClicked                
+          ToolBarChange                   
+          ApplicationActivated            
+          ApplicationDeactivated          
+          QueryWhatsThis                  
+          EnterWhatsThisMode              
+          LeaveWhatsThisMode              
+          ZOrderChange                    
+          HoverEnter                      
+          HoverLeave                      
+          HoverMove                       
+          AccessibilityHelp               
+          AccessibilityDescription        
+          User                            
+          MaxUser                         
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QEvent::QEvent (  Type  type  )
+
+
+
+   virtual QEvent::~QEvent (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QEvent::accept (   )  [inline]
+
+
+
+   Reimplemented in QDragMoveEvent.
+
+   void QEvent::ignore (   )  [inline]
+
+
+
+   Reimplemented in QDragMoveEvent.
+
+   bool QEvent::isAccepted (   )  const [inline]
+
+
+
+   void QEvent::setAccepted (  bool  accepted  )  [inline]
+
+
+
+   bool QEvent::spontaneous (   )  const [inline]
+
+
+
+   Type QEvent::type (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3AccelManager [friend]
+
+
+
+   friend class QApplication [friend]
+
+
+
+   Reimplemented in QPaintEvent, QMoveEvent, and QResizeEvent.
+
+   friend class QApplicationPrivate [friend]
+
+
+
+   friend class QCoreApplication [friend]
+
+
+
+   Reimplemented in QPaintEvent, QMoveEvent, and QResizeEvent.
+
+   friend class QCoreApplicationPrivate [friend]
+
+
+
+   friend class QETWidget [friend]
+
+
+
+   friend class QShortcutMap [friend]
+
+
+
+   friend class QThreadData [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QEventPrivate* QEvent::d [protected]
+
+
+
+   Reimplemented in QWheelEvent.
+
+   ushort QEvent::t [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qcoreevent.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,138 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QODBCResult Class Reference
+
+   #include <qsql_odbc.h>
+
+   Inherits QSqlResult.
+
+   List of all members.
+
+Public Member Functions
+
+     * QODBCResult (const QODBCDriver *db, QODBCDriverPrivate *p)
+     * virtual ~QODBCResult ()
+     * bool prepare (const QString &query)
+     * bool exec ()
+     * QVariant handle () const
+
+Protected Member Functions
+
+     * bool fetchNext ()
+     * bool fetchFirst ()
+     * bool fetchLast ()
+     * bool fetchPrior ()
+     * bool fetch (int i)
+     * bool reset (const QString &query)
+     * QVariant data (int field)
+     * bool isNull (int field)
+     * int size ()
+     * int numRowsAffected ()
+     * QSqlRecord record () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QODBCResult::QODBCResult (  const QODBCDriver *   db,
+                               QODBCDriverPrivate *  p
+                            )
+
+
+
+   virtual QODBCResult::~QODBCResult (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QVariant QODBCResult::data (  int  field  )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   bool QODBCResult::exec (   )  [virtual]
+
+
+
+   Reimplemented from QSqlResult.
+
+   bool QODBCResult::fetch (  int  i  )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   bool QODBCResult::fetchFirst (   )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   bool QODBCResult::fetchLast (   )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   bool QODBCResult::fetchNext (   )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlResult.
+
+   bool QODBCResult::fetchPrior (   )  [protected]
+
+
+
+   QVariant QODBCResult::handle (   )  const [virtual]
+
+
+
+   Reimplemented from QSqlResult.
+
+   bool QODBCResult::isNull (  int  field  )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   int QODBCResult::numRowsAffected (   )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   bool QODBCResult::prepare (  const QString &  query  )  [virtual]
+
+
+
+   Reimplemented from QSqlResult.
+
+   QSqlRecord QODBCResult::record (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QSqlResult.
+
+   bool QODBCResult::reset (  const QString &  query  )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+
+   int QODBCResult::size (   )  [protected, virtual]
+
+
+
+   Implements QSqlResult.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsql_odbc.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

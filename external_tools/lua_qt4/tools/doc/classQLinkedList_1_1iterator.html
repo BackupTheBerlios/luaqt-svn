@@ -1,0 +1,186 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+   QLinkedList::iterator
+
+                                                                                                                                                                                                                                    QLinkedList< T >::iterator Class Reference
+
+   #include <qlinkedlist.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef std::bidirectional_iterator_tag iterator_category
+     * typedef ptrdiff_t difference_type
+     * typedef T value_type
+     * typedef T * pointer
+     * typedef T & reference
+
+Public Member Functions
+
+     * iterator ()
+     * iterator (Node *n)
+     * iterator (const iterator &o)
+     * iterator & operator= (const iterator &o)
+     * T & operator * () const
+     * T * operator-> () const
+     * bool operator== (const iterator &o) const
+     * bool operator!= (const iterator &o) const
+     * bool operator== (const const_iterator &o) const
+     * bool operator!= (const const_iterator &o) const
+     * iterator & operator++ ()
+     * iterator operator++ (int)
+     * iterator & operator-- ()
+     * iterator operator-- (int)
+     * iterator operator+ (int j) const
+     * iterator operator- (int j) const
+     * iterator & operator+= (int j)
+     * iterator & operator-= (int j)
+
+Public Attributes
+
+     * Node * i
+
+  template<class T>
+  class QLinkedList< T >::iterator
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<class T>
+   typedef ptrdiff_t QLinkedList< T >::iterator::difference_type
+
+
+
+   template<class T>
+   typedef std::bidirectional_iterator_tag QLinkedList< T >::iterator::iterator_category
+
+
+
+   template<class T>
+   typedef T* QLinkedList< T >::iterator::pointer
+
+
+
+   template<class T>
+   typedef T& QLinkedList< T >::iterator::reference
+
+
+
+   template<class T>
+   typedef T QLinkedList< T >::iterator::value_type
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class T>
+   QLinkedList< T >::iterator::iterator (   )  [inline]
+
+
+
+   template<class T>
+   QLinkedList< T >::iterator::iterator (  Node *  n  )  [inline]
+
+
+
+   template<class T>
+   QLinkedList< T >::iterator::iterator (  const iterator &  o  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class T>
+   T& QLinkedList< T >::iterator::operator * (   )  const [inline]
+
+
+
+   template<class T>
+   bool QLinkedList< T >::iterator::operator!= (  const const_iterator &  o  )  const [inline]
+
+
+
+   template<class T>
+   bool QLinkedList< T >::iterator::operator!= (  const iterator &  o  )  const [inline]
+
+
+
+   template<class T>
+   iterator QLinkedList< T >::iterator::operator+ (  int  j  )  const [inline]
+
+
+
+   template<class T>
+   iterator QLinkedList< T >::iterator::operator++ (  int   )  [inline]
+
+
+
+   template<class T>
+   iterator& QLinkedList< T >::iterator::operator++ (   )  [inline]
+
+
+
+   template<class T>
+   iterator& QLinkedList< T >::iterator::operator+= (  int  j  )  [inline]
+
+
+
+   template<class T>
+   iterator QLinkedList< T >::iterator::operator- (  int  j  )  const [inline]
+
+
+
+   template<class T>
+   iterator QLinkedList< T >::iterator::operator-- (  int   )  [inline]
+
+
+
+   template<class T>
+   iterator& QLinkedList< T >::iterator::operator-- (   )  [inline]
+
+
+
+   template<class T>
+   iterator& QLinkedList< T >::iterator::operator-= (  int  j  )  [inline]
+
+
+
+   template<class T>
+   T* QLinkedList< T >::iterator::operator-> (   )  const [inline]
+
+
+
+   template<class T>
+   iterator& QLinkedList< T >::iterator::operator= (  const iterator &  o  )  [inline]
+
+
+
+   template<class T>
+   bool QLinkedList< T >::iterator::operator== (  const const_iterator &  o  )  const [inline]
+
+
+
+   template<class T>
+   bool QLinkedList< T >::iterator::operator== (  const iterator &  o  )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   template<class T>
+   Node* QLinkedList< T >::iterator::i
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlinkedlist.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

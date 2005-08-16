@@ -1,0 +1,286 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QGridLayout Class Reference
+
+   #include <qgridlayout.h>
+
+   Inherits QLayout.
+
+   List of all members.
+
+Public Member Functions
+
+     * QGridLayout (QWidget *parent)
+     * QGridLayout ()
+     * ~QGridLayout ()
+     * QSize sizeHint () const
+     * QSize minimumSize () const
+     * QSize maximumSize () const
+     * void setRowStretch (int row, int stretch)
+     * void setColumnStretch (int column, int stretch)
+     * int rowStretch (int row) const
+     * int columnStretch (int column) const
+     * void setRowMinimumHeight (int row, int minSize)
+     * void setColumnMinimumWidth (int column, int minSize)
+     * int rowMinimumHeight (int row) const
+     * int columnMinimumWidth (int column) const
+     * int columnCount () const
+     * int rowCount () const
+     * QRect cellRect (int row, int column) const
+     * bool hasHeightForWidth () const
+     * int heightForWidth (int) const
+     * int minimumHeightForWidth (int) const
+     * Qt::Orientations expandingDirections () const
+     * void invalidate ()
+     * void addWidget (QWidget *w)
+     * void addWidget (QWidget *, int row, int column, Qt::Alignment=0)
+     * void addWidget (QWidget *, int row, int column, int rowSpan, int columnSpan, Qt::Alignment=0)
+     * void addLayout (QLayout *, int row, int column, Qt::Alignment=0)
+     * void addLayout (QLayout *, int row, int column, int rowSpan, int columnSpan, Qt::Alignment=0)
+     * void setOriginCorner (Qt::Corner)
+     * Qt::Corner originCorner () const
+     * QLayoutItem * itemAt (int) const
+     * QLayoutItem * takeAt (int)
+     * int count () const
+     * void setGeometry (const QRect &)
+     * void addItem (QLayoutItem *item, int row, int column, int rowSpan=1, int columnSpan=1, Qt::Alignment=0)
+     * void setDefaultPositioning (int n, Qt::Orientation orient)
+     * void getItemPosition (int idx, int *row, int *column, int *rowSpan, int *columnSpan)
+
+Protected Member Functions
+
+     * void addItem (QLayoutItem *)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QGridLayout::QGridLayout (  QWidget *  parent  )  [explicit]
+
+
+
+   QGridLayout::QGridLayout (   )
+
+
+
+   QGridLayout::~QGridLayout (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QGridLayout::addItem (  QLayoutItem *   )  [protected, virtual]
+
+
+
+   Implements QLayout.
+
+   void QGridLayout::addItem (  QLayoutItem *  item,
+                                int            row,
+                                int            column,
+                                int            rowSpan = 1,
+                                int            columnSpan = 1,
+                                Qt::Alignment  = 0
+                             )
+
+
+
+   void QGridLayout::addLayout (  QLayout *      ,
+                                  int            row,
+                                  int            column,
+                                  int            rowSpan,
+                                  int            columnSpan,
+                                  Qt::Alignment  = 0
+                               )
+
+
+
+   void QGridLayout::addLayout (  QLayout *      ,
+                                  int            row,
+                                  int            column,
+                                  Qt::Alignment  = 0
+                               )
+
+
+
+   void QGridLayout::addWidget (  QWidget *      ,
+                                  int            row,
+                                  int            column,
+                                  int            rowSpan,
+                                  int            columnSpan,
+                                  Qt::Alignment  = 0
+                               )
+
+
+
+   void QGridLayout::addWidget (  QWidget *      ,
+                                  int            row,
+                                  int            column,
+                                  Qt::Alignment  = 0
+                               )
+
+
+
+   void QGridLayout::addWidget (  QWidget *  w  )  [inline]
+
+
+
+   Reimplemented from QLayout.
+
+   QRect QGridLayout::cellRect (  int  row,
+                                  int  column
+                               )  const
+
+
+
+   int QGridLayout::columnCount (   )  const
+
+
+
+   int QGridLayout::columnMinimumWidth (  int  column  )  const
+
+
+
+   int QGridLayout::columnStretch (  int  column  )  const
+
+
+
+   int QGridLayout::count (   )  const [virtual]
+
+
+
+   Implements QLayout.
+
+   Qt::Orientations QGridLayout::expandingDirections (   )  const [virtual]
+
+
+
+   Reimplemented from QLayout.
+
+   void QGridLayout::getItemPosition (  int    idx,
+                                        int *  row,
+                                        int *  column,
+                                        int *  rowSpan,
+                                        int *  columnSpan
+                                     )
+
+
+
+   bool QGridLayout::hasHeightForWidth (   )  const [virtual]
+
+
+
+   Reimplemented from QLayoutItem.
+
+   int QGridLayout::heightForWidth (  int   )  const [virtual]
+
+
+
+   Reimplemented from QLayoutItem.
+
+   void QGridLayout::invalidate (   )  [virtual]
+
+
+
+   Reimplemented from QLayout.
+
+   QLayoutItem* QGridLayout::itemAt (  int   )  const [virtual]
+
+
+
+   Implements QLayout.
+
+   QSize QGridLayout::maximumSize (   )  const [virtual]
+
+
+
+   Reimplemented from QLayout.
+
+   int QGridLayout::minimumHeightForWidth (  int   )  const [virtual]
+
+
+
+   Reimplemented from QLayoutItem.
+
+   QSize QGridLayout::minimumSize (   )  const [virtual]
+
+
+
+   Reimplemented from QLayout.
+
+   Qt::Corner QGridLayout::originCorner (   )  const
+
+
+
+   int QGridLayout::rowCount (   )  const
+
+
+
+   int QGridLayout::rowMinimumHeight (  int  row  )  const
+
+
+
+   int QGridLayout::rowStretch (  int  row  )  const
+
+
+
+   void QGridLayout::setColumnMinimumWidth (  int  column,
+                                              int  minSize
+                                           )
+
+
+
+   void QGridLayout::setColumnStretch (  int  column,
+                                         int  stretch
+                                      )
+
+
+
+   void QGridLayout::setDefaultPositioning (  int              n,
+                                              Qt::Orientation  orient
+                                           )
+
+
+
+   void QGridLayout::setGeometry (  const QRect &   )  [virtual]
+
+
+
+   Implements QLayout.
+
+   void QGridLayout::setOriginCorner (  Qt::Corner   )
+
+
+
+   void QGridLayout::setRowMinimumHeight (  int  row,
+                                            int  minSize
+                                         )
+
+
+
+   void QGridLayout::setRowStretch (  int  row,
+                                      int  stretch
+                                   )
+
+
+
+   QSize QGridLayout::sizeHint (   )  const [virtual]
+
+
+
+   Implements QLayoutItem.
+
+   QLayoutItem* QGridLayout::takeAt (  int   )  [virtual]
+
+
+
+   Implements QLayout.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qgridlayout.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

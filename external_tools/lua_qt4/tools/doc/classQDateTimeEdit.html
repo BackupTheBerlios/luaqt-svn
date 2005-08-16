@@ -1,0 +1,388 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QDateTimeEdit Class Reference
+
+   #include <qdatetimeedit.h>
+
+   Inherits QAbstractSpinBox.
+
+   Inherited by QDateEdit, and QTimeEdit.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags Sections
+     * enum Section {
+         NoSection = 0x0000, AmPmSection = 0x0001, MSecSection = 0x0002, SecondSection = 0x0004,
+         MinuteSection = 0x0008, HourSection = 0x0010, DaySection = 0x0100, MonthSection = 0x0200,
+         YearSection = 0x0400, TimeSections_Mask = AmPmSection|MSecSection|SecondSection|MinuteSection|HourSection, DateSections_Mask = DaySection|MonthSection|YearSection
+       }
+
+Public Slots
+
+     * void setDateTime (const QDateTime &dateTime)
+     * void setDate (const QDate &date)
+     * void setTime (const QTime &time)
+
+Signals
+
+     * void dateTimeChanged (const QDateTime &date)
+     * void timeChanged (const QTime &date)
+     * void dateChanged (const QDate &date)
+
+Public Member Functions
+
+     * QDateTimeEdit (QWidget *parent=0)
+     * QDateTimeEdit (const QDateTime &dt, QWidget *parent=0)
+     * QDateTimeEdit (const QDate &d, QWidget *parent=0)
+     * QDateTimeEdit (const QTime &t, QWidget *parent=0)
+     * QDateTime dateTime () const
+     * QDate date () const
+     * QTime time () const
+     * QDate minimumDate () const
+     * void setMinimumDate (const QDate &min)
+     * void clearMinimumDate ()
+     * QDate maximumDate () const
+     * void setMaximumDate (const QDate &max)
+     * void clearMaximumDate ()
+     * void setDateRange (const QDate &min, const QDate &max)
+     * QTime minimumTime () const
+     * void setMinimumTime (const QTime &min)
+     * void clearMinimumTime ()
+     * QTime maximumTime () const
+     * void setMaximumTime (const QTime &max)
+     * void clearMaximumTime ()
+     * void setTimeRange (const QTime &min, const QTime &max)
+     * Sections displayedSections () const
+     * Section currentSection () const
+     * void setCurrentSection (Section section)
+     * QString sectionText (Section s) const
+     * QString displayFormat () const
+     * void setDisplayFormat (const QString &format)
+     * QSize sizeHint () const
+     * virtual void clear ()
+     * virtual void stepBy (int steps)
+     * bool event (QEvent *e)
+
+Protected Member Functions
+
+     * virtual void keyPressEvent (QKeyEvent *e)
+     * virtual void wheelEvent (QWheelEvent *e)
+     * virtual void focusInEvent (QFocusEvent *e)
+     * virtual bool focusNextPrevChild (bool next)
+     * virtual QValidator::State validate (QString &input, int &pos) const
+     * virtual QDateTime dateTimeFromText (const QString &text) const
+     * virtual QString textFromDateTime (const QDateTime &dt) const
+     * virtual StepEnabled stepEnabled () const
+
+Properties
+
+     * QDateTime dateTime
+     * QDate date
+     * QTime time
+     * QDate maximumDate
+     * QDate minimumDate
+     * QTime maximumTime
+     * QTime minimumTime
+     * Section currentSection
+     * Sections displayedSections
+     * QString displayFormat
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QDateTimeEdit::Sections
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDateTimeEdit::Section
+
+
+
+   Enumerator: 
+
+          NoSection        
+          AmPmSection      
+          MSecSection      
+          SecondSection    
+          MinuteSection    
+          HourSection      
+          DaySection       
+          MonthSection     
+          YearSection      
+          TimeSections_Mask
+          DateSections_Mask
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDateTimeEdit::QDateTimeEdit (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QDateTimeEdit::QDateTimeEdit (  const QDateTime &  dt,
+                                   QWidget *          parent = 0
+                                )  [explicit]
+
+
+
+   QDateTimeEdit::QDateTimeEdit (  const QDate &  d,
+                                   QWidget *      parent = 0
+                                )  [explicit]
+
+
+
+   QDateTimeEdit::QDateTimeEdit (  const QTime &  t,
+                                   QWidget *      parent = 0
+                                )  [explicit]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void QDateTimeEdit::clear (   )  [virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   void QDateTimeEdit::clearMaximumDate (   )
+
+
+
+   void QDateTimeEdit::clearMaximumTime (   )
+
+
+
+   void QDateTimeEdit::clearMinimumDate (   )
+
+
+
+   void QDateTimeEdit::clearMinimumTime (   )
+
+
+
+   Section QDateTimeEdit::currentSection (   )  const
+
+
+
+   QDate QDateTimeEdit::date (   )  const
+
+
+
+   void QDateTimeEdit::dateChanged (  const QDate &  date  )  [signal]
+
+
+
+   QDateTime QDateTimeEdit::dateTime (   )  const
+
+
+
+   void QDateTimeEdit::dateTimeChanged (  const QDateTime &  date  )  [signal]
+
+
+
+   virtual QDateTime QDateTimeEdit::dateTimeFromText (  const QString &  text  )  const [protected, virtual]
+
+
+
+   Sections QDateTimeEdit::displayedSections (   )  const
+
+
+
+   QString QDateTimeEdit::displayFormat (   )  const
+
+
+
+   bool QDateTimeEdit::event (  QEvent *  e  )  [virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   virtual void QDateTimeEdit::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   virtual bool QDateTimeEdit::focusNextPrevChild (  bool  next  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void QDateTimeEdit::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   QDate QDateTimeEdit::maximumDate (   )  const
+
+
+
+   QTime QDateTimeEdit::maximumTime (   )  const
+
+
+
+   QDate QDateTimeEdit::minimumDate (   )  const
+
+
+
+   QTime QDateTimeEdit::minimumTime (   )  const
+
+
+
+   QString QDateTimeEdit::sectionText (  Section  s  )  const
+
+
+
+   void QDateTimeEdit::setCurrentSection (  Section  section  )
+
+
+
+   void QDateTimeEdit::setDate (  const QDate &  date  )  [slot]
+
+
+
+   void QDateTimeEdit::setDateRange (  const QDate &  min,
+                                       const QDate &  max
+                                    )
+
+
+
+   void QDateTimeEdit::setDateTime (  const QDateTime &  dateTime  )  [slot]
+
+
+
+   void QDateTimeEdit::setDisplayFormat (  const QString &  format  )
+
+
+
+   void QDateTimeEdit::setMaximumDate (  const QDate &  max  )
+
+
+
+   void QDateTimeEdit::setMaximumTime (  const QTime &  max  )
+
+
+
+   void QDateTimeEdit::setMinimumDate (  const QDate &  min  )
+
+
+
+   void QDateTimeEdit::setMinimumTime (  const QTime &  min  )
+
+
+
+   void QDateTimeEdit::setTime (  const QTime &  time  )  [slot]
+
+
+
+   void QDateTimeEdit::setTimeRange (  const QTime &  min,
+                                       const QTime &  max
+                                    )
+
+
+
+   QSize QDateTimeEdit::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   virtual void QDateTimeEdit::stepBy (  int  steps  )  [virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   virtual StepEnabled QDateTimeEdit::stepEnabled (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   virtual QString QDateTimeEdit::textFromDateTime (  const QDateTime &  dt  )  const [protected, virtual]
+
+
+
+   QTime QDateTimeEdit::time (   )  const
+
+
+
+   void QDateTimeEdit::timeChanged (  const QTime &  date  )  [signal]
+
+
+
+   virtual QValidator::State QDateTimeEdit::validate (  QString &  input,
+                                                        int &      pos
+                                                     )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   virtual void QDateTimeEdit::wheelEvent (  QWheelEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Section QDateTimeEdit::currentSection [read, write]
+
+
+
+   QDate QDateTimeEdit::date [read, write]
+
+
+
+   QDateTime QDateTimeEdit::dateTime [read, write]
+
+
+
+   Sections QDateTimeEdit::displayedSections [read]
+
+
+
+   QString QDateTimeEdit::displayFormat [read, write]
+
+
+
+   QDate QDateTimeEdit::maximumDate [read, write]
+
+
+
+   QTime QDateTimeEdit::maximumTime [read, write]
+
+
+
+   QDate QDateTimeEdit::minimumDate [read, write]
+
+
+
+   QTime QDateTimeEdit::minimumTime [read, write]
+
+
+
+   QTime QDateTimeEdit::time [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdatetimeedit.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

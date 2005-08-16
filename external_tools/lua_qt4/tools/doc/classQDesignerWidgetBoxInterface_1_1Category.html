@@ -1,0 +1,95 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+   QDesignerWidgetBoxInterface::Category
+
+                                                                                                                                                                                                                               QDesignerWidgetBoxInterface::Category Class Reference
+
+   #include <abstractwidgetbox.h>
+
+   List of all members.
+
+Public Types
+
+     * enum Type { Default, Scratchpad }
+
+Public Member Functions
+
+     * Category (const QString &aname=QString(), Type atype=Default)
+     * QString name () const
+     * void setName (const QString &aname)
+     * int widgetCount () const
+     * Widget widget (int idx) const
+     * void removeWidget (int idx)
+     * void addWidget (const Widget &awidget)
+     * Type type () const
+     * void setType (Type atype)
+     * bool isNull () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDesignerWidgetBoxInterface::Category::Type
+
+
+
+   Enumerator: 
+
+          Default   
+          Scratchpad
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesignerWidgetBoxInterface::Category::Category (  const QString &  aname = QString(),
+                                                      Type             atype = Default
+                                                   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QDesignerWidgetBoxInterface::Category::addWidget (  const Widget &  awidget  )  [inline]
+
+
+
+   bool QDesignerWidgetBoxInterface::Category::isNull (   )  const [inline]
+
+
+
+   QString QDesignerWidgetBoxInterface::Category::name (   )  const [inline]
+
+
+
+   void QDesignerWidgetBoxInterface::Category::removeWidget (  int  idx  )  [inline]
+
+
+
+   void QDesignerWidgetBoxInterface::Category::setName (  const QString &  aname  )  [inline]
+
+
+
+   void QDesignerWidgetBoxInterface::Category::setType (  Type  atype  )  [inline]
+
+
+
+   Type QDesignerWidgetBoxInterface::Category::type (   )  const [inline]
+
+
+
+   Widget QDesignerWidgetBoxInterface::Category::widget (  int  idx  )  const [inline]
+
+
+
+   int QDesignerWidgetBoxInterface::Category::widgetCount (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractwidgetbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

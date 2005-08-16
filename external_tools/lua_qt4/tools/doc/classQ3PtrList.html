@@ -1,0 +1,404 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    Q3PtrList< type > Class Template Reference
+
+   #include <q3ptrlist.h>
+
+   Inherits Q3GList.
+
+   Inherited by Q3SortedList< type >.
+
+   List of all members.
+
+Public Types
+
+     * typedef Q3PtrListStdIterator<
+       type > Iterator
+     * typedef Q3PtrListStdIterator<
+       type > ConstIterator
+     * typedef Iterator iterator
+     * typedef ConstIterator const_iterator
+
+Public Member Functions
+
+     * Q3PtrList ()
+     * Q3PtrList (const Q3PtrList< type > &l)
+     * ~Q3PtrList ()
+     * Q3PtrList< type > & operator= (const Q3PtrList< type > &l)
+     * bool operator== (const Q3PtrList< type > &list) const
+     * bool operator!= (const Q3PtrList< type > &list) const
+     * uint count () const
+     * bool isEmpty () const
+     * bool insert (uint i, const type *d)
+     * void inSort (const type *d)
+     * void prepend (const type *d)
+     * void append (const type *d)
+     * bool remove (uint i)
+     * bool remove ()
+     * bool remove (const type *d)
+     * bool removeRef (const type *d)
+     * void removeNode (Q3LNode *n)
+     * bool removeFirst ()
+     * bool removeLast ()
+     * type * take (uint i)
+     * type * take ()
+     * type * takeNode (Q3LNode *n)
+     * void clear ()
+     * void sort ()
+     * int find (const type *d)
+     * int findNext (const type *d)
+     * int findRef (const type *d)
+     * int findNextRef (const type *d)
+     * uint contains (const type *d) const
+     * uint containsRef (const type *d) const
+     * bool replace (uint i, const type *d)
+     * type * at (uint i)
+     * int at () const
+     * type * current () const
+     * Q3LNode * currentNode () const
+     * type * getFirst () const
+     * type * getLast () const
+     * type * first ()
+     * type * last ()
+     * type * next ()
+     * type * prev ()
+     * void toVector (Q3GVector *vec) const
+     * Iterator begin ()
+     * ConstIterator begin () const
+     * ConstIterator constBegin () const
+     * Iterator end ()
+     * ConstIterator end () const
+     * ConstIterator constEnd () const
+     * Iterator erase (Iterator it)
+     * template<> void deleteItem (Q3PtrCollection::Item)
+
+  template<class type>
+  class Q3PtrList< type >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<class type>
+   typedef ConstIterator Q3PtrList< type >::const_iterator
+
+
+
+   template<class type>
+   typedef Q3PtrListStdIterator<type> Q3PtrList< type >::ConstIterator
+
+
+
+   template<class type>
+   typedef Iterator Q3PtrList< type >::iterator
+
+
+
+   template<class type>
+   typedef Q3PtrListStdIterator<type> Q3PtrList< type >::Iterator
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class type>
+   Q3PtrList< type >::Q3PtrList (   )  [inline]
+
+
+
+   template<class type>
+   Q3PtrList< type >::Q3PtrList (  const Q3PtrList< type > &  l  )  [inline]
+
+
+
+   template<class type>
+   Q3PtrList< type >::~Q3PtrList (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class type>
+   void Q3PtrList< type >::append (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   int Q3PtrList< type >::at (   )  const [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   type* Q3PtrList< type >::at (  uint  i  )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   ConstIterator Q3PtrList< type >::begin (   )  const [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   Iterator Q3PtrList< type >::begin (   )  [inline]
+
+
+
+   template<class type>
+   void Q3PtrList< type >::clear (   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   ConstIterator Q3PtrList< type >::constBegin (   )  const [inline]
+
+
+
+   template<class type>
+   ConstIterator Q3PtrList< type >::constEnd (   )  const [inline]
+
+
+
+   template<class type>
+   uint Q3PtrList< type >::contains (  const type *  d  )  const [inline]
+
+
+
+   template<class type>
+   uint Q3PtrList< type >::containsRef (  const type *  d  )  const [inline]
+
+
+
+   template<class type>
+   uint Q3PtrList< type >::count (   )  const [inline, virtual]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   type* Q3PtrList< type >::current (   )  const [inline]
+
+
+
+   template<class type>
+   Q3LNode* Q3PtrList< type >::currentNode (   )  const [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<>
+   void Q3PtrList< type >::deleteItem (  Q3PtrCollection::Item  d  )  [inline]
+
+
+
+   template<class type>
+   ConstIterator Q3PtrList< type >::end (   )  const [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   Iterator Q3PtrList< type >::end (   )  [inline]
+
+
+
+   template<class type>
+   Iterator Q3PtrList< type >::erase (  Iterator  it  )  [inline]
+
+
+
+   template<class type>
+   int Q3PtrList< type >::find (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   int Q3PtrList< type >::findNext (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   int Q3PtrList< type >::findNextRef (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   int Q3PtrList< type >::findRef (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3PtrList< type >::first (   )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   type* Q3PtrList< type >::getFirst (   )  const [inline]
+
+
+
+   template<class type>
+   type* Q3PtrList< type >::getLast (   )  const [inline]
+
+
+
+   template<class type>
+   bool Q3PtrList< type >::insert (  uint          i,
+                                     const type *  d
+                                  )  [inline]
+
+
+
+   template<class type>
+   void Q3PtrList< type >::inSort (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrList< type >::isEmpty (   )  const [inline]
+
+
+
+   template<class type>
+   type* Q3PtrList< type >::last (   )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   type* Q3PtrList< type >::next (   )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   bool Q3PtrList< type >::operator!= (  const Q3PtrList< type > &  list  )  const [inline]
+
+
+
+   template<class type>
+   Q3PtrList<type>& Q3PtrList< type >::operator= (  const Q3PtrList< type > &  l  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrList< type >::operator== (  const Q3PtrList< type > &  list  )  const [inline]
+
+
+
+   template<class type>
+   void Q3PtrList< type >::prepend (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3PtrList< type >::prev (   )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   bool Q3PtrList< type >::remove (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrList< type >::remove (   )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrList< type >::remove (  uint  i  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrList< type >::removeFirst (   )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   bool Q3PtrList< type >::removeLast (   )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   void Q3PtrList< type >::removeNode (  Q3LNode *  n  )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   bool Q3PtrList< type >::removeRef (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrList< type >::replace (  uint          i,
+                                      const type *  d
+                                   )  [inline]
+
+
+
+   template<class type>
+   void Q3PtrList< type >::sort (   )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   type* Q3PtrList< type >::take (   )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   type* Q3PtrList< type >::take (  uint  i  )  [inline]
+
+
+
+   template<class type>
+   type* Q3PtrList< type >::takeNode (  Q3LNode *  n  )  [inline]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   void Q3PtrList< type >::toVector (  Q3GVector *  vec  )  const [inline]
+
+
+
+   Reimplemented from Q3GList.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3ptrlist.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

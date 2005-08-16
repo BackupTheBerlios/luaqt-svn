@@ -1,0 +1,72 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QInputContextPlugin Class Reference
+
+   #include <qinputcontextplugin.h>
+
+   Inherits QObject, and QInputContextFactoryInterface.
+
+   List of all members.
+
+Public Member Functions
+
+     * QInputContextPlugin (QObject *parent=0)
+     * ~QInputContextPlugin ()
+     * virtual QStringList keys () const =0
+     * virtual QInputContext * create (const QString &key)=0
+     * virtual QStringList languages (const QString &key)=0
+     * virtual QString displayName (const QString &key)=0
+     * virtual QString description (const QString &key)=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QInputContextPlugin::QInputContextPlugin (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QInputContextPlugin::~QInputContextPlugin (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QInputContext* QInputContextPlugin::create (  const QString &  key  )  [pure virtual]
+
+
+
+   Implements QInputContextFactoryInterface.
+
+   virtual QString QInputContextPlugin::description (  const QString &  key  )  [pure virtual]
+
+
+
+   Implements QInputContextFactoryInterface.
+
+   virtual QString QInputContextPlugin::displayName (  const QString &  key  )  [pure virtual]
+
+
+
+   Implements QInputContextFactoryInterface.
+
+   virtual QStringList QInputContextPlugin::keys (   )  const [pure virtual]
+
+
+
+   Implements QFactoryInterface.
+
+   virtual QStringList QInputContextPlugin::languages (  const QString &  key  )  [pure virtual]
+
+
+
+   Implements QInputContextFactoryInterface.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qinputcontextplugin.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

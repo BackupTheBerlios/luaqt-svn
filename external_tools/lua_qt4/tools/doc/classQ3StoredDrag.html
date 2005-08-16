@@ -1,0 +1,72 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3StoredDrag Class Reference
+
+   #include <q3dragobject.h>
+
+   Inherits Q3DragObject.
+
+   Inherited by Q3ColorDrag, and Q3UriDrag.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3StoredDrag (const char *mimeType, QWidget *dragSource=0, const char *name=0)
+     * ~Q3StoredDrag ()
+     * virtual void setEncodedData (const QByteArray &)
+     * const char * format (int i) const
+     * virtual QByteArray encodedData (const char *) const
+
+Protected Member Functions
+
+     * Q3StoredDrag (Q3StoredDragPrivate &, const char *mimeType, QWidget *dragSource=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3StoredDrag::Q3StoredDrag (  const char *  mimeType,
+                                 QWidget *     dragSource = 0,
+                                 const char *  name = 0
+                              )
+
+
+
+   Q3StoredDrag::~Q3StoredDrag (   )
+
+
+
+   Q3StoredDrag::Q3StoredDrag (  Q3StoredDragPrivate &  ,
+                                 const char *           mimeType,
+                                 QWidget *              dragSource = 0
+                              )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QByteArray Q3StoredDrag::encodedData (  const char *   )  const [virtual]
+
+
+
+   Implements QMimeSource.
+
+   const char* Q3StoredDrag::format (  int  i  )  const [virtual]
+
+
+
+   Implements QMimeSource.
+
+   virtual void Q3StoredDrag::setEncodedData (  const QByteArray &   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3dragobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

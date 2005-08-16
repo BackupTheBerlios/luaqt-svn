@@ -1,0 +1,270 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3ProgressDialog Class Reference
+
+   #include <q3progressdialog.h>
+
+   Inherits QDialog.
+
+   List of all members.
+
+Public Slots
+
+     * void cancel ()
+     * void reset ()
+     * void setTotalSteps (int totalSteps)
+     * void setProgress (int progress)
+     * void setProgress (int progress, int totalSteps)
+     * void setLabelText (const QString &)
+     * void setCancelButtonText (const QString &)
+     * void setMinimumDuration (int ms)
+
+Signals
+
+     * void canceled ()
+
+Public Member Functions
+
+     * Q3ProgressDialog (QWidget *parent, const char *name, bool modal=false, Qt::WFlags f=0)
+     * Q3ProgressDialog (const QString &labelText, const QString &cancelButtonText, int totalSteps, QWidget *parent=0, const char *name=0, bool modal=false, Qt::WFlags f=0)
+     * Q3ProgressDialog (QWidget *parent=0, Qt::WFlags f=0)
+     * Q3ProgressDialog (const QString &labelText, const QString &cancelButtonText, int totalSteps, QWidget *parent=0, Qt::WFlags f=0)
+     * ~Q3ProgressDialog ()
+     * void setLabel (QLabel *)
+     * void setCancelButton (QPushButton *)
+     * void setBar (Q3ProgressBar *)
+     * bool wasCanceled () const
+     * int totalSteps () const
+     * int progress () const
+     * QSize sizeHint () const
+     * QString labelText () const
+     * void setAutoReset (bool b)
+     * bool autoReset () const
+     * void setAutoClose (bool b)
+     * bool autoClose () const
+     * int minimumDuration () const
+
+Protected Slots
+
+     * void forceShow ()
+
+Protected Member Functions
+
+     * void resizeEvent (QResizeEvent *)
+     * void closeEvent (QCloseEvent *)
+     * void changeEvent (QEvent *)
+     * void showEvent (QShowEvent *e)
+
+Properties
+
+     * bool wasCanceled
+     * int totalSteps
+     * int progress
+     * bool autoReset
+     * bool autoClose
+     * int minimumDuration
+     * QString labelText
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ProgressDialog::Q3ProgressDialog (  QWidget *     parent,
+                                         const char *  name,
+                                         bool          modal = false,
+                                         Qt::WFlags    f = 0
+                                      )
+
+
+
+   Q3ProgressDialog::Q3ProgressDialog (  const QString &  labelText,
+                                         const QString &  cancelButtonText,
+                                         int              totalSteps,
+                                         QWidget *        parent = 0,
+                                         const char *     name = 0,
+                                         bool             modal = false,
+                                         Qt::WFlags       f = 0
+                                      )
+
+
+
+   Q3ProgressDialog::Q3ProgressDialog (  QWidget *   parent = 0,
+                                         Qt::WFlags  f = 0
+                                      )
+
+
+
+   Q3ProgressDialog::Q3ProgressDialog (  const QString &  labelText,
+                                         const QString &  cancelButtonText,
+                                         int              totalSteps,
+                                         QWidget *        parent = 0,
+                                         Qt::WFlags       f = 0
+                                      )
+
+
+
+   Q3ProgressDialog::~Q3ProgressDialog (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool Q3ProgressDialog::autoClose (   )  const
+
+
+
+   bool Q3ProgressDialog::autoReset (   )  const
+
+
+
+   void Q3ProgressDialog::cancel (   )  [slot]
+
+
+
+   void Q3ProgressDialog::canceled (   )  [signal]
+
+
+
+   void Q3ProgressDialog::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ProgressDialog::closeEvent (  QCloseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   void Q3ProgressDialog::forceShow (   )  [protected, slot]
+
+
+
+   QString Q3ProgressDialog::labelText (   )  const
+
+
+
+   int Q3ProgressDialog::minimumDuration (   )  const
+
+
+
+   int Q3ProgressDialog::progress (   )  const
+
+
+
+   void Q3ProgressDialog::reset (   )  [slot]
+
+
+
+   void Q3ProgressDialog::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   void Q3ProgressDialog::setAutoClose (  bool  b  )
+
+
+
+   void Q3ProgressDialog::setAutoReset (  bool  b  )
+
+
+
+   void Q3ProgressDialog::setBar (  Q3ProgressBar *   )
+
+
+
+   void Q3ProgressDialog::setCancelButton (  QPushButton *   )
+
+
+
+   void Q3ProgressDialog::setCancelButtonText (  const QString &   )  [slot]
+
+
+
+   void Q3ProgressDialog::setLabel (  QLabel *   )
+
+
+
+   void Q3ProgressDialog::setLabelText (  const QString &   )  [slot]
+
+
+
+   void Q3ProgressDialog::setMinimumDuration (  int  ms  )  [slot]
+
+
+
+   void Q3ProgressDialog::setProgress (  int  progress,
+                                         int  totalSteps
+                                      )  [slot]
+
+
+
+   void Q3ProgressDialog::setProgress (  int  progress  )  [slot]
+
+
+
+   void Q3ProgressDialog::setTotalSteps (  int  totalSteps  )  [slot]
+
+
+
+   void Q3ProgressDialog::showEvent (  QShowEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   QSize Q3ProgressDialog::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   int Q3ProgressDialog::totalSteps (   )  const
+
+
+
+   bool Q3ProgressDialog::wasCanceled (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3ProgressDialog::autoClose [read, write]
+
+
+
+   bool Q3ProgressDialog::autoReset [read, write]
+
+
+
+   QString Q3ProgressDialog::labelText [read, write]
+
+
+
+   int Q3ProgressDialog::minimumDuration [read, write]
+
+
+
+   int Q3ProgressDialog::progress [read, write]
+
+
+
+   int Q3ProgressDialog::totalSteps [read, write]
+
+
+
+   bool Q3ProgressDialog::wasCanceled [read]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3progressdialog.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,544 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                       QTextDocument Class Reference
+
+   The QTextDocument class holds formatted text that can be viewed and
+   edited using a QTextEdit. More...
+#include <QTextDocument>
+
+   Part of the QtGui module.
+
+   Inherits QObject.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum FindFlag { FindBackward, FindCaseSensitively, FindWholeWords
+       }
+     * flags FindFlags
+     * enum MetaInformation { DocumentTitle }
+     * enum ResourceType { HtmlResource, ImageResource, UserResource }
+
+  Properties
+
+     * defaultFont : QFont
+     * modified : bool
+     * pageSize : QSizeF
+     * undoRedoEnabled : bool
+
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QTextDocument ( QObject * parent = 0 )
+     * QTextDocument ( const QString & text, QObject * parent = 0 )
+     * ~QTextDocument ()
+     * void addResource ( int type, const QUrl & name, const QVariant &
+       resource )
+     * QVector<QTextFormat> allFormats () const
+     * QTextBlock begin () const
+     * virtual void clear ()
+     * QTextDocument * clone ( QObject * parent = 0 ) const
+     * QFont defaultFont () const
+     * QAbstractTextDocumentLayout * documentLayout () const
+     * QTextBlock end () const
+     * QTextCursor find ( const QString & expr, const QTextCursor &
+       cursor, FindFlags options = 0 ) const
+     * QTextCursor find ( const QString & expr, int position = 0,
+       FindFlags options = 0 ) const
+     * QTextBlock findBlock ( int pos ) const
+     * bool isEmpty () const
+     * bool isModified () const
+     * bool isRedoAvailable () const
+     * bool isUndoAvailable () const
+     * bool isUndoRedoEnabled () const
+     * void markContentsDirty ( int position, int length )
+     * QString metaInformation ( MetaInformation info ) const
+     * QTextObject * object ( int objectIndex ) const
+     * QTextObject * objectForFormat ( const QTextFormat & f ) const
+     * int pageCount () const
+     * QSizeF pageSize () const
+     * void print ( QPrinter * printer ) const
+     * QVariant resource ( int type, const QUrl & name ) const
+     * QTextFrame * rootFrame () const
+     * void setDefaultFont ( const QFont & font )
+     * void setDocumentLayout ( QAbstractTextDocumentLayout * layout )
+     * void setHtml ( const QString & html )
+     * void setMetaInformation ( MetaInformation info, const QString &
+       string )
+     * void setPageSize ( const QSizeF & size )
+     * void setPlainText ( const QString & text )
+     * void setUndoRedoEnabled ( bool enable )
+     * QString toHtml ( const QByteArray & encoding = QByteArray() )
+       const
+     * QString toPlainText () const
+
+     * 28 public functions inherited from QObject
+
+  Public Slots
+
+     * void redo ()
+     * void setModified ( bool m = true )
+     * void undo ()
+
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void contentsChange ( int position, int charsRemoved, int
+       charsAdded )
+     * void contentsChanged ()
+     * void cursorPositionChanged ( const QTextCursor & cursor )
+     * void modificationChanged ( bool changed )
+     * void redoAvailable ( bool available )
+     * void undoAvailable ( bool available )
+
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * virtual QTextObject * createObject ( const QTextFormat & format )
+     * virtual QVariant loadResource ( int type, const QUrl & name )
+
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QTextDocument class holds formatted text that can be viewed and
+   edited using a QTextEdit.
+
+   QTextDocument is a container for structured rich text documents,
+   providing support for styled text and various types of document
+   elements, such as lists, tables, frames, and images. They can be
+   created for use in a QTextEdit, or used independently.
+
+   Each document element is described by an associated format object.
+   Each format object is treated as a unique object by QTextDocuments,
+   and can be passed to objectForFormat() to obtain the document element
+   that it is applied to.
+
+   A QTextDocument can be edited programmatically using a QTextCursor,
+   and its contents can be examined by traversing the document structure.
+   The entire document structure is stored as a hierarchy of document
+   elements beneath the root frame, found with the rootFrame() function.
+   Alternatively, if you just want to iterate over the textual contents
+   of the document you can use begin(), end(), and findBlock() to
+   retrieve text blocks that you can examine and iterate over.
+
+   The layout of a document is determined by the documentLayout(); you
+   can create your own QAbstractTextDocumentLayout subclass and set it
+   using setDocumentLayout() if you want to use your own layout logic.
+   The document's title can be obtained by calling the documentTitle()
+   function.
+
+   The toPlainText() and toHtml() convenience functions allow you to
+   retrieve the contents of the document as plain text and HTML. The
+   document's text can be searched using the find() functions.
+
+   Undo/redo of operations performed on the document can be controlled
+   using the setUndoRedoEnabled() function. The undo/redo system can be
+   controlled by an editor widget through the undo() and redo() slots;
+   the document also provides contentsChanged(), undoAvailable(), and
+   redoAvailable() signals that inform connected editor widgets about the
+   state of the undo/redo system.
+
+   See also QTextCursor, QTextEdit, and Rich Text Processing.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QTextDocument::FindFlag
+  flags QTextDocument::FindFlags
+
+   This enum describes the options available to QTextDocument's find
+   function. The options can be OR-red together from the following list:
+
+   Constant Value Description
+   QTextDocument::FindBackward 0x00001
+   QTextDocument::FindCaseSensitively 0x00002 By default find works case
+   insensitive. Specifying this option changes the behaviour to a case
+   sensitive find operation.
+   QTextDocument::FindWholeWords 0x00004 Makes find match only complete
+   words.
+
+   The FindFlags type is a typedef for QFlags<FindFlag>. It stores an OR
+   combination of FindFlag values.
+
+  enum QTextDocument::MetaInformation
+
+   This enum describes the different types of meta information that can
+   be added to a document.
+
+             Constant           Value        Description
+   QTextDocument::DocumentTitle   0   The title of the document.
+
+   See also metaInformation() and setMetaInformation().
+
+  enum QTextDocument::ResourceType
+
+   This enum describes the types of resources that can be loaded by
+   QTextDocument's loadResource() function.
+
+   Constant Value Description
+   QTextDocument::HtmlResource 1 The resource contains HTML.
+   QTextDocument::ImageResource 2 The resource contains image data.
+   QTextDocument::UserResource 100 The first available value for user
+   defined resource types.
+
+   See also loadResource().
+     _________________________________________________________________
+
+Property Documentation
+
+  defaultFont : QFont
+
+   This property holds the default font used to display the document's
+   text.
+
+   Access functions:
+     * QFont defaultFont () const
+     * void setDefaultFont ( const QFont & font )
+
+  modified : bool
+
+   This property holds whether the document has been modified by the
+   user.
+
+   Access functions:
+     * bool isModified () const
+     * void setModified ( bool m = true )
+
+   See also modificationChanged().
+
+  pageSize : QSizeF
+
+   This property holds the page size that should be used for layouting
+   the document.
+
+   Access functions:
+     * QSizeF pageSize () const
+     * void setPageSize ( const QSizeF & size )
+
+   See also modificationChanged().
+
+  undoRedoEnabled : bool
+
+   This property holds whether undo/redo are enabled for this document.
+
+   This defaults to true. If disabled, the undo stack is cleared and no
+   items will be added to it.
+
+   Access functions:
+     * bool isUndoRedoEnabled () const
+     * void setUndoRedoEnabled ( bool enable )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QTextDocument::QTextDocument ( QObject * parent = 0 )
+
+   Constructs an empty QTextDocument with the given parent.
+
+  QTextDocument::QTextDocument ( const QString & text, QObject * parent = 0 )
+
+   Constructs a QTextDocument containing the plain (unformatted) text
+   specified, and with the given parent.
+
+  QTextDocument::~QTextDocument ()
+
+   Destroys the document.
+
+  void QTextDocument::addResource ( int type, const QUrl & name, const QVariant
+  & resource )
+
+   Adds the resource resource to the resource cache, using type and name
+   as identifiers.
+
+  QVector<QTextFormat> QTextDocument::allFormats () const
+
+   Returns a vector of text formats for all the formats used in the
+   document.
+
+  QTextBlock QTextDocument::begin () const
+
+   Returns the document's first text block.
+
+  void QTextDocument::clear ()   [virtual]
+
+   Clears the document.
+
+  QTextDocument * QTextDocument::clone ( QObject * parent = 0 ) const
+
+   Creates a new QTextDocument that is a copy of this text document.
+   parent is the parent of the returned text document.
+
+  void QTextDocument::contentsChange ( int position, int charsRemoved, int
+  charsAdded )   [signal]
+
+   This signal is emitted whenever the document's content changes; for
+   example, when text is inserted or deleted, or when formatting is
+   applied.
+
+   Information is provided about the position of the character in the
+   document where the change occurred, the number of characters removed
+   (charsRemoved), and the number of characters added (charsAdded).
+
+   The signal is emitted before the document's layout manager is notified
+   about the change. This hook allows you to implement syntax
+   highlighting for the document.
+
+   See also QAbstractTextDocumentLayout::documentChanged() and
+   contentsChanged().
+
+  void QTextDocument::contentsChanged ()   [signal]
+
+   This signal is emitted whenever the document's content changes; for
+   example, when text is inserted or deleted, or when formatting is
+   applied.
+
+   See also contentsChange().
+
+  QTextObject * QTextDocument::createObject ( const QTextFormat & format )
+  [virtual protected]
+
+   Creates and returns a new document object (a QTextObject), based on
+   the given format.
+
+   QTextObjects will always get created through this method, so you must
+   reimplement it if you use custom text objects inside your document.
+
+  void QTextDocument::cursorPositionChanged ( const QTextCursor & cursor )
+  [signal]
+
+   This signal is emitted whenever the position of a cursor changed due
+   to an editing operation. The cursor that changed is passed in cursor.
+
+  QAbstractTextDocumentLayout * QTextDocument::documentLayout () const
+
+   Returns the document layout for this document.
+
+  QTextBlock QTextDocument::end () const
+
+   Returns the document's last text block.
+
+  QTextCursor QTextDocument::find ( const QString & expr, const QTextCursor &
+  cursor, FindFlags options = 0 ) const
+
+   Finds the next occurrence of the string, expr, in the document. The
+   search starts at the position of the given cursor, and proceeds
+   forwards through the document unless specified otherwise in the search
+   options. The options control the type of search performed.
+
+   Returns a cursor with the match selected if expr was found; otherwise
+   returns a null cursor.
+
+   If the given cursor has a selection, the search begins after the
+   selection; otherwise it begins at the cursor's position.
+
+   By default the search is case-sensitive, and can match text anywhere
+   in the document.
+
+  QTextCursor QTextDocument::find ( const QString & expr, int position = 0,
+  FindFlags options = 0 ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Finds the next occurrence of the string, expr, in the document. The
+   search starts at the given position, and proceeds forwards through the
+   document unless specified otherwise in the search options. The options
+   control the type of search performed.
+
+   Returns a cursor with the match selected if expr was found; otherwise
+   returns a null cursor.
+
+   If the position is 0 (the default) the search begins from the
+   beginning of the document; otherwise it begins at the specified
+   position.
+
+  QTextBlock QTextDocument::findBlock ( int pos ) const
+
+   Returns the text block that contains the pos-th character.
+
+  bool QTextDocument::isEmpty () const
+
+   Returns true if the document is empty; otherwise returns false.
+
+  bool QTextDocument::isRedoAvailable () const
+
+   Returns true is redo is available; otherwise returns false.
+
+  bool QTextDocument::isUndoAvailable () const
+
+   Returns true is undo is available; otherwise returns false.
+
+  QVariant QTextDocument::loadResource ( int type, const QUrl & name )
+  [virtual protected]
+
+   Loads data of the specified type from the resource with the given
+   name.
+
+   This function is called by the rich text engine to request data that
+   isn't directly stored by QTextDocument, but still associated with it.
+   For example, images are referenced indirectly by the name attribute of
+   a QTextImageFormat object.
+
+   When called by Qt, type is one of the values of
+   QTextDocument::ResourceType.
+
+   If the QTextDocument is a child object of a QTextEdit, QTextBrowser,
+   or a QTextDocument itself then the default implementation tries to
+   retrieve the data from the parent.
+
+  void QTextDocument::markContentsDirty ( int position, int length )
+
+   Marks the contents specified by the given position and length as
+   "dirty", informing the document that it needs to be layed out again.
+
+  QString QTextDocument::metaInformation ( MetaInformation info ) const
+
+   Returns meta information about the document of the type specified by
+   info.
+
+   See also setMetaInformation().
+
+  void QTextDocument::modificationChanged ( bool changed )   [signal]
+
+   This signal is emitted whenever the content of the document changes in
+   a way that affects the modification state. If changed is true if the
+   document has been modified; otherwise it is false.
+
+   For example calling setModified(false) on a document and then
+   inserting text causes the signal to get emitted. If you undo that
+   operation, causing the document to return to its original unmodified
+   state, the signal will get emitted again.
+
+  QTextObject * QTextDocument::object ( int objectIndex ) const
+
+   Returns the text object associated with the given objectIndex.
+
+  QTextObject * QTextDocument::objectForFormat ( const QTextFormat & f ) const
+
+   Returns the text object associated with the format f.
+
+  int QTextDocument::pageCount () const
+
+   returns the number of pages in this document.
+
+  void QTextDocument::print ( QPrinter * printer ) const
+
+   Prints the document to the given printer. The QPrinter must be set up
+   before being used with this function.
+
+   This is only a convenience method to print the whole document to the
+   printer.
+
+  void QTextDocument::redo ()   [slot]
+
+   Redoes the last editing operation on the document if redo is
+   available.
+
+  void QTextDocument::redoAvailable ( bool available )   [signal]
+
+   This signal is emitted whenever redo operations become available
+   (available is true) or unavailable (available is false).
+
+  QVariant QTextDocument::resource ( int type, const QUrl & name ) const
+
+   Returns data of the specified type from the resource with the given
+   name.
+
+   This function is called by the rich text engine to request data that
+   isn't directly stored by QTextDocument, but still associated with it.
+   For example, images are referenced indirectly by the name attribute of
+   a QTextImageFormat object.
+
+   Resources are cached internally in the document. If a resource can not
+   be found in the cache, loadResource is called to try to load the
+   resource. loadResource should then use addResource to add the resource
+   to the cache.
+
+  QTextFrame * QTextDocument::rootFrame () const
+
+   Returns the document's root frame.
+
+  void QTextDocument::setDocumentLayout ( QAbstractTextDocumentLayout * layout
+  )
+
+   Sets the document to use the given layout. The previous layout is
+   deleted.
+
+  void QTextDocument::setHtml ( const QString & html )
+
+   Replaces the entire contents of the document with the given
+   HTML-formatted text in the html string.
+
+   The HTML formatting is respected as much as possible; for example,
+   "<b>bold</b> text" will produce text where the first word has a font
+   weight that gives it a bold appearance: "bold text".
+
+   See also setPlainText().
+
+  void QTextDocument::setMetaInformation ( MetaInformation info, const QString
+  & string )
+
+   Sets the document's meta information of the type specified by info to
+   the given string.
+
+   See also metaInformation().
+
+  void QTextDocument::setPlainText ( const QString & text )
+
+   Replaces the entire contents of the document with the given plain
+   text.
+
+   See also setHtml().
+
+  QString QTextDocument::toHtml ( const QByteArray & encoding = QByteArray() )
+  const
+
+   Returns a string containing an HTML representation of the document.
+
+   The encoding parameter specifies the value for the charset attribute
+   in the html header. For example if 'utf-8' is specified then the
+   beginning of the generated html will look like this:
+    <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf
+-8"></head><body>...
+
+   If no encoding is specified then no such meta information is
+   generated.
+
+   If you later on convert the returned html string into a byte array for
+   transmission over a network or when saving to disk you should specify
+   the encoding you're going to use for the conversion to a byte array
+   here.
+
+  QString QTextDocument::toPlainText () const
+
+   Returns the plain text contained in the document. If you want
+   formatting information use a QTextCursor instead.
+
+   See also toHtml().
+
+  void QTextDocument::undo ()   [slot]
+
+   Undoes the last editing operation on the document if undo is
+   available.
+
+  void QTextDocument::undoAvailable ( bool available )   [signal]
+
+   This signal is emitted whenever undo operations become available
+   (available is true) or unavailable (available is false).
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

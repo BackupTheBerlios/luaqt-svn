@@ -1,0 +1,28 @@
+$pfile "lua_qt4/qt_defines.pkg"
+
+$#include "lua_qt_helpers.h"
+
+$ifile "lua_qt4/qnamespace.pkg",qns
+
+// these are all defined in the QtCore module
+class QEvent {
+
+	enum Type {
+		DragMove,
+		Drop,
+	};
+};
+
+class QDir {
+
+	typedef LuaQtGenericFlags SortFlags;
+	
+	typedef LuaQtGenericFlags Filters;
+};
+
+$ifile "lua_qt4/QtGui_headers.pkg",qt
+
+class QAccessibleWidget {
+
+	TOLUA_PROTECTED_DESTRUCTOR;
+};

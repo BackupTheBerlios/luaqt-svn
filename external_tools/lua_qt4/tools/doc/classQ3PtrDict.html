@@ -1,0 +1,146 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    Q3PtrDict< type > Class Template Reference
+
+   #include <q3ptrdict.h>
+
+   Inherits Q3GDict.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3PtrDict (int size=17)
+     * Q3PtrDict (const Q3PtrDict< type > &d)
+     * ~Q3PtrDict ()
+     * Q3PtrDict< type > & operator= (const Q3PtrDict< type > &d)
+     * uint count () const
+     * uint size () const
+     * bool isEmpty () const
+     * void insert (void *k, const type *d)
+     * void replace (void *k, const type *d)
+     * bool remove (void *k)
+     * type * take (void *k)
+     * type * find (void *k) const
+     * type * operator[] (void *k) const
+     * void clear ()
+     * void resize (uint n)
+     * void statistics () const
+     * template<> void deleteItem (Q3PtrCollection::Item)
+
+  template<class type>
+  class Q3PtrDict< type >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class type>
+   Q3PtrDict< type >::Q3PtrDict (  int  size = 17  )  [inline]
+
+
+
+   template<class type>
+   Q3PtrDict< type >::Q3PtrDict (  const Q3PtrDict< type > &  d  )  [inline]
+
+
+
+   template<class type>
+   Q3PtrDict< type >::~Q3PtrDict (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class type>
+   void Q3PtrDict< type >::clear (   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   uint Q3PtrDict< type >::count (   )  const [inline, virtual]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<>
+   void Q3PtrDict< type >::deleteItem (  Q3PtrCollection::Item  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3PtrDict< type >::find (  void *  k  )  const [inline]
+
+
+
+   template<class type>
+   void Q3PtrDict< type >::insert (  void *        k,
+                                     const type *  d
+                                  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrDict< type >::isEmpty (   )  const [inline]
+
+
+
+   template<class type>
+   Q3PtrDict<type>& Q3PtrDict< type >::operator= (  const Q3PtrDict< type > &  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3PtrDict< type >::operator[] (  void *  k  )  const [inline]
+
+
+
+   template<class type>
+   bool Q3PtrDict< type >::remove (  void *  k  )  [inline]
+
+
+
+   template<class type>
+   void Q3PtrDict< type >::replace (  void *        k,
+                                      const type *  d
+                                   )  [inline]
+
+
+
+   template<class type>
+   void Q3PtrDict< type >::resize (  uint  n  )  [inline]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   uint Q3PtrDict< type >::size (   )  const [inline]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   void Q3PtrDict< type >::statistics (   )  const [inline]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   type* Q3PtrDict< type >::take (  void *  k  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3ptrdict.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,137 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTextFrame Class Reference
+
+   #include <qtextobject.h>
+
+   Inherits QTextObject.
+
+   Inherited by QTextTable.
+
+   List of all members.
+
+Public Types
+
+     * typedef iterator Iterator
+
+Public Member Functions
+
+     * QTextFrame (QTextDocument *doc)
+     * ~QTextFrame ()
+     * void setFrameFormat (const QTextFrameFormat &format)
+     * QTextFrameFormat frameFormat () const
+     * QTextCursor firstCursorPosition () const
+     * QTextCursor lastCursorPosition () const
+     * int firstPosition () const
+     * int lastPosition () const
+     * QTextFrameLayoutData * layoutData () const
+     * void setLayoutData (QTextFrameLayoutData *data)
+     * QList< QTextFrame * > childFrames () const
+     * QTextFrame * parentFrame () const
+     * iterator begin () const
+     * iterator end () const
+
+Protected Member Functions
+
+     * QTextFrame (QTextFramePrivate &p, QTextDocument *doc)
+
+Friends
+
+     * class QTextDocumentPrivate
+
+Classes
+
+     * class iterator
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef iterator QTextFrame::Iterator
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextFrame::QTextFrame (  QTextDocument *  doc  )  [explicit]
+
+
+
+   QTextFrame::~QTextFrame (   )
+
+
+
+   QTextFrame::QTextFrame (  QTextFramePrivate &  p,
+                             QTextDocument *      doc
+                          )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   iterator QTextFrame::begin (   )  const
+
+
+
+   QList<QTextFrame *> QTextFrame::childFrames (   )  const
+
+
+
+   iterator QTextFrame::end (   )  const
+
+
+
+   QTextCursor QTextFrame::firstCursorPosition (   )  const
+
+
+
+   int QTextFrame::firstPosition (   )  const
+
+
+
+   QTextFrameFormat QTextFrame::frameFormat (   )  const [inline]
+
+
+
+   QTextCursor QTextFrame::lastCursorPosition (   )  const
+
+
+
+   int QTextFrame::lastPosition (   )  const
+
+
+
+   QTextFrameLayoutData* QTextFrame::layoutData (   )  const
+
+
+
+   QTextFrame* QTextFrame::parentFrame (   )  const
+
+
+
+   void QTextFrame::setFrameFormat (  const QTextFrameFormat &  format  )  [inline]
+
+
+
+   void QTextFrame::setLayoutData (  QTextFrameLayoutData *  data  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextDocumentPrivate [friend]
+
+
+
+   Reimplemented from QTextObject.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,245 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QMenuBar Class Reference
+
+   The QMenuBar class provides a horizontal menu bar. More...
+#include <QMenuBar>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * defaultUp : bool
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QMenuBar ( QWidget * parent = 0 )
+     * ~QMenuBar ()
+     * QAction * activeAction () const
+     * QAction * addAction ( const QString & text )
+     * QAction * addAction ( const QString & text, const QObject *
+       receiver, const char * member )
+     * QAction * addMenu ( QMenu * menu )
+     * QMenu * addMenu ( const QString & title )
+     * QMenu * addMenu ( const QIcon & icon, const QString & title )
+     * QAction * addSeparator ()
+     * void clear ()
+     * QAction * insertMenu ( QAction * before, QMenu * menu )
+     * bool isDefaultUp () const
+     * void setDefaultUp ( bool )
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Signals
+
+     * void hovered ( QAction * action )
+     * void triggered ( QAction * action )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QMenuBar class provides a horizontal menu bar.
+
+   A menu bar consists of a list of pull-down menu items. You add menu
+   items with addMenu(). For example, asuming that menubar is a pointer
+   to a QMenuBar and fileMenu is a pointer to a QMenu, the following
+   statement inserts the menu into the menu bar:
+    menubar->addMenu(fileMenu);
+
+   The ampersand in the menu item's text sets Alt+F as a shortcut for
+   this menu. (You can use "&&" to get a real ampersand in the menu bar.)
+
+   There is no need to lay out a menu bar. It automatically sets its own
+   geometry to the top of the parent widget and changes it appropriately
+   whenever the parent is resized.
+
+   In most main window style applications you would use the menuBar()
+   provided in QMainWindow, adding QMenus to the menu bar and adding
+   QActions to the popup menus.
+
+   Example (from the Menus example):
+        fileMenu = menuBar()->addMenu(tr("&File"));
+        fileMenu->addAction(newAct);
+
+   Menu items may be removed with removeAction().
+
+   Screenshot in Motif style Screenshot in Windows style
+
+  QMenuBar on Qt/Mac
+
+   QMenuBar on Qt/Mac is a wrapper for using the system-wide menubar. If
+   you have multiple menubars in one dialog the outermost menubar
+   (normally inside a widget with widget flag Qt::Window) will be used
+   for the system-wide menubar.
+
+   Qt/Mac also provides a menubar merging feature to make QMenuBar
+   conform more closely to accepted Mac OS X menubar layout. The merging
+   functionality is based on string matching the title of a QMenu entry.
+   These strings are translated (using QObject::tr()) in the "QMenuBar"
+   context. If an entry is moved its slots will still fire as if it was
+   in the original place. The table below outlines the strings looked for
+   and where the entry is placed if matched:
+
+                       String matches Placement Notes
+    about.* Application Menu | About <application name> If this entry is
+        not found no About item will appear in the Application Menu
+     config, options, setup, settings or preferences Application Menu |
+      Preferences If this entry is not found the Settings item will be
+                                  disabled
+   quit or exit Application Menu | Quit <application name> If this entry
+          is not found a default Quit item will be created to call
+                            QApplication::quit()
+
+   The Menus example shows how to use QMenuBar and QMenu.
+
+   See also QMenu, QShortcut, QAction, Aqua Style Guidelines, and GUI
+   Design Handbook: Menu Bar.
+     _________________________________________________________________
+
+Property Documentation
+
+  defaultUp : bool
+
+   This property holds the popup orientation.
+
+   The default popup orientation. By default, menus pop "down" the
+   screen. By setting the property to true, the menu will pop "up". You
+   might call this for menus that are below the document to which they
+   refer.
+
+   If the menu would not fit on the screen, the other direction is used
+   automatically.
+
+   Access functions:
+     * bool isDefaultUp () const
+     * void setDefaultUp ( bool )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QMenuBar::QMenuBar ( QWidget * parent = 0 )
+
+   Constructs a menu bar with parent parent.
+
+  QMenuBar::~QMenuBar ()
+
+   Destroys the menu bar.
+
+  QAction * QMenuBar::activeAction () const
+
+   Returns the QAction that is currently highlighted. A null pointer will
+   be returned if no action is currently selected.
+
+  QAction * QMenuBar::addAction ( const QString & text )
+
+   This convenience function creates a new action with text. The function
+   adds the newly created action to the menu's list of actions, and
+   returns it.
+
+   See also QWidget::addAction().
+
+  QAction * QMenuBar::addAction ( const QString & text, const QObject *
+  receiver, const char * member )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   This convenience function creates a new action with the given text.
+   The action's triggered() signal is connected to the receiver's member
+   slot. The function adds the newly created action to the menu's list of
+   actions and returns it.
+
+   See also QWidget::addAction().
+
+  QAction * QMenuBar::addMenu ( QMenu * menu )
+
+   Appends menu to the menubar. Returns the menu's menuAction().
+
+   See also QWidget::addAction() and QMenu::menuAction().
+
+  QMenu * QMenuBar::addMenu ( const QString & title )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends a new QMenu with title to the menubar. The menubar takes
+   ownership of the menu. Returns the new menu.
+
+   See also QWidget::addAction() and QMenu::menuAction().
+
+  QMenu * QMenuBar::addMenu ( const QIcon & icon, const QString & title )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends a new QMenu with icon and title to the menubar. The menubar
+   takes ownership of the menu. Returns the new menu.
+
+   See also QWidget::addAction() and QMenu::menuAction().
+
+  QAction * QMenuBar::addSeparator ()
+
+   Appends a separator to the menu.
+
+  void QMenuBar::clear ()
+
+   Removes all the actions from the menu bar.
+
+   See also removeAction().
+
+  void QMenuBar::hovered ( QAction * action )   [signal]
+
+   This signal is emitted when a menu action is highlighted; action is
+   the action that caused the event to be sent.
+
+   Often this is used to update status information.
+
+   See also triggered() and QAction::hovered().
+
+  QAction * QMenuBar::insertMenu ( QAction * before, QMenu * menu )
+
+   This convenience function inserts menu before action before and
+   returns the menus menuAction().
+
+   See also QWidget::insertAction() and addMenu().
+
+  void QMenuBar::triggered ( QAction * action )   [signal]
+
+   This signal is emitted when a menu action is selected; action is the
+   action that caused the event to be sent.
+
+   Normally, you connect each menu action to a single slot using
+   QAction::triggered(), but sometimes you will want to connect several
+   items to a single slot (most often if the user selects from an array).
+   This signal is useful in such cases.
+
+   See also hovered() and QAction::triggered().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,96 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QHBoxLayout Class Reference
+
+   The QHBoxLayout class lines up widgets horizontally. More...
+#include <QHBoxLayout>
+
+   Part of the QtGui module.
+
+   Inherits QBoxLayout.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QHBoxLayout ()
+     * QHBoxLayout ( QWidget * parent )
+     * ~QHBoxLayout ()
+
+     * 22 public functions inherited from QBoxLayout
+     * 29 public functions inherited from QLayout
+     * 28 public functions inherited from QObject
+     * 16 public functions inherited from QLayoutItem
+
+  Additional Inherited Members
+
+     * 3 properties inherited from QLayout
+     * 1 property inherited from QObject
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QObject
+     * 1 static public member inherited from QLayout
+     * 4 static public members inherited from QObject
+     * 1 protected function inherited from QBoxLayout
+     * 3 protected functions inherited from QLayout
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QHBoxLayout class lines up widgets horizontally.
+
+   This class is used to construct horizontal box layout objects. See
+   QBoxLayout for details.
+
+   The simplest use of the class is like this:
+        QWidget *window = new QWidget;
+        QPushButton *button1 = new QPushButton("One");
+        QPushButton *button2 = new QPushButton("Two");
+        QPushButton *button3 = new QPushButton("Three");
+        QPushButton *button4 = new QPushButton("Four");
+        QPushButton *button5 = new QPushButton("Five");
+
+        QHBoxLayout *layout = new QHBoxLayout;
+        layout->addWidget(button1);
+        layout->addWidget(button2);
+        layout->addWidget(button3);
+        layout->addWidget(button4);
+        layout->addWidget(button5);
+
+        window->setLayout(layout);
+        window->show();
+
+   First, we create the widgets we want in the layout. Then, we create
+   the QHBoxLayout object and add the widgets into the layout. Finally,
+   we call QWidget::setLayout() to install the QHBoxLayout object onto
+   the widget. At that point, the widgets in the layout are reparented to
+   have window as their parent.
+
+               Horizontal box layout with five child widgets
+
+   See also QVBoxLayout, QGridLayout, QStackedLayout, and Layout Classes.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QHBoxLayout::QHBoxLayout ()
+
+   Constructs a new horizontal box. You must add it to another layout.
+
+  QHBoxLayout::QHBoxLayout ( QWidget * parent )
+
+   Constructs a new top-level horizontal box with parent parent.
+
+  QHBoxLayout::~QHBoxLayout ()
+
+   Destroys this box layout.
+
+   The layout's widgets aren't destroyed.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

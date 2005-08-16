@@ -1,0 +1,538 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QColor Class Reference
+
+   #include <qcolor.h>
+
+   List of all members.
+
+Public Types
+
+     * enum Spec { Invalid, Rgb, Hsv, Cmyk }
+
+Public Member Functions
+
+     * QColor ()
+     * QColor (Qt::GlobalColor color)
+     * QColor (int r, int g, int b, int a=255)
+     * QColor (QRgb rgb)
+     * QColor (const QString &name)
+     * QColor (const char *name)
+     * QColor (const QColor &color)
+     * bool isValid () const
+     * QString name () const
+     * void setNamedColor (const QString &name)
+     * Spec spec () const
+     * int alpha () const
+     * void setAlpha (int alpha)
+     * qreal alphaF () const
+     * void setAlphaF (qreal alpha)
+     * int red () const
+     * int green () const
+     * int blue () const
+     * void setRed (int red)
+     * void setGreen (int green)
+     * void setBlue (int blue)
+     * qreal redF () const
+     * qreal greenF () const
+     * qreal blueF () const
+     * void setRedF (qreal red)
+     * void setGreenF (qreal green)
+     * void setBlueF (qreal blue)
+     * void getRgb (int *r, int *g, int *b, int *a=0) const
+     * void setRgb (int r, int g, int b, int a=255)
+     * void getRgbF (qreal *r, qreal *g, qreal *b, qreal *a=0) const
+     * void setRgbF (qreal r, qreal g, qreal b, qreal a=1.0)
+     * QRgb rgba () const
+     * void setRgba (QRgb rgba)
+     * QRgb rgb () const
+     * void setRgb (QRgb rgb)
+     * int hue () const
+     * int saturation () const
+     * int value () const
+     * qreal hueF () const
+     * qreal saturationF () const
+     * qreal valueF () const
+     * void getHsv (int *h, int *s, int *v, int *a=0) const
+     * void setHsv (int h, int s, int v, int a=255)
+     * void getHsvF (qreal *h, qreal *s, qreal *v, qreal *a=0) const
+     * void setHsvF (qreal h, qreal s, qreal v, qreal a=1.0)
+     * int cyan () const
+     * int magenta () const
+     * int yellow () const
+     * int black () const
+     * qreal cyanF () const
+     * qreal magentaF () const
+     * qreal yellowF () const
+     * qreal blackF () const
+     * void getCmyk (int *c, int *m, int *y, int *k, int *a=0)
+     * void setCmyk (int c, int m, int y, int k, int a=255)
+     * void getCmykF (qreal *c, qreal *m, qreal *y, qreal *k, qreal *a=0)
+     * void setCmykF (qreal c, qreal m, qreal y, qreal k, qreal a=1.0)
+     * QColor toRgb () const
+     * QColor toHsv () const
+     * QColor toCmyk () const
+     * QColor convertTo (Spec colorSpec) const
+     * QColor light (int f=150) const
+     * QColor dark (int f=200) const
+     * QColor & operator= (const QColor &)
+     * QColor & operator= (Qt::GlobalColor color)
+     * bool operator== (const QColor &c) const
+     * bool operator!= (const QColor &c) const
+     * operator QVariant () const
+
+Static Public Member Functions
+
+     * static QStringList colorNames ()
+     * static QColor fromRgb (QRgb rgb)
+     * static QColor fromRgba (QRgb rgba)
+     * static QColor fromRgb (int r, int g, int b, int a=255)
+     * static QColor fromRgbF (qreal r, qreal g, qreal b, qreal a=1.0)
+     * static QColor fromHsv (int h, int s, int v, int a=255)
+     * static QColor fromHsvF (qreal h, qreal s, qreal v, qreal a=1.0)
+     * static QColor fromCmyk (int c, int m, int y, int k, int a=255)
+     * static QColor fromCmykF (qreal c, qreal m, qreal y, qreal k, qreal a=1.0)
+
+Friends
+
+     * class QColormap
+     * Q_GUI_EXPORT QDataStream & operator<< (QDataStream &, const QColor &)
+     * Q_GUI_EXPORT QDataStream & operator>> (QDataStream &, QColor &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QColor::Spec
+
+
+
+   Enumerator: 
+
+          Invalid
+          Rgb    
+          Hsv    
+          Cmyk   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QColor::QColor (   )  [inline]
+
+
+
+   QColor::QColor (  Qt::GlobalColor  color  )
+
+
+
+   QColor::QColor (  int  r,
+                     int  g,
+                     int  b,
+                     int  a = 255
+                  )  [inline]
+
+
+
+   QColor::QColor (  QRgb  rgb  )
+
+
+
+   QColor::QColor (  const QString &  name  )  [inline]
+
+
+
+   QColor::QColor (  const char *  name  )  [inline]
+
+
+
+   QColor::QColor (  const QColor &  color  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QColor::alpha (   )  const
+
+
+
+   qreal QColor::alphaF (   )  const
+
+
+
+   int QColor::black (   )  const
+
+
+
+   qreal QColor::blackF (   )  const
+
+
+
+   int QColor::blue (   )  const
+
+
+
+   qreal QColor::blueF (   )  const
+
+
+
+   static QStringList QColor::colorNames (   )  [static]
+
+
+
+   QColor QColor::convertTo (  Spec  colorSpec  )  const
+
+
+
+   int QColor::cyan (   )  const
+
+
+
+   qreal QColor::cyanF (   )  const
+
+
+
+   QColor QColor::dark (  int  f = 200  )  const
+
+
+
+   static QColor QColor::fromCmyk (  int  c,
+                                     int  m,
+                                     int  y,
+                                     int  k,
+                                     int  a = 255
+                                  )  [static]
+
+
+
+   static QColor QColor::fromCmykF (  qreal  c,
+                                      qreal  m,
+                                      qreal  y,
+                                      qreal  k,
+                                      qreal  a = 1.0
+                                   )  [static]
+
+
+
+   static QColor QColor::fromHsv (  int  h,
+                                    int  s,
+                                    int  v,
+                                    int  a = 255
+                                 )  [static]
+
+
+
+   static QColor QColor::fromHsvF (  qreal  h,
+                                     qreal  s,
+                                     qreal  v,
+                                     qreal  a = 1.0
+                                  )  [static]
+
+
+
+   static QColor QColor::fromRgb (  int  r,
+                                    int  g,
+                                    int  b,
+                                    int  a = 255
+                                 )  [static]
+
+
+
+   static QColor QColor::fromRgb (  QRgb  rgb  )  [static]
+
+
+
+   static QColor QColor::fromRgba (  QRgb  rgba  )  [static]
+
+
+
+   static QColor QColor::fromRgbF (  qreal  r,
+                                     qreal  g,
+                                     qreal  b,
+                                     qreal  a = 1.0
+                                  )  [static]
+
+
+
+   void QColor::getCmyk (  int *  c,
+                           int *  m,
+                           int *  y,
+                           int *  k,
+                           int *  a = 0
+                        )
+
+
+
+   void QColor::getCmykF (  qreal *  c,
+                            qreal *  m,
+                            qreal *  y,
+                            qreal *  k,
+                            qreal *  a = 0
+                         )
+
+
+
+   void QColor::getHsv (  int *  h,
+                          int *  s,
+                          int *  v,
+                          int *  a = 0
+                       )  const
+
+
+
+   void QColor::getHsvF (  qreal *  h,
+                           qreal *  s,
+                           qreal *  v,
+                           qreal *  a = 0
+                        )  const
+
+
+
+   void QColor::getRgb (  int *  r,
+                          int *  g,
+                          int *  b,
+                          int *  a = 0
+                       )  const
+
+
+
+   void QColor::getRgbF (  qreal *  r,
+                           qreal *  g,
+                           qreal *  b,
+                           qreal *  a = 0
+                        )  const
+
+
+
+   int QColor::green (   )  const
+
+
+
+   qreal QColor::greenF (   )  const
+
+
+
+   int QColor::hue (   )  const
+
+
+
+   qreal QColor::hueF (   )  const
+
+
+
+   bool QColor::isValid (   )  const [inline]
+
+
+
+   QColor QColor::light (  int  f = 150  )  const
+
+
+
+   int QColor::magenta (   )  const
+
+
+
+   qreal QColor::magentaF (   )  const
+
+
+
+   QString QColor::name (   )  const
+
+
+
+   QColor::operator QVariant (   )  const
+
+
+
+   bool QColor::operator!= (  const QColor &  c  )  const
+
+
+
+   QColor& QColor::operator= (  Qt::GlobalColor  color  )
+
+
+
+   QColor& QColor::operator= (  const QColor &   )
+
+
+
+   bool QColor::operator== (  const QColor &  c  )  const
+
+
+
+   int QColor::red (   )  const
+
+
+
+   qreal QColor::redF (   )  const
+
+
+
+   QRgb QColor::rgb (   )  const
+
+
+
+   QRgb QColor::rgba (   )  const
+
+
+
+   int QColor::saturation (   )  const
+
+
+
+   qreal QColor::saturationF (   )  const
+
+
+
+   void QColor::setAlpha (  int  alpha  )
+
+
+
+   void QColor::setAlphaF (  qreal  alpha  )
+
+
+
+   void QColor::setBlue (  int  blue  )
+
+
+
+   void QColor::setBlueF (  qreal  blue  )
+
+
+
+   void QColor::setCmyk (  int  c,
+                           int  m,
+                           int  y,
+                           int  k,
+                           int  a = 255
+                        )
+
+
+
+   void QColor::setCmykF (  qreal  c,
+                            qreal  m,
+                            qreal  y,
+                            qreal  k,
+                            qreal  a = 1.0
+                         )
+
+
+
+   void QColor::setGreen (  int  green  )
+
+
+
+   void QColor::setGreenF (  qreal  green  )
+
+
+
+   void QColor::setHsv (  int  h,
+                          int  s,
+                          int  v,
+                          int  a = 255
+                       )
+
+
+
+   void QColor::setHsvF (  qreal  h,
+                           qreal  s,
+                           qreal  v,
+                           qreal  a = 1.0
+                        )
+
+
+
+   void QColor::setNamedColor (  const QString &  name  )
+
+
+
+   void QColor::setRed (  int  red  )
+
+
+
+   void QColor::setRedF (  qreal  red  )
+
+
+
+   void QColor::setRgb (  QRgb  rgb  )
+
+
+
+   void QColor::setRgb (  int  r,
+                          int  g,
+                          int  b,
+                          int  a = 255
+                       )
+
+
+
+   void QColor::setRgba (  QRgb  rgba  )
+
+
+
+   void QColor::setRgbF (  qreal  r,
+                           qreal  g,
+                           qreal  b,
+                           qreal  a = 1.0
+                        )
+
+
+
+   Spec QColor::spec (   )  const [inline]
+
+
+
+   QColor QColor::toCmyk (   )  const
+
+
+
+   QColor QColor::toHsv (   )  const
+
+
+
+   QColor QColor::toRgb (   )  const
+
+
+
+   int QColor::value (   )  const
+
+
+
+   qreal QColor::valueF (   )  const
+
+
+
+   int QColor::yellow (   )  const
+
+
+
+   qreal QColor::yellowF (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_GUI_EXPORT QDataStream& operator<< (  QDataStream &   ,
+                                           const QColor &
+                                        )  [friend]
+
+
+
+   Q_GUI_EXPORT QDataStream& operator>> (  QDataStream &  ,
+                                           QColor &     
+                                        )  [friend]
+
+
+
+   friend class QColormap [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qcolor.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

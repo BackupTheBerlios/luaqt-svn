@@ -1,0 +1,14 @@
+$pfile "lua_qt4/qt_defines.pkg"
+
+typedef unsigned int GLenum;
+typedef int GLint;
+typedef int GLuint;
+
+$#include <QImage>
+$#include <QPixmap>
+
+$ifile "lua_qt4/qnamespace.pkg",qns
+
+$ifile "lua_qt4/QtOpenGL_headers.pkg",qt
+
+

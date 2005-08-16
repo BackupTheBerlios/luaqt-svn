@@ -1,0 +1,256 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QFlags Class Reference
+
+   The QFlags class provides a type-safe way of storing OR-combinations
+   of enum values. More...
+#include <QFlags>
+
+   Part of the QtCore module.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * typedef enum_type
+
+  Public Functions
+
+     * QFlags ( const QFlags & other )
+     * QFlags ( Enum flag )
+     * QFlags ( Zero zero = 0 )
+     * QFlags ( QFlag value )
+     * operator int () const
+     * bool operator! () const
+     * QFlags operator& ( int mask ) const
+     * QFlags operator& ( uint mask ) const
+     * QFlags operator& ( Enum mask ) const
+     * QFlags & operator&= ( int mask )
+     * QFlags & operator&= ( uint mask )
+     * QFlags & operator= ( const QFlags & other )
+     * QFlags operator^ ( QFlags other ) const
+     * QFlags operator^ ( Enum other ) const
+     * QFlags & operator^= ( QFlags other )
+     * QFlags & operator^= ( Enum other )
+     * QFlags operator| ( QFlags other ) const
+     * QFlags operator| ( Enum other ) const
+     * QFlags & operator|= ( QFlags other )
+     * QFlags & operator|= ( Enum other )
+     * QFlags operator~ () const
+
+  Macros
+
+     * Q_DECLARE_FLAGS ( Flags, Enum )
+     * Q_DECLARE_OPERATORS_FOR_FLAGS ( Flags )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QFlags class provides a type-safe way of storing OR-combinations
+   of enum values.
+
+   The QFlags<Enum> class is a template class, where Enum is an enum
+   type. QFlags is used throughout Qt for storing combinations of enum
+   values.
+
+   The traditional C++ approach for storing OR-combinations of enum
+   values is to use a int or uint variable. The inconvenient with that
+   approach is that there's no type checking at all; any enum value can
+   be OR'd with any other enum value and passed on to a function that
+   takes a int or uint.
+
+   Qt uses QFlags to provide type safety. For example, the Qt::Alignment
+   type is simply a typedef for QFlags<Qt::AlignmentFlag>.
+   QLabel::setAlignment() takes a Qt::Alignment parameter, which means
+   that any combination of Qt::AlignmentFlag values is legal:
+    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+   If you try to pass a value from another enum, the compiler will report
+   an error.
+
+   If you want to use QFlags for your own enum types, you must use the
+   Q_DECLARE_FLAGS() and Q_DECLARE_OPERATORS_FOR_FLAGS(). For example:
+    class MyClass
+    {
+    public:
+        enum Option {
+            NoOptions = 0x0,
+            ShowTabs = 0x1,
+            ShowAll = 0x2,
+            SqueezeBlank = 0x4
+        };
+        Q_DECLARE_FLAGS(Options, Option)
+        ...
+    };
+
+    Q_DECLARE_OPERATORS_FOR_FLAGS(MyClass::Options)
+
+   You can then use the MyClass::Options type to store combinations of
+   MyClass::Option values.
+
+   A sensible naming convension for enum types and associated QFlags
+   types is to give a singular name to the enum type (e.g., Option) and a
+   plural name to the QFlags type (e.g., Options). When a singular name
+   is desired for the QFlags type (e.g., Alignment), you can use Flag as
+   the suffix for the enum type (e.g., AlignmentFlag).
+
+   See also QFlag.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  typedef QFlags::enum_type
+
+   Typedef for the Enum template type.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QFlags::QFlags ( const QFlags & other )
+
+   Constructs a copy of other.
+
+  QFlags::QFlags ( Enum flag )
+
+   Constructs a QFlags object storing the given flag.
+
+  QFlags::QFlags ( Zero zero = 0 )
+
+   Constructs a QFlags object with no flags set. zero must be a literal 0
+   value.
+
+  QFlags::QFlags ( QFlag value )
+
+   Constructs a QFlags object initialized with the given integer value.
+
+   The QFlag type is a helper type. By using it here instead of int, we
+   effectively ensure that arbitrary enum values cannot be cast to a
+   QFlags, whereas untyped enum values (i.e., int values) can.
+
+  QFlags::operator int () const
+
+   Returns the value stored in the QFlags object as an integer.
+
+  bool QFlags::operator! () const
+
+   Returns true if no flag is set (i.e., if the value stored by the
+   QFlags object is 0); otherwise returns false.
+
+  QFlags QFlags::operator& ( int mask ) const
+
+   Returns a QFlags object containing the result of the bitwise AND
+   operation on this object and mask.
+
+   See also operator&=(), operator|(), operator^(), and operator~().
+
+  QFlags QFlags::operator& ( uint mask ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  QFlags QFlags::operator& ( Enum mask ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  QFlags & QFlags::operator&= ( int mask )
+
+   Performs a bitwise AND operation with mask and stores the result in
+   this QFlags object. Returns a reference to this object.
+
+   See also operator&(), operator|=(), and operator^=().
+
+  QFlags & QFlags::operator&= ( uint mask )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  QFlags & QFlags::operator= ( const QFlags & other )
+
+   Assigns other to this object and returns a reference to this object.
+
+  QFlags QFlags::operator^ ( QFlags other ) const
+
+   Returns a QFlags object containing the result of the bitwise XOR
+   operation on this object and other.
+
+   See also operator^=(), operator&(), operator|(), and operator~().
+
+  QFlags QFlags::operator^ ( Enum other ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  QFlags & QFlags::operator^= ( QFlags other )
+
+   Performs a bitwise XOR operation with other and stores the result in
+   this QFlags object. Returns a reference to this object.
+
+   See also operator^(), operator&=(), and operator|=().
+
+  QFlags & QFlags::operator^= ( Enum other )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  QFlags QFlags::operator| ( QFlags other ) const
+
+   Returns a QFlags object containing the result of the bitwise OR
+   operation on this object and other.
+
+   See also operator|=(), operator^(), operator&(), and operator~().
+
+  QFlags QFlags::operator| ( Enum other ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  QFlags & QFlags::operator|= ( QFlags other )
+
+   Performs a bitwise OR operation with other and stores the result in
+   this QFlags object. Returns a reference to this object.
+
+   See also operator|(), operator&=(), and operator^=().
+
+  QFlags & QFlags::operator|= ( Enum other )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  QFlags QFlags::operator~ () const
+
+   Returns a QFlags object that contains the bitwise negation of this
+   objec;t.
+
+   See also operator&(), operator|(), and operator^().
+     _________________________________________________________________
+
+Macro Documentation
+
+  Q_DECLARE_FLAGS ( Flags, Enum )
+
+   The Q_DECLARE_FLAGS() macro expands to
+    typedef QFlags<Enum> Flags;
+
+   Enum is the name of an existing enum type, whereas Flags is the name
+   of the QFlags<Enum> typedef.
+
+   See the QFlags documentation for details.
+
+   See also Q_DECLARE_OPERATORS_FOR_FLAGS().
+
+  Q_DECLARE_OPERATORS_FOR_FLAGS ( Flags )
+
+   The Q_DECLARE_OPERATORS_FOR_FLAGS() macro declares global operator|()
+   functions for Flags, which is of type QFlags<T>.
+
+   See the QFlags documentation for details.
+
+   See also Q_DECLARE_FLAGS().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

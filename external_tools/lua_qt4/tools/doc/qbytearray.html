@@ -1,0 +1,2251 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QByteArray Class Reference
+
+   The QByteArray class provides an array of bytes. More...
+#include <QByteArray>
+
+   Part of the QtCore module.
+
+   Inherited by Q3CString.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QByteArray ()
+     * QByteArray ( const char * str )
+     * QByteArray ( const char * data, int size )
+     * QByteArray ( int size, char ch )
+     * QByteArray ( const QByteArray & other )
+     * ~QByteArray ()
+     * QByteArray & append ( const QByteArray & ba )
+     * QByteArray & append ( const QString & str )
+     * QByteArray & append ( const char * str )
+     * QByteArray & append ( char ch )
+     * const char at ( int i ) const
+     * int capacity () const
+     * void chop ( int n )
+     * void clear ()
+     * const char * constData () const
+     * bool contains ( const QByteArray & ba ) const
+     * bool contains ( const char * str ) const
+     * bool contains ( char ch ) const
+     * int count ( const QByteArray & ba ) const
+     * int count ( const char * str ) const
+     * int count ( char ch ) const
+     * int count () const
+     * char * data ()
+     * const char * data () const
+     * bool endsWith ( const QByteArray & ba ) const
+     * bool endsWith ( const char * str ) const
+     * bool endsWith ( char ch ) const
+     * QByteArray & fill ( char ch, int size = -1 )
+     * int indexOf ( const QByteArray & ba, int from = 0 ) const
+     * int indexOf ( const QString & str, int from = 0 ) const
+     * int indexOf ( const char * str, int from = 0 ) const
+     * int indexOf ( char ch, int from = 0 ) const
+     * QByteArray & insert ( int i, const QByteArray & ba )
+     * QByteArray & insert ( int i, const QString & str )
+     * QByteArray & insert ( int i, const char * str )
+     * QByteArray & insert ( int i, char ch )
+     * bool isEmpty () const
+     * bool isNull () const
+     * int lastIndexOf ( const QByteArray & ba, int from = -1 ) const
+     * int lastIndexOf ( const QString & str, int from = -1 ) const
+     * int lastIndexOf ( const char * str, int from = -1 ) const
+     * int lastIndexOf ( char ch, int from = -1 ) const
+     * QByteArray left ( int len ) const
+     * QByteArray leftJustified ( int width, char fill = ' ', bool
+       truncate = false ) const
+     * int length () const
+     * QByteArray mid ( int pos, int len = -1 ) const
+     * QByteArray & prepend ( const QByteArray & ba )
+     * QByteArray & prepend ( const char * str )
+     * QByteArray & prepend ( char ch )
+     * void push_back ( const QByteArray & other )
+     * void push_back ( const char * str )
+     * void push_back ( char ch )
+     * void push_front ( const QByteArray & other )
+     * void push_front ( const char * str )
+     * void push_front ( char ch )
+     * QByteArray & remove ( int pos, int len )
+     * QByteArray & replace ( int pos, int len, const QByteArray & after
+       )
+     * QByteArray & replace ( int pos, int len, const char * after )
+     * QByteArray & replace ( const QByteArray & before, const QByteArray
+       & after )
+     * QByteArray & replace ( const char * before, const QByteArray &
+       after )
+     * QByteArray & replace ( const QByteArray & before, const char *
+       after )
+     * QByteArray & replace ( const QString & before, const QByteArray &
+       after )
+     * QByteArray & replace ( const QString & before, const char * after
+       )
+     * QByteArray & replace ( const char * before, const char * after )
+     * QByteArray & replace ( char before, const QByteArray & after )
+     * QByteArray & replace ( char before, const QString & after )
+     * QByteArray & replace ( char before, const char * after )
+     * QByteArray & replace ( char before, char after )
+     * void reserve ( int size )
+     * void resize ( int size )
+     * QByteArray right ( int len ) const
+     * QByteArray rightJustified ( int width, char fill = ' ', bool
+       truncate = false ) const
+     * QByteArray & setNum ( int n, int base = 10 )
+     * QByteArray & setNum ( uint n, int base = 10 )
+     * QByteArray & setNum ( short n, int base = 10 )
+     * QByteArray & setNum ( ushort n, int base = 10 )
+     * QByteArray & setNum ( qlonglong n, int base = 10 )
+     * QByteArray & setNum ( qulonglong n, int base = 10 )
+     * QByteArray & setNum ( double n, char f = 'g', int prec = 6 )
+     * QByteArray & setNum ( float n, char f = 'g', int prec = 6 )
+     * QByteArray simplified () const
+     * int size () const
+     * QList<QByteArray> split ( char sep ) const
+     * void squeeze ()
+     * bool startsWith ( const QByteArray & ba ) const
+     * bool startsWith ( const char * str ) const
+     * bool startsWith ( char ch ) const
+     * QByteArray toBase64 () const
+     * double toDouble ( bool * ok = 0 ) const
+     * float toFloat ( bool * ok = 0 ) const
+     * int toInt ( bool * ok = 0, int base = 10 ) const
+     * qlonglong toLongLong ( bool * ok = 0, int base = 10 ) const
+     * QByteArray toLower () const
+     * short toShort ( bool * ok = 0, int base = 10 ) const
+     * uint toUInt ( bool * ok = 0, int base = 10 ) const
+     * qulonglong toULongLong ( bool * ok = 0, int base = 10 ) const
+     * ushort toUShort ( bool * ok = 0, int base = 10 ) const
+     * QByteArray toUpper () const
+     * QByteArray trimmed () const
+     * void truncate ( int pos )
+     * operator const char * () const
+     * operator const void * () const
+     * bool operator!= ( const QString & str ) const
+     * QByteArray & operator+= ( const QByteArray & ba )
+     * QByteArray & operator+= ( const QString & str )
+     * QByteArray & operator+= ( const char * str )
+     * QByteArray & operator+= ( char ch )
+     * bool operator< ( const QString & str ) const
+     * bool operator<= ( const QString & str ) const
+     * QByteArray & operator= ( const QByteArray & other )
+     * QByteArray & operator= ( const char * str )
+     * bool operator== ( const QString & str ) const
+     * bool operator> ( const QString & str ) const
+     * bool operator>= ( const QString & str ) const
+     * QByteRef operator[] ( int i )
+     * const char operator[] ( int i ) const
+     * QByteRef operator[] ( uint i )
+     * const char operator[] ( uint i ) const
+
+  Static Public Members
+
+     * QByteArray fromBase64 ( const QByteArray & base64 )
+     * QByteArray fromRawData ( const char * data, int size )
+     * QByteArray number ( int n, int base = 10 )
+     * QByteArray number ( uint n, int base = 10 )
+     * QByteArray number ( qlonglong n, int base = 10 )
+     * QByteArray number ( qulonglong n, int base = 10 )
+     * QByteArray number ( double n, char f = 'g', int prec = 6 )
+
+  Related Non-Members
+
+     * quint16 qChecksum ( const char * data, uint len )
+     * QByteArray qCompress ( const QByteArray & data, int
+       compressionLevel = -1 )
+     * QByteArray qCompress ( const uchar * data, int nbytes, int
+       compressionLevel = -1 )
+     * QByteArray qUncompress ( const QByteArray & data )
+     * QByteArray qUncompress ( const uchar * data, int nbytes )
+     * int qsnprintf ( char * str, size_t n, const char * fmt, ... )
+     * int qstrcmp ( const char * str1, const char * str2 )
+     * char * qstrcpy ( char * dst, const char * src )
+     * char * qstrdup ( const char * src )
+     * int qstricmp ( const char * str1, const char * str2 )
+     * uint qstrlen ( const char * str )
+     * int qstrncmp ( const char * str1, const char * str2, uint len )
+     * char * qstrncpy ( char * dst, const char * src, uint len )
+     * int qstrnicmp ( const char * str1, const char * str2, uint len )
+     * int qvsnprintf ( char * str, size_t n, const char * fmt, va_list
+       ap )
+     * bool operator!= ( const QByteArray & a1, const QByteArray & a2 )
+     * bool operator!= ( const QByteArray & a1, const char * a2 )
+     * bool operator!= ( const char * a1, const QByteArray & a2 )
+     * const QByteArray operator+ ( const QByteArray & a1, const
+       QByteArray & a2 )
+     * const QByteArray operator+ ( const QByteArray & a1, const char *
+       a2 )
+     * const QByteArray operator+ ( const QByteArray & a1, char a2 )
+     * const QByteArray operator+ ( const char * a1, const QByteArray &
+       a2 )
+     * const QByteArray operator+ ( char a1, const QByteArray & a2 )
+     * bool operator< ( const QByteArray & a1, const QByteArray & a2 )
+     * bool operator< ( const QByteArray & a1, const char * a2 )
+     * bool operator< ( const char * a1, const QByteArray & a2 )
+     * QDataStream & operator<< ( QDataStream & out, const QByteArray &
+       ba )
+     * bool operator<= ( const QByteArray & a1, const QByteArray & a2 )
+     * bool operator<= ( const QByteArray & a1, const char * a2 )
+     * bool operator<= ( const char * a1, const QByteArray & a2 )
+     * bool operator== ( const QByteArray & a1, const QByteArray & a2 )
+     * bool operator== ( const QByteArray & a1, const char * a2 )
+     * bool operator== ( const char * a1, const QByteArray & a2 )
+     * bool operator> ( const QByteArray & a1, const QByteArray & a2 )
+     * bool operator> ( const QByteArray & a1, const char * a2 )
+     * bool operator> ( const char * a1, const QByteArray & a2 )
+     * bool operator>= ( const QByteArray & a1, const QByteArray & a2 )
+     * bool operator>= ( const QByteArray & a1, const char * a2 )
+     * bool operator>= ( const char * a1, const QByteArray & a2 )
+     * QDataStream & operator>> ( QDataStream & in, QByteArray & ba )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QByteArray class provides an array of bytes.
+
+   QByteArray can be used to store both raw bytes (including '\0's) and
+   traditional 8-bit '\0'-terminated strings. Using QByteArray is much
+   more convenient than using const char *. Behind the scenes, it always
+   ensures that the data is followed by a '\0' terminator, and uses
+   implicit sharing (copy-on-write) to reduce memory usage and avoid
+   needless copying of data.
+
+   In addition to QByteArray, Qt also provides the QString class to store
+   string data. For most purposes, QString is the class you want to use.
+   It stores 16-bit Unicode characters, making it easy to store
+   non-ASCII/non-Latin-1 characters in your application. Furthermore,
+   QString is used throughout in the Qt API. The two main cases where
+   QByteArray is appropriate are when you need to store raw binary data,
+   and when memory conservation is critical (e.g. with Qt/Embedded).
+
+   One way to initialize a QByteArray is simply to pass a const char * to
+   its constructor. For example, the following code creates a byte array
+   of size 5 containing the data "Hello":
+    QByteArray ba("Hello");
+
+   Although the size() is 5, the byte array also maintains an extra '\0'
+   character at the end so that if a function is used that asks for a
+   pointer to the underlying data (e.g. a call to data()), the data
+   pointed to is guaranteed to be '\0'-terminated.
+
+   QByteArray makes a deep copy of the const char * data, so you can
+   modify it later without experiencing side effects. (If for performance
+   reasons you don't want to take a deep copy of the character data, use
+   QByteArray::fromRawData() instead.)
+
+   Another approach is to set the size of the array using resize() and to
+   initialize the data byte per byte. QByteArray uses 0-based indexes,
+   just like C++ arrays. To access the byte at a particular index
+   position, you can use operator[](). On non-const byte arrays,
+   operator[]() returns a reference to a byte that can be used on the
+   left side of an assignment. For example:
+    QByteArray ba;
+    ba.resize(5);
+    ba[0] = 0x3c;
+    ba[1] = 0xb8;
+    ba[2] = 0x64;
+    ba[3] = 0x18;
+    ba[4] = 0xca;
+
+   For read-only access, an alternative syntax is to use at():
+    for (int i = 0; i < ba.size(); ++i) {
+        if (ba.at(i) >= 'a' && ba.at(i) <= 'f')
+            cout << "Found character in range [a-f]" << endl;
+    }
+
+   at() can be faster than operator[](), because it never causes a deep
+   copy to occur.
+
+   To extract many bytes at a time, use left(), right(), or mid().
+
+   A QByteArray can embed '\0' bytes. The size() function always returns
+   the size of the whole array, including embedded '\0' bytes. If you
+   want to obtain the length of the data up to and excluding the first
+   '\0' character, call qstrlen() on the byte array.
+
+   After a call to resize(), newly allocated bytes have undefined values.
+   To set all the bytes to a particular value, call fill().
+
+   To obtain a pointer to the actual character data, call data() or
+   constData(). These functions return a pointer to the beginning of the
+   data. The pointer is guaranteed to remain valid until a non-const
+   function is called on the QByteArray. It is also guaranteed that the
+   data ends with a '\0' byte. This '\0' byte is automatically provided
+   by QByteArray and is not counted in size().
+
+   QByteArray provides the following basic functions for modifying the
+   byte data: append(), prepend(), insert(), replace(), and remove(). For
+   example:
+    QByteArray x("and");
+    x.prepend("rock ");         // x == "rock and"
+    x.append(" roll");          // x == "rock and roll"
+    x.replace(5, 3, "&");       // x == "rock & roll"
+
+   The replace() and remove() functions' first two arguments are the
+   position from which to start erasing and the number of bytes that
+   should be erased.
+
+   If you are building a QByteArray gradually and know in advance
+   approximately how many bytes the QByteArray will contain, you can call
+   reserve(), asking QByteArray to preallocate a certain amount of
+   memory. You can also call capacity() to find out how much memory
+   QByteArray actually allocated.
+
+   A frequent requirement is to remove whitespace characters from a byte
+   array ('\n', '\t', ' ', etc.). If you want to remove whitespace from
+   both ends of a QByteArray, use trimmed(). If you want to remove
+   whitespace from both ends and replace multiple consecutive whitespaces
+   with a single space character within the byte array, use simplified().
+
+   If you want to find all occurrences of a particular character or
+   substring in a QByteArray, use indexOf() or lastIndexOf(). The former
+   searches forward starting from a given index position, the latter
+   searches backward. Both return the index position of the character or
+   substring if they find it; otherwise, they return -1. For example,
+   here's a typical loop that finds all occurrences of a particular
+   substring:
+    QByteArray ba("We must be <b>bold</b>, very <b>bold</b>");
+    int j = 0;
+    while ((j = ba.indexOf("<b>", j)) != -1) {
+        cout << "Found <b> tag at index position " << j << endl;
+        ++j;
+    }
+
+   If you simply want to check whether a QByteArray contains a particular
+   character or substring, use contains(). If you want to find out how
+   many times a particular character or substring occurs in the byte
+   array, use count(). If you want to replace all occurrences of a
+   particular value with another, use one of the two-parameter replace()
+   overloads.
+
+   QByteArrays can be compared using overloaded operators such as
+   operator<(), operator<=(), operator==(), operator>=(), and so on. The
+   comparison is based exclusively on the numeric values of the
+   characters and is very fast, but is not what a human would expect.
+   QString::localeAwareCompare() is a better choice for sorting
+   user-interface strings.
+
+   For historical reasons, QByteArray distinguishes between a null byte
+   array and an empty byte array. A null byte array is a byte array that
+   is initialized using QByteArray's default constructor or by passing
+   (const char *)0 to the constructor. An empty byte array is any byte
+   array with size 0. A null byte array is always empty, but an empty
+   byte array isn't necessarily null:
+    QByteArray().isNull();          // returns true
+    QByteArray().isEmpty();         // returns true
+
+    QByteArray("").isNull();        // returns false
+    QByteArray("").isEmpty();       // returns true
+
+    QByteArray("abc").isNull();     // returns false
+    QByteArray("abc").isEmpty();    // returns false
+
+   All functions except isNull() treat null byte arrays the same as empty
+   byte arrays. For example, data() returns a pointer to a '\0' character
+   for a null byte array (not a null pointer), and QByteArray() compares
+   equal to QByteArray(""). We recommend that you always use isEmpty()
+   and avoid isNull().
+
+  Note on 8-bit Character Comparisons
+
+   In QByteArray, the notion of uppercase and lowercase and of which
+   character is greater than or less than another character is locale
+   dependent. This affects functions that support a case insensitive
+   option or that compare or lowercase or uppercase their arguments. Case
+   insensitive operations and comparisons will be accurate if both
+   strings contain only ASCII characters. (If $LC_CTYPE is set, most Unix
+   systems do "the right thing".) Functions that this affects include
+   contains(), indexOf(), lastIndexOf(), operator<(), operator<=(),
+   operator>(), operator>=(), toLower() and toUpper().
+
+   This issue does not apply to QStrings since they represent characters
+   using Unicode.
+
+   See also QString and QBitArray.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QByteArray::QByteArray ()
+
+   Constructs an empty byte array.
+
+   See also isEmpty().
+
+  QByteArray::QByteArray ( const char * str )
+
+   Constructs a byte array initialized with the string str.
+
+   QByteArray makes a deep copy of the string data.
+
+  QByteArray::QByteArray ( const char * data, int size )
+
+   Constructs a byte array containing the first size bytes of array data.
+
+   If data is 0, a null byte array is constructed.
+
+   QByteArray makes a deep copy of the string data.
+
+   See also fromRawData().
+
+  QByteArray::QByteArray ( int size, char ch )
+
+   Constructs a byte array of size size with every byte set to character
+   ch.
+
+   See also fill().
+
+  QByteArray::QByteArray ( const QByteArray & other )
+
+   Constructs a copy of other.
+
+   This operation takes constant time, because QByteArray is implicitly
+   shared. This makes returning a QByteArray from a function very fast.
+   If a shared instance is modified, it will be copied (copy-on-write),
+   and that takes linear time.
+
+   See also operator=().
+
+  QByteArray::~QByteArray ()
+
+   Destroys the byte array.
+
+  QByteArray & QByteArray::append ( const QByteArray & ba )
+
+   Appends the byte array ba onto the end of this byte array.
+
+   Example:
+    QByteArray x("free");
+    QByteArray y("dom");
+    x.append(y);
+    // x == "freedom"
+
+   This is the same as insert(size(), ba).
+
+   This operation is typically very fast (constant time), because
+   QByteArray preallocates extra space at the end of the character data
+   so it can grow without reallocating the entire data each time.
+
+   See also operator+=(), prepend(), and insert().
+
+  QByteArray & QByteArray::append ( const QString & str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends the string str to this byte array. The Unicode data is
+   converted into 8-bit characters using QString::toAscii().
+
+   If the QString contains non-ASCII Unicode characters, using this
+   function can lead to loss of information. You can disable this
+   function by defining QT_NO_CAST_TO_ASCII when you compile your
+   applications. You then need to call QString::toAscii() (or
+   QString::toLatin1() or QString::toUtf8() or QString::toLocal8Bit())
+   explicitly if you want to convert the data to const char *.
+
+  QByteArray & QByteArray::append ( const char * str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends the string str to this byte array.
+
+  QByteArray & QByteArray::append ( char ch )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends the character ch to this byte array.
+
+  const char QByteArray::at ( int i ) const
+
+   Returns the character at index position i in the byte array.
+
+   i must be a valid index position in the byte array (i.e., 0 <= i <
+   size()).
+
+   See also operator[]().
+
+  int QByteArray::capacity () const
+
+   Returns the maximum number of bytes that can be stored in the byte
+   array without forcing a reallocation.
+
+   The sole purpose of this function is to provide a means of fine tuning
+   QByteArray's memory usage. In general, you will rarely ever need to
+   call this function. If you want to know how many bytes are in the byte
+   array, call size().
+
+   See also reserve() and squeeze().
+
+  void QByteArray::chop ( int n )
+
+   Removes n bytes from the end of the byte array.
+
+   If n is greater than size(), the result is an empty byte array.
+
+   Example:
+    QByteArray ba("STARTTLS\r\n");
+    ba.chop(2);                 // ba == "STARTTLS"
+
+   See also truncate(), resize(), and left().
+
+  void QByteArray::clear ()
+
+   Clears the contents of the byte array and makes it empty.
+
+   See also resize() and isEmpty().
+
+  const char * QByteArray::constData () const
+
+   Returns a pointer to the data stored in the byte array. The pointer
+   can be used to access the bytes that compose the array. The data is
+   '\0'-terminated. The pointer remains valid as long as the byte array
+   isn't reallocated.
+
+   This function is mostly useful to pass a byte array to a function that
+   accepts a const char *.
+
+   Note: A QByteArray can store any byte values including '\0's, but most
+   functions that take char * arguments assume that the data ends at the
+   first '\0' they encounter.
+
+   See also data() and operator[]().
+
+  bool QByteArray::contains ( const QByteArray & ba ) const
+
+   Returns true if the byte array contains an occurrence of the byte
+   array ba; otherwise returns false.
+
+   See also indexOf() and count().
+
+  bool QByteArray::contains ( const char * str ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if the byte array contains the string str; otherwise
+   returns false.
+
+  bool QByteArray::contains ( char ch ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if the byte array contains the character ch; otherwise
+   returns false.
+
+  int QByteArray::count ( const QByteArray & ba ) const
+
+   Returns the number of (potentially overlapping) occurrences of byte
+   array ba in this byte array.
+
+   See also contains() and indexOf().
+
+  int QByteArray::count ( const char * str ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the number of (potentially overlapping) occurrences of string
+   str in the byte array.
+
+  int QByteArray::count ( char ch ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the number of occurrences of character ch in the byte array.
+
+   See also contains() and indexOf().
+
+  int QByteArray::count () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Same as size().
+
+  char * QByteArray::data ()
+
+   Returns a pointer to the data stored in the byte array. The pointer
+   can be used to access and modify the bytes that compose the array. The
+   data is '\0'-terminated.
+
+   Example:
+    QByteArray ba("Hello world");
+    char *data = ba.data();
+    while (*data) {
+        cout << "[" << *data << "]" << endl;
+        ++data;
+    }
+
+   The pointer remains valid as long as the byte array isn't reallocated.
+
+   This function is mostly useful to pass a byte array to a function that
+   accepts a const char *.
+
+   Note: A QByteArray can store any byte values including '\0's, but most
+   functions that take char * arguments assume that the data ends at the
+   first '\0' they encounter.
+
+   See also constData() and operator[]().
+
+  const char * QByteArray::data () const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  bool QByteArray::endsWith ( const QByteArray & ba ) const
+
+   Returns true if this byte array ends with byte array ba; otherwise
+   returns false.
+
+   Example:
+    QByteArray url("http://www.trolltech.com/index.html");
+    if (url.endsWith(".html"))
+        ...
+
+   See also startsWith() and right().
+
+  bool QByteArray::endsWith ( const char * str ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if this byte array ends with string str; otherwise
+   returns false.
+
+  bool QByteArray::endsWith ( char ch ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if this byte array ends with character ch; otherwise
+   returns false.
+
+  QByteArray & QByteArray::fill ( char ch, int size = -1 )
+
+   Sets every byte in the byte array to character ch. If size is
+   different from -1 (the default), the byte array is resized to size
+   size beforehand.
+
+   Example:
+    QByteArray ba("Istambul");
+    ba.fill("o");
+    // ba == "oooooooo"
+
+    ba.fill("X", 2);
+    // ba == "XX"
+
+   See also resize().
+
+  QByteArray QByteArray::fromBase64 ( const QByteArray & base64 )   [static]
+
+   Returns a decoded copy of the Base64 array base64. For example:
+    QByteArray text = QByteArray::fromBase64("UXQgaXMgZ3JlYXRcIQo=");
+    text.data();            // returns "Qt is great!"
+
+   See also toBase64().
+
+  QByteArray QByteArray::fromRawData ( const char * data, int size )   [static]
+
+   Constructs a QByteArray that uses the first size characters in the
+   array data. The bytes in data are not copied. The caller must be able
+   to guarantee that data will not be deleted or modified as long as the
+   QByteArray (or an unmodified copy of it) exists.
+
+   Any attempts to modify the QByteArray or copies of it will cause it to
+   create a deep copy of the data, ensuring that the raw data isn't
+   modified.
+
+   Here's an example of how we can read data using a QDataStream on raw
+   data in memory without requiring to copy the data into a QByteArray:
+     static const char mydata[] = {
+        0x00, 0x00, 0x03, 0x84, 0x78, 0x9c, 0x3b, 0x76,
+        0xec, 0x18, 0xc3, 0x31, 0x0a, 0xf1, 0xcc, 0x99,
+        ...
+        0x6d, 0x5b
+    };
+
+    QByteArray data = QByteArray::fromRawData(mydata, sizeof(mydata));
+    QDataStream in(&data, QIODevice::ReadOnly);
+    ...
+
+   Warning: A byte array created with fromRawData() is not
+   null-terminated, unless the raw data contains a 0 character at
+   position size. While that does not matter for QDataStream or functions
+   like indexOf(), passing the byte array to a function that accepts a
+   const char * and expects it to be '\0'-terminated leads into trouble.
+
+   See also data() and constData().
+
+  int QByteArray::indexOf ( const QByteArray & ba, int from = 0 ) const
+
+   Returns the index position of the first occurrence of the byte array
+   ba in this byte array, searching forward from index position from.
+   Returns -1 if ba could not be found.
+
+   Example:
+    QByteArray x("sticky question");
+    QByteArray y("sti");
+    x.indexOf(y);               // returns 0
+    x.indexOf(y, 1);            // returns 10
+    x.indexOf(y, 10);           // returns 10
+    x.indexOf(y, 11);           // returns -1
+
+   See also lastIndexOf(), contains(), and count().
+
+  int QByteArray::indexOf ( const QString & str, int from = 0 ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the index position of the first occurrence of the string str
+   in the byte array, searching forward from index position from. Returns
+   -1 if str could not be found.
+
+   The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   If the QString contains non-ASCII Unicode characters, using this
+   function can lead to loss of information. You can disable this
+   function by defining QT_NO_CAST_TO_ASCII when you compile your
+   applications. You then need to call QString::toAscii() (or
+   QString::toLatin1() or QString::toUtf8() or QString::toLocal8Bit())
+   explicitly if you want to convert the data to const char *.
+
+  int QByteArray::indexOf ( const char * str, int from = 0 ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the index position of the first occurrence of the string str
+   in the byte array, searching forward from index position from. Returns
+   -1 if str could not be found.
+
+  int QByteArray::indexOf ( char ch, int from = 0 ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the index position of the first occurrence of the character ch
+   in the byte array, searching forward from index position from. Returns
+   -1 if ch could not be found.
+
+   Example:
+    QByteArray ba("ABCBA");
+    ba.indexOf("B");            // returns 1
+    ba.indexOf("B", 1);         // returns 1
+    ba.indexOf("B", 2);         // returns 3
+    ba.indexOf("X");            // returns -1
+
+   See also lastIndexOf() and contains().
+
+  QByteArray & QByteArray::insert ( int i, const QByteArray & ba )
+
+   Inserts the byte array ba at index position i and returns a reference
+   to this byte array.
+
+   Example:
+    QByteArray ba("Meal");
+    ba.insert(1, QByteArray("ontr"));
+    // ba == "Montreal"
+
+   See also append(), prepend(), replace(), and remove().
+
+  QByteArray & QByteArray::insert ( int i, const QString & str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Inserts the string str at index position i in the byte array. The
+   Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   If i is greater than size(), the array is first extended using
+   resize().
+
+   If the QString contains non-ASCII Unicode characters, using this
+   function can lead to loss of information. You can disable this
+   function by defining QT_NO_CAST_TO_ASCII when you compile your
+   applications. You then need to call QString::toAscii() (or
+   QString::toLatin1() or QString::toUtf8() or QString::toLocal8Bit())
+   explicitly if you want to convert the data to const char *.
+
+  QByteArray & QByteArray::insert ( int i, const char * str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Inserts the string str at position i in the byte array.
+
+   If i is greater than size(), the array is first extended using
+   resize().
+
+  QByteArray & QByteArray::insert ( int i, char ch )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Inserts character ch at index position i in the byte array. If i is
+   greater than size(), the array is first extended using resize().
+
+  bool QByteArray::isEmpty () const
+
+   Returns true if the byte array has size 0; otherwise returns false.
+
+   Example:
+    QByteArray().isEmpty();         // returns true
+    QByteArray("").isEmpty();       // returns true
+    QByteArray("abc").isEmpty();    // returns false
+
+   See also size().
+
+  bool QByteArray::isNull () const
+
+   Returns true if this byte array is null; otherwise returns false.
+
+   Example:
+    QByteArray().isNull();          // returns true
+    QByteArray("").isNull();        // returns false
+    QByteArray("abc").isNull();     // returns false
+
+   Qt makes a distinction between null byte arrays and empty byte arrays
+   for historical reasons. For most applications, what matters is whether
+   or not a byte array contains any data, and this can be determined
+   using isEmpty().
+
+   See also isEmpty().
+
+  int QByteArray::lastIndexOf ( const QByteArray & ba, int from = -1 ) const
+
+   Returns the index position of the last occurrence of the byte array ba
+   in this byte array, searching backward from index position from. If
+   from is -1 (the default), the search starts at the last byte. Returns
+   -1 if ba could not be found.
+
+   Example:
+    QByteArray x("crazy azimuths");
+    QByteArray y("azy");
+    x.lastIndexOf(y);           // returns 6
+    x.lastIndexOf(y, 6);        // returns 6
+    x.lastIndexOf(y, 5);        // returns 2
+    x.lastIndexOf(y, 1);        // returns -1
+
+   See also indexOf(), contains(), and count().
+
+  int QByteArray::lastIndexOf ( const QString & str, int from = -1 ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the index position of the last occurrence of the string str in
+   the byte array, searching backward from index position from. If from
+   is -1 (the default), the search starts at the last (size() - 1) byte.
+   Returns -1 if str could not be found.
+
+   The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   If the QString contains non-ASCII Unicode characters, using this
+   function can lead to loss of information. You can disable this
+   function by defining QT_NO_CAST_TO_ASCII when you compile your
+   applications. You then need to call QString::toAscii() (or
+   QString::toLatin1() or QString::toUtf8() or QString::toLocal8Bit())
+   explicitly if you want to convert the data to const char *.
+
+  int QByteArray::lastIndexOf ( const char * str, int from = -1 ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the index position of the last occurrence of the string str in
+   the byte array, searching backward from index position from. If from
+   is -1 (the default), the search starts at the last (size() - 1) byte.
+   Returns -1 if str could not be found.
+
+  int QByteArray::lastIndexOf ( char ch, int from = -1 ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the index position of the last occurrence of character ch in
+   the byte array, searching backward from index position from. If from
+   is -1 (the default), the search starts at the last (size() - 1) byte.
+   Returns -1 if ch could not be found.
+
+   Example:
+    QByteArray ba("ABCBA");
+    ba.lastIndexOf("B");        // returns 3
+    ba.lastIndexOf("B", 3);     // returns 3
+    ba.lastIndexOf("B", 2);     // returns 1
+    ba.lastIndexOf("X");        // returns -1
+
+   See also indexOf() and contains().
+
+  QByteArray QByteArray::left ( int len ) const
+
+   Returns a byte array that contains the leftmost len bytes of this byte
+   array.
+
+   The entire byte array is returned if len is greater than size().
+
+   Example:
+    QByteArray x("Pineapple");
+    QByteArray y = x.left(4);
+    // y == "Pine"
+
+   See also right(), mid(), startsWith(), and truncate().
+
+  QByteArray QByteArray::leftJustified ( int width, char fill = ' ', bool
+  truncate = false ) const
+
+   Returns a byte array of size width that contains this byte array
+   padded by the fill character.
+
+   If truncate is false and the size() of the byte array is more than
+   width, then the returned byte array is a copy of this byte array.
+
+   If truncate is true and the size() of the byte array is more than
+   width, then any bytes in a copy of the byte array after position width
+   are removed, and the copy is returned.
+
+   Example:
+    QByteArray x("apple");
+    QByteArray y = x.leftJustified(8, '.');   // y == "apple..."
+
+   See also rightJustified().
+
+  int QByteArray::length () const
+
+   Same as size().
+
+  QByteArray QByteArray::mid ( int pos, int len = -1 ) const
+
+   Returns a byte array containing len bytes from this byte array,
+   starting at position pos.
+
+   If len is -1 (the default), or pos + len >= size(), returns a byte
+   array containing all bytes starting at position pos until the end of
+   the byte array.
+
+   Example:
+    QByteArray x("Five pineapples");
+    QByteArray y = x.mid(5, 4);     // y == "pine"
+    QByteArray z = x.mid(5);        // z == "pineapples"
+
+   See also left() and right().
+
+  QByteArray QByteArray::number ( int n, int base = 10 )   [static]
+
+   Returns a byte array containing the string equivalent of the number n
+   to base base (10 by default). The base can be any value between 2 and
+   36.
+
+   Example:
+    int n = 63;
+    QByteArray::number(n);              // returns "63"
+    QByteArray::number(n, 16);          // returns "3f"
+    QByteArray::number(n, 16).upper();  // returns "3F"
+
+   See also setNum() and toInt().
+
+  QByteArray QByteArray::number ( uint n, int base = 10 )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toUInt().
+
+  QByteArray QByteArray::number ( qlonglong n, int base = 10 )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toLongLong().
+
+  QByteArray QByteArray::number ( qulonglong n, int base = 10 )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toULongLong().
+
+  QByteArray QByteArray::number ( double n, char f = 'g', int prec = 6 )
+  [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a byte array that contains the printed value of n, formatted
+   in format f with precision prec.
+
+   Argument n is formatted according to the f format specified, which is
+   g by default, and can be any of the following:
+
+          Format                     Meaning
+            e               format as [-]9.9e[+|-]999
+            E               format as [-]9.9E[+|-]999
+            f                    format as [-]9.9
+            g    use e or f format, whichever is the most concise
+            G    use E or f format, whichever is the most concise
+
+   With 'e', 'E', and 'f', prec is the number of digits after the decimal
+   point. With 'g' and 'G', prec is the maximum number of significant
+   digits (trailing zeroes are omitted).
+    QByteArray ba = QByteArray::number(12.3456, 'E', 3);
+    // ba == 1.235E+01
+
+   See also toDouble().
+
+  QByteArray & QByteArray::prepend ( const QByteArray & ba )
+
+   Prepends the byte array ba to this byte array and returns a reference
+   to this byte array.
+
+   Example:
+    QByteArray x("ship");
+    QByteArray y("air");
+    x.prepend(y);
+    // x == "airship"
+
+   This is the same as insert(0, ba).
+
+   See also append() and insert().
+
+  QByteArray & QByteArray::prepend ( const char * str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Prepends the string str to this byte array.
+
+  QByteArray & QByteArray::prepend ( char ch )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Prepends the character ch to this byte array.
+
+  void QByteArray::push_back ( const QByteArray & other )
+
+   This function is provided for STL compatibility. It is equivalent to
+   append(other).
+
+  void QByteArray::push_back ( const char * str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Same as append(str).
+
+  void QByteArray::push_back ( char ch )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Same as append(ch).
+
+  void QByteArray::push_front ( const QByteArray & other )
+
+   This function is provided for STL compatibility. It is equivalent to
+   prepend(other).
+
+  void QByteArray::push_front ( const char * str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Same as prepend(str).
+
+  void QByteArray::push_front ( char ch )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Same as prepend(ch).
+
+  QByteArray & QByteArray::remove ( int pos, int len )
+
+   Removes len bytes from the array, starting at index position pos, and
+   returns a reference to the array.
+
+   If pos is out of range, nothing happens. If pos is valid, but pos +
+   len is larger than the size of the array, the array is truncated at
+   position pos.
+
+   Example:
+    QByteArray ba("Montreal");
+    ba.remove(1, 4);
+    // ba == "Meal"
+
+   See also insert() and replace().
+
+  QByteArray & QByteArray::replace ( int pos, int len, const QByteArray & after
+  )
+
+   Replaces len bytes from index position pos with the byte array after,
+   and returns a reference to this byte array.
+
+   Example:
+    QByteArray x("Say yes!");
+    QByteArray y("no");
+    x.replace(4, 3, y);
+    // x == "Say no!"
+
+   See also insert() and remove().
+
+  QByteArray & QByteArray::replace ( int pos, int len, const char * after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  QByteArray & QByteArray::replace ( const QByteArray & before, const
+  QByteArray & after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the byte array before with the byte array
+   after.
+
+   Example:
+    QByteArray ba("colour behaviour flavour neighbour");
+    ba.replace(QByteArray("ou"), QByteArray("o"));
+    // ba == "color behavior flavor neighbor"
+
+  QByteArray & QByteArray::replace ( const char * before, const QByteArray &
+  after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the string before with the byte array
+   after.
+
+  QByteArray & QByteArray::replace ( const QByteArray & before, const char *
+  after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the byte array before with the string
+   after.
+
+  QByteArray & QByteArray::replace ( const QString & before, const QByteArray &
+  after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the string before with the byte array
+   after. The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   If the QString contains non-ASCII Unicode characters, using this
+   function can lead to loss of information. You can disable this
+   function by defining QT_NO_CAST_TO_ASCII when you compile your
+   applications. You then need to call QString::toAscii() (or
+   QString::toLatin1() or QString::toUtf8() or QString::toLocal8Bit())
+   explicitly if you want to convert the data to const char *.
+
+  QByteArray & QByteArray::replace ( const QString & before, const char * after
+  )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the string before with the string after.
+
+  QByteArray & QByteArray::replace ( const char * before, const char * after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the string before with the string after.
+
+  QByteArray & QByteArray::replace ( char before, const QByteArray & after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the character before with the byte array
+   after.
+
+  QByteArray & QByteArray::replace ( char before, const QString & after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the character before with the string
+   after. The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   If the QString contains non-ASCII Unicode characters, using this
+   function can lead to loss of information. You can disable this
+   function by defining QT_NO_CAST_TO_ASCII when you compile your
+   applications. You then need to call QString::toAscii() (or
+   QString::toLatin1() or QString::toUtf8() or QString::toLocal8Bit())
+   explicitly if you want to convert the data to const char *.
+
+  QByteArray & QByteArray::replace ( char before, const char * after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the character before with the string
+   after.
+
+  QByteArray & QByteArray::replace ( char before, char after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the character before with the character
+   after.
+
+  void QByteArray::reserve ( int size )
+
+   Attempts to allocate memory for at least size bytes. If you know in
+   advance how large the byte array will be, you can call this function,
+   and if you call resize() often you are likely to get better
+   performance. If size is an underestimate, the worst that will happen
+   is that the QByteArray will be a bit slower.
+
+   The sole purpose of this function is to provide a means of fine tuning
+   QByteArray's memory usage. In general, you will rarely ever need to
+   call this function. If you want to change the size of the byte array,
+   call resize().
+
+   See also squeeze() and capacity().
+
+  void QByteArray::resize ( int size )
+
+   Sets the size of the byte array to size bytes.
+
+   If size is greater than the current size, the byte array is extended
+   to make it size bytes with the extra bytes added to the end. The new
+   bytes are uninitialized.
+
+   If size is less than the current size, bytes are removed from the end.
+
+   See also size().
+
+  QByteArray QByteArray::right ( int len ) const
+
+   Returns a byte array that contains the rightmost len bytes of this
+   byte array.
+
+   The entire byte array is returned if len is greater than size().
+
+   Example:
+    QByteArray x("Pineapple");
+    QByteArray y = x.right(5);
+    // y == "apple"
+
+   See also endsWith(), left(), and mid().
+
+  QByteArray QByteArray::rightJustified ( int width, char fill = ' ', bool
+  truncate = false ) const
+
+   Returns a byte array of size width that contains the fill character
+   followed by this byte array.
+
+   If truncate is false and the size of the byte array is more than
+   width, then the returned byte array is a copy of this byte array.
+
+   If truncate is true and the size of the byte array is more than width,
+   then the resulting byte array is truncated at position width.
+
+   Example:
+    QByteArray x("apple");
+    QByteArray y = x.rightJustified(8, '.');    // y == "...apple"
+
+   See also leftJustified().
+
+  QByteArray & QByteArray::setNum ( int n, int base = 10 )
+
+   Sets the byte array to the printed value of n in base base (10 by
+   default) and returns a reference to the byte array. The base can be
+   any value between 2 and 36.
+
+   Example:
+    QByteArray ba;
+    int n = 63;
+    ba.setNum(n);           // ba == "63"
+    ba.setNum(n, 16);       // ba == "3f"
+
+   See also number() and toInt().
+
+  QByteArray & QByteArray::setNum ( uint n, int base = 10 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toUInt().
+
+  QByteArray & QByteArray::setNum ( short n, int base = 10 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toShort().
+
+  QByteArray & QByteArray::setNum ( ushort n, int base = 10 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toUShort().
+
+  QByteArray & QByteArray::setNum ( qlonglong n, int base = 10 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toLongLong().
+
+  QByteArray & QByteArray::setNum ( qulonglong n, int base = 10 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   See also toULongLong().
+
+  QByteArray & QByteArray::setNum ( double n, char f = 'g', int prec = 6 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Sets the byte array to the printed value of n, formatted in format f
+   with precision prec, and returns a reference to the byte array.
+
+   The format f can be any of the following:
+
+          Format                     Meaning
+            e               format as [-]9.9e[+|-]999
+            E               format as [-]9.9E[+|-]999
+            f                    format as [-]9.9
+            g    use e or f format, whichever is the most concise
+            G    use E or f format, whichever is the most concise
+
+   With 'e', 'E', and 'f', prec is the number of digits after the decimal
+   point. With 'g' and 'G', prec is the maximum number of significant
+   digits (trailing zeroes are omitted).
+
+   See also toDouble().
+
+  QByteArray & QByteArray::setNum ( float n, char f = 'g', int prec = 6 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Sets the byte array to the printed value of n, formatted in format f
+   with precision prec, and returns a reference to the byte array.
+
+   See also toFloat().
+
+  QByteArray QByteArray::simplified () const
+
+   Returns a byte array that has whitespace removed from the start and
+   the end, and which has each sequence of internal whitespace replaced
+   with a single space.
+
+   Whitespace means any character for which the standard C++ isspace()
+   function returns true. This includes the ASCII characters '\t', '\n',
+   '\v', '\f', '\r', and ' '.
+
+   Example:
+    QByteArray ba("  lots\t of\nwhitespace\r\n ");
+    ba = ba.trimmed();
+    // ba == "lots of whitespace";
+
+   See also trimmed().
+
+  int QByteArray::size () const
+
+   Returns the number of bytes in this byte array.
+
+   The last byte in the byte array is at position size() - 1. In
+   addition, QByteArray ensures that the byte at position size() is
+   always '\0', so that you can use the return value of data() and
+   constData() as arguments to functions that expect '\0'-terminated
+   strings.
+
+   Example:
+    QByteArray ba("Hello");
+    int n = ba.size();          // n == 5
+    ba.data()[0];               // returns 'H'
+    ba.data()[4];               // returns 'o'
+    ba.data()[5];               // returns '\0'
+
+   See also isEmpty() and resize().
+
+  QList<QByteArray> QByteArray::split ( char sep ) const
+
+   Splits the byte array into subarrays wherever sep occurs, and returns
+   the list of those arrays. If sep does not match anywhere in the byte
+   array, split() returns a single-element list containing this byte
+   array.
+
+  void QByteArray::squeeze ()
+
+   Releases any memory not required to store the array's data.
+
+   The sole purpose of this function is to provide a means of fine tuning
+   QByteArray's memory usage. In general, you will rarely ever need to
+   call this function.
+
+   See also reserve() and capacity().
+
+  bool QByteArray::startsWith ( const QByteArray & ba ) const
+
+   Returns true if this byte array starts with byte array ba; otherwise
+   returns false.
+
+   Example:
+    QByteArray url("ftp://ftp.trolltech.com/");
+    if (url.startsWith("ftp:"))
+        ...
+
+   See also endsWith() and left().
+
+  bool QByteArray::startsWith ( const char * str ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if this byte array starts with string str; otherwise
+   returns false.
+
+  bool QByteArray::startsWith ( char ch ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if this byte array starts with character ch; otherwise
+   returns false.
+
+  QByteArray QByteArray::toBase64 () const
+
+   Returns a copy of the byte array, encoded as Base64.
+    QByteArray text("Qt is great!");
+    text.toBase64();        // returns "UXQgaXMgZ3JlYXRcIQo="
+
+   See also fromBase64().
+
+  double QByteArray::toDouble ( bool * ok = 0 ) const
+
+   Returns the byte array converted to a double value.
+
+   Returns 0.0 if the conversion fails.
+
+   If ok is not 0: if a conversion error occurs, *ok is set to false;
+   otherwise *ok is set to true.
+    QByteArray string("1234.56");
+    double a = string.toDouble();   // a == 1234.56
+
+   See also number().
+
+  float QByteArray::toFloat ( bool * ok = 0 ) const
+
+   Returns the byte array converted to a float value.
+
+   Returns 0.0 if the conversion fails.
+
+   If ok is not 0: if a conversion error occurs, *ok is set to false;
+   otherwise *ok is set to true.
+
+   See also number().
+
+  int QByteArray::toInt ( bool * ok = 0, int base = 10 ) const
+
+   Returns the byte array converted to an int using base base, which is
+   10 by default and must be between 2 and 36, or 0.
+
+   If base is 0, the base is determined automatically using the following
+   rules: If the byte array begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   Returns 0 if the conversion fails.
+
+   If ok is not 0: if a conversion error occurs, *ok is set to false;
+   otherwise *ok is set to true.
+    QByteArray str("FF");
+    bool ok;
+    int hex = str.toInt(&ok, 16);     // hex == 255, ok == true
+    int dec = str.toInt(&ok, 10);     // dec == 0, ok == false
+
+   See also number().
+
+  qlonglong QByteArray::toLongLong ( bool * ok = 0, int base = 10 ) const
+
+   Returns the byte array converted to a long long using base base, which
+   is 10 by default and must be between 2 and 36, or 0.
+
+   If base is 0, the base is determined automatically using the following
+   rules: If the byte array begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   Returns 0 if the conversion fails.
+
+   If ok is not 0: if a conversion error occurs, *ok is set to false;
+   otherwise *ok is set to true.
+
+   See also number().
+
+  QByteArray QByteArray::toLower () const
+
+   Returns a lowercase copy of the byte array. The bytearray is
+   interpreted as a Latin-1 encoded string.
+
+   Example:
+    QByteArray x("TROlltECH");
+    QByteArray y = x.toLower();
+    // y == "trolltech"
+
+   See also toUpper() and Note on 8-bit character comparisons.
+
+  short QByteArray::toShort ( bool * ok = 0, int base = 10 ) const
+
+   Returns the byte array converted to a short using base base, which is
+   10 by default and must be between 2 and 36, or 0.
+
+   If base is 0, the base is determined automatically using the following
+   rules: If the byte array begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   Returns 0 if the conversion fails.
+
+   If ok is not 0: if a conversion error occurs, *ok is set to false;
+   otherwise *ok is set to true.
+
+   See also number().
+
+  uint QByteArray::toUInt ( bool * ok = 0, int base = 10 ) const
+
+   Returns the byte array converted to an unsigned int using base base,
+   which is 10 by default and must be between 2 and 36, or 0.
+
+   If base is 0, the base is determined automatically using the following
+   rules: If the byte array begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   Returns 0 if the conversion fails.
+
+   If ok is not 0: if a conversion error occurs, *ok is set to false;
+   otherwise *ok is set to true.
+
+   See also number().
+
+  qulonglong QByteArray::toULongLong ( bool * ok = 0, int base = 10 ) const
+
+   Returns the byte array converted to an unsigned long long using base
+   base, which is 10 by default and must be between 2 and 36, or 0.
+
+   If base is 0, the base is determined automatically using the following
+   rules: If the byte array begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   Returns 0 if the conversion fails.
+
+   If ok is not 0: if a conversion error occurs, *ok is set to false;
+   otherwise *ok is set to true.
+
+   See also number().
+
+  ushort QByteArray::toUShort ( bool * ok = 0, int base = 10 ) const
+
+   Returns the byte array converted to an unsigned short using base base,
+   which is 10 by default and must be between 2 and 36, or 0.
+
+   If base is 0, the base is determined automatically using the following
+   rules: If the byte array begins with "0x", it is assumed to be
+   hexadecimal; if it begins with "0", it is assumed to be octal;
+   otherwise it is assumed to be decimal.
+
+   Returns 0 if the conversion fails.
+
+   If ok is not 0: if a conversion error occurs, *ok is set to false;
+   otherwise *ok is set to true.
+
+   See also number().
+
+  QByteArray QByteArray::toUpper () const
+
+   Returns an uppercase copy of the byte array. The bytearray is
+   interpreted as a Latin-1 encoded string.
+
+   Example:
+    QByteArray x("TROlltECH");
+    QByteArray y = x.toUpper();
+    // y == "TROLLTECH"
+
+   See also toLower() and Note on 8-bit character comparisons.
+
+  QByteArray QByteArray::trimmed () const
+
+   Returns a byte array that has whitespace removed from the start and
+   the end.
+
+   Whitespace means any character for which the standard C++ isspace()
+   function returns true. This includes the ASCII characters '\t', '\n',
+   '\v', '\f', '\r', and ' '.
+
+   Example:
+    QByteArray ba("  lots\t of\nwhitespace\r\n ");
+    ba = ba.trimmed();
+    // ba == "lots\t of\nwhitespace";
+
+   Unlike simplified(), trimmed() leaves internal whitespace alone.
+
+   See also simplified().
+
+  void QByteArray::truncate ( int pos )
+
+   Truncates the byte array at index position pos.
+
+   If pos is beyond the end of the array, nothing happens.
+
+   Example:
+    QByteArray ba("Stockholm");
+    ba.truncate(5);             // ba == "Stock"
+
+   See also chop(), resize(), and left().
+
+  QByteArray::operator const char * () const
+
+   Returns a pointer to the data stored in the byte array. The pointer
+   can be used to access the bytes that compose the array. The data is
+   '\0'-terminated. The pointer remains valid as long as the array isn't
+   reallocated.
+
+   This operator is mostly useful to pass a byte array to a function that
+   accepts a const char *.
+
+   Note: A QByteArray can store any byte values including '\0's, but most
+   functions that take char * arguments assume that the data ends at the
+   first '\0' they encounter.
+
+   See also constData().
+
+  QByteArray::operator const void * () const
+
+   Returns a void pointer to the data.
+
+   This operator is mostly useful to pass a byte array to a function that
+   accepts a void *.
+
+   See also constData().
+
+  bool QByteArray::operator!= ( const QString & str ) const
+
+   Returns true if this byte array is not equal to string str; otherwise
+   returns false.
+
+   The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   The comparison is case sensitive.
+
+   You can disable this operator by defining QT_NO_CAST_FROM_ASCII when
+   you compile your applications. You then need to call
+   QString::fromAscii(), QString::fromLatin1(), QString::fromUtf8(), or
+   QString::fromLocal8Bit() explicitly if you want to convert the byte
+   array to a QString before doing the comparison.
+
+  QByteArray & QByteArray::operator+= ( const QByteArray & ba )
+
+   Appends the byte array ba onto the end of this byte array and returns
+   a reference to this byte array.
+
+   Example:
+    QByteArray x("free");
+    QByteArray y("dom");
+    x += y;
+    // x == "freedom"
+
+   This operation is typically very fast (constant time), because
+   QByteArray preallocates extra space at the end of the character data
+   so it can grow without reallocating the entire data each time.
+
+   See also append() and prepend().
+
+  QByteArray & QByteArray::operator+= ( const QString & str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends the string str onto the end of this byte array and returns a
+   reference to this byte array. The Unicode data is converted into 8-bit
+   characters using QString::toAscii().
+
+   If the QString contains non-ASCII Unicode characters, using this
+   operator can lead to loss of information. You can disable this
+   operator by defining QT_NO_CAST_TO_ASCII when you compile your
+   applications. You then need to call QString::toAscii() (or
+   QString::toLatin1() or QString::toUtf8() or QString::toLocal8Bit())
+   explicitly if you want to convert the data to const char *.
+
+  QByteArray & QByteArray::operator+= ( const char * str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends the string str onto the end of this byte array and returns a
+   reference to this byte array.
+
+  QByteArray & QByteArray::operator+= ( char ch )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends the character ch onto the end of this byte array and returns a
+   reference to this byte array.
+
+  bool QByteArray::operator< ( const QString & str ) const
+
+   Returns true if this byte array is lexically less than string str;
+   otherwise returns false.
+
+   The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   The comparison is case sensitive.
+
+   You can disable this operator by defining QT_NO_CAST_FROM_ASCII when
+   you compile your applications. You then need to call
+   QString::fromAscii(), QString::fromLatin1(), QString::fromUtf8(), or
+   QString::fromLocal8Bit() explicitly if you want to convert the byte
+   array to a QString before doing the comparison.
+
+  bool QByteArray::operator<= ( const QString & str ) const
+
+   Returns true if this byte array is lexically less than or equal to
+   string str; otherwise returns false.
+
+   The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   The comparison is case sensitive.
+
+   You can disable this operator by defining QT_NO_CAST_FROM_ASCII when
+   you compile your applications. You then need to call
+   QString::fromAscii(), QString::fromLatin1(), QString::fromUtf8(), or
+   QString::fromLocal8Bit() explicitly if you want to convert the byte
+   array to a QString before doing the comparison.
+
+  QByteArray & QByteArray::operator= ( const QByteArray & other )
+
+   Assigns other to this byte array and returns a reference to this byte
+   array.
+
+  QByteArray & QByteArray::operator= ( const char * str )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Assigns str to this byte array.
+
+  bool QByteArray::operator== ( const QString & str ) const
+
+   Returns true if this byte array is equal to string str; otherwise
+   returns false.
+
+   The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   The comparison is case sensitive.
+
+   You can disable this operator by defining QT_NO_CAST_FROM_ASCII when
+   you compile your applications. You then need to call
+   QString::fromAscii(), QString::fromLatin1(), QString::fromUtf8(), or
+   QString::fromLocal8Bit() explicitly if you want to convert the byte
+   array to a QString before doing the comparison.
+
+  bool QByteArray::operator> ( const QString & str ) const
+
+   Returns true if this byte array is lexically greater than string str;
+   otherwise returns false.
+
+   The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   The comparison is case sensitive.
+
+   You can disable this operator by defining QT_NO_CAST_FROM_ASCII when
+   you compile your applications. You then need to call
+   QString::fromAscii(), QString::fromLatin1(), QString::fromUtf8(), or
+   QString::fromLocal8Bit() explicitly if you want to convert the byte
+   array to a QString before doing the comparison.
+
+  bool QByteArray::operator>= ( const QString & str ) const
+
+   Returns true if this byte array is greater than or equal to string
+   str; otherwise returns false.
+
+   The Unicode data is converted into 8-bit characters using
+   QString::toAscii().
+
+   The comparison is case sensitive.
+
+   You can disable this operator by defining QT_NO_CAST_FROM_ASCII when
+   you compile your applications. You then need to call
+   QString::fromAscii(), QString::fromLatin1(), QString::fromUtf8(), or
+   QString::fromLocal8Bit() explicitly if you want to convert the byte
+   array to a QString before doing the comparison.
+
+  QByteRef QByteArray::operator[] ( int i )
+
+   Returns the byte at index position i as a modifiable reference.
+
+   If an assignment is made beyond the end of the byte array, the array
+   is extended with resize() before the assignment takes place.
+
+   Example:
+    QByteArray ba;
+    for (int i = 0; i < 10; ++i)
+        ba[i] = 'A' + i;
+    // ba == "ABCDEFGHIJ"
+
+   The return value is of type QByteRef, a helper class for QByteArray.
+   When you get an object of type QByteRef, you can use it as if it were
+   a char &. If you assign to it, the assignment will apply to the
+   character in the QByteArray from which you got the reference.
+
+   See also at().
+
+  const char QByteArray::operator[] ( int i ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Same as at(i).
+
+  QByteRef QByteArray::operator[] ( uint i )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+  const char QByteArray::operator[] ( uint i ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+     _________________________________________________________________
+
+Related Non-Members
+
+  quint16 qChecksum ( const char * data, uint len )
+
+   Returns the CRC-16 checksum of the first len bytes of data.
+
+   The checksum is independent of the byte order (endianness).
+
+  QByteArray qCompress ( const QByteArray & data, int compressionLevel = -1 )
+
+   Compresses the data byte array and returns the compressed data in a
+   new byte array.
+
+   The compressionLevel parameter specifies how much compression should
+   be used. Valid values are between 0 and 9, with 9 corresponding to the
+   greatest compression (i.e. smaller compressed data) at the cost of
+   using a slower algorithm. Smaller values (8, 7, ..., 1) provide
+   successively less compression at slightly faster speeds. The value 0
+   corresponds to no compression at all. The default value is -1, which
+   specifies zlib's default compression.
+
+   See also qUncompress().
+
+  QByteArray qCompress ( const uchar * data, int nbytes, int compressionLevel =
+  -1 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Compresses the first nbytes of data and returns the compressed data in
+   a new byte array.
+
+  QByteArray qUncompress ( const QByteArray & data )
+
+   Uncompresses the data byte array and returns a new byte array with the
+   uncompressed data.
+
+   Returns an empty QByteArray if the input data was corrupt.
+
+   This function will uncompress data compressed with qCompress() from
+   this and any earlier Qt version, back to Qt 3.1 when this feature was
+   added.
+
+   See also qCompress().
+
+  QByteArray qUncompress ( const uchar * data, int nbytes )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Uncompresses the first nbytes of data and returns a new byte array
+   with the uncompressed data.
+
+  int qsnprintf ( char * str, size_t n, const char * fmt, ... )
+
+   A portable snprintf() function, calls qvsnprintf.
+
+   fmt is the printf() format string. The result is put into str, which
+   is a buffer of at least n bytes.
+
+   Warning: Call this function only when you know what you are doing
+   since it shows different behavior on certain platforms. Use
+   QString::sprintf() to format a string instead.
+
+   See also qvsnprintf() and QString::sprintf().
+
+  int qstrcmp ( const char * str1, const char * str2 )
+
+   A safe strcmp() function.
+
+   Compares str1 and str2. Returns a negative value if str1 is less than
+   str2, 0 if str1 is equal to str2 or a positive value if str1 is
+   greater than str2.
+
+   Special case 1: Returns 0 if str1 and str2 are both 0.
+
+   Special case 2: Returns a random non-zero value if str1 is 0 or str2
+   is 0 (but not both).
+
+   See also qstrncmp(), qstricmp(), qstrnicmp(), and Note on 8-bit
+   character comparisons.
+
+  char * qstrcpy ( char * dst, const char * src )
+
+   Copies all the characters up to and including the '\0' from src into
+   dst and returns a pointer to dst. If src is 0, it immediately returns
+   0.
+
+   This function assumes that dst is large enough to hold the contents of
+   src.
+
+   See also qstrncpy().
+
+  char * qstrdup ( const char * src )
+
+   Returns a duplicate string.
+
+   Allocates space for a copy of src, copies it, and returns a pointer to
+   the copy. If src is 0, it immediately returns 0.
+
+   Ownership is passed to the caller, so the returned string must be
+   deleted using delete[].
+
+  int qstricmp ( const char * str1, const char * str2 )
+
+   A safe stricmp() function.
+
+   Compares str1 and str2 ignoring the case of the characters. The
+   encoding of the strings is assumed to be Latin-1.
+
+   Returns a negative value if str1 is less than str2, 0 if str1 is equal
+   to str2 or a positive value if str1 is greater than str2.
+
+   Special case 1: Returns 0 if str1 and str2 are both 0.
+
+   Special case 2: Returns a random non-zero value if str1 is 0 or str2
+   is 0 (but not both).
+
+   See also qstrcmp(), qstrncmp(), qstrnicmp(), and Note on 8-bit
+   character comparisons.
+
+  uint qstrlen ( const char * str )
+
+   A safe strlen() function.
+
+   Returns the number of characters that precede the terminating '\0', or
+   0 if str is 0.
+
+  int qstrncmp ( const char * str1, const char * str2, uint len )
+
+   A safe strncmp() function.
+
+   Compares at most len bytes of str1 and str2.
+
+   Returns a negative value if str1 is less than str2, 0 if str1 is equal
+   to str2 or a positive value if str1 is greater than str2.
+
+   Special case 1: Returns 0 if str1 and str2 are both 0.
+
+   Special case 2: Returns a random non-zero value if str1 is 0 or str2
+   is 0 (but not both).
+
+   See also qstrcmp(), qstricmp(), qstrnicmp(), and Note on 8-bit
+   character comparisons.
+
+  char * qstrncpy ( char * dst, const char * src, uint len )
+
+   A safe strncpy() function.
+
+   Copies at most len bytes from src (stopping at len or the terminating
+   '\0' whichever comes first) into dst and returns a pointer to dst.
+   Guarantees that dst is '\0'-terminated. If src or dst is 0, returns 0
+   immediately.
+
+   This function assumes that dst is at least len characters long.
+
+   See also qstrcpy().
+
+  int qstrnicmp ( const char * str1, const char * str2, uint len )
+
+   A safe strnicmp() function.
+
+   Compares at most len bytes of str1 and str2 ignoring the case of the
+   characters. The encoding of the strings is assumed to be Latin-1.
+
+   Returns a negative value if str1 is less than str2, 0 if str1 is equal
+   to str2 or a positive value if str1 is greater than str2.
+
+   Special case 1: Returns 0 if str1 and str2 are both 0.
+
+   Special case 2: Returns a random non-zero value if str1 is 0 or str2
+   is 0 (but not both).
+
+   See also qstrcmp(), qstrncmp(), qstricmp(), and Note on 8-bit
+   character comparisons.
+
+  int qvsnprintf ( char * str, size_t n, const char * fmt, va_list ap )
+
+   A portable vsnprintf() function. Will call ::vsnprintf(),
+   ::_vsnprintf(), or ::vsnprintf_s depending on the system, or fall back
+   to an internal version.
+
+   fmt is the printf() format string. The result is put into str, which
+   is a buffer of at least n bytes.
+
+   The caller is responsible to call va_end() on ap.
+
+   Warning: Since vsnprintf() shows different behavior on certain
+   platforms, you should not rely on the return value or on the fact that
+   you will always get a 0 terminated string back.
+
+   Ideally, you should never call this function but use
+   QString::sprintf() instead.
+
+   See also qsnprintf() and QString::sprintf().
+
+  bool operator!= ( const QByteArray & a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is not equal to byte array a2; otherwise
+   returns false.
+
+  bool operator!= ( const QByteArray & a1, const char * a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is not equal to string a2; otherwise
+   returns false.
+
+  bool operator!= ( const char * a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if string a1 is not equal to byte array a2; otherwise
+   returns false.
+
+  const QByteArray operator+ ( const QByteArray & a1, const QByteArray & a2 )
+
+   Returns a byte array that is the result of concatenating byte array a1
+   and byte array a2.
+
+   See also QByteArray::operator+=().
+
+  const QByteArray operator+ ( const QByteArray & a1, const char * a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a byte array that is the result of concatenating byte array a1
+   and string a2.
+
+  const QByteArray operator+ ( const QByteArray & a1, char a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a byte array that is the result of concatenating byte array a1
+   and character a2.
+
+  const QByteArray operator+ ( const char * a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a byte array that is the result of concatenating string a1 and
+   byte array a2.
+
+  const QByteArray operator+ ( char a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a byte array that is the result of concatenating character a1
+   and byte array a2.
+
+  bool operator< ( const QByteArray & a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is lexically less than byte array a2;
+   otherwise returns false.
+
+  bool operator< ( const QByteArray & a1, const char * a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is lexically less than string a2;
+   otherwise returns false.
+
+  bool operator< ( const char * a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if string a1 is lexically less than byte array a2;
+   otherwise returns false.
+
+  QDataStream & operator<< ( QDataStream & out, const QByteArray & ba )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Writes byte array ba to the stream out and returns a reference to the
+   stream.
+
+   See also Format of the QDataStream operators.
+
+  bool operator<= ( const QByteArray & a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is lexically less than or equal to byte
+   array a2; otherwise returns false.
+
+  bool operator<= ( const QByteArray & a1, const char * a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is lexically less than or equal to
+   string a2; otherwise returns false.
+
+  bool operator<= ( const char * a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if string a1 is lexically less than or equal to byte
+   array a2; otherwise returns false.
+
+  bool operator== ( const QByteArray & a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is equal to byte array a2; otherwise
+   returns false.
+
+  bool operator== ( const QByteArray & a1, const char * a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is equal to string a2; otherwise returns
+   false.
+
+  bool operator== ( const char * a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if string a1 is equal to byte array a2; otherwise returns
+   false.
+
+  bool operator> ( const QByteArray & a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is lexically greater than byte array a2;
+   otherwise returns false.
+
+  bool operator> ( const QByteArray & a1, const char * a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is lexically greater than string a2;
+   otherwise returns false.
+
+  bool operator> ( const char * a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if string a1 is lexically greater than byte array a2;
+   otherwise returns false.
+
+  bool operator>= ( const QByteArray & a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is lexically greater than or equal to
+   byte array a2; otherwise returns false.
+
+  bool operator>= ( const QByteArray & a1, const char * a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if byte array a1 is lexically greater than or equal to
+   string a2; otherwise returns false.
+
+  bool operator>= ( const char * a1, const QByteArray & a2 )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if string a1 is lexically greater than or equal to byte
+   array a2; otherwise returns false.
+
+  QDataStream & operator>> ( QDataStream & in, QByteArray & ba )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads a byte array into ba from the stream in and returns a reference
+   to the stream.
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

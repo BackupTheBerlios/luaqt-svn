@@ -1,0 +1,167 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QPointF Class Reference
+
+   #include <qpoint.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QPointF ()
+     * QPointF (const QPoint &p)
+     * QPointF (qreal xpos, qreal ypos)
+     * bool isNull () const
+     * qreal x () const
+     * qreal y () const
+     * void setX (qreal x)
+     * void setY (qreal y)
+     * qreal & rx ()
+     * qreal & ry ()
+     * QPointF & operator+= (const QPointF &p)
+     * QPointF & operator-= (const QPointF &p)
+     * QPointF & operator *= (qreal c)
+     * QPointF & operator/= (qreal c)
+     * QPoint toPoint () const
+
+Friends
+
+     * class QMatrix
+     * bool operator== (const QPointF &, const QPointF &)
+     * bool operator!= (const QPointF &, const QPointF &)
+     * const QPointF operator+ (const QPointF &, const QPointF &)
+     * const QPointF operator- (const QPointF &, const QPointF &)
+     * const QPointF operator * (qreal, const QPointF &)
+     * const QPointF operator * (const QPointF &, qreal)
+     * const QPointF operator- (const QPointF &)
+     * const QPointF operator/ (const QPointF &, qreal)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPointF::QPointF (   )  [inline]
+
+
+
+   QPointF::QPointF (  const QPoint &  p  )  [inline]
+
+
+
+   QPointF::QPointF (  qreal  xpos,
+                       qreal  ypos
+                    )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QPointF::isNull (   )  const [inline]
+
+
+
+   QPointF & QPointF::operator *= (  qreal  c  )  [inline]
+
+
+
+   QPointF & QPointF::operator+= (  const QPointF &  p  )  [inline]
+
+
+
+   QPointF & QPointF::operator-= (  const QPointF &  p  )  [inline]
+
+
+
+   QPointF & QPointF::operator/= (  qreal  c  )  [inline]
+
+
+
+   qreal & QPointF::rx (   )  [inline]
+
+
+
+   qreal & QPointF::ry (   )  [inline]
+
+
+
+   void QPointF::setX (  qreal  x  )  [inline]
+
+
+
+   void QPointF::setY (  qreal  y  )  [inline]
+
+
+
+   QPoint QPointF::toPoint (   )  const [inline]
+
+
+
+   qreal QPointF::x (   )  const [inline]
+
+
+
+   qreal QPointF::y (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   const QPointF operator * (  const QPointF &  p,
+                               qreal            c
+                            )  [friend]
+
+
+
+   const QPointF operator * (  qreal            c,
+                               const QPointF &  p
+                            )  [friend]
+
+
+
+   bool operator!= (  const QPointF &  p1,
+                      const QPointF &  p2
+                   )  [friend]
+
+
+
+   const QPointF operator+ (  const QPointF &  p1,
+                              const QPointF &  p2
+                           )  [friend]
+
+
+
+   const QPointF operator- (  const QPointF &  p  )  [friend]
+
+
+
+   const QPointF operator- (  const QPointF &  p1,
+                              const QPointF &  p2
+                           )  [friend]
+
+
+
+   const QPointF operator/ (  const QPointF &  p,
+                              qreal            c
+                           )  [friend]
+
+
+
+   bool operator== (  const QPointF &  p1,
+                      const QPointF &  p2
+                   )  [friend]
+
+
+
+   friend class QMatrix [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpoint.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

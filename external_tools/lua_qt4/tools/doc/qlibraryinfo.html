@@ -1,0 +1,103 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QLibraryInfo Class Reference
+
+   The QLibraryInfo class provides information about the Qt library.
+   More...
+#include <QLibraryInfo>
+
+   Part of the QtCore module.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum LibraryLocation { PrefixPath, DocumentationPath, HeadersPath,
+       LibrariesPath, ..., DemosPath }
+
+  Static Public Members
+
+     * QString buildKey ()
+     * QString licensedProducts ()
+     * QString licensee ()
+     * QString location ( LibraryLocation loc )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QLibraryInfo class provides information about the Qt library.
+
+   Many pieces of information are established when Qt is configured.
+   Installation paths, license information, and even a unique build key.
+   This class provides an abstraction for accessing this information.
+
+                           Function Return value
+         buildKey() A string that identifies the Qt version and the
+    configuration. This key is used to ensure that plugins link against
+                 the same version of Qt as the application.
+    location() The path to a certain Qt component (e.g., documentation,
+                               header files).
+           licensee(), licensedProducts() Licensing information.
+
+   See also QSysInfo.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QLibraryInfo::LibraryLocation
+
+   This enum type is used to specify a specific location specifier:
+
+   Constant Value Description
+   QLibraryInfo::PrefixPath 0 The default prefix for all paths.
+   QLibraryInfo::DocumentationPath 1 The location for documentation upon
+   install.
+   QLibraryInfo::HeadersPath 2 The location for all headers.
+   QLibraryInfo::LibrariesPath 3 The location of installed librarires.
+   QLibraryInfo::BinariesPath 4 The location of installed Qt binaries
+   (tools and applications).
+   QLibraryInfo::PluginsPath 5 The location of installed Qt plugins.
+   QLibraryInfo::DataPath 6 The location of general Qt data.
+   QLibraryInfo::TranslationsPath 7 The location of translation
+   information for Qt strings.
+   QLibraryInfo::SettingsPath 8 The location for Qt settings.
+   QLibraryInfo::ExamplesPath 10 The location for examples upon install.
+   QLibraryInfo::DemosPath 9 The location for demos upon install.
+
+   See also location().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QString QLibraryInfo::buildKey ()   [static]
+
+   Returns a unique key identifying this build of Qt and its
+   configurations. This key is not globally unique, rather only useful
+   for establishing of two configurations are compatible. This can be
+   used to compare with the QT_BUILD_KEY preprocessor symbol.
+
+   See also location().
+
+  QString QLibraryInfo::licensedProducts ()   [static]
+
+   Returns the products that the license for this build of Qt has access
+   to.
+
+   See also licensee().
+
+  QString QLibraryInfo::licensee ()   [static]
+
+   Returns the person to whom this build of Qt is licensed.
+
+   See also licensedProducts().
+
+  QString QLibraryInfo::location ( LibraryLocation loc )   [static]
+
+   Returns the location specified by loc.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

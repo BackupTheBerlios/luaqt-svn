@@ -1,0 +1,13 @@
+$pfile "lua_qt4/qt_defines.pkg"
+
+$#include "lua_qt_helpers.h"
+
+$ifile "lua_qt4/qnamespace.pkg",qns
+
+//$#include <QColorGroup>
+$class QColorGroup;
+$class QVariant;
+$#include <QVariant>
+
+$ifile "lua_qt4/Qt3Support_headers.pkg",qt
+

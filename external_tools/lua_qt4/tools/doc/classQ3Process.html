@@ -1,0 +1,279 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3Process Class Reference
+
+   #include <q3process.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * typedef Q_LONG PID
+     * enum Communication { Stdin = 0x01, Stdout = 0x02, Stderr = 0x04, DupStderr = 0x08 }
+
+Public Slots
+
+     * void tryTerminate () const
+     * void kill () const
+     * virtual void writeToStdin (const QByteArray &buf)
+     * virtual void writeToStdin (const QString &buf)
+     * virtual void closeStdin ()
+
+Signals
+
+     * void readyReadStdout ()
+     * void readyReadStderr ()
+     * void processExited ()
+     * void wroteToStdin ()
+     * void launchFinished ()
+
+Public Member Functions
+
+     * Q3Process (QObject *parent=0, const char *name=0)
+     * Q3Process (const QString &arg0, QObject *parent=0, const char *name=0)
+     * Q3Process (const QStringList &args, QObject *parent=0, const char *name=0)
+     * ~Q3Process ()
+     * QStringList arguments () const
+     * void clearArguments ()
+     * virtual void setArguments (const QStringList &args)
+     * virtual void addArgument (const QString &arg)
+     * QDir workingDirectory () const
+     * virtual void setWorkingDirectory (const QDir &dir)
+     * void setCommunication (int c)
+     * int communication () const
+     * virtual bool start (QStringList *env=0)
+     * virtual bool launch (const QString &buf, QStringList *env=0)
+     * virtual bool launch (const QByteArray &buf, QStringList *env=0)
+     * bool isRunning () const
+     * bool normalExit () const
+     * int exitStatus () const
+     * virtual QByteArray readStdout ()
+     * virtual QByteArray readStderr ()
+     * bool canReadLineStdout () const
+     * bool canReadLineStderr () const
+     * virtual QString readLineStdout ()
+     * virtual QString readLineStderr ()
+     * PID processIdentifier ()
+     * void flushStdin ()
+
+Protected Member Functions
+
+     * void connectNotify (const char *signal)
+     * void disconnectNotify (const char *signal)
+
+Friends
+
+     * class Q3ProcessPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef Q_LONG Q3Process::PID
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3Process::Communication
+
+
+
+   Enumerator: 
+
+          Stdin    
+          Stdout   
+          Stderr   
+          DupStderr
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Process::Q3Process (  QObject *     parent = 0,
+                           const char *  name = 0
+                        )
+
+
+
+   Q3Process::Q3Process (  const QString &  arg0,
+                           QObject *        parent = 0,
+                           const char *     name = 0
+                        )
+
+
+
+   Q3Process::Q3Process (  const QStringList &  args,
+                           QObject *            parent = 0,
+                           const char *         name = 0
+                        )
+
+
+
+   Q3Process::~Q3Process (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3Process::addArgument (  const QString &  arg  )  [virtual]
+
+
+
+   QStringList Q3Process::arguments (   )  const
+
+
+
+   bool Q3Process::canReadLineStderr (   )  const
+
+
+
+   bool Q3Process::canReadLineStdout (   )  const
+
+
+
+   void Q3Process::clearArguments (   )
+
+
+
+   virtual void Q3Process::closeStdin (   )  [virtual, slot]
+
+
+
+   int Q3Process::communication (   )  const
+
+
+
+   void Q3Process::connectNotify (  const char *  signal  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void Q3Process::disconnectNotify (  const char *  signal  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   int Q3Process::exitStatus (   )  const
+
+
+
+   void Q3Process::flushStdin (   )
+
+
+
+   bool Q3Process::isRunning (   )  const
+
+
+
+   void Q3Process::kill (   )  const [slot]
+
+
+
+   virtual bool Q3Process::launch (  const QByteArray &  buf,
+                                     QStringList *       env = 0
+                                  )  [virtual]
+
+
+
+   virtual bool Q3Process::launch (  const QString &  buf,
+                                     QStringList *    env = 0
+                                  )  [virtual]
+
+
+
+   void Q3Process::launchFinished (   )  [signal]
+
+
+
+   bool Q3Process::normalExit (   )  const
+
+
+
+   void Q3Process::processExited (   )  [signal]
+
+
+
+   PID Q3Process::processIdentifier (   )
+
+
+
+   virtual QString Q3Process::readLineStderr (   )  [virtual]
+
+
+
+   virtual QString Q3Process::readLineStdout (   )  [virtual]
+
+
+
+   virtual QByteArray Q3Process::readStderr (   )  [virtual]
+
+
+
+   virtual QByteArray Q3Process::readStdout (   )  [virtual]
+
+
+
+   void Q3Process::readyReadStderr (   )  [signal]
+
+
+
+   void Q3Process::readyReadStdout (   )  [signal]
+
+
+
+   virtual void Q3Process::setArguments (  const QStringList &  args  )  [virtual]
+
+
+
+   void Q3Process::setCommunication (  int  c  )
+
+
+
+   virtual void Q3Process::setWorkingDirectory (  const QDir &  dir  )  [virtual]
+
+
+
+   virtual bool Q3Process::start (  QStringList *  env = 0  )  [virtual]
+
+
+
+   void Q3Process::tryTerminate (   )  const [slot]
+
+
+
+   QDir Q3Process::workingDirectory (   )  const
+
+
+
+   virtual void Q3Process::writeToStdin (  const QString &  buf  )  [virtual, slot]
+
+
+
+   virtual void Q3Process::writeToStdin (  const QByteArray &  buf  )  [virtual, slot]
+
+
+
+   void Q3Process::wroteToStdin (   )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3ProcessPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3process.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

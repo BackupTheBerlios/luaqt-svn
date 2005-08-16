@@ -1,0 +1,233 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QGLContext Class Reference
+
+   #include <qgl.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QGLContext (const QGLFormat &format, QPaintDevice *device)
+     * QGLContext (const QGLFormat &format)
+     * virtual ~QGLContext ()
+     * virtual bool create (const QGLContext *shareContext=0)
+     * bool isValid () const
+     * bool isSharing () const
+     * void reset ()
+     * QGLFormat format () const
+     * QGLFormat requestedFormat () const
+     * void setFormat (const QGLFormat &format)
+     * virtual void makeCurrent ()
+     * virtual void doneCurrent ()
+     * virtual void swapBuffers () const
+     * GLuint bindTexture (const QImage &image, GLenum target=GL_TEXTURE_2D, GLint format=GL_RGBA8)
+     * GLuint bindTexture (const QPixmap &pixmap, GLenum target=GL_TEXTURE_2D, GLint format=GL_RGBA8)
+     * GLuint bindTexture (const QString &fileName)
+     * void deleteTexture (GLuint tx_id)
+     * void * getProcAddress (const QString &proc) const
+     * QPaintDevice * device () const
+     * QColor overlayTransparentColor () const
+
+Static Public Member Functions
+
+     * static void setTextureCacheLimit (int size)
+     * static int textureCacheLimit ()
+     * static const QGLContext * currentContext ()
+
+Protected Member Functions
+
+     * virtual bool chooseContext (const QGLContext *shareContext=0)
+     * bool deviceIsPixmap () const
+     * bool windowCreated () const
+     * void setWindowCreated (bool on)
+     * bool initialized () const
+     * void setInitialized (bool on)
+     * void generateFontDisplayLists (const QFont &fnt, int listBase)
+     * uint colorIndex (const QColor &c) const
+     * void setValid (bool valid)
+     * void setDevice (QPaintDevice *pDev)
+
+Static Protected Attributes
+
+     * static QGLContext * currentCtx
+
+Friends
+
+     * class QGLWidget
+     * class QGLWidgetPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QGLContext::QGLContext (  const QGLFormat &  format,
+                             QPaintDevice *     device
+                          )
+
+
+
+   QGLContext::QGLContext (  const QGLFormat &  format  )
+
+
+
+   virtual QGLContext::~QGLContext (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   GLuint QGLContext::bindTexture (  const QString &  fileName  )
+
+
+
+   GLuint QGLContext::bindTexture (  const QPixmap &  pixmap,
+                                     GLenum           target = GL_TEXTURE_2D,
+                                     GLint            format = GL_RGBA8
+                                  )
+
+
+
+   GLuint QGLContext::bindTexture (  const QImage &  image,
+                                     GLenum          target = GL_TEXTURE_2D,
+                                     GLint           format = GL_RGBA8
+                                  )
+
+
+
+   virtual bool QGLContext::chooseContext (  const QGLContext *  shareContext = 0  )  [protected, virtual]
+
+
+
+   uint QGLContext::colorIndex (  const QColor &  c  )  const [protected]
+
+
+
+   virtual bool QGLContext::create (  const QGLContext *  shareContext = 0  )  [virtual]
+
+
+
+   static const QGLContext* QGLContext::currentContext (   )  [static]
+
+
+
+   void QGLContext::deleteTexture (  GLuint  tx_id  )
+
+
+
+   QPaintDevice* QGLContext::device (   )  const
+
+
+
+   bool QGLContext::deviceIsPixmap (   )  const [protected]
+
+
+
+   virtual void QGLContext::doneCurrent (   )  [virtual]
+
+
+
+   QGLFormat QGLContext::format (   )  const
+
+
+
+   void QGLContext::generateFontDisplayLists (  const QFont &  fnt,
+                                                int            listBase
+                                             )  [protected]
+
+
+
+   void* QGLContext::getProcAddress (  const QString &  proc  )  const
+
+
+
+   bool QGLContext::initialized (   )  const [protected]
+
+
+
+   bool QGLContext::isSharing (   )  const
+
+
+
+   bool QGLContext::isValid (   )  const
+
+
+
+   virtual void QGLContext::makeCurrent (   )  [virtual]
+
+
+
+   QColor QGLContext::overlayTransparentColor (   )  const
+
+
+
+   QGLFormat QGLContext::requestedFormat (   )  const
+
+
+
+   void QGLContext::reset (   )
+
+
+
+   void QGLContext::setDevice (  QPaintDevice *  pDev  )  [protected]
+
+
+
+   void QGLContext::setFormat (  const QGLFormat &  format  )
+
+
+
+   void QGLContext::setInitialized (  bool  on  )  [protected]
+
+
+
+   static void QGLContext::setTextureCacheLimit (  int  size  )  [static]
+
+
+
+   void QGLContext::setValid (  bool  valid  )  [protected]
+
+
+
+   void QGLContext::setWindowCreated (  bool  on  )  [protected]
+
+
+
+   virtual void QGLContext::swapBuffers (   )  const [virtual]
+
+
+
+   static int QGLContext::textureCacheLimit (   )  [static]
+
+
+
+   bool QGLContext::windowCreated (   )  const [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QGLWidget [friend]
+
+
+
+   friend class QGLWidgetPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QGLContext* QGLContext::currentCtx [static, protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qgl.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

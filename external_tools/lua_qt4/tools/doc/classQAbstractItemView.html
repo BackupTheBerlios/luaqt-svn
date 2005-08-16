@@ -1,0 +1,862 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QAbstractItemView Class Reference
+
+   #include <qabstractitemview.h>
+
+   Inherits QAbstractScrollArea.
+
+   Inherited by QHeaderView, QListView, QTableView, and QTreeView.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags EditTriggers
+     * enum SelectionMode { NoSelection, SingleSelection, MultiSelection, ExtendedSelection }
+     * enum SelectionBehavior { SelectItems, SelectRows, SelectColumns }
+     * enum ScrollHint { EnsureVisible, PositionAtTop, PositionAtBottom }
+     * enum EditTrigger {
+         NoEditTriggers = 0, CurrentChanged = 1, DoubleClicked = 2, SelectedClicked = 4,
+         EditKeyPressed = 8, AnyKeyPressed = 16, AllEditTriggers = 31
+       }
+
+Public Slots
+
+     * virtual void reset ()
+     * virtual void setRootIndex (const QModelIndex &index)
+     * virtual void doItemsLayout ()
+     * virtual void selectAll ()
+     * void edit (const QModelIndex &index)
+     * void clearSelection ()
+     * void setCurrentIndex (const QModelIndex &index)
+
+Signals
+
+     * void pressed (const QModelIndex &index)
+     * void clicked (const QModelIndex &index)
+     * void doubleClicked (const QModelIndex &index)
+     * void activated (const QModelIndex &index)
+     * void entered (const QModelIndex &index)
+     * void viewportEntered ()
+
+Public Member Functions
+
+     * QAbstractItemView (QWidget *parent=0)
+     * ~QAbstractItemView ()
+     * virtual void setModel (QAbstractItemModel *model)
+     * QAbstractItemModel * model () const
+     * virtual void setSelectionModel (QItemSelectionModel *selectionModel)
+     * QItemSelectionModel * selectionModel () const
+     * void setItemDelegate (QAbstractItemDelegate *delegate)
+     * QAbstractItemDelegate * itemDelegate () const
+     * void setSelectionMode (QAbstractItemView::SelectionMode mode)
+     * QAbstractItemView::SelectionMode selectionMode () const
+     * void setSelectionBehavior (QAbstractItemView::SelectionBehavior behavior)
+     * QAbstractItemView::SelectionBehavior selectionBehavior () const
+     * QModelIndex currentIndex () const
+     * QModelIndex rootIndex () const
+     * void setEditTriggers (EditTriggers triggers)
+     * EditTriggers editTriggers () const
+     * void setAutoScroll (bool enable)
+     * bool hasAutoScroll () const
+     * void setTabKeyNavigation (bool enable)
+     * bool tabKeyNavigation () const
+     * void setDropIndicatorShown (bool enable)
+     * bool showDropIndicator () const
+     * void setDragEnabled (bool enable)
+     * bool dragEnabled () const
+     * void setAlternatingRowColors (bool enable)
+     * bool alternatingRowColors () const
+     * void setIconSize (const QSize &size)
+     * QSize iconSize () const
+     * void setTextElideMode (Qt::TextElideMode mode)
+     * Qt::TextElideMode textElideMode () const
+     * virtual void keyboardSearch (const QString &search)
+     * virtual QRect visualRect (const QModelIndex &index) const =0
+     * virtual void scrollTo (const QModelIndex &index, ScrollHint hint=EnsureVisible)=0
+     * virtual QModelIndex indexAt (const QPoint &p) const =0
+     * QSize sizeHintForIndex (const QModelIndex &index) const
+     * virtual int sizeHintForRow (int row) const
+     * virtual int sizeHintForColumn (int column) const
+     * void openPersistentEditor (const QModelIndex &index)
+     * void closePersistentEditor (const QModelIndex &index)
+
+Protected Types
+
+     * enum CursorAction {
+         MoveUp, MoveDown, MoveLeft, MoveRight,
+         MoveHome, MoveEnd, MovePageUp, MovePageDown,
+         MoveNext, MovePrevious
+       }
+     * enum State {
+         NoState, DraggingState, DragSelectingState, EditingState,
+         ExpandingState, CollapsingState
+       }
+
+Protected Slots
+
+     * virtual void dataChanged (const QModelIndex &topLeft, const QModelIndex &bottomRight)
+     * virtual void rowsInserted (const QModelIndex &parent, int start, int end)
+     * virtual void rowsAboutToBeRemoved (const QModelIndex &parent, int start, int end)
+     * virtual void selectionChanged (const QItemSelection &selected, const QItemSelection &deselected)
+     * virtual void currentChanged (const QModelIndex &current, const QModelIndex &previous)
+     * virtual void updateEditorData ()
+     * virtual void updateEditorGeometries ()
+     * virtual void updateGeometries ()
+     * virtual void verticalScrollbarAction (int action)
+     * virtual void horizontalScrollbarAction (int action)
+     * virtual void verticalScrollbarValueChanged (int value)
+     * virtual void horizontalScrollbarValueChanged (int value)
+     * virtual void closeEditor (QWidget *editor, QAbstractItemDelegate::EndEditHint hint)
+     * virtual void commitData (QWidget *editor)
+     * virtual void editorDestroyed (QObject *editor)
+
+Protected Member Functions
+
+     * QAbstractItemView (QAbstractItemViewPrivate &, QWidget *parent=0)
+     * void setHorizontalStepsPerItem (int steps)
+     * int horizontalStepsPerItem () const
+     * void setVerticalStepsPerItem (int steps)
+     * int verticalStepsPerItem () const
+     * virtual QModelIndex moveCursor (CursorAction cursorAction, Qt::KeyboardModifiers modifiers)=0
+     * virtual int horizontalOffset () const =0
+     * virtual int verticalOffset () const =0
+     * virtual bool isIndexHidden (const QModelIndex &index) const =0
+     * virtual void setSelection (const QRect &rect, QItemSelectionModel::SelectionFlags command)=0
+     * virtual QRegion visualRegionForSelection (const QItemSelection &selection) const =0
+     * virtual QModelIndexList selectedIndexes () const
+     * virtual bool edit (const QModelIndex &index, EditTrigger trigger, QEvent *event)
+     * virtual QItemSelectionModel::SelectionFlags selectionCommand (const QModelIndex &index, const QEvent *event=0) const
+     * virtual void startDrag (Qt::DropActions supportedActions)
+     * virtual QStyleOptionViewItem viewOptions () const
+     * State state () const
+     * void setState (State state)
+     * void scheduleDelayedItemsLayout ()
+     * void executeDelayedItemsLayout ()
+     * void scrollDirtyRegion (int dx, int dy)
+     * QPoint dirtyRegionOffset () const
+     * void startAutoScroll ()
+     * void stopAutoScroll ()
+     * void doAutoScroll ()
+     * bool viewportEvent (QEvent *e)
+     * void mousePressEvent (QMouseEvent *e)
+     * void mouseMoveEvent (QMouseEvent *e)
+     * void mouseReleaseEvent (QMouseEvent *e)
+     * void mouseDoubleClickEvent (QMouseEvent *e)
+     * void dragEnterEvent (QDragEnterEvent *e)
+     * void dragMoveEvent (QDragMoveEvent *e)
+     * void dragLeaveEvent (QDragLeaveEvent *e)
+     * void dropEvent (QDropEvent *e)
+     * void focusInEvent (QFocusEvent *e)
+     * void focusOutEvent (QFocusEvent *e)
+     * void keyPressEvent (QKeyEvent *e)
+     * void resizeEvent (QResizeEvent *e)
+     * void timerEvent (QTimerEvent *e)
+
+Properties
+
+     * bool autoScroll
+     * EditTriggers editTriggers
+     * bool tabKeyNavigation
+     * bool showDropIndicator
+     * bool dragEnabled
+     * bool alternatingRowColors
+     * SelectionMode selectionMode
+     * SelectionBehavior selectionBehavior
+     * QSize iconSize
+     * Qt TextElideMode
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QAbstractItemView::EditTriggers
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QAbstractItemView::CursorAction [protected]
+
+
+
+   Enumerator: 
+
+          MoveUp      
+          MoveDown    
+          MoveLeft    
+          MoveRight   
+          MoveHome    
+          MoveEnd     
+          MovePageUp  
+          MovePageDown
+          MoveNext    
+          MovePrevious
+
+   enum QAbstractItemView::EditTrigger
+
+
+
+   Enumerator: 
+
+          NoEditTriggers 
+          CurrentChanged 
+          DoubleClicked  
+          SelectedClicked
+          EditKeyPressed 
+          AnyKeyPressed  
+          AllEditTriggers
+
+   enum QAbstractItemView::ScrollHint
+
+
+
+   Enumerator: 
+
+          EnsureVisible   
+          PositionAtTop   
+          PositionAtBottom
+
+   enum QAbstractItemView::SelectionBehavior
+
+
+
+   Enumerator: 
+
+          SelectItems  
+          SelectRows   
+          SelectColumns
+
+   enum QAbstractItemView::SelectionMode
+
+
+
+   Enumerator: 
+
+          NoSelection      
+          SingleSelection  
+          MultiSelection   
+          ExtendedSelection
+
+   enum QAbstractItemView::State [protected]
+
+
+
+   Enumerator: 
+
+          NoState           
+          DraggingState     
+          DragSelectingState
+          EditingState      
+          ExpandingState    
+          CollapsingState   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractItemView::QAbstractItemView (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QAbstractItemView::~QAbstractItemView (   )
+
+
+
+   QAbstractItemView::QAbstractItemView (  QAbstractItemViewPrivate &  ,
+                                           QWidget *                   parent = 0
+                                        )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QAbstractItemView::activated (  const QModelIndex &  index  )  [signal]
+
+
+
+   bool QAbstractItemView::alternatingRowColors (   )  const
+
+
+
+   void QAbstractItemView::clearSelection (   )  [slot]
+
+
+
+   void QAbstractItemView::clicked (  const QModelIndex &  index  )  [signal]
+
+
+
+   virtual void QAbstractItemView::closeEditor (  QWidget *                           editor,
+                                                  QAbstractItemDelegate::EndEditHint  hint
+                                               )  [protected, virtual, slot]
+
+
+
+   void QAbstractItemView::closePersistentEditor (  const QModelIndex &  index  )
+
+
+
+   virtual void QAbstractItemView::commitData (  QWidget *  editor  )  [protected, virtual, slot]
+
+
+
+   virtual void QAbstractItemView::currentChanged (  const QModelIndex &  current,
+                                                     const QModelIndex &  previous
+                                                  )  [protected, virtual, slot]
+
+
+
+   Reimplemented in QHeaderView.
+
+   QModelIndex QAbstractItemView::currentIndex (   )  const
+
+
+
+   virtual void QAbstractItemView::dataChanged (  const QModelIndex &  topLeft,
+                                                  const QModelIndex &  bottomRight
+                                               )  [protected, virtual, slot]
+
+
+
+   Reimplemented in QHeaderView, QListView, and QTreeView.
+
+   QPoint QAbstractItemView::dirtyRegionOffset (   )  const [protected]
+
+
+
+   void QAbstractItemView::doAutoScroll (   )  [protected]
+
+
+
+   virtual void QAbstractItemView::doItemsLayout (   )  [virtual, slot]
+
+
+
+   Reimplemented in QHeaderView, QListView, and QTreeView.
+
+   void QAbstractItemView::doubleClicked (  const QModelIndex &  index  )  [signal]
+
+
+
+   bool QAbstractItemView::dragEnabled (   )  const
+
+
+
+   void QAbstractItemView::dragEnterEvent (  QDragEnterEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QAbstractItemView::dragLeaveEvent (  QDragLeaveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QListView.
+
+   void QAbstractItemView::dragMoveEvent (  QDragMoveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QListView.
+
+   void QAbstractItemView::dropEvent (  QDropEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QListView.
+
+   virtual bool QAbstractItemView::edit (  const QModelIndex &  index,
+                                           EditTrigger          trigger,
+                                           QEvent *             event
+                                        )  [protected, virtual]
+
+
+
+   void QAbstractItemView::edit (  const QModelIndex &  index  )  [slot]
+
+
+
+   virtual void QAbstractItemView::editorDestroyed (  QObject *  editor  )  [protected, virtual, slot]
+
+
+
+   EditTriggers QAbstractItemView::editTriggers (   )  const
+
+
+
+   void QAbstractItemView::entered (  const QModelIndex &  index  )  [signal]
+
+
+
+   void QAbstractItemView::executeDelayedItemsLayout (   )  [protected]
+
+
+
+   void QAbstractItemView::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractItemView::focusOutEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QAbstractItemView::hasAutoScroll (   )  const
+
+
+
+   virtual int QAbstractItemView::horizontalOffset (   )  const [protected, pure virtual]
+
+
+
+   Implemented in QHeaderView, QListView, QTableView, and QTreeView.
+
+   virtual void QAbstractItemView::horizontalScrollbarAction (  int  action  )  [protected, virtual, slot]
+
+
+
+   Reimplemented in QTableView.
+
+   virtual void QAbstractItemView::horizontalScrollbarValueChanged (  int  value  )  [protected, virtual, slot]
+
+
+
+   int QAbstractItemView::horizontalStepsPerItem (   )  const [protected]
+
+
+
+   QSize QAbstractItemView::iconSize (   )  const
+
+
+
+   virtual QModelIndex QAbstractItemView::indexAt (  const QPoint &  p  )  const [pure virtual]
+
+
+
+   Implemented in QHeaderView, QListView, QTableView, and QTreeView.
+
+   virtual bool QAbstractItemView::isIndexHidden (  const QModelIndex &  index  )  const [protected, pure virtual]
+
+
+
+   Implemented in QHeaderView, QListView, QTableView, and QTreeView.
+
+   QAbstractItemDelegate* QAbstractItemView::itemDelegate (   )  const
+
+
+
+   virtual void QAbstractItemView::keyboardSearch (  const QString &  search  )  [virtual]
+
+
+
+   void QAbstractItemView::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   QAbstractItemModel* QAbstractItemView::model (   )  const
+
+
+
+   void QAbstractItemView::mouseDoubleClickEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QHeaderView, and QTreeView.
+
+   void QAbstractItemView::mouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QHeaderView, and QListView.
+
+   void QAbstractItemView::mousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QHeaderView, and QTreeView.
+
+   void QAbstractItemView::mouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QHeaderView, and QListView.
+
+   virtual QModelIndex QAbstractItemView::moveCursor (  CursorAction           cursorAction,
+                                                        Qt::KeyboardModifiers  modifiers
+                                                     )  [protected, pure virtual]
+
+
+
+   void QAbstractItemView::openPersistentEditor (  const QModelIndex &  index  )
+
+
+
+   void QAbstractItemView::pressed (  const QModelIndex &  index  )  [signal]
+
+
+
+   virtual void QAbstractItemView::reset (   )  [virtual, slot]
+
+
+
+   Reimplemented in QListView, and QTreeView.
+
+   void QAbstractItemView::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QListView.
+
+   QModelIndex QAbstractItemView::rootIndex (   )  const
+
+
+
+   virtual void QAbstractItemView::rowsAboutToBeRemoved (  const QModelIndex &  parent,
+                                                           int                  start,
+                                                           int                  end
+                                                        )  [protected, virtual, slot]
+
+
+
+   Reimplemented in QListView, and QTreeView.
+
+   virtual void QAbstractItemView::rowsInserted (  const QModelIndex &  parent,
+                                                   int                  start,
+                                                   int                  end
+                                                )  [protected, virtual, slot]
+
+
+
+   Reimplemented in QHeaderView, QListView, and QTreeView.
+
+   void QAbstractItemView::scheduleDelayedItemsLayout (   )  [protected]
+
+
+
+   void QAbstractItemView::scrollDirtyRegion (  int  dx,
+                                                int  dy
+                                             )  [protected]
+
+
+
+   virtual void QAbstractItemView::scrollTo (  const QModelIndex &  index,
+                                               ScrollHint           hint = EnsureVisible
+                                            )  [pure virtual]
+
+
+
+   Implemented in QHeaderView, QListView, QTableView, and QTreeView.
+
+   virtual void QAbstractItemView::selectAll (   )  [virtual, slot]
+
+
+
+   Reimplemented in QTreeView.
+
+   virtual QModelIndexList QAbstractItemView::selectedIndexes (   )  const [protected, virtual]
+
+
+
+   Reimplemented in QListView, QTableView, and QTreeView.
+
+   QAbstractItemView::SelectionBehavior QAbstractItemView::selectionBehavior (   )  const
+
+
+
+   virtual void QAbstractItemView::selectionChanged (  const QItemSelection &  selected,
+                                                       const QItemSelection &  deselected
+                                                    )  [protected, virtual, slot]
+
+
+
+   virtual QItemSelectionModel::SelectionFlags QAbstractItemView::selectionCommand (  const QModelIndex &  index,
+                                                                                      const QEvent *       event = 0
+                                                                                   )  const [protected, virtual]
+
+
+
+   QAbstractItemView::SelectionMode QAbstractItemView::selectionMode (   )  const
+
+
+
+   QItemSelectionModel* QAbstractItemView::selectionModel (   )  const
+
+
+
+   void QAbstractItemView::setAlternatingRowColors (  bool  enable  )
+
+
+
+   void QAbstractItemView::setAutoScroll (  bool  enable  )
+
+
+
+   void QAbstractItemView::setCurrentIndex (  const QModelIndex &  index  )  [slot]
+
+
+
+   void QAbstractItemView::setDragEnabled (  bool  enable  )
+
+
+
+   void QAbstractItemView::setDropIndicatorShown (  bool  enable  )
+
+
+
+   void QAbstractItemView::setEditTriggers (  EditTriggers  triggers  )
+
+
+
+   void QAbstractItemView::setHorizontalStepsPerItem (  int  steps  )  [protected]
+
+
+
+   void QAbstractItemView::setIconSize (  const QSize &  size  )
+
+
+
+   void QAbstractItemView::setItemDelegate (  QAbstractItemDelegate *  delegate  )
+
+
+
+   virtual void QAbstractItemView::setModel (  QAbstractItemModel *  model  )  [virtual]
+
+
+
+   Reimplemented in QHeaderView, QTableView, and QTreeView.
+
+   virtual void QAbstractItemView::setRootIndex (  const QModelIndex &  index  )  [virtual, slot]
+
+
+
+   Reimplemented in QListView, QTableView, and QTreeView.
+
+   virtual void QAbstractItemView::setSelection (  const QRect &                        rect,
+                                                   QItemSelectionModel::SelectionFlags  command
+                                                )  [protected, pure virtual]
+
+
+
+   Implemented in QHeaderView, QListView, QTableView, and QTreeView.
+
+   void QAbstractItemView::setSelectionBehavior (  QAbstractItemView::SelectionBehavior  behavior  )
+
+
+
+   void QAbstractItemView::setSelectionMode (  QAbstractItemView::SelectionMode  mode  )
+
+
+
+   virtual void QAbstractItemView::setSelectionModel (  QItemSelectionModel *  selectionModel  )  [virtual]
+
+
+
+   Reimplemented in QTableView, and QTreeView.
+
+   void QAbstractItemView::setState (  State  state  )  [protected]
+
+
+
+   void QAbstractItemView::setTabKeyNavigation (  bool  enable  )
+
+
+
+   void QAbstractItemView::setTextElideMode (  Qt::TextElideMode  mode  )
+
+
+
+   void QAbstractItemView::setVerticalStepsPerItem (  int  steps  )  [protected]
+
+
+
+   bool QAbstractItemView::showDropIndicator (   )  const
+
+
+
+   virtual int QAbstractItemView::sizeHintForColumn (  int  column  )  const [virtual]
+
+
+
+   Reimplemented in QTableView, and QTreeView.
+
+   QSize QAbstractItemView::sizeHintForIndex (  const QModelIndex &  index  )  const
+
+
+
+   virtual int QAbstractItemView::sizeHintForRow (  int  row  )  const [virtual]
+
+
+
+   Reimplemented in QTableView.
+
+   void QAbstractItemView::startAutoScroll (   )  [protected]
+
+
+
+   virtual void QAbstractItemView::startDrag (  Qt::DropActions  supportedActions  )  [protected, virtual]
+
+
+
+   Reimplemented in QListView.
+
+   State QAbstractItemView::state (   )  const [protected]
+
+
+
+   void QAbstractItemView::stopAutoScroll (   )  [protected]
+
+
+
+   bool QAbstractItemView::tabKeyNavigation (   )  const
+
+
+
+   Qt::TextElideMode QAbstractItemView::textElideMode (   )  const
+
+
+
+   void QAbstractItemView::timerEvent (  QTimerEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   Reimplemented in QListView.
+
+   virtual void QAbstractItemView::updateEditorData (   )  [protected, virtual, slot]
+
+
+
+   virtual void QAbstractItemView::updateEditorGeometries (   )  [protected, virtual, slot]
+
+
+
+   virtual void QAbstractItemView::updateGeometries (   )  [protected, virtual, slot]
+
+
+
+   Reimplemented in QHeaderView, QListView, QTableView, and QTreeView.
+
+   virtual int QAbstractItemView::verticalOffset (   )  const [protected, pure virtual]
+
+
+
+   Implemented in QHeaderView, QListView, QTableView, and QTreeView.
+
+   virtual void QAbstractItemView::verticalScrollbarAction (  int  action  )  [protected, virtual, slot]
+
+
+
+   Reimplemented in QTableView.
+
+   virtual void QAbstractItemView::verticalScrollbarValueChanged (  int  value  )  [protected, virtual, slot]
+
+
+
+   int QAbstractItemView::verticalStepsPerItem (   )  const [protected]
+
+
+
+   virtual QStyleOptionViewItem QAbstractItemView::viewOptions (   )  const [protected, virtual]
+
+
+
+   Reimplemented in QListView, and QTableView.
+
+   void QAbstractItemView::viewportEntered (   )  [signal]
+
+
+
+   bool QAbstractItemView::viewportEvent (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   virtual QRect QAbstractItemView::visualRect (  const QModelIndex &  index  )  const [pure virtual]
+
+
+
+   Implemented in QHeaderView, QListView, QTableView, and QTreeView.
+
+   virtual QRegion QAbstractItemView::visualRegionForSelection (  const QItemSelection &  selection  )  const [protected, pure virtual]
+
+
+
+   Implemented in QHeaderView, QListView, QTableView, and QTreeView.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QAbstractItemView::alternatingRowColors [read, write]
+
+
+
+   bool QAbstractItemView::autoScroll [read, write]
+
+
+
+   bool QAbstractItemView::dragEnabled [read, write]
+
+
+
+   EditTriggers QAbstractItemView::editTriggers [read, write]
+
+
+
+   QSize QAbstractItemView::iconSize [read, write]
+
+
+
+   SelectionBehavior QAbstractItemView::selectionBehavior [read, write]
+
+
+
+   SelectionMode QAbstractItemView::selectionMode [read, write]
+
+
+
+   bool QAbstractItemView::showDropIndicator [read, write]
+
+
+
+   bool QAbstractItemView::tabKeyNavigation [read, write]
+
+
+
+   Qt QAbstractItemView::TextElideMode [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractitemview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

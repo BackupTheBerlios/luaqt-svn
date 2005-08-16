@@ -1,0 +1,371 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QLayout Class Reference
+
+   #include <qlayout.h>
+
+   Inherits QObject, and QLayoutItem.
+
+   Inherited by QBoxLayout, QGridLayout, and QStackedLayout.
+
+   List of all members.
+
+Public Types
+
+     * enum SizeConstraint {
+         SetDefaultConstraint, SetNoConstraint, SetMinimumSize, SetFixedSize,
+         SetMaximumSize, SetMinAndMaxSize
+       }
+
+Public Member Functions
+
+     * QLayout (QWidget *parent)
+     * QLayout ()
+     * ~QLayout ()
+     * int margin () const
+     * int spacing () const
+     * void setMargin (int)
+     * void setSpacing (int)
+     * bool setAlignment (QWidget *w, Qt::Alignment alignment)
+     * bool setAlignment (QLayout *l, Qt::Alignment alignment)
+     * void setSizeConstraint (SizeConstraint)
+     * SizeConstraint sizeConstraint () const
+     * void setMenuBar (QWidget *w)
+     * QWidget * menuBar () const
+     * QWidget * parentWidget () const
+     * void invalidate ()
+     * QRect geometry () const
+     * bool activate ()
+     * void update ()
+     * void addWidget (QWidget *w)
+     * virtual void addItem (QLayoutItem *)=0
+     * void removeWidget (QWidget *w)
+     * void removeItem (QLayoutItem *)
+     * Qt::Orientations expandingDirections () const
+     * QSize minimumSize () const
+     * QSize maximumSize () const
+     * void setGeometry (const QRect &)=0
+     * virtual QLayoutItem * itemAt (int index) const =0
+     * virtual QLayoutItem * takeAt (int index)=0
+     * virtual int indexOf (QWidget *) const
+     * virtual int count () const =0
+     * bool isEmpty () const
+     * int totalHeightForWidth (int w) const
+     * QSize totalMinimumSize () const
+     * QSize totalMaximumSize () const
+     * QSize totalSizeHint () const
+     * QLayout * layout ()
+     * void setEnabled (bool)
+     * bool isEnabled () const
+
+Static Public Member Functions
+
+     * static QSize closestAcceptableSize (const QWidget *w, const QSize &s)
+
+Protected Member Functions
+
+     * void widgetEvent (QEvent *)
+     * void childEvent (QChildEvent *e)
+     * void addChildLayout (QLayout *l)
+     * void addChildWidget (QWidget *w)
+     * QRect alignmentRect (const QRect &) const
+     * QLayout (QLayoutPrivate &d, QLayout *, QWidget *)
+
+Properties
+
+     * int margin
+     * int spacing
+     * SizeConstraint sizeConstraint
+
+Friends
+
+     * class QApplicationPrivate
+     * class QWidget
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QLayout::SizeConstraint
+
+
+
+   Enumerator: 
+
+          SetDefaultConstraint
+          SetNoConstraint     
+          SetMinimumSize      
+          SetFixedSize        
+          SetMaximumSize      
+          SetMinAndMaxSize    
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QLayout::QLayout (  QWidget *  parent  )
+
+
+
+   QLayout::QLayout (   )
+
+
+
+   QLayout::~QLayout (   )
+
+
+
+   QLayout::QLayout (  QLayoutPrivate &  d,
+                       QLayout *         ,
+                       QWidget *       
+                    )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QLayout::activate (   )
+
+
+
+   void QLayout::addChildLayout (  QLayout *  l  )  [protected]
+
+
+
+   void QLayout::addChildWidget (  QWidget *  w  )  [protected]
+
+
+
+   virtual void QLayout::addItem (  QLayoutItem *   )  [pure virtual]
+
+
+
+   Implemented in QBoxLayout, QGridLayout, and QStackedLayout.
+
+   void QLayout::addWidget (  QWidget *  w  )
+
+
+
+   Reimplemented in QGridLayout, and QStackedLayout.
+
+   QRect QLayout::alignmentRect (  const QRect &   )  const [protected]
+
+
+
+   void QLayout::childEvent (  QChildEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   static QSize QLayout::closestAcceptableSize (  const QWidget *  w,
+                                                  const QSize &    s
+                                               )  [static]
+
+
+
+   virtual int QLayout::count (   )  const [pure virtual]
+
+
+
+   Implemented in QBoxLayout, QGridLayout, and QStackedLayout.
+
+   Qt::Orientations QLayout::expandingDirections (   )  const [virtual]
+
+
+
+   Implements QLayoutItem.
+
+   Reimplemented in QBoxLayout, and QGridLayout.
+
+   QRect QLayout::geometry (   )  const [virtual]
+
+
+
+   Implements QLayoutItem.
+
+   virtual int QLayout::indexOf (  QWidget *   )  const [virtual]
+
+
+
+   void QLayout::invalidate (   )  [virtual]
+
+
+
+   Reimplemented from QLayoutItem.
+
+   Reimplemented in QBoxLayout, and QGridLayout.
+
+   bool QLayout::isEmpty (   )  const [virtual]
+
+
+
+   Implements QLayoutItem.
+
+   bool QLayout::isEnabled (   )  const
+
+
+
+   virtual QLayoutItem* QLayout::itemAt (  int  index  )  const [pure virtual]
+
+
+
+   Implemented in QBoxLayout, QGridLayout, and QStackedLayout.
+
+   QLayout* QLayout::layout (   )  [virtual]
+
+
+
+   Reimplemented from QLayoutItem.
+
+   int QLayout::margin (   )  const
+
+
+
+   QSize QLayout::maximumSize (   )  const [virtual]
+
+
+
+   Implements QLayoutItem.
+
+   Reimplemented in QBoxLayout, and QGridLayout.
+
+   QWidget* QLayout::menuBar (   )  const
+
+
+
+   QSize QLayout::minimumSize (   )  const [virtual]
+
+
+
+   Implements QLayoutItem.
+
+   Reimplemented in QBoxLayout, QGridLayout, and QStackedLayout.
+
+   QWidget* QLayout::parentWidget (   )  const
+
+
+
+   void QLayout::removeItem (  QLayoutItem *   )
+
+
+
+   void QLayout::removeWidget (  QWidget *  w  )
+
+
+
+   bool QLayout::setAlignment (  QLayout *      l,
+                                 Qt::Alignment  alignment
+                              )
+
+
+
+   bool QLayout::setAlignment (  QWidget *      w,
+                                 Qt::Alignment  alignment
+                              )
+
+
+
+   void QLayout::setEnabled (  bool   )
+
+
+
+   void QLayout::setGeometry (  const QRect &   )  [pure virtual]
+
+
+
+   Implements QLayoutItem.
+
+   Implemented in QBoxLayout, QGridLayout, and QStackedLayout.
+
+   void QLayout::setMargin (  int   )
+
+
+
+   void QLayout::setMenuBar (  QWidget *  w  )
+
+
+
+   void QLayout::setSizeConstraint (  SizeConstraint   )
+
+
+
+   void QLayout::setSpacing (  int   )
+
+
+
+   SizeConstraint QLayout::sizeConstraint (   )  const
+
+
+
+   int QLayout::spacing (   )  const
+
+
+
+   virtual QLayoutItem* QLayout::takeAt (  int  index  )  [pure virtual]
+
+
+
+   Implemented in QBoxLayout, QGridLayout, and QStackedLayout.
+
+   int QLayout::totalHeightForWidth (  int  w  )  const
+
+
+
+   QSize QLayout::totalMaximumSize (   )  const
+
+
+
+   QSize QLayout::totalMinimumSize (   )  const
+
+
+
+   QSize QLayout::totalSizeHint (   )  const
+
+
+
+   void QLayout::update (   )
+
+
+
+   void QLayout::widgetEvent (  QEvent *   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QApplicationPrivate [friend]
+
+
+
+   Reimplemented from QObject.
+
+   friend class QWidget [friend]
+
+
+
+   Reimplemented from QObject.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QLayout::margin [read, write]
+
+
+
+   SizeConstraint QLayout::sizeConstraint [read, write]
+
+
+
+   int QLayout::spacing [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlayout.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

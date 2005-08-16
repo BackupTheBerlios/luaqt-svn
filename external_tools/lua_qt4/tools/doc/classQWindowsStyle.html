@@ -1,0 +1,183 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QWindowsStyle Class Reference
+
+   #include <qwindowsstyle.h>
+
+   Inherits QCommonStyle.
+
+   Inherited by QPlastiqueStyle, and QWindowsXPStyle.
+
+   List of all members.
+
+Public Member Functions
+
+     * QWindowsStyle ()
+     * ~QWindowsStyle ()
+     * void polish (QApplication *)
+     * void unpolish (QApplication *)
+     * void polish (QWidget *)
+     * void unpolish (QWidget *)
+     * void polish (QPalette &)
+     * void drawPrimitive (PrimitiveElement pe, const QStyleOption *opt, QPainter *p, const QWidget *w=0) const
+     * void drawControl (ControlElement element, const QStyleOption *opt, QPainter *p, const QWidget *w=0) const
+     * QRect subElementRect (SubElement r, const QStyleOption *opt, const QWidget *widget=0) const
+     * void drawComplexControl (ComplexControl cc, const QStyleOptionComplex *opt, QPainter *p, const QWidget *w=0) const
+     * QSize sizeFromContents (ContentsType ct, const QStyleOption *opt, const QSize &contentsSize, const QWidget *widget=0) const
+     * int pixelMetric (PixelMetric pm, const QStyleOption *option=0, const QWidget *widget=0) const
+     * int styleHint (StyleHint hint, const QStyleOption *opt=0, const QWidget *widget=0, QStyleHintReturn *returnData=0) const
+     * QPixmap standardPixmap (StandardPixmap standardPixmap, const QStyleOption *opt, const QWidget *widget=0) const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QWindowsStyle::QWindowsStyle (   )
+
+
+
+   QWindowsStyle::~QWindowsStyle (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QWindowsStyle::drawComplexControl (  ComplexControl               cc,
+                                             const QStyleOptionComplex *  opt,
+                                             QPainter *                   p,
+                                             const QWidget *              w = 0
+                                          )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   void QWindowsStyle::drawControl (  ControlElement        element,
+                                      const QStyleOption *  opt,
+                                      QPainter *            p,
+                                      const QWidget *       w = 0
+                                   )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   void QWindowsStyle::drawPrimitive (  PrimitiveElement      pe,
+                                        const QStyleOption *  opt,
+                                        QPainter *            p,
+                                        const QWidget *       w = 0
+                                     )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   int QWindowsStyle::pixelMetric (  PixelMetric           pm,
+                                     const QStyleOption *  option = 0,
+                                     const QWidget *       widget = 0
+                                  )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   void QWindowsStyle::polish (  QPalette &   )  [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   void QWindowsStyle::polish (  QWidget *   )  [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   void QWindowsStyle::polish (  QApplication *   )  [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   QSize QWindowsStyle::sizeFromContents (  ContentsType          ct,
+                                            const QStyleOption *  opt,
+                                            const QSize &         contentsSize,
+                                            const QWidget *       widget = 0
+                                         )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   QPixmap QWindowsStyle::standardPixmap (  StandardPixmap        standardPixmap,
+                                            const QStyleOption *  opt,
+                                            const QWidget *       widget = 0
+                                         )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   int QWindowsStyle::styleHint (  StyleHint             hint,
+                                   const QStyleOption *  opt = 0,
+                                   const QWidget *       widget = 0,
+                                   QStyleHintReturn *    returnData = 0
+                                )  const
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   QRect QWindowsStyle::subElementRect (  SubElement            r,
+                                          const QStyleOption *  opt,
+                                          const QWidget *       widget = 0
+                                       )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   void QWindowsStyle::unpolish (  QWidget *   )  [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+
+   void QWindowsStyle::unpolish (  QApplication *   )  [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   Reimplemented in QPlastiqueStyle, and QWindowsXPStyle.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qwindowsstyle.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

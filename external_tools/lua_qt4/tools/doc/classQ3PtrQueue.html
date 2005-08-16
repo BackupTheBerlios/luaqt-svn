@@ -1,0 +1,134 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    Q3PtrQueue< type > Class Template Reference
+
+   #include <q3ptrqueue.h>
+
+   Inherits Q3GList.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3PtrQueue ()
+     * Q3PtrQueue (const Q3PtrQueue< type > &q)
+     * ~Q3PtrQueue ()
+     * Q3PtrQueue< type > & operator= (const Q3PtrQueue< type > &q)
+     * bool autoDelete () const
+     * void setAutoDelete (bool del)
+     * uint count () const
+     * bool isEmpty () const
+     * void enqueue (const type *d)
+     * type * dequeue ()
+     * bool remove ()
+     * void clear ()
+     * type * head () const
+     * operator type * () const
+     * type * current () const
+     * template<> void deleteItem (Q3PtrCollection::Item)
+
+  template<class type>
+  class Q3PtrQueue< type >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class type>
+   Q3PtrQueue< type >::Q3PtrQueue (   )  [inline]
+
+
+
+   template<class type>
+   Q3PtrQueue< type >::Q3PtrQueue (  const Q3PtrQueue< type > &  q  )  [inline]
+
+
+
+   template<class type>
+   Q3PtrQueue< type >::~Q3PtrQueue (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class type>
+   bool Q3PtrQueue< type >::autoDelete (   )  const [inline]
+
+
+
+   Reimplemented from Q3PtrCollection.
+
+   template<class type>
+   void Q3PtrQueue< type >::clear (   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   uint Q3PtrQueue< type >::count (   )  const [inline, virtual]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   type* Q3PtrQueue< type >::current (   )  const [inline]
+
+
+
+   template<>
+   void Q3PtrQueue< type >::deleteItem (  Q3PtrCollection::Item  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3PtrQueue< type >::dequeue (   )  [inline]
+
+
+
+   template<class type>
+   void Q3PtrQueue< type >::enqueue (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3PtrQueue< type >::head (   )  const [inline]
+
+
+
+   template<class type>
+   bool Q3PtrQueue< type >::isEmpty (   )  const [inline]
+
+
+
+   template<class type>
+   Q3PtrQueue< type >::operator type * (   )  const [inline]
+
+
+
+   template<class type>
+   Q3PtrQueue<type>& Q3PtrQueue< type >::operator= (  const Q3PtrQueue< type > &  q  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrQueue< type >::remove (   )  [inline]
+
+
+
+   template<class type>
+   void Q3PtrQueue< type >::setAutoDelete (  bool  del  )  [inline]
+
+
+
+   Reimplemented from Q3PtrCollection.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3ptrqueue.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

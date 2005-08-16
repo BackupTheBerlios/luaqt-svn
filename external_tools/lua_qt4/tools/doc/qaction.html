@@ -1,0 +1,546 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QAction Class Reference
+
+   The QAction class provides an abstract user interface action that can
+   be inserted into widgets. More...
+#include <QAction>
+
+   Part of the QtGui module.
+
+   Inherits QObject.
+
+   Inherited by QMenuItem.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum ActionEvent { Trigger, Hover }
+
+  Properties
+
+     * checkable : bool
+     * checked : bool
+     * enabled : bool
+     * font : QFont
+     * icon : QIcon
+     * iconText : QString
+     * shortcut : QKeySequence
+
+     * shortcutContext : Qt::ShortcutContext
+     * statusTip : QString
+     * text : QString
+     * toolTip : QString
+     * visible : bool
+     * whatsThis : QString
+
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QAction ( QObject * parent )
+     * QAction ( const QString & text, QObject * parent )
+     * QAction ( const QIcon & icon, const QString & text, QObject *
+       parent )
+     * ~QAction ()
+     * QActionGroup * actionGroup () const
+     * void activate ( ActionEvent event )
+     * QVariant data () const
+     * QFont font () const
+     * QIcon icon () const
+     * QString iconText () const
+     * bool isCheckable () const
+     * bool isChecked () const
+     * bool isEnabled () const
+     * bool isSeparator () const
+     * bool isVisible () const
+     * QMenu * menu () const
+     * QWidget * parentWidget () const
+     * void setActionGroup ( QActionGroup * group )
+     * void setCheckable ( bool )
+     * void setData ( const QVariant & data )
+     * void setFont ( const QFont & font )
+     * void setIcon ( const QIcon & icon )
+     * void setIconText ( const QString & text )
+     * void setMenu ( QMenu * menu )
+     * void setSeparator ( bool b )
+     * void setShortcut ( const QKeySequence & shortcut )
+     * void setShortcutContext ( Qt::ShortcutContext context )
+     * void setStatusTip ( const QString & statusTip )
+     * void setText ( const QString & text )
+     * void setToolTip ( const QString & tip )
+     * void setWhatsThis ( const QString & what )
+     * QKeySequence shortcut () const
+     * Qt::ShortcutContext shortcutContext () const
+     * bool showStatusText ( QWidget * widget = 0 )
+     * QString statusTip () const
+     * QString text () const
+     * QString toolTip () const
+     * QString whatsThis () const
+
+     * 28 public functions inherited from QObject
+
+  Public Slots
+
+     * void hover ()
+     * void setChecked ( bool )
+     * void setDisabled ( bool b )
+     * void setEnabled ( bool )
+     * void setVisible ( bool )
+     * void toggle ()
+     * void trigger ()
+
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void changed ()
+     * void hovered ()
+     * void toggled ( bool checked )
+     * void triggered ( bool checked = false )
+
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QObject
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QAction class provides an abstract user interface action that can
+   be inserted into widgets.
+
+   In applications many common commands can be invoked via menus, toolbar
+   buttons, and keyboard shortcuts. Since the user expects each command
+   to be performed in the same way, regardless of the user interface
+   used, it is useful to represent each command as an action.
+
+   Actions can be added to menus and toolbars, and will automatically
+   keep them in sync. For example, in a word processor, if the user
+   presses a Bold toolbar button, the Bold menu item will automatically
+   be checked.
+
+   Actions can be created as independent objects, but they may also be
+   created during the construction of menus; the QMenu class contains
+   convenience functions for creating actions suitable for use as menu
+   items.
+
+   A QAction may contain an icon, menu text, a shortcut, status text,
+   "What's This?" text, and a tool tip. Most of these can be set in the
+   constructor. They can also be set independently with setIcon(),
+   setText(), setIconText(), setShortcut(), setStatusTip(),
+   setWhatsThis(), and setToolTip(). For menu items, it is possible to
+   set an individual font with setFont().
+
+   Actions are added to widgets using QWidget::addAction().
+
+   Once a QAction has been created it should be added to the relevant
+   menu and toolbar, then connected to the slot which will perform the
+   action. For example:
+        openAct = new QAction(QIcon(":/images/open.png"), tr("&Open..."), this)
+;
+        openAct->setShortcut(tr("Ctrl+O"));
+        openAct->setStatusTip(tr("Open an existing file"));
+        connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
+
+        fileMenu->addAction(openAct);
+        fileToolBar->addAction(openAct);
+
+   We recommend that actions are created as children of the window they
+   are used in. In most cases actions will be children of the
+   application's main window.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QAction::ActionEvent
+
+   This enum type is used when calling QAction::activate()
+
+   Constant Value Description
+   QAction::Trigger 0 this will cause the QAction::triggered() signal to
+   be emitted.
+   QAction::Hover 1 this will cause the QAction::hovered() signal to be
+   emitted.
+     _________________________________________________________________
+
+Property Documentation
+
+  checkable : bool
+
+   This property holds whether the action is a checkable action.
+
+   A checkable action is one which has an on/off state. For example, in a
+   word processor, a Bold toolbar button may be either on or off. An
+   action which is not a toggle action is a command action; a command
+   action is simply executed, e.g. file save. By default, this property
+   is false.
+
+   In some situations, the state of one toggle action should depend on
+   the state of others. For example, "Left Align", "Center" and "Right
+   Align" toggle actions are mutually exclusive. To achieve exclusive
+   toggling, add the relevant toggle actions to a QActionGroup with the
+   QActionGroup::exclusive property set to true.
+
+   Access functions:
+     * bool isCheckable () const
+     * void setCheckable ( bool )
+
+   See also QAction::setChecked().
+
+  checked : bool
+
+   This property holds whether the action is checked.
+
+   Only checkable actions can be checked. By default, this is false (the
+   action is unchecked).
+
+   Access functions:
+     * bool isChecked () const
+     * void setChecked ( bool )
+
+   See also checkable.
+
+  enabled : bool
+
+   This property holds whether the action is enabled.
+
+   Disabled actions cannot be chosen by the user. They do not disappear
+   from menus or toolbars, but they are displayed in a way which
+   indicates that they are unavailable. For example, they might be
+   displayed using only shades of gray.
+
+   What's this? help on disabled actions is still available, provided
+   that the QAction::whatsThis property is set.
+
+   Access functions:
+     * bool isEnabled () const
+     * void setEnabled ( bool )
+
+  font : QFont
+
+   This property holds the action's font.
+
+   The font property is used to render the text set on the QAction. The
+   font will can be considered a hint as it will not be consulted in all
+   cases based upon application and style.
+
+   Access functions:
+     * QFont font () const
+     * void setFont ( const QFont & font )
+
+   See also QAction::setText() and QStyle.
+
+  icon : QIcon
+
+   This property holds the action's icon.
+
+   In toolbars, the icon is used as the tool button icon; in menus, it is
+   displayed to the left of the menu text. There is no default icon.
+
+   If a null icon (QIcon::isNull() is passed into this function, the icon
+   of the action is cleared.
+
+   Access functions:
+     * QIcon icon () const
+     * void setIcon ( const QIcon & icon )
+
+  iconText : QString
+
+   This property holds the action's descriptive icon text.
+
+   If QMainWindow::usesTextLabel is true, the text appears as a label in
+   the relevant tool button. It also serves as the default text in menus
+   and tool tips if these have not been specifically defined with
+   setText() or setToolTip(). If the icon text is not explicitly set in
+   the by using setIconText(), the action's normal text will be used as
+   icon text. There is no default icon text.
+
+   Access functions:
+     * QString iconText () const
+     * void setIconText ( const QString & text )
+
+   See also setToolTip() and setStatusTip().
+
+  shortcut : QKeySequence
+
+   This property holds the action's shortcut key.
+
+   Valid keycodes for this property can be found in Qt::Key and
+   Qt::Modifier. There is no default shortcut key.
+
+   Access functions:
+     * QKeySequence shortcut () const
+     * void setShortcut ( const QKeySequence & shortcut )
+
+  shortcutContext : Qt::ShortcutContext
+
+   This property holds the context for the action's shortcut.
+
+   Valid values for this property can be found in Qt::ShortcutContext.
+   The default value is Qt::WindowShortcut.
+
+   Access functions:
+     * Qt::ShortcutContext shortcutContext () const
+     * void setShortcutContext ( Qt::ShortcutContext context )
+
+  statusTip : QString
+
+   This property holds the action's status tip.
+
+   The statusTip is displayed on all status bars provided by the action's
+   top-level parent widget.
+
+   There is no default statusTip text.
+
+   Access functions:
+     * QString statusTip () const
+     * void setStatusTip ( const QString & statusTip )
+
+   See also setToolTip() and showStatusText().
+
+  text : QString
+
+   This property holds the action's descriptive text.
+
+   If the action is added to a menu, the menu option will consist of the
+   icon (if there is one), the text, and the shortcut (if there is one).
+   If the text is not explicitly set in the constructor, or by using
+   setText(), the action's description icon text will be used as text.
+   There is no default text.
+
+   Access functions:
+     * QString text () const
+     * void setText ( const QString & text )
+
+   See also iconText.
+
+  toolTip : QString
+
+   This property holds the action's tool tip.
+
+   This text is used for the tool tip. If no status tip has been set the
+   tool tip will be used for the status tip.
+
+   If no tool tip is specified the action's text is used.
+
+   Access functions:
+     * QString toolTip () const
+     * void setToolTip ( const QString & tip )
+
+   See also setStatusTip() and setShortcut().
+
+  visible : bool
+
+   This property holds whether the action can be seen (e.g. in menus and
+   toolbars).
+
+   If visible is true the action can be seen (e.g. in menus and toolbars)
+   and chosen by the user; if visible is false the action cannot be seen
+   or chosen by the user.
+
+   Actions which are not visible are not grayed out; they do not appear
+   at all.
+
+   Access functions:
+     * bool isVisible () const
+     * void setVisible ( bool )
+
+  whatsThis : QString
+
+   This property holds the action's "What's This?" help text.
+
+   The "What's This?" text is used to provide a brief description of the
+   action. The text may contain rich text. There is no default "What's
+   This?" text.
+
+   Access functions:
+     * QString whatsThis () const
+     * void setWhatsThis ( const QString & what )
+
+   See also QWhatsThis and QStyleSheet.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QAction::QAction ( QObject * parent )
+
+   Constructs an action with parent. If parent is an action group the
+   action will be automatically inserted into the group.
+
+  QAction::QAction ( const QString & text, QObject * parent )
+
+   Constructs an action with some text and parent. If parent is an action
+   group the action will be automatically inserted into the group.
+
+   The action uses a stripped version of text (e.g. "&Menu Option..."
+   becomes "Menu Option") as descriptive text for toolbuttons. You can
+   override this by setting a specific description with setText(). The
+   same text will be used for tool tips unless you specify a different
+   test using setToolTip().
+
+  QAction::QAction ( const QIcon & icon, const QString & text, QObject * parent
+  )
+
+   Constructs an action with an icon and some text and parent. If parent
+   is an action group the action will be automatically inserted into the
+   group.
+
+   The action uses a stripped version of text (e.g. "&Menu Option..."
+   becomes "Menu Option") as descriptive text for toolbuttons. You can
+   override this by setting a specific description with setText(). The
+   same text will be used for tool tips unless you specify a different
+   test using setToolTip().
+
+  QAction::~QAction ()
+
+   Destroys the object and frees allocated resources.
+
+  QActionGroup * QAction::actionGroup () const
+
+   Returns the action group for this action. If no action group manages
+   this action then 0 will be returned.
+
+   See also QActionGroup and QAction::setActionGroup().
+
+  void QAction::activate ( ActionEvent event )
+
+   Sends the relevant signals for ActionEvent event.
+
+   Action based widgets use this API to cause the QAction to emit signals
+   as well as emitting their own.
+
+  void QAction::changed ()   [signal]
+
+   This signal is emitted when an action has changed. If you are only
+   interested in actions in a given widget, you can watch for
+   QWidget::actionEvent() sent with an QEvent::ActionChanged.
+
+   See also QWidget::actionEvent().
+
+  QVariant QAction::data () const
+
+   Returns the user data as set in QAction::setData.
+
+   See also setData().
+
+  void QAction::hover ()   [slot]
+
+   This is a convenience slot that calls activate(Hover).
+
+  void QAction::hovered ()   [signal]
+
+   This signal is emitted when an action is highlighted by the user; for
+   example, when the user pauses with the cursor over a menu option,
+   toolbar button, or presses an action's shortcut key combination.
+
+   See also QAction::activate().
+
+  bool QAction::isSeparator () const
+
+   Returns true if this action is a separator action; otherwise it
+   returns false.
+
+   See also QAction::setSeparator().
+
+  QMenu * QAction::menu () const
+
+   Returns the menu contained by this action. Actions that contain menus
+   can be used to create menu items with submenus, or inserted into
+   toolbars to create buttons with popup menus.
+
+   See also QMenu::addAction().
+
+  QWidget * QAction::parentWidget () const
+
+   Returns the parent widget.
+
+  void QAction::setActionGroup ( QActionGroup * group )
+
+   Sets this action group to group. The action will be automatically
+   added to the group's list of actions.
+
+   Actions within the group will be mutually exclusive.
+
+   See also QActionGroup and QAction::actionGroup().
+
+  void QAction::setData ( const QVariant & data )
+
+   Sets internal data to data. This can be used for user data to store
+   anything that a QVariant can store. The ownership of anything the the
+   user data will remain with the variant and thus be referenced counted
+   as appropriate.
+
+   See also data().
+
+  void QAction::setDisabled ( bool b )   [slot]
+
+   This is a convenience function for the enabled property, that is
+   useful for signals--slots connections. If b is true the action is
+   disabled; otherwise it is enabled.
+
+  void QAction::setMenu ( QMenu * menu )
+
+   Sets the menu contained by this action.
+
+  void QAction::setSeparator ( bool b )
+
+   If b is true then this action will be considered a separator.
+
+   How a separator is represented depends on the widget it is inserted
+   into. Under most circumstances the text, submenu, and icon will be
+   ignored for separator actions.
+
+   See also QAction::isSeparator().
+
+  bool QAction::showStatusText ( QWidget * widget = 0 )
+
+   Updates the status bar for widget. If widget is an appropriate
+   QStatusBar found for for this action based on the parent heirarchy
+   will be used.
+
+   See also statusTip.
+
+  void QAction::toggle ()   [slot]
+
+   This is a convenience function for the checked property. Connect to it
+   to change the checked state to its opposite state.
+
+  void QAction::toggled ( bool checked )   [signal]
+
+   This signal is emitted whenever a checkable action changes its
+   isChecked() status. This can be the result of a user interaction, or
+   because setChecked() was called.
+
+   checked is true if the action is checked, or false if the action is
+   unchecked.
+
+   See also QAction::activate(), QAction::triggered(), and checked.
+
+  void QAction::trigger ()   [slot]
+
+   This is a convenience slot that calls activate(Trigger).
+
+  void QAction::triggered ( bool checked = false )   [signal]
+
+   This signal is emitted when an action is activated by the user; for
+   example, when the user clicks a menu option, toolbar button, or
+   presses an action's shortcut key combination, or when trigger() was
+   called. Notably, it is not emitted when setChecked() or toggle() is
+   called.
+
+   If the action is checkable, checked is true if the action is checked,
+   or false if the action is unchecked.
+
+   See also QAction::activate(), QAction::toggled(), and checked.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

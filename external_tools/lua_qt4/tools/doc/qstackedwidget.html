@@ -1,0 +1,221 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                       QStackedWidget Class Reference
+
+   The QStackedWidget class provides a stack of widgets where only one
+   widget is visible at a time. More...
+#include <QStackedWidget>
+
+   Part of the QtGui module.
+
+   Inherits QFrame.
+     * List of all members, including inherited members
+
+  Properties
+
+     * count : const int
+     * currentIndex : int
+
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QStackedWidget ( QWidget * parent = 0 )
+     * ~QStackedWidget ()
+     * int addWidget ( QWidget * widget )
+     * int count () const
+     * int currentIndex () const
+     * QWidget * currentWidget () const
+     * int indexOf ( QWidget * widget ) const
+     * int insertWidget ( int index, QWidget * widget )
+     * void removeWidget ( QWidget * widget )
+     * QWidget * widget ( int index ) const
+
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void setCurrentIndex ( int index )
+     * void setCurrentWidget ( QWidget * w )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void currentChanged ( int index )
+     * void widgetRemoved ( int index )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QStackedWidget class provides a stack of widgets where only one
+   widget is visible at a time.
+
+   QStackedWidget can be used to create a user interface similar to the
+   one provided by QTabWidget. It is a convenience layout widget built on
+   top of QStackedLayout.
+
+   A QStackedWidget can be constructed and populated with a number of
+   child widgets ("pages"), each of which can be created without a parent
+   widget:
+    QWidget *firstPageWidget = new QWidget;
+    QWidget *secondPageWidget = new QWidget;
+    QWidget *thirdPageWidget = new QWidget;
+    ...
+
+    QStackedWidget *stackedWidget = new QStackedWidget(this);
+    stackedWidget->addWidget(firstPageWidget);
+    stackedWidget->addWidget(secondPageWidget);
+    stackedWidget->addWidget(thirdPageWidget);
+
+   When inserted, the widgets are added to an internal list. The
+   indexOf() function returns the index of a widget in that list. The
+   widget() function returns the widget at a given index position. The
+   widget that is shown on screen is the currentWidget(). It can be
+   changed using setCurrentWidget() or setCurrentIndex()
+
+   QStackedWidget provides no intrinsic means for the user to switch
+   page. This is typically done through a QComboBox or a QListWidget that
+   stores the titles of the QStackedWidget's pages. For example:
+    QComboBox *pageComboBox = new QComboBox;
+    pageComboBox->addItem(tr("Page 1"));
+    pageComboBox->addItem(tr("Page 2"));
+    pageComboBox->addItem(tr("Page 3"));
+    connect(pageComboBox, SIGNAL(activated(int)),
+            stackedWidget, SLOT(setCurrentIndex(int)));
+
+   See also QStackedLayout and QTabWidget.
+     _________________________________________________________________
+
+Property Documentation
+
+  count : const int
+
+   This property holds the number of child widgets.
+
+   Access functions:
+     * int count () const
+
+   See also currentIndex() and widget().
+
+  currentIndex : int
+
+   This property holds the index position of the widget that is visible.
+
+   The current index is -1 if there is no current widget.
+
+   Access functions:
+     * int currentIndex () const
+     * void setCurrentIndex ( int index )
+
+   See also currentWidget() and indexOf().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QStackedWidget::QStackedWidget ( QWidget * parent = 0 )
+
+   Constructs a QStackedWidget with the given parent.
+
+  QStackedWidget::~QStackedWidget ()
+
+   Destroys the object and frees any allocated resources.
+
+  int QStackedWidget::addWidget ( QWidget * widget )
+
+   Adds widget to this QStackedWidget and returns the index position of
+   widget.
+
+   If the QStackedWidget is empty before this function is called, widget
+   becomes the current widget.
+
+   See also insertWidget(), removeWidget(), and currentWidget().
+
+  void QStackedWidget::currentChanged ( int index )   [signal]
+
+   This signal is emitted when the current widget is changed. The
+   parameter holds the index of the new current widget, or -1 if there
+   isn't a new one (for example, if there are no widgets in the
+   QStackedWidget).
+
+   See also widgetRemoved() and indexOf().
+
+  QWidget * QStackedWidget::currentWidget () const
+
+   Returns the current widget, or 0 if there are no child widgets.
+
+   Equivalent to widget(currentIndex()).
+
+   See also currentIndex() and setCurrentWidget().
+
+  int QStackedWidget::indexOf ( QWidget * widget ) const
+
+   Returns the index of widget, or -1 if widget is not a child of
+   QStackedWidget.
+
+   See also currentIndex() and widget().
+
+  int QStackedWidget::insertWidget ( int index, QWidget * widget )
+
+   Inserts widget at position index in this QStackedWidget. If index is
+   out of range, the widget is appended. Returns the actual index of
+   widget.
+
+   If the QStackedWidget was empty before this function is called, widget
+   becomes the current widget.
+
+   See also addWidget(), removeWidget(), count(), and currentWidget().
+
+  void QStackedWidget::removeWidget ( QWidget * widget )
+
+   Removes widget from the QStackedWidget's layout. The widget is not
+   deleted.
+
+   See also addWidget(), insertWidget(), and currentWidget().
+
+  void QStackedWidget::setCurrentWidget ( QWidget * w )   [slot]
+
+   Sets w to be the current widget. w must be contained in this stacked
+   widget.
+
+   Equivalent to
+    stackedWidget->setCurrentIndex(stackedWidget->indexOf(w));
+
+   See also addWidget() and setCurrentIndex().
+
+  QWidget * QStackedWidget::widget ( int index ) const
+
+   Returns the widget at position index, or 0 if there is no such widget.
+
+   See also indexOf().
+
+  void QStackedWidget::widgetRemoved ( int index )   [signal]
+
+   This signal is emitted when the widget at position index is removed.
+
+   See also currentChanged().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

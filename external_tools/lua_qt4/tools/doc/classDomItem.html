@@ -1,0 +1,77 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              DomItem Class Reference
+
+   #include <ui4.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * DomItem ()
+     * ~DomItem ()
+     * void read (const QDomElement &node)
+     * QDomElement write (QDomDocument &doc, const QString &tagName=QString())
+     * QString text () const
+     * void setText (const QString &s)
+     * QList< DomProperty * > elementProperty ()
+     * void setElementProperty (const QList< DomProperty * > &a)
+     * QList< DomItem * > elementItem ()
+     * void setElementItem (const QList< DomItem * > &a)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   DomItem::DomItem (   )
+
+
+
+   DomItem::~DomItem (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QList<DomItem*> DomItem::elementItem (   )  [inline]
+
+
+
+   QList<DomProperty*> DomItem::elementProperty (   )  [inline]
+
+
+
+   void DomItem::read (  const QDomElement &  node  )
+
+
+
+   void DomItem::setElementItem (  const QList< DomItem * > &  a  )
+
+
+
+   void DomItem::setElementProperty (  const QList< DomProperty * > &  a  )
+
+
+
+   void DomItem::setText (  const QString &  s  )  [inline]
+
+
+
+   QString DomItem::text (   )  const [inline]
+
+
+
+   QDomElement DomItem::write (  QDomDocument &   doc,
+                                 const QString &  tagName = QString()
+                              )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/ui4.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:53 2005 by  doxygen 1.4.3-20050530

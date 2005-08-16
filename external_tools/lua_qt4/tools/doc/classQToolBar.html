@@ -1,0 +1,262 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QToolBar Class Reference
+
+   #include <qtoolbar.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Slots
+
+     * void setIconSize (const QSize &iconSize)
+     * void setToolButtonStyle (Qt::ToolButtonStyle toolButtonStyle)
+
+Signals
+
+     * void actionTriggered (QAction *action)
+     * void movableChanged (bool movable)
+     * void allowedAreasChanged (Qt::ToolBarAreas allowedAreas)
+     * void orientationChanged (Qt::Orientation orientation)
+     * void iconSizeChanged (const QSize &iconSize)
+     * void toolButtonStyleChanged (Qt::ToolButtonStyle toolButtonStyle)
+
+Public Member Functions
+
+     * QToolBar (QWidget *parent=0)
+     * ~QToolBar ()
+     * void setMovable (bool movable)
+     * bool isMovable () const
+     * void setAllowedAreas (Qt::ToolBarAreas areas)
+     * Qt::ToolBarAreas allowedAreas () const
+     * bool isAreaAllowed (Qt::ToolBarArea area) const
+     * void setOrientation (Qt::Orientation orientation)
+     * Qt::Orientation orientation () const
+     * void clear ()
+     * QAction * addAction (const QString &text)
+     * QAction * addAction (const QIcon &icon, const QString &text)
+     * QAction * addAction (const QString &text, const QObject *receiver, const char *member)
+     * QAction * addAction (const QIcon &icon, const QString &text, const QObject *receiver, const char *member)
+     * QAction * addSeparator ()
+     * QAction * insertSeparator (QAction *before)
+     * QAction * addWidget (QWidget *widget)
+     * QAction * insertWidget (QAction *before, QWidget *widget)
+     * QRect actionGeometry (QAction *action) const
+     * QAction * actionAt (const QPoint &p) const
+     * QAction * actionAt (int x, int y) const
+     * QAction * toggleViewAction () const
+     * QSize iconSize () const
+     * Qt::ToolButtonStyle toolButtonStyle () const
+
+Protected Member Functions
+
+     * void actionEvent (QActionEvent *event)
+     * void changeEvent (QEvent *event)
+     * void childEvent (QChildEvent *event)
+     * void paintEvent (QPaintEvent *event)
+     * void resizeEvent (QResizeEvent *event)
+     * bool event (QEvent *event)
+
+Properties
+
+     * bool movable
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QToolBar::QToolBar (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QToolBar::~QToolBar (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QAction * QToolBar::actionAt (  int  x,
+                                   int  y
+                                )  const [inline]
+
+
+
+   QAction* QToolBar::actionAt (  const QPoint &  p  )  const
+
+
+
+   void QToolBar::actionEvent (  QActionEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QRect QToolBar::actionGeometry (  QAction *  action  )  const
+
+
+
+   void QToolBar::actionTriggered (  QAction *  action  )  [signal]
+
+
+
+   QAction* QToolBar::addAction (  const QIcon &    icon,
+                                   const QString &  text,
+                                   const QObject *  receiver,
+                                   const char *     member
+                                )
+
+
+
+   QAction* QToolBar::addAction (  const QString &  text,
+                                   const QObject *  receiver,
+                                   const char *     member
+                                )
+
+
+
+   QAction* QToolBar::addAction (  const QIcon &    icon,
+                                   const QString &  text
+                                )
+
+
+
+   QAction* QToolBar::addAction (  const QString &  text  )
+
+
+
+   QAction* QToolBar::addSeparator (   )
+
+
+
+   QAction* QToolBar::addWidget (  QWidget *  widget  )
+
+
+
+   Qt::ToolBarAreas QToolBar::allowedAreas (   )  const
+
+
+
+   void QToolBar::allowedAreasChanged (  Qt::ToolBarAreas  allowedAreas  )  [signal]
+
+
+
+   void QToolBar::changeEvent (  QEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QToolBar::childEvent (  QChildEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void QToolBar::clear (   )
+
+
+
+   bool QToolBar::event (  QEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QToolBar::iconSize (   )  const
+
+
+
+   void QToolBar::iconSizeChanged (  const QSize &  iconSize  )  [signal]
+
+
+
+   QAction* QToolBar::insertSeparator (  QAction *  before  )
+
+
+
+   QAction* QToolBar::insertWidget (  QAction *  before,
+                                      QWidget *  widget
+                                   )
+
+
+
+   bool QToolBar::isAreaAllowed (  Qt::ToolBarArea  area  )  const [inline]
+
+
+
+   bool QToolBar::isMovable (   )  const
+
+
+
+   void QToolBar::movableChanged (  bool  movable  )  [signal]
+
+
+
+   Qt::Orientation QToolBar::orientation (   )  const
+
+
+
+   void QToolBar::orientationChanged (  Qt::Orientation  orientation  )  [signal]
+
+
+
+   void QToolBar::paintEvent (  QPaintEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QToolBar::resizeEvent (  QResizeEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QToolBar::setAllowedAreas (  Qt::ToolBarAreas  areas  )
+
+
+
+   void QToolBar::setIconSize (  const QSize &  iconSize  )  [slot]
+
+
+
+   void QToolBar::setMovable (  bool  movable  )
+
+
+
+   void QToolBar::setOrientation (  Qt::Orientation  orientation  )
+
+
+
+   void QToolBar::setToolButtonStyle (  Qt::ToolButtonStyle  toolButtonStyle  )  [slot]
+
+
+
+   QAction* QToolBar::toggleViewAction (   )  const
+
+
+
+   Qt::ToolButtonStyle QToolBar::toolButtonStyle (   )  const
+
+
+
+   void QToolBar::toolButtonStyleChanged (  Qt::ToolButtonStyle  toolButtonStyle  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QToolBar::movable [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtoolbar.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

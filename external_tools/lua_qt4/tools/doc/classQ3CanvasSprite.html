@@ -1,0 +1,226 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3CanvasSprite Class Reference
+
+   #include <q3canvas.h>
+
+   Inherits Q3CanvasItem.
+
+   List of all members.
+
+Public Types
+
+     * enum FrameAnimationType { Cycle, Oscillate }
+
+Public Member Functions
+
+     * Q3CanvasSprite (Q3CanvasPixmapArray *array, Q3Canvas *canvas)
+     * void setSequence (Q3CanvasPixmapArray *seq)
+     * virtual ~Q3CanvasSprite ()
+     * void move (double x, double y)
+     * virtual void move (double x, double y, int frame)
+     * void setFrame (int)
+     * virtual void setFrameAnimation (FrameAnimationType=Cycle, int step=1, int state=0)
+     * int frame () const
+     * int frameCount () const
+     * int rtti () const
+     * bool collidesWith (const Q3CanvasItem *) const
+     * QRect boundingRect () const
+     * int width () const
+     * int height () const
+     * int leftEdge () const
+     * int topEdge () const
+     * int rightEdge () const
+     * int bottomEdge () const
+     * int leftEdge (int nx) const
+     * int topEdge (int ny) const
+     * int rightEdge (int nx) const
+     * int bottomEdge (int ny) const
+     * Q3CanvasPixmap * image () const
+     * virtual Q3CanvasPixmap * imageAdvanced () const
+     * Q3CanvasPixmap * image (int f) const
+     * virtual void advance (int stage)
+     * void draw (QPainter &painter)
+
+Static Public Attributes
+
+     * static int RTTI
+
+Friends
+
+     * bool qt_testCollision (const Q3CanvasSprite *s1, const Q3CanvasSprite *s2)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3CanvasSprite::FrameAnimationType
+
+
+
+   Enumerator: 
+
+          Cycle    
+          Oscillate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasSprite::Q3CanvasSprite (  Q3CanvasPixmapArray *  array,
+                                     Q3Canvas *             canvas
+                                  )
+
+
+
+   virtual Q3CanvasSprite::~Q3CanvasSprite (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3CanvasSprite::advance (  int  stage  )  [virtual]
+
+
+
+   Reimplemented from Q3CanvasItem.
+
+   int Q3CanvasSprite::bottomEdge (  int  ny  )  const
+
+
+
+   int Q3CanvasSprite::bottomEdge (   )  const
+
+
+
+   QRect Q3CanvasSprite::boundingRect (   )  const [virtual]
+
+
+
+   Implements Q3CanvasItem.
+
+   bool Q3CanvasSprite::collidesWith (  const Q3CanvasItem *   )  const [virtual]
+
+
+
+   Implements Q3CanvasItem.
+
+   void Q3CanvasSprite::draw (  QPainter &  painter  )  [virtual]
+
+
+
+   Implements Q3CanvasItem.
+
+   int Q3CanvasSprite::frame (   )  const [inline]
+
+
+
+   int Q3CanvasSprite::frameCount (   )  const [inline]
+
+
+
+   int Q3CanvasSprite::height (   )  const
+
+
+
+   Q3CanvasPixmap* Q3CanvasSprite::image (  int  f  )  const [inline]
+
+
+
+   Q3CanvasPixmap* Q3CanvasSprite::image (   )  const [inline]
+
+
+
+   virtual Q3CanvasPixmap* Q3CanvasSprite::imageAdvanced (   )  const [virtual]
+
+
+
+   int Q3CanvasSprite::leftEdge (  int  nx  )  const
+
+
+
+   int Q3CanvasSprite::leftEdge (   )  const
+
+
+
+   virtual void Q3CanvasSprite::move (  double  x,
+                                        double  y,
+                                        int     frame
+                                     )  [virtual]
+
+
+
+   void Q3CanvasSprite::move (  double  x,
+                                double  y
+                             )
+
+
+
+   Reimplemented from Q3CanvasItem.
+
+   int Q3CanvasSprite::rightEdge (  int  nx  )  const
+
+
+
+   int Q3CanvasSprite::rightEdge (   )  const
+
+
+
+   int Q3CanvasSprite::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3CanvasItem.
+
+   void Q3CanvasSprite::setFrame (  int   )
+
+
+
+   virtual void Q3CanvasSprite::setFrameAnimation (  FrameAnimationType  = Cycle,
+                                                     int                 step = 1,
+                                                     int                 state = 0
+                                                  )  [virtual]
+
+
+
+   void Q3CanvasSprite::setSequence (  Q3CanvasPixmapArray *  seq  )
+
+
+
+   int Q3CanvasSprite::topEdge (  int  ny  )  const
+
+
+
+   int Q3CanvasSprite::topEdge (   )  const
+
+
+
+   int Q3CanvasSprite::width (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   bool qt_testCollision (  const Q3CanvasSprite *  s1,
+                            const Q3CanvasSprite *  s2
+                         )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3CanvasSprite::RTTI [static]
+
+
+
+   Reimplemented from Q3CanvasItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

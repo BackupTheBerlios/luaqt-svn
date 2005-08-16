@@ -1,0 +1,17 @@
+$pfile "lua_qt4/qt_defines.pkg"
+
+$hfile "lua_qt4/lua_qt_helpers.h"
+
+$lfile "lua_qt4/lua_qt_helpers.lua"
+
+$ifile "lua_qt4/qnamespace.pkg",qns
+
+class QAbstractEventDispatcher {
+	class EventFilter;
+};
+class QCoreApplication {
+	class EventFilter;
+};
+
+$ifile "lua_qt4/QtCore_headers.pkg",qt
+

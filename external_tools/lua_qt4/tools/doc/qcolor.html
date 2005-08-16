@@ -1,0 +1,853 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QColor Class Reference
+
+   The QColor class provides colors based on RGB or HSV values. More...
+#include <QColor>
+
+   Part of the QtGui module.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum Spec { Rgb, Hsv, Cmyk, Invalid }
+
+  Public Functions
+
+     * QColor ()
+     * QColor ( int r, int g, int b, int a = 255 )
+     * QColor ( QRgb color )
+     * QColor ( const QString & name )
+     * QColor ( const char * name )
+     * QColor ( const QColor & color )
+     * QColor ( Qt::GlobalColor color )
+     * int alpha () const
+     * qreal alphaF () const
+     * int black () const
+     * qreal blackF () const
+     * int blue () const
+     * qreal blueF () const
+     * QColor convertTo ( Spec colorSpec ) const
+     * int cyan () const
+     * qreal cyanF () const
+     * QColor dark ( int factor = 200 ) const
+     * void getCmyk ( int * c, int * m, int * y, int * k, int * a = 0 )
+     * void getCmykF ( qreal * c, qreal * m, qreal * y, qreal * k, qreal
+       * a = 0 )
+     * void getHsv ( int * h, int * s, int * v, int * a = 0 ) const
+     * void getHsvF ( qreal * h, qreal * s, qreal * v, qreal * a = 0 )
+       const
+     * void getRgb ( int * r, int * g, int * b, int * a = 0 ) const
+     * void getRgbF ( qreal * r, qreal * g, qreal * b, qreal * a = 0 )
+       const
+     * int green () const
+     * qreal greenF () const
+     * int hue () const
+     * qreal hueF () const
+     * bool isValid () const
+     * QColor light ( int factor = 150 ) const
+     * int magenta () const
+     * qreal magentaF () const
+     * QString name () const
+     * int red () const
+     * qreal redF () const
+     * QRgb rgb () const
+     * QRgb rgba () const
+     * int saturation () const
+     * qreal saturationF () const
+     * void setAlpha ( int alpha )
+     * void setAlphaF ( qreal alpha )
+     * void setBlue ( int blue )
+     * void setBlueF ( qreal blue )
+     * void setCmyk ( int c, int m, int y, int k, int a = 255 )
+     * void setCmykF ( qreal c, qreal m, qreal y, qreal k, qreal a = 1.0
+       )
+     * void setGreen ( int green )
+     * void setGreenF ( qreal green )
+     * void setHsv ( int h, int s, int v, int a = 255 )
+     * void setHsvF ( qreal h, qreal s, qreal v, qreal a = 1.0 )
+     * void setNamedColor ( const QString & name )
+     * void setRed ( int red )
+     * void setRedF ( qreal red )
+     * void setRgb ( int r, int g, int b, int a = 255 )
+     * void setRgb ( QRgb rgb )
+     * void setRgbF ( qreal r, qreal g, qreal b, qreal a = 1.0 )
+     * void setRgba ( QRgb rgba )
+     * Spec spec () const
+     * QColor toCmyk () const
+     * QColor toHsv () const
+     * QColor toRgb () const
+     * int value () const
+     * qreal valueF () const
+     * int yellow () const
+     * qreal yellowF () const
+     * operator QVariant () const
+     * bool operator!= ( const QColor & color ) const
+     * QColor & operator= ( const QColor & color )
+     * QColor & operator= ( Qt::GlobalColor color )
+     * bool operator== ( const QColor & color ) const
+
+  Static Public Members
+
+     * QStringList colorNames ()
+     * QColor fromCmyk ( int c, int m, int y, int k, int a = 255 )
+     * QColor fromCmykF ( qreal c, qreal m, qreal y, qreal k, qreal a =
+       1.0 )
+     * QColor fromHsv ( int h, int s, int v, int a = 255 )
+     * QColor fromHsvF ( qreal h, qreal s, qreal v, qreal a = 1.0 )
+     * QColor fromRgb ( QRgb rgb )
+     * QColor fromRgb ( int r, int g, int b, int a = 255 )
+     * QColor fromRgbF ( qreal r, qreal g, qreal b, qreal a = 1.0 )
+     * QColor fromRgba ( QRgb rgba )
+
+  Related Non-Members
+
+     * int qAlpha ( QRgb rgba )
+     * int qBlue ( QRgb rgb )
+     * int qGray ( int r, int g, int b )
+     * int qGray ( QRgb rgb )
+     * int qGreen ( QRgb rgb )
+     * int qRed ( QRgb rgb )
+     * QRgb qRgb ( int r, int g, int b )
+     * QRgb qRgba ( int r, int g, int b, int a )
+     * QDataStream & operator<< ( QDataStream & stream, const QColor &
+       color )
+     * QDataStream & operator>> ( QDataStream & stream, QColor & color )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QColor class provides colors based on RGB or HSV values.
+
+   A color is normally specified in terms of RGB (red, green, and blue)
+   components, but it is also possible to specify HSV (hue, saturation,
+   and value) or set a color name (the names are copied from from the X11
+   color database).
+
+   QColor's validity (isValid()) indicates whether it is legal at all.
+   For example, a RGB color with RGB values out of range is illegal. For
+   performance reasons, QColor mostly disregards illegal colors.
+   Therefore, the result of using an invalid color is undefined.
+
+   There are 20 predefined QColor objects: white, black, red, darkRed,
+   green, darkGreen, blue, darkBlue, cyan, darkCyan, magenta,
+   darkMagenta, yellow, darkYellow, gray, darkGray, lightGray, color0,
+   color1, and transparent, accessible as members of the Qt namespace
+   (i.e. Qt::red).
+
+                                 Qt Colors
+
+   The colors Qt::color0 (zero pixel value) and Qt::color1 (non-zero
+   pixel value) are special colors for drawing in QBitmaps. Painting with
+   Qt::color0 sets the bitmap bits to 0 (transparent, i.e. background),
+   and painting with Qt::color1 sets the bits to 1 (opaque, i.e.
+   foreground).
+
+   QColor is platform and device independent. The QColormap class maps
+   the color to the hardware.
+
+   A color can be set by passing an RGB string to setNamedColor() (such
+   as "#112233"), or a color name (such as "blue"). The names are taken
+   from X11's rgb.txt database but can also be used on all platforms. To
+   get a lighter or darker color use light() and dark() respectively.
+   Colors can also be set using setRgb() and setHsv(). The color
+   components can be accessed in one go with rgb() and hsv(), or
+   individually with red(), green(), and blue().
+
+  HSV Colors
+
+   Because many people don't know the HSV color model very well, we'll
+   cover it briefly here.
+
+   The RGB model is hardware-oriented. Its representation is close to
+   what most monitors show. In contrast, HSV represents color in a way
+   more suited to the human perception of color. For example, the
+   relationships "stronger than", "darker than", and "the opposite of"
+   are easily expressed in HSV but are much harder to express in RGB.
+
+   HSV, like RGB, has three components:
+     * H, for hue, is in the range 0 to 359 if the color is chromatic
+       (not gray), or meaningless if it is gray. It represents degrees on
+       the color wheel familiar to most people. Red is 0 (degrees), green
+       is 120, and blue is 240.
+     * S, for saturation, is in the range 0 to 255, and the bigger it is,
+       the stronger the color is. Grayish colors have saturation near 0;
+       very strong colors have saturation near 255.
+     * V, for value, is in the range 0 to 255 and represents lightness or
+       brightness of the color. 0 is black; 255 is as far from black as
+       possible.
+
+   Here are some examples: pure red is H=0, S=255, V=255; a dark red,
+   moving slightly towards the magenta, could be H=350 (equivalent to
+   -10), S=255, V=180; a grayish light red could have H about 0 (say
+   350-359 or 0-10), S about 50-100, and S=255.
+
+   Qt returns a hue value of -1 for achromatic colors. If you pass a hue
+   value that is too large, Qt forces it into range. Hue 360 or 720 is
+   treated as 0; hue 540 is treated as 180.
+
+   See also QPalette and QApplication::setColorSpec().
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QColor::Spec
+
+   The type of color specified, either RGB, HSV or CMYK.
+
+      Constant     Value
+   QColor::Rgb       1
+   QColor::Hsv       2
+   QColor::Cmyk      3
+   QColor::Invalid   0
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QColor::QColor ()
+
+   Constructs an invalid color with the RGB value (0, 0, 0). An invalid
+   color is a color that is not properly set up for the underlying window
+   system.
+
+   The alpha value of an invalid color is unspecified.
+
+   See also isValid().
+
+  QColor::QColor ( int r, int g, int b, int a = 255 )
+
+   Constructs a color with the RGB value r, g, b, and the alpha-channel
+   (transparency) value of a, in the same way as setRgb().
+
+   The color is left invalid if any of the arguments are invalid.
+
+   See also setRgba().
+
+  QColor::QColor ( QRgb color )
+
+   Constructs a color with the value color. The alpha component is
+   ignored and set to solid.
+
+   See also fromRgb().
+
+  QColor::QColor ( const QString & name )
+
+   Constructs a named color in the same way as setNamedColor() using the
+   name given.
+
+   The color is left invalid if the name cannot be parsed.
+
+   See also setNamedColor().
+
+  QColor::QColor ( const char * name )
+
+   Constructs a named color in the same way as setNamedColor() using the
+   name given.
+
+   The color is left invalid if the name cannot be parsed.
+
+   See also setNamedColor().
+
+  QColor::QColor ( const QColor & color )
+
+   Constructs a color that is a copy of color.
+
+  QColor::QColor ( Qt::GlobalColor color )
+
+   Constructs a new color with a color value of color.
+
+  int QColor::alpha () const
+
+   Returns the alpha color component of this color.
+
+   See also alphaF(), red(), green(), and blue().
+
+  qreal QColor::alphaF () const
+
+   Returns the alpha color component of this color.
+
+   See also alpha(), redF(), greenF(), and blueF().
+
+  int QColor::black () const
+
+   Returns the black color component of this color.
+
+   See also blackF(), cyan(), magenta(), yellow(), and alpha().
+
+  qreal QColor::blackF () const
+
+   Returns the black color component of this color.
+
+   See also black(), cyanF(), magentaF(), yellowF(), and alphaF().
+
+  int QColor::blue () const
+
+   Returns the blue color component of this color.
+
+   See also blueF(), red(), green(), and alpha().
+
+  qreal QColor::blueF () const
+
+   Returns the blue color component of this color.
+
+   See also blue(), redF(), greenF(), and alphaF().
+
+  QStringList QColor::colorNames ()   [static]
+
+   Returns a QStringList containing the color names Qt knows about.
+
+  QColor QColor::convertTo ( Spec colorSpec ) const
+
+   Converts the color to the color format specified by colorSpec
+
+  int QColor::cyan () const
+
+   Returns the cyan color component of this color.
+
+   See also cyanF(), black(), magenta(), yellow(), and alpha().
+
+  qreal QColor::cyanF () const
+
+   Returns the cyan color component of this color.
+
+   See also cyan(), blackF(), magentaF(), yellowF(), and alphaF().
+
+  QColor QColor::dark ( int factor = 200 ) const
+
+   Returns a darker (or lighter) color, but does not change this object.
+
+   Returns a darker color if factor is greater than 100. Setting factor
+   to 300 returns a color that has one-third the brightness.
+
+   Returns a lighter color if factor is less than 100. We recommend using
+   light() for this purpose. If factor is 0 or negative, the return value
+   is unspecified.
+
+   (This function converts the current RGB color to HSV, divides V by
+   factor and converts back to RGB.)
+
+   See also light().
+
+  QColor QColor::fromCmyk ( int c, int m, int y, int k, int a = 255 )
+  [static]
+
+   Static convenience function that returns a QColor constructed from the
+   CMYK color values, c (cyan), m (magenta), y (yellow), k (black), and a
+   (alpha-channel, i.e. transparency).
+
+   All the values must be in the range 0-255.
+
+   See also toCmyk(), fromHsv(), and fromRgb().
+
+  QColor QColor::fromCmykF ( qreal c, qreal m, qreal y, qreal k, qreal a = 1.0
+  )   [static]
+
+   Static convenience function that returns a QColor constructed from the
+   CMYK color values, c (cyan), m (magenta), y (yellow), k (black), and a
+   (alpha-channel, i.e. transparency).
+
+   All the values must be in the range 0.0-1.0.
+
+   See also toCmyk(), fromHsv(), and fromRgb().
+
+  QColor QColor::fromHsv ( int h, int s, int v, int a = 255 )   [static]
+
+   Static convenience function that returns a QColor constructed from the
+   HSV color values, h (hue), s (saturation), v (value), and a
+   (alpha-channel, i.e. transparency).
+
+   The value of s, v, and a must all be in the range 0-255; the value of
+   h must be in the range 0-360.
+
+   See also toHsv(), fromCmyk(), and fromRgb().
+
+  QColor QColor::fromHsvF ( qreal h, qreal s, qreal v, qreal a = 1.0 )
+  [static]
+
+   Static convenience function that returns a QColor constructed from the
+   HSV color values, h (hue), s (saturation), v (value), and a
+   (alpha-channel, i.e. transparency).
+
+   The value of h, s and v must all be in the range 0.0-1.0.
+
+   See also toHsv(), fromCmyk(), and fromRgb().
+
+  QColor QColor::fromRgb ( QRgb rgb )   [static]
+
+   Creates a color from the argb value rgb.
+
+   The alpha component of rgb is ignored. For conversion from an RGBA
+   value use fromRgba().
+
+   See also fromRgba().
+
+  QColor QColor::fromRgb ( int r, int g, int b, int a = 255 )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Static convenience function that returns a QColor constructed from the
+   RGB color values, r (red), g (green), b (blue), and a (alpha-channel,
+   i.e. transparency).
+
+   All the values must be in the range 0-255.
+
+   See also toRgb(), fromCmyk(), and fromHsv().
+
+  QColor QColor::fromRgbF ( qreal r, qreal g, qreal b, qreal a = 1.0 )
+  [static]
+
+   Static convenience function that returns a QColor constructed from the
+   RGB color values, r (red), g (green), b (blue), and a (alpha-channel,
+   i.e. transparency).
+
+   All the values must be in the range 0.0-1.0.
+
+   See also toRgb(), fromCmyk(), and fromHsv().
+
+  QColor QColor::fromRgba ( QRgb rgba )   [static]
+
+   Creates a color from the rgba value rgba.
+
+   See also fromRgb().
+
+  void QColor::getCmyk ( int * c, int * m, int * y, int * k, int * a = 0 )
+
+   Sets the contents pointed to by c, m, y, k, and a, to the cyan,
+   magenta, yellow, black, and alpha-channel (transparency) components of
+   the CMYK value.
+
+   See also setCmyk(), getRgb(), and getHsv().
+
+  void QColor::getCmykF ( qreal * c, qreal * m, qreal * y, qreal * k, qreal * a
+  = 0 )
+
+   Sets the contents pointed to by c, m, y, k, and a, to the cyan,
+   magenta, yellow, black, and alpha-channel (transparency) components of
+   the CMYK value.
+
+   See also setCmyk(), getRgb(), and getHsv().
+
+  void QColor::getHsv ( int * h, int * s, int * v, int * a = 0 ) const
+
+   Returns the current RGB value as HSV. The contents of the h, s, and v
+   pointers are set to the HSV values, and the contents of a is set to
+   the alpha-channel (transparency) value. If any of the pointers are
+   null, the function does nothing.
+
+   The hue (which h points to) is set to -1 if the color is achromatic.
+
+   Warning: Colors are stored internally as RGB values, so getHSv() may
+   return slightly different values to those set by setHsv().
+
+   See also setHsv() and rgb().
+
+  void QColor::getHsvF ( qreal * h, qreal * s, qreal * v, qreal * a = 0 ) const
+
+   Returns the current RGB value as HSV. The contents of the h, s, and v
+   pointers are set to the HSV values, and the contents of a is set to
+   the alpha-channel (transparency) value. If any of the pointers are
+   null, the function does nothing.
+
+   See also setHsv() and rgb().
+
+  void QColor::getRgb ( int * r, int * g, int * b, int * a = 0 ) const
+
+   Sets the contents pointed to by r, g, b, and a, to the red, green,
+   blue, and alpha-channel (transparency) components of the RGB value.
+
+   See also rgb(), setRgb(), and getHsv().
+
+  void QColor::getRgbF ( qreal * r, qreal * g, qreal * b, qreal * a = 0 ) const
+
+   Sets the contents pointed to by r, g, b, and a, to the red, green,
+   blue, and alpha-channel (transparency) components of the RGB value.
+
+   See also rgb(), setRgb(), and getHsv().
+
+  int QColor::green () const
+
+   Returns the green color component of this color.
+
+   See also greenF(), red(), blue(), and alpha().
+
+  qreal QColor::greenF () const
+
+   Returns the green color component of this color.
+
+   See also green(), redF(), blueF(), and alphaF().
+
+  int QColor::hue () const
+
+   Returns the hue color component of this color.
+
+   See also hueF(), saturation(), value(), and alpha().
+
+  qreal QColor::hueF () const
+
+   Returns the hue color component of this color.
+
+   See also hue(), saturationF(), valueF(), and alphaF().
+
+  bool QColor::isValid () const
+
+   Returns true if the color is valid; otherwise returns false.
+
+   If the color was constructed using the default constructor, false is
+   returned.
+
+  QColor QColor::light ( int factor = 150 ) const
+
+   Returns a lighter (or darker) color, but does not change this object.
+
+   Returns a lighter color if factor is greater than 100. Setting factor
+   to 150 returns a color that is 50% brighter.
+
+   Returns a darker color if factor is less than 100. We recommend using
+   dark() for this purpose. If factor is 0 or negative, the return value
+   is unspecified.
+
+   (This function converts the current RGB color to HSV, multiplies V by
+   factor, and converts the result back to RGB.)
+
+   See also dark().
+
+  int QColor::magenta () const
+
+   Returns the magenta color component of this color.
+
+   See also magentaF(), cyan(), black(), yellow(), and alpha().
+
+  qreal QColor::magentaF () const
+
+   Returns the magenta color component of this color.
+
+   See also magenta(), cyanF(), blackF(), yellowF(), and alphaF().
+
+  QString QColor::name () const
+
+   Returns the name of the color in the format "#AARRGGBB"; i.e. a "#"
+   character followed by three two-digit hexadecimal numbers.
+
+   See also setNamedColor().
+
+  int QColor::red () const
+
+   Returns the red color component of this color.
+
+   See also redF(), green(), blue(), and alpha().
+
+  qreal QColor::redF () const
+
+   Returns the red color component of this color.
+
+   See also red(), greenF(), blueF(), and alphaF().
+
+  QRgb QColor::rgb () const
+
+   Returns the RGB value of the color. The alpha is stripped for
+   compatibility.
+
+   The return type QRgb is equivalent to unsigned int.
+
+   For an invalid color, the alpha value of the returned color is
+   unspecified.
+
+   See also setRgb(), getHsv(), qRed(), qBlue(), qGreen(), and isValid().
+
+  QRgb QColor::rgba () const
+
+   Returns the RGB value of the color. Note that unlike rgb(), the alpha
+   is not stripped.
+
+   The return type QRgb is equivalent to unsigned int.
+
+   For an invalid color, the alpha value of the returned color is
+   unspecified.
+
+   See also setRgb(), setRgba(), getHsv(), qRed(), qBlue(), qGreen(), and
+   isValid().
+
+  int QColor::saturation () const
+
+   Returns the saturation color component of this color.
+
+   See also saturationF(), hue(), value(), and alpha().
+
+  qreal QColor::saturationF () const
+
+   Returns the saturation color component of this color.
+
+   See also saturation(), hueF(), valueF(), and alphaF().
+
+  void QColor::setAlpha ( int alpha )
+
+   Sets the alpha of this color to alpha. Integer alpha is specified in
+   the range 0-255.
+
+  void QColor::setAlphaF ( qreal alpha )
+
+   Sets the alpha of this color to alpha. Qreal alpha is specified in the
+   range 0-1.
+
+  void QColor::setBlue ( int blue )
+
+   Sets the blue color component of this color to blue. Int components
+   are specified in the range 0-255.
+
+  void QColor::setBlueF ( qreal blue )
+
+   Sets the blue color component of this color to blue. Float components
+   are specified in the range 0-1.
+
+  void QColor::setCmyk ( int c, int m, int y, int k, int a = 255 )
+
+   Sets the color to CMYK values, c (cyan), m (magenta), y (yellow), k
+   (black), and a (alpha-channel, i.e. transparency).
+
+   All the values must be in the range 0-255.
+
+   See also getCmyk(), setRgb(), and setHsv().
+
+  void QColor::setCmykF ( qreal c, qreal m, qreal y, qreal k, qreal a = 1.0 )
+
+   Sets the color to CMYK values, c (cyan), m (magenta), y (yellow), k
+   (black), and a (alpha-channel, i.e. transparency).
+
+   All the values must be in the range 0.0-1.0.
+
+   See also getCmyk(), setRgb(), and setHsv().
+
+  void QColor::setGreen ( int green )
+
+   Sets the green color component of this color to green. Int components
+   are specified in the range 0-255.
+
+  void QColor::setGreenF ( qreal green )
+
+   Sets the green color component of this color to green. Float
+   components are specified in the range 0-1.
+
+  void QColor::setHsv ( int h, int s, int v, int a = 255 )
+
+   Sets a HSV color value; h is the hue, s is the saturation, v is the
+   value and a is the alpha component of the HSV color.
+
+   If s, v or a are not in the range 0 to 255, or h is < -1, the color is
+   not changed.
+
+   See also getHsv() and setRgb().
+
+  void QColor::setHsvF ( qreal h, qreal s, qreal v, qreal a = 1.0 )
+
+   The value of h, s, v, and a must all be in the range 0.0-1.0.
+
+  void QColor::setNamedColor ( const QString & name )
+
+   Sets the RGB value to name, which may be in one of these formats:
+     * #RGB (each of R, G, and B is a single hex digit)
+     * #RRGGBB
+     * #RRRGGGBBB
+     * #RRRRGGGGBBBB
+     * A name from the X color database (rgb.txt) (e.g. "steelblue" or
+       "gainsboro"). These color names work on all platforms.
+
+   The color is invalid if name cannot be parsed.
+
+  void QColor::setRed ( int red )
+
+   Sets the red color component of this color to red. Int components are
+   specified in the range 0-255.
+
+  void QColor::setRedF ( qreal red )
+
+   Sets the red color component of this color to red. Float components
+   are specified in the range 0-1.
+
+  void QColor::setRgb ( int r, int g, int b, int a = 255 )
+
+   Sets the RGB value to r, g, b and the alpha value to a. The arguments,
+   r, g, b and a must all be in the range 0 to 255. The color becomes
+   invalid if any of them are outside the legal range.
+
+   See also rgb() and setHsv().
+
+  void QColor::setRgb ( QRgb rgb )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Sets the RGB value to rgb, ignoring the alpha.
+
+   The type QRgb is equivalent to unsigned int.
+
+   See also rgb() and setHsv().
+
+  void QColor::setRgbF ( qreal r, qreal g, qreal b, qreal a = 1.0 )
+
+   Sets the color channels of this color to r (red), g (green), b (blue)
+   and a (alpha, transparency).
+
+   All values must be in the range 0.0-1.0.
+
+  void QColor::setRgba ( QRgb rgba )
+
+   Sets the RGBA value to rgba. Note that unlike setRgb(QRgb rgb), this
+   function does not ignore the alpha.
+
+   The type QRgb is equivalent to unsigned int.
+
+   See also rgba().
+
+  Spec QColor::spec () const
+
+   Returns how the color was specified.
+
+  QColor QColor::toCmyk () const
+
+   Returns a CMYK QColor based on this color.
+
+   See also fromCmyk(), toHsv(), and toRgb().
+
+  QColor QColor::toHsv () const
+
+   Returns an HSV QColor based on this color.
+
+   See also fromHsv(), toCmyk(), and toRgb().
+
+  QColor QColor::toRgb () const
+
+   Returns an RGB QColor based on this color.
+
+   See also fromRgb(), toCmyk(), and toHsv().
+
+  int QColor::value () const
+
+   Returns the value color component of this color.
+
+   See also valueF(), hue(), saturation(), and alpha().
+
+  qreal QColor::valueF () const
+
+   Returns the value color component of this color.
+
+   See also value(), hueF(), saturationF(), and alphaF().
+
+  int QColor::yellow () const
+
+   Returns the yellow color component of this color.
+
+   See also yellowF(), cyan(), magenta(), black(), and alpha().
+
+  qreal QColor::yellowF () const
+
+   Returns the yellow color component of this color.
+
+   See also yellow(), cyanF(), magentaF(), blackF(), and alphaF().
+
+  QColor::operator QVariant () const
+
+   Returns the color as a QVariant
+
+  bool QColor::operator!= ( const QColor & color ) const
+
+   Returns true if this color has a different RGB value from the color
+   color; otherwise returns false.
+
+  QColor & QColor::operator= ( const QColor & color )
+
+   Assigns a copy of the color color to this color, and returns a
+   reference to it.
+
+  QColor & QColor::operator= ( Qt::GlobalColor color )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Assigns a copy of the color and returns a reference to this color.
+
+  bool QColor::operator== ( const QColor & color ) const
+
+   Returns true if this color has the same RGB value as the color color;
+   otherwise returns false.
+     _________________________________________________________________
+
+Related Non-Members
+
+  int qAlpha ( QRgb rgba )
+
+   Returns the alpha component of the RGBA quadruplet rgba.
+
+  int qBlue ( QRgb rgb )
+
+   Returns the blue component of the RGBA quadruplet rgb.
+
+   See also qRgb() and QColor::blue().
+
+  int qGray ( int r, int g, int b )
+
+   Returns a gray value (0 to 255) from the (r, g, b) triplet.
+
+   The gray value is calculated using the formula (r*11 + g*16 + b*5)/32.
+
+  int qGray ( QRgb rgb )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a gray value (0 to 255) from the given RGB triplet rgb.
+
+  int qGreen ( QRgb rgb )
+
+   Returns the green component of the RGBA quadruplet rgb.
+
+   See also qRgb() and QColor::green().
+
+  int qRed ( QRgb rgb )
+
+   Returns the red component of the RGBA quadruplet rgb.
+
+   See also qRgb() and QColor::red().
+
+  QRgb qRgb ( int r, int g, int b )
+
+   Returns the RGB triplet (r, g, b).
+
+   The return type QRgb is equivalent to unsigned int.
+
+   See also qRgba(), qRed(), qGreen(), and qBlue().
+
+  QRgb qRgba ( int r, int g, int b, int a )
+
+   Returns the RGBA quadruplet (r, g, b, a).
+
+   The return type QRgba is equivalent to unsigned int.
+
+   See also qRgb(), qRed(), qGreen(), and qBlue().
+
+  QDataStream & operator<< ( QDataStream & stream, const QColor & color )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Writes the color to the stream.
+
+   See also Format of the QDataStream operators.
+
+  QDataStream & operator>> ( QDataStream & stream, QColor & color )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads the color from the stream.
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

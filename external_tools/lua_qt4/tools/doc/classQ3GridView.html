@@ -1,0 +1,195 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3GridView Class Reference
+
+   #include <q3gridview.h>
+
+   Inherits Q3ScrollView.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3GridView (QWidget *parent=0, const char *name=0, Qt::WFlags f=0)
+     * ~Q3GridView ()
+     * int numRows () const
+     * virtual void setNumRows (int)
+     * int numCols () const
+     * virtual void setNumCols (int)
+     * int cellWidth () const
+     * virtual void setCellWidth (int)
+     * int cellHeight () const
+     * virtual void setCellHeight (int)
+     * QRect cellRect () const
+     * QRect cellGeometry (int row, int column)
+     * QSize gridSize () const
+     * int rowAt (int y) const
+     * int columnAt (int x) const
+     * void repaintCell (int row, int column, bool erase=true)
+     * void updateCell (int row, int column)
+     * void ensureCellVisible (int row, int column)
+
+Protected Member Functions
+
+     * virtual void paintCell (QPainter *, int row, int col)=0
+     * virtual void paintEmptyArea (QPainter *p, int cx, int cy, int cw, int ch)
+     * void drawContents (QPainter *p, int cx, int cy, int cw, int ch)
+     * virtual void dimensionChange (int, int)
+
+Properties
+
+     * int numRows
+     * int numCols
+     * int cellWidth
+     * int cellHeight
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3GridView::Q3GridView (  QWidget *     parent = 0,
+                             const char *  name = 0,
+                             Qt::WFlags    f = 0
+                          )
+
+
+
+   Q3GridView::~Q3GridView (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QRect Q3GridView::cellGeometry (  int  row,
+                                     int  column
+                                  )
+
+
+
+   int Q3GridView::cellHeight (   )  const
+
+
+
+   QRect Q3GridView::cellRect (   )  const [inline]
+
+
+
+   int Q3GridView::cellWidth (   )  const
+
+
+
+   int Q3GridView::columnAt (  int  x  )  const [inline]
+
+
+
+   virtual void Q3GridView::dimensionChange (  int  ,
+                                               int
+                                            )  [protected, virtual]
+
+
+
+   void Q3GridView::drawContents (  QPainter *  p,
+                                    int         cx,
+                                    int         cy,
+                                    int         cw,
+                                    int         ch
+                                 )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3GridView::ensureCellVisible (  int  row,
+                                         int  column
+                                      )
+
+
+
+   QSize Q3GridView::gridSize (   )  const [inline]
+
+
+
+   int Q3GridView::numCols (   )  const
+
+
+
+   int Q3GridView::numRows (   )  const
+
+
+
+   virtual void Q3GridView::paintCell (  QPainter *  ,
+                                         int         row,
+                                         int         col
+                                      )  [protected, pure virtual]
+
+
+
+   virtual void Q3GridView::paintEmptyArea (  QPainter *  p,
+                                              int         cx,
+                                              int         cy,
+                                              int         cw,
+                                              int         ch
+                                           )  [protected, virtual]
+
+
+
+   void Q3GridView::repaintCell (  int   row,
+                                   int   column,
+                                   bool  erase = true
+                                )
+
+
+
+   int Q3GridView::rowAt (  int  y  )  const [inline]
+
+
+
+   virtual void Q3GridView::setCellHeight (  int   )  [virtual]
+
+
+
+   virtual void Q3GridView::setCellWidth (  int   )  [virtual]
+
+
+
+   virtual void Q3GridView::setNumCols (  int   )  [virtual]
+
+
+
+   virtual void Q3GridView::setNumRows (  int   )  [virtual]
+
+
+
+   void Q3GridView::updateCell (  int  row,
+                                  int  column
+                               )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int Q3GridView::cellHeight [inline, read, write]
+
+
+
+   int Q3GridView::cellWidth [inline, read, write]
+
+
+
+   int Q3GridView::numCols [inline, read, write]
+
+
+
+   int Q3GridView::numRows [inline, read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3gridview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

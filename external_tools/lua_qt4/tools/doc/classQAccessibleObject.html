@@ -1,0 +1,108 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QAccessibleObject Class Reference
+
+   #include <qaccessibleobject.h>
+
+   Inherits QAccessibleInterface.
+
+   Inherited by QAccessibleApplication, and QAccessibleWidget.
+
+   List of all members.
+
+Public Member Functions
+
+     * QAccessibleObject (QObject *object)
+     * bool isValid () const
+     * QObject * object () const
+     * QRect rect (int child) const
+     * void setText (Text t, int child, const QString &text)
+     * int userActionCount (int child) const
+     * bool doAction (int action, int child, const QVariantList &params)
+     * QString actionText (int action, Text t, int child) const
+
+Protected Member Functions
+
+     * virtual ~QAccessibleObject ()
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAccessibleObject::QAccessibleObject (  QObject *  object  )  [explicit]
+
+
+
+   virtual QAccessibleObject::~QAccessibleObject (   )  [protected, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QAccessibleObject::actionText (  int   action,
+                                            Text  t,
+                                            int   child
+                                         )  const [virtual]
+
+
+
+   Implements QAccessibleInterface.
+
+   Reimplemented in QAccessibleApplication, and QAccessibleWidget.
+
+   bool QAccessibleObject::doAction (  int                   action,
+                                       int                   child,
+                                       const QVariantList &  params
+                                    )  [virtual]
+
+
+
+   Implements QAccessibleInterface.
+
+   Reimplemented in QAccessibleApplication, and QAccessibleWidget.
+
+   bool QAccessibleObject::isValid (   )  const [virtual]
+
+
+
+   Implements QAccessibleInterface.
+
+   QObject* QAccessibleObject::object (   )  const [virtual]
+
+
+
+   Implements QAccessibleInterface.
+
+   QRect QAccessibleObject::rect (  int  child  )  const [virtual]
+
+
+
+   Implements QAccessibleInterface.
+
+   Reimplemented in QAccessibleWidget.
+
+   void QAccessibleObject::setText (  Text             t,
+                                      int              child,
+                                      const QString &  text
+                                   )  [virtual]
+
+
+
+   Implements QAccessibleInterface.
+
+   int QAccessibleObject::userActionCount (  int  child  )  const [virtual]
+
+
+
+   Implements QAccessibleInterface.
+
+   Reimplemented in QAccessibleApplication.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qaccessibleobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

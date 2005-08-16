@@ -1,0 +1,108 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QHttpRequestHeader Class Reference
+
+   #include <qhttp.h>
+
+   Inherits QHttpHeader.
+
+   List of all members.
+
+Public Member Functions
+
+     * QHttpRequestHeader ()
+     * QHttpRequestHeader (const QString &method, const QString &path, int majorVer=1, int minorVer=1)
+     * QHttpRequestHeader (const QHttpRequestHeader &header)
+     * QHttpRequestHeader (const QString &str)
+     * QHttpRequestHeader & operator= (const QHttpRequestHeader &header)
+     * void setRequest (const QString &method, const QString &path, int majorVer=1, int minorVer=1)
+     * QString method () const
+     * QString path () const
+     * int majorVersion () const
+     * int minorVersion () const
+     * QString toString () const
+
+Protected Member Functions
+
+     * bool parseLine (const QString &line, int number)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QHttpRequestHeader::QHttpRequestHeader (   )
+
+
+
+   QHttpRequestHeader::QHttpRequestHeader (  const QString &  method,
+                                             const QString &  path,
+                                             int              majorVer = 1,
+                                             int              minorVer = 1
+                                          )
+
+
+
+   QHttpRequestHeader::QHttpRequestHeader (  const QHttpRequestHeader &  header  )
+
+
+
+   QHttpRequestHeader::QHttpRequestHeader (  const QString &  str  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QHttpRequestHeader::majorVersion (   )  const [virtual]
+
+
+
+   Implements QHttpHeader.
+
+   QString QHttpRequestHeader::method (   )  const
+
+
+
+   int QHttpRequestHeader::minorVersion (   )  const [virtual]
+
+
+
+   Implements QHttpHeader.
+
+   QHttpRequestHeader& QHttpRequestHeader::operator= (  const QHttpRequestHeader &  header  )
+
+
+
+   bool QHttpRequestHeader::parseLine (  const QString &  line,
+                                         int              number
+                                      )  [protected, virtual]
+
+
+
+   Reimplemented from QHttpHeader.
+
+   QString QHttpRequestHeader::path (   )  const
+
+
+
+   void QHttpRequestHeader::setRequest (  const QString &  method,
+                                          const QString &  path,
+                                          int              majorVer = 1,
+                                          int              minorVer = 1
+                                       )
+
+
+
+   QString QHttpRequestHeader::toString (   )  const [virtual]
+
+
+
+   Reimplemented from QHttpHeader.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qhttp.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

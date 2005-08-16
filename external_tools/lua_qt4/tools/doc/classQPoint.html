@@ -1,0 +1,157 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QPoint Class Reference
+
+   #include <qpoint.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QPoint ()
+     * QPoint (int xpos, int ypos)
+     * bool isNull () const
+     * int x () const
+     * int y () const
+     * void setX (int x)
+     * void setY (int y)
+     * int manhattanLength () const
+     * int & rx ()
+     * int & ry ()
+     * QPoint & operator+= (const QPoint &p)
+     * QPoint & operator-= (const QPoint &p)
+     * QPoint & operator *= (qreal c)
+     * QPoint & operator/= (qreal c)
+
+Friends
+
+     * bool operator== (const QPoint &, const QPoint &)
+     * bool operator!= (const QPoint &, const QPoint &)
+     * const QPoint operator+ (const QPoint &, const QPoint &)
+     * const QPoint operator- (const QPoint &, const QPoint &)
+     * const QPoint operator * (const QPoint &, qreal)
+     * const QPoint operator * (qreal, const QPoint &)
+     * const QPoint operator- (const QPoint &)
+     * const QPoint operator/ (const QPoint &, qreal)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPoint::QPoint (   )  [inline]
+
+
+
+   QPoint::QPoint (  int  xpos,
+                     int  ypos
+                  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QPoint::isNull (   )  const [inline]
+
+
+
+   int QPoint::manhattanLength (   )  const
+
+
+
+   QPoint & QPoint::operator *= (  qreal  c  )  [inline]
+
+
+
+   QPoint & QPoint::operator+= (  const QPoint &  p  )  [inline]
+
+
+
+   QPoint & QPoint::operator-= (  const QPoint &  p  )  [inline]
+
+
+
+   QPoint & QPoint::operator/= (  qreal  c  )  [inline]
+
+
+
+   int & QPoint::rx (   )  [inline]
+
+
+
+   int & QPoint::ry (   )  [inline]
+
+
+
+   void QPoint::setX (  int  x  )  [inline]
+
+
+
+   void QPoint::setY (  int  y  )  [inline]
+
+
+
+   int QPoint::x (   )  const [inline]
+
+
+
+   int QPoint::y (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   const QPoint operator * (  qreal           c,
+                              const QPoint &  p
+                           )  [friend]
+
+
+
+   const QPoint operator * (  const QPoint &  p,
+                              qreal           c
+                           )  [friend]
+
+
+
+   bool operator!= (  const QPoint &  p1,
+                      const QPoint &  p2
+                   )  [friend]
+
+
+
+   const QPoint operator+ (  const QPoint &  p1,
+                             const QPoint &  p2
+                          )  [friend]
+
+
+
+   const QPoint operator- (  const QPoint &  p  )  [friend]
+
+
+
+   const QPoint operator- (  const QPoint &  p1,
+                             const QPoint &  p2
+                          )  [friend]
+
+
+
+   const QPoint operator/ (  const QPoint &  p,
+                             qreal           c
+                          )  [friend]
+
+
+
+   bool operator== (  const QPoint &  p1,
+                      const QPoint &  p2
+                   )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpoint.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

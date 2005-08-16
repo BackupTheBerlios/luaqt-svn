@@ -1,0 +1,384 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QTextDocument Class Reference
+
+   #include <qtextdocument.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags FindFlags
+     * enum MetaInformation { DocumentTitle }
+     * enum FindFlag { FindBackward = 0x00001, FindCaseSensitively = 0x00002, FindWholeWords = 0x00004 }
+     * enum ResourceType { HtmlResource = 1, ImageResource = 2, UserResource = 100 }
+
+Public Slots
+
+     * void undo ()
+     * void redo ()
+     * void appendUndoItem (QAbstractUndoItem *)
+     * void setModified (bool m=true)
+
+Signals
+
+     * void contentsChange (int from, int charsRemoves, int charsAdded)
+     * void contentsChanged ()
+     * void undoAvailable (bool)
+     * void redoAvailable (bool)
+     * void modificationChanged (bool m)
+     * void cursorPositionChanged (const QTextCursor &cursor)
+
+Public Member Functions
+
+     * QTextDocument (QObject *parent=0)
+     * QTextDocument (const QString &text, QObject *parent=0)
+     * ~QTextDocument ()
+     * QTextDocument * clone (QObject *parent=0) const
+     * bool isEmpty () const
+     * virtual void clear ()
+     * void setUndoRedoEnabled (bool enable)
+     * bool isUndoRedoEnabled () const
+     * bool isUndoAvailable () const
+     * bool isRedoAvailable () const
+     * void setDocumentLayout (QAbstractTextDocumentLayout *layout)
+     * QAbstractTextDocumentLayout * documentLayout () const
+     * void setMetaInformation (MetaInformation info, const QString &)
+     * QString metaInformation (MetaInformation info) const
+     * QString toHtml (const QByteArray &encoding=QByteArray()) const
+     * void setHtml (const QString &html)
+     * QString toPlainText () const
+     * void setPlainText (const QString &text)
+     * QTextCursor find (const QString &expr, int from=0, FindFlags options=0) const
+     * QTextCursor find (const QString &expr, const QTextCursor &from, FindFlags options=0) const
+     * QTextFrame * frameAt (int pos) const
+     * QTextFrame * rootFrame () const
+     * QTextObject * object (int objectIndex) const
+     * QTextObject * objectForFormat (const QTextFormat &) const
+     * QTextBlock findBlock (int pos) const
+     * QTextBlock begin () const
+     * QTextBlock end () const
+     * void setPageSize (const QSizeF &size)
+     * QSizeF pageSize () const
+     * void setDefaultFont (const QFont &font)
+     * QFont defaultFont () const
+     * int pageCount () const
+     * bool isModified () const
+     * void print (QPrinter *printer) const
+     * QVariant resource (int type, const QUrl &name) const
+     * void addResource (int type, const QUrl &name, const QVariant &resource)
+     * QVector< QTextFormat > allFormats () const
+     * void markContentsDirty (int from, int length)
+     * QTextDocumentPrivate * docHandle () const
+
+Protected Member Functions
+
+     * virtual QTextObject * createObject (const QTextFormat &f)
+     * virtual QVariant loadResource (int type, const QUrl &name)
+
+Properties
+
+     * bool undoRedoEnabled
+     * bool modified
+     * QSizeF pageSize
+     * QFont defaultFont
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QTextDocument::FindFlags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextDocument::FindFlag
+
+
+
+   Enumerator: 
+
+          FindBackward       
+          FindCaseSensitively
+          FindWholeWords     
+
+   enum QTextDocument::MetaInformation
+
+
+
+   Enumerator: 
+
+          DocumentTitle
+
+   enum QTextDocument::ResourceType
+
+
+
+   Enumerator: 
+
+          HtmlResource 
+          ImageResource
+          UserResource 
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextDocument::QTextDocument (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QTextDocument::QTextDocument (  const QString &  text,
+                                   QObject *        parent = 0
+                                )  [explicit]
+
+
+
+   QTextDocument::~QTextDocument (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QTextDocument::addResource (  int               type,
+                                      const QUrl &      name,
+                                      const QVariant &  resource
+                                   )
+
+
+
+   QVector<QTextFormat> QTextDocument::allFormats (   )  const
+
+
+
+   void QTextDocument::appendUndoItem (  QAbstractUndoItem *   )  [slot]
+
+
+
+   QTextBlock QTextDocument::begin (   )  const
+
+
+
+   virtual void QTextDocument::clear (   )  [virtual]
+
+
+
+   QTextDocument* QTextDocument::clone (  QObject *  parent = 0  )  const
+
+
+
+   void QTextDocument::contentsChange (  int  from,
+                                         int  charsRemoves,
+                                         int  charsAdded
+                                      )  [signal]
+
+
+
+   void QTextDocument::contentsChanged (   )  [signal]
+
+
+
+   virtual QTextObject* QTextDocument::createObject (  const QTextFormat &  f  )  [protected, virtual]
+
+
+
+   void QTextDocument::cursorPositionChanged (  const QTextCursor &  cursor  )  [signal]
+
+
+
+   QFont QTextDocument::defaultFont (   )  const
+
+
+
+   QTextDocumentPrivate* QTextDocument::docHandle (   )  const
+
+
+
+   QAbstractTextDocumentLayout* QTextDocument::documentLayout (   )  const
+
+
+
+   QTextBlock QTextDocument::end (   )  const
+
+
+
+   QTextCursor QTextDocument::find (  const QString &      expr,
+                                      const QTextCursor &  from,
+                                      FindFlags            options = 0
+                                   )  const
+
+
+
+   QTextCursor QTextDocument::find (  const QString &  expr,
+                                      int              from = 0,
+                                      FindFlags        options = 0
+                                   )  const
+
+
+
+   QTextBlock QTextDocument::findBlock (  int  pos  )  const
+
+
+
+   QTextFrame* QTextDocument::frameAt (  int  pos  )  const
+
+
+
+   bool QTextDocument::isEmpty (   )  const
+
+
+
+   bool QTextDocument::isModified (   )  const
+
+
+
+   bool QTextDocument::isRedoAvailable (   )  const
+
+
+
+   bool QTextDocument::isUndoAvailable (   )  const
+
+
+
+   bool QTextDocument::isUndoRedoEnabled (   )  const
+
+
+
+   virtual QVariant QTextDocument::loadResource (  int           type,
+                                                   const QUrl &  name
+                                                )  [protected, virtual]
+
+
+
+   void QTextDocument::markContentsDirty (  int  from,
+                                            int  length
+                                         )
+
+
+
+   QString QTextDocument::metaInformation (  MetaInformation  info  )  const
+
+
+
+   void QTextDocument::modificationChanged (  bool  m  )  [signal]
+
+
+
+   QTextObject* QTextDocument::object (  int  objectIndex  )  const
+
+
+
+   QTextObject* QTextDocument::objectForFormat (  const QTextFormat &   )  const
+
+
+
+   int QTextDocument::pageCount (   )  const
+
+
+
+   QSizeF QTextDocument::pageSize (   )  const
+
+
+
+   void QTextDocument::print (  QPrinter *  printer  )  const
+
+
+
+   void QTextDocument::redo (   )  [slot]
+
+
+
+   void QTextDocument::redoAvailable (  bool   )  [signal]
+
+
+
+   QVariant QTextDocument::resource (  int           type,
+                                       const QUrl &  name
+                                    )  const
+
+
+
+   QTextFrame* QTextDocument::rootFrame (   )  const
+
+
+
+   void QTextDocument::setDefaultFont (  const QFont &  font  )
+
+
+
+   void QTextDocument::setDocumentLayout (  QAbstractTextDocumentLayout *  layout  )
+
+
+
+   void QTextDocument::setHtml (  const QString &  html  )
+
+
+
+   void QTextDocument::setMetaInformation (  MetaInformation  info,
+                                             const QString &
+                                          )
+
+
+
+   void QTextDocument::setModified (  bool  m = true  )  [slot]
+
+
+
+   void QTextDocument::setPageSize (  const QSizeF &  size  )
+
+
+
+   void QTextDocument::setPlainText (  const QString &  text  )
+
+
+
+   void QTextDocument::setUndoRedoEnabled (  bool  enable  )
+
+
+
+   QString QTextDocument::toHtml (  const QByteArray &  encoding = QByteArray()  )  const
+
+
+
+   QString QTextDocument::toPlainText (   )  const
+
+
+
+   void QTextDocument::undo (   )  [slot]
+
+
+
+   void QTextDocument::undoAvailable (  bool   )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QFont QTextDocument::defaultFont [read, write]
+
+
+
+   bool QTextDocument::modified [read, write]
+
+
+
+   QSizeF QTextDocument::pageSize [read, write]
+
+
+
+   bool QTextDocument::undoRedoEnabled [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextdocument.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

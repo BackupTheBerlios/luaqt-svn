@@ -1,0 +1,48 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QTextObjectInterface Class Reference
+
+   #include <qabstracttextdocumentlayout.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * virtual ~QTextObjectInterface ()
+     * virtual QSizeF intrinsicSize (QTextDocument *doc, int posInDocument, const QTextFormat &format)=0
+     * virtual void drawObject (QPainter *painter, const QRectF &rect, QTextDocument *doc, int posInDocument, const QTextFormat &format)=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QTextObjectInterface::~QTextObjectInterface (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void QTextObjectInterface::drawObject (  QPainter *           painter,
+                                                    const QRectF &       rect,
+                                                    QTextDocument *      doc,
+                                                    int                  posInDocument,
+                                                    const QTextFormat &  format
+                                                 )  [pure virtual]
+
+
+
+   virtual QSizeF QTextObjectInterface::intrinsicSize (  QTextDocument *      doc,
+                                                         int                  posInDocument,
+                                                         const QTextFormat &  format
+                                                      )  [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstracttextdocumentlayout.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

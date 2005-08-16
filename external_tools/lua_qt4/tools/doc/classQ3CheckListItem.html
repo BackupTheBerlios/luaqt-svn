@@ -1,0 +1,254 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3CheckListItem Class Reference
+
+   #include <q3listview.h>
+
+   Inherits Q3ListViewItem.
+
+   List of all members.
+
+Public Types
+
+     * enum Type {
+         RadioButton, CheckBox, Controller, RadioButtonController = Controller,
+         CheckBoxController
+       }
+     * enum ToggleState { Off, NoChange, On }
+     * enum { RTTI = 1 }
+
+Public Member Functions
+
+     * Q3CheckListItem (Q3CheckListItem *parent, const QString &text, Type=RadioButtonController)
+     * Q3CheckListItem (Q3CheckListItem *parent, Q3ListViewItem *after, const QString &text, Type=RadioButtonController)
+     * Q3CheckListItem (Q3ListViewItem *parent, const QString &text, Type=RadioButtonController)
+     * Q3CheckListItem (Q3ListViewItem *parent, Q3ListViewItem *after, const QString &text, Type=RadioButtonController)
+     * Q3CheckListItem (Q3ListView *parent, const QString &text, Type=RadioButtonController)
+     * Q3CheckListItem (Q3ListView *parent, Q3ListViewItem *after, const QString &text, Type=RadioButtonController)
+     * Q3CheckListItem (Q3ListViewItem *parent, const QString &text, const QPixmap &)
+     * Q3CheckListItem (Q3ListView *parent, const QString &text, const QPixmap &)
+     * ~Q3CheckListItem ()
+     * void paintCell (QPainter *, const QColorGroup &cg, int column, int width, int alignment)
+     * virtual void paintFocus (QPainter *, const QColorGroup &cg, const QRect &r)
+     * int width (const QFontMetrics &, const Q3ListView *, int column) const
+     * void setup ()
+     * virtual void setOn (bool)
+     * bool isOn () const
+     * Type type () const
+     * QString text () const
+     * QString text (int n) const
+     * void setTristate (bool)
+     * bool isTristate () const
+     * ToggleState state () const
+     * void setState (ToggleState s)
+     * int rtti () const
+
+Protected Member Functions
+
+     * void activate ()
+     * void turnOffChild ()
+     * virtual void stateChange (bool)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          RTTI
+
+   enum Q3CheckListItem::ToggleState
+
+
+
+   Enumerator: 
+
+          Off     
+          NoChange
+          On      
+
+   enum Q3CheckListItem::Type
+
+
+
+   Enumerator: 
+
+          RadioButton          
+          CheckBox             
+          Controller           
+          RadioButtonController
+          CheckBoxController   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CheckListItem::Q3CheckListItem (  Q3CheckListItem *  parent,
+                                       const QString &    text,
+                                       Type               = RadioButtonController
+                                    )
+
+
+
+   Q3CheckListItem::Q3CheckListItem (  Q3CheckListItem *  parent,
+                                       Q3ListViewItem *   after,
+                                       const QString &    text,
+                                       Type               = RadioButtonController
+                                    )
+
+
+
+   Q3CheckListItem::Q3CheckListItem (  Q3ListViewItem *  parent,
+                                       const QString &   text,
+                                       Type              = RadioButtonController
+                                    )
+
+
+
+   Q3CheckListItem::Q3CheckListItem (  Q3ListViewItem *  parent,
+                                       Q3ListViewItem *  after,
+                                       const QString &   text,
+                                       Type              = RadioButtonController
+                                    )
+
+
+
+   Q3CheckListItem::Q3CheckListItem (  Q3ListView *     parent,
+                                       const QString &  text,
+                                       Type             = RadioButtonController
+                                    )
+
+
+
+   Q3CheckListItem::Q3CheckListItem (  Q3ListView *      parent,
+                                       Q3ListViewItem *  after,
+                                       const QString &   text,
+                                       Type              = RadioButtonController
+                                    )
+
+
+
+   Q3CheckListItem::Q3CheckListItem (  Q3ListViewItem *  parent,
+                                       const QString &   text,
+                                       const QPixmap & 
+                                    )
+
+
+
+   Q3CheckListItem::Q3CheckListItem (  Q3ListView *     parent,
+                                       const QString &  text,
+                                       const QPixmap &
+                                    )
+
+
+
+   Q3CheckListItem::~Q3CheckListItem (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3CheckListItem::activate (   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ListViewItem.
+
+   bool Q3CheckListItem::isOn (   )  const [inline]
+
+
+
+   bool Q3CheckListItem::isTristate (   )  const
+
+
+
+   void Q3CheckListItem::paintCell (  QPainter *           ,
+                                      const QColorGroup &  cg,
+                                      int                  column,
+                                      int                  width,
+                                      int                  alignment
+                                   )  [virtual]
+
+
+
+   Reimplemented from Q3ListViewItem.
+
+   virtual void Q3CheckListItem::paintFocus (  QPainter *           ,
+                                               const QColorGroup &  cg,
+                                               const QRect &        r
+                                            )  [virtual]
+
+
+
+   Reimplemented from Q3ListViewItem.
+
+   int Q3CheckListItem::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ListViewItem.
+
+   virtual void Q3CheckListItem::setOn (  bool   )  [virtual]
+
+
+
+   void Q3CheckListItem::setState (  ToggleState  s  )
+
+
+
+   void Q3CheckListItem::setTristate (  bool   )
+
+
+
+   void Q3CheckListItem::setup (   )  [virtual]
+
+
+
+   Reimplemented from Q3ListViewItem.
+
+   ToggleState Q3CheckListItem::state (   )  const
+
+
+
+   virtual void Q3CheckListItem::stateChange (  bool   )  [protected, virtual]
+
+
+
+   QString Q3CheckListItem::text (  int  n  )  const [inline, virtual]
+
+
+
+   Reimplemented from Q3ListViewItem.
+
+   QString Q3CheckListItem::text (   )  const [inline]
+
+
+
+   void Q3CheckListItem::turnOffChild (   )  [protected]
+
+
+
+   Type Q3CheckListItem::type (   )  const [inline]
+
+
+
+   int Q3CheckListItem::width (  const QFontMetrics &  ,
+                                 const Q3ListView *    ,
+                                 int                   column
+                              )  const [virtual]
+
+
+
+   Reimplemented from Q3ListViewItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3listview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

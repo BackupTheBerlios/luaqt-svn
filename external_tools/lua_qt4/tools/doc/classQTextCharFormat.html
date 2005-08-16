@@ -1,0 +1,220 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QTextCharFormat Class Reference
+
+   #include <qtextformat.h>
+
+   Inherits QTextFormat.
+
+   Inherited by QTextImageFormat.
+
+   List of all members.
+
+Public Types
+
+     * enum VerticalAlignment { AlignNormal = 0, AlignSuperScript, AlignSubScript }
+
+Public Member Functions
+
+     * QTextCharFormat ()
+     * bool isValid () const
+     * void setFont (const QFont &font)
+     * QFont font () const
+     * void setFontFamily (const QString &family)
+     * QString fontFamily () const
+     * void setFontPointSize (qreal size)
+     * qreal fontPointSize () const
+     * void setFontWeight (int weight)
+     * int fontWeight () const
+     * void setFontItalic (bool italic)
+     * bool fontItalic () const
+     * void setFontUnderline (bool underline)
+     * bool fontUnderline () const
+     * void setFontOverline (bool overline)
+     * bool fontOverline () const
+     * void setFontStrikeOut (bool strikeOut)
+     * bool fontStrikeOut () const
+     * void setUnderlineColor (const QColor &color)
+     * QColor underlineColor () const
+     * void setFontFixedPitch (bool fixedPitch)
+     * bool fontFixedPitch () const
+     * void setVerticalAlignment (VerticalAlignment alignment)
+     * VerticalAlignment verticalAlignment () const
+     * void setAnchor (bool anchor)
+     * bool isAnchor () const
+     * void setAnchorHref (const QString &value)
+     * QString anchorHref () const
+     * void setAnchorName (const QString &name)
+     * QString anchorName () const
+     * void setTableCellRowSpan (int tableCellRowSpan)
+     * int tableCellRowSpan () const
+     * void setTableCellColumnSpan (int tableCellColumnSpan)
+     * int tableCellColumnSpan () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextCharFormat::VerticalAlignment
+
+
+
+   Enumerator: 
+
+          AlignNormal     
+          AlignSuperScript
+          AlignSubScript  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextCharFormat::QTextCharFormat (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QTextCharFormat::anchorHref (   )  const [inline]
+
+
+
+   QString QTextCharFormat::anchorName (   )  const [inline]
+
+
+
+   QFont QTextCharFormat::font (   )  const
+
+
+
+   QString QTextCharFormat::fontFamily (   )  const [inline]
+
+
+
+   bool QTextCharFormat::fontFixedPitch (   )  const [inline]
+
+
+
+   bool QTextCharFormat::fontItalic (   )  const [inline]
+
+
+
+   bool QTextCharFormat::fontOverline (   )  const [inline]
+
+
+
+   qreal QTextCharFormat::fontPointSize (   )  const [inline]
+
+
+
+   bool QTextCharFormat::fontStrikeOut (   )  const [inline]
+
+
+
+   bool QTextCharFormat::fontUnderline (   )  const [inline]
+
+
+
+   int QTextCharFormat::fontWeight (   )  const [inline]
+
+
+
+   bool QTextCharFormat::isAnchor (   )  const [inline]
+
+
+
+   bool QTextCharFormat::isValid (   )  const [inline]
+
+
+
+   Reimplemented from QTextFormat.
+
+   Reimplemented in QTextImageFormat.
+
+   void QTextCharFormat::setAnchor (  bool  anchor  )  [inline]
+
+
+
+   void QTextCharFormat::setAnchorHref (  const QString &  value  )  [inline]
+
+
+
+   void QTextCharFormat::setAnchorName (  const QString &  name  )  [inline]
+
+
+
+   void QTextCharFormat::setFont (  const QFont &  font  )
+
+
+
+   void QTextCharFormat::setFontFamily (  const QString &  family  )  [inline]
+
+
+
+   void QTextCharFormat::setFontFixedPitch (  bool  fixedPitch  )  [inline]
+
+
+
+   void QTextCharFormat::setFontItalic (  bool  italic  )  [inline]
+
+
+
+   void QTextCharFormat::setFontOverline (  bool  overline  )  [inline]
+
+
+
+   void QTextCharFormat::setFontPointSize (  qreal  size  )  [inline]
+
+
+
+   void QTextCharFormat::setFontStrikeOut (  bool  strikeOut  )  [inline]
+
+
+
+   void QTextCharFormat::setFontUnderline (  bool  underline  )  [inline]
+
+
+
+   void QTextCharFormat::setFontWeight (  int  weight  )  [inline]
+
+
+
+   void QTextCharFormat::setTableCellColumnSpan (  int  tableCellColumnSpan  )  [inline]
+
+
+
+   void QTextCharFormat::setTableCellRowSpan (  int  tableCellRowSpan  )  [inline]
+
+
+
+   void QTextCharFormat::setUnderlineColor (  const QColor &  color  )  [inline]
+
+
+
+   void QTextCharFormat::setVerticalAlignment (  VerticalAlignment  alignment  )  [inline]
+
+
+
+   int QTextCharFormat::tableCellColumnSpan (   )  const [inline]
+
+
+
+   int QTextCharFormat::tableCellRowSpan (   )  const [inline]
+
+
+
+   QColor QTextCharFormat::underlineColor (   )  const [inline]
+
+
+
+   VerticalAlignment QTextCharFormat::verticalAlignment (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextformat.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

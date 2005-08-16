@@ -1,0 +1,160 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QDial Class Reference
+
+   #include <qdial.h>
+
+   Inherits QAbstractSlider.
+
+   List of all members.
+
+Public Slots
+
+     * void setNotchesVisible (bool visible)
+     * void setWrapping (bool on)
+
+Public Member Functions
+
+     * QDial (QWidget *parent=0)
+     * ~QDial ()
+     * bool wrapping () const
+     * int notchSize () const
+     * void setNotchTarget (double target)
+     * qreal notchTarget () const
+     * bool notchesVisible () const
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+
+Protected Member Functions
+
+     * void resizeEvent (QResizeEvent *re)
+     * void paintEvent (QPaintEvent *pe)
+     * void mousePressEvent (QMouseEvent *me)
+     * void mouseReleaseEvent (QMouseEvent *me)
+     * void mouseMoveEvent (QMouseEvent *me)
+     * void sliderChange (SliderChange change)
+
+Properties
+
+     * bool wrapping
+     * int notchSize
+     * qreal notchTarget
+     * bool notchesVisible
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDial::QDial (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QDial::~QDial (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QSize QDial::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QDial::mouseMoveEvent (  QMouseEvent *  me  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QDial::mousePressEvent (  QMouseEvent *  me  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QDial::mouseReleaseEvent (  QMouseEvent *  me  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QDial::notchesVisible (   )  const
+
+
+
+   int QDial::notchSize (   )  const
+
+
+
+   qreal QDial::notchTarget (   )  const
+
+
+
+   void QDial::paintEvent (  QPaintEvent *  pe  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QDial::resizeEvent (  QResizeEvent *  re  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QDial::setNotchesVisible (  bool  visible  )  [slot]
+
+
+
+   void QDial::setNotchTarget (  double  target  )
+
+
+
+   void QDial::setWrapping (  bool  on  )  [slot]
+
+
+
+   QSize QDial::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QDial::sliderChange (  SliderChange  change  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractSlider.
+
+   bool QDial::wrapping (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QDial::notchesVisible [read, write]
+
+
+
+   int QDial::notchSize [read]
+
+
+
+   qreal QDial::notchTarget [read, write]
+
+
+
+   bool QDial::wrapping [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdial.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

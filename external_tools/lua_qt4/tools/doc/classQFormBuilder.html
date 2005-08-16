@@ -1,0 +1,180 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QFormBuilder Class Reference
+
+   #include <formbuilder.h>
+
+   Inherits QAbstractFormBuilder.
+
+   List of all members.
+
+Public Member Functions
+
+     * QFormBuilder ()
+     * QStringList pluginPaths () const
+     * void clearPluginPaths ()
+     * void addPluginPath (const QString &pluginPath)
+     * void setPluginPath (const QStringList &pluginPaths)
+     * QList< QDesignerCustomWidgetInterface * > customWidgets () const
+
+Protected Member Functions
+
+     * virtual QWidget * create (DomUI *ui, QWidget *parentWidget)
+     * virtual QWidget * create (DomWidget *ui_widget, QWidget *parentWidget)
+     * virtual QLayout * create (DomLayout *ui_layout, QLayout *layout, QWidget *parentWidget)
+     * virtual QLayoutItem * create (DomLayoutItem *ui_layoutItem, QLayout *layout, QWidget *parentWidget)
+     * virtual QAction * create (DomAction *ui_action, QObject *parent)
+     * virtual QActionGroup * create (DomActionGroup *ui_action_group, QObject *parent)
+     * virtual QWidget * createWidget (const QString &widgetName, QWidget *parentWidget, const QString &name)
+     * virtual QLayout * createLayout (const QString &layoutName, QObject *parent, const QString &name)
+     * virtual void createConnections (DomConnections *connections, QWidget *widget)
+     * virtual bool addItem (DomLayoutItem *ui_item, QLayoutItem *item, QLayout *layout)
+     * virtual bool addItem (DomWidget *ui_widget, QWidget *widget, QWidget *parentWidget)
+     * virtual void updateCustomWidgets ()
+
+Static Protected Member Functions
+
+     * static QWidget * widgetByName (QWidget *topLevel, const QString &name)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QFormBuilder::QFormBuilder (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual bool QFormBuilder::addItem (  DomWidget *  ui_widget,
+                                         QWidget *    widget,
+                                         QWidget *    parentWidget
+                                      )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   virtual bool QFormBuilder::addItem (  DomLayoutItem *  ui_item,
+                                         QLayoutItem *    item,
+                                         QLayout *        layout
+                                      )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   void QFormBuilder::addPluginPath (  const QString &  pluginPath  )
+
+
+
+   void QFormBuilder::clearPluginPaths (   )
+
+
+
+   virtual QActionGroup* QFormBuilder::create (  DomActionGroup *  ui_action_group,
+                                                 QObject *         parent
+                                              )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   virtual QAction* QFormBuilder::create (  DomAction *  ui_action,
+                                            QObject *    parent
+                                         )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   virtual QLayoutItem* QFormBuilder::create (  DomLayoutItem *  ui_layoutItem,
+                                                QLayout *        layout,
+                                                QWidget *        parentWidget
+                                             )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   virtual QLayout* QFormBuilder::create (  DomLayout *  ui_layout,
+                                            QLayout *    layout,
+                                            QWidget *    parentWidget
+                                         )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   virtual QWidget* QFormBuilder::create (  DomWidget *  ui_widget,
+                                            QWidget *    parentWidget
+                                         )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   virtual QWidget* QFormBuilder::create (  DomUI *    ui,
+                                            QWidget *  parentWidget
+                                         )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   virtual void QFormBuilder::createConnections (  DomConnections *  connections,
+                                                   QWidget *         widget
+                                                )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   virtual QLayout* QFormBuilder::createLayout (  const QString &  layoutName,
+                                                  QObject *        parent,
+                                                  const QString &  name
+                                               )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   virtual QWidget* QFormBuilder::createWidget (  const QString &  widgetName,
+                                                  QWidget *        parentWidget,
+                                                  const QString &  name
+                                               )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractFormBuilder.
+
+   QList<QDesignerCustomWidgetInterface*> QFormBuilder::customWidgets (   )  const
+
+
+
+   QStringList QFormBuilder::pluginPaths (   )  const
+
+
+
+   void QFormBuilder::setPluginPath (  const QStringList &  pluginPaths  )
+
+
+
+   virtual void QFormBuilder::updateCustomWidgets (   )  [protected, virtual]
+
+
+
+   static QWidget* QFormBuilder::widgetByName (  QWidget *        topLevel,
+                                                 const QString &  name
+                                              )  [static, protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/formbuilder.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

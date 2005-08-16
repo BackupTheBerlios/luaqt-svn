@@ -1,0 +1,269 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QToolBox Class Reference
+
+   The QToolBox class provides a column of tabbed widget items. More...
+#include <QToolBox>
+
+   Part of the QtGui module.
+
+   Inherits QFrame.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * count : const int
+     * currentIndex : int
+
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QToolBox ( QWidget * parent = 0, Qt::WFlags f = 0 )
+     * ~QToolBox ()
+     * int addItem ( QWidget * widget, const QIcon & iconSet, const
+       QString & text )
+     * int addItem ( QWidget * w, const QString & text )
+     * int count () const
+     * int currentIndex () const
+     * QWidget * currentWidget () const
+     * int indexOf ( QWidget * widget ) const
+     * int insertItem ( int index, QWidget * widget, const QIcon & icon,
+       const QString & text )
+     * int insertItem ( int index, QWidget * widget, const QString & text
+       )
+     * bool isItemEnabled ( int index ) const
+     * QIcon itemIcon ( int index ) const
+     * QString itemText ( int index ) const
+     * QString itemToolTip ( int index ) const
+     * void removeItem ( int index )
+     * void setItemEnabled ( int index, bool enabled )
+     * void setItemIcon ( int index, const QIcon & icon )
+     * void setItemText ( int index, const QString & text )
+     * void setItemToolTip ( int index, const QString & toolTip )
+     * QWidget * widget ( int index ) const
+
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void setCurrentIndex ( int index )
+     * void setCurrentWidget ( QWidget * widget )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void currentChanged ( int index )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * virtual void itemInserted ( int index )
+     * virtual void itemRemoved ( int index )
+
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QToolBox class provides a column of tabbed widget items.
+
+   A toolbox is a widget that displays a column of tabs one above the
+   other, with the current item displayed below the current tab. Every
+   tab has an index position within the column of tabs. A tab's item is a
+   QWidget.
+
+   Each item has an itemText(), an optional itemIcon(), an optional
+   itemToolTip(), and a widget(). The item's attributes can be changed
+   with setItemText(), setItemIcon(), and setItemToolTip(). Each item can
+   be enabled or disabled individually with setItemEnabled().
+
+   Items are added using addItem(), or inserted at particular positions
+   using insertItem(). The total number of items is given by count().
+   Items can be deleted with delete, or removed from the toolbox with
+   removeItem(). Combining removeItem() and insertItem() allows you to
+   move items to different positions.
+
+   The index of the current item widget is returned by currentIndex(),
+   and set with setCurrentIndex(). The index of a particular item can be
+   found using indexOf(), and the item at a given index is returned by
+   item().
+
+   The currentChanged() signal is emitted when the current item is
+   changed.
+
+   See also QTabWidget.
+     _________________________________________________________________
+
+Property Documentation
+
+  count : const int
+
+   This property holds the number of items contained in the toolbox.
+
+   Access functions:
+     * int count () const
+
+  currentIndex : int
+
+   This property holds the index of the current item, or -1 if the
+   toolbox is empty.
+
+   Access functions:
+     * int currentIndex () const
+     * void setCurrentIndex ( int index )
+
+   See also indexOf() and widget().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QToolBox::QToolBox ( QWidget * parent = 0, Qt::WFlags f = 0 )
+
+   Constructs a new toolbox with the given parent and the flags, f.
+
+  QToolBox::~QToolBox ()
+
+   Destroys the toolbox.
+
+  int QToolBox::addItem ( QWidget * widget, const QIcon & iconSet, const
+  QString & text )
+
+   Adds the widget in a new tab at bottom of the toolbox. The new tab's
+   text is set to text, and the iconSet is displayed to the left of the
+   text. Returns the new tab's index.
+
+  int QToolBox::addItem ( QWidget * w, const QString & text )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Adds the widget w in a new tab at bottom of the toolbox. The new tab's
+   text is set to text. Returns the new tab's index.
+
+  void QToolBox::currentChanged ( int index )   [signal]
+
+   This signal is emitted when the current item is changed. The new
+   current item's index is passed in index, or -1 if there is no current
+   item.
+
+  QWidget * QToolBox::currentWidget () const
+
+   Returns a pointer to the current widget, or 0 if there is no such
+   item.
+
+   See also currentIndex() and setCurrentWidget().
+
+  int QToolBox::indexOf ( QWidget * widget ) const
+
+   Returns the index of widget, or -1 if the item does not exist.
+
+  int QToolBox::insertItem ( int index, QWidget * widget, const QIcon & icon,
+  const QString & text )
+
+   Inserts the widget at position index, or at the bottom of the toolbox
+   if index is out of range. The new item's text is set to text, and the
+   icon is displayed to the left of the text. Returns the new item's
+   index.
+
+  int QToolBox::insertItem ( int index, QWidget * widget, const QString & text
+  )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Inserts the widget at position index, or at the bottom of the toolbox
+   if index is out of range. The new item's text is set to text. Returns
+   the new item's index.
+
+  bool QToolBox::isItemEnabled ( int index ) const
+
+   Returns true if the item at position index is enabled; otherwise
+   returns false.
+
+  QIcon QToolBox::itemIcon ( int index ) const
+
+   Returns the icon of the item at position index, or a null icon if
+   index is out of range.
+
+  void QToolBox::itemInserted ( int index )   [virtual protected]
+
+   This virtual handler is called after a new item was added or inserted
+   at position index.
+
+   See also itemRemoved().
+
+  void QToolBox::itemRemoved ( int index )   [virtual protected]
+
+   This virtual handler is called after an item was removed from position
+   index.
+
+   See also itemInserted().
+
+  QString QToolBox::itemText ( int index ) const
+
+   Returns the text of the item at position index, or an empty string if
+   index is out of range.
+
+  QString QToolBox::itemToolTip ( int index ) const
+
+   Returns the tooltip of the item at position index, or an empty string
+   if index is out of range.
+
+  void QToolBox::removeItem ( int index )
+
+   Removes the item at position index from the toolbox. Note that the
+   widget is not deleted.
+
+  void QToolBox::setCurrentWidget ( QWidget * widget )   [slot]
+
+   Makeswidget the current widget. The widget must be an item in this
+   tool box.
+
+   See also addItem(), setCurrentIndex(), and currentWidget().
+
+  void QToolBox::setItemEnabled ( int index, bool enabled )
+
+   If enabled is true then the item at position index is enabled;
+   otherwise the item at position index is disabled.
+
+  void QToolBox::setItemIcon ( int index, const QIcon & icon )
+
+   Sets the icon of the item at position index to icon.
+
+  void QToolBox::setItemText ( int index, const QString & text )
+
+   Sets the text of the item at position index to text.
+
+  void QToolBox::setItemToolTip ( int index, const QString & toolTip )
+
+   Sets the tooltip of the item at position index to toolTip.
+
+  QWidget * QToolBox::widget ( int index ) const
+
+   Returns the widget at position index, or 0 if there is no such item.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

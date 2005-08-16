@@ -1,0 +1,188 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QPaintDevice Class Reference
+
+   #include <qpaintdevice.h>
+
+   Inherited by QImage, QPicture, QPixmap, QPrinter, and QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum PaintDeviceMetric {
+         PdmWidth = 1, PdmHeight, PdmWidthMM, PdmHeightMM,
+         PdmNumColors, PdmDepth, PdmDpiX, PdmDpiY,
+         PdmPhysicalDpiX, PdmPhysicalDpiY
+       }
+
+Public Member Functions
+
+     * virtual ~QPaintDevice ()
+     * virtual int devType () const
+     * bool paintingActive () const
+     * virtual QPaintEngine * paintEngine () const =0
+     * int width () const
+     * int height () const
+     * int widthMM () const
+     * int heightMM () const
+     * int logicalDpiX () const
+     * int logicalDpiY () const
+     * int physicalDpiX () const
+     * int physicalDpiY () const
+     * int numColors () const
+     * int depth () const
+
+Protected Member Functions
+
+     * QPaintDevice ()
+     * virtual int metric (PaintDeviceMetric metric) const
+
+Protected Attributes
+
+     * ushort painters
+
+Friends
+
+     * class QPainter
+     * class QQuickDrawPaintEngine
+     * class QFontEngineMac
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QPaintDevice::PaintDeviceMetric
+
+
+
+   Enumerator: 
+
+          PdmWidth       
+          PdmHeight      
+          PdmWidthMM     
+          PdmHeightMM    
+          PdmNumColors   
+          PdmDepth       
+          PdmDpiX        
+          PdmDpiY        
+          PdmPhysicalDpiX
+          PdmPhysicalDpiY
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QPaintDevice::~QPaintDevice (   )  [virtual]
+
+
+
+   QPaintDevice::QPaintDevice (   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QPaintDevice::depth (   )  const [inline]
+
+
+
+   Reimplemented in QImage, and QPixmap.
+
+   int QPaintDevice::devType (   )  const [inline, virtual]
+
+
+
+   Reimplemented in QImage, QPicture, QPixmap, QPrinter, and QWidget.
+
+   int QPaintDevice::height (   )  const [inline]
+
+
+
+   Reimplemented in QImage, QPixmap, and QWidget.
+
+   int QPaintDevice::heightMM (   )  const [inline]
+
+
+
+   int QPaintDevice::logicalDpiX (   )  const [inline]
+
+
+
+   int QPaintDevice::logicalDpiY (   )  const [inline]
+
+
+
+   virtual int QPaintDevice::metric (  PaintDeviceMetric  metric  )  const [protected, virtual]
+
+
+
+   Reimplemented in QImage, QPicture, QPixmap, QPrinter, and QWidget.
+
+   int QPaintDevice::numColors (   )  const [inline]
+
+
+
+   Reimplemented in QImage.
+
+   virtual QPaintEngine* QPaintDevice::paintEngine (   )  const [pure virtual]
+
+
+
+   Implemented in QGLWidget, QImage, QPicture, QPixmap, QPrinter, and QWidget.
+
+   bool QPaintDevice::paintingActive (   )  const [inline]
+
+
+
+   int QPaintDevice::physicalDpiX (   )  const [inline]
+
+
+
+   int QPaintDevice::physicalDpiY (   )  const [inline]
+
+
+
+   int QPaintDevice::width (   )  const [inline]
+
+
+
+   Reimplemented in QImage, QPixmap, and QWidget.
+
+   int QPaintDevice::widthMM (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QFontEngineMac [friend]
+
+
+
+   friend class QPainter [friend]
+
+
+
+   Reimplemented in QPixmap, and QWidget.
+
+   friend class QQuickDrawPaintEngine [friend]
+
+
+
+   Reimplemented in QPixmap.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   ushort QPaintDevice::painters [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpaintdevice.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

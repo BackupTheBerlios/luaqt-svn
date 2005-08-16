@@ -1,0 +1,175 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QMutex Class Reference
+
+   The QMutex class provides access serialization between threads.
+   More...
+#include <QMutex>
+
+   Part of the QtCore module.
+
+   Note: All the functions in this class are thread-safe.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum RecursionMode { Recursive, NonRecursive }
+
+  Public Functions
+
+     * QMutex ( RecursionMode mode = NonRecursive )
+     * ~QMutex ()
+     * void lock ()
+     * bool tryLock ()
+     * void unlock ()
+     _________________________________________________________________
+
+Detailed Description
+
+   The QMutex class provides access serialization between threads.
+
+   The purpose of a QMutex is to protect an object, data structure or
+   section of code so that only one thread can access it at a time (this
+   is similar to the Java synchronized keyword). It is usually best to
+   use a mutex with a QMutexLocker since this makes it easy to ensure
+   that locking and unlocking are performed consistently.
+
+   For example, say there is a method that prints a message to the user
+   on two lines:
+    int number = 6;
+
+    void method1()
+    {
+        number *= 5;
+        number /= 4;
+    }
+
+    void method2()
+    {
+        number *= 3;
+        number /= 2;
+    }
+
+   If these two methods are called in succession, the following happens:
+    // method1()
+    number *= 5;        // number is now 30
+    number /= 4;        // number is now 7
+
+    // method2()
+    number *= 3;        // nubmer is now 21
+    number /= 2;        // number is now 10
+
+   If these two methods are called simultaneously from two threads then
+   the following sequence could result:
+    // Thread 1 calls method1()
+    number *= 5;        // number is now 30
+
+    // Thread 2 calls method2().
+    //
+    // Most likely Thread 1 has been put to sleep by the operating
+    // system to allow Thread 2 to run.
+    number *= 3;        // number is now 90
+    number /= 2;        // number is now 45
+
+    // Thread 1 finishes executing.
+    number /= 4;        // number is now 11, instead of 10
+
+   If we add a mutex, we should get the result we want:
+    QMutex mutex;
+    int number = 6;
+
+    void method1()
+    {
+        mutex.lock();
+        number *= 5;
+        number /= 4;
+        mutex.unlock();
+    }
+
+    void method2()
+    {
+        mutex.lock();
+        number *= 3;
+        number /= 2;
+        mutex.unlock();
+    }
+
+   Then only one thread can modify number at any given time and the
+   result is correct. This is a trivial example, of course, but applies
+   to any other case where things need to happen in a particular
+   sequence.
+
+   When you call lock() in a thread, other threads that try to call
+   lock() in the same place will block until the thread that got the lock
+   calls unlock(). A non-blocking alternative to lock() is tryLock().
+
+   See also QMutexLocker, QReadWriteLock, QSemaphore, and QWaitCondition.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QMutex::RecursionMode
+
+   Constant Value Description
+   QMutex::Recursive 1 In this mode, a thread can lock the same mutex
+   multiple times and the mutex won't be unlocked until a corresponding
+   number of unlock() calls have been made.
+   QMutex::NonRecursive 0 In this mode, a thread may only lock a mutex
+   once.
+
+   See also QMutex().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QMutex::QMutex ( RecursionMode mode = NonRecursive )
+
+   Constructs a new mutex. The mutex is created in an unlocked state.
+
+   If mode is QMutex::Recursive, a thread can lock the same mutex
+   multiple times and the mutex won't be unlocked until a corresponding
+   number of unlock() calls have been made. The default is
+   QMutex::NonRecursive.
+
+   See also lock() and unlock().
+
+  QMutex::~QMutex ()
+
+   Destroys the mutex.
+
+   Warning: Destroying a locked mutex may result in undefined behavior.
+
+  void QMutex::lock ()
+
+   Locks the mutex. If another thread has locked the mutex then this call
+   will block until that thread has unlocked it.
+
+   See also unlock().
+
+  bool QMutex::tryLock ()
+
+   Attempts to lock the mutex. If the lock was obtained, this function
+   returns true. If another thread has locked the mutex, this function
+   returns false immediately.
+
+   If the lock was obtained, the mutex must be unlocked with unlock()
+   before another thread can successfully lock it.
+
+   See also lock() and unlock().
+
+  void QMutex::unlock ()
+
+   Unlocks the mutex. Attempting to unlock a mutex in a different thread
+   to the one that locked it results in an error. Unlocking a mutex that
+   is not locked results in undefined behavior.
+
+   See also lock().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

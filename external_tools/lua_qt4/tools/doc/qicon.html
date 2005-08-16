@@ -1,0 +1,275 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QIcon Class Reference
+
+   The QIcon class provides scalable icons in different modes and states.
+   More...
+#include <QIcon>
+
+   Part of the QtGui module.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum Mode { Normal, Disabled, Active }
+     * enum State { Off, On }
+
+  Public Functions
+
+     * QIcon ()
+     * QIcon ( const QPixmap & pixmap )
+     * QIcon ( const QIcon & other )
+     * QIcon ( const QString & fileName )
+     * QIcon ( QIconEngine * engine )
+     * ~QIcon ()
+     * QSize actualSize ( const QSize & size, Mode mode = Normal, State
+       state = Off ) const
+     * void addFile ( const QString & fileName, const QSize & size =
+       QSize(), Mode mode = Normal, State state = Off )
+     * void addPixmap ( const QPixmap & pixmap, Mode mode = Normal, State
+       state = Off )
+     * bool isNull () const
+     * void paint ( QPainter * painter, const QRect & rect, Qt::Alignment
+       alignment = Qt::AlignCenter, Mode mode = Normal, State state = Off
+       ) const
+     * void paint ( QPainter * painter, int x, int y, int w, int h,
+       Qt::Alignment alignment = Qt::AlignCenter, Mode mode = Normal,
+       State state = Off ) const
+     * QPixmap pixmap ( const QSize & size, Mode mode = Normal, State
+       state = Off ) const
+     * QPixmap pixmap ( int w, int h, Mode mode = Normal, State state =
+       Off ) const
+     * QPixmap pixmap ( int extent, Mode mode = Normal, State state = Off
+       ) const
+     * int serialNumber () const
+     * operator QVariant () const
+     * QIcon & operator= ( const QIcon & other )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QIcon class provides scalable icons in different modes and states.
+
+   A QIcon can generate smaller, larger, active, and disabled pixmaps
+   from the set of pixmaps it is given. Such pixmaps are used by Qt
+   widgets to show an icon representing a particular action.
+
+   The simplest use of QIcon is to create one from a QPixmap file or
+   resource, and then use it, allowing Qt to work out all the required
+   icon styles and sizes. For example:
+    QToolButton *button = new QToolButton;
+    button->setIcon(QIcon("open.xpm"));
+
+   When you retrieve a pixmap using pixmap(QSize, Mode, State), and no
+   pixmap for this given size, mode and state has been added with
+   addFile() or addPixmap(), then QIcon will generate one on the fly.
+   This pixmap generation happens in a QIconEngine. The default engine
+   scales pixmaps down if required, but never up, and it uses the current
+   style to calculate a disabled appearance. By using custom icon
+   engines, you can customize every aspect of generated icons. With
+   QIconEnginePlugin it is possible to register different icon engines
+   for different file suffixes, so you could provide a SVG icon engine or
+   any other scalable format.
+
+  Making Classes that Use QIcon
+
+   If you write your own widgets that have an option to set a small
+   pixmap, consider allowing a QIcon to be set for that pixmap. The Qt
+   class QToolButton is an example of such a widget.
+
+   Provide a method to set a QIcon, and when you draw the icon, choose
+   whichever pixmap is appropriate for the current state of your widget.
+   For example:
+    void MyWidget::drawIcon(QPainter *painter, QPoint pos)
+    {
+        QPixmap pixmap = icon.pixmap(QSize(22, 22),
+                                       isEnabled() ? QIcon::Normal
+                                                   : QIcon::Disabled,
+                                       isOn() ? QIcon::On
+                                              : QIcon::Off);
+        painter->drawPixmap(pos, pixmap);
+    }
+
+   You might also make use of the Active mode, perhaps making your widget
+   Active when the mouse is over the widget (see QWidget::enterEvent()),
+   while the mouse is pressed pending the release that will activate the
+   function, or when it is the currently selected item. If the widget can
+   be toggled, the "On" mode might be used to draw a different icon.
+
+                                   QIcon
+
+   See also GUI Design Handbook: Iconic Label.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QIcon::Mode
+
+   This enum type describes the mode for which a pixmap is intended to be
+   used. The currently defined modes are:
+
+   Constant Value Description
+   QIcon::Normal 0 Display the pixmap when the user is not interacting
+   with the icon, but the functionality represented by the icon is
+   available.
+   QIcon::Disabled 1 Display the pixmap when the functionality
+   represented by the icon is not available.
+   QIcon::Active 2 Display the pixmap when the functionality represented
+   by the icon is available and the user is interacting with the icon,
+   for example, moving the mouse over it or clicking it.
+
+  enum QIcon::State
+
+   This enum describes the state for which a pixmap is intended to be
+   used. The state can be:
+
+    Constant  Value                       Description
+   QIcon::Off   1   Display the pixmap when the widget is in an "off" state
+   QIcon::On    0   Display the pixmap when the widget is in an "on" state
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QIcon::QIcon ()
+
+   Constructs a null icon.
+
+  QIcon::QIcon ( const QPixmap & pixmap )
+
+   Constructs an icon from a pixmap.
+
+  QIcon::QIcon ( const QIcon & other )
+
+   Constructs a copy of other. This is very fast.
+
+  QIcon::QIcon ( const QString & fileName )
+
+   Constructs an icon from the file with the given fileName. The file
+   will be loaded on demand. If the file does not exist or is of an
+   unknown format, the icon becomes a null icon.
+
+   If fileName contains a relative path (e.g. the filename only) the
+   relevant file must be found relative to the runtime working directory.
+
+   The file name can be either refer to an actual file on disk or to one
+   of the application's embedded resources. See the Resource System
+   overview for details on how to embed images and other resource files
+   in the application's executable.
+
+  QIcon::QIcon ( QIconEngine * engine )
+
+   Creates an icon with a specific icon engine. The icon takes ownership
+   of the engine.
+
+  QIcon::~QIcon ()
+
+   Destroys the icon.
+
+  QSize QIcon::actualSize ( const QSize & size, Mode mode = Normal, State state
+  = Off ) const
+
+   Returns the actual size of the icon for the requested size, mode, and
+   state. The result might be smaller than requested, but never larger.
+
+   See also pixmap() and paint().
+
+  void QIcon::addFile ( const QString & fileName, const QSize & size = QSize(),
+  Mode mode = Normal, State state = Off )
+
+   Adds a pixmap from the file with the given fileName to the icon, as a
+   specialization for size, mode and state. The file will be loaded on
+   demand. Note: custom icon engines are free to ignore additionally
+   added pixmaps.
+
+   If fileName contains a relative path (e.g. the filename only) the
+   relevant file must be found relative to the runtime working directory.
+
+   The file name can be either refer to an actual file on disk or to one
+   of the application's embedded resources. See the Resource System
+   overview for details on how to embed images and other resource files
+   in the application's executable.
+
+   See also addPixmap().
+
+  void QIcon::addPixmap ( const QPixmap & pixmap, Mode mode = Normal, State
+  state = Off )
+
+   Adds pixmap to the icon, as a specialization for mode and state.
+
+   Custom icon engines are free to ignore additionally added pixmaps.
+
+   See also addFile().
+
+  bool QIcon::isNull () const
+
+   Returns true if the icon is empty; otherwise returns false.
+
+  void QIcon::paint ( QPainter * painter, const QRect & rect, Qt::Alignment
+  alignment = Qt::AlignCenter, Mode mode = Normal, State state = Off ) const
+
+   Uses the painter to paint the icon with specified alignment, required
+   mode, and state into the rectangle rect.
+
+   See also actualSize() and pixmap().
+
+  void QIcon::paint ( QPainter * painter, int x, int y, int w, int h,
+  Qt::Alignment alignment = Qt::AlignCenter, Mode mode = Normal, State state =
+  Off ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Paints the icon into the rectangle QRect(x, y, w, h).
+
+  QPixmap QIcon::pixmap ( const QSize & size, Mode mode = Normal, State state =
+  Off ) const
+
+   Returns a pixmap with the requested size, mode, and state, generating
+   one if necessary. The pixmap might be smaller than requested, but
+   never larger.
+
+   See also actualSize() and paint().
+
+  QPixmap QIcon::pixmap ( int w, int h, Mode mode = Normal, State state = Off )
+  const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a pixmap of size QSize(w, h).
+
+  QPixmap QIcon::pixmap ( int extent, Mode mode = Normal, State state = Off )
+  const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a pixmap of size QSize(extent, extent).
+
+  int QIcon::serialNumber () const
+
+   Returns a number that uniquely identifies the contents of this QIcon
+   object. This means that multiple QIcon objects can have the same
+   serial number as long as they refer to the same contents.
+
+   A null icon always has a serial number of 0.
+
+   See also QPixmap::serialNumber().
+
+  QIcon::operator QVariant () const
+
+   Returns the icon as a QVariant.
+
+  QIcon & QIcon::operator= ( const QIcon & other )
+
+   Assigns the other icon to this icon and returns a reference to this
+   icon.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

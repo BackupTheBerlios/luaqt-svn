@@ -1,0 +1,1023 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                     QAbstractItemView Class Reference
+
+   The QAbstractItemView class provides the basic functionality for item
+   view classes. More...
+#include <QAbstractItemView>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractScrollArea.
+
+   Inherited by QHeaderView, QListView, QTableView, and QTreeView.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum EditTrigger { NoEditTriggers, CurrentChanged, DoubleClicked,
+       SelectedClicked, ..., AllEditTriggers }
+     * flags EditTriggers
+     * enum ScrollHint { EnsureVisible, PositionAtTop, PositionAtBottom }
+     * enum SelectionBehavior { SelectItems, SelectRows, SelectColumns }
+     * enum SelectionMode { SingleSelection, MultiSelection,
+       ExtendedSelection, NoSelection }
+
+  Properties
+
+     * alternatingRowColors : bool
+     * autoScroll : bool
+     * dragEnabled : bool
+     * editTriggers : EditTriggers
+     * iconSize : QSize
+
+     * selectionBehavior : SelectionBehavior
+     * selectionMode : SelectionMode
+     * showDropIndicator : bool
+     * tabKeyNavigation : bool
+     * textElideMode : Qt::TextElideMode
+
+     * 2 properties inherited from QAbstractScrollArea
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QAbstractItemView ( QWidget * parent = 0 )
+     * ~QAbstractItemView ()
+     * bool alternatingRowColors () const
+     * void closePersistentEditor ( const QModelIndex & index )
+     * QModelIndex currentIndex () const
+     * bool dragEnabled () const
+     * EditTriggers editTriggers () const
+     * bool hasAutoScroll () const
+     * QSize iconSize () const
+     * virtual QModelIndex indexAt ( const QPoint & p ) const = 0
+     * QAbstractItemDelegate * itemDelegate () const
+     * virtual void keyboardSearch ( const QString & search )
+     * QAbstractItemModel * model () const
+     * void openPersistentEditor ( const QModelIndex & index )
+     * QModelIndex rootIndex () const
+     * virtual void scrollTo ( const QModelIndex & index, ScrollHint hint
+       = EnsureVisible ) = 0
+     * QAbstractItemView::SelectionBehavior selectionBehavior () const
+     * QAbstractItemView::SelectionMode selectionMode () const
+     * QItemSelectionModel * selectionModel () const
+     * void setAlternatingRowColors ( bool enable )
+     * void setAutoScroll ( bool enable )
+     * void setDragEnabled ( bool enable )
+     * void setDropIndicatorShown ( bool enable )
+     * void setEditTriggers ( EditTriggers triggers )
+     * void setIconSize ( const QSize & size )
+     * void setItemDelegate ( QAbstractItemDelegate * delegate )
+     * virtual void setModel ( QAbstractItemModel * model )
+     * void setSelectionBehavior ( QAbstractItemView::SelectionBehavior
+       behavior )
+     * void setSelectionMode ( QAbstractItemView::SelectionMode mode )
+     * virtual void setSelectionModel ( QItemSelectionModel *
+       selectionModel )
+     * void setTabKeyNavigation ( bool enable )
+     * void setTextElideMode ( Qt::TextElideMode mode )
+     * bool showDropIndicator () const
+     * virtual int sizeHintForColumn ( int column ) const
+     * QSize sizeHintForIndex ( const QModelIndex & index ) const
+     * virtual int sizeHintForRow ( int row ) const
+     * bool tabKeyNavigation () const
+     * Qt::TextElideMode textElideMode () const
+     * virtual QRect visualRect ( const QModelIndex & index ) const = 0
+
+     * 8 public functions inherited from QAbstractScrollArea
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void clearSelection ()
+     * void edit ( const QModelIndex & index )
+     * virtual void reset ()
+     * virtual void selectAll ()
+     * void setCurrentIndex ( const QModelIndex & index )
+     * virtual void setRootIndex ( const QModelIndex & index )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void activated ( const QModelIndex & index )
+     * void clicked ( const QModelIndex & index )
+     * void doubleClicked ( const QModelIndex & index )
+     * void entered ( const QModelIndex & index )
+     * void pressed ( const QModelIndex & index )
+     * void viewportEntered ()
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Types
+
+     * enum CursorAction { MoveUp, MoveDown, MoveLeft, MoveRight, ...,
+       MovePrevious }
+     * enum State { NoState, DraggingState, DragSelectingState,
+       EditingState, ExpandingState, CollapsingState }
+
+  Protected Functions
+
+     * QPoint dirtyRegionOffset () const
+     * virtual void dragEnterEvent ( QDragEnterEvent * e )
+     * virtual void dragLeaveEvent ( QDragLeaveEvent * event )
+     * virtual void dragMoveEvent ( QDragMoveEvent * e )
+     * virtual void dropEvent ( QDropEvent * e )
+     * virtual bool edit ( const QModelIndex & index, EditTrigger
+       trigger, QEvent * event )
+     * void executeDelayedItemsLayout ()
+     * virtual void focusInEvent ( QFocusEvent * e )
+     * virtual void focusOutEvent ( QFocusEvent * e )
+     * virtual int horizontalOffset () const = 0
+     * int horizontalStepsPerItem () const
+     * virtual bool isIndexHidden ( const QModelIndex & index ) const = 0
+     * virtual void keyPressEvent ( QKeyEvent * e )
+     * virtual void mouseDoubleClickEvent ( QMouseEvent * e )
+     * virtual void mouseMoveEvent ( QMouseEvent * e )
+     * virtual void mousePressEvent ( QMouseEvent * e )
+     * virtual void mouseReleaseEvent ( QMouseEvent * e )
+     * virtual QModelIndex moveCursor ( CursorAction cursorAction,
+       Qt::KeyboardModifiers modifiers ) = 0
+     * virtual void resizeEvent ( QResizeEvent * e )
+     * void scheduleDelayedItemsLayout ()
+     * void scrollDirtyRegion ( int dx, int dy )
+     * virtual QModelIndexList selectedIndexes () const
+     * virtual QItemSelectionModel::SelectionFlags selectionCommand (
+       const QModelIndex & index, const QEvent * event = 0 ) const
+     * void setHorizontalStepsPerItem ( int steps )
+     * virtual void setSelection ( const QRect & rect,
+       QItemSelectionModel::SelectionFlags flags ) = 0
+     * void setState ( State state )
+     * void setVerticalStepsPerItem ( int steps )
+     * virtual void startDrag ( Qt::DropActions supportedActions )
+     * State state () const
+     * virtual void timerEvent ( QTimerEvent * e )
+     * virtual int verticalOffset () const = 0
+     * int verticalStepsPerItem () const
+     * virtual QStyleOptionViewItem viewOptions () const
+     * virtual bool viewportEvent ( QEvent * event )
+     * virtual QRegion visualRegionForSelection ( const QItemSelection &
+       selection ) const = 0
+
+     * 17 protected functions inherited from QAbstractScrollArea
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Protected Slots
+
+     * virtual void closeEditor ( QWidget * editor,
+       QAbstractItemDelegate::EndEditHint hint )
+     * virtual void commitData ( QWidget * editor )
+     * virtual void currentChanged ( const QModelIndex & current, const
+       QModelIndex & previous )
+     * virtual void dataChanged ( const QModelIndex & topLeft, const
+       QModelIndex & bottomRight )
+     * virtual void editorDestroyed ( QObject * editor )
+     * virtual void rowsAboutToBeRemoved ( const QModelIndex & parent,
+       int start, int end )
+     * virtual void rowsInserted ( const QModelIndex & parent, int start,
+       int end )
+     * virtual void selectionChanged ( const QItemSelection & selected,
+       const QItemSelection & deselected )
+
+  Additional Inherited Members
+
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QAbstractItemView class provides the basic functionality for item
+   view classes.
+
+   QAbstractItemView class is the base class for every standard view that
+   uses a QAbstractItemModel. QAbstractItemView is an abstract class and
+   cannot itself be instantiated. It provides a standard interface for
+   interoperating with models through the signals and slots mechanism,
+   enabling subclasses to be kept up-to-date with changes to their
+   models. This class provides standard support for keyboard and mouse
+   navigation, viewport scrolling, item editing, and selections.
+
+   The QAbstractItemView class is one of the Model/View Classes and is
+   part of Qt's model/view framework.
+
+   The view classes that inherit QAbstractItemView only need to implement
+   their own view-specific functionality, such as drawing items,
+   returning the geometry of items, finding items, etc.
+
+   QAbstractItemView provides common slots such as edit() and
+   setCurrentIndex(). Many protected slots are also provided, including
+   dataChanged(), rowsInserted(), rowsAboutToBeRemoved(),
+   columnsInserted(), columnsRemoved(), selectionChanged(), and
+   currentChanged().
+
+   The root item is returned by rootIndex(), and the current item by
+   currentIndex(). To make sure that an item is visible use scrollTo().
+
+   Some of QAbstractItemView's functions are concerned with scrolling,
+   for example setHorizontalFactor() and setVerticalFactor(). Several
+   other functions are concerned with selection control; for example
+   setSelectionMode(), and setSelectionBehavior(). This class provides a
+   default selection model to work with (selectionModel()), but this can
+   be replaced by using setSelectionModel() with an instance of
+   QItemSelectionModel.
+
+   For complete control over the display and editing of items you can
+   specify a delegate with setItemDelegate().
+
+   QAbstractItemView provides a lot of protected functions. Some are
+   concerned with editing, for example, edit(), and commitData(), whilst
+   others are keyboard and mouse event handlers.
+
+   See also Model/View Programming and QAbstractItemModel.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QAbstractItemView::CursorAction
+
+   This enum describes the different ways to navigate between items,
+
+   Constant Value Description
+   QAbstractItemView::MoveUp 0 Move to the item above the current item.
+   QAbstractItemView::MoveDown 1 Move to the item below the current item.
+   QAbstractItemView::MoveLeft 2 Move to the item left of the current
+   item.
+   QAbstractItemView::MoveRight 3 Move to the item right of the current
+   item.
+   QAbstractItemView::MoveHome 4 Move to the top-left corner item.
+   QAbstractItemView::MoveEnd 5 Move to the bottom-right corner item.
+   QAbstractItemView::MovePageUp 6 Move one page up above the current
+   item.
+   QAbstractItemView::MovePageDown 7 Move one page down below the current
+   item.
+   QAbstractItemView::MoveNext 8 Move to the item after the current item.
+   QAbstractItemView::MovePrevious 9 Move to the item before the current
+   item.
+
+   See also moveCursor().
+
+  enum QAbstractItemView::EditTrigger
+  flags QAbstractItemView::EditTriggers
+
+   This enum describes actions which will initiate item editing.
+
+   Constant Value Description
+   QAbstractItemView::NoEditTriggers 0 No editing possible.
+   QAbstractItemView::CurrentChanged 1 Editing start whenever current
+   item changes.
+   QAbstractItemView::DoubleClicked 2 Editing starts when an item is
+   double clicked.
+   QAbstractItemView::SelectedClicked 4 Editing starts when clicking on
+   an already selected item.
+   QAbstractItemView::EditKeyPressed 8 Editing starts when an edit key
+   has been pressed over an item.
+   QAbstractItemView::AnyKeyPressed 16 Editing starts when any key is
+   pressed over an item.
+   QAbstractItemView::AllEditTriggers 31 Editing starts for all above
+   actions.
+
+   The EditTriggers type is a typedef for QFlags<EditTrigger>. It stores
+   an OR combination of EditTrigger values.
+
+  enum QAbstractItemView::ScrollHint
+
+   Constant Value Description
+   QAbstractItemView::EnsureVisible 0 Scroll to ensure that the item is
+   visible.
+   QAbstractItemView::PositionAtTop 1 Scroll to position the item at the
+   top of the viewport.
+   QAbstractItemView::PositionAtBottom 2 Scroll to position the item at
+   the bottom of the viewport.
+
+  enum QAbstractItemView::SelectionBehavior
+
+               Constant             Value       Description
+   QAbstractItemView::SelectItems     0   Selecting single items.
+   QAbstractItemView::SelectRows      1   Selecting only rows.
+   QAbstractItemView::SelectColumns   2   Selecting only columns.
+
+  enum QAbstractItemView::SelectionMode
+
+   This enum indicates how the view responds to user selections:
+
+   Constant Value Description
+   QAbstractItemView::SingleSelection 1 When the user selects an item,
+   any already-selected item becomes unselected, and the user cannot
+   unselect the selected item.
+   QAbstractItemView::MultiSelection 2 When the user selects an item in
+   the usual way, the selection status of that item is toggled and the
+   other items are left alone.
+   QAbstractItemView::ExtendedSelection 3 When the user selects an item
+   in the usual way, the selection is cleared and the new item selected.
+   However, if the user presses the Ctrl key when clicking on an item,
+   the clicked item gets toggled and all other items are left untouched.
+   If the user presses the Shift key while clicking on an item, all items
+   between the current item and the clicked item are selected or
+   unselected, depending on the state of the clicked item. Multiple items
+   can be selected by dragging the mouse over them.
+   QAbstractItemView::NoSelection 0 Items cannot be selected.
+
+   In other words, SingleSelection is a real single-selection list view,
+   MultiSelection a real multi-selection list view, ExtendedSelection is
+   a list view in which users can select multiple items, but usually want
+   to select either just one or a range of contiguous items, and
+   NoSelection is a list view where the user can navigate without
+   selecting items.
+
+  enum QAbstractItemView::State
+
+   Describes the different states the view can be in. This is usually
+   only interesting when reimplementing your own view.
+
+   Constant Value Description
+   QAbstractItemView::NoState 0 The is the default state.
+   QAbstractItemView::DraggingState 1 The user is dragging items.
+   QAbstractItemView::DragSelectingState 2 The user is selecting items.
+   QAbstractItemView::EditingState 3 The user is editing an item in a
+   widget editor.
+   QAbstractItemView::ExpandingState 4 The user is opening a branch of
+   items.
+   QAbstractItemView::CollapsingState 5 The user is closing a branch of
+   items.
+     _________________________________________________________________
+
+Property Documentation
+
+  alternatingRowColors : bool
+
+   This property holds whether to draw the background using alternating
+   colors.
+
+   If this property is true, the item background will be drawn using
+   alternating colors, otherwise the background will be drawn using the
+   QPalette::Base color.
+
+   Access functions:
+     * bool alternatingRowColors () const
+     * void setAlternatingRowColors ( bool enable )
+
+  autoScroll : bool
+
+   This property holds whether autoscrolling in drag move events is
+   enabled.
+
+   If this property is set to true (the default), the QAbstractItemView
+   automatically scrolls the contents of the view if the user drags
+   within 16 pixels of the viewport edge. This only works if the viewport
+   accepts drops. Autoscroll is switched off by setting this property to
+   false.
+
+   Access functions:
+     * bool hasAutoScroll () const
+     * void setAutoScroll ( bool enable )
+
+  dragEnabled : bool
+
+   This property holds whether the view supports dragging of its own
+   items.
+
+   Access functions:
+     * bool dragEnabled () const
+     * void setDragEnabled ( bool enable )
+
+  editTriggers : EditTriggers
+
+   This property holds which actions will initiate item editing.
+
+   This property is a selection of flags defined by EditTrigger, combined
+   using the OR operator. The view will only initiate the editing of an
+   item if the action performed is set in this property.
+
+   Access functions:
+     * EditTriggers editTriggers () const
+     * void setEditTriggers ( EditTriggers triggers )
+
+  iconSize : QSize
+
+   This property holds the size of items.
+
+   Setting this property when the view is visible will cause the items to
+   be laid out again.
+
+   Access functions:
+     * QSize iconSize () const
+     * void setIconSize ( const QSize & size )
+
+  selectionBehavior : SelectionBehavior
+
+   This property holds which selection behavior the view uses.
+
+   This property holds whether selections are done in terms of single
+   items, rows or columns.
+
+   Access functions:
+     * QAbstractItemView::SelectionBehavior selectionBehavior () const
+     * void setSelectionBehavior ( QAbstractItemView::SelectionBehavior
+       behavior )
+
+   See also SelectionMode and SelectionBehavior.
+
+  selectionMode : SelectionMode
+
+   This property holds which selection mode the view operates in.
+
+   This property controls whether the user can select one or many items
+   and, in many-item selections, whether the selection must be a
+   continuous range of items.
+
+   Access functions:
+     * QAbstractItemView::SelectionMode selectionMode () const
+     * void setSelectionMode ( QAbstractItemView::SelectionMode mode )
+
+   See also SelectionMode and SelectionBehavior.
+
+  showDropIndicator : bool
+
+   This property holds whether the drop indicator is shown when dragging
+   items and dropping.
+
+   Access functions:
+     * bool showDropIndicator () const
+     * void setDropIndicatorShown ( bool enable )
+
+  tabKeyNavigation : bool
+
+   This property holds whether item navigation with tab and backtab is
+   enabled.
+
+   Access functions:
+     * bool tabKeyNavigation () const
+     * void setTabKeyNavigation ( bool enable )
+
+  textElideMode : Qt::TextElideMode
+
+   This property holds the the position of the "..." in elided text.
+
+   Access functions:
+     * Qt::TextElideMode textElideMode () const
+     * void setTextElideMode ( Qt::TextElideMode mode )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QAbstractItemView::QAbstractItemView ( QWidget * parent = 0 )
+
+   Constructs an abstract item view with the given parent.
+
+  QAbstractItemView::~QAbstractItemView ()
+
+   Destroys the view.
+
+  void QAbstractItemView::activated ( const QModelIndex & index )   [signal]
+
+   This signal is emitted when the item specified by index is activated
+   by the user (e.g., by single- or double-clicking the item, depending
+   on the platform).
+
+   See also clicked(), doubleClicked(), entered(), and pressed().
+
+  void QAbstractItemView::clearSelection ()   [slot]
+
+   Clears all selected items.
+
+  void QAbstractItemView::clicked ( const QModelIndex & index )   [signal]
+
+   This signal is emitted when a mouse button is clicked. The item the
+   mouse was clicked on is specified by index (which may be invalid if
+   the mouse was not clicked on an item).
+
+   See also activated(), doubleClicked(), entered(), and pressed().
+
+  void QAbstractItemView::closeEditor ( QWidget * editor,
+  QAbstractItemDelegate::EndEditHint hint )   [virtual protected slot]
+
+   Closes the given editor, and releases it. The hint is used to specify
+   how the view should respond to the end of the editing operation. For
+   example, the hint may indicate that the next item in the view should
+   be opened for editing.
+
+   See also edit().
+
+  void QAbstractItemView::closePersistentEditor ( const QModelIndex & index )
+
+   Closes the persistent editor for the item at the given index.
+
+  void QAbstractItemView::commitData ( QWidget * editor )   [virtual protected
+  slot]
+
+   Commit the data in the editor to the model.
+
+   See also closeEditor().
+
+  void QAbstractItemView::currentChanged ( const QModelIndex & current, const
+  QModelIndex & previous )   [virtual protected slot]
+
+   This slot is called when a new item becomes the current item. The
+   previous current item is specified by the previous index, and the new
+   item by the current index.
+
+   If you want to know about changes to items see the dataChanged()
+   signal.
+
+  QModelIndex QAbstractItemView::currentIndex () const
+
+   Returns the model index of the current item.
+
+   See also setCurrentIndex().
+
+  void QAbstractItemView::dataChanged ( const QModelIndex & topLeft, const
+  QModelIndex & bottomRight )   [virtual protected slot]
+
+   This slot is called when items are changed in the model. The changed
+   items are those from topLeft to bottomRight inclusive. If just one
+   item is changed topLeft == bottomRight.
+
+  QPoint QAbstractItemView::dirtyRegionOffset () const   [protected]
+
+   Returns the offset of the dirty regions in the view.
+
+   If you use scrollDirtyRegion() and implementa paintEvent() in a
+   subclass of QAbstractItemView, you should translate the area given by
+   the paint event with the offset returned from this function.
+
+   See also scrollDirtyRegion().
+
+  void QAbstractItemView::doubleClicked ( const QModelIndex & index )
+  [signal]
+
+   This signal is emitted when a mouse button is double-clicked. The item
+   the mouse was double-clicked on is specified by index (which may be
+   invalid if the mouse was not double-clicked on an item).
+
+  void QAbstractItemView::dragEnterEvent ( QDragEnterEvent * e )   [virtual
+  protected]
+
+   This function is called when drag enter event e occurs. If the drag is
+   over a valid dropping place (e.g. over an item that accepts drops),
+   the event is accepted.
+
+   Reimplemented from QWidget.
+
+   See also dropEvent() and startDrag().
+
+  void QAbstractItemView::dragLeaveEvent ( QDragLeaveEvent * event )   [virtual
+  protected]
+
+   This function is called when the item being dragged leaves the view.
+   The event describes the state of the drag and drop operation.
+
+   Reimplemented from QWidget.
+
+  void QAbstractItemView::dragMoveEvent ( QDragMoveEvent * e )   [virtual
+  protected]
+
+   This function is called when drag move event e occurs. It can cause
+   the view to scroll, for example if the user drags a selection to
+   view's right or bottom edge.
+
+   Reimplemented from QWidget.
+
+   See also dropEvent() and startDrag().
+
+  void QAbstractItemView::dropEvent ( QDropEvent * e )   [virtual protected]
+
+   This function is called when drop event e occurs. If there's a valid
+   item under the mouse pointer when the drop occurs, the drop is
+   accepted.
+
+   Reimplemented from QWidget.
+
+   See also startDrag().
+
+  void QAbstractItemView::edit ( const QModelIndex & index )   [slot]
+
+   Starts editing the item item at index if it is editable.
+
+  bool QAbstractItemView::edit ( const QModelIndex & index, EditTrigger
+  trigger, QEvent * event )   [virtual protected]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Starts editing the item at index, creating an editor if necessary, and
+   returns true if the view's State is now EditingState; otherwise
+   returns false.
+
+   The action that caused the editing process is described by trigger,
+   and the associated event is specified by event.
+
+   See also closeEditor().
+
+  void QAbstractItemView::editorDestroyed ( QObject * editor )   [virtual
+  protected slot]
+
+   Remove the editor editor from the map.
+
+  void QAbstractItemView::entered ( const QModelIndex & index )   [signal]
+
+   This signal is emitted when the mouse cursor enters the item specified
+   by index.
+
+   See also viewportEntered(), activated(), clicked(), doubleClicked(),
+   and pressed().
+
+  void QAbstractItemView::executeDelayedItemsLayout ()   [protected]
+
+   Executes the scheduled layouts without waiting for the event
+   processing to begin.
+
+   See also scheduleDelayedItemsLayout().
+
+  void QAbstractItemView::focusInEvent ( QFocusEvent * e )   [virtual
+  protected]
+
+   This function is called when focus event e occurs and is a focus in
+   event.
+
+   Reimplemented from QWidget.
+
+  void QAbstractItemView::focusOutEvent ( QFocusEvent * e )   [virtual
+  protected]
+
+   This function is called when focus event e occurs and is a focus out
+   event.
+
+   Reimplemented from QWidget.
+
+  int QAbstractItemView::horizontalOffset () const   [pure virtual protected]
+
+   Returns the horizontal offset of the view.
+
+   In the base class this is a pure virtual function.
+
+  int QAbstractItemView::horizontalStepsPerItem () const   [protected]
+
+   Returns the horizontal scrollbar's steps per item.
+
+   See also setHorizontalStepsPerItem() and verticalStepsPerItem().
+
+  QModelIndex QAbstractItemView::indexAt ( const QPoint & p ) const   [pure
+  virtual]
+
+   Returns the model index of the item at point p.
+
+   In the base class this is a pure virtual function.
+
+  bool QAbstractItemView::isIndexHidden ( const QModelIndex & index ) const
+  [pure virtual protected]
+
+   Returns true if the item refered to by the given index is hidden,
+   otherwise returns false.
+
+   In the base class this is a pure virtual function.
+
+  QAbstractItemDelegate * QAbstractItemView::itemDelegate () const
+
+   Returns the item delegate used by this view and model. This is either
+   one set with setItemDelegate(), or the default one.
+
+   See also setItemDelegate().
+
+  void QAbstractItemView::keyPressEvent ( QKeyEvent * e )   [virtual protected]
+
+   This function is called when a key event e occurs. It handles basic
+   cursor movement, e.g. Up, Down, Left, Right, Home, PageUp, and
+   PageDown, and emits the returnPressed(), spacePressed(), and
+   deletePressed() signals is the associated key is pressed. This
+   function is where editing is initiated by key press, e.g. if F2 is
+   pressed.
+
+   Reimplemented from QWidget.
+
+   See also edit().
+
+  void QAbstractItemView::keyboardSearch ( const QString & search )   [virtual]
+
+   Moves to and selects the item best matching the string search. If no
+   item is found nothing happens.
+
+  QAbstractItemModel * QAbstractItemView::model () const
+
+   Returns the model that this view is presenting.
+
+  void QAbstractItemView::mouseDoubleClickEvent ( QMouseEvent * e )   [virtual
+  protected]
+
+   This function is called when a mouse double-click event e occurs. If
+   the double-click is on a valid item it emits the doubleClicked()
+   signal and calls edit() on the item.
+
+   Reimplemented from QWidget.
+
+  void QAbstractItemView::mouseMoveEvent ( QMouseEvent * e )   [virtual
+  protected]
+
+   This function is called when a mouse move event e occurs. If a
+   selection is in progress and new items are moved over the selection is
+   extended; if a drag is in progress it is continued.
+
+   Reimplemented from QWidget.
+
+  void QAbstractItemView::mousePressEvent ( QMouseEvent * e )   [virtual
+  protected]
+
+   This function is called when a mouse event e occurs. If a valid item
+   is pressed on it is made into the current item. This function emits
+   the pressed() signal.
+
+   Reimplemented from QWidget.
+
+  void QAbstractItemView::mouseReleaseEvent ( QMouseEvent * e )   [virtual
+  protected]
+
+   This function is called when a mouse release event e occurs. It will
+   emit the clicked() signal if an item was being pressed.
+
+   Reimplemented from QWidget.
+
+  QModelIndex QAbstractItemView::moveCursor ( CursorAction cursorAction,
+  Qt::KeyboardModifiers modifiers )   [pure virtual protected]
+
+   Moves the cursor in the view according to the given cursorAction and
+   keyboard modifiers specified by modifiers.
+
+  void QAbstractItemView::openPersistentEditor ( const QModelIndex & index )
+
+   Opens a persistent editor on the item at the given index. If no editor
+   exists, the delegate will create a new editor.
+
+  void QAbstractItemView::pressed ( const QModelIndex & index )   [signal]
+
+   This signal is emitted when a mouse button is pressed. The item the
+   mouse was pressed on is specified by index (which may be invalid if
+   the mouse was not pressed on an item).
+
+   See also activated(), clicked(), doubleClicked(), and entered().
+
+  void QAbstractItemView::reset ()   [virtual slot]
+
+   Reset the internal state of the view.
+
+  void QAbstractItemView::resizeEvent ( QResizeEvent * e )   [virtual
+  protected]
+
+   This function is called when a resize event e occurs.
+
+   Reimplemented from QWidget.
+
+  QModelIndex QAbstractItemView::rootIndex () const
+
+   Returns the model index of the model's root item. The root item is the
+   parent item to the views toplevel items. The root can be invalid.
+
+   See also setRootIndex().
+
+  void QAbstractItemView::rowsAboutToBeRemoved ( const QModelIndex & parent,
+  int start, int end )   [virtual protected slot]
+
+   This slot is called when rows are about to be removed. The deleted
+   rows are those under the given parent from start to end inclusive. The
+   base class implementation does nothing.
+
+   See also rowsInserted().
+
+  void QAbstractItemView::rowsInserted ( const QModelIndex & parent, int start,
+  int end )   [virtual protected slot]
+
+   This slot is called when rows are inserted. The new rows are those
+   under the given parent from start to end inclusive. The base class
+   implementation calls fetchMore() on the model to check for more data.
+
+   See also rowsAboutToBeRemoved().
+
+  void QAbstractItemView::scheduleDelayedItemsLayout ()   [protected]
+
+   Schedules a layout of the items in the view to be executed when the
+   event processing starts.
+
+   Even if scheduleDelayedItemsLayout() is called multiple times before
+   events are processed, the view will only do the layout once.
+
+   See also executeDelayedItemsLayout().
+
+  void QAbstractItemView::scrollDirtyRegion ( int dx, int dy )   [protected]
+
+   Prepares the view for scrolling by (dx,a dy) pixels by moving the
+   dirty regions in the opposite direction. You only need to call this
+   function if you are implementing a scrolling viewport in your view
+   subclass.
+
+   If you implement scrollContentsBy() in a subclass of
+   QAbstractItemView, call this function before you call
+   QWidget::scroll() on the viewport. Alternatively, just call update().
+
+   See also scrollContentsBy() and dirtyRegionOffset().
+
+  void QAbstractItemView::scrollTo ( const QModelIndex & index, ScrollHint hint
+  = EnsureVisible )   [pure virtual]
+
+   Scrolls the view if necessary to ensure that the item at index is
+   visible. The view will try to position the item according to the given
+   hint.
+
+   In the base class this is a pure virtual function.
+
+  void QAbstractItemView::selectAll ()   [virtual slot]
+
+   Selects all non-hidden items.
+
+  QModelIndexList QAbstractItemView::selectedIndexes () const   [virtual
+  protected]
+
+   This convenience function returns a list of all selected and
+   non-hidden item indexes in the view. The list contains no duplicates,
+   and is not sorted.
+
+   The default implementation does nothing.
+
+  void QAbstractItemView::selectionChanged ( const QItemSelection & selected,
+  const QItemSelection & deselected )   [virtual protected slot]
+
+   This slot is called when the selection is changed. The previous
+   selection (which may be empty), is specified by deselected, and the
+   new selection by selected.
+
+  QItemSelectionModel::SelectionFlags QAbstractItemView::selectionCommand (
+  const QModelIndex & index, const QEvent * event = 0 ) const   [virtual
+  protected]
+
+   Returns the SelectionFlags to be used when updating a selection with
+   to include the index specified. The event is a user input event, such
+   as a mouse or keyboard event.
+
+   Reimplement this function to define your own selection behavior.
+
+  QItemSelectionModel * QAbstractItemView::selectionModel () const
+
+   Returns the current selection.
+
+   See also setSelectionModel() and clearSelection().
+
+  void QAbstractItemView::setCurrentIndex ( const QModelIndex & index )
+  [slot]
+
+   Sets the current item to be the itm at index.
+
+   See also currentIndex().
+
+  void QAbstractItemView::setHorizontalStepsPerItem ( int steps )   [protected]
+
+   Sets the horizontal scrollbar's steps per item to steps.
+
+   This is the number of steps used by the horizontal scrollbar to
+   represent the width of an item.
+
+   See also horizontalStepsPerItem() and setVerticalStepsPerItem().
+
+  void QAbstractItemView::setItemDelegate ( QAbstractItemDelegate * delegate )
+
+   Sets the item delegate for this view and its model to delegate. This
+   is useful if you want complete control over the editing and display of
+   items.
+
+   See also itemDelegate().
+
+  void QAbstractItemView::setModel ( QAbstractItemModel * model )   [virtual]
+
+   Sets the model for the view to present.
+
+  void QAbstractItemView::setRootIndex ( const QModelIndex & index )   [virtual
+  slot]
+
+   Sets the root item to the item at index.
+
+   See also rootIndex().
+
+  void QAbstractItemView::setSelection ( const QRect & rect,
+  QItemSelectionModel::SelectionFlags flags )   [pure virtual protected]
+
+   Applies the selection flags to the items in or touched by the
+   rectangle, rect.
+
+   See also selectionCommand().
+
+  void QAbstractItemView::setSelectionModel ( QItemSelectionModel *
+  selectionModel )   [virtual]
+
+   Sets the current selection to the given selectionModel.
+
+   See also selectionModel() and clearSelection().
+
+  void QAbstractItemView::setState ( State state )   [protected]
+
+   Sets the item view's state to the given state
+
+   See also state().
+
+  void QAbstractItemView::setVerticalStepsPerItem ( int steps )   [protected]
+
+   Sets the vertical scrollbar's steps per item to steps.
+
+   This is the number of steps used by the vertical scrollbar to
+   represent the height of an item.
+
+   See also verticalStepsPerItem() and setHorizontalStepsPerItem().
+
+  int QAbstractItemView::sizeHintForColumn ( int column ) const   [virtual]
+
+   Returns the width size hint for the specified column or -1 if there is
+   no model.
+
+  QSize QAbstractItemView::sizeHintForIndex ( const QModelIndex & index ) const
+
+   Returns the size hint for the item with the specified index or an
+   invalid size for invalid indexes.
+
+  int QAbstractItemView::sizeHintForRow ( int row ) const   [virtual]
+
+   Returns the height size hint for the specified row or -1 if there is
+   no model.
+
+  void QAbstractItemView::startDrag ( Qt::DropActions supportedActions )
+  [virtual protected]
+
+   Starts a drag by calling drag->start() using the given
+   supportedActions.
+
+  State QAbstractItemView::state () const   [protected]
+
+   Returns the item view's state.
+
+   See also setState().
+
+  void QAbstractItemView::timerEvent ( QTimerEvent * e )   [virtual protected]
+
+   This function is called when a timer event e occurs.
+
+   Reimplemented from QObject.
+
+  int QAbstractItemView::verticalOffset () const   [pure virtual protected]
+
+   Returns the vertical offset of the view.
+
+   In the base class this is a pure virtual function.
+
+  int QAbstractItemView::verticalStepsPerItem () const   [protected]
+
+   Returns the vertical scrollbar's steps per item.
+
+   See also setVerticalStepsPerItem() and horizontalStepsPerItem().
+
+  QStyleOptionViewItem QAbstractItemView::viewOptions () const   [virtual
+  protected]
+
+   Returns QStyleOptionViewItem structure populated with the view's
+   palette, font, state, alignments etc.
+
+  void QAbstractItemView::viewportEntered ()   [signal]
+
+   This signal is emitted when the mouse cursor enters the viewport.
+
+   See also entered().
+
+  bool QAbstractItemView::viewportEvent ( QEvent * event )   [virtual
+  protected]
+
+   This function is used to handle tool tips, status tips, and What's
+   This? mode, if the given event is a QEvent::ToolTip, a
+   QEvent::WhatsThis, or a QEvent::StatusTip. It passes all other events
+   on to its base class viewportEvent() handler.
+
+   Reimplemented from QAbstractScrollArea.
+
+  QRect QAbstractItemView::visualRect ( const QModelIndex & index ) const
+  [pure virtual]
+
+   Returns the rectangle on the viewport occupied by the item at index.
+
+   In the base class this is a pure virtual function.
+
+  QRegion QAbstractItemView::visualRegionForSelection ( const QItemSelection &
+  selection ) const   [pure virtual protected]
+
+   Returns the region from the viewport of the items in the given
+   selection.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

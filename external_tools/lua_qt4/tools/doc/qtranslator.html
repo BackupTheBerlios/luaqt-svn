@@ -1,0 +1,171 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QTranslator Class Reference
+
+   The QTranslator class provides internationalization support for text
+   output. More...
+#include <QTranslator>
+
+   Part of the QtCore module.
+
+   Inherits QObject.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QTranslator ( QObject * parent = 0 )
+     * ~QTranslator ()
+     * virtual bool isEmpty () const
+     * bool load ( const QString & filename, const QString & directory =
+       QString(), const QString & search_delimiters = QString(), const
+       QString & suffix = QString() )
+     * bool load ( const uchar * data, int len )
+     * virtual QString translate ( const char * context, const char *
+       sourceText, const char * comment = 0 ) const
+
+     * 28 public functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 property inherited from QObject
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QObject
+     * 4 static public members inherited from QObject
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QTranslator class provides internationalization support for text
+   output.
+
+   An object of this class contains a set of translations from a source
+   language to a target language. QTranslator provides functions to look
+   up translations in a translation file. Translation files are created
+   using Qt Linguist.
+
+   The most common use of QTranslator is to: load a translation file,
+   install it using QApplication::installTranslator(), and use it via
+   QObject::tr(). Here's the main() function from the Hello tr() example:
+    int main(int argc, char *argv[])
+    {
+        QApplication app(argc, argv);
+
+        QTranslator translator;
+        translator.load("hellotr_la");
+        app.installTranslator(&translator);
+
+        QPushButton hello(QPushButton::tr("Hello world!"));
+        hello.resize(100, 30);
+
+        hello.show();
+        return app.exec();
+    }
+
+   Note that the translator must be created before the application's
+   widgets.
+
+   Most applications will never need to do anything else with this class.
+   The other functions provided by this class are useful for applications
+   that work on translator files.
+
+   It is possible to lookup a translation using translate() (as tr() and
+   QApplication::translate() do). The translate() function takes up to
+   three parameters:
+     * The context - usually the class name for the tr() caller.
+     * The source text - usually the argument to tr().
+     * The comment - an optional comment that helps disambiguate
+       different uses of the same text in the same context.
+
+   For example, the "Cancel" in a dialog might have "Anuluj" when the
+   program runs in Polish (in this case the source text would be
+   "Cancel"). The context would (normally) be the dialog's class name;
+   there would normally be no comment, and the translated text would be
+   "Anuluj".
+
+   But it's not always so simple. The Spanish version of a printer dialog
+   with settings for two-sided printing and binding would probably
+   require both "Activado" and "Activada" as translations for "Enabled".
+   In this case the source text would be "Enabled" in both cases, and the
+   context would be the dialog's class name, but the two items would have
+   disambiguating comments such as "two-sided printing" for one and
+   "binding" for the other. The comment enables the translator to choose
+   the appropriate gender for the Spanish version, and enables Qt to
+   distinguish between translations.
+
+   See also QApplication::installTranslator(),
+   QApplication::removeTranslator(), QObject::tr(), and
+   QApplication::translate().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QTranslator::QTranslator ( QObject * parent = 0 )
+
+   Constructs an empty message file object with parent parent that is not
+   connected to any file.
+
+  QTranslator::~QTranslator ()
+
+   Destroys the object and frees any allocated resources.
+
+  bool QTranslator::isEmpty () const   [virtual]
+
+   Returns true if this translator is empty, otherwise returns false.
+   This function works with stripped and unstripped translation files.
+
+  bool QTranslator::load ( const QString & filename, const QString & directory
+  = QString(), const QString & search_delimiters = QString(), const QString &
+  suffix = QString() )
+
+   Loads filename + suffix (".qm" if the suffix is not specified), which
+   may be an absolute file name or relative to directory. The previous
+   contents of this translator object is discarded.
+
+   If the file name does not exist, other file names are tried in the
+   following order:
+    1. File name without suffix appended.
+    2. File name with text after a character in search_delimiters
+       stripped ("_." is the default for search_delimiters if it is an
+       empty string) and suffix.
+    3. File name stripped without suffix appended.
+    4. File name stripped further, etc.
+
+   For example, an application running in the fr_CA locale
+   (French-speaking Canada) might call load("foo.fr_ca", "/opt/foolib").
+   load() would then try to open the first existing readable file from
+   this list:
+    1. /opt/foolib/foo.fr_ca.qm
+    2. /opt/foolib/foo.fr_ca
+    3. /opt/foolib/foo.fr.qm
+    4. /opt/foolib/foo.fr
+    5. /opt/foolib/foo.qm
+    6. /opt/foolib/foo
+
+  bool QTranslator::load ( const uchar * data, int len )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Loads the .qm file data data of length len into the translator.
+
+   The data is not copied. The caller must be able to guarantee that data
+   will not be deleted or modified.
+
+  QString QTranslator::translate ( const char * context, const char *
+  sourceText, const char * comment = 0 ) const   [virtual]
+
+   Returns the translation for the key (context, sourceText, comment). If
+   none is found, also tries (context, sourceText, ""). If that still
+   fails, returns an empty string.
+
+   See also load().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

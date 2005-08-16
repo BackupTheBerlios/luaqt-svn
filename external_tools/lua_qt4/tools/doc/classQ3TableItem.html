@@ -1,0 +1,253 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3TableItem Class Reference
+
+   #include <q3table.h>
+
+   Inherited by Q3CheckTableItem, and Q3ComboTableItem.
+
+   List of all members.
+
+Public Types
+
+     * enum EditType { Never, OnTyping, WhenCurrent, Always }
+
+Public Member Functions
+
+     * Q3TableItem (Q3Table *table, EditType et)
+     * Q3TableItem (Q3Table *table, EditType et, const QString &text)
+     * Q3TableItem (Q3Table *table, EditType et, const QString &text, const QPixmap &p)
+     * virtual ~Q3TableItem ()
+     * virtual QPixmap pixmap () const
+     * virtual QString text () const
+     * virtual void setPixmap (const QPixmap &p)
+     * virtual void setText (const QString &t)
+     * Q3Table * table () const
+     * virtual int alignment () const
+     * virtual void setWordWrap (bool b)
+     * bool wordWrap () const
+     * EditType editType () const
+     * virtual QWidget * createEditor () const
+     * virtual void setContentFromEditor (QWidget *w)
+     * virtual void setReplaceable (bool)
+     * bool isReplaceable () const
+     * virtual QString key () const
+     * virtual QSize sizeHint () const
+     * virtual void setSpan (int rs, int cs)
+     * int rowSpan () const
+     * int colSpan () const
+     * virtual void setRow (int r)
+     * virtual void setCol (int c)
+     * int row () const
+     * int col () const
+     * virtual void paint (QPainter *p, const QColorGroup &cg, const QRect &cr, bool selected)
+     * void updateEditor (int oldRow, int oldCol)
+     * virtual void setEnabled (bool b)
+     * bool isEnabled () const
+     * virtual int rtti () const
+
+Static Public Attributes
+
+     * static int RTTI
+
+Friends
+
+     * class Q3Table
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3TableItem::EditType
+
+
+
+   Enumerator: 
+
+          Never      
+          OnTyping   
+          WhenCurrent
+          Always     
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3TableItem::Q3TableItem (  Q3Table *  table,
+                               EditType   et
+                            )
+
+
+
+   Q3TableItem::Q3TableItem (  Q3Table *        table,
+                               EditType         et,
+                               const QString &  text
+                            )
+
+
+
+   Q3TableItem::Q3TableItem (  Q3Table *        table,
+                               EditType         et,
+                               const QString &  text,
+                               const QPixmap &  p
+                            )
+
+
+
+   virtual Q3TableItem::~Q3TableItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual int Q3TableItem::alignment (   )  const [virtual]
+
+
+
+   int Q3TableItem::col (   )  const
+
+
+
+   int Q3TableItem::colSpan (   )  const
+
+
+
+   virtual QWidget* Q3TableItem::createEditor (   )  const [virtual]
+
+
+
+   Reimplemented in Q3ComboTableItem, and Q3CheckTableItem.
+
+   EditType Q3TableItem::editType (   )  const
+
+
+
+   bool Q3TableItem::isEnabled (   )  const
+
+
+
+   bool Q3TableItem::isReplaceable (   )  const
+
+
+
+   virtual QString Q3TableItem::key (   )  const [virtual]
+
+
+
+   virtual void Q3TableItem::paint (  QPainter *           p,
+                                      const QColorGroup &  cg,
+                                      const QRect &        cr,
+                                      bool                 selected
+                                   )  [virtual]
+
+
+
+   Reimplemented in Q3ComboTableItem, and Q3CheckTableItem.
+
+   virtual QPixmap Q3TableItem::pixmap (   )  const [virtual]
+
+
+
+   int Q3TableItem::row (   )  const
+
+
+
+   int Q3TableItem::rowSpan (   )  const
+
+
+
+   virtual int Q3TableItem::rtti (   )  const [virtual]
+
+
+
+   Reimplemented in Q3ComboTableItem, and Q3CheckTableItem.
+
+   virtual void Q3TableItem::setCol (  int  c  )  [virtual]
+
+
+
+   virtual void Q3TableItem::setContentFromEditor (  QWidget *  w  )  [virtual]
+
+
+
+   Reimplemented in Q3ComboTableItem, and Q3CheckTableItem.
+
+   virtual void Q3TableItem::setEnabled (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3TableItem::setPixmap (  const QPixmap &  p  )  [virtual]
+
+
+
+   virtual void Q3TableItem::setReplaceable (  bool   )  [virtual]
+
+
+
+   virtual void Q3TableItem::setRow (  int  r  )  [virtual]
+
+
+
+   virtual void Q3TableItem::setSpan (  int  rs,
+                                        int  cs
+                                     )  [virtual]
+
+
+
+   virtual void Q3TableItem::setText (  const QString &  t  )  [virtual]
+
+
+
+   Reimplemented in Q3CheckTableItem.
+
+   virtual void Q3TableItem::setWordWrap (  bool  b  )  [virtual]
+
+
+
+   virtual QSize Q3TableItem::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented in Q3ComboTableItem, and Q3CheckTableItem.
+
+   Q3Table* Q3TableItem::table (   )  const [inline]
+
+
+
+   virtual QString Q3TableItem::text (   )  const [virtual]
+
+
+
+   void Q3TableItem::updateEditor (  int  oldRow,
+                                     int  oldCol
+                                  )
+
+
+
+   bool Q3TableItem::wordWrap (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3Table [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3TableItem::RTTI [static]
+
+
+
+   Reimplemented in Q3ComboTableItem, and Q3CheckTableItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3table.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

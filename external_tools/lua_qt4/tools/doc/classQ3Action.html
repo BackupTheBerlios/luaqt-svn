@@ -1,0 +1,367 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3Action Class Reference
+
+   #include <q3action.h>
+
+   Inherits QObject.
+
+   Inherited by Q3ActionGroup.
+
+   List of all members.
+
+Public Slots
+
+     * void activate ()
+     * void toggle ()
+     * virtual void setOn (bool)
+     * virtual void setEnabled (bool)
+     * void setDisabled (bool)
+     * virtual void setVisible (bool)
+
+Signals
+
+     * void activated ()
+     * void toggled (bool)
+
+Public Member Functions
+
+     * Q3Action (QObject *parent, const char *name=0)
+     * Q3Action (const QString &menuText, QKeySequence accel, QObject *parent, const char *name=0)
+     * Q3Action (const QIcon &icon, const QString &menuText, QKeySequence accel, QObject *parent, const char *name=0)
+     * Q3Action (const QString &text, const QIcon &icon, const QString &menuText, QKeySequence accel, QObject *parent, const char *name=0, bool toggle=false)
+     * Q3Action (const QString &text, const QString &menuText, QKeySequence accel, QObject *parent, const char *name=0, bool toggle=false)
+     * Q3Action (QObject *parent, const char *name, bool toggle)
+     * ~Q3Action ()
+     * virtual void setIconSet (const QIcon &)
+     * QIcon iconSet () const
+     * virtual void setText (const QString &)
+     * QString text () const
+     * virtual void setMenuText (const QString &)
+     * QString menuText () const
+     * virtual void setToolTip (const QString &)
+     * QString toolTip () const
+     * virtual void setStatusTip (const QString &)
+     * QString statusTip () const
+     * virtual void setWhatsThis (const QString &)
+     * QString whatsThis () const
+     * virtual void setAccel (const QKeySequence &key)
+     * QKeySequence accel () const
+     * virtual void setToggleAction (bool)
+     * bool isToggleAction () const
+     * bool isOn () const
+     * bool isEnabled () const
+     * bool isVisible () const
+     * virtual bool addTo (QWidget *)
+     * virtual bool removeFrom (QWidget *)
+
+Protected Member Functions
+
+     * virtual void addedTo (QWidget *actionWidget, QWidget *container)
+     * virtual void addedTo (int index, Q3PopupMenu *menu)
+
+Properties
+
+     * bool toggleAction
+     * bool on
+     * bool enabled
+     * QIcon iconSet
+     * QString text
+     * QString menuText
+     * QString toolTip
+     * QString statusTip
+     * QString whatsThis
+     * QKeySequence accel
+     * bool visible
+
+Friends
+
+     * class Q3ActionPrivate
+     * class Q3ActionGroup
+     * class Q3ActionGroupPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Action::Q3Action (  QObject *     parent,
+                         const char *  name = 0
+                      )
+
+
+
+   Q3Action::Q3Action (  const QString &  menuText,
+                         QKeySequence     accel,
+                         QObject *        parent,
+                         const char *     name = 0
+                      )
+
+
+
+   Q3Action::Q3Action (  const QIcon &    icon,
+                         const QString &  menuText,
+                         QKeySequence     accel,
+                         QObject *        parent,
+                         const char *     name = 0
+                      )
+
+
+
+   Q3Action::Q3Action (  const QString &  text,
+                         const QIcon &    icon,
+                         const QString &  menuText,
+                         QKeySequence     accel,
+                         QObject *        parent,
+                         const char *     name = 0,
+                         bool             toggle = false
+                      )
+
+
+
+   Q3Action::Q3Action (  const QString &  text,
+                         const QString &  menuText,
+                         QKeySequence     accel,
+                         QObject *        parent,
+                         const char *     name = 0,
+                         bool             toggle = false
+                      )
+
+
+
+   Q3Action::Q3Action (  QObject *     parent,
+                         const char *  name,
+                         bool          toggle
+                      )
+
+
+
+   Q3Action::~Q3Action (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QKeySequence Q3Action::accel (   )  const
+
+
+
+   void Q3Action::activate (   )  [slot]
+
+
+
+   void Q3Action::activated (   )  [signal]
+
+
+
+   virtual void Q3Action::addedTo (  int            index,
+                                     Q3PopupMenu *  menu
+                                  )  [protected, virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::addedTo (  QWidget *  actionWidget,
+                                     QWidget *  container
+                                  )  [protected, virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual bool Q3Action::addTo (  QWidget *   )  [virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   QIcon Q3Action::iconSet (   )  const
+
+
+
+   bool Q3Action::isEnabled (   )  const
+
+
+
+   bool Q3Action::isOn (   )  const
+
+
+
+   bool Q3Action::isToggleAction (   )  const
+
+
+
+   bool Q3Action::isVisible (   )  const
+
+
+
+   QString Q3Action::menuText (   )  const
+
+
+
+   virtual bool Q3Action::removeFrom (  QWidget *   )  [virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::setAccel (  const QKeySequence &  key  )  [virtual]
+
+
+
+   void Q3Action::setDisabled (  bool   )  [slot]
+
+
+
+   virtual void Q3Action::setEnabled (  bool   )  [virtual, slot]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::setIconSet (  const QIcon &   )  [virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::setMenuText (  const QString &   )  [virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::setOn (  bool   )  [virtual, slot]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::setStatusTip (  const QString &   )  [virtual]
+
+
+
+   virtual void Q3Action::setText (  const QString &   )  [virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::setToggleAction (  bool   )  [virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::setToolTip (  const QString &   )  [virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::setVisible (  bool   )  [virtual, slot]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   virtual void Q3Action::setWhatsThis (  const QString &   )  [virtual]
+
+
+
+   Reimplemented in Q3ActionGroup.
+
+   QString Q3Action::statusTip (   )  const
+
+
+
+   QString Q3Action::text (   )  const
+
+
+
+   void Q3Action::toggle (   )  [slot]
+
+
+
+   void Q3Action::toggled (  bool   )  [signal]
+
+
+
+   QString Q3Action::toolTip (   )  const
+
+
+
+   QString Q3Action::whatsThis (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3ActionGroup [friend]
+
+
+
+   friend class Q3ActionGroupPrivate [friend]
+
+
+
+   friend class Q3ActionPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QKeySequence Q3Action::accel [read, write]
+
+
+
+   bool Q3Action::enabled [read, write]
+
+
+
+   QIcon Q3Action::iconSet [read, write]
+
+
+
+   QString Q3Action::menuText [read, write]
+
+
+
+   bool Q3Action::on [read, write]
+
+
+
+   QString Q3Action::statusTip [read, write]
+
+
+
+   QString Q3Action::text [read, write]
+
+
+
+   bool Q3Action::toggleAction [read, write]
+
+
+
+   QString Q3Action::toolTip [read, write]
+
+
+
+   bool Q3Action::visible [read, write]
+
+
+
+   QString Q3Action::whatsThis [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3action.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

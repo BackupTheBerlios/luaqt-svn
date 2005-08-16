@@ -1,0 +1,241 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QMainWindow Class Reference
+
+   #include <qmainwindow.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Signals
+
+     * void iconSizeChanged (const QSize &iconSize)
+     * void toolButtonStyleChanged (Qt::ToolButtonStyle toolButtonStyle)
+
+Public Member Functions
+
+     * QMainWindow (QWidget *parent=0, Qt::WFlags flags=0)
+     * ~QMainWindow ()
+     * QSize iconSize () const
+     * void setIconSize (const QSize &iconSize)
+     * Qt::ToolButtonStyle toolButtonStyle () const
+     * void setToolButtonStyle (Qt::ToolButtonStyle toolButtonStyle)
+     * QMenuBar * menuBar () const
+     * void setMenuBar (QMenuBar *menubar)
+     * QStatusBar * statusBar () const
+     * void setStatusBar (QStatusBar *statusbar)
+     * QWidget * centralWidget () const
+     * void setCentralWidget (QWidget *widget)
+     * void setCorner (Qt::Corner corner, Qt::DockWidgetArea area)
+     * Qt::DockWidgetArea corner (Qt::Corner corner) const
+     * void addToolBarBreak (Qt::ToolBarArea area=Qt::TopToolBarArea)
+     * void insertToolBarBreak (QToolBar *before)
+     * void addToolBar (Qt::ToolBarArea area, QToolBar *toolbar)
+     * void addToolBar (QToolBar *toolbar)
+     * QToolBar * addToolBar (const QString &title)
+     * void insertToolBar (QToolBar *before, QToolBar *toolbar)
+     * void removeToolBar (QToolBar *toolbar)
+     * Qt::ToolBarArea toolBarArea (QToolBar *toolbar) const
+     * void addDockWidget (Qt::DockWidgetArea area, QDockWidget *dockwidget)
+     * void addDockWidget (Qt::DockWidgetArea area, QDockWidget *dockwidget, Qt::Orientation orientation)
+     * void splitDockWidget (QDockWidget *after, QDockWidget *dockwidget, Qt::Orientation orientation)
+     * void removeDockWidget (QDockWidget *dockwidget)
+     * Qt::DockWidgetArea dockWidgetArea (QDockWidget *dockwidget) const
+     * QByteArray saveState (int version=0) const
+     * bool restoreState (const QByteArray &state, int version=0)
+     * virtual QMenu * createPopupMenu ()
+
+Protected Member Functions
+
+     * void contextMenuEvent (QContextMenuEvent *event)
+     * bool event (QEvent *event)
+
+Properties
+
+     * QSize iconSize
+     * Qt ToolButtonStyle
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMainWindow::QMainWindow (  QWidget *   parent = 0,
+                               Qt::WFlags  flags = 0
+                            )  [explicit]
+
+
+
+   QMainWindow::~QMainWindow (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QMainWindow::addDockWidget (  Qt::DockWidgetArea  area,
+                                      QDockWidget *       dockwidget,
+                                      Qt::Orientation     orientation
+                                   )
+
+
+
+   void QMainWindow::addDockWidget (  Qt::DockWidgetArea  area,
+                                      QDockWidget *       dockwidget
+                                   )
+
+
+
+   QToolBar* QMainWindow::addToolBar (  const QString &  title  )
+
+
+
+   void QMainWindow::addToolBar (  QToolBar *  toolbar  )
+
+
+
+   void QMainWindow::addToolBar (  Qt::ToolBarArea  area,
+                                   QToolBar *       toolbar
+                                )
+
+
+
+   void QMainWindow::addToolBarBreak (  Qt::ToolBarArea  area = Qt::TopToolBarArea  )
+
+
+
+   QWidget* QMainWindow::centralWidget (   )  const
+
+
+
+   void QMainWindow::contextMenuEvent (  QContextMenuEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Qt::DockWidgetArea QMainWindow::corner (  Qt::Corner  corner  )  const
+
+
+
+   virtual QMenu* QMainWindow::createPopupMenu (   )  [virtual]
+
+
+
+   Qt::DockWidgetArea QMainWindow::dockWidgetArea (  QDockWidget *  dockwidget  )  const
+
+
+
+   bool QMainWindow::event (  QEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QMainWindow::iconSize (   )  const
+
+
+
+   void QMainWindow::iconSizeChanged (  const QSize &  iconSize  )  [signal]
+
+
+
+   void QMainWindow::insertToolBar (  QToolBar *  before,
+                                      QToolBar *  toolbar
+                                   )
+
+
+
+   void QMainWindow::insertToolBarBreak (  QToolBar *  before  )
+
+
+
+   QMenuBar* QMainWindow::menuBar (   )  const
+
+
+
+   void QMainWindow::removeDockWidget (  QDockWidget *  dockwidget  )
+
+
+
+   void QMainWindow::removeToolBar (  QToolBar *  toolbar  )
+
+
+
+   bool QMainWindow::restoreState (  const QByteArray &  state,
+                                     int                 version = 0
+                                  )
+
+
+
+   QByteArray QMainWindow::saveState (  int  version = 0  )  const
+
+
+
+   void QMainWindow::setCentralWidget (  QWidget *  widget  )
+
+
+
+   void QMainWindow::setCorner (  Qt::Corner          corner,
+                                  Qt::DockWidgetArea  area
+                               )
+
+
+
+   void QMainWindow::setIconSize (  const QSize &  iconSize  )
+
+
+
+   void QMainWindow::setMenuBar (  QMenuBar *  menubar  )
+
+
+
+   void QMainWindow::setStatusBar (  QStatusBar *  statusbar  )
+
+
+
+   void QMainWindow::setToolButtonStyle (  Qt::ToolButtonStyle  toolButtonStyle  )
+
+
+
+   void QMainWindow::splitDockWidget (  QDockWidget *    after,
+                                        QDockWidget *    dockwidget,
+                                        Qt::Orientation  orientation
+                                     )
+
+
+
+   QStatusBar* QMainWindow::statusBar (   )  const
+
+
+
+   Qt::ToolBarArea QMainWindow::toolBarArea (  QToolBar *  toolbar  )  const
+
+
+
+   Qt::ToolButtonStyle QMainWindow::toolButtonStyle (   )  const
+
+
+
+   void QMainWindow::toolButtonStyleChanged (  Qt::ToolButtonStyle  toolButtonStyle  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QSize QMainWindow::iconSize [read, write]
+
+
+
+   Qt QMainWindow::ToolButtonStyle [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmainwindow.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

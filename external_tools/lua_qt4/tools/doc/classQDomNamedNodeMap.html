@@ -1,0 +1,130 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QDomNamedNodeMap Class Reference
+
+   #include <qdom.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QDomNamedNodeMap ()
+     * QDomNamedNodeMap (const QDomNamedNodeMap &)
+     * QDomNamedNodeMap & operator= (const QDomNamedNodeMap &)
+     * bool operator== (const QDomNamedNodeMap &) const
+     * bool operator!= (const QDomNamedNodeMap &) const
+     * ~QDomNamedNodeMap ()
+     * QDomNode namedItem (const QString &name) const
+     * QDomNode setNamedItem (const QDomNode &newNode)
+     * QDomNode removeNamedItem (const QString &name)
+     * QDomNode item (int index) const
+     * QDomNode namedItemNS (const QString &nsURI, const QString &localName) const
+     * QDomNode setNamedItemNS (const QDomNode &newNode)
+     * QDomNode removeNamedItemNS (const QString &nsURI, const QString &localName)
+     * uint length () const
+     * uint count () const
+     * bool contains (const QString &name) const
+
+Friends
+
+     * class QDomNode
+     * class QDomDocumentType
+     * class QDomElement
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDomNamedNodeMap::QDomNamedNodeMap (   )
+
+
+
+   QDomNamedNodeMap::QDomNamedNodeMap (  const QDomNamedNodeMap &   )
+
+
+
+   QDomNamedNodeMap::~QDomNamedNodeMap (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QDomNamedNodeMap::contains (  const QString &  name  )  const
+
+
+
+   uint QDomNamedNodeMap::count (   )  const [inline]
+
+
+
+   QDomNode QDomNamedNodeMap::item (  int  index  )  const
+
+
+
+   uint QDomNamedNodeMap::length (   )  const
+
+
+
+   QDomNode QDomNamedNodeMap::namedItem (  const QString &  name  )  const
+
+
+
+   QDomNode QDomNamedNodeMap::namedItemNS (  const QString &  nsURI,
+                                             const QString &  localName
+                                          )  const
+
+
+
+   bool QDomNamedNodeMap::operator!= (  const QDomNamedNodeMap &   )  const
+
+
+
+   QDomNamedNodeMap& QDomNamedNodeMap::operator= (  const QDomNamedNodeMap &   )
+
+
+
+   bool QDomNamedNodeMap::operator== (  const QDomNamedNodeMap &   )  const
+
+
+
+   QDomNode QDomNamedNodeMap::removeNamedItem (  const QString &  name  )
+
+
+
+   QDomNode QDomNamedNodeMap::removeNamedItemNS (  const QString &  nsURI,
+                                                   const QString &  localName
+                                                )
+
+
+
+   QDomNode QDomNamedNodeMap::setNamedItem (  const QDomNode &  newNode  )
+
+
+
+   QDomNode QDomNamedNodeMap::setNamedItemNS (  const QDomNode &  newNode  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QDomDocumentType [friend]
+
+
+
+   friend class QDomElement [friend]
+
+
+
+   friend class QDomNode [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdom.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,148 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QSizePolicy Class Reference
+
+   #include <qsizepolicy.h>
+
+   List of all members.
+
+Public Types
+
+     * enum PolicyFlag { GrowFlag = 1, ExpandFlag = 2, ShrinkFlag = 4, IgnoreFlag = 8 }
+     * enum Policy {
+         Fixed = 0, Minimum = GrowFlag, Maximum = ShrinkFlag, Preferred = GrowFlag | ShrinkFlag,
+         MinimumExpanding = GrowFlag | ExpandFlag, Expanding = GrowFlag | ShrinkFlag | ExpandFlag, Ignored = ShrinkFlag|GrowFlag|IgnoreFlag
+       }
+
+Public Member Functions
+
+     * QSizePolicy ()
+     * QSizePolicy (Policy horizontal, Policy vertical)
+     * Policy horizontalPolicy () const
+     * Policy verticalPolicy () const
+     * void setHorizontalPolicy (Policy d)
+     * void setVerticalPolicy (Policy d)
+     * Qt::Orientations expandingDirections () const
+     * void setHeightForWidth (bool b)
+     * bool hasHeightForWidth () const
+     * bool operator== (const QSizePolicy &s) const
+     * bool operator!= (const QSizePolicy &s) const
+     * operator QVariant () const
+     * int horizontalStretch () const
+     * int verticalStretch () const
+     * void setHorizontalStretch (uchar stretchFactor)
+     * void setVerticalStretch (uchar stretchFactor)
+     * void transpose ()
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QSizePolicy::Policy
+
+
+
+   Enumerator: 
+
+          Fixed           
+          Minimum         
+          Maximum         
+          Preferred       
+          MinimumExpanding
+          Expanding       
+          Ignored         
+
+   enum QSizePolicy::PolicyFlag
+
+
+
+   Enumerator: 
+
+          GrowFlag  
+          ExpandFlag
+          ShrinkFlag
+          IgnoreFlag
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSizePolicy::QSizePolicy (   )  [inline]
+
+
+
+   QSizePolicy::QSizePolicy (  Policy  horizontal,
+                               Policy  vertical
+                            )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Orientations QSizePolicy::expandingDirections (   )  const [inline]
+
+
+
+   bool QSizePolicy::hasHeightForWidth (   )  const [inline]
+
+
+
+   Policy QSizePolicy::horizontalPolicy (   )  const [inline]
+
+
+
+   int QSizePolicy::horizontalStretch (   )  const [inline]
+
+
+
+   QSizePolicy::operator QVariant (   )  const
+
+
+
+   bool QSizePolicy::operator!= (  const QSizePolicy &  s  )  const [inline]
+
+
+
+   bool QSizePolicy::operator== (  const QSizePolicy &  s  )  const [inline]
+
+
+
+   void QSizePolicy::setHeightForWidth (  bool  b  )  [inline]
+
+
+
+   void QSizePolicy::setHorizontalPolicy (  Policy  d  )  [inline]
+
+
+
+   void QSizePolicy::setHorizontalStretch (  uchar  stretchFactor  )  [inline]
+
+
+
+   void QSizePolicy::setVerticalPolicy (  Policy  d  )  [inline]
+
+
+
+   void QSizePolicy::setVerticalStretch (  uchar  stretchFactor  )  [inline]
+
+
+
+   void QSizePolicy::transpose (   )  [inline]
+
+
+
+   Policy QSizePolicy::verticalPolicy (   )  const [inline]
+
+
+
+   int QSizePolicy::verticalStretch (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsizepolicy.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

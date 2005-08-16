@@ -1,0 +1,275 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QGLFormat Class Reference
+
+   #include <qgl.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QGLFormat ()
+     * QGLFormat (QGL::FormatOptions options, int plane=0)
+     * QGLFormat (const QGLFormat &other)
+     * QGLFormat & operator= (const QGLFormat &other)
+     * ~QGLFormat ()
+     * void setDepthBufferSize (int size)
+     * int depthBufferSize () const
+     * void setAccumBufferSize (int size)
+     * int accumBufferSize () const
+     * void setAlphaBufferSize (int size)
+     * int alphaBufferSize () const
+     * void setStencilBufferSize (int size)
+     * int stencilBufferSize () const
+     * void setSampleBuffers (bool enable)
+     * bool sampleBuffers () const
+     * void setSamples (int numSamples)
+     * int samples () const
+     * bool doubleBuffer () const
+     * void setDoubleBuffer (bool enable)
+     * bool depth () const
+     * void setDepth (bool enable)
+     * bool rgba () const
+     * void setRgba (bool enable)
+     * bool alpha () const
+     * void setAlpha (bool enable)
+     * bool accum () const
+     * void setAccum (bool enable)
+     * bool stencil () const
+     * void setStencil (bool enable)
+     * bool stereo () const
+     * void setStereo (bool enable)
+     * bool directRendering () const
+     * void setDirectRendering (bool enable)
+     * bool hasOverlay () const
+     * void setOverlay (bool enable)
+     * int plane () const
+     * void setPlane (int plane)
+     * void setOption (QGL::FormatOptions opt)
+     * bool testOption (QGL::FormatOptions opt) const
+
+Static Public Member Functions
+
+     * static QGLFormat defaultFormat ()
+     * static void setDefaultFormat (const QGLFormat &f)
+     * static QGLFormat defaultOverlayFormat ()
+     * static void setDefaultOverlayFormat (const QGLFormat &f)
+     * static bool hasOpenGL ()
+     * static bool hasOpenGLOverlays ()
+
+Friends
+
+     * Q_OPENGL_EXPORT bool operator== (const QGLFormat &, const QGLFormat &)
+     * Q_OPENGL_EXPORT bool operator!= (const QGLFormat &, const QGLFormat &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QGLFormat::QGLFormat (   )
+
+
+
+   QGLFormat::QGLFormat (  QGL::FormatOptions  options,
+                           int                 plane = 0
+                        )
+
+
+
+   QGLFormat::QGLFormat (  const QGLFormat &  other  )
+
+
+
+   QGLFormat::~QGLFormat (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QGLFormat::accum (   )  const [inline]
+
+
+
+   int QGLFormat::accumBufferSize (   )  const
+
+
+
+   bool QGLFormat::alpha (   )  const [inline]
+
+
+
+   int QGLFormat::alphaBufferSize (   )  const
+
+
+
+   static QGLFormat QGLFormat::defaultFormat (   )  [static]
+
+
+
+   static QGLFormat QGLFormat::defaultOverlayFormat (   )  [static]
+
+
+
+   bool QGLFormat::depth (   )  const [inline]
+
+
+
+   int QGLFormat::depthBufferSize (   )  const
+
+
+
+   bool QGLFormat::directRendering (   )  const [inline]
+
+
+
+   bool QGLFormat::doubleBuffer (   )  const [inline]
+
+
+
+   static bool QGLFormat::hasOpenGL (   )  [static]
+
+
+
+   static bool QGLFormat::hasOpenGLOverlays (   )  [static]
+
+
+
+   bool QGLFormat::hasOverlay (   )  const [inline]
+
+
+
+   QGLFormat& QGLFormat::operator= (  const QGLFormat &  other  )
+
+
+
+   int QGLFormat::plane (   )  const
+
+
+
+   bool QGLFormat::rgba (   )  const [inline]
+
+
+
+   bool QGLFormat::sampleBuffers (   )  const [inline]
+
+
+
+   int QGLFormat::samples (   )  const
+
+
+
+   void QGLFormat::setAccum (  bool  enable  )
+
+
+
+   void QGLFormat::setAccumBufferSize (  int  size  )
+
+
+
+   void QGLFormat::setAlpha (  bool  enable  )
+
+
+
+   void QGLFormat::setAlphaBufferSize (  int  size  )
+
+
+
+   static void QGLFormat::setDefaultFormat (  const QGLFormat &  f  )  [static]
+
+
+
+   static void QGLFormat::setDefaultOverlayFormat (  const QGLFormat &  f  )  [static]
+
+
+
+   void QGLFormat::setDepth (  bool  enable  )
+
+
+
+   void QGLFormat::setDepthBufferSize (  int  size  )
+
+
+
+   void QGLFormat::setDirectRendering (  bool  enable  )
+
+
+
+   void QGLFormat::setDoubleBuffer (  bool  enable  )
+
+
+
+   void QGLFormat::setOption (  QGL::FormatOptions  opt  )
+
+
+
+   void QGLFormat::setOverlay (  bool  enable  )
+
+
+
+   void QGLFormat::setPlane (  int  plane  )
+
+
+
+   void QGLFormat::setRgba (  bool  enable  )
+
+
+
+   void QGLFormat::setSampleBuffers (  bool  enable  )
+
+
+
+   void QGLFormat::setSamples (  int  numSamples  )
+
+
+
+   void QGLFormat::setStencil (  bool  enable  )
+
+
+
+   void QGLFormat::setStencilBufferSize (  int  size  )
+
+
+
+   void QGLFormat::setStereo (  bool  enable  )
+
+
+
+   bool QGLFormat::stencil (   )  const [inline]
+
+
+
+   int QGLFormat::stencilBufferSize (   )  const
+
+
+
+   bool QGLFormat::stereo (   )  const [inline]
+
+
+
+   bool QGLFormat::testOption (  QGL::FormatOptions  opt  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_OPENGL_EXPORT bool operator!= (  const QGLFormat &  ,
+                                      const QGLFormat &
+                                   )  [friend]
+
+
+
+   Q_OPENGL_EXPORT bool operator== (  const QGLFormat &  ,
+                                      const QGLFormat &
+                                   )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qgl.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

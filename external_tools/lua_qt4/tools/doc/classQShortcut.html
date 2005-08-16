@@ -1,0 +1,146 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QShortcut Class Reference
+
+   #include <qshortcut.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Signals
+
+     * void activated ()
+     * void activatedAmbiguously ()
+
+Public Member Functions
+
+     * QShortcut (QWidget *parent)
+     * QShortcut (const QKeySequence &key, QWidget *parent, const char *member=0, const char *ambiguousMember=0, Qt::ShortcutContext context=Qt::WindowShortcut)
+     * ~QShortcut ()
+     * void setKey (const QKeySequence &key)
+     * QKeySequence key () const
+     * void setEnabled (bool enable)
+     * bool isEnabled () const
+     * void setContext (Qt::ShortcutContext context)
+     * Qt::ShortcutContext context ()
+     * void setWhatsThis (const QString &text)
+     * QString whatsThis () const
+     * int id () const
+     * QWidget * parentWidget () const
+
+Protected Member Functions
+
+     * bool event (QEvent *e)
+
+Properties
+
+     * QKeySequence key
+     * QString whatsThis
+     * bool enabled
+     * Qt ShortcutContext
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QShortcut::QShortcut (  QWidget *  parent  )  [explicit]
+
+
+
+   QShortcut::QShortcut (  const QKeySequence &  key,
+                           QWidget *             parent,
+                           const char *          member = 0,
+                           const char *          ambiguousMember = 0,
+                           Qt::ShortcutContext   context = Qt::WindowShortcut
+                        )
+
+
+
+   QShortcut::~QShortcut (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QShortcut::activated (   )  [signal]
+
+
+
+   void QShortcut::activatedAmbiguously (   )  [signal]
+
+
+
+   Qt::ShortcutContext QShortcut::context (   )
+
+
+
+   bool QShortcut::event (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   int QShortcut::id (   )  const
+
+
+
+   bool QShortcut::isEnabled (   )  const
+
+
+
+   QKeySequence QShortcut::key (   )  const
+
+
+
+   QWidget* QShortcut::parentWidget (   )  const [inline]
+
+
+
+   void QShortcut::setContext (  Qt::ShortcutContext  context  )
+
+
+
+   void QShortcut::setEnabled (  bool  enable  )
+
+
+
+   void QShortcut::setKey (  const QKeySequence &  key  )
+
+
+
+   void QShortcut::setWhatsThis (  const QString &  text  )
+
+
+
+   QString QShortcut::whatsThis (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QShortcut::enabled [read, write]
+
+
+
+   QKeySequence QShortcut::key [read, write]
+
+
+
+   Qt QShortcut::ShortcutContext [read, write]
+
+
+
+   QString QShortcut::whatsThis [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qshortcut.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

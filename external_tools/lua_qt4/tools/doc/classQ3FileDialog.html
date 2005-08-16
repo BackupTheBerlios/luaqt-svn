@@ -1,0 +1,488 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3FileDialog Class Reference
+
+   #include <q3filedialog.h>
+
+   Inherits QDialog.
+
+   List of all members.
+
+Public Types
+
+     * enum Mode {
+         AnyFile, ExistingFile, Directory, ExistingFiles,
+         DirectoryOnly
+       }
+     * enum ViewMode { Detail, List }
+     * enum PreviewMode { NoPreview, Contents, Info }
+
+Public Slots
+
+     * void done (int)
+     * void setDir (const QString &)
+     * void setUrl (const Q3UrlOperator &url)
+     * void setFilter (const QString &)
+     * void setFilters (const QString &)
+     * void setFilters (const char **)
+     * void setFilters (const QStringList &)
+
+Signals
+
+     * void fileHighlighted (const QString &)
+     * void fileSelected (const QString &)
+     * void filesSelected (const QStringList &)
+     * void dirEntered (const QString &)
+     * void filterSelected (const QString &)
+
+Public Member Functions
+
+     * Q3FileDialog (const QString &dirName, const QString &filter=QString(), QWidget *parent=0, const char *name=0, bool modal=false)
+     * Q3FileDialog (QWidget *parent=0, const char *name=0, bool modal=false)
+     * ~Q3FileDialog ()
+     * QString selectedFile () const
+     * QString selectedFilter () const
+     * virtual void setSelectedFilter (const QString &)
+     * virtual void setSelectedFilter (int)
+     * void setSelection (const QString &)
+     * void selectAll (bool b)
+     * QStringList selectedFiles () const
+     * QString dirPath () const
+     * void setDir (const QDir &)
+     * const QDir * dir () const
+     * void setShowHiddenFiles (bool s)
+     * bool showHiddenFiles () const
+     * void rereadDir ()
+     * void resortDir ()
+     * void setMode (Mode)
+     * Mode mode () const
+     * void setViewMode (ViewMode m)
+     * ViewMode viewMode () const
+     * void setPreviewMode (PreviewMode m)
+     * PreviewMode previewMode () const
+     * bool eventFilter (QObject *, QEvent *)
+     * bool isInfoPreviewEnabled () const
+     * bool isContentsPreviewEnabled () const
+     * void setInfoPreviewEnabled (bool)
+     * void setContentsPreviewEnabled (bool)
+     * void setInfoPreview (QWidget *w, Q3FilePreview *preview)
+     * void setContentsPreview (QWidget *w, Q3FilePreview *preview)
+     * Q3Url url () const
+     * void addFilter (const QString &filter)
+
+Static Public Member Functions
+
+     * static QString getOpenFileName (const QString &initially=QString(), const QString &filter=QString(), QWidget *parent=0, const char *name=0, const QString &caption=QString(), QString *selectedFilter=0, bool resolveSymlinks=true)
+     * static QString getSaveFileName (const QString &initially=QString(), const QString &filter=QString(), QWidget *parent=0, const char *name=0, const QString &caption=QString(), QString *selectedFilter=0, bool resolveSymlinks=true)
+     * static QString getExistingDirectory (const QString &dir=QString(), QWidget *parent=0, const char *name=0, const QString &caption=QString(), bool dirOnly=true, bool resolveSymlinks=true)
+     * static QStringList getOpenFileNames (const QString &filter=QString(), const QString &dir=QString(), QWidget *parent=0, const char *name=0, const QString &caption=QString(), QString *selectedFilter=0, bool resolveSymlinks=true)
+     * static void setIconProvider (Q3FileIconProvider *)
+     * static Q3FileIconProvider * iconProvider ()
+
+Protected Member Functions
+
+     * void resizeEvent (QResizeEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * void addWidgets (QLabel *, QWidget *, QPushButton *)
+     * void addToolButton (QAbstractButton *b, bool separator=false)
+     * void addLeftWidget (QWidget *w)
+     * void addRightWidget (QWidget *w)
+
+Properties
+
+     * QString selectedFile
+     * QString selectedFilter
+     * QStringList selectedFiles
+     * QString dirPath
+     * bool showHiddenFiles
+     * Mode mode
+     * ViewMode viewMode
+     * PreviewMode previewMode
+     * bool infoPreview
+     * bool contentsPreview
+
+Friends
+
+     * class Q3FileDialogQFileListView
+     * class QFileListBox
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3FileDialog::Mode
+
+
+
+   Enumerator: 
+
+          AnyFile      
+          ExistingFile 
+          Directory    
+          ExistingFiles
+          DirectoryOnly
+
+   enum Q3FileDialog::PreviewMode
+
+
+
+   Enumerator: 
+
+          NoPreview
+          Contents 
+          Info     
+
+   enum Q3FileDialog::ViewMode
+
+
+
+   Enumerator: 
+
+          Detail
+          List  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3FileDialog::Q3FileDialog (  const QString &  dirName,
+                                 const QString &  filter = QString(),
+                                 QWidget *        parent = 0,
+                                 const char *     name = 0,
+                                 bool             modal = false
+                              )
+
+
+
+   Q3FileDialog::Q3FileDialog (  QWidget *     parent = 0,
+                                 const char *  name = 0,
+                                 bool          modal = false
+                              )
+
+
+
+   Q3FileDialog::~Q3FileDialog (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3FileDialog::addFilter (  const QString &  filter  )
+
+
+
+   void Q3FileDialog::addLeftWidget (  QWidget *  w  )  [protected]
+
+
+
+   void Q3FileDialog::addRightWidget (  QWidget *  w  )  [protected]
+
+
+
+   void Q3FileDialog::addToolButton (  QAbstractButton *  b,
+                                       bool               separator = false
+                                    )  [protected]
+
+
+
+   void Q3FileDialog::addWidgets (  QLabel *       ,
+                                    QWidget *      ,
+                                    QPushButton *
+                                 )  [protected]
+
+
+
+   const QDir* Q3FileDialog::dir (   )  const
+
+
+
+   void Q3FileDialog::dirEntered (  const QString &   )  [signal]
+
+
+
+   QString Q3FileDialog::dirPath (   )  const
+
+
+
+   void Q3FileDialog::done (  int   )  [virtual, slot]
+
+
+
+   Reimplemented from QDialog.
+
+   bool Q3FileDialog::eventFilter (  QObject *  ,
+                                     QEvent * 
+                                  )  [virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   void Q3FileDialog::fileHighlighted (  const QString &   )  [signal]
+
+
+
+   void Q3FileDialog::fileSelected (  const QString &   )  [signal]
+
+
+
+   void Q3FileDialog::filesSelected (  const QStringList &   )  [signal]
+
+
+
+   void Q3FileDialog::filterSelected (  const QString &   )  [signal]
+
+
+
+   static QString Q3FileDialog::getExistingDirectory (  const QString &  dir = QString(),
+                                                        QWidget *        parent = 0,
+                                                        const char *     name = 0,
+                                                        const QString &  caption = QString(),
+                                                        bool             dirOnly = true,
+                                                        bool             resolveSymlinks = true
+                                                     )  [static]
+
+
+
+   static QString Q3FileDialog::getOpenFileName (  const QString &  initially = QString(),
+                                                   const QString &  filter = QString(),
+                                                   QWidget *        parent = 0,
+                                                   const char *     name = 0,
+                                                   const QString &  caption = QString(),
+                                                   QString *        selectedFilter = 0,
+                                                   bool             resolveSymlinks = true
+                                                )  [static]
+
+
+
+   static QStringList Q3FileDialog::getOpenFileNames (  const QString &  filter = QString(),
+                                                        const QString &  dir = QString(),
+                                                        QWidget *        parent = 0,
+                                                        const char *     name = 0,
+                                                        const QString &  caption = QString(),
+                                                        QString *        selectedFilter = 0,
+                                                        bool             resolveSymlinks = true
+                                                     )  [static]
+
+
+
+   static QString Q3FileDialog::getSaveFileName (  const QString &  initially = QString(),
+                                                   const QString &  filter = QString(),
+                                                   QWidget *        parent = 0,
+                                                   const char *     name = 0,
+                                                   const QString &  caption = QString(),
+                                                   QString *        selectedFilter = 0,
+                                                   bool             resolveSymlinks = true
+                                                )  [static]
+
+
+
+   static Q3FileIconProvider* Q3FileDialog::iconProvider (   )  [static]
+
+
+
+   bool Q3FileDialog::isContentsPreviewEnabled (   )  const
+
+
+
+   bool Q3FileDialog::isInfoPreviewEnabled (   )  const
+
+
+
+   void Q3FileDialog::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   Mode Q3FileDialog::mode (   )  const
+
+
+
+   PreviewMode Q3FileDialog::previewMode (   )  const
+
+
+
+   void Q3FileDialog::rereadDir (   )
+
+
+
+   void Q3FileDialog::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   void Q3FileDialog::resortDir (   )
+
+
+
+   void Q3FileDialog::selectAll (  bool  b  )
+
+
+
+   QString Q3FileDialog::selectedFile (   )  const
+
+
+
+   QStringList Q3FileDialog::selectedFiles (   )  const
+
+
+
+   QString Q3FileDialog::selectedFilter (   )  const
+
+
+
+   void Q3FileDialog::setContentsPreview (  QWidget *        w,
+                                            Q3FilePreview *  preview
+                                         )
+
+
+
+   void Q3FileDialog::setContentsPreviewEnabled (  bool   )
+
+
+
+   void Q3FileDialog::setDir (  const QString &   )  [slot]
+
+
+
+   void Q3FileDialog::setDir (  const QDir &   )
+
+
+
+   void Q3FileDialog::setFilter (  const QString &   )  [slot]
+
+
+
+   void Q3FileDialog::setFilters (  const QStringList &   )  [slot]
+
+
+
+   void Q3FileDialog::setFilters (  const char **   )  [slot]
+
+
+
+   void Q3FileDialog::setFilters (  const QString &   )  [slot]
+
+
+
+   static void Q3FileDialog::setIconProvider (  Q3FileIconProvider *   )  [static]
+
+
+
+   void Q3FileDialog::setInfoPreview (  QWidget *        w,
+                                        Q3FilePreview *  preview
+                                     )
+
+
+
+   void Q3FileDialog::setInfoPreviewEnabled (  bool   )
+
+
+
+   void Q3FileDialog::setMode (  Mode   )
+
+
+
+   void Q3FileDialog::setPreviewMode (  PreviewMode  m  )
+
+
+
+   virtual void Q3FileDialog::setSelectedFilter (  int   )  [virtual]
+
+
+
+   virtual void Q3FileDialog::setSelectedFilter (  const QString &   )  [virtual]
+
+
+
+   void Q3FileDialog::setSelection (  const QString &   )
+
+
+
+   void Q3FileDialog::setShowHiddenFiles (  bool  s  )
+
+
+
+   void Q3FileDialog::setUrl (  const Q3UrlOperator &  url  )  [slot]
+
+
+
+   void Q3FileDialog::setViewMode (  ViewMode  m  )
+
+
+
+   bool Q3FileDialog::showHiddenFiles (   )  const
+
+
+
+   Q3Url Q3FileDialog::url (   )  const
+
+
+
+   ViewMode Q3FileDialog::viewMode (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3FileDialogQFileListView [friend]
+
+
+
+   friend class QFileListBox [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3FileDialog::contentsPreview [read, write]
+
+
+
+   QString Q3FileDialog::dirPath [read]
+
+
+
+   bool Q3FileDialog::infoPreview [read, write]
+
+
+
+   Mode Q3FileDialog::mode [read, write]
+
+
+
+   PreviewMode Q3FileDialog::previewMode [read, write]
+
+
+
+   QString Q3FileDialog::selectedFile [read]
+
+
+
+   QStringList Q3FileDialog::selectedFiles [read]
+
+
+
+   QString Q3FileDialog::selectedFilter [read]
+
+
+
+   bool Q3FileDialog::showHiddenFiles [read, write]
+
+
+
+   ViewMode Q3FileDialog::viewMode [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3filedialog.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

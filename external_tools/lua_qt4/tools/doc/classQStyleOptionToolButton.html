@@ -1,0 +1,132 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                      QStyleOptionToolButton Class Reference
+
+   #include <qstyleoption.h>
+
+   Inherits QStyleOptionComplex.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags ToolButtonFeatures
+     * enum { Type = SO_ToolButton }
+     * enum { Version = 1 }
+     * enum ToolButtonFeature { None = 0x00, Arrow = 0x01, Menu = 0x04, PopupDelay = 0x08 }
+
+Public Member Functions
+
+     * QStyleOptionToolButton ()
+     * QStyleOptionToolButton (const QStyleOptionToolButton &other)
+
+Public Attributes
+
+     * ToolButtonFeatures features
+     * QIcon icon
+     * QSize iconSize
+     * QString text
+     * Qt::ArrowType arrowType
+     * Qt::ToolButtonStyle toolButtonStyle
+     * QPoint pos
+     * QFont font
+
+Protected Member Functions
+
+     * QStyleOptionToolButton (int version)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QStyleOptionToolButton::ToolButtonFeatures
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Type
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Version
+
+   enum QStyleOptionToolButton::ToolButtonFeature
+
+
+
+   Enumerator: 
+
+          None      
+          Arrow     
+          Menu      
+          PopupDelay
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QStyleOptionToolButton::QStyleOptionToolButton (   )
+
+
+
+   QStyleOptionToolButton::QStyleOptionToolButton (  const QStyleOptionToolButton &  other  )  [inline]
+
+
+
+   QStyleOptionToolButton::QStyleOptionToolButton (  int  version  )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   Qt::ArrowType QStyleOptionToolButton::arrowType
+
+
+
+   ToolButtonFeatures QStyleOptionToolButton::features
+
+
+
+   QFont QStyleOptionToolButton::font
+
+
+
+   QIcon QStyleOptionToolButton::icon
+
+
+
+   QSize QStyleOptionToolButton::iconSize
+
+
+
+   QPoint QStyleOptionToolButton::pos
+
+
+
+   QString QStyleOptionToolButton::text
+
+
+
+   Qt::ToolButtonStyle QStyleOptionToolButton::toolButtonStyle
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstyleoption.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

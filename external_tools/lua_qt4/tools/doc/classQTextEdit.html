@@ -1,0 +1,696 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QTextEdit Class Reference
+
+   #include <qtextedit.h>
+
+   Inherits QAbstractScrollArea.
+
+   Inherited by QTextBrowser.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags AutoFormatting
+     * enum LineWrapMode { NoWrap, WidgetWidth, FixedPixelWidth, FixedColumnWidth }
+     * enum AutoFormattingFlag { AutoNone = 0, AutoBulletList = 0x00000001, AutoAll = 0xffffffff }
+     * enum CursorAction {
+         MoveBackward, MoveForward, MoveWordBackward, MoveWordForward,
+         MoveUp, MoveDown, MoveLineStart, MoveLineEnd,
+         MoveHome, MoveEnd, MovePageUp, MovePageDown
+       }
+
+Public Slots
+
+     * void setFontPointSize (qreal s)
+     * void setFontFamily (const QString &fontFamily)
+     * void setFontWeight (int w)
+     * void setFontUnderline (bool b)
+     * void setFontItalic (bool b)
+     * void setTextColor (const QColor &c)
+     * void setCurrentFont (const QFont &f)
+     * void setAlignment (Qt::Alignment a)
+     * void setPlainText (const QString &text)
+     * void setHtml (const QString &text)
+     * void cut ()
+     * void copy ()
+     * void paste ()
+     * void clear ()
+     * void selectAll ()
+     * void insertPlainText (const QString &text)
+     * void insertHtml (const QString &text)
+     * void scrollToAnchor (const QString &name)
+     * void zoomIn (int range=1)
+     * void zoomOut (int range=1)
+
+Signals
+
+     * void textChanged ()
+     * void undoAvailable (bool b)
+     * void redoAvailable (bool b)
+     * void currentCharFormatChanged (const QTextCharFormat &format)
+     * void copyAvailable (bool b)
+     * void selectionChanged ()
+     * void cursorPositionChanged ()
+
+Public Member Functions
+
+     * QTextEdit (QWidget *parent=0)
+     * QTextEdit (const QString &text, QWidget *parent=0)
+     * virtual ~QTextEdit ()
+     * void setDocument (QTextDocument *document)
+     * QTextDocument * document () const
+     * void setTextCursor (const QTextCursor &cursor)
+     * QTextCursor textCursor () const
+     * bool isReadOnly () const
+     * void setReadOnly (bool ro)
+     * qreal fontPointSize () const
+     * QString fontFamily () const
+     * int fontWeight () const
+     * bool fontUnderline () const
+     * bool fontItalic () const
+     * QColor textColor () const
+     * QFont currentFont () const
+     * Qt::Alignment alignment () const
+     * void mergeCurrentCharFormat (const QTextCharFormat &modifier)
+     * void setCurrentCharFormat (const QTextCharFormat &format)
+     * QTextCharFormat currentCharFormat () const
+     * AutoFormatting autoFormatting () const
+     * void setAutoFormatting (AutoFormatting features)
+     * bool tabChangesFocus () const
+     * void setTabChangesFocus (bool b)
+     * void setDocumentTitle (const QString &title)
+     * QString documentTitle () const
+     * bool isUndoRedoEnabled () const
+     * void setUndoRedoEnabled (bool enable)
+     * LineWrapMode lineWrapMode () const
+     * void setLineWrapMode (LineWrapMode mode)
+     * int lineWrapColumnOrWidth () const
+     * void setLineWrapColumnOrWidth (int w)
+     * QTextOption::WrapMode wordWrapMode () const
+     * void setWordWrapMode (QTextOption::WrapMode policy)
+     * bool find (const QString &exp, QTextDocument::FindFlags options=0)
+     * QString toPlainText () const
+     * QString toHtml () const
+     * void append (const QString &text)
+     * void ensureCursorVisible ()
+     * virtual QVariant loadResource (int type, const QUrl &name)
+     * QMenu * createStandardContextMenu ()
+     * QTextCursor cursorForPosition (const QPoint &pos) const
+     * QRect cursorRect (const QTextCursor &cursor) const
+     * QRect cursorRect () const
+     * QString anchorAt (const QPoint &pos) const
+
+Protected Member Functions
+
+     * virtual void timerEvent (QTimerEvent *e)
+     * virtual void keyPressEvent (QKeyEvent *e)
+     * virtual void resizeEvent (QResizeEvent *)
+     * virtual void paintEvent (QPaintEvent *e)
+     * virtual void mousePressEvent (QMouseEvent *e)
+     * virtual void mouseMoveEvent (QMouseEvent *e)
+     * virtual void mouseReleaseEvent (QMouseEvent *e)
+     * virtual void mouseDoubleClickEvent (QMouseEvent *e)
+     * virtual bool focusNextPrevChild (bool next)
+     * virtual void contextMenuEvent (QContextMenuEvent *e)
+     * virtual void dragEnterEvent (QDragEnterEvent *e)
+     * virtual void dragLeaveEvent (QDragLeaveEvent *e)
+     * virtual void dragMoveEvent (QDragMoveEvent *e)
+     * virtual void dropEvent (QDropEvent *e)
+     * virtual void focusInEvent (QFocusEvent *e)
+     * virtual void focusOutEvent (QFocusEvent *e)
+     * virtual void showEvent (QShowEvent *)
+     * virtual void changeEvent (QEvent *e)
+     * virtual void wheelEvent (QWheelEvent *e)
+     * virtual QMimeData * createMimeDataFromSelection () const
+     * virtual bool canInsertFromMimeData (const QMimeData *source) const
+     * virtual void insertFromMimeData (const QMimeData *source)
+     * virtual void inputMethodEvent (QInputMethodEvent *)
+     * QVariant inputMethodQuery (Qt::InputMethodQuery property) const
+     * QTextEdit (QTextEditPrivate &dd, QWidget *parent)
+
+Properties
+
+     * AutoFormatting autoFormatting
+     * bool tabChangesFocus
+     * QString documentTitle
+     * bool undoRedoEnabled
+     * LineWrapMode lineWrapMode
+     * int lineWrapColumnOrWidth
+     * bool readOnly
+     * QString html
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QTextEdit::AutoFormatting
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextEdit::AutoFormattingFlag
+
+
+
+   Enumerator: 
+
+          AutoNone      
+          AutoBulletList
+          AutoAll       
+
+   enum QTextEdit::CursorAction
+
+
+
+   Enumerator: 
+
+          MoveBackward    
+          MoveForward     
+          MoveWordBackward
+          MoveWordForward 
+          MoveUp          
+          MoveDown        
+          MoveLineStart   
+          MoveLineEnd     
+          MoveHome        
+          MoveEnd         
+          MovePageUp      
+          MovePageDown    
+
+   enum QTextEdit::LineWrapMode
+
+
+
+   Enumerator: 
+
+          NoWrap          
+          WidgetWidth     
+          FixedPixelWidth 
+          FixedColumnWidth
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextEdit::QTextEdit (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QTextEdit::QTextEdit (  const QString &  text,
+                           QWidget *        parent = 0
+                        )  [explicit]
+
+
+
+   virtual QTextEdit::~QTextEdit (   )  [virtual]
+
+
+
+   QTextEdit::QTextEdit (  QTextEditPrivate &  dd,
+                           QWidget *           parent
+                        )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Alignment QTextEdit::alignment (   )  const
+
+
+
+   QString QTextEdit::anchorAt (  const QPoint &  pos  )  const
+
+
+
+   void QTextEdit::append (  const QString &  text  )
+
+
+
+   AutoFormatting QTextEdit::autoFormatting (   )  const
+
+
+
+   virtual bool QTextEdit::canInsertFromMimeData (  const QMimeData *  source  )  const [protected, virtual]
+
+
+
+   virtual void QTextEdit::changeEvent (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   void QTextEdit::clear (   )  [slot]
+
+
+
+   virtual void QTextEdit::contextMenuEvent (  QContextMenuEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QTextEdit::copy (   )  [slot]
+
+
+
+   void QTextEdit::copyAvailable (  bool  b  )  [signal]
+
+
+
+   virtual QMimeData* QTextEdit::createMimeDataFromSelection (   )  const [protected, virtual]
+
+
+
+   QMenu* QTextEdit::createStandardContextMenu (   )
+
+
+
+   QTextCharFormat QTextEdit::currentCharFormat (   )  const
+
+
+
+   void QTextEdit::currentCharFormatChanged (  const QTextCharFormat &  format  )  [signal]
+
+
+
+   QFont QTextEdit::currentFont (   )  const
+
+
+
+   QTextCursor QTextEdit::cursorForPosition (  const QPoint &  pos  )  const
+
+
+
+   void QTextEdit::cursorPositionChanged (   )  [signal]
+
+
+
+   QRect QTextEdit::cursorRect (   )  const
+
+
+
+   QRect QTextEdit::cursorRect (  const QTextCursor &  cursor  )  const
+
+
+
+   void QTextEdit::cut (   )  [slot]
+
+
+
+   QTextDocument* QTextEdit::document (   )  const
+
+
+
+   QString QTextEdit::documentTitle (   )  const [inline]
+
+
+
+   virtual void QTextEdit::dragEnterEvent (  QDragEnterEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   virtual void QTextEdit::dragLeaveEvent (  QDragLeaveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   virtual void QTextEdit::dragMoveEvent (  QDragMoveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   virtual void QTextEdit::dropEvent (  QDropEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QTextEdit::ensureCursorVisible (   )
+
+
+
+   bool QTextEdit::find (  const QString &           exp,
+                           QTextDocument::FindFlags  options = 0
+                        )
+
+
+
+   virtual void QTextEdit::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual bool QTextEdit::focusNextPrevChild (  bool  next  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QTextBrowser.
+
+   virtual void QTextEdit::focusOutEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QTextBrowser.
+
+   QString QTextEdit::fontFamily (   )  const
+
+
+
+   bool QTextEdit::fontItalic (   )  const
+
+
+
+   qreal QTextEdit::fontPointSize (   )  const
+
+
+
+   bool QTextEdit::fontUnderline (   )  const
+
+
+
+   int QTextEdit::fontWeight (   )  const
+
+
+
+   virtual void QTextEdit::inputMethodEvent (  QInputMethodEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QVariant QTextEdit::inputMethodQuery (  Qt::InputMethodQuery  property  )  const [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void QTextEdit::insertFromMimeData (  const QMimeData *  source  )  [protected, virtual]
+
+
+
+   void QTextEdit::insertHtml (  const QString &  text  )  [slot]
+
+
+
+   void QTextEdit::insertPlainText (  const QString &  text  )  [slot]
+
+
+
+   bool QTextEdit::isReadOnly (   )  const
+
+
+
+   bool QTextEdit::isUndoRedoEnabled (   )  const [inline]
+
+
+
+   virtual void QTextEdit::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QTextBrowser.
+
+   int QTextEdit::lineWrapColumnOrWidth (   )  const
+
+
+
+   LineWrapMode QTextEdit::lineWrapMode (   )  const
+
+
+
+   virtual QVariant QTextEdit::loadResource (  int           type,
+                                               const QUrl &  name
+                                            )  [virtual]
+
+
+
+   Reimplemented in QTextBrowser.
+
+   void QTextEdit::mergeCurrentCharFormat (  const QTextCharFormat &  modifier  )
+
+
+
+   virtual void QTextEdit::mouseDoubleClickEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   virtual void QTextEdit::mouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QTextBrowser.
+
+   virtual void QTextEdit::mousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QTextBrowser.
+
+   virtual void QTextEdit::mouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QTextBrowser.
+
+   virtual void QTextEdit::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QTextBrowser.
+
+   void QTextEdit::paste (   )  [slot]
+
+
+
+   void QTextEdit::redoAvailable (  bool  b  )  [signal]
+
+
+
+   virtual void QTextEdit::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QTextEdit::scrollToAnchor (  const QString &  name  )  [slot]
+
+
+
+   void QTextEdit::selectAll (   )  [slot]
+
+
+
+   void QTextEdit::selectionChanged (   )  [signal]
+
+
+
+   void QTextEdit::setAlignment (  Qt::Alignment  a  )  [slot]
+
+
+
+   void QTextEdit::setAutoFormatting (  AutoFormatting  features  )
+
+
+
+   void QTextEdit::setCurrentCharFormat (  const QTextCharFormat &  format  )
+
+
+
+   void QTextEdit::setCurrentFont (  const QFont &  f  )  [slot]
+
+
+
+   void QTextEdit::setDocument (  QTextDocument *  document  )
+
+
+
+   void QTextEdit::setDocumentTitle (  const QString &  title  )  [inline]
+
+
+
+   void QTextEdit::setFontFamily (  const QString &  fontFamily  )  [slot]
+
+
+
+   void QTextEdit::setFontItalic (  bool  b  )  [slot]
+
+
+
+   void QTextEdit::setFontPointSize (  qreal  s  )  [slot]
+
+
+
+   void QTextEdit::setFontUnderline (  bool  b  )  [slot]
+
+
+
+   void QTextEdit::setFontWeight (  int  w  )  [slot]
+
+
+
+   void QTextEdit::setHtml (  const QString &  text  )  [slot]
+
+
+
+   void QTextEdit::setLineWrapColumnOrWidth (  int  w  )
+
+
+
+   void QTextEdit::setLineWrapMode (  LineWrapMode  mode  )
+
+
+
+   void QTextEdit::setPlainText (  const QString &  text  )  [slot]
+
+
+
+   void QTextEdit::setReadOnly (  bool  ro  )
+
+
+
+   void QTextEdit::setTabChangesFocus (  bool  b  )
+
+
+
+   void QTextEdit::setTextColor (  const QColor &  c  )  [slot]
+
+
+
+   void QTextEdit::setTextCursor (  const QTextCursor &  cursor  )
+
+
+
+   void QTextEdit::setUndoRedoEnabled (  bool  enable  )  [inline]
+
+
+
+   void QTextEdit::setWordWrapMode (  QTextOption::WrapMode  policy  )
+
+
+
+   virtual void QTextEdit::showEvent (  QShowEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QTextEdit::tabChangesFocus (   )  const
+
+
+
+   void QTextEdit::textChanged (   )  [signal]
+
+
+
+   QColor QTextEdit::textColor (   )  const
+
+
+
+   QTextCursor QTextEdit::textCursor (   )  const
+
+
+
+   virtual void QTextEdit::timerEvent (  QTimerEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   QString QTextEdit::toHtml (   )  const [inline]
+
+
+
+   QString QTextEdit::toPlainText (   )  const [inline]
+
+
+
+   void QTextEdit::undoAvailable (  bool  b  )  [signal]
+
+
+
+   virtual void QTextEdit::wheelEvent (  QWheelEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   QTextOption::WrapMode QTextEdit::wordWrapMode (   )  const
+
+
+
+   void QTextEdit::zoomIn (  int  range = 1  )  [slot]
+
+
+
+   void QTextEdit::zoomOut (  int  range = 1  )  [slot]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   AutoFormatting QTextEdit::autoFormatting [read, write]
+
+
+
+   QString QTextEdit::documentTitle [read, write]
+
+
+
+   QString QTextEdit::html [read, write]
+
+
+
+   int QTextEdit::lineWrapColumnOrWidth [read, write]
+
+
+
+   LineWrapMode QTextEdit::lineWrapMode [read, write]
+
+
+
+   bool QTextEdit::readOnly [read, write]
+
+
+
+   bool QTextEdit::tabChangesFocus [read, write]
+
+
+
+   bool QTextEdit::undoRedoEnabled [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextedit.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

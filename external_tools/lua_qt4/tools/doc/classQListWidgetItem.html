@@ -1,0 +1,229 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QListWidgetItem Class Reference
+
+   #include <qlistwidget.h>
+
+   List of all members.
+
+Public Types
+
+     * enum { Type = 0, UserType = 1000 }
+
+Public Member Functions
+
+     * QListWidgetItem (QListWidget *view=0, int type=Type)
+     * QListWidgetItem (const QString &text, QListWidget *view=0, int type=Type)
+     * virtual ~QListWidgetItem ()
+     * virtual QListWidgetItem * clone () const
+     * QListWidget * listWidget () const
+     * Qt::ItemFlags flags () const
+     * void setFlags (Qt::ItemFlags flags)
+     * QString text () const
+     * void setText (const QString &text)
+     * QIcon icon () const
+     * void setIcon (const QIcon &icon)
+     * QString statusTip () const
+     * void setStatusTip (const QString &statusTip)
+     * QString toolTip () const
+     * void setToolTip (const QString &toolTip)
+     * QString whatsThis () const
+     * void setWhatsThis (const QString &whatsThis)
+     * QFont font () const
+     * void setFont (const QFont &font)
+     * int textAlignment () const
+     * void setTextAlignment (int alignment)
+     * QColor backgroundColor () const
+     * virtual void setBackgroundColor (const QColor &color)
+     * QColor textColor () const
+     * void setTextColor (const QColor &color)
+     * Qt::CheckState checkState () const
+     * void setCheckState (Qt::CheckState state)
+     * virtual QVariant data (int role) const
+     * virtual void setData (int role, const QVariant &value)
+     * virtual bool operator< (const QListWidgetItem &other) const
+     * virtual void read (QDataStream &in)
+     * virtual void write (QDataStream &out) const
+     * QListWidgetItem & operator= (const QListWidgetItem &other)
+     * int type () const
+
+Friends
+
+     * class QListModel
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Type    
+          UserType
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QListWidgetItem::QListWidgetItem (  QListWidget *  view = 0,
+                                       int            type = Type
+                                    )  [explicit]
+
+
+
+   QListWidgetItem::QListWidgetItem (  const QString &  text,
+                                       QListWidget *    view = 0,
+                                       int              type = Type
+                                    )  [explicit]
+
+
+
+   virtual QListWidgetItem::~QListWidgetItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QColor QListWidgetItem::backgroundColor (   )  const [inline]
+
+
+
+   Qt::CheckState QListWidgetItem::checkState (   )  const [inline]
+
+
+
+   virtual QListWidgetItem* QListWidgetItem::clone (   )  const [virtual]
+
+
+
+   virtual QVariant QListWidgetItem::data (  int  role  )  const [virtual]
+
+
+
+   Qt::ItemFlags QListWidgetItem::flags (   )  const [inline]
+
+
+
+   QFont QListWidgetItem::font (   )  const [inline]
+
+
+
+   QIcon QListWidgetItem::icon (   )  const [inline]
+
+
+
+   QListWidget* QListWidgetItem::listWidget (   )  const [inline]
+
+
+
+   virtual bool QListWidgetItem::operator< (  const QListWidgetItem &  other  )  const [virtual]
+
+
+
+   QListWidgetItem& QListWidgetItem::operator= (  const QListWidgetItem &  other  )
+
+
+
+   virtual void QListWidgetItem::read (  QDataStream &  in  )  [virtual]
+
+
+
+   virtual void QListWidgetItem::setBackgroundColor (  const QColor &  color  )  [inline, virtual]
+
+
+
+   void QListWidgetItem::setCheckState (  Qt::CheckState  state  )  [inline]
+
+
+
+   virtual void QListWidgetItem::setData (  int               role,
+                                            const QVariant &  value
+                                         )  [virtual]
+
+
+
+   void QListWidgetItem::setFlags (  Qt::ItemFlags  flags  )  [inline]
+
+
+
+   void QListWidgetItem::setFont (  const QFont &  font  )  [inline]
+
+
+
+   void QListWidgetItem::setIcon (  const QIcon &  icon  )  [inline]
+
+
+
+   void QListWidgetItem::setStatusTip (  const QString &  statusTip  )  [inline]
+
+
+
+   void QListWidgetItem::setText (  const QString &  text  )  [inline]
+
+
+
+   void QListWidgetItem::setTextAlignment (  int  alignment  )  [inline]
+
+
+
+   void QListWidgetItem::setTextColor (  const QColor &  color  )  [inline]
+
+
+
+   void QListWidgetItem::setToolTip (  const QString &  toolTip  )  [inline]
+
+
+
+   void QListWidgetItem::setWhatsThis (  const QString &  whatsThis  )  [inline]
+
+
+
+   QString QListWidgetItem::statusTip (   )  const [inline]
+
+
+
+   QString QListWidgetItem::text (   )  const [inline]
+
+
+
+   int QListWidgetItem::textAlignment (   )  const [inline]
+
+
+
+   QColor QListWidgetItem::textColor (   )  const [inline]
+
+
+
+   QString QListWidgetItem::toolTip (   )  const [inline]
+
+
+
+   int QListWidgetItem::type (   )  const [inline]
+
+
+
+   QString QListWidgetItem::whatsThis (   )  const [inline]
+
+
+
+   virtual void QListWidgetItem::write (  QDataStream &  out  )  const [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QListModel [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlistwidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,134 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QDomCharacterData Class Reference
+
+   #include <qdom.h>
+
+   Inherits QDomNode.
+
+   Inherited by QDomComment, and QDomText.
+
+   List of all members.
+
+Public Member Functions
+
+     * QDomCharacterData ()
+     * QDomCharacterData (const QDomCharacterData &x)
+     * QDomCharacterData & operator= (const QDomCharacterData &)
+     * QString substringData (unsigned long offset, unsigned long count)
+     * void appendData (const QString &arg)
+     * void insertData (unsigned long offset, const QString &arg)
+     * void deleteData (unsigned long offset, unsigned long count)
+     * void replaceData (unsigned long offset, unsigned long count, const QString &arg)
+     * uint length () const
+     * QString data () const
+     * void setData (const QString &)
+     * QDomNode::NodeType nodeType () const
+
+Friends
+
+     * class QDomDocument
+     * class QDomText
+     * class QDomComment
+     * class QDomNode
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDomCharacterData::QDomCharacterData (   )
+
+
+
+   QDomCharacterData::QDomCharacterData (  const QDomCharacterData &  x  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QDomCharacterData::appendData (  const QString &  arg  )
+
+
+
+   QString QDomCharacterData::data (   )  const
+
+
+
+   void QDomCharacterData::deleteData (  unsigned long  offset,
+                                         unsigned long  count
+                                      )
+
+
+
+   void QDomCharacterData::insertData (  unsigned long    offset,
+                                         const QString &  arg
+                                      )
+
+
+
+   uint QDomCharacterData::length (   )  const
+
+
+
+   QDomNode::NodeType QDomCharacterData::nodeType (   )  const
+
+
+
+   Reimplemented from QDomNode.
+
+   Reimplemented in QDomText, QDomComment, and QDomCDATASection.
+
+   QDomCharacterData& QDomCharacterData::operator= (  const QDomCharacterData &   )
+
+
+
+   void QDomCharacterData::replaceData (  unsigned long    offset,
+                                          unsigned long    count,
+                                          const QString &  arg
+                                       )
+
+
+
+   void QDomCharacterData::setData (  const QString &   )
+
+
+
+   QString QDomCharacterData::substringData (  unsigned long  offset,
+                                               unsigned long  count
+                                            )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QDomComment [friend]
+
+
+
+   friend class QDomDocument [friend]
+
+
+
+   Reimplemented from QDomNode.
+
+   Reimplemented in QDomText, QDomComment, and QDomCDATASection.
+
+   friend class QDomNode [friend]
+
+
+
+   Reimplemented in QDomText, QDomComment, and QDomCDATASection.
+
+   friend class QDomText [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdom.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,236 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QMatrix Class Reference
+
+   #include <qmatrix.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QMatrix ()
+     * QMatrix (qreal m11, qreal m12, qreal m21, qreal m22, qreal dx, qreal dy)
+     * QMatrix (const QMatrix &matrix)
+     * void setMatrix (qreal m11, qreal m12, qreal m21, qreal m22, qreal dx, qreal dy)
+     * qreal m11 () const
+     * qreal m12 () const
+     * qreal m21 () const
+     * qreal m22 () const
+     * qreal dx () const
+     * qreal dy () const
+     * void map (int x, int y, int *tx, int *ty) const
+     * void map (qreal x, qreal y, qreal *tx, qreal *ty) const
+     * QRect mapRect (const QRect &) const
+     * QRectF mapRect (const QRectF &) const
+     * QPoint map (const QPoint &p) const
+     * QPointF map (const QPointF &p) const
+     * QLine map (const QLine &l) const
+     * QLineF map (const QLineF &l) const
+     * QPolygonF map (const QPolygonF &a) const
+     * QPolygon map (const QPolygon &a) const
+     * QRegion map (const QRegion &r) const
+     * QPainterPath map (const QPainterPath &p) const
+     * QPolygon mapToPolygon (const QRect &r) const
+     * void reset ()
+     * bool isIdentity () const
+     * QMatrix & translate (qreal dx, qreal dy)
+     * QMatrix & scale (qreal sx, qreal sy)
+     * QMatrix & shear (qreal sh, qreal sv)
+     * QMatrix & rotate (qreal a)
+     * bool isInvertible () const
+     * qreal det () const
+     * QMatrix inverted (bool *invertible=0) const
+     * bool operator== (const QMatrix &) const
+     * bool operator!= (const QMatrix &) const
+     * QMatrix & operator *= (const QMatrix &)
+     * QMatrix operator * (const QMatrix &o) const
+     * QMatrix & operator= (const QMatrix &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMatrix::QMatrix (   )
+
+
+
+   QMatrix::QMatrix (  qreal  m11,
+                       qreal  m12,
+                       qreal  m21,
+                       qreal  m22,
+                       qreal  dx,
+                       qreal  dy
+                    )
+
+
+
+   QMatrix::QMatrix (  const QMatrix &  matrix  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   qreal QMatrix::det (   )  const [inline]
+
+
+
+   qreal QMatrix::dx (   )  const [inline]
+
+
+
+   qreal QMatrix::dy (   )  const [inline]
+
+
+
+   QMatrix QMatrix::inverted (  bool *  invertible = 0  )  const
+
+
+
+   bool QMatrix::isIdentity (   )  const [inline]
+
+
+
+   bool QMatrix::isInvertible (   )  const [inline]
+
+
+
+   qreal QMatrix::m11 (   )  const [inline]
+
+
+
+   qreal QMatrix::m12 (   )  const [inline]
+
+
+
+   qreal QMatrix::m21 (   )  const [inline]
+
+
+
+   qreal QMatrix::m22 (   )  const [inline]
+
+
+
+   QPainterPath QMatrix::map (  const QPainterPath &  p  )  const
+
+
+
+   QRegion QMatrix::map (  const QRegion &  r  )  const
+
+
+
+   QPolygon QMatrix::map (  const QPolygon &  a  )  const
+
+
+
+   QPolygonF QMatrix::map (  const QPolygonF &  a  )  const
+
+
+
+   QLineF QMatrix::map (  const QLineF &  l  )  const
+
+
+
+   QLine QMatrix::map (  const QLine &  l  )  const
+
+
+
+   QPointF QMatrix::map (  const QPointF &  p  )  const
+
+
+
+   QPoint QMatrix::map (  const QPoint &  p  )  const
+
+
+
+   void QMatrix::map (  qreal    x,
+                        qreal    y,
+                        qreal *  tx,
+                        qreal *  ty
+                     )  const
+
+
+
+   void QMatrix::map (  int    x,
+                        int    y,
+                        int *  tx,
+                        int *  ty
+                     )  const
+
+
+
+   QRectF QMatrix::mapRect (  const QRectF &   )  const
+
+
+
+   QRect QMatrix::mapRect (  const QRect &   )  const
+
+
+
+   QPolygon QMatrix::mapToPolygon (  const QRect &  r  )  const
+
+
+
+   QMatrix QMatrix::operator * (  const QMatrix &  o  )  const
+
+
+
+   QMatrix& QMatrix::operator *= (  const QMatrix &   )
+
+
+
+   bool QMatrix::operator!= (  const QMatrix &   )  const
+
+
+
+   QMatrix& QMatrix::operator= (  const QMatrix &   )
+
+
+
+   bool QMatrix::operator== (  const QMatrix &   )  const
+
+
+
+   void QMatrix::reset (   )
+
+
+
+   QMatrix& QMatrix::rotate (  qreal  a  )
+
+
+
+   QMatrix& QMatrix::scale (  qreal  sx,
+                              qreal  sy
+                           )
+
+
+
+   void QMatrix::setMatrix (  qreal  m11,
+                              qreal  m12,
+                              qreal  m21,
+                              qreal  m22,
+                              qreal  dx,
+                              qreal  dy
+                           )
+
+
+
+   QMatrix& QMatrix::shear (  qreal  sh,
+                              qreal  sv
+                           )
+
+
+
+   QMatrix& QMatrix::translate (  qreal  dx,
+                                  qreal  dy
+                               )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmatrix.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

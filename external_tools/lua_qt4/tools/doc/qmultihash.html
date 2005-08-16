@@ -1,0 +1,158 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QMultiHash Class Reference
+
+   The QMultiHash class is a convenience QHash subclass that provides
+   multi-valued hashes. More...
+#include <QMultiHash>
+
+   Part of the QtCore module.
+
+   Inherits QHash<Key, T>.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QMultiHash ()
+     * QMultiHash ( const QHash<Key, T> & other )
+     * QHash<Key, T>::iterator insert ( const Key & key, const T & value
+       )
+     * QHash<Key, T>::iterator replace ( const Key & key, const T & value
+       )
+     * QMultiHash operator+ ( const QMultiHash & other ) const
+     * QMultiHash & operator+= ( const QMultiHash & other )
+
+     * 36 public functions inherited from QHash
+     _________________________________________________________________
+
+Detailed Description
+
+   The QMultiHash class is a convenience QHash subclass that provides
+   multi-valued hashes.
+
+   QMultiHash<Key, T> is one of Qt's generic container classes. It
+   inherits QHash and extends it with a few convenience functions that
+   make it more suitable than QHash for storing multi-valued hashes. A
+   multi-valued hash is a hash that allows multiple values with the same
+   key; QHash normally doesn't allow that, unless you call
+   QHash::insertMulti().
+
+   Because QMultiHash inherits QHash, all of QHash's functionality also
+   applies to QMultiHash. For example, you can use isEmpty() to test
+   whether the hash is empty, and you can traverse a QMultiHash using
+   QHash's iterator classes (for example, QHashIterator). But in
+   addition, it provides an insert() function that corresponds to
+   QHash::insertMulti(), and a replace() function that corresponds to
+   QHash::insert(). It also provides convenient operator+() and
+   operator+=().
+
+   Example:
+    QMultiHash<QString, int> hash1, hash2, hash3;
+
+    hash1.insert("plenty", 100);
+    hash1.insert("plenty", 2000);
+    // hash1.size() == 2
+
+    hash2.insert("plenty", 5000);
+    // hash2.size() == 1
+
+    hash3 = hash1 + hash2;
+    // hash3.size() == 3
+
+   Unlike QHash, QMultiHash provides no operator[]. Use value() or
+   replace() if you want to access the most recently inserted item with a
+   certain key.
+
+   If you want to retrieve all the values for a single key, you can use
+   values(const Key &key), which returns a QList<T>:
+    QList<int> values = hash.values("plenty");
+    for (int i = 0; i < values.size(); ++i)
+        cout << values.at(i) << endl;
+
+   The items that share the same key are available from most recently to
+   least recently inserted.
+
+   A more efficient approach is to use QHashIterator::findNextKey() or
+   QMutableHashIterator::findNextKey():
+    QHashIterator<QString, int> i(hash);
+    while (i.findNextKey("plenty"))
+        cout << i.value() << endl;
+
+   If you prefer the STL-style iterators, you can call find() to get the
+   iterator for the first item with a key and iterate from there:
+    QMultiHash<QString, int>::iterator i = hash.find("plenty");
+    while (i != hash.end() && i.key() == "plenty") {
+        cout << i.value() << endl;
+        ++i;
+    }
+
+   QMultiHash's key and value data types must be assignable data types.
+   You cannot, for example, store a QWidget as a value; instead, store a
+   QWidget *. In addition, QMultiHash's key type must provide
+   operator==(), and there must also be a global qHash() function that
+   returns a hash value for an argument of the key's type. See the QHash
+   documentation for details.
+
+   See also QHash, QHashIterator, QMutableHashIterator, and QMultiMap.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QMultiHash::QMultiHash ()
+
+   Constructs an empty hash.
+
+  QMultiHash::QMultiHash ( const QHash<Key, T> & other )
+
+   Constructs a copy of other (which can be a QHash or a QMultiHash).
+
+   See also operator=().
+
+  QHash<Key, T>::iterator QMultiHash::insert ( const Key & key, const T & value
+  )
+
+   Inserts a new item with the key key and a value of value.
+
+   If there is already an item with the same key in the hash, this
+   function will simply create a new one. (This behavior is different
+   from replace(), which overwrites the value of an existing item.)
+
+   See also replace().
+
+  QHash<Key, T>::iterator QMultiHash::replace ( const Key & key, const T &
+  value )
+
+   Inserts a new item with the key key and a value of value.
+
+   If there is already an item with the key key, that item's value is
+   replaced with value.
+
+   If there are multiple items with the key key, the most recently
+   inserted item's value is replaced with value.
+
+   See also insert().
+
+  QMultiHash QMultiHash::operator+ ( const QMultiHash & other ) const
+
+   Returns a hash that contains all the items in this hash in addition to
+   all the items in other. If a key is common to both hashes, the
+   resulting hash will contain the key multiple times.
+
+   See also operator+=().
+
+  QMultiHash & QMultiHash::operator+= ( const QMultiHash & other )
+
+   Inserts all the items in the other hash into this hash and returns a
+   reference to this hash.
+
+   See also insert().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

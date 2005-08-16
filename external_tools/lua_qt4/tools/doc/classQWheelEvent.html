@@ -1,0 +1,131 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QWheelEvent Class Reference
+
+   #include <qevent.h>
+
+   Inherits QInputEvent.
+
+   List of all members.
+
+Public Member Functions
+
+     * QWheelEvent (const QPoint &pos, int delta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, Qt::Orientation orient=Qt::Vertical)
+     * QWheelEvent (const QPoint &pos, const QPoint &globalPos, int delta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, Qt::Orientation orient=Qt::Vertical)
+     * ~QWheelEvent ()
+     * int delta () const
+     * const QPoint & pos () const
+     * const QPoint & globalPos () const
+     * int x () const
+     * int y () const
+     * int globalX () const
+     * int globalY () const
+     * Qt::MouseButtons buttons () const
+     * Qt::Orientation orientation () const
+
+Protected Attributes
+
+     * QPoint p
+     * QPoint g
+     * int d
+     * Qt::MouseButtons mouseState
+     * Qt::Orientation o
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QWheelEvent::QWheelEvent (  const QPoint &         pos,
+                               int                    delta,
+                               Qt::MouseButtons       buttons,
+                               Qt::KeyboardModifiers  modifiers,
+                               Qt::Orientation        orient = Qt::Vertical
+                            )
+
+
+
+   QWheelEvent::QWheelEvent (  const QPoint &         pos,
+                               const QPoint &         globalPos,
+                               int                    delta,
+                               Qt::MouseButtons       buttons,
+                               Qt::KeyboardModifiers  modifiers,
+                               Qt::Orientation        orient = Qt::Vertical
+                            )
+
+
+
+   QWheelEvent::~QWheelEvent (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::MouseButtons QWheelEvent::buttons (   )  const [inline]
+
+
+
+   int QWheelEvent::delta (   )  const [inline]
+
+
+
+   const QPoint& QWheelEvent::globalPos (   )  const [inline]
+
+
+
+   int QWheelEvent::globalX (   )  const [inline]
+
+
+
+   int QWheelEvent::globalY (   )  const [inline]
+
+
+
+   Qt::Orientation QWheelEvent::orientation (   )  const [inline]
+
+
+
+   const QPoint& QWheelEvent::pos (   )  const [inline]
+
+
+
+   int QWheelEvent::x (   )  const [inline]
+
+
+
+   int QWheelEvent::y (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int QWheelEvent::d [protected]
+
+
+
+   Reimplemented from QEvent.
+
+   QPoint QWheelEvent::g [protected]
+
+
+
+   Qt::MouseButtons QWheelEvent::mouseState [protected]
+
+
+
+   Qt::Orientation QWheelEvent::o [protected]
+
+
+
+   QPoint QWheelEvent::p [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qevent.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

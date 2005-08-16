@@ -1,0 +1,710 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QSqlDatabase Class Reference
+
+   The QSqlDatabase class represents a connection to a database. More...
+#include <QSqlDatabase>
+
+   Part of the QtSql module.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QSqlDatabase ()
+     * QSqlDatabase ( const QSqlDatabase & other )
+     * ~QSqlDatabase ()
+     * void close ()
+     * bool commit ()
+     * QString connectOptions () const
+     * QString databaseName () const
+     * QSqlDriver * driver () const
+     * QString driverName () const
+     * QSqlQuery exec ( const QString & query = QString() ) const
+     * QString hostName () const
+     * bool isOpen () const
+     * bool isOpenError () const
+     * bool isValid () const
+     * QSqlError lastError () const
+     * bool open ()
+     * bool open ( const QString & user, const QString & password )
+     * QString password () const
+     * int port () const
+     * QSqlIndex primaryIndex ( const QString & tablename ) const
+     * QSqlRecord record ( const QString & tablename ) const
+     * bool rollback ()
+     * void setConnectOptions ( const QString & options = QString() )
+     * void setDatabaseName ( const QString & name )
+     * void setHostName ( const QString & host )
+     * void setPassword ( const QString & password )
+     * void setPort ( int port )
+     * void setUserName ( const QString & name )
+     * QStringList tables ( QSql::TableType type = QSql::Tables ) const
+     * bool transaction ()
+     * QString userName () const
+     * QSqlDatabase & operator= ( const QSqlDatabase & other )
+
+  Static Public Members
+
+     * QSqlDatabase addDatabase ( const QString & type, const QString &
+       connectionName = QLatin1String( defaultConnection ) )
+     * QSqlDatabase addDatabase ( QSqlDriver * driver, const QString &
+       connectionName = QLatin1String( defaultConnection ) )
+     * QSqlDatabase cloneDatabase ( const QSqlDatabase & other, const
+       QString & connectionName )
+     * QStringList connectionNames ()
+     * bool contains ( const QString & connectionName = QLatin1String(
+       defaultConnection ) )
+     * QSqlDatabase database ( const QString & connectionName =
+       QLatin1String( defaultConnection ), bool open = true )
+     * QStringList drivers ()
+     * bool isDriverAvailable ( const QString & name )
+     * void registerSqlDriver ( const QString & name,
+       QSqlDriverCreatorBase * creator )
+     * void removeDatabase ( const QString & connectionName )
+
+  Protected Functions
+
+     * QSqlDatabase ( const QString & type )
+     * QSqlDatabase ( QSqlDriver * driver )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QSqlDatabase class represents a connection to a database.
+
+   The QSqlDatabase class provides an abstract interface for accessing
+   database backends. It relies on database-specific QSqlDrivers to
+   actually access and manipulate data.
+
+   The following code shows how to initialize a connection:
+        QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+        db.setHostName("acidalia");
+        db.setDatabaseName("customdb");
+        db.setUserName("mojito");
+        db.setPassword("J0a1m8");
+        bool ok = db.open();
+
+   Once a QSqlDatabase object has been created you can set the connection
+   parameters with setDatabaseName(), setUserName(), setPassword(),
+   setHostName(), setPort(), and setConnectOptions(). Once the parameters
+   have been set up you can call open() to open the connection.
+
+   The connection defined above is a nameless connection. If is the
+   default connection and can be accessed using database() later on:
+        QSqlDatabase db = QSqlDatabase::database();
+
+   To make programming more convenient, QSqlDatabase is a value class.
+   Any changes done to a database connection through one QSqlDatabase
+   object will affect other QSqlDatabase objects representing the same
+   connection. Call cloneConnection() if you want to create an
+   independent database connection based on an existing one.
+
+   If you need multiple database connections simultaneously, specify an
+   arbitrary name to addDatabase() and database(). Call removeDatabase()
+   to remove connections. QSqlDatabase will output a warning if you try
+   to remove a connection referenced by other QSqlDatabase objects. Use
+   contains() to see if a given connection name is in the list of
+   connections.
+
+   Once a connection is established you can see what tables the database
+   offers with tables(), find the primary index for a table with
+   primaryIndex(), get meta-information about a table's fields (e.g.,
+   their names) with record(), and execute a query with exec().
+
+   If transactions are supported, you can use transaction() to start a
+   transaction, and then commit() or rollback() to complete it. You can
+   find out whether transactions are supported using
+   QSqlDriver::hasFeature().
+
+   If an error occurred, it is given by lastError().
+
+   The names of the underlying SQL drivers are available from drivers();
+   you can check for a particular driver with isDriverAvailable(). If you
+   have created your own custom driver, you can register it with
+   registerSqlDriver().
+
+   See also QSqlDriver and QSqlQuery.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QSqlDatabase::QSqlDatabase ()
+
+   Creates an empty, invalid QSqlDatabase object. Use addDatabase(),
+   removeDatabase(), and database() to get valid QSqlDatabase objects.
+
+  QSqlDatabase::QSqlDatabase ( const QSqlDatabase & other )
+
+   Creates a copy of other.
+
+  QSqlDatabase::QSqlDatabase ( const QString & type )   [protected]
+
+   Creates a QSqlDatabase connection that uses the driver referred to by
+   type. If the type is not recognized, the database connection will have
+   no functionality.
+
+   The currently available driver types are:
+
+          Driver Type                 Description
+             QDB2              IBM DB2, v7.1 and higher
+            QIBASE             Borland Interbase Driver
+            QMYSQL                   MySQL Driver
+             QOCI            Oracle Call Interface Driver
+             QODBC    ODBC Driver (includes Microsoft SQL Server)
+             QPSQL          PostgreSQL v6.x and v7.x Driver
+            QSQLITE            SQLite version 3 or above
+           QSQLITE2                SQLite version 2
+             QTDS               Sybase Adaptive Server
+
+   Additional third party drivers, including your own custom drivers, can
+   be loaded dynamically.
+
+   See also SQL Database Drivers, registerSqlDriver(), and drivers().
+
+  QSqlDatabase::QSqlDatabase ( QSqlDriver * driver )   [protected]
+
+   Creates a database connection using the given driver.
+
+  QSqlDatabase::~QSqlDatabase ()
+
+   Destroys the object and frees any allocated resources.
+
+   If this is the last QSqlDatabase object that uses a certain database
+   connection, the is automatically closed.
+
+   See also close().
+
+  QSqlDatabase QSqlDatabase::addDatabase ( const QString & type, const QString
+  & connectionName = QLatin1String( defaultConnection ) )   [static]
+
+   Adds a database to the list of database connections using the driver
+   type and the connection name connectionName.
+
+   The database connection is referred to by connectionName. The newly
+   added database connection is returned.
+
+   If connectionName is not specified, the newly added database
+   connection becomes the default database connection for the
+   application, and subsequent calls to database() without a database
+   name parameter will return a reference to it. If connectionName is
+   given, use database(connectionName) to retrieve a pointer to the
+   database connection.
+
+   To make use of the connection, you will need to set it up, for example
+   by calling some or all of setDatabaseName(), setUserName(),
+   setPassword(), setHostName(), setPort(), and setConnectOptions(), and
+   then you'll need to open() the connection.
+
+   Note: This function is thread-safe.
+
+   See also database() and removeDatabase().
+
+  QSqlDatabase QSqlDatabase::addDatabase ( QSqlDriver * driver, const QString &
+  connectionName = QLatin1String( defaultConnection ) )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   This function is useful if you need to set up the database connection
+   and instantiate the driver yourself. If you do this, it is recommended
+   that you include the driver code in your own application. For example,
+   setting up a custom PostgreSQL connection and instantiating the QPSQL
+   driver can be done like this:
+    #include "qtdir/src/sql/drivers/psql/qsql_psql.cpp"
+
+   (We assume that qtdir is the directory where Qt is installed.) This
+   will pull in the code that is needed to use the PostgreSQL client
+   library and to instantiate a QPSQLDriver object, assuming that you
+   have the PostgreSQL headers somewhere in your include search path.
+    PGconn *con = PQconnectdb("host=server user=bart password=simpson dbname=sp
+ringfield");
+    QPSQLDriver *drv =  new QPSQLDriver(con);
+    QSqlDatabase db = QSqlDatabase::addDatabase(drv); // becomes the new defaul
+t connection
+    QSqlQuery query;
+    query.exec("SELECT NAME, ID FROM STAFF");
+    ...
+
+   The above code sets up a PostgreSQL connection and instantiates a
+   QPSQLDriver object. Next, addDatabase() is called to add the
+   connection to the known connections so that it can be used by the Qt
+   SQL classes. When a driver is instantiated with a connection handle
+   (or set of handles), Qt assumes that you have already opened the
+   database connection.
+
+   Remember that you must link your application against the database
+   client library as well. The simplest way to do this is to add lines
+   like the ones below to your .pro file:
+    unix:LIBS += -lpq
+    win32:LIBS += libpqdll.lib
+
+   You will need to have the client library in your linker's search path.
+
+   The method described above will work for all the drivers, the only
+   difference is the arguments the driver constructors take. Below is an
+   overview of the drivers and their constructor arguments.
+
+          Driver Class name Constructor arguments File to include
+             QPSQL QPSQLDriver PGconn *connection qsql_psql.cpp
+            QMYSQL QMYSQLDriver MYSQL *connection qsql_mysql.cpp
+       QOCI QOCIDriver OCIEnv *environment, OCISvcCtx *serviceContext
+                                qsql_oci.cpp
+       QODBC QODBCDriver SQLHANDLE environment, SQLHANDLE connection
+                               qsql_odbc.cpp
+     QDB2 QDB2 SQLHANDLE environment, SQLHANDLE connection qsql_db2.cpp
+     QTDS QTDSDriver LOGINREC *loginRecord, DBPROCESS *dbProcess, const
+                       QString &hostName qsql_tds.cpp
+          QSQLITE QSQLiteDriver sqlite *connection qsql_sqlite.cpp
+        QIBASE QIBaseDriver isc_db_handle connection qsql_ibase.cpp
+
+   The host name (or service name) is needed when constructing the
+   QTDSDriver for creating new connections for internal queries. This is
+   to prevent the simultaneous usage of several QSqlQuery/QSqlCursor
+   objects from blocking each other.
+
+   Warning: The SQL framework takes ownership of the driver pointer, and
+   it should not be deleted. If you want to explicitly remove the
+   connection, use removeDatabase().
+
+   See also drivers().
+
+  QSqlDatabase QSqlDatabase::cloneDatabase ( const QSqlDatabase & other, const
+  QString & connectionName )   [static]
+
+   Clones the database connection other and and stores it as
+   connectionName. All the settings from the original database, e.g.
+   databaseName(), hostName(), etc., are copied across. Does nothing if
+   other is an invalid database. Returns the newly created database
+   connection.
+
+   Note that the connection is not opened, to use it, it is neccessary to
+   call open() first.
+
+  void QSqlDatabase::close ()
+
+   Closes the database connection, freeing any resources acquired. This
+   will also affect copies of this QSqlDatabase object.
+
+   See also removeDatabase().
+
+  bool QSqlDatabase::commit ()
+
+   Commits a transaction to the database if the driver supports
+   transactions and a transaction() has been started. Returns true if the
+   operation succeeded; otherwise returns false.
+
+   See also QSqlDriver::hasFeature() and rollback().
+
+  QString QSqlDatabase::connectOptions () const
+
+   Returns the connection options string used for this connection. The
+   string may be empty.
+
+   See also setConnectOptions().
+
+  QStringList QSqlDatabase::connectionNames ()   [static]
+
+   Returns a list containing the names of all connections.
+
+   Note: This function is thread-safe.
+
+   See also contains() and database().
+
+  bool QSqlDatabase::contains ( const QString & connectionName = QLatin1String(
+  defaultConnection ) )   [static]
+
+   Returns true if the list of database connections contains
+   connectionName; otherwise returns false.
+
+   Note: This function is thread-safe.
+
+   See also connectionNames() and database().
+
+  QSqlDatabase QSqlDatabase::database ( const QString & connectionName =
+  QLatin1String( defaultConnection ), bool open = true )   [static]
+
+   Returns the database connection called connectionName. The database
+   connection must have been previously added with addDatabase(). If open
+   is true (the default) and the database connection is not already open
+   it is opened now. If no connectionName is specified the default
+   connection is used. If connectionName does not exist in the list of
+   databases, an invalid connection is returned.
+
+   Note: This function is thread-safe.
+
+   See also isOpen().
+
+  QString QSqlDatabase::databaseName () const
+
+   Returns the connection's database name; it may be empty.
+
+   See also setDatabaseName().
+
+  QSqlDriver * QSqlDatabase::driver () const
+
+   Returns the database driver used to access the database connection.
+
+   See also addDatabase() and drivers().
+
+  QString QSqlDatabase::driverName () const
+
+   Returns the connection's driver name.
+
+   See also addDatabase() and driver().
+
+  QStringList QSqlDatabase::drivers ()   [static]
+
+   Returns a list of all the available database drivers.
+
+   See also registerSqlDriver().
+
+  QSqlQuery QSqlDatabase::exec ( const QString & query = QString() ) const
+
+   Executes a SQL statement on the database and returns a QSqlQuery
+   object. Use lastError() to retrieve error information. If query is
+   empty, an empty, invalid query is returned and lastError() is not
+   affected.
+
+   See also QSqlQuery and lastError().
+
+  QString QSqlDatabase::hostName () const
+
+   Returns the connection's host name. It may be empty.
+
+   See also setHostName().
+
+  bool QSqlDatabase::isDriverAvailable ( const QString & name )   [static]
+
+   Returns true if a driver called name is available; otherwise returns
+   false.
+
+   See also drivers().
+
+  bool QSqlDatabase::isOpen () const
+
+   Returns true if the database connection is currently open; otherwise
+   returns false.
+
+  bool QSqlDatabase::isOpenError () const
+
+   Returns true if there was an error opening the database connection;
+   otherwise returns false. Error information can be retrieved using the
+   lastError() function.
+
+  bool QSqlDatabase::isValid () const
+
+   Returns true if the QSqlDatabase has a valid driver.
+
+   Example:
+    QSqlDatabase db;
+    qDebug() << db.isValid();    // Returns false
+
+    db = QSqlDatabase::database("sales");
+    qDebug() << db.isValid();    // Returns true if "sales" connection exists
+
+    QSqlDatabase::removeDatabase("sales");
+    qDebug() << db.isValid();    // Returns false
+
+  QSqlError QSqlDatabase::lastError () const
+
+   Returns information about the last error that occurred on the
+   database. See QSqlError for more information.
+
+  bool QSqlDatabase::open ()
+
+   Opens the database connection using the current connection values.
+   Returns true on success; otherwise returns false. Error information
+   can be retrieved using lastError().
+
+   See also lastError(), setDatabaseName(), setUserName(), setPassword(),
+   setHostName(), setPort(), and setConnectOptions().
+
+  bool QSqlDatabase::open ( const QString & user, const QString & password )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Opens the database connection using the given user name and password.
+   Returns true on success; otherwise returns false. Error information
+   can be retrieved using the lastError() function.
+
+   This function does not store the password it is given. Instead, the
+   password is passed directly to the driver for opening the connection
+   and it is then discarded.
+
+   See also lastError().
+
+  QString QSqlDatabase::password () const
+
+   Returns the connection's password. If the password was not set with
+   setPassword(), and if the password was given in the open() call, or if
+   no password was used, an empty string is returned.
+
+  int QSqlDatabase::port () const
+
+   Returns the connection's port number. The value is undefined if the
+   port number has not been set.
+
+   See also setPort().
+
+  QSqlIndex QSqlDatabase::primaryIndex ( const QString & tablename ) const
+
+   Returns the primary index for table tablename. If no primary index
+   exists an empty QSqlIndex is returned.
+
+   See also tables() and record().
+
+  QSqlRecord QSqlDatabase::record ( const QString & tablename ) const
+
+   Returns a QSqlRecord populated with the names of all the fields in the
+   table (or view) called tablename. The order in which the fields appear
+   in the record is undefined. If no such table (or view) exists, an
+   empty record is returned.
+
+  void QSqlDatabase::registerSqlDriver ( const QString & name,
+  QSqlDriverCreatorBase * creator )   [static]
+
+   This function registers a new SQL driver called name, within the SQL
+   framework. This is useful if you have a custom SQL driver and don't
+   want to compile it as a plugin.
+
+   Example:
+    QSqlDatabase::registerSqlDriver("MYDRIVER",
+                                    new QSqlDriverCreator<MyDatabaseDriver>);
+    QSqlDatabase db = QSqlDatabase::addDatabase("MYDRIVER");
+
+   QSqlDatabase takes ownership of the creator pointer, so you mustn't
+   delete it yourself.
+
+   See also drivers().
+
+  void QSqlDatabase::removeDatabase ( const QString & connectionName )
+  [static]
+
+   Removes the database connection connectionName from the list of
+   database connections.
+
+   Warning: There should be no open queries on the database connection
+   when this function is called, otherwise a resource leak will occur.
+
+   Example:
+    // WRONG
+    QSqlDatabase db = QSqlDatabase::database("sales");
+    QSqlQuery query("SELECT NAME, DOB FROM EMPLOYEES", db);
+    QSqlDatabase::removeDatabase("sales"); // will output a warning
+
+    // "db" is now a dangling invalid database connection,
+    // "query" contains an invalid result set
+
+   The correct way to do it:
+    {
+        QSqlDatabase db = QSqlDatabase::database("sales");
+        QSqlQuery query("SELECT NAME, DOB FROM EMPLOYEES", db);
+    }
+    // Both "db" and "query" are destroyed because they are out of scope
+    QSqlDatabase::removeDatabase("sales"); // correct
+
+   Note: This function is thread-safe.
+
+   See also database().
+
+  bool QSqlDatabase::rollback ()
+
+   Rolls a transaction back on the database if the driver supports
+   transactions and a transaction() has been started. Returns true if the
+   operation succeeded; otherwise returns false.
+
+   See also QSqlDriver::hasFeature() and commit().
+
+  void QSqlDatabase::setConnectOptions ( const QString & options = QString() )
+
+   Sets database-specific options. This must be done before the
+   connection is opened or it has no effect (or you can close() the
+   connection, call this function and open() the connection again).
+
+   The format of the options string is a semicolon separated list of
+   option names or option=value pairs. The options depend on the database
+   client used:
+
+                           ODBC MySQL PostgreSQL
+     * SQL_ATTR_ACCESS_MODE
+     * SQL_ATTR_LOGIN_TIMEOUT
+     * SQL_ATTR_CONNECTION_TIMEOUT
+     * SQL_ATTR_CURRENT_CATALOG
+     * SQL_ATTR_METADATA_ID
+     * SQL_ATTR_PACKET_SIZE
+     * SQL_ATTR_TRACEFILE
+     * SQL_ATTR_TRACE
+     * SQL_ATTR_CONNECTION_POOLING
+
+     * CLIENT_COMPRESS
+     * CLIENT_FOUND_ROWS
+     * CLIENT_IGNORE_SPACE
+     * CLIENT_SSL
+     * CLIENT_ODBC
+     * CLIENT_NO_SCHEMA
+     * CLIENT_INTERACTIVE
+
+     * connect_timeout
+     * options
+     * tty
+     * requiressl
+     * service
+
+                                DB2 OCI TDS
+     * SQL_ATTR_ACCESS_MODE
+     * SQL_ATTR_LOGIN_TIMEOUT
+
+     * OCI_ATTR_PREFETCH_ROWS
+     * OCI_ATTR_PREFETCH_MEMORY
+
+                                    none
+                                   SQLite
+     * QSQLITE_BUSY_TIMEOUT
+
+   Examples:
+    ...
+    // MySQL connection
+    db.setConnectOptions("CLIENT_SSL;CLIENT_IGNORE_SPACE"); // use an SSL conne
+ction to the server
+    if (!db.open()) {
+        db.setConnectOptions(); // clears the connect option string
+        ...
+    }
+    ...
+    // PostgreSQL connection
+    db.setConnectOptions("requiressl=1"); // enable PostgreSQL SSL connections
+    if (!db.open()) {
+        db.setConnectOptions(); // clear options
+        ...
+    }
+    ...
+    // ODBC connection
+    db.setConnectOptions("SQL_ATTR_ACCESS_MODE=SQL_MODE_READ_ONLY;SQL_ATTR_TRAC
+E=SQL_OPT_TRACE_ON"); // set ODBC options
+    if (!db.open()) {
+        db.setConnectOptions(); // don't try to set this option
+        ...
+    }
+
+   Refer to the client library documentation for more information about
+   the different options.
+
+   See also connectOptions().
+
+  void QSqlDatabase::setDatabaseName ( const QString & name )
+
+   Sets the connection's name to name. This must be done before the
+   connection is opened or it has no effect; (or you can close() the
+   connection, call this function and open() the connection again). The
+   name is database-specific.
+
+   For the QOCI (Oracle) driver, the database name is the TNS Service
+   Name.
+
+   For the QODBC driver, the name can either be a DSN, a DSN filename (in
+   which case the file must have a .dsn extension), or a connection
+   string.
+
+   For example, Microsoft Access users can use the following connection
+   string to open an .mdb file directly, instead of having to create a
+   DSN entry in the ODBC manager:
+    ...
+    db = QSqlDatabase::addDatabase("QODBC");
+    db.setDatabaseName("DRIVER={Microsoft Access Driver (*.mdb)};FIL={MS Access
+};DBQ=myaccessfile.mdb");
+    if (db.open()) {
+        // success!
+    }
+    ...
+
+   There is no default value.
+
+   See also databaseName(), setUserName(), setPassword(), setHostName(),
+   setPort(), setConnectOptions(), and open().
+
+  void QSqlDatabase::setHostName ( const QString & host )
+
+   Sets the connection's host name to host. This must be done before the
+   connection is opened or it has no effect (or you can close() the
+   connection, call this function and open() the connection again).
+
+   There is no default value.
+
+   See also hostName(), setUserName(), setPassword(), setDatabaseName(),
+   setPort(), setConnectOptions(), and open().
+
+  void QSqlDatabase::setPassword ( const QString & password )
+
+   Sets the connection's password to password. This must be done before
+   the connection is opened or it has no effect (or you can close() the
+   connection, call this function and open() the connection again).
+
+   There is no default value.
+
+   Warning: This function stores the password in plain text within Qt.
+   Use the open() call that takes a password as parameter to avoid this
+   behavior.
+
+   See also password(), setUserName(), setDatabaseName(), setHostName(),
+   setPort(), setConnectOptions(), and open().
+
+  void QSqlDatabase::setPort ( int port )
+
+   Sets the connection's port number to port. This must be done before
+   the connection is opened or it has no effect (or you can close() the
+   connection, call this function and open() the connection again).
+
+   There is no default value.
+
+   setDatabaseName() setConnectOptions() open()
+
+   See also port(), setUserName(), setPassword(), and setHostName().
+
+  void QSqlDatabase::setUserName ( const QString & name )
+
+   Sets the connection's user name to name. This must be done before the
+   connection is opened or it has no effect (or you can close() the
+   connection, call this function and open() the connection again).
+
+   There is no default value.
+
+   setPort() setConnectOptions() open()
+
+   See also userName(), setDatabaseName(), setPassword(), and
+   setHostName().
+
+  QStringList QSqlDatabase::tables ( QSql::TableType type = QSql::Tables )
+  const
+
+   Returns a list of the database's tables, system tables and views, as
+   specified by the parameter type.
+
+   See also primaryIndex() and record().
+
+  bool QSqlDatabase::transaction ()
+
+   Begins a transaction on the database if the driver supports
+   transactions. Returns true if the operation succeeded; otherwise
+   returns false.
+
+   See also QSqlDriver::hasFeature(), commit(), and rollback().
+
+  QString QSqlDatabase::userName () const
+
+   Returns the connection's user name; it may be empty.
+
+   See also setUserName().
+
+  QSqlDatabase & QSqlDatabase::operator= ( const QSqlDatabase & other )
+
+   Assigns other to this object.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

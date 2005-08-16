@@ -1,0 +1,265 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QUrlInfo Class Reference
+
+   #include <qurlinfo.h>
+
+   List of all members.
+
+Public Types
+
+     * enum PermissionSpec {
+         ReadOwner = 00400, WriteOwner = 00200, ExeOwner = 00100, ReadGroup = 00040,
+         WriteGroup = 00020, ExeGroup = 00010, ReadOther = 00004, WriteOther = 00002,
+         ExeOther = 00001
+       }
+
+Public Member Functions
+
+     * QUrlInfo ()
+     * QUrlInfo (const QUrlInfo &ui)
+     * QUrlInfo (const QString &name, int permissions, const QString &owner, const QString &group, qint64 size, const QDateTime &lastModified, const QDateTime &lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable)
+     * QUrlInfo (const QUrl &url, int permissions, const QString &owner, const QString &group, qint64 size, const QDateTime &lastModified, const QDateTime &lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable)
+     * QUrlInfo & operator= (const QUrlInfo &ui)
+     * virtual ~QUrlInfo ()
+     * virtual void setName (const QString &name)
+     * virtual void setDir (bool b)
+     * virtual void setFile (bool b)
+     * virtual void setSymLink (bool b)
+     * virtual void setOwner (const QString &s)
+     * virtual void setGroup (const QString &s)
+     * virtual void setSize (qint64 size)
+     * virtual void setWritable (bool b)
+     * virtual void setReadable (bool b)
+     * virtual void setPermissions (int p)
+     * virtual void setLastModified (const QDateTime &dt)
+     * bool isValid () const
+     * QString name () const
+     * int permissions () const
+     * QString owner () const
+     * QString group () const
+     * qint64 size () const
+     * QDateTime lastModified () const
+     * QDateTime lastRead () const
+     * bool isDir () const
+     * bool isFile () const
+     * bool isSymLink () const
+     * bool isWritable () const
+     * bool isReadable () const
+     * bool isExecutable () const
+     * bool operator== (const QUrlInfo &i) const
+
+Static Public Member Functions
+
+     * static bool greaterThan (const QUrlInfo &i1, const QUrlInfo &i2, int sortBy)
+     * static bool lessThan (const QUrlInfo &i1, const QUrlInfo &i2, int sortBy)
+     * static bool equal (const QUrlInfo &i1, const QUrlInfo &i2, int sortBy)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QUrlInfo::PermissionSpec
+
+
+
+   Enumerator: 
+
+          ReadOwner 
+          WriteOwner
+          ExeOwner  
+          ReadGroup 
+          WriteGroup
+          ExeGroup  
+          ReadOther 
+          WriteOther
+          ExeOther  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QUrlInfo::QUrlInfo (   )
+
+
+
+   QUrlInfo::QUrlInfo (  const QUrlInfo &  ui  )
+
+
+
+   QUrlInfo::QUrlInfo (  const QString &    name,
+                         int                permissions,
+                         const QString &    owner,
+                         const QString &    group,
+                         qint64             size,
+                         const QDateTime &  lastModified,
+                         const QDateTime &  lastRead,
+                         bool               isDir,
+                         bool               isFile,
+                         bool               isSymLink,
+                         bool               isWritable,
+                         bool               isReadable,
+                         bool               isExecutable
+                      )
+
+
+
+   QUrlInfo::QUrlInfo (  const QUrl &       url,
+                         int                permissions,
+                         const QString &    owner,
+                         const QString &    group,
+                         qint64             size,
+                         const QDateTime &  lastModified,
+                         const QDateTime &  lastRead,
+                         bool               isDir,
+                         bool               isFile,
+                         bool               isSymLink,
+                         bool               isWritable,
+                         bool               isReadable,
+                         bool               isExecutable
+                      )
+
+
+
+   virtual QUrlInfo::~QUrlInfo (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static bool QUrlInfo::equal (  const QUrlInfo &  i1,
+                                  const QUrlInfo &  i2,
+                                  int               sortBy
+                               )  [static]
+
+
+
+   static bool QUrlInfo::greaterThan (  const QUrlInfo &  i1,
+                                        const QUrlInfo &  i2,
+                                        int               sortBy
+                                     )  [static]
+
+
+
+   QString QUrlInfo::group (   )  const
+
+
+
+   bool QUrlInfo::isDir (   )  const
+
+
+
+   bool QUrlInfo::isExecutable (   )  const
+
+
+
+   bool QUrlInfo::isFile (   )  const
+
+
+
+   bool QUrlInfo::isReadable (   )  const
+
+
+
+   bool QUrlInfo::isSymLink (   )  const
+
+
+
+   bool QUrlInfo::isValid (   )  const
+
+
+
+   bool QUrlInfo::isWritable (   )  const
+
+
+
+   QDateTime QUrlInfo::lastModified (   )  const
+
+
+
+   QDateTime QUrlInfo::lastRead (   )  const
+
+
+
+   static bool QUrlInfo::lessThan (  const QUrlInfo &  i1,
+                                     const QUrlInfo &  i2,
+                                     int               sortBy
+                                  )  [static]
+
+
+
+   QString QUrlInfo::name (   )  const
+
+
+
+   QUrlInfo& QUrlInfo::operator= (  const QUrlInfo &  ui  )
+
+
+
+   bool QUrlInfo::operator== (  const QUrlInfo &  i  )  const
+
+
+
+   QString QUrlInfo::owner (   )  const
+
+
+
+   int QUrlInfo::permissions (   )  const
+
+
+
+   virtual void QUrlInfo::setDir (  bool  b  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setFile (  bool  b  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setGroup (  const QString &  s  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setLastModified (  const QDateTime &  dt  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setName (  const QString &  name  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setOwner (  const QString &  s  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setPermissions (  int  p  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setReadable (  bool  b  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setSize (  qint64  size  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setSymLink (  bool  b  )  [virtual]
+
+
+
+   virtual void QUrlInfo::setWritable (  bool  b  )  [virtual]
+
+
+
+   qint64 QUrlInfo::size (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qurlinfo.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,336 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3CanvasItem Class Reference
+
+   #include <q3canvas.h>
+
+   Inherited by Q3CanvasPolygonalItem, Q3CanvasSprite, and Q3CanvasText.
+
+   List of all members.
+
+Public Types
+
+     * enum RttiValues {
+         Rtti_Item = 0, Rtti_Sprite = 1, Rtti_PolygonalItem = 2, Rtti_Text = 3,
+         Rtti_Polygon = 4, Rtti_Rectangle = 5, Rtti_Ellipse = 6, Rtti_Line = 7,
+         Rtti_Spline = 8
+       }
+
+Public Member Functions
+
+     * Q3CanvasItem (Q3Canvas *canvas)
+     * virtual ~Q3CanvasItem ()
+     * double x () const
+     * double y () const
+     * double z () const
+     * virtual void moveBy (double dx, double dy)
+     * void move (double x, double y)
+     * void setX (double a)
+     * void setY (double a)
+     * void setZ (double a)
+     * bool animated () const
+     * virtual void setAnimated (bool y)
+     * virtual void setVelocity (double vx, double vy)
+     * void setXVelocity (double vx)
+     * void setYVelocity (double vy)
+     * double xVelocity () const
+     * double yVelocity () const
+     * virtual void advance (int stage)
+     * virtual bool collidesWith (const Q3CanvasItem *) const =0
+     * Q3CanvasItemList collisions (bool exact) const
+     * virtual void setCanvas (Q3Canvas *)
+     * virtual void draw (QPainter &)=0
+     * void show ()
+     * void hide ()
+     * virtual void setVisible (bool yes)
+     * bool isVisible () const
+     * virtual void setSelected (bool yes)
+     * bool isSelected () const
+     * virtual void setEnabled (bool yes)
+     * bool isEnabled () const
+     * virtual void setActive (bool yes)
+     * bool isActive () const
+     * bool visible () const
+     * bool selected () const
+     * bool enabled () const
+     * bool active () const
+     * virtual int rtti () const
+     * virtual QRect boundingRect () const =0
+     * virtual QRect boundingRectAdvanced () const
+     * Q3Canvas * canvas () const
+
+Static Public Attributes
+
+     * static int RTTI
+
+Protected Member Functions
+
+     * void update ()
+
+Friends
+
+     * class Q3CanvasPolygonalItem
+     * class Q3CanvasSprite
+     * class Q3CanvasRectangle
+     * class Q3CanvasPolygon
+     * class Q3CanvasEllipse
+     * class Q3CanvasText
+     * class Q3CanvasLine
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3CanvasItem::RttiValues
+
+
+
+   Enumerator: 
+
+          Rtti_Item         
+          Rtti_Sprite       
+          Rtti_PolygonalItem
+          Rtti_Text         
+          Rtti_Polygon      
+          Rtti_Rectangle    
+          Rtti_Ellipse      
+          Rtti_Line         
+          Rtti_Spline       
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasItem::Q3CanvasItem (  Q3Canvas *  canvas  )
+
+
+
+   virtual Q3CanvasItem::~Q3CanvasItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool Q3CanvasItem::active (   )  const [inline]
+
+
+
+   virtual void Q3CanvasItem::advance (  int  stage  )  [virtual]
+
+
+
+   Reimplemented in Q3CanvasSprite.
+
+   bool Q3CanvasItem::animated (   )  const
+
+
+
+   virtual QRect Q3CanvasItem::boundingRect (   )  const [pure virtual]
+
+
+
+   Implemented in Q3CanvasSprite, Q3CanvasPolygonalItem, and Q3CanvasText.
+
+   virtual QRect Q3CanvasItem::boundingRectAdvanced (   )  const [virtual]
+
+
+
+   Q3Canvas* Q3CanvasItem::canvas (   )  const [inline]
+
+
+
+   virtual bool Q3CanvasItem::collidesWith (  const Q3CanvasItem *   )  const [pure virtual]
+
+
+
+   Implemented in Q3CanvasSprite, Q3CanvasPolygonalItem, Q3CanvasRectangle, Q3CanvasEllipse, and Q3CanvasText.
+
+   Q3CanvasItemList Q3CanvasItem::collisions (  bool  exact  )  const
+
+
+
+   virtual void Q3CanvasItem::draw (  QPainter &   )  [pure virtual]
+
+
+
+   Implemented in Q3CanvasSprite, Q3CanvasPolygonalItem, and Q3CanvasText.
+
+   bool Q3CanvasItem::enabled (   )  const [inline]
+
+
+
+   void Q3CanvasItem::hide (   )
+
+
+
+   bool Q3CanvasItem::isActive (   )  const [inline]
+
+
+
+   bool Q3CanvasItem::isEnabled (   )  const [inline]
+
+
+
+   bool Q3CanvasItem::isSelected (   )  const [inline]
+
+
+
+   bool Q3CanvasItem::isVisible (   )  const [inline]
+
+
+
+   void Q3CanvasItem::move (  double  x,
+                              double  y
+                           )
+
+
+
+   Reimplemented in Q3CanvasSprite.
+
+   virtual void Q3CanvasItem::moveBy (  double  dx,
+                                        double  dy
+                                     )  [virtual]
+
+
+
+   Reimplemented in Q3CanvasPolygon, Q3CanvasLine, and Q3CanvasText.
+
+   virtual int Q3CanvasItem::rtti (   )  const [virtual]
+
+
+
+   Reimplemented in Q3CanvasSprite, Q3CanvasPolygonalItem, Q3CanvasRectangle, Q3CanvasPolygon, Q3CanvasSpline, Q3CanvasLine, Q3CanvasEllipse, and Q3CanvasText.
+
+   bool Q3CanvasItem::selected (   )  const [inline]
+
+
+
+   virtual void Q3CanvasItem::setActive (  bool  yes  )  [virtual]
+
+
+
+   virtual void Q3CanvasItem::setAnimated (  bool  y  )  [virtual]
+
+
+
+   virtual void Q3CanvasItem::setCanvas (  Q3Canvas *   )  [virtual]
+
+
+
+   virtual void Q3CanvasItem::setEnabled (  bool  yes  )  [virtual]
+
+
+
+   virtual void Q3CanvasItem::setSelected (  bool  yes  )  [virtual]
+
+
+
+   virtual void Q3CanvasItem::setVelocity (  double  vx,
+                                             double  vy
+                                          )  [virtual]
+
+
+
+   virtual void Q3CanvasItem::setVisible (  bool  yes  )  [virtual]
+
+
+
+   void Q3CanvasItem::setX (  double  a  )  [inline]
+
+
+
+   void Q3CanvasItem::setXVelocity (  double  vx  )  [inline]
+
+
+
+   void Q3CanvasItem::setY (  double  a  )  [inline]
+
+
+
+   void Q3CanvasItem::setYVelocity (  double  vy  )  [inline]
+
+
+
+   void Q3CanvasItem::setZ (  double  a  )  [inline]
+
+
+
+   void Q3CanvasItem::show (   )
+
+
+
+   void Q3CanvasItem::update (   )  [inline, protected]
+
+
+
+   bool Q3CanvasItem::visible (   )  const [inline]
+
+
+
+   double Q3CanvasItem::x (   )  const [inline]
+
+
+
+   double Q3CanvasItem::xVelocity (   )  const
+
+
+
+   double Q3CanvasItem::y (   )  const [inline]
+
+
+
+   double Q3CanvasItem::yVelocity (   )  const
+
+
+
+   double Q3CanvasItem::z (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3CanvasEllipse [friend]
+
+
+
+   friend class Q3CanvasLine [friend]
+
+
+
+   friend class Q3CanvasPolygon [friend]
+
+
+
+   friend class Q3CanvasPolygonalItem [friend]
+
+
+
+   friend class Q3CanvasRectangle [friend]
+
+
+
+   friend class Q3CanvasSprite [friend]
+
+
+
+   friend class Q3CanvasText [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3CanvasItem::RTTI [static]
+
+
+
+   Reimplemented in Q3CanvasSprite, Q3CanvasPolygonalItem, Q3CanvasRectangle, Q3CanvasPolygon, Q3CanvasSpline, Q3CanvasLine, Q3CanvasEllipse, and Q3CanvasText.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

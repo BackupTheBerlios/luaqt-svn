@@ -1,0 +1,130 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QTextFrameFormat Class Reference
+
+   #include <qtextformat.h>
+
+   Inherits QTextFormat.
+
+   Inherited by QTextTableFormat.
+
+   List of all members.
+
+Public Types
+
+     * enum Position { InFlow, FloatLeft, FloatRight }
+
+Public Member Functions
+
+     * QTextFrameFormat ()
+     * bool isValid () const
+     * void setPosition (Position f)
+     * Position position () const
+     * void setBorder (qreal border)
+     * qreal border () const
+     * void setMargin (qreal margin)
+     * qreal margin () const
+     * void setPadding (qreal padding)
+     * qreal padding () const
+     * void setWidth (qreal width)
+     * void setWidth (const QTextLength &length)
+     * QTextLength width () const
+     * void setHeight (qreal height)
+     * void setHeight (const QTextLength &height)
+     * QTextLength height () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextFrameFormat::Position
+
+
+
+   Enumerator: 
+
+          InFlow    
+          FloatLeft 
+          FloatRight
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextFrameFormat::QTextFrameFormat (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   qreal QTextFrameFormat::border (   )  const [inline]
+
+
+
+   QTextLength QTextFrameFormat::height (   )  const [inline]
+
+
+
+   bool QTextFrameFormat::isValid (   )  const [inline]
+
+
+
+   Reimplemented from QTextFormat.
+
+   Reimplemented in QTextTableFormat.
+
+   qreal QTextFrameFormat::margin (   )  const [inline]
+
+
+
+   qreal QTextFrameFormat::padding (   )  const [inline]
+
+
+
+   Position QTextFrameFormat::position (   )  const [inline]
+
+
+
+   void QTextFrameFormat::setBorder (  qreal  border  )  [inline]
+
+
+
+   void QTextFrameFormat::setHeight (  const QTextLength &  height  )  [inline]
+
+
+
+   void QTextFrameFormat::setHeight (  qreal  height  )  [inline]
+
+
+
+   void QTextFrameFormat::setMargin (  qreal  margin  )  [inline]
+
+
+
+   void QTextFrameFormat::setPadding (  qreal  padding  )  [inline]
+
+
+
+   void QTextFrameFormat::setPosition (  Position  f  )  [inline]
+
+
+
+   void QTextFrameFormat::setWidth (  const QTextLength &  length  )  [inline]
+
+
+
+   void QTextFrameFormat::setWidth (  qreal  width  )  [inline]
+
+
+
+   QTextLength QTextFrameFormat::width (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextformat.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,77 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QInputDialog Class Reference
+
+   #include <qinputdialog.h>
+
+   Inherits QDialog.
+
+   List of all members.
+
+Static Public Member Functions
+
+     * static QString getText (QWidget *parent, const QString &title, const QString &label, QLineEdit::EchoMode echo=QLineEdit::Normal, const QString &text=QString(), bool *ok=0, Qt::WFlags f=0)
+     * static int getInteger (QWidget *parent, const QString &title, const QString &label, int value=0, int minValue=-2147483647, int maxValue=2147483647, int step=1, bool *ok=0, Qt::WFlags f=0)
+     * static double getDouble (QWidget *parent, const QString &title, const QString &label, double value=0, double minValue=-2147483647, double maxValue=2147483647, int decimals=1, bool *ok=0, Qt::WFlags f=0)
+     * static QString getItem (QWidget *parent, const QString &title, const QString &label, const QStringList &list, int current=0, bool editable=true, bool *ok=0, Qt::WFlags f=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static double QInputDialog::getDouble (  QWidget *        parent,
+                                            const QString &  title,
+                                            const QString &  label,
+                                            double           value = 0,
+                                            double           minValue = -2147483647,
+                                            double           maxValue = 2147483647,
+                                            int              decimals = 1,
+                                            bool *           ok = 0,
+                                            Qt::WFlags       f = 0
+                                         )  [static]
+
+
+
+   static int QInputDialog::getInteger (  QWidget *        parent,
+                                          const QString &  title,
+                                          const QString &  label,
+                                          int              value = 0,
+                                          int              minValue = -2147483647,
+                                          int              maxValue = 2147483647,
+                                          int              step = 1,
+                                          bool *           ok = 0,
+                                          Qt::WFlags       f = 0
+                                       )  [static]
+
+
+
+   static QString QInputDialog::getItem (  QWidget *            parent,
+                                           const QString &      title,
+                                           const QString &      label,
+                                           const QStringList &  list,
+                                           int                  current = 0,
+                                           bool                 editable = true,
+                                           bool *               ok = 0,
+                                           Qt::WFlags           f = 0
+                                        )  [static]
+
+
+
+   static QString QInputDialog::getText (  QWidget *            parent,
+                                           const QString &      title,
+                                           const QString &      label,
+                                           QLineEdit::EchoMode  echo = QLineEdit::Normal,
+                                           const QString &      text = QString(),
+                                           bool *               ok = 0,
+                                           Qt::WFlags           f = 0
+                                        )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qinputdialog.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

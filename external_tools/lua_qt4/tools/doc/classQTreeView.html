@@ -1,0 +1,473 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QTreeView Class Reference
+
+   #include <qtreeview.h>
+
+   Inherits QAbstractItemView.
+
+   Inherited by QTreeWidget.
+
+   List of all members.
+
+Public Slots
+
+     * void dataChanged (const QModelIndex &topLeft, const QModelIndex &bottomRight)
+     * void hideColumn (int column)
+     * void showColumn (int column)
+     * void expand (const QModelIndex &index)
+     * void collapse (const QModelIndex &index)
+     * void resizeColumnToContents (int column)
+     * void sortByColumn (int column)
+     * void selectAll ()
+
+Signals
+
+     * void expanded (const QModelIndex &index)
+     * void collapsed (const QModelIndex &index)
+
+Public Member Functions
+
+     * QTreeView (QWidget *parent=0)
+     * ~QTreeView ()
+     * void setModel (QAbstractItemModel *model)
+     * void setRootIndex (const QModelIndex &index)
+     * void setSelectionModel (QItemSelectionModel *selectionModel)
+     * QHeaderView * header () const
+     * void setHeader (QHeaderView *header)
+     * int indentation () const
+     * void setIndentation (int i)
+     * bool rootIsDecorated () const
+     * void setRootIsDecorated (bool show)
+     * bool uniformRowHeights () const
+     * void setUniformRowHeights (bool uniform)
+     * bool itemsExpandable () const
+     * void setItemsExpandable (bool enable)
+     * int columnViewportPosition (int column) const
+     * int columnWidth (int column) const
+     * int columnAt (int x) const
+     * bool isColumnHidden (int column) const
+     * void setColumnHidden (int column, bool hide)
+     * bool isRowHidden (int row, const QModelIndex &parent) const
+     * void setRowHidden (int row, const QModelIndex &parent, bool hide)
+     * bool isExpanded (const QModelIndex &index) const
+     * void setExpanded (const QModelIndex &index, bool expand)
+     * QRect visualRect (const QModelIndex &index) const
+     * void scrollTo (const QModelIndex &index, ScrollHint hint=EnsureVisible)
+     * QModelIndex indexAt (const QPoint &p) const
+     * QModelIndex indexAbove (const QModelIndex &index) const
+     * QModelIndex indexBelow (const QModelIndex &index) const
+     * void doItemsLayout ()
+     * void reset ()
+
+Protected Slots
+
+     * void columnResized (int column, int oldSize, int newSize)
+     * void columnCountChanged (int oldCount, int newCount)
+     * void columnMoved ()
+     * void reexpand ()
+
+Protected Member Functions
+
+     * QTreeView (QTreeViewPrivate &dd, QWidget *parent=0)
+     * void scrollContentsBy (int dx, int dy)
+     * void rowsInserted (const QModelIndex &parent, int start, int end)
+     * void rowsAboutToBeRemoved (const QModelIndex &parent, int start, int end)
+     * QModelIndex moveCursor (CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
+     * int horizontalOffset () const
+     * int verticalOffset () const
+     * void setSelection (const QRect &rect, QItemSelectionModel::SelectionFlags command)
+     * QRegion visualRegionForSelection (const QItemSelection &selection) const
+     * QModelIndexList selectedIndexes () const
+     * void paintEvent (QPaintEvent *e)
+     * virtual void drawRow (QPainter *painter, const QStyleOptionViewItem &options, const QModelIndex &index) const
+     * virtual void drawBranches (QPainter *painter, const QRect &rect, const QModelIndex &index) const
+     * void mousePressEvent (QMouseEvent *e)
+     * void mouseDoubleClickEvent (QMouseEvent *e)
+     * void updateGeometries ()
+     * int sizeHintForColumn (int column) const
+     * int indexRowSizeHint (const QModelIndex &index) const
+     * bool isIndexHidden (const QModelIndex &index) const
+
+Properties
+
+     * int indentation
+     * bool rootIsDecorated
+     * bool uniformRowHeights
+     * bool itemsExpandable
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTreeView::QTreeView (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QTreeView::~QTreeView (   )
+
+
+
+   QTreeView::QTreeView (  QTreeViewPrivate &  dd,
+                           QWidget *           parent = 0
+                        )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QTreeView::collapse (  const QModelIndex &  index  )  [slot]
+
+
+
+   void QTreeView::collapsed (  const QModelIndex &  index  )  [signal]
+
+
+
+   int QTreeView::columnAt (  int  x  )  const
+
+
+
+   void QTreeView::columnCountChanged (  int  oldCount,
+                                         int  newCount
+                                      )  [protected, slot]
+
+
+
+   void QTreeView::columnMoved (   )  [protected, slot]
+
+
+
+   void QTreeView::columnResized (  int  column,
+                                    int  oldSize,
+                                    int  newSize
+                                 )  [protected, slot]
+
+
+
+   int QTreeView::columnViewportPosition (  int  column  )  const
+
+
+
+   int QTreeView::columnWidth (  int  column  )  const
+
+
+
+   void QTreeView::dataChanged (  const QModelIndex &  topLeft,
+                                  const QModelIndex &  bottomRight
+                               )  [virtual, slot]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::doItemsLayout (   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   virtual void QTreeView::drawBranches (  QPainter *           painter,
+                                           const QRect &        rect,
+                                           const QModelIndex &  index
+                                        )  const [protected, virtual]
+
+
+
+   virtual void QTreeView::drawRow (  QPainter *                    painter,
+                                      const QStyleOptionViewItem &  options,
+                                      const QModelIndex &           index
+                                   )  const [protected, virtual]
+
+
+
+   void QTreeView::expand (  const QModelIndex &  index  )  [slot]
+
+
+
+   void QTreeView::expanded (  const QModelIndex &  index  )  [signal]
+
+
+
+   QHeaderView* QTreeView::header (   )  const
+
+
+
+   void QTreeView::hideColumn (  int  column  )  [slot]
+
+
+
+   int QTreeView::horizontalOffset (   )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   int QTreeView::indentation (   )  const
+
+
+
+   QModelIndex QTreeView::indexAbove (  const QModelIndex &  index  )  const
+
+
+
+   QModelIndex QTreeView::indexAt (  const QPoint &  p  )  const [virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   QModelIndex QTreeView::indexBelow (  const QModelIndex &  index  )  const
+
+
+
+   int QTreeView::indexRowSizeHint (  const QModelIndex &  index  )  const [protected]
+
+
+
+   bool QTreeView::isColumnHidden (  int  column  )  const
+
+
+
+   bool QTreeView::isExpanded (  const QModelIndex &  index  )  const
+
+
+
+   bool QTreeView::isIndexHidden (  const QModelIndex &  index  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   bool QTreeView::isRowHidden (  int                  row,
+                                  const QModelIndex &  parent
+                               )  const
+
+
+
+   bool QTreeView::itemsExpandable (   )  const
+
+
+
+   void QTreeView::mouseDoubleClickEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::mousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   QModelIndex QTreeView::moveCursor (  CursorAction           cursorAction,
+                                        Qt::KeyboardModifiers  modifiers
+                                     )  [protected]
+
+
+
+   void QTreeView::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QTreeView::reexpand (   )  [protected, slot]
+
+
+
+   void QTreeView::reset (   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::resizeColumnToContents (  int  column  )  [slot]
+
+
+
+   bool QTreeView::rootIsDecorated (   )  const
+
+
+
+   void QTreeView::rowsAboutToBeRemoved (  const QModelIndex &  parent,
+                                           int                  start,
+                                           int                  end
+                                        )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::rowsInserted (  const QModelIndex &  parent,
+                                   int                  start,
+                                   int                  end
+                                )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::scrollContentsBy (  int  dx,
+                                       int  dy
+                                    )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QTreeView::scrollTo (  const QModelIndex &  index,
+                               ScrollHint           hint = EnsureVisible
+                            )  [virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QTreeView::selectAll (   )  [virtual, slot]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   QModelIndexList QTreeView::selectedIndexes (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::setColumnHidden (  int   column,
+                                      bool  hide
+                                   )
+
+
+
+   void QTreeView::setExpanded (  const QModelIndex &  index,
+                                  bool                 expand
+                               )
+
+
+
+   void QTreeView::setHeader (  QHeaderView *  header  )
+
+
+
+   void QTreeView::setIndentation (  int  i  )
+
+
+
+   void QTreeView::setItemsExpandable (  bool  enable  )
+
+
+
+   void QTreeView::setModel (  QAbstractItemModel *  model  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::setRootIndex (  const QModelIndex &  index  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::setRootIsDecorated (  bool  show  )
+
+
+
+   void QTreeView::setRowHidden (  int                  row,
+                                   const QModelIndex &  parent,
+                                   bool                 hide
+                                )
+
+
+
+   void QTreeView::setSelection (  const QRect &                        rect,
+                                   QItemSelectionModel::SelectionFlags  command
+                                )  [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QTreeView::setSelectionModel (  QItemSelectionModel *  selectionModel  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::setUniformRowHeights (  bool  uniform  )
+
+
+
+   void QTreeView::showColumn (  int  column  )  [slot]
+
+
+
+   int QTreeView::sizeHintForColumn (  int  column  )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QTreeView::sortByColumn (  int  column  )  [slot]
+
+
+
+   bool QTreeView::uniformRowHeights (   )  const
+
+
+
+   void QTreeView::updateGeometries (   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   int QTreeView::verticalOffset (   )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   QRect QTreeView::visualRect (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   QRegion QTreeView::visualRegionForSelection (  const QItemSelection &  selection  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QTreeView::indentation [read, write]
+
+
+
+   bool QTreeView::itemsExpandable [read, write]
+
+
+
+   bool QTreeView::rootIsDecorated [read, write]
+
+
+
+   bool QTreeView::uniformRowHeights [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtreeview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

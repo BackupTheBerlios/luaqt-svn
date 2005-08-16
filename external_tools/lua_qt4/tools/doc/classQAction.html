@@ -1,0 +1,413 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QAction Class Reference
+
+   #include <qaction.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * enum ActionEvent { Trigger, Hover }
+
+Public Slots
+
+     * void trigger ()
+     * void hover ()
+     * void setChecked (bool)
+     * void toggle ()
+     * void setEnabled (bool)
+     * void setDisabled (bool b)
+     * void setVisible (bool)
+
+Signals
+
+     * void changed ()
+     * void triggered (bool checked=false)
+     * void hovered ()
+     * void toggled (bool)
+
+Public Member Functions
+
+     * QAction (QObject *parent)
+     * QAction (const QString &text, QObject *parent)
+     * QAction (const QIcon &icon, const QString &text, QObject *parent)
+     * ~QAction ()
+     * void setActionGroup (QActionGroup *group)
+     * QActionGroup * actionGroup () const
+     * void setIcon (const QIcon &icon)
+     * QIcon icon () const
+     * void setText (const QString &text)
+     * QString text () const
+     * void setIconText (const QString &text)
+     * QString iconText () const
+     * void setToolTip (const QString &tip)
+     * QString toolTip () const
+     * void setStatusTip (const QString &statusTip)
+     * QString statusTip () const
+     * void setWhatsThis (const QString &what)
+     * QString whatsThis () const
+     * QMenu * menu () const
+     * void setMenu (QMenu *menu)
+     * void setSeparator (bool b)
+     * bool isSeparator () const
+     * void setShortcut (const QKeySequence &shortcut)
+     * QKeySequence shortcut () const
+     * void setShortcutContext (Qt::ShortcutContext context)
+     * Qt::ShortcutContext shortcutContext () const
+     * void setFont (const QFont &font)
+     * QFont font () const
+     * void setCheckable (bool)
+     * bool isCheckable () const
+     * QVariant data () const
+     * void setData (const QVariant &var)
+     * bool isChecked () const
+     * bool isEnabled () const
+     * bool isVisible () const
+     * void activate (ActionEvent event)
+     * bool showStatusText (QWidget *widget=0)
+     * QWidget * parentWidget () const
+
+Protected Member Functions
+
+     * bool event (QEvent *)
+
+Properties
+
+     * bool checkable
+     * bool checked
+     * bool enabled
+     * QIcon icon
+     * QString text
+     * QString iconText
+     * QString toolTip
+     * QString statusTip
+     * QString whatsThis
+     * QKeySequence shortcut
+     * QFont font
+     * Qt ShortcutContext
+     * bool visible
+
+Friends
+
+     * class QWidget
+     * class QActionGroup
+     * class QMenu
+     * class QMenuBar
+     * class QShortcutMap
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QAction::ActionEvent
+
+
+
+   Enumerator: 
+
+          Trigger
+          Hover  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAction::QAction (  QObject *  parent  )  [explicit]
+
+
+
+   QAction::QAction (  const QString &  text,
+                       QObject *        parent
+                    )
+
+
+
+   QAction::QAction (  const QIcon &    icon,
+                       const QString &  text,
+                       QObject *        parent
+                    )
+
+
+
+   QAction::~QAction (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QActionGroup* QAction::actionGroup (   )  const
+
+
+
+   void QAction::activate (  ActionEvent  event  )
+
+
+
+   void QAction::changed (   )  [signal]
+
+
+
+   QVariant QAction::data (   )  const
+
+
+
+   bool QAction::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   QFont QAction::font (   )  const
+
+
+
+   void QAction::hover (   )  [inline, slot]
+
+
+
+   void QAction::hovered (   )  [signal]
+
+
+
+   QIcon QAction::icon (   )  const
+
+
+
+   QString QAction::iconText (   )  const
+
+
+
+   bool QAction::isCheckable (   )  const
+
+
+
+   bool QAction::isChecked (   )  const
+
+
+
+   bool QAction::isEnabled (   )  const
+
+
+
+   bool QAction::isSeparator (   )  const
+
+
+
+   bool QAction::isVisible (   )  const
+
+
+
+   QMenu* QAction::menu (   )  const
+
+
+
+   QWidget* QAction::parentWidget (   )  const
+
+
+
+   void QAction::setActionGroup (  QActionGroup *  group  )
+
+
+
+   void QAction::setCheckable (  bool   )
+
+
+
+   void QAction::setChecked (  bool   )  [slot]
+
+
+
+   void QAction::setData (  const QVariant &  var  )
+
+
+
+   void QAction::setDisabled (  bool  b  )  [inline, slot]
+
+
+
+   void QAction::setEnabled (  bool   )  [slot]
+
+
+
+   void QAction::setFont (  const QFont &  font  )
+
+
+
+   void QAction::setIcon (  const QIcon &  icon  )
+
+
+
+   void QAction::setIconText (  const QString &  text  )
+
+
+
+   void QAction::setMenu (  QMenu *  menu  )
+
+
+
+   void QAction::setSeparator (  bool  b  )
+
+
+
+   void QAction::setShortcut (  const QKeySequence &  shortcut  )
+
+
+
+   void QAction::setShortcutContext (  Qt::ShortcutContext  context  )
+
+
+
+   void QAction::setStatusTip (  const QString &  statusTip  )
+
+
+
+   void QAction::setText (  const QString &  text  )
+
+
+
+   void QAction::setToolTip (  const QString &  tip  )
+
+
+
+   void QAction::setVisible (  bool   )  [slot]
+
+
+
+   void QAction::setWhatsThis (  const QString &  what  )
+
+
+
+   QKeySequence QAction::shortcut (   )  const
+
+
+
+   Qt::ShortcutContext QAction::shortcutContext (   )  const
+
+
+
+   bool QAction::showStatusText (  QWidget *  widget = 0  )
+
+
+
+   QString QAction::statusTip (   )  const
+
+
+
+   QString QAction::text (   )  const
+
+
+
+   void QAction::toggle (   )  [slot]
+
+
+
+   void QAction::toggled (  bool   )  [signal]
+
+
+
+   QString QAction::toolTip (   )  const
+
+
+
+   void QAction::trigger (   )  [inline, slot]
+
+
+
+   void QAction::triggered (  bool  checked = false  )  [signal]
+
+
+
+   QString QAction::whatsThis (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QActionGroup [friend]
+
+
+
+   friend class QMenu [friend]
+
+
+
+   friend class QMenuBar [friend]
+
+
+
+   friend class QShortcutMap [friend]
+
+
+
+   friend class QWidget [friend]
+
+
+
+   Reimplemented from QObject.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QAction::checkable [read, write]
+
+
+
+   bool QAction::checked [read, write]
+
+
+
+   bool QAction::enabled [read, write]
+
+
+
+   QFont QAction::font [read, write]
+
+
+
+   QIcon QAction::icon [read, write]
+
+
+
+   QString QAction::iconText [read, write]
+
+
+
+   QKeySequence QAction::shortcut [read, write]
+
+
+
+   Qt QAction::ShortcutContext [read, write]
+
+
+
+   QString QAction::statusTip [read, write]
+
+
+
+   QString QAction::text [read, write]
+
+
+
+   QString QAction::toolTip [read, write]
+
+
+
+   bool QAction::visible [read, write]
+
+
+
+   QString QAction::whatsThis [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qaction.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

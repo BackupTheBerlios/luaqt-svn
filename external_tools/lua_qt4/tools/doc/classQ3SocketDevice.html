@@ -1,0 +1,329 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3SocketDevice Class Reference
+
+   #include <q3socketdevice.h>
+
+   Inherits QIODevice.
+
+   List of all members.
+
+Public Types
+
+     * enum Type { Stream, Datagram }
+     * enum Protocol { IPv4, IPv6, Unknown }
+     * enum Error {
+         NoError, AlreadyBound, Inaccessible, NoResources,
+         InternalError, Bug = InternalError, Impossible, NoFiles,
+         ConnectionRefused, NetworkFailure, UnknownError
+       }
+
+Public Member Functions
+
+     * Q3SocketDevice (Type type=Stream)
+     * Q3SocketDevice (Type type, Protocol protocol, int dummy)
+     * Q3SocketDevice (int socket, Type type)
+     * virtual ~Q3SocketDevice ()
+     * bool isValid () const
+     * Type type () const
+     * Protocol protocol () const
+     * int socket () const
+     * virtual void setSocket (int socket, Type type)
+     * bool open (int mode)
+     * void close ()
+     * bool flush ()
+     * Offset size () const
+     * Offset at () const
+     * bool at (Offset)
+     * bool atEnd () const
+     * bool blocking () const
+     * virtual void setBlocking (bool)
+     * bool addressReusable () const
+     * virtual void setAddressReusable (bool)
+     * int receiveBufferSize () const
+     * virtual void setReceiveBufferSize (uint)
+     * int sendBufferSize () const
+     * virtual void setSendBufferSize (uint)
+     * virtual bool connect (const QHostAddress &, Q_UINT16)
+     * virtual bool bind (const QHostAddress &, Q_UINT16)
+     * virtual bool listen (int backlog)
+     * virtual int accept ()
+     * qint64 bytesAvailable () const
+     * Q_LONG waitForMore (int msecs, bool *timeout=0) const
+     * virtual Q_LONG writeBlock (const char *data, Q_ULONG len, const QHostAddress &host, Q_UINT16 port)
+     * Q_LONG writeBlock (const char *data, Q_ULONG len)
+     * qint64 readBlock (char *data, Q_ULONG maxlen)
+     * Q_UINT16 port () const
+     * Q_UINT16 peerPort () const
+     * QHostAddress address () const
+     * QHostAddress peerAddress () const
+     * Error error () const
+     * bool isSequential () const
+
+Protected Member Functions
+
+     * void setError (Error err)
+     * qint64 readData (char *data, qint64 maxlen)
+     * qint64 writeData (const char *data, qint64 len)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3SocketDevice::Error
+
+
+
+   Enumerator: 
+
+          NoError          
+          AlreadyBound     
+          Inaccessible     
+          NoResources      
+          InternalError    
+          Bug              
+          Impossible       
+          NoFiles          
+          ConnectionRefused
+          NetworkFailure   
+          UnknownError     
+
+   enum Q3SocketDevice::Protocol
+
+
+
+   Enumerator: 
+
+          IPv4   
+          IPv6   
+          Unknown
+
+   enum Q3SocketDevice::Type
+
+
+
+   Enumerator: 
+
+          Stream  
+          Datagram
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3SocketDevice::Q3SocketDevice (  Type  type = Stream  )
+
+
+
+   Q3SocketDevice::Q3SocketDevice (  Type      type,
+                                     Protocol  protocol,
+                                     int       dummy
+                                  )
+
+
+
+   Q3SocketDevice::Q3SocketDevice (  int   socket,
+                                     Type  type
+                                  )
+
+
+
+   virtual Q3SocketDevice::~Q3SocketDevice (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual int Q3SocketDevice::accept (   )  [virtual]
+
+
+
+   QHostAddress Q3SocketDevice::address (   )  const
+
+
+
+   bool Q3SocketDevice::addressReusable (   )  const
+
+
+
+   bool Q3SocketDevice::at (  Offset   )
+
+
+
+   Offset Q3SocketDevice::at (   )  const
+
+
+
+   bool Q3SocketDevice::atEnd (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   virtual bool Q3SocketDevice::bind (  const QHostAddress &  ,
+                                        Q_UINT16            
+                                     )  [virtual]
+
+
+
+   bool Q3SocketDevice::blocking (   )  const
+
+
+
+   qint64 Q3SocketDevice::bytesAvailable (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void Q3SocketDevice::close (   )  [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   virtual bool Q3SocketDevice::connect (  const QHostAddress &  ,
+                                           Q_UINT16            
+                                        )  [virtual]
+
+
+
+   Error Q3SocketDevice::error (   )  const
+
+
+
+   bool Q3SocketDevice::flush (   )
+
+
+
+   bool Q3SocketDevice::isSequential (   )  const [inline, virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   bool Q3SocketDevice::isValid (   )  const
+
+
+
+   virtual bool Q3SocketDevice::listen (  int  backlog  )  [virtual]
+
+
+
+   bool Q3SocketDevice::open (  int  mode  )
+
+
+
+   QHostAddress Q3SocketDevice::peerAddress (   )  const
+
+
+
+   Q_UINT16 Q3SocketDevice::peerPort (   )  const
+
+
+
+   Q_UINT16 Q3SocketDevice::port (   )  const
+
+
+
+   Protocol Q3SocketDevice::protocol (   )  const
+
+
+
+   qint64 Q3SocketDevice::readBlock (  char *   data,
+                                       Q_ULONG  maxlen
+                                    )  [inline]
+
+
+
+   qint64 Q3SocketDevice::readData (  char *  data,
+                                      qint64  maxlen
+                                   )  [protected, virtual]
+
+
+
+   Implements QIODevice.
+
+   int Q3SocketDevice::receiveBufferSize (   )  const
+
+
+
+   int Q3SocketDevice::sendBufferSize (   )  const
+
+
+
+   virtual void Q3SocketDevice::setAddressReusable (  bool   )  [virtual]
+
+
+
+   virtual void Q3SocketDevice::setBlocking (  bool   )  [virtual]
+
+
+
+   void Q3SocketDevice::setError (  Error  err  )  [protected]
+
+
+
+   virtual void Q3SocketDevice::setReceiveBufferSize (  uint   )  [virtual]
+
+
+
+   virtual void Q3SocketDevice::setSendBufferSize (  uint   )  [virtual]
+
+
+
+   virtual void Q3SocketDevice::setSocket (  int   socket,
+                                             Type  type
+                                          )  [virtual]
+
+
+
+   Offset Q3SocketDevice::size (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   int Q3SocketDevice::socket (   )  const
+
+
+
+   Type Q3SocketDevice::type (   )  const
+
+
+
+   Q_LONG Q3SocketDevice::waitForMore (  int     msecs,
+                                         bool *  timeout = 0
+                                      )  const
+
+
+
+   Q_LONG Q3SocketDevice::writeBlock (  const char *  data,
+                                        Q_ULONG       len
+                                     )  [inline]
+
+
+
+   virtual Q_LONG Q3SocketDevice::writeBlock (  const char *          data,
+                                                Q_ULONG               len,
+                                                const QHostAddress &  host,
+                                                Q_UINT16              port
+                                             )  [virtual]
+
+
+
+   qint64 Q3SocketDevice::writeData (  const char *  data,
+                                       qint64        len
+                                    )  [protected, virtual]
+
+
+
+   Implements QIODevice.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3socketdevice.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

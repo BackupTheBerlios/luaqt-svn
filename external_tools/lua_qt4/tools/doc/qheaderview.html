@@ -1,0 +1,548 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QHeaderView Class Reference
+
+   The QHeaderView class provides a header row or header column for item
+   views. More...
+#include <QHeaderView>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractItemView.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum ResizeMode { Interactive, Stretch, Custom }
+
+  Properties
+
+     * highlightSections : bool
+     * showSortIndicator : bool
+     * stretchLastSection : bool
+
+     * 10 properties inherited from QAbstractItemView
+     * 2 properties inherited from QAbstractScrollArea
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QHeaderView ( Qt::Orientation orientation, QWidget * parent = 0 )
+     * virtual ~QHeaderView ()
+     * int count () const
+     * void hideSection ( int logicalIndex )
+     * bool highlightSections () const
+     * bool isClickable () const
+     * bool isMovable () const
+     * bool isSectionHidden ( int logicalIndex ) const
+     * bool isSortIndicatorShown () const
+     * int length () const
+     * int logicalIndex ( int visualIndex ) const
+     * int logicalIndexAt ( int position ) const
+     * int logicalIndexAt ( int x, int y ) const
+     * int logicalIndexAt ( const QPoint & pos ) const
+     * void moveSection ( int from, int to )
+     * int offset () const
+     * Qt::Orientation orientation () const
+     * ResizeMode resizeMode ( int logicalIndex ) const
+     * void resizeSection ( int logicalIndex, int size )
+     * int sectionPosition ( int logicalIndex ) const
+     * int sectionSize ( int logicalIndex ) const
+     * int sectionSizeHint ( int logicalIndex ) const
+     * int sectionViewportPosition ( int logicalIndex ) const
+     * bool sectionsMoved () const
+     * void setClickable ( bool clickable )
+     * void setHighlightSections ( bool highlight )
+     * void setMovable ( bool movable )
+     * void setResizeMode ( ResizeMode mode )
+     * void setResizeMode ( int logicalIndex, ResizeMode mode )
+     * void setSectionHidden ( int logicalIndex, bool hide )
+     * void setSortIndicator ( int logicalIndex, Qt::SortOrder order )
+     * void setSortIndicatorShown ( bool show )
+     * void setStretchLastSection ( bool stretch )
+     * void showSection ( int logicalIndex )
+     * virtual QSize sizeHint () const
+     * Qt::SortOrder sortIndicatorOrder () const
+     * int sortIndicatorSection () const
+     * bool stretchLastSection () const
+     * int visualIndex ( int logicalIndex ) const
+     * int visualIndexAt ( int position ) const
+
+     * 37 public functions inherited from QAbstractItemView
+     * 8 public functions inherited from QAbstractScrollArea
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void headerDataChanged ( Qt::Orientation orientation, int
+       logicalFirst, int logicalLast )
+     * void setOffset ( int offset )
+
+     * 6 public slots inherited from QAbstractItemView
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void sectionAutoResize ( int logicalIndex, ResizeMode mode )
+     * void sectionClicked ( int logicalIndex )
+     * void sectionCountChanged ( int oldCount, int newCount )
+     * void sectionDoubleClicked ( int logicalIndex )
+     * void sectionHandleDoubleClicked ( int logicalIndex )
+     * void sectionMoved ( int logicalIndex, int oldVisualIndex, int
+       newVisualIndex )
+     * void sectionPressed ( int logicalIndex )
+     * void sectionResized ( int logicalIndex, int oldSize, int newSize )
+
+     * 6 signals inherited from QAbstractItemView
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * virtual int horizontalOffset () const
+     * virtual void paintSection ( QPainter * painter, const QRect &
+       rect, int logicalIndex ) const
+     * virtual QSize sectionSizeFromContents ( int logicalIndex ) const
+     * virtual int verticalOffset () const
+
+     * 35 protected functions inherited from QAbstractItemView
+     * 17 protected functions inherited from QAbstractScrollArea
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Protected Slots
+
+     * void sectionsAboutToBeRemoved ( const QModelIndex & parent, int
+       logicalFirst, int logicalLast )
+     * void sectionsInserted ( const QModelIndex & parent, int
+       logicalFirst, int logicalLast )
+
+     * 8 protected slots inherited from QAbstractItemView
+
+  Additional Inherited Members
+
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QHeaderView class provides a header row or header column for item
+   views.
+
+   A QHeaderView displays the headers used in item views such as the
+   QTableView and QTreeView classes. It takes the place of the QHeader
+   class previously used for the same purpose, but uses the Qt's
+   model/view architecture for consistency with the item view classes.
+
+   The QHeaderView class is one of the Model/View Classes and is part of
+   Qt's model/view framework.
+
+   Each header has an orientation() and a number of sections, given by
+   the count() function. Sections can be moved and resized using
+   moveSection() and resizeSection(); they can be hidden and shown with
+   hideSection() and showSection().
+
+   Each section of a header is described by a section ID, specified by
+   its section(), and can be located at a particular visualIndex() in the
+   header. A section can have a sort indicator set with
+   setSortIndicator(); this indicates whether the items in the associated
+   item view will be sorted in the order given by the section.
+
+   A header can be fixed in place, or made movable with setMovable(). It
+   can be made clickable with setClickable(), and has resizing behavior
+   in accordance with setResizeMode().
+
+   A header emits sectionMoved() if the user moves a section,
+   sectionResized() if the user resizes a section, and sectionClicked()
+   and sectionHandleDoubleClicked() in response to mouse clicks. A header
+   also emits sectionCountChanged() and sectionAutoResize().
+
+   You can identify a section using the section() and sectionAt()
+   functions, or by its index position, using the visualIndex() and
+   visualIndexAt() functions. Note that the visual index can change if a
+   section is moved.
+
+   For a horizontal header the section is equivalent to a column in the
+   model, and for a vertical header the section is equivalent to a row in
+   the model.
+
+   See also Model/View Programming, QListView, QTableView, and QTreeView.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QHeaderView::ResizeMode
+
+   Constant Value Description
+   QHeaderView::Interactive 0 Don't automatically change the size (let
+   the user do it manually).
+   QHeaderView::Stretch 1 Fill all the available visible space.
+   QHeaderView::Custom 2 Don't automatically change the size here, leave
+   it to some other object.
+     _________________________________________________________________
+
+Property Documentation
+
+  highlightSections : bool
+
+   This property holds whether the sections containing selected items are
+   highlighted.
+
+   Access functions:
+     * bool highlightSections () const
+     * void setHighlightSections ( bool highlight )
+
+  showSortIndicator : bool
+
+   This property holds whether the sort indicator is shown.
+
+   Access functions:
+     * bool isSortIndicatorShown () const
+     * void setSortIndicatorShown ( bool show )
+
+  stretchLastSection : bool
+
+   This property holds whether the last section in the header takes up
+   all the available space.
+
+   Access functions:
+     * bool stretchLastSection () const
+     * void setStretchLastSection ( bool stretch )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QHeaderView::QHeaderView ( Qt::Orientation orientation, QWidget * parent = 0
+  )
+
+   Creates a new generic header with the given orientation and parent.
+
+  QHeaderView::~QHeaderView ()   [virtual]
+
+   Destroys the header.
+
+  int QHeaderView::count () const
+
+   Returns the number of sections in the header.
+
+  void QHeaderView::headerDataChanged ( Qt::Orientation orientation, int
+  logicalFirst, int logicalLast )   [slot]
+
+   Updates the changed header sections with the given orientation, from
+   logicalFirst to logicalLast inclusive.
+
+  void QHeaderView::hideSection ( int logicalIndex )
+
+   Hides the section specified by logicalIndex.
+
+   See also showSection().
+
+  int QHeaderView::horizontalOffset () const   [virtual protected]
+
+   Returns the horizontal offset of the header. This is 0 for vertical
+   headers.
+
+   Reimplemented from QAbstractItemView.
+
+   See also offset().
+
+  bool QHeaderView::isClickable () const
+
+   Returns true if the header is clickable; otherwise returns false. A
+   clickable header could be set up to allow the user to change the
+   representation of the data in the view related to the header.
+
+   See also setClickable().
+
+  bool QHeaderView::isMovable () const
+
+   Returns true if the header can be moved by the user; otherwise returns
+   false.
+
+   See also setMovable().
+
+  bool QHeaderView::isSectionHidden ( int logicalIndex ) const
+
+   Returns true if the section specified by logicalIndex is explicitly
+   hidden from the user; otherwise returns false.
+
+  int QHeaderView::length () const
+
+   Returns the length along the orientation of the header.
+
+   See also sizeHint().
+
+  int QHeaderView::logicalIndex ( int visualIndex ) const
+
+   Returns the logicalIndex for the section at the given visualIndex
+   position, or -1 otherwise.
+
+   See also visualIndex() and sectionPosition().
+
+  int QHeaderView::logicalIndexAt ( int position ) const
+
+   Returns the section that covers the given position in the viewport.
+
+  int QHeaderView::logicalIndexAt ( int x, int y ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the logical index of the section at the given coordinate. If
+   the header is horizontal x will be used, otherwise y will be used to
+   find the logical index.
+
+  int QHeaderView::logicalIndexAt ( const QPoint & pos ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the logical index of the section at the position given in pos.
+   If the header is horizontal the x-coordinate will be used to find the
+   logical index; otherwise the y-coordinate will be used.
+
+  void QHeaderView::moveSection ( int from, int to )
+
+   Moves the section at visual index from to occupy visual index to.
+
+  int QHeaderView::offset () const
+
+   Returns the offset of the header: this is the header's left-most (or
+   top-most for vertical headers) visible pixel.
+
+   See also setOffset().
+
+  Qt::Orientation QHeaderView::orientation () const
+
+   Returns the orientation of the header.
+
+   See also Qt::Orientation.
+
+  void QHeaderView::paintSection ( QPainter * painter, const QRect & rect, int
+  logicalIndex ) const   [virtual protected]
+
+   Paints the section specified by the given logicalIndex, using the
+   given painter and rect.
+
+   You normally would not need to use this function.
+
+  ResizeMode QHeaderView::resizeMode ( int logicalIndex ) const
+
+   Returns the resize mode that applies to the section specified by the
+   given logicalIndex.
+
+  void QHeaderView::resizeSection ( int logicalIndex, int size )
+
+   Resizes the given logicalIndex to the given size.
+
+  void QHeaderView::sectionAutoResize ( int logicalIndex, ResizeMode mode )
+  [signal]
+
+   This signal is emitted when a section is automatically resized. The
+   section's logical index is specified by logicalIndex, and the resize
+   mode by mode.
+
+  void QHeaderView::sectionClicked ( int logicalIndex )   [signal]
+
+   This signal is emitted when a section is clicked. The section's
+   logical index is specified by logicalIndex.
+
+  void QHeaderView::sectionCountChanged ( int oldCount, int newCount )
+  [signal]
+
+   This signal is emitted when the number of sections changes; i.e. when
+   sections are added or deleted. The original count is specified by
+   oldCount, and the new count by newCount.
+
+  void QHeaderView::sectionDoubleClicked ( int logicalIndex )   [signal]
+
+   This signal is emitted when a section is double-clicked. The section's
+   logical index is specified by logicalIndex.
+
+  void QHeaderView::sectionHandleDoubleClicked ( int logicalIndex )   [signal]
+
+   This signal is emitted when a section is double-clicked. The section's
+   logical index is specified by logicalIndex.
+
+  void QHeaderView::sectionMoved ( int logicalIndex, int oldVisualIndex, int
+  newVisualIndex )   [signal]
+
+   This signal is emitted when a section is moved. The section's logical
+   index is specified by logicalIndex, the old index by oldVisualIndex,
+   and the new index position by newVisualIndex.
+
+  int QHeaderView::sectionPosition ( int logicalIndex ) const
+
+   Returns the section position of the given logicalIndex.
+
+   See also sectionViewportPosition().
+
+  void QHeaderView::sectionPressed ( int logicalIndex )   [signal]
+
+   This signal is emitted when a section is pressed. The section's
+   logical index is specified by logicalIndex.
+
+  void QHeaderView::sectionResized ( int logicalIndex, int oldSize, int newSize
+  )   [signal]
+
+   This signal is emitted when a section is resized. The section's
+   logical number is specified by logicalIndex, the old size by oldSize,
+   and the new size by newSize.
+
+  int QHeaderView::sectionSize ( int logicalIndex ) const
+
+   Returns the width (or height for vertical headers) of the given
+   logicalIndex.
+
+  QSize QHeaderView::sectionSizeFromContents ( int logicalIndex ) const
+  [virtual protected]
+
+   Returns the size of the contents of the section specified by the give
+   logicalIndex.
+
+  int QHeaderView::sectionSizeHint ( int logicalIndex ) const
+
+   Returns a suitable size hint for the section specified by
+   logicalIndex.
+
+   See also sizeHint().
+
+  int QHeaderView::sectionViewportPosition ( int logicalIndex ) const
+
+   Returns the section viewport position of the given logicalIndex.
+
+   See also sectionPosition().
+
+  void QHeaderView::sectionsAboutToBeRemoved ( const QModelIndex & parent, int
+  logicalFirst, int logicalLast )   [protected slot]
+
+   This slot is called when sections are removed from the parent,
+   logicalFirst and logicalLast signify where the sections are removed
+   from. (logicalFirst and logicalLast will be the same if just one
+   section is removed.)
+
+  void QHeaderView::sectionsInserted ( const QModelIndex & parent, int
+  logicalFirst, int logicalLast )   [protected slot]
+
+   This slot is called when sections are inserted into the parent,
+   logicalFirst and logicalLast indexes signify where the new sections
+   are inserted.
+
+   logicalFirst and logicalLast will be the same if just one section is
+   inserted.
+
+  bool QHeaderView::sectionsMoved () const
+
+   Returns true if sections in the header has been moved; otherwise
+   returns false;
+
+  void QHeaderView::setClickable ( bool clickable )
+
+   If clickable is true, the header will respond to single clicks.
+
+   See also isClickable().
+
+  void QHeaderView::setMovable ( bool movable )
+
+   If movable is true, the header may be moved by the user; otherwise it
+   is fixed in place.
+
+   See also isMovable().
+
+  void QHeaderView::setOffset ( int offset )   [slot]
+
+   Sets the header's offset to offset.
+
+   See also offset().
+
+  void QHeaderView::setResizeMode ( ResizeMode mode )
+
+   Sets the constraints on how the header can be resized to those
+   described by the given mode.
+
+  void QHeaderView::setResizeMode ( int logicalIndex, ResizeMode mode )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Sets the constraints on how the section specified by logicalIndex in
+   the header can be resized to those described by the given mode.
+
+  void QHeaderView::setSectionHidden ( int logicalIndex, bool hide )
+
+   If hide is true the section specified by logicalIndex is hidden,
+   otherwise the section is shown.
+
+  void QHeaderView::setSortIndicator ( int logicalIndex, Qt::SortOrder order )
+
+   Sets the sort indicator for the section specified by the given
+   logicalIndex in the direction specified by order, and removes the sort
+   indicator from any other section that was showing it.
+
+   See also sortIndicatorSection() and sortIndicatorOrder().
+
+  void QHeaderView::showSection ( int logicalIndex )
+
+   Shows the section specified by logicalIndex.
+
+   See also hideSection().
+
+  QSize QHeaderView::sizeHint () const   [virtual]
+
+   Returns a suitable size hint for this header.
+
+   Reimplemented from QWidget.
+
+   See also sectionSizeHint().
+
+  Qt::SortOrder QHeaderView::sortIndicatorOrder () const
+
+   Returns the order for the sort indicator. If no section has a sort
+   indicator the return value of this function is undefined.
+
+   See also setSortIndicator() and sortIndicatorSection().
+
+  int QHeaderView::sortIndicatorSection () const
+
+   Returns the logical index of the section that has a sort indicator. By
+   default this is section 0.
+
+   See also setSortIndicator(), sortIndicatorOrder(), and
+   setSortIndicatorShown().
+
+  int QHeaderView::verticalOffset () const   [virtual protected]
+
+   Returns the vertical offset of the header. This is 0 for horizontal
+   headers.
+
+   Reimplemented from QAbstractItemView.
+
+   See also offset().
+
+  int QHeaderView::visualIndex ( int logicalIndex ) const
+
+   Returns the visual index position of the section specified by the
+   given logicalIndex, or -1 otherwise.
+
+   See also logicalIndex().
+
+  int QHeaderView::visualIndexAt ( int position ) const
+
+   Returns the visual index of the section that covers the given position
+   in the viewport.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

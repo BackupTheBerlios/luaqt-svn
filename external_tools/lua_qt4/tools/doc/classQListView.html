@@ -1,0 +1,501 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QListView Class Reference
+
+   #include <qlistview.h>
+
+   Inherits QAbstractItemView.
+
+   Inherited by QListWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum Movement { Static, Free, Snap }
+     * enum Flow { LeftToRight, TopToBottom }
+     * enum ResizeMode { Fixed, Adjust }
+     * enum LayoutMode { SinglePass, Batched }
+     * enum ViewMode { ListMode, IconMode }
+
+Public Member Functions
+
+     * QListView (QWidget *parent=0)
+     * ~QListView ()
+     * void setMovement (Movement movement)
+     * Movement movement () const
+     * void setFlow (Flow flow)
+     * Flow flow () const
+     * void setWrapping (bool enable)
+     * bool isWrapping () const
+     * void setResizeMode (ResizeMode mode)
+     * ResizeMode resizeMode () const
+     * void setLayoutMode (LayoutMode mode)
+     * LayoutMode layoutMode () const
+     * void setSpacing (int space)
+     * int spacing () const
+     * void setGridSize (const QSize &size)
+     * QSize gridSize () const
+     * void setViewMode (ViewMode mode)
+     * ViewMode viewMode () const
+     * void clearPropertyFlags ()
+     * bool isRowHidden (int row) const
+     * void setRowHidden (int row, bool hide)
+     * void setModelColumn (int column)
+     * int modelColumn () const
+     * QRect visualRect (const QModelIndex &index) const
+     * void scrollTo (const QModelIndex &index, ScrollHint hint=EnsureVisible)
+     * QModelIndex indexAt (const QPoint &p) const
+     * void doItemsLayout ()
+     * void reset ()
+     * void setRootIndex (const QModelIndex &index)
+
+Protected Member Functions
+
+     * QListView (QListViewPrivate &, QWidget *parent=0)
+     * void scrollContentsBy (int dx, int dy)
+     * void resizeContents (int width, int height)
+     * QSize contentsSize () const
+     * void dataChanged (const QModelIndex &topLeft, const QModelIndex &bottomRight)
+     * void rowsInserted (const QModelIndex &parent, int start, int end)
+     * void rowsAboutToBeRemoved (const QModelIndex &parent, int start, int end)
+     * void mouseMoveEvent (QMouseEvent *e)
+     * void mouseReleaseEvent (QMouseEvent *e)
+     * void timerEvent (QTimerEvent *e)
+     * void resizeEvent (QResizeEvent *e)
+     * void dragMoveEvent (QDragMoveEvent *e)
+     * void dragLeaveEvent (QDragLeaveEvent *e)
+     * void dropEvent (QDropEvent *e)
+     * void startDrag (Qt::DropActions supportedActions)
+     * void internalDrop (QDropEvent *e)
+     * void internalDrag (Qt::DropActions supportedActions)
+     * QStyleOptionViewItem viewOptions () const
+     * void paintEvent (QPaintEvent *e)
+     * int horizontalOffset () const
+     * int verticalOffset () const
+     * QModelIndex moveCursor (CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
+     * QRect rectForIndex (const QModelIndex &index) const
+     * void setSelection (const QRect &rect, QItemSelectionModel::SelectionFlags command)
+     * QRegion visualRegionForSelection (const QItemSelection &selection) const
+     * QModelIndexList selectedIndexes () const
+     * void updateGeometries ()
+     * bool isIndexHidden (const QModelIndex &index) const
+
+Properties
+
+     * Movement movement
+     * Flow flow
+     * bool isWrapping
+     * ResizeMode resizeMode
+     * LayoutMode layoutMode
+     * int spacing
+     * QSize gridSize
+     * ViewMode viewMode
+     * int modelColumn
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QListView::Flow
+
+
+
+   Enumerator: 
+
+          LeftToRight
+          TopToBottom
+
+   enum QListView::LayoutMode
+
+
+
+   Enumerator: 
+
+          SinglePass
+          Batched   
+
+   enum QListView::Movement
+
+
+
+   Enumerator: 
+
+          Static
+          Free  
+          Snap  
+
+   enum QListView::ResizeMode
+
+
+
+   Enumerator: 
+
+          Fixed 
+          Adjust
+
+   enum QListView::ViewMode
+
+
+
+   Enumerator: 
+
+          ListMode
+          IconMode
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QListView::QListView (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QListView::~QListView (   )
+
+
+
+   QListView::QListView (  QListViewPrivate &  ,
+                           QWidget *           parent = 0
+                        )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QListView::clearPropertyFlags (   )
+
+
+
+   QSize QListView::contentsSize (   )  const [protected]
+
+
+
+   void QListView::dataChanged (  const QModelIndex &  topLeft,
+                                  const QModelIndex &  bottomRight
+                               )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::doItemsLayout (   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::dragLeaveEvent (  QDragLeaveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::dragMoveEvent (  QDragMoveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::dropEvent (  QDropEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   Flow QListView::flow (   )  const
+
+
+
+   QSize QListView::gridSize (   )  const
+
+
+
+   int QListView::horizontalOffset (   )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   QModelIndex QListView::indexAt (  const QPoint &  p  )  const [virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QListView::internalDrag (  Qt::DropActions  supportedActions  )  [protected]
+
+
+
+   void QListView::internalDrop (  QDropEvent *  e  )  [protected]
+
+
+
+   bool QListView::isIndexHidden (  const QModelIndex &  index  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   bool QListView::isRowHidden (  int  row  )  const
+
+
+
+   bool QListView::isWrapping (   )  const
+
+
+
+   LayoutMode QListView::layoutMode (   )  const
+
+
+
+   int QListView::modelColumn (   )  const
+
+
+
+   void QListView::mouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::mouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   QModelIndex QListView::moveCursor (  CursorAction           cursorAction,
+                                        Qt::KeyboardModifiers  modifiers
+                                     )  [protected]
+
+
+
+   Movement QListView::movement (   )  const
+
+
+
+   void QListView::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   QRect QListView::rectForIndex (  const QModelIndex &  index  )  const [protected]
+
+
+
+   void QListView::reset (   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::resizeContents (  int  width,
+                                     int  height
+                                  )  [protected]
+
+
+
+   void QListView::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   ResizeMode QListView::resizeMode (   )  const
+
+
+
+   void QListView::rowsAboutToBeRemoved (  const QModelIndex &  parent,
+                                           int                  start,
+                                           int                  end
+                                        )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::rowsInserted (  const QModelIndex &  parent,
+                                   int                  start,
+                                   int                  end
+                                )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::scrollContentsBy (  int  dx,
+                                       int  dy
+                                    )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QListView::scrollTo (  const QModelIndex &  index,
+                               ScrollHint           hint = EnsureVisible
+                            )  [virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   QModelIndexList QListView::selectedIndexes (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::setFlow (  Flow  flow  )
+
+
+
+   void QListView::setGridSize (  const QSize &  size  )
+
+
+
+   void QListView::setLayoutMode (  LayoutMode  mode  )
+
+
+
+   void QListView::setModelColumn (  int  column  )
+
+
+
+   void QListView::setMovement (  Movement  movement  )
+
+
+
+   void QListView::setResizeMode (  ResizeMode  mode  )
+
+
+
+   void QListView::setRootIndex (  const QModelIndex &  index  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::setRowHidden (  int   row,
+                                   bool  hide
+                                )
+
+
+
+   void QListView::setSelection (  const QRect &                        rect,
+                                   QItemSelectionModel::SelectionFlags  command
+                                )  [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   void QListView::setSpacing (  int  space  )
+
+
+
+   void QListView::setViewMode (  ViewMode  mode  )
+
+
+
+   void QListView::setWrapping (  bool  enable  )
+
+
+
+   int QListView::spacing (   )  const
+
+
+
+   void QListView::startDrag (  Qt::DropActions  supportedActions  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::timerEvent (  QTimerEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   void QListView::updateGeometries (   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   int QListView::verticalOffset (   )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   ViewMode QListView::viewMode (   )  const
+
+
+
+   QStyleOptionViewItem QListView::viewOptions (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractItemView.
+
+   QRect QListView::visualRect (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Implements QAbstractItemView.
+
+   QRegion QListView::visualRegionForSelection (  const QItemSelection &  selection  )  const [protected, virtual]
+
+
+
+   Implements QAbstractItemView.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Flow QListView::flow [read, write]
+
+
+
+   QSize QListView::gridSize [read, write]
+
+
+
+   bool QListView::isWrapping [read, write]
+
+
+
+   LayoutMode QListView::layoutMode [read, write]
+
+
+
+   int QListView::modelColumn [read, write]
+
+
+
+   Movement QListView::movement [read, write]
+
+
+
+   ResizeMode QListView::resizeMode [read, write]
+
+
+
+   int QListView::spacing [read, write]
+
+
+
+   ViewMode QListView::viewMode [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlistview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

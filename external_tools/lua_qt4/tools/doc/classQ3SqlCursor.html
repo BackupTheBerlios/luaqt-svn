@@ -1,0 +1,490 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3SqlCursor Class Reference
+
+   #include <q3sqlcursor.h>
+
+   Inherits QSqlRecord, and QSqlQuery.
+
+   Inherited by Q3SqlSelectCursor.
+
+   List of all members.
+
+Public Types
+
+     * enum Mode {
+         ReadOnly = 0, Insert = 1, Update = 2, Delete = 4,
+         Writable = 7
+       }
+
+Public Member Functions
+
+     * Q3SqlCursor (const QString &name=QString(), bool autopopulate=true, QSqlDatabase db=QSqlDatabase())
+     * Q3SqlCursor (const Q3SqlCursor &other)
+     * Q3SqlCursor & operator= (const Q3SqlCursor &other)
+     * virtual ~Q3SqlCursor ()
+     * QVariant value (int i) const
+     * QVariant value (const QString &name) const
+     * virtual void setValue (int i, const QVariant &val)
+     * void setValue (const QString &name, const QVariant &val)
+     * virtual QSqlIndex primaryIndex (bool prime=true) const
+     * virtual QSqlIndex index (const QStringList &fieldNames) const
+     * QSqlIndex index (const QString &fieldName) const
+     * virtual void setPrimaryIndex (const QSqlIndex &idx)
+     * virtual void append (const Q3SqlFieldInfo &fieldInfo)
+     * virtual void insert (int pos, const Q3SqlFieldInfo &fieldInfo)
+     * virtual void remove (int pos)
+     * virtual void clear ()
+     * virtual void setGenerated (const QString &name, bool generated)
+     * virtual void setGenerated (int i, bool generated)
+     * virtual QSqlRecord * editBuffer (bool copy=false)
+     * virtual QSqlRecord * primeInsert ()
+     * virtual QSqlRecord * primeUpdate ()
+     * virtual QSqlRecord * primeDelete ()
+     * virtual int insert (bool invalidate=true)
+     * virtual int update (bool invalidate=true)
+     * virtual int del (bool invalidate=true)
+     * virtual void setMode (int flags)
+     * int mode () const
+     * virtual void setCalculated (const QString &name, bool calculated)
+     * bool isCalculated (const QString &name) const
+     * virtual void setTrimmed (const QString &name, bool trim)
+     * bool isTrimmed (const QString &name) const
+     * bool isReadOnly () const
+     * bool canInsert () const
+     * bool canUpdate () const
+     * bool canDelete () const
+     * bool select ()
+     * bool select (const QSqlIndex &sort)
+     * bool select (const QSqlIndex &filter, const QSqlIndex &sort)
+     * virtual bool select (const QString &filter, const QSqlIndex &sort=QSqlIndex())
+     * virtual void setSort (const QSqlIndex &sort)
+     * QSqlIndex sort () const
+     * virtual void setFilter (const QString &filter)
+     * QString filter () const
+     * virtual void setName (const QString &name, bool autopopulate=true)
+     * QString name () const
+     * QString toString (const QString &prefix=QString(), const QString &sep=",") const
+     * bool isNull (int i) const
+     * bool isNull (const QString &name) const
+     * virtual bool seek (int i, bool relative=false)
+     * virtual bool next ()
+     * bool previous ()
+     * virtual bool prev ()
+     * virtual bool first ()
+     * virtual bool last ()
+
+Protected Member Functions
+
+     * virtual bool exec (const QString &sql)
+     * virtual QVariant calculateField (const QString &name)
+     * virtual int update (const QString &filter, bool invalidate=true)
+     * virtual int del (const QString &filter, bool invalidate=true)
+     * virtual QString toString (const QString &prefix, QSqlField *field, const QString &fieldSep) const
+     * virtual QString toString (QSqlRecord *rec, const QString &prefix, const QString &fieldSep, const QString &sep) const
+     * virtual QString toString (const QSqlIndex &i, QSqlRecord *rec, const QString &prefix, const QString &fieldSep, const QString &sep) const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3SqlCursor::Mode
+
+
+
+   Enumerator: 
+
+          ReadOnly
+          Insert  
+          Update  
+          Delete  
+          Writable
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3SqlCursor::Q3SqlCursor (  const QString &  name = QString(),
+                               bool             autopopulate = true,
+                               QSqlDatabase     db = QSqlDatabase()
+                            )
+
+
+
+   Q3SqlCursor::Q3SqlCursor (  const Q3SqlCursor &  other  )
+
+
+
+   virtual Q3SqlCursor::~Q3SqlCursor (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3SqlCursor::append (  const Q3SqlFieldInfo &  fieldInfo  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual QVariant Q3SqlCursor::calculateField (  const QString &  name  )  [protected, virtual]
+
+
+
+   bool Q3SqlCursor::canDelete (   )  const
+
+
+
+   bool Q3SqlCursor::canInsert (   )  const
+
+
+
+   bool Q3SqlCursor::canUpdate (   )  const
+
+
+
+   virtual void Q3SqlCursor::clear (   )  [virtual]
+
+
+
+   Reimplemented from QSqlQuery.
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual int Q3SqlCursor::del (  const QString &  filter,
+                                   bool             invalidate = true
+                                )  [protected, virtual]
+
+
+
+   virtual int Q3SqlCursor::del (  bool  invalidate = true  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual QSqlRecord* Q3SqlCursor::editBuffer (  bool  copy = false  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual bool Q3SqlCursor::exec (  const QString &  sql  )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlQuery.
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   QString Q3SqlCursor::filter (   )  const
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual bool Q3SqlCursor::first (   )  [virtual]
+
+
+
+   Reimplemented from QSqlQuery.
+
+   QSqlIndex Q3SqlCursor::index (  const QString &  fieldName  )  const
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual QSqlIndex Q3SqlCursor::index (  const QStringList &  fieldNames  )  const [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual int Q3SqlCursor::insert (  bool  invalidate = true  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::insert (  int                     pos,
+                                       const Q3SqlFieldInfo &  fieldInfo
+                                    )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   bool Q3SqlCursor::isCalculated (  const QString &  name  )  const
+
+
+
+   bool Q3SqlCursor::isNull (  const QString &  name  )  const
+
+
+
+   Reimplemented from QSqlRecord.
+
+   bool Q3SqlCursor::isNull (  int  i  )  const
+
+
+
+   Reimplemented from QSqlQuery.
+
+   bool Q3SqlCursor::isReadOnly (   )  const
+
+
+
+   bool Q3SqlCursor::isTrimmed (  const QString &  name  )  const
+
+
+
+   virtual bool Q3SqlCursor::last (   )  [virtual]
+
+
+
+   Reimplemented from QSqlQuery.
+
+   int Q3SqlCursor::mode (   )  const
+
+
+
+   QString Q3SqlCursor::name (   )  const
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual bool Q3SqlCursor::next (   )  [virtual]
+
+
+
+   Reimplemented from QSqlQuery.
+
+   Q3SqlCursor& Q3SqlCursor::operator= (  const Q3SqlCursor &  other  )
+
+
+
+   virtual bool Q3SqlCursor::prev (   )  [virtual]
+
+
+
+   bool Q3SqlCursor::previous (   )  [inline]
+
+
+
+   Reimplemented from QSqlQuery.
+
+   virtual QSqlIndex Q3SqlCursor::primaryIndex (  bool  prime = true  )  const [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual QSqlRecord* Q3SqlCursor::primeDelete (   )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual QSqlRecord* Q3SqlCursor::primeInsert (   )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual QSqlRecord* Q3SqlCursor::primeUpdate (   )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::remove (  int  pos  )  [virtual]
+
+
+
+   Reimplemented from QSqlRecord.
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual bool Q3SqlCursor::seek (  int   i,
+                                     bool  relative = false
+                                  )  [virtual]
+
+
+
+   Reimplemented from QSqlQuery.
+
+   virtual bool Q3SqlCursor::select (  const QString &    filter,
+                                       const QSqlIndex &  sort = QSqlIndex()
+                                    )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   bool Q3SqlCursor::select (  const QSqlIndex &  filter,
+                               const QSqlIndex &  sort
+                            )
+
+
+
+   bool Q3SqlCursor::select (  const QSqlIndex &  sort  )
+
+
+
+   bool Q3SqlCursor::select (   )
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::setCalculated (  const QString &  name,
+                                              bool             calculated
+                                           )  [virtual]
+
+
+
+   virtual void Q3SqlCursor::setFilter (  const QString &  filter  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::setGenerated (  int   i,
+                                             bool  generated
+                                          )  [virtual]
+
+
+
+   Reimplemented from QSqlRecord.
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::setGenerated (  const QString &  name,
+                                             bool             generated
+                                          )  [virtual]
+
+
+
+   Reimplemented from QSqlRecord.
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::setMode (  int  flags  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::setName (  const QString &  name,
+                                        bool             autopopulate = true
+                                     )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::setPrimaryIndex (  const QSqlIndex &  idx  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::setSort (  const QSqlIndex &  sort  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual void Q3SqlCursor::setTrimmed (  const QString &  name,
+                                           bool             trim
+                                        )  [virtual]
+
+
+
+   void Q3SqlCursor::setValue (  const QString &   name,
+                                 const QVariant &  val
+                              )  [inline]
+
+
+
+   Reimplemented from QSqlRecord.
+
+   virtual void Q3SqlCursor::setValue (  int               i,
+                                         const QVariant &  val
+                                      )  [virtual]
+
+
+
+   Reimplemented from QSqlRecord.
+
+   QSqlIndex Q3SqlCursor::sort (   )  const
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual QString Q3SqlCursor::toString (  const QSqlIndex &  i,
+                                            QSqlRecord *       rec,
+                                            const QString &    prefix,
+                                            const QString &    fieldSep,
+                                            const QString &    sep
+                                         )  const [protected, virtual]
+
+
+
+   virtual QString Q3SqlCursor::toString (  QSqlRecord *     rec,
+                                            const QString &  prefix,
+                                            const QString &  fieldSep,
+                                            const QString &  sep
+                                         )  const [protected, virtual]
+
+
+
+   virtual QString Q3SqlCursor::toString (  const QString &  prefix,
+                                            QSqlField *      field,
+                                            const QString &  fieldSep
+                                         )  const [protected, virtual]
+
+
+
+   QString Q3SqlCursor::toString (  const QString &  prefix = QString(),
+                                    const QString &  sep = ","
+                                 )  const
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   virtual int Q3SqlCursor::update (  const QString &  filter,
+                                      bool             invalidate = true
+                                   )  [protected, virtual]
+
+
+
+   virtual int Q3SqlCursor::update (  bool  invalidate = true  )  [virtual]
+
+
+
+   Reimplemented in Q3SqlSelectCursor.
+
+   QVariant Q3SqlCursor::value (  const QString &  name  )  const [inline]
+
+
+
+   Reimplemented from QSqlRecord.
+
+   QVariant Q3SqlCursor::value (  int  i  )  const
+
+
+
+   Reimplemented from QSqlQuery.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3sqlcursor.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

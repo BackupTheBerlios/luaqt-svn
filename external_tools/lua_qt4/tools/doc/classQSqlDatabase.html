@@ -1,0 +1,285 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QSqlDatabase Class Reference
+
+   #include <qsqldatabase.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QSqlDatabase ()
+     * QSqlDatabase (const QSqlDatabase &other)
+     * ~QSqlDatabase ()
+     * QSqlDatabase & operator= (const QSqlDatabase &other)
+     * bool open ()
+     * bool open (const QString &user, const QString &password)
+     * void close ()
+     * bool isOpen () const
+     * bool isOpenError () const
+     * QStringList tables (QSql::TableType type=QSql::Tables) const
+     * QSqlIndex primaryIndex (const QString &tablename) const
+     * QSqlRecord record (const QString &tablename) const
+     * QSqlQuery exec (const QString &query=QString()) const
+     * QSqlError lastError () const
+     * bool isValid () const
+     * bool transaction ()
+     * bool commit ()
+     * bool rollback ()
+     * void setDatabaseName (const QString &name)
+     * void setUserName (const QString &name)
+     * void setPassword (const QString &password)
+     * void setHostName (const QString &host)
+     * void setPort (int p)
+     * void setConnectOptions (const QString &options=QString())
+     * QString databaseName () const
+     * QString userName () const
+     * QString password () const
+     * QString hostName () const
+     * QString driverName () const
+     * int port () const
+     * QString connectOptions () const
+     * QSqlDriver * driver () const
+
+Static Public Member Functions
+
+     * static QSqlDatabase addDatabase (const QString &type, const QString &connectionName=QLatin1String(defaultConnection))
+     * static QSqlDatabase addDatabase (QSqlDriver *driver, const QString &connectionName=QLatin1String(defaultConnection))
+     * static QSqlDatabase cloneDatabase (const QSqlDatabase &other, const QString &connectionName)
+     * static QSqlDatabase database (const QString &connectionName=QLatin1String(defaultConnection), bool open=true)
+     * static void removeDatabase (const QString &connectionName)
+     * static bool contains (const QString &connectionName=QLatin1String(defaultConnection))
+     * static QStringList drivers ()
+     * static QStringList connectionNames ()
+     * static void registerSqlDriver (const QString &name, QSqlDriverCreatorBase *creator)
+     * static bool isDriverAvailable (const QString &name)
+
+Public Attributes
+
+     * QT_STATIC_CONST char * defaultConnection
+
+Protected Member Functions
+
+     * QSqlDatabase (const QString &type)
+     * QSqlDatabase (QSqlDriver *driver)
+
+Friends
+
+     * class QSqlDatabasePrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSqlDatabase::QSqlDatabase (   )
+
+
+
+   QSqlDatabase::QSqlDatabase (  const QSqlDatabase &  other  )
+
+
+
+   QSqlDatabase::~QSqlDatabase (   )
+
+
+
+   QSqlDatabase::QSqlDatabase (  const QString &  type  )  [explicit, protected]
+
+
+
+   QSqlDatabase::QSqlDatabase (  QSqlDriver *  driver  )  [explicit, protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static QSqlDatabase QSqlDatabase::addDatabase (  QSqlDriver *     driver,
+                                                    const QString &  connectionName = QLatin1String(defaultConnection)
+                                                 )  [static]
+
+
+
+   static QSqlDatabase QSqlDatabase::addDatabase (  const QString &  type,
+                                                    const QString &  connectionName = QLatin1String(defaultConnection)
+                                                 )  [static]
+
+
+
+   static QSqlDatabase QSqlDatabase::cloneDatabase (  const QSqlDatabase &  other,
+                                                      const QString &       connectionName
+                                                   )  [static]
+
+
+
+   void QSqlDatabase::close (   )
+
+
+
+   bool QSqlDatabase::commit (   )
+
+
+
+   static QStringList QSqlDatabase::connectionNames (   )  [static]
+
+
+
+   QString QSqlDatabase::connectOptions (   )  const
+
+
+
+   static bool QSqlDatabase::contains (  const QString &  connectionName = QLatin1String(defaultConnection)  )  [static]
+
+
+
+   static QSqlDatabase QSqlDatabase::database (  const QString &  connectionName = QLatin1String(defaultConnection),
+                                                 bool             open = true
+                                              )  [static]
+
+
+
+   QString QSqlDatabase::databaseName (   )  const
+
+
+
+   QSqlDriver* QSqlDatabase::driver (   )  const
+
+
+
+   QString QSqlDatabase::driverName (   )  const
+
+
+
+   static QStringList QSqlDatabase::drivers (   )  [static]
+
+
+
+   QSqlQuery QSqlDatabase::exec (  const QString &  query = QString()  )  const
+
+
+
+   QString QSqlDatabase::hostName (   )  const
+
+
+
+   static bool QSqlDatabase::isDriverAvailable (  const QString &  name  )  [static]
+
+
+
+   bool QSqlDatabase::isOpen (   )  const
+
+
+
+   bool QSqlDatabase::isOpenError (   )  const
+
+
+
+   bool QSqlDatabase::isValid (   )  const
+
+
+
+   QSqlError QSqlDatabase::lastError (   )  const
+
+
+
+   bool QSqlDatabase::open (  const QString &  user,
+                              const QString &  password
+                           )
+
+
+
+   bool QSqlDatabase::open (   )
+
+
+
+   QSqlDatabase& QSqlDatabase::operator= (  const QSqlDatabase &  other  )
+
+
+
+   QString QSqlDatabase::password (   )  const
+
+
+
+   int QSqlDatabase::port (   )  const
+
+
+
+   QSqlIndex QSqlDatabase::primaryIndex (  const QString &  tablename  )  const
+
+
+
+   QSqlRecord QSqlDatabase::record (  const QString &  tablename  )  const
+
+
+
+   static void QSqlDatabase::registerSqlDriver (  const QString &          name,
+                                                  QSqlDriverCreatorBase *  creator
+                                               )  [static]
+
+
+
+   static void QSqlDatabase::removeDatabase (  const QString &  connectionName  )  [static]
+
+
+
+   bool QSqlDatabase::rollback (   )
+
+
+
+   void QSqlDatabase::setConnectOptions (  const QString &  options = QString()  )
+
+
+
+   void QSqlDatabase::setDatabaseName (  const QString &  name  )
+
+
+
+   void QSqlDatabase::setHostName (  const QString &  host  )
+
+
+
+   void QSqlDatabase::setPassword (  const QString &  password  )
+
+
+
+   void QSqlDatabase::setPort (  int  p  )
+
+
+
+   void QSqlDatabase::setUserName (  const QString &  name  )
+
+
+
+   QStringList QSqlDatabase::tables (  QSql::TableType  type = QSql::Tables  )  const
+
+
+
+   bool QSqlDatabase::transaction (   )
+
+
+
+   QString QSqlDatabase::userName (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QSqlDatabasePrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QT_STATIC_CONST char* QSqlDatabase::defaultConnection
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqldatabase.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

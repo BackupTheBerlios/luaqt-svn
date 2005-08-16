@@ -1,0 +1,122 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QScrollArea Class Reference
+
+   #include <qscrollarea.h>
+
+   Inherits QAbstractScrollArea.
+
+   List of all members.
+
+Public Member Functions
+
+     * QScrollArea (QWidget *parent=0)
+     * ~QScrollArea ()
+     * QWidget * widget () const
+     * void setWidget (QWidget *w)
+     * QWidget * takeWidget ()
+     * bool widgetResizable () const
+     * void setWidgetResizable (bool resizable)
+     * QSize sizeHint () const
+     * bool focusNextPrevChild (bool next)
+
+Protected Member Functions
+
+     * bool event (QEvent *)
+     * bool eventFilter (QObject *, QEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void scrollContentsBy (int dx, int dy)
+
+Properties
+
+     * bool widgetResizable
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QScrollArea::QScrollArea (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QScrollArea::~QScrollArea (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QScrollArea::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   bool QScrollArea::eventFilter (  QObject *  ,
+                                    QEvent * 
+                                 )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   bool QScrollArea::focusNextPrevChild (  bool  next  )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QScrollArea::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QScrollArea::scrollContentsBy (  int  dx,
+                                         int  dy
+                                      )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   void QScrollArea::setWidget (  QWidget *  w  )
+
+
+
+   void QScrollArea::setWidgetResizable (  bool  resizable  )
+
+
+
+   QSize QScrollArea::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   QWidget* QScrollArea::takeWidget (   )
+
+
+
+   QWidget* QScrollArea::widget (   )  const
+
+
+
+   bool QScrollArea::widgetResizable (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QScrollArea::widgetResizable [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qscrollarea.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

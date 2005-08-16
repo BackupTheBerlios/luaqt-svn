@@ -1,0 +1,790 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QLineEdit Class Reference
+
+   The QLineEdit widget is a one-line text editor. More...
+#include <QLineEdit>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum EchoMode { Normal, NoEcho, Password }
+
+  Properties
+
+     * acceptableInput : const bool
+     * alignment : Qt::Alignment
+     * cursorPosition : int
+     * displayText : const QString
+     * dragEnabled : bool
+     * echoMode : EchoMode
+     * frame : bool
+     * hasSelectedText : const bool
+
+     * inputMask : QString
+     * maxLength : int
+     * modified : bool
+     * readOnly : bool
+     * redoAvailable : const bool
+     * selectedText : const QString
+     * text : QString
+     * undoAvailable : const bool
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QLineEdit ( QWidget * parent = 0 )
+     * QLineEdit ( const QString & contents, QWidget * parent = 0 )
+     * ~QLineEdit ()
+     * Qt::Alignment alignment () const
+     * void backspace ()
+     * QMenu * createStandardContextMenu ()
+     * void cursorBackward ( bool mark, int steps = 1 )
+     * void cursorForward ( bool mark, int steps = 1 )
+     * int cursorPosition () const
+     * int cursorPositionAt ( const QPoint & pos )
+     * void cursorWordBackward ( bool mark )
+     * void cursorWordForward ( bool mark )
+     * void del ()
+     * void deselect ()
+     * QString displayText () const
+     * bool dragEnabled () const
+     * EchoMode echoMode () const
+     * void end ( bool mark )
+     * bool hasAcceptableInput () const
+     * bool hasFrame () const
+     * bool hasSelectedText () const
+     * void home ( bool mark )
+     * QString inputMask () const
+     * void insert ( const QString & newText )
+     * bool isModified () const
+     * bool isReadOnly () const
+     * bool isRedoAvailable () const
+     * bool isUndoAvailable () const
+     * int maxLength () const
+     * virtual QSize minimumSizeHint () const
+     * QString selectedText () const
+     * int selectionStart () const
+     * void setAlignment ( Qt::Alignment flag )
+     * void setCursorPosition ( int )
+     * void setDragEnabled ( bool b )
+     * void setEchoMode ( EchoMode )
+     * void setFrame ( bool )
+     * void setInputMask ( const QString & inputMask )
+     * void setMaxLength ( int )
+     * void setModified ( bool )
+     * void setReadOnly ( bool )
+     * void setSelection ( int start, int length )
+     * void setValidator ( const QValidator * v )
+     * virtual QSize sizeHint () const
+     * QString text () const
+     * const QValidator * validator () const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void clear ()
+     * void copy () const
+     * void cut ()
+     * void paste ()
+     * void redo ()
+     * void selectAll ()
+     * void setText ( const QString & )
+     * void undo ()
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void cursorPositionChanged ( int old, int new )
+     * void editingFinished ()
+     * void returnPressed ()
+     * void selectionChanged ()
+     * void textChanged ( const QString & text )
+     * void textEdited ( const QString & text )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * virtual void contextMenuEvent ( QContextMenuEvent * event )
+     * virtual void keyPressEvent ( QKeyEvent * event )
+
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QLineEdit widget is a one-line text editor.
+
+   A line edit allows the user to enter and edit a single line of plain
+   text with a useful collection of editing functions, including undo and
+   redo, cut and paste, and drag and drop.
+
+   By changing the echoMode() of a line edit, it can also be used as a
+   "write-only" field, for inputs such as passwords.
+
+   The length of the text can be constrained to maxLength(). The text can
+   be arbitrarily constrained using a validator() or an inputMask(), or
+   both.
+
+   A related class is QTextEdit which allows multi-line, rich text
+   editing.
+
+   You can change the text with setText() or insert(). The text is
+   retrieved with text(); the displayed text (which may be different, see
+   EchoMode) is retrieved with displayText(). Text can be selected with
+   setSelection() or selectAll(), and the selection can be cut(),
+   copy()ied and paste()d. The text can be aligned with setAlignment().
+
+   When the text changes the textChanged() signal is emitted; when the
+   text changes other than by calling setText() the textEdited() signal
+   is emitted; when the cursor is moved the cursorPositionChanged()
+   signal is emitted; and when the Return or Enter key is pressed the
+   returnPressed() signal is emitted.
+
+   When editing is finished, either because the line edit lost focus or
+   Return/Enter is pressed the editingFinished() signal is emitted.
+
+   Note that if there is a validator set on the line edit, the
+   returnPressed()/editingFinished() signals will only be emitted if the
+   validator returns Acceptable.
+
+   By default, QLineEdits have a frame as specified by the Windows and
+   Motif style guides; you can turn it off by calling setFrame(false).
+
+   The default key bindings are described below. The line edit also
+   provides a context menu (usually invoked by a right mouse click) that
+   presents some of these editing options.
+
+       Keypress                               Action
+      Left Arrow            Moves the cursor one character to the left.
+   Shift+Left Arrow      Moves and selects text one character to the left.
+      Right Arrow          Moves the cursor one character to the right.
+   Shift+Right Arrow    Moves and selects text one character to the right.
+         Home             Moves the cursor to the beginning of the line.
+          End                Moves the cursor to the end of the line.
+       Backspace         Deletes the character to the left of the cursor.
+    Ctrl+Backspace          Deletes the word to the left of the cursor.
+        Delete           Deletes the character to the right of the cursor.
+      Ctrl+Delete          Deletes the word to the right of the cursor.
+        Ctrl+A            Moves the cursor to the beginning of the line.
+        Ctrl+B              Moves the cursor one character to the left.
+        Ctrl+C              Copies the selected text to the clipboard.
+      Ctrl+Insert           Copies the selected text to the clipboard.
+        Ctrl+D           Deletes the character to the right of the cursor.
+        Ctrl+E               Moves the cursor to the end of the line.
+        Ctrl+F             Moves the cursor one character to the right.
+        Ctrl+H           Deletes the character to the left of the cursor.
+        Ctrl+K                    Deletes to the end of the line.
+        Ctrl+V               Pastes the clipboard text into line edit.
+     Shift+Insert            Pastes the clipboard text into line edit.
+        Ctrl+X       Deletes the selected text and copies it to the clipboard.
+     Shift+Delete    Deletes the selected text and copies it to the clipboard.
+        Ctrl+Z                      Undoes the last operation.
+        Ctrl+Y                   Redoes the last undone operation.
+
+   Any other key sequence that represents a valid character, will cause
+   the character to be inserted into the line edit.
+
+   Screenshot in Macintosh style Screenshot in Windows style
+
+   See also QTextEdit, QLabel, QComboBox, and GUI Design Handbook: Field,
+   Entry.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QLineEdit::EchoMode
+
+   This enum type describes how a line edit should display its contents.
+
+   Constant Value Description
+   QLineEdit::Normal 0 Display characters as they are entered. This is
+   the default.
+   QLineEdit::NoEcho 1 Do not display anything. This may be appropriate
+   for passwords where even the length of the password should be kept
+   secret.
+   QLineEdit::Password 2 Display asterisks instead of the characters
+   actually entered.
+
+   See also setEchoMode() and echoMode().
+     _________________________________________________________________
+
+Property Documentation
+
+  acceptableInput : const bool
+
+   This property holds whether the input satisfies the inputMask and the
+   validator.
+
+   Access functions:
+     * bool hasAcceptableInput () const
+
+   See also setInputMask() and setValidator().
+
+  alignment : Qt::Alignment
+
+   This property holds the alignment of the line edit.
+
+   Only horizontal alignments are allowed in here, Qt::AlignJustify will
+   map to Qt::AlignLeft.
+
+   Access functions:
+     * Qt::Alignment alignment () const
+     * void setAlignment ( Qt::Alignment flag )
+
+   See also Qt::Alignment.
+
+  cursorPosition : int
+
+   This property holds the current cursor position for this line edit.
+
+   Setting the cursor position causes a repaint when appropriate.
+
+   Access functions:
+     * int cursorPosition () const
+     * void setCursorPosition ( int )
+
+  displayText : const QString
+
+   This property holds the displayed text.
+
+   If EchoMode is Normal this returns the same as text(); if EchoMode is
+   Password it returns a string of asterisks text().length() characters
+   long, e.g. "******"; if EchoMode is NoEcho returns an empty string,
+   "".
+
+   Access functions:
+     * QString displayText () const
+
+   See also setEchoMode(), text(), and EchoMode.
+
+  dragEnabled : bool
+
+   This property holds whether the lineedit starts a drag if the user
+   presses and moves the mouse on some selected text.
+
+   Dragging is disabled by default.
+
+   Access functions:
+     * bool dragEnabled () const
+     * void setDragEnabled ( bool b )
+
+  echoMode : EchoMode
+
+   This property holds the line edit's echo mode.
+
+   The initial setting is Normal, but QLineEdit also supports NoEcho and
+   Password modes.
+
+   The widget's display and the ability to copy or drag the text is
+   affected by this setting.
+
+   Access functions:
+     * EchoMode echoMode () const
+     * void setEchoMode ( EchoMode )
+
+   See also EchoMode and displayText().
+
+  frame : bool
+
+   This property holds whether the line edit draws itself with a frame.
+
+   If enabled (the default) the line edit draws itself inside a frame,
+   otherwise the line edit draws itself without any frame.
+
+   Access functions:
+     * bool hasFrame () const
+     * void setFrame ( bool )
+
+  hasSelectedText : const bool
+
+   This property holds whether there is any text selected.
+
+   hasSelectedText() returns true if some or all of the text has been
+   selected by the user; otherwise returns false.
+
+   Access functions:
+     * bool hasSelectedText () const
+
+   See also selectedText().
+
+  inputMask : QString
+
+   This property holds the validation input mask.
+
+   If no mask is set, inputMask() returns an empty string.
+
+   Sets the QLineEdit's validation mask. Validators can be used instead
+   of, or in conjunction with masks; see setValidator().
+
+   Unset the mask and return to normal QLineEdit operation by passing an
+   empty string ("") or just calling setInputMask() with no arguments.
+
+   The mask format understands these mask characters:
+
+                             Character Meaning
+              A ASCII alphabetic character required. A-Z, a-z.
+          a ASCII alphabetic character permitted but not required.
+          N ASCII alphanumeric character required. A-Z, a-z, 0-9.
+         n ASCII alphanumeric character permitted but not required.
+                         X Any character required.
+                x Any character permitted but not required.
+                        9 ASCII digit required. 0-9.
+                 0 ASCII digit permitted but not required.
+                        D ASCII digit required. 1-9.
+              d ASCII digit permitted but not required (1-9).
+        # ASCII digit or plus/minus sign permitted but not required.
+           > All following alphabetic characters are uppercased.
+           < All following alphabetic characters are lowercased.
+                       ! Switch off case conversion.
+     <tt>\</tt> Use <tt>\</tt> to escape the special characters listed
+                      above to use them as separators.
+
+   The mask consists of a string of mask characters and separators,
+   optionally followed by a semicolon and the character used for blanks:
+   the blank characters are always removed from the text after editing.
+   The default blank character is space.
+
+   Examples:
+
+                                 Mask Notes
+                000.000.000.000;_ IP address; blanks are _.
+                   0000-00-00 ISO Date; blanks are space
+   >AAAAA-AAAAA-AAAAA-AAAAA-AAAAA;# License number; blanks are - and all
+            (alphabetic) characters are converted to uppercase.
+
+   To get range control (e.g. for an IP address) use masks together with
+   validators.
+
+   Access functions:
+     * QString inputMask () const
+     * void setInputMask ( const QString & inputMask )
+
+   See also maxLength.
+
+  maxLength : int
+
+   This property holds the maximum permitted length of the text.
+
+   If the text is too long, it is truncated at the limit.
+
+   If truncation occurs any selected text will be unselected, the cursor
+   position is set to 0 and the first part of the string is shown.
+
+   If the line edit has an input mask, the mask defines the maximum
+   string length.
+
+   Access functions:
+     * int maxLength () const
+     * void setMaxLength ( int )
+
+   See also inputMask.
+
+  modified : bool
+
+   This property holds whether the line edit's contents has been modified
+   by the user.
+
+   The modified flag is never read by QLineEdit; it has a default value
+   of false and is changed to true whenever the user changes the line
+   edit's contents.
+
+   This is useful for things that need to provide a default value but do
+   not start out knowing what the default should be (perhaps it depends
+   on other fields on the form). Start the line edit without the best
+   default, and when the default is known, if modified() returns false
+   (the user hasn't entered any text), insert the default value.
+
+   Calling setText() resets the modified flag to false.
+
+   Access functions:
+     * bool isModified () const
+     * void setModified ( bool )
+
+  readOnly : bool
+
+   This property holds whether the line edit is read only.
+
+   In read-only mode, the user can still copy the text to the clipboard,
+   or drag and drop the text (if echoMode() is Normal), but cannot edit
+   it.
+
+   QLineEdit does not show a cursor in read-only mode.
+
+   Access functions:
+     * bool isReadOnly () const
+     * void setReadOnly ( bool )
+
+   See also setEnabled().
+
+  redoAvailable : const bool
+
+   This property holds whether redo is available.
+
+   Access functions:
+     * bool isRedoAvailable () const
+
+  selectedText : const QString
+
+   This property holds the selected text.
+
+   If there is no selected text this property's value is an empty string.
+
+   Access functions:
+     * QString selectedText () const
+
+   See also hasSelectedText().
+
+  text : QString
+
+   This property holds the line edit's text.
+
+   Setting this property clears the selection, clears the undo/redo
+   history, moves the cursor to the end of the line and resets the
+   modified property to false. The text is not validated when inserted
+   with setText().
+
+   The text is truncated to maxLength() length.
+
+   Access functions:
+     * QString text () const
+     * void setText ( const QString & )
+
+   See also insert() and clear().
+
+  undoAvailable : const bool
+
+   This property holds whether undo is available.
+
+   Access functions:
+     * bool isUndoAvailable () const
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QLineEdit::QLineEdit ( QWidget * parent = 0 )
+
+   Constructs a line edit with no text.
+
+   The maximum text length is set to 32767 characters.
+
+   The parent argument is sent to the QWidget constructor.
+
+   See also setText() and setMaxLength().
+
+  QLineEdit::QLineEdit ( const QString & contents, QWidget * parent = 0 )
+
+   Constructs a line edit containing the text contents.
+
+   The cursor position is set to the end of the line and the maximum text
+   length to 32767 characters.
+
+   The parent and argument is sent to the QWidget constructor.
+
+   See also text() and setMaxLength().
+
+  QLineEdit::~QLineEdit ()
+
+   Destroys the line edit.
+
+  void QLineEdit::backspace ()
+
+   If no text is selected, deletes the character to the left of the text
+   cursor and moves the cursor one position to the left. If any text is
+   selected, the cursor is moved to the beginning of the selected text
+   and the selected text is deleted.
+
+   See also del().
+
+  void QLineEdit::clear ()   [slot]
+
+   Clears the contents of the line edit.
+
+   See also setText() and insert().
+
+  void QLineEdit::contextMenuEvent ( QContextMenuEvent * event )   [virtual
+  protected]
+
+   Shows the standard context menu created with
+   createStandardContextMenu().
+
+   If you do not want the line edit to have a context menu, you can set
+   its contextMenuPolicy to Qt::NoContextMenu. If you want to customize
+   the context menu, reimplement this function. If you want to extend the
+   standard context menu, reimplement this function, call
+   createStandardContextMenu() and extend the menu returned.
+    void LineEdit::contextMenuEvent(QContextMenuEvent *event)
+    {
+        QMenu *menu = createStandardContextMenu();
+        menu->addAction(tr("My Menu Item"));
+        //...
+        menu->exec(event->globalPos());
+        delete menu;
+    }
+
+   The event parameter is used to obtain the position where the mouse
+   cursor was when the event was generated.
+
+   Reimplemented from QWidget.
+
+   See also setContextMenuPolicy().
+
+  void QLineEdit::copy () const   [slot]
+
+   Copies the selected text to the clipboard, if there is any, and if
+   echoMode() is Normal.
+
+   See also cut() and paste().
+
+  QMenu * QLineEdit::createStandardContextMenu ()
+
+   This function creates the standard context menu which is shown when
+   the user clicks on the line edit with the right mouse button. It is
+   called from the default contextMenuEvent() handler. The popup menu's
+   ownership is transferred to the caller.
+
+  void QLineEdit::cursorBackward ( bool mark, int steps = 1 )
+
+   Moves the cursor back steps characters. If mark is true each character
+   moved over is added to the selection; if mark is false the selection
+   is cleared.
+
+   See also cursorForward().
+
+  void QLineEdit::cursorForward ( bool mark, int steps = 1 )
+
+   Moves the cursor forward steps characters. If mark is true each
+   character moved over is added to the selection; if mark is false the
+   selection is cleared.
+
+   See also cursorBackward().
+
+  int QLineEdit::cursorPositionAt ( const QPoint & pos )
+
+   Returns the cursorPostion under the point pos.
+
+  void QLineEdit::cursorPositionChanged ( int old, int new )   [signal]
+
+   This signal is emitted whenever the cursor moves. The previous
+   position is given by old, and the new position by new.
+
+   See also setCursorPosition() and cursorPosition().
+
+  void QLineEdit::cursorWordBackward ( bool mark )
+
+   Moves the cursor one word backward. If mark is true, the word is also
+   selected.
+
+   See also cursorWordForward().
+
+  void QLineEdit::cursorWordForward ( bool mark )
+
+   Moves the cursor one word forward. If mark is true, the word is also
+   selected.
+
+   See also cursorWordBackward().
+
+  void QLineEdit::cut ()   [slot]
+
+   Copies the selected text to the clipboard and deletes it, if there is
+   any, and if echoMode() is Normal.
+
+   If the current validator disallows deleting the selected text, cut()
+   will copy without deleting.
+
+   See also copy(), paste(), and setValidator().
+
+  void QLineEdit::del ()
+
+   If no text is selected, deletes the character to the right of the text
+   cursor. If any text is selected, the cursor is moved to the beginning
+   of the selected text and the selected text is deleted.
+
+   See also backspace().
+
+  void QLineEdit::deselect ()
+
+   Deselects any selected text.
+
+   See also setSelection() and selectAll().
+
+  void QLineEdit::editingFinished ()   [signal]
+
+   This signal is emitted when the Return or Enter key is pressed or the
+   line edit looses focus. Note that if there is a validator() or
+   inputMask() set on the line edit and enter/return is pressed, the
+   editingFinished() signal will only be emitted if the input follows the
+   inputMask() and the validator() returns Acceptable.
+
+  void QLineEdit::end ( bool mark )
+
+   Moves the text cursor to the end of the line unless it is already
+   there. If mark is true, text is selected towards the last position;
+   otherwise, any selected text is unselected if the cursor is moved.
+
+   See also home().
+
+  void QLineEdit::home ( bool mark )
+
+   Moves the text cursor to the beginning of the line unless it is
+   already there. If mark is true, text is selected towards the first
+   position; otherwise, any selected text is unselected if the cursor is
+   moved.
+
+   See also end().
+
+  void QLineEdit::insert ( const QString & newText )
+
+   Deletes any selected text, inserts newText, and validates the result.
+   If it is valid, it sets it as the new contents of the line edit.
+
+   See also setText() and clear().
+
+  void QLineEdit::keyPressEvent ( QKeyEvent * event )   [virtual protected]
+
+   Converts the given key press event into a line edit action.
+
+   If Return or Enter is pressed and the current text is valid (or can be
+   made valid by the validator), the signal returnPressed() is emitted.
+
+   The default key bindings are listed in the class's detailed
+   description.
+
+   Reimplemented from QWidget.
+
+  QSize QLineEdit::minimumSizeHint () const   [virtual]
+
+   Returns a minimum size for the line edit.
+
+   The width returned is enough for at least one character.
+
+   Reimplemented from QWidget.
+
+  void QLineEdit::paste ()   [slot]
+
+   Inserts the clipboard's text at the cursor position, deleting any
+   selected text, providing the line edit is not read-only.
+
+   If the end result would not be acceptable to the current validator,
+   nothing happens.
+
+   See also copy() and cut().
+
+  void QLineEdit::redo ()   [slot]
+
+   Redoes the last operation if redo is available.
+
+  void QLineEdit::returnPressed ()   [signal]
+
+   This signal is emitted when the Return or Enter key is pressed. Note
+   that if there is a validator() or inputMask() set on the line edit,
+   the returnPressed() signal will only be emitted if the input follows
+   the inputMask() and the validator() returns Acceptable.
+
+  void QLineEdit::selectAll ()   [slot]
+
+   Selects all the text (i.e. highlights it) and moves the cursor to the
+   end. This is useful when a default value has been inserted because if
+   the user types before clicking on the widget, the selected text will
+   be deleted.
+
+   See also setSelection() and deselect().
+
+  void QLineEdit::selectionChanged ()   [signal]
+
+   This signal is emitted whenever the selection changes.
+
+   See also hasSelectedText() and selectedText().
+
+  int QLineEdit::selectionStart () const
+
+   selectionStart() returns the index of the first selected character in
+   the line edit or -1 if no text is selected.
+
+   See also selectedText().
+
+  void QLineEdit::setSelection ( int start, int length )
+
+   Selects text from position start and for length characters. Negative
+   lengths are allowed.
+
+   See also deselect(), selectAll(), and selectedText().
+
+  void QLineEdit::setValidator ( const QValidator * v )
+
+   Sets this line edit to only accept input that the validator, v, will
+   accept. This allows you to place any arbitrary constraints on the text
+   which may be entered.
+
+   If v == 0, setValidator() removes the current input validator. The
+   initial setting is to have no input validator (i.e. any input is
+   accepted up to maxLength()).
+
+   See also validator(), QIntValidator, QDoubleValidator, and
+   QRegExpValidator.
+
+  QSize QLineEdit::sizeHint () const   [virtual]
+
+   Returns a recommended size for the widget.
+
+   The width returned, in pixels, is usually enough for about 15 to 20
+   characters.
+
+   Reimplemented from QWidget.
+
+  void QLineEdit::textChanged ( const QString & text )   [signal]
+
+   This signal is emitted whenever the text changes. The text argument is
+   the new text.
+
+   Unlike textEdited(), this signal is also emitted when programmatically
+   setting the text via setText().
+
+  void QLineEdit::textEdited ( const QString & text )   [signal]
+
+   This signal is emitted whenever the text is edited. The text argument
+   is the next text.
+
+   Unlike textChanged(), this signal is not emitted when programmatically
+   setting the text via setText().
+
+  void QLineEdit::undo ()   [slot]
+
+   Undoes the last operation if undo is available. Deselects any current
+   selection, and updates the selection start to the current cursor
+   position.
+
+  const QValidator * QLineEdit::validator () const
+
+   Returns a pointer to the current input validator, or 0 if no validator
+   has been set.
+
+   See also setValidator().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,10 @@
+$pfile "lua_qt4/qt_defines.pkg"
+
+$ifile "lua_qt4/qnamespace.pkg",qns
+
+$#include <QVariant>
+$#include "lua_qt_helpers.h"
+
+$ifile "lua_qt4/QtDesigner_headers.pkg",qt
+
+

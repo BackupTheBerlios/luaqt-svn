@@ -1,0 +1,62 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QTextCodecPlugin Class Reference
+
+   #include <qtextcodecplugin.h>
+
+   Inherits QObject, and QTextCodecFactoryInterface.
+
+   List of all members.
+
+Public Member Functions
+
+     * QTextCodecPlugin (QObject *parent=0)
+     * ~QTextCodecPlugin ()
+     * virtual QList< QByteArray > names () const =0
+     * virtual QList< QByteArray > aliases () const =0
+     * virtual QTextCodec * createForName (const QByteArray &name)=0
+     * virtual QList< int > mibEnums () const =0
+     * virtual QTextCodec * createForMib (int mib)=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextCodecPlugin::QTextCodecPlugin (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QTextCodecPlugin::~QTextCodecPlugin (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QList<QByteArray> QTextCodecPlugin::aliases (   )  const [pure virtual]
+
+
+
+   virtual QTextCodec* QTextCodecPlugin::createForMib (  int  mib  )  [pure virtual]
+
+
+
+   virtual QTextCodec* QTextCodecPlugin::createForName (  const QByteArray &  name  )  [pure virtual]
+
+
+
+   virtual QList<int> QTextCodecPlugin::mibEnums (   )  const [pure virtual]
+
+
+
+   virtual QList<QByteArray> QTextCodecPlugin::names (   )  const [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextcodecplugin.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

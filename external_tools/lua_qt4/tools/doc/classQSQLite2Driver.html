@@ -1,0 +1,148 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QSQLite2Driver Class Reference
+
+   #include <qsql_sqlite2.h>
+
+   Inherits QSqlDriver.
+
+   List of all members.
+
+Public Member Functions
+
+     * QSQLite2Driver (QObject *parent=0)
+     * QSQLite2Driver (sqlite *connection, QObject *parent=0)
+     * ~QSQLite2Driver ()
+     * bool hasFeature (DriverFeature f) const
+     * bool open (const QString &db, const QString &user, const QString &password, const QString &host, int port, const QString &connOpts)
+     * bool open (const QString &db, const QString &user, const QString &password, const QString &host, int port)
+     * void close ()
+     * QSqlResult * createResult () const
+     * bool beginTransaction ()
+     * bool commitTransaction ()
+     * bool rollbackTransaction ()
+     * QStringList tables (QSql::TableType) const
+     * QSqlRecord record (const QString &tablename) const
+     * QSqlIndex primaryIndex (const QString &table) const
+     * QVariant handle () const
+
+Friends
+
+     * class QSQLite2Result
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSQLite2Driver::QSQLite2Driver (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QSQLite2Driver::QSQLite2Driver (  sqlite *   connection,
+                                     QObject *  parent = 0
+                                  )  [explicit]
+
+
+
+   QSQLite2Driver::~QSQLite2Driver (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QSQLite2Driver::beginTransaction (   )  [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   void QSQLite2Driver::close (   )  [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   bool QSQLite2Driver::commitTransaction (   )  [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QSqlResult* QSQLite2Driver::createResult (   )  const [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   QVariant QSQLite2Driver::handle (   )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   bool QSQLite2Driver::hasFeature (  DriverFeature  f  )  const [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   bool QSQLite2Driver::open (  const QString &  db,
+                                const QString &  user,
+                                const QString &  password,
+                                const QString &  host,
+                                int              port
+                             )  [inline]
+
+
+
+   bool QSQLite2Driver::open (  const QString &  db,
+                                const QString &  user,
+                                const QString &  password,
+                                const QString &  host,
+                                int              port,
+                                const QString &  connOpts
+                             )  [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   QSqlIndex QSQLite2Driver::primaryIndex (  const QString &  table  )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QSqlRecord QSQLite2Driver::record (  const QString &  tablename  )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   bool QSQLite2Driver::rollbackTransaction (   )  [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QStringList QSQLite2Driver::tables (  QSql::TableType   )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QSQLite2Result [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsql_sqlite2.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

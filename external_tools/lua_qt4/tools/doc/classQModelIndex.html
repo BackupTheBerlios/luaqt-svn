@@ -1,0 +1,110 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QModelIndex Class Reference
+
+   #include <qabstractitemmodel.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QModelIndex ()
+     * QModelIndex (const QModelIndex &other)
+     * ~QModelIndex ()
+     * int row () const
+     * int column () const
+     * void * internalPointer () const
+     * qint64 internalId () const
+     * QModelIndex parent () const
+     * QModelIndex sibling (int row, int column) const
+     * QModelIndex child (int row, int column) const
+     * const QAbstractItemModel * model () const
+     * bool isValid () const
+     * bool operator== (const QModelIndex &other) const
+     * bool operator!= (const QModelIndex &other) const
+
+Friends
+
+     * class QAbstractItemModel
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QModelIndex::QModelIndex (   )  [inline]
+
+
+
+   QModelIndex::QModelIndex (  const QModelIndex &  other  )  [inline]
+
+
+
+   QModelIndex::~QModelIndex (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QModelIndex QModelIndex::child (  int  row,
+                                     int  column
+                                  )  const [inline]
+
+
+
+   int QModelIndex::column (   )  const [inline]
+
+
+
+   qint64 QModelIndex::internalId (   )  const [inline]
+
+
+
+   void* QModelIndex::internalPointer (   )  const [inline]
+
+
+
+   bool QModelIndex::isValid (   )  const [inline]
+
+
+
+   const QAbstractItemModel* QModelIndex::model (   )  const [inline]
+
+
+
+   bool QModelIndex::operator!= (  const QModelIndex &  other  )  const [inline]
+
+
+
+   bool QModelIndex::operator== (  const QModelIndex &  other  )  const [inline]
+
+
+
+   QModelIndex QModelIndex::parent (   )  const [inline]
+
+
+
+   int QModelIndex::row (   )  const [inline]
+
+
+
+   QModelIndex QModelIndex::sibling (  int  row,
+                                       int  column
+                                    )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QAbstractItemModel [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractitemmodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,213 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QToolBox Class Reference
+
+   #include <qtoolbox.h>
+
+   Inherits QFrame.
+
+   List of all members.
+
+Public Slots
+
+     * void setCurrentIndex (int index)
+     * void setCurrentWidget (QWidget *widget)
+
+Signals
+
+     * void currentChanged (int index)
+
+Public Member Functions
+
+     * QToolBox (QWidget *parent=0, Qt::WFlags f=0)
+     * ~QToolBox ()
+     * int addItem (QWidget *widget, const QString &text)
+     * int addItem (QWidget *widget, const QIcon &icon, const QString &text)
+     * int insertItem (int index, QWidget *widget, const QString &text)
+     * int insertItem (int index, QWidget *widget, const QIcon &icon, const QString &text)
+     * void removeItem (int index)
+     * void setItemEnabled (int index, bool enabled)
+     * bool isItemEnabled (int index) const
+     * void setItemText (int index, const QString &text)
+     * QString itemText (int index) const
+     * void setItemIcon (int index, const QIcon &icon)
+     * QIcon itemIcon (int index) const
+     * void setItemToolTip (int index, const QString &toolTip)
+     * QString itemToolTip (int index) const
+     * int currentIndex () const
+     * QWidget * currentWidget () const
+     * QWidget * widget (int index) const
+     * int indexOf (QWidget *widget) const
+     * int count () const
+
+Protected Member Functions
+
+     * virtual void itemInserted (int index)
+     * virtual void itemRemoved (int index)
+     * void showEvent (QShowEvent *e)
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * int currentIndex
+     * int count
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QToolBox::QToolBox (  QWidget *   parent = 0,
+                         Qt::WFlags  f = 0
+                      )  [explicit]
+
+
+
+   QToolBox::~QToolBox (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QToolBox::addItem (  QWidget *        widget,
+                            const QIcon &    icon,
+                            const QString &  text
+                         )  [inline]
+
+
+
+   int QToolBox::addItem (  QWidget *        widget,
+                            const QString &  text
+                         )  [inline]
+
+
+
+   void QToolBox::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   int QToolBox::count (   )  const
+
+
+
+   void QToolBox::currentChanged (  int  index  )  [signal]
+
+
+
+   int QToolBox::currentIndex (   )  const
+
+
+
+   QWidget* QToolBox::currentWidget (   )  const
+
+
+
+   int QToolBox::indexOf (  QWidget *  widget  )  const
+
+
+
+   int QToolBox::insertItem (  int              index,
+                               QWidget *        widget,
+                               const QIcon &    icon,
+                               const QString &  text
+                            )
+
+
+
+   int QToolBox::insertItem (  int              index,
+                               QWidget *        widget,
+                               const QString &  text
+                            )  [inline]
+
+
+
+   bool QToolBox::isItemEnabled (  int  index  )  const
+
+
+
+   QIcon QToolBox::itemIcon (  int  index  )  const
+
+
+
+   virtual void QToolBox::itemInserted (  int  index  )  [protected, virtual]
+
+
+
+   virtual void QToolBox::itemRemoved (  int  index  )  [protected, virtual]
+
+
+
+   QString QToolBox::itemText (  int  index  )  const
+
+
+
+   QString QToolBox::itemToolTip (  int  index  )  const
+
+
+
+   void QToolBox::removeItem (  int  index  )
+
+
+
+   void QToolBox::setCurrentIndex (  int  index  )  [slot]
+
+
+
+   void QToolBox::setCurrentWidget (  QWidget *  widget  )  [slot]
+
+
+
+   void QToolBox::setItemEnabled (  int   index,
+                                    bool  enabled
+                                 )
+
+
+
+   void QToolBox::setItemIcon (  int            index,
+                                 const QIcon &  icon
+                              )
+
+
+
+   void QToolBox::setItemText (  int              index,
+                                 const QString &  text
+                              )
+
+
+
+   void QToolBox::setItemToolTip (  int              index,
+                                    const QString &  toolTip
+                                 )
+
+
+
+   void QToolBox::showEvent (  QShowEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QWidget* QToolBox::widget (  int  index  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QToolBox::count [read]
+
+
+
+   int QToolBox::currentIndex [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtoolbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

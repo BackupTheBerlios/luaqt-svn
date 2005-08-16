@@ -1,0 +1,131 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              Q3Frame Class Reference
+
+   #include <q3frame.h>
+
+   Inherits QFrame.
+
+   Inherited by Q3DockWindow, Q3Grid, Q3HBox, Q3ScrollView, and Q3WidgetStack.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3Frame (QWidget *parent, const char *name=0, Qt::WFlags f=0)
+     * ~Q3Frame ()
+     * bool lineShapesOk () const
+     * int margin () const
+     * void setMargin (int)
+     * QRect contentsRect () const
+     * int frameWidth () const
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * virtual void frameChanged ()
+     * virtual void drawFrame (QPainter *)
+     * virtual void drawContents (QPainter *)
+
+Properties
+
+     * int margin
+     * QRect contentsRect
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Frame::Q3Frame (  QWidget *     parent,
+                       const char *  name = 0,
+                       Qt::WFlags    f = 0
+                    )
+
+
+
+   Q3Frame::~Q3Frame (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QRect Q3Frame::contentsRect (   )  const
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3Frame::drawContents (  QPainter *   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3DockWindow.
+
+   virtual void Q3Frame::drawFrame (  QPainter *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   Reimplemented in Q3DockWindow.
+
+   virtual void Q3Frame::frameChanged (   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3Grid, Q3HBox, Q3ScrollView, and Q3WidgetStack.
+
+   int Q3Frame::frameWidth (   )  const
+
+
+
+   Reimplemented from QFrame.
+
+   bool Q3Frame::lineShapesOk (   )  const [inline]
+
+
+
+   int Q3Frame::margin (   )  const [inline]
+
+
+
+   void Q3Frame::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   Reimplemented in Q3Table.
+
+   void Q3Frame::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3DataTable, Q3DockWindow, Q3IconView, Q3ListBox, Q3ListView, Q3ScrollView, Q3TextEdit, Q3ToolBar, and Q3WidgetStack.
+
+   void Q3Frame::setMargin (  int   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QRect Q3Frame::contentsRect [read]
+
+
+
+   int Q3Frame::margin [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3frame.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

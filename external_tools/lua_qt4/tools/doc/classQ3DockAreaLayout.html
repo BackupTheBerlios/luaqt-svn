@@ -1,0 +1,154 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3DockAreaLayout Class Reference
+
+   #include <q3dockarea.h>
+
+   Inherits QLayout.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3DockAreaLayout (QWidget *parent, Qt::Orientation o, QList< Q3DockWindow * > *wl, int space=-1, int margin=-1, const char *name=0)
+     * ~Q3DockAreaLayout ()
+     * void addItem (QLayoutItem *)
+     * bool hasHeightForWidth () const
+     * int heightForWidth (int) const
+     * int widthForHeight (int) const
+     * QSize sizeHint () const
+     * QSize minimumSize () const
+     * QLayoutItem * itemAt (int) const
+     * QLayoutItem * takeAt (int)
+     * int count () const
+     * Qt::Orientations expandingDirections () const
+     * void invalidate ()
+     * Qt::Orientation orientation () const
+     * QList< QRect > lineList () const
+     * QList< Q3DockWindow * > lineStarts () const
+
+Protected Member Functions
+
+     * void setGeometry (const QRect &)
+
+Friends
+
+     * class Q3DockArea
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3DockAreaLayout::Q3DockAreaLayout (  QWidget *                  parent,
+                                         Qt::Orientation            o,
+                                         QList< Q3DockWindow * > *  wl,
+                                         int                        space = -1,
+                                         int                        margin = -1,
+                                         const char *               name = 0
+                                      )  [inline]
+
+
+
+   Q3DockAreaLayout::~Q3DockAreaLayout (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3DockAreaLayout::addItem (  QLayoutItem *   )  [inline, virtual]
+
+
+
+   Implements QLayout.
+
+   int Q3DockAreaLayout::count (   )  const [virtual]
+
+
+
+   Implements QLayout.
+
+   Qt::Orientations Q3DockAreaLayout::expandingDirections (   )  const [inline, virtual]
+
+
+
+   Reimplemented from QLayout.
+
+   bool Q3DockAreaLayout::hasHeightForWidth (   )  const [virtual]
+
+
+
+   Reimplemented from QLayoutItem.
+
+   int Q3DockAreaLayout::heightForWidth (  int   )  const [virtual]
+
+
+
+   Reimplemented from QLayoutItem.
+
+   void Q3DockAreaLayout::invalidate (   )  [virtual]
+
+
+
+   Reimplemented from QLayout.
+
+   QLayoutItem* Q3DockAreaLayout::itemAt (  int   )  const [virtual]
+
+
+
+   Implements QLayout.
+
+   QList<QRect> Q3DockAreaLayout::lineList (   )  const [inline]
+
+
+
+   QList<Q3DockWindow *> Q3DockAreaLayout::lineStarts (   )  const [inline]
+
+
+
+   QSize Q3DockAreaLayout::minimumSize (   )  const [virtual]
+
+
+
+   Reimplemented from QLayout.
+
+   Qt::Orientation Q3DockAreaLayout::orientation (   )  const [inline]
+
+
+
+   void Q3DockAreaLayout::setGeometry (  const QRect &   )  [protected, virtual]
+
+
+
+   Implements QLayout.
+
+   QSize Q3DockAreaLayout::sizeHint (   )  const [virtual]
+
+
+
+   Implements QLayoutItem.
+
+   QLayoutItem* Q3DockAreaLayout::takeAt (  int   )  [virtual]
+
+
+
+   Implements QLayout.
+
+   int Q3DockAreaLayout::widthForHeight (  int   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3DockArea [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3dockarea.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

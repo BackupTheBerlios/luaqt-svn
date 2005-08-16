@@ -1,0 +1,183 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3ListBoxItem Class Reference
+
+   #include <q3listbox.h>
+
+   Inherited by Q3ListBoxPixmap, and Q3ListBoxText.
+
+   List of all members.
+
+Public Types
+
+     * enum { RTTI = 0 }
+
+Public Member Functions
+
+     * Q3ListBoxItem (Q3ListBox *listbox=0)
+     * Q3ListBoxItem (Q3ListBox *listbox, Q3ListBoxItem *after)
+     * virtual ~Q3ListBoxItem ()
+     * virtual QString text () const
+     * virtual const QPixmap * pixmap () const
+     * virtual int height (const Q3ListBox *) const
+     * virtual int width (const Q3ListBox *) const
+     * bool isSelected () const
+     * bool isCurrent () const
+     * bool selected () const
+     * bool current () const
+     * Q3ListBox * listBox () const
+     * void setSelectable (bool b)
+     * bool isSelectable () const
+     * Q3ListBoxItem * next () const
+     * Q3ListBoxItem * prev () const
+     * virtual int rtti () const
+
+Protected Member Functions
+
+     * virtual void paint (QPainter *)=0
+     * virtual void setText (const QString &text)
+     * void setCustomHighlighting (bool)
+
+Friends
+
+     * class Q3ListBox
+     * class Q3ListBoxPrivate
+     * class QComboBox
+     * class QComboBoxPopupItem
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          RTTI
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ListBoxItem::Q3ListBoxItem (  Q3ListBox *  listbox = 0  )
+
+
+
+   Q3ListBoxItem::Q3ListBoxItem (  Q3ListBox *      listbox,
+                                   Q3ListBoxItem *  after
+                                )
+
+
+
+   virtual Q3ListBoxItem::~Q3ListBoxItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool Q3ListBoxItem::current (   )  const [inline]
+
+
+
+   virtual int Q3ListBoxItem::height (  const Q3ListBox *   )  const [virtual]
+
+
+
+   Reimplemented in Q3ListBoxText, and Q3ListBoxPixmap.
+
+   bool Q3ListBoxItem::isCurrent (   )  const
+
+
+
+   bool Q3ListBoxItem::isSelectable (   )  const [inline]
+
+
+
+   bool Q3ListBoxItem::isSelected (   )  const [inline]
+
+
+
+   Q3ListBox* Q3ListBoxItem::listBox (   )  const
+
+
+
+   Q3ListBoxItem* Q3ListBoxItem::next (   )  const
+
+
+
+   virtual void Q3ListBoxItem::paint (  QPainter *   )  [protected, pure virtual]
+
+
+
+   Implemented in Q3ListBoxText, and Q3ListBoxPixmap.
+
+   virtual const QPixmap* Q3ListBoxItem::pixmap (   )  const [virtual]
+
+
+
+   Reimplemented in Q3ListBoxPixmap.
+
+   Q3ListBoxItem* Q3ListBoxItem::prev (   )  const
+
+
+
+   virtual int Q3ListBoxItem::rtti (   )  const [virtual]
+
+
+
+   Reimplemented in Q3ListBoxText, and Q3ListBoxPixmap.
+
+   bool Q3ListBoxItem::selected (   )  const [inline]
+
+
+
+   void Q3ListBoxItem::setCustomHighlighting (  bool   )  [protected]
+
+
+
+   void Q3ListBoxItem::setSelectable (  bool  b  )  [inline]
+
+
+
+   virtual void Q3ListBoxItem::setText (  const QString &  text  )  [inline, protected, virtual]
+
+
+
+   virtual QString Q3ListBoxItem::text (   )  const [virtual]
+
+
+
+   virtual int Q3ListBoxItem::width (  const Q3ListBox *   )  const [virtual]
+
+
+
+   Reimplemented in Q3ListBoxText, and Q3ListBoxPixmap.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3ListBox [friend]
+
+
+
+   friend class Q3ListBoxPrivate [friend]
+
+
+
+   friend class QComboBox [friend]
+
+
+
+   friend class QComboBoxPopupItem [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3listbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

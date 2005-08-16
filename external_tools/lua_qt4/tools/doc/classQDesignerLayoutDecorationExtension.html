@@ -1,0 +1,128 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                QDesignerLayoutDecorationExtension Class Reference
+
+   #include <layoutdecoration.h>
+
+   List of all members.
+
+Public Types
+
+     * enum InsertMode { InsertWidgetMode, InsertRowMode, InsertColumnMode }
+
+Public Member Functions
+
+     * virtual ~QDesignerLayoutDecorationExtension ()
+     * virtual QList< QWidget * > widgets (QLayout *layout) const =0
+     * virtual QRect itemInfo (int index) const =0
+     * virtual int indexOf (QWidget *widget) const =0
+     * virtual int indexOf (QLayoutItem *item) const =0
+     * virtual InsertMode currentInsertMode () const =0
+     * virtual int currentIndex () const =0
+     * virtual QPair< int, int > currentCell () const =0
+     * virtual void insertWidget (QWidget *widget, const QPair< int, int > &cell)=0
+     * virtual void removeWidget (QWidget *widget)=0
+     * virtual void insertRow (int row)=0
+     * virtual void insertColumn (int column)=0
+     * virtual void simplify ()=0
+     * virtual int findItemAt (const QPoint &pos) const =0
+     * virtual int findItemAt (int row, int column) const =0
+     * virtual void adjustIndicator (const QPoint &pos, int index)=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDesignerLayoutDecorationExtension::InsertMode
+
+
+
+   Enumerator: 
+
+          InsertWidgetMode
+          InsertRowMode   
+          InsertColumnMode
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QDesignerLayoutDecorationExtension::~QDesignerLayoutDecorationExtension (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void QDesignerLayoutDecorationExtension::adjustIndicator (  const QPoint &  pos,
+                                                                       int             index
+                                                                    )  [pure virtual]
+
+
+
+   virtual QPair<int, int> QDesignerLayoutDecorationExtension::currentCell (   )  const [pure virtual]
+
+
+
+   virtual int QDesignerLayoutDecorationExtension::currentIndex (   )  const [pure virtual]
+
+
+
+   virtual InsertMode QDesignerLayoutDecorationExtension::currentInsertMode (   )  const [pure virtual]
+
+
+
+   virtual int QDesignerLayoutDecorationExtension::findItemAt (  int  row,
+                                                                 int  column
+                                                              )  const [pure virtual]
+
+
+
+   virtual int QDesignerLayoutDecorationExtension::findItemAt (  const QPoint &  pos  )  const [pure virtual]
+
+
+
+   virtual int QDesignerLayoutDecorationExtension::indexOf (  QLayoutItem *  item  )  const [pure virtual]
+
+
+
+   virtual int QDesignerLayoutDecorationExtension::indexOf (  QWidget *  widget  )  const [pure virtual]
+
+
+
+   virtual void QDesignerLayoutDecorationExtension::insertColumn (  int  column  )  [pure virtual]
+
+
+
+   virtual void QDesignerLayoutDecorationExtension::insertRow (  int  row  )  [pure virtual]
+
+
+
+   virtual void QDesignerLayoutDecorationExtension::insertWidget (  QWidget *                  widget,
+                                                                    const QPair< int, int > &  cell
+                                                                 )  [pure virtual]
+
+
+
+   virtual QRect QDesignerLayoutDecorationExtension::itemInfo (  int  index  )  const [pure virtual]
+
+
+
+   virtual void QDesignerLayoutDecorationExtension::removeWidget (  QWidget *  widget  )  [pure virtual]
+
+
+
+   virtual void QDesignerLayoutDecorationExtension::simplify (   )  [pure virtual]
+
+
+
+   virtual QList<QWidget*> QDesignerLayoutDecorationExtension::widgets (  QLayout *  layout  )  const [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/layoutdecoration.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

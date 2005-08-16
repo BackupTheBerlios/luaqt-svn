@@ -1,0 +1,516 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3ListViewItem Class Reference
+
+   #include <q3listview.h>
+
+   Inherited by Q3CheckListItem.
+
+   List of all members.
+
+Public Types
+
+     * enum { RTTI = 0 }
+
+Public Member Functions
+
+     * Q3ListViewItem (Q3ListView *parent)
+     * Q3ListViewItem (Q3ListViewItem *parent)
+     * Q3ListViewItem (Q3ListView *parent, Q3ListViewItem *after)
+     * Q3ListViewItem (Q3ListViewItem *parent, Q3ListViewItem *after)
+     * Q3ListViewItem (Q3ListView *parent, const QString &, const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString())
+     * Q3ListViewItem (Q3ListViewItem *parent, const QString &, const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString())
+     * Q3ListViewItem (Q3ListView *parent, Q3ListViewItem *after, const QString &, const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString())
+     * Q3ListViewItem (Q3ListViewItem *parent, Q3ListViewItem *after, const QString &, const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString(), const QString &=QString())
+     * virtual ~Q3ListViewItem ()
+     * virtual void insertItem (Q3ListViewItem *)
+     * virtual void takeItem (Q3ListViewItem *)
+     * virtual void removeItem (Q3ListViewItem *item)
+     * int height () const
+     * virtual void invalidateHeight ()
+     * int totalHeight () const
+     * virtual int width (const QFontMetrics &, const Q3ListView *, int column) const
+     * void widthChanged (int column=-1) const
+     * int depth () const
+     * virtual void setText (int, const QString &)
+     * virtual QString text (int) const
+     * virtual void setPixmap (int, const QPixmap &)
+     * virtual const QPixmap * pixmap (int) const
+     * virtual QString key (int, bool) const
+     * virtual int compare (Q3ListViewItem *i, int col, bool) const
+     * virtual void sortChildItems (int, bool)
+     * int childCount () const
+     * bool isOpen () const
+     * virtual void setOpen (bool)
+     * virtual void setup ()
+     * virtual void setSelected (bool)
+     * bool isSelected () const
+     * virtual void paintCell (QPainter *, const QColorGroup &cg, int column, int width, int alignment)
+     * virtual void paintBranches (QPainter *p, const QColorGroup &cg, int w, int y, int h)
+     * virtual void paintFocus (QPainter *, const QColorGroup &cg, const QRect &r)
+     * Q3ListViewItem * firstChild () const
+     * Q3ListViewItem * nextSibling () const
+     * Q3ListViewItem * parent () const
+     * Q3ListViewItem * itemAbove () const
+     * Q3ListViewItem * itemBelow () const
+     * int itemPos () const
+     * Q3ListView * listView () const
+     * virtual void setSelectable (bool enable)
+     * bool isSelectable () const
+     * virtual void setExpandable (bool)
+     * bool isExpandable () const
+     * void repaint () const
+     * virtual void sort ()
+     * void moveItem (Q3ListViewItem *after)
+     * virtual void setDragEnabled (bool allow)
+     * virtual void setDropEnabled (bool allow)
+     * bool dragEnabled () const
+     * bool dropEnabled () const
+     * virtual bool acceptDrop (const QMimeSource *mime) const
+     * void setVisible (bool b)
+     * bool isVisible () const
+     * virtual void setRenameEnabled (int col, bool b)
+     * bool renameEnabled (int col) const
+     * virtual void startRename (int col)
+     * virtual void setEnabled (bool b)
+     * bool isEnabled () const
+     * virtual int rtti () const
+     * virtual void setMultiLinesEnabled (bool b)
+     * bool multiLinesEnabled () const
+
+Protected Member Functions
+
+     * virtual void enforceSortOrder () const
+     * virtual void setHeight (int)
+     * virtual void activate ()
+     * bool activatedPos (QPoint &)
+     * virtual void dropped (QDropEvent *e)
+     * virtual void dragEntered ()
+     * virtual void dragLeft ()
+     * virtual void okRename (int col)
+     * virtual void cancelRename (int col)
+     * void ignoreDoubleClick ()
+
+Friends
+
+     * class Q3ListViewItemIterator
+     * class Q3ListViewToolTip
+     * class Q3ListView
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          RTTI
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ListViewItem::Q3ListViewItem (  Q3ListView *  parent  )
+
+
+
+   Q3ListViewItem::Q3ListViewItem (  Q3ListViewItem *  parent  )
+
+
+
+   Q3ListViewItem::Q3ListViewItem (  Q3ListView *      parent,
+                                     Q3ListViewItem *  after
+                                  )
+
+
+
+   Q3ListViewItem::Q3ListViewItem (  Q3ListViewItem *  parent,
+                                     Q3ListViewItem *  after
+                                  )
+
+
+
+   Q3ListViewItem::Q3ListViewItem (  Q3ListView *     parent,
+                                     const QString &  ,
+                                     const QString &  = QString(),
+                                     const QString &  = QString(),
+                                     const QString &  = QString(),
+                                     const QString &  = QString(),
+                                     const QString &  = QString(),
+                                     const QString &  = QString(),
+                                     const QString &  = QString()
+                                  )
+
+
+
+   Q3ListViewItem::Q3ListViewItem (  Q3ListViewItem *  parent,
+                                     const QString &   ,
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString()
+                                  )
+
+
+
+   Q3ListViewItem::Q3ListViewItem (  Q3ListView *      parent,
+                                     Q3ListViewItem *  after,
+                                     const QString &   ,
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString()
+                                  )
+
+
+
+   Q3ListViewItem::Q3ListViewItem (  Q3ListViewItem *  parent,
+                                     Q3ListViewItem *  after,
+                                     const QString &   ,
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString(),
+                                     const QString &   = QString()
+                                  )
+
+
+
+   virtual Q3ListViewItem::~Q3ListViewItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual bool Q3ListViewItem::acceptDrop (  const QMimeSource *  mime  )  const [virtual]
+
+
+
+   virtual void Q3ListViewItem::activate (   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3CheckListItem.
+
+   bool Q3ListViewItem::activatedPos (  QPoint &   )  [protected]
+
+
+
+   virtual void Q3ListViewItem::cancelRename (  int  col  )  [protected, virtual]
+
+
+
+   int Q3ListViewItem::childCount (   )  const [inline]
+
+
+
+   virtual int Q3ListViewItem::compare (  Q3ListViewItem *  i,
+                                          int               col,
+                                          bool            
+                                       )  const [virtual]
+
+
+
+   int Q3ListViewItem::depth (   )  const
+
+
+
+   bool Q3ListViewItem::dragEnabled (   )  const
+
+
+
+   virtual void Q3ListViewItem::dragEntered (   )  [protected, virtual]
+
+
+
+   virtual void Q3ListViewItem::dragLeft (   )  [protected, virtual]
+
+
+
+   bool Q3ListViewItem::dropEnabled (   )  const
+
+
+
+   virtual void Q3ListViewItem::dropped (  QDropEvent *  e  )  [protected, virtual]
+
+
+
+   virtual void Q3ListViewItem::enforceSortOrder (   )  const [protected, virtual]
+
+
+
+   Q3ListViewItem* Q3ListViewItem::firstChild (   )  const
+
+
+
+   int Q3ListViewItem::height (   )  const
+
+
+
+   void Q3ListViewItem::ignoreDoubleClick (   )  [protected]
+
+
+
+   virtual void Q3ListViewItem::insertItem (  Q3ListViewItem *   )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::invalidateHeight (   )  [virtual]
+
+
+
+   bool Q3ListViewItem::isEnabled (   )  const
+
+
+
+   bool Q3ListViewItem::isExpandable (   )  const [inline]
+
+
+
+   bool Q3ListViewItem::isOpen (   )  const [inline]
+
+
+
+   bool Q3ListViewItem::isSelectable (   )  const [inline]
+
+
+
+   bool Q3ListViewItem::isSelected (   )  const [inline]
+
+
+
+   bool Q3ListViewItem::isVisible (   )  const
+
+
+
+   Q3ListViewItem* Q3ListViewItem::itemAbove (   )  const
+
+
+
+   Q3ListViewItem* Q3ListViewItem::itemBelow (   )  const
+
+
+
+   int Q3ListViewItem::itemPos (   )  const
+
+
+
+   virtual QString Q3ListViewItem::key (  int   ,
+                                          bool
+                                       )  const [virtual]
+
+
+
+   Q3ListView* Q3ListViewItem::listView (   )  const
+
+
+
+   void Q3ListViewItem::moveItem (  Q3ListViewItem *  after  )
+
+
+
+   bool Q3ListViewItem::multiLinesEnabled (   )  const
+
+
+
+   Q3ListViewItem* Q3ListViewItem::nextSibling (   )  const [inline]
+
+
+
+   virtual void Q3ListViewItem::okRename (  int  col  )  [protected, virtual]
+
+
+
+   virtual void Q3ListViewItem::paintBranches (  QPainter *           p,
+                                                 const QColorGroup &  cg,
+                                                 int                  w,
+                                                 int                  y,
+                                                 int                  h
+                                              )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::paintCell (  QPainter *           ,
+                                             const QColorGroup &  cg,
+                                             int                  column,
+                                             int                  width,
+                                             int                  alignment
+                                          )  [virtual]
+
+
+
+   Reimplemented in Q3CheckListItem.
+
+   virtual void Q3ListViewItem::paintFocus (  QPainter *           ,
+                                              const QColorGroup &  cg,
+                                              const QRect &        r
+                                           )  [virtual]
+
+
+
+   Reimplemented in Q3CheckListItem.
+
+   Q3ListViewItem* Q3ListViewItem::parent (   )  const
+
+
+
+   virtual const QPixmap* Q3ListViewItem::pixmap (  int   )  const [virtual]
+
+
+
+   virtual void Q3ListViewItem::removeItem (  Q3ListViewItem *  item  )  [inline, virtual]
+
+
+
+   bool Q3ListViewItem::renameEnabled (  int  col  )  const
+
+
+
+   void Q3ListViewItem::repaint (   )  const
+
+
+
+   virtual int Q3ListViewItem::rtti (   )  const [virtual]
+
+
+
+   Reimplemented in Q3CheckListItem.
+
+   virtual void Q3ListViewItem::setDragEnabled (  bool  allow  )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setDropEnabled (  bool  allow  )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setEnabled (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setExpandable (  bool   )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setHeight (  int   )  [protected, virtual]
+
+
+
+   virtual void Q3ListViewItem::setMultiLinesEnabled (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setOpen (  bool   )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setPixmap (  int              ,
+                                             const QPixmap &
+                                          )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setRenameEnabled (  int   col,
+                                                    bool  b
+                                                 )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setSelectable (  bool  enable  )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setSelected (  bool   )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setText (  int              ,
+                                           const QString &
+                                        )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::setup (   )  [virtual]
+
+
+
+   Reimplemented in Q3CheckListItem.
+
+   void Q3ListViewItem::setVisible (  bool  b  )
+
+
+
+   virtual void Q3ListViewItem::sort (   )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::sortChildItems (  int   ,
+                                                  bool
+                                               )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::startRename (  int  col  )  [virtual]
+
+
+
+   virtual void Q3ListViewItem::takeItem (  Q3ListViewItem *   )  [virtual]
+
+
+
+   virtual QString Q3ListViewItem::text (  int   )  const [virtual]
+
+
+
+   Reimplemented in Q3CheckListItem.
+
+   int Q3ListViewItem::totalHeight (   )  const
+
+
+
+   virtual int Q3ListViewItem::width (  const QFontMetrics &  ,
+                                        const Q3ListView *    ,
+                                        int                   column
+                                     )  const [virtual]
+
+
+
+   Reimplemented in Q3CheckListItem.
+
+   void Q3ListViewItem::widthChanged (  int  column = -1  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3ListView [friend]
+
+
+
+   friend class Q3ListViewItemIterator [friend]
+
+
+
+   friend class Q3ListViewToolTip [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3listview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,387 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QCoreApplication Class Reference
+
+   #include <qcoreapplication.h>
+
+   Inherits QObject.
+
+   Inherited by QApplication.
+
+   List of all members.
+
+Public Types
+
+     * typedef bool(* EventFilter )(void *message, long *result)
+     * enum Encoding { DefaultCodec, UnicodeUTF8 }
+
+Public Slots
+
+     * static void quit ()
+
+Signals
+
+     * void aboutToQuit ()
+     * void unixSignal (int)
+
+Public Member Functions
+
+     * QCoreApplication (int &argc, char **argv)
+     * ~QCoreApplication ()
+     * virtual bool notify (QObject *, QEvent *)
+     * EventFilter setEventFilter (EventFilter filter)
+     * bool filterEvent (void *message, long *result)
+
+Static Public Member Functions
+
+     * static int argc ()
+     * static char ** argv ()
+     * static void setOrganizationDomain (const QString &orgDomain)
+     * static QString organizationDomain ()
+     * static void setOrganizationName (const QString &orgName)
+     * static QString organizationName ()
+     * static void setApplicationName (const QString &application)
+     * static QString applicationName ()
+     * static QCoreApplication * instance ()
+     * static int exec ()
+     * static void processEvents (QEventLoop::ProcessEventsFlags flags=QEventLoop::AllEvents)
+     * static void processEvents (QEventLoop::ProcessEventsFlags flags, int maxtime)
+     * static void exit (int retcode=0)
+     * static bool sendEvent (QObject *receiver, QEvent *event)
+     * static void postEvent (QObject *receiver, QEvent *event)
+     * static void sendPostedEvents (QObject *receiver, int event_type)
+     * static void sendPostedEvents ()
+     * static void removePostedEvents (QObject *receiver)
+     * static bool hasPendingEvents ()
+     * static bool startingUp ()
+     * static bool closingDown ()
+     * static QString applicationDirPath ()
+     * static QString applicationFilePath ()
+     * static void setLibraryPaths (const QStringList &)
+     * static QStringList libraryPaths ()
+     * static void addLibraryPath (const QString &)
+     * static void removeLibraryPath (const QString &)
+     * static void installTranslator (QTranslator *)
+     * static void removeTranslator (QTranslator *)
+     * static QString translate (const char *context, const char *key, const char *comment=0, Encoding encoding=DefaultCodec)
+     * static void flush ()
+
+Protected Member Functions
+
+     * bool event (QEvent *)
+     * virtual bool compressEvent (QEvent *, QObject *receiver, QPostEventList *)
+     * QCoreApplication (QCoreApplicationPrivate &p)
+
+Properties
+
+     * QString applicationName
+     * QString organizationName
+     * QString organizationDomain
+
+Friends
+
+     * class QEventDispatcherUNIXPrivate
+     * class QApplication
+     * class QApplicationPrivate
+     * class QETWidget
+     * class Q3AccelManager
+     * class QShortcutMap
+     * class QWidget
+     * class QWidgetPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef bool(* QCoreApplication::EventFilter)(void *message, long *result)
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QCoreApplication::Encoding
+
+
+
+   Enumerator: 
+
+          DefaultCodec
+          UnicodeUTF8 
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QCoreApplication::QCoreApplication (  int &    argc,
+                                         char **  argv
+                                      )
+
+
+
+   QCoreApplication::~QCoreApplication (   )
+
+
+
+   QCoreApplication::QCoreApplication (  QCoreApplicationPrivate &  p  )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QCoreApplication::aboutToQuit (   )  [signal]
+
+
+
+   static void QCoreApplication::addLibraryPath (  const QString &   )  [static]
+
+
+
+   static QString QCoreApplication::applicationDirPath (   )  [static]
+
+
+
+   static QString QCoreApplication::applicationFilePath (   )  [static]
+
+
+
+   static QString QCoreApplication::applicationName (   )  [static]
+
+
+
+   static int QCoreApplication::argc (   )  [static]
+
+
+
+   static char** QCoreApplication::argv (   )  [static]
+
+
+
+   static bool QCoreApplication::closingDown (   )  [static]
+
+
+
+   virtual bool QCoreApplication::compressEvent (  QEvent *          ,
+                                                   QObject *         receiver,
+                                                   QPostEventList *
+                                                )  [protected, virtual]
+
+
+
+   Reimplemented in QApplication.
+
+   bool QCoreApplication::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   Reimplemented in QApplication.
+
+   static int QCoreApplication::exec (   )  [static]
+
+
+
+   Reimplemented in QApplication.
+
+   static void QCoreApplication::exit (  int  retcode = 0  )  [static]
+
+
+
+   bool QCoreApplication::filterEvent (  void *  message,
+                                         long *  result
+                                      )
+
+
+
+   static void QCoreApplication::flush (   )  [static]
+
+
+
+   static bool QCoreApplication::hasPendingEvents (   )  [static]
+
+
+
+   static void QCoreApplication::installTranslator (  QTranslator *   )  [static]
+
+
+
+   static QCoreApplication* QCoreApplication::instance (   )  [inline, static]
+
+
+
+   static QStringList QCoreApplication::libraryPaths (   )  [static]
+
+
+
+   virtual bool QCoreApplication::notify (  QObject *  ,
+                                            QEvent * 
+                                         )  [virtual]
+
+
+
+   Reimplemented in QApplication.
+
+   static QString QCoreApplication::organizationDomain (   )  [static]
+
+
+
+   static QString QCoreApplication::organizationName (   )  [static]
+
+
+
+   static void QCoreApplication::postEvent (  QObject *  receiver,
+                                              QEvent *   event
+                                           )  [static]
+
+
+
+   static void QCoreApplication::processEvents (  QEventLoop::ProcessEventsFlags  flags,
+                                                  int                             maxtime
+                                               )  [static]
+
+
+
+   static void QCoreApplication::processEvents (  QEventLoop::ProcessEventsFlags  flags = QEventLoop::AllEvents  )  [static]
+
+
+
+   static void QCoreApplication::quit (   )  [static, slot]
+
+
+
+   static void QCoreApplication::removeLibraryPath (  const QString &   )  [static]
+
+
+
+   static void QCoreApplication::removePostedEvents (  QObject *  receiver  )  [static]
+
+
+
+   static void QCoreApplication::removeTranslator (  QTranslator *   )  [static]
+
+
+
+   bool QCoreApplication::sendEvent (  QObject *  receiver,
+                                       QEvent *   event
+                                    )  [inline, static]
+
+
+
+   void QCoreApplication::sendPostedEvents (   )  [inline, static]
+
+
+
+   static void QCoreApplication::sendPostedEvents (  QObject *  receiver,
+                                                     int        event_type
+                                                  )  [static]
+
+
+
+   static void QCoreApplication::setApplicationName (  const QString &  application  )  [static]
+
+
+
+   EventFilter QCoreApplication::setEventFilter (  EventFilter  filter  )
+
+
+
+   static void QCoreApplication::setLibraryPaths (  const QStringList &   )  [static]
+
+
+
+   static void QCoreApplication::setOrganizationDomain (  const QString &  orgDomain  )  [static]
+
+
+
+   static void QCoreApplication::setOrganizationName (  const QString &  orgName  )  [static]
+
+
+
+   static bool QCoreApplication::startingUp (   )  [static]
+
+
+
+   static QString QCoreApplication::translate (  const char *  context,
+                                                 const char *  key,
+                                                 const char *  comment = 0,
+                                                 Encoding      encoding = DefaultCodec
+                                              )  [static]
+
+
+
+   void QCoreApplication::unixSignal (  int   )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3AccelManager [friend]
+
+
+
+   Reimplemented in QApplication.
+
+   friend class QApplication [friend]
+
+
+
+   Reimplemented from QObject.
+
+   friend class QApplicationPrivate [friend]
+
+
+
+   Reimplemented from QObject.
+
+   friend class QETWidget [friend]
+
+
+
+   Reimplemented in QApplication.
+
+   friend class QEventDispatcherUNIXPrivate [friend]
+
+
+
+   friend class QShortcutMap [friend]
+
+
+
+   friend class QWidget [friend]
+
+
+
+   Reimplemented from QObject.
+
+   Reimplemented in QApplication.
+
+   friend class QWidgetPrivate [friend]
+
+
+
+   Reimplemented in QApplication.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QString QCoreApplication::applicationName [read, write]
+
+
+
+   QString QCoreApplication::organizationDomain [read, write]
+
+
+
+   QString QCoreApplication::organizationName [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qcoreapplication.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

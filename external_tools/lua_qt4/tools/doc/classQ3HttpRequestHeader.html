@@ -1,0 +1,103 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        Q3HttpRequestHeader Class Reference
+
+   #include <q3http.h>
+
+   Inherits Q3HttpHeader.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3HttpRequestHeader ()
+     * Q3HttpRequestHeader (const QString &method, const QString &path, int majorVer=1, int minorVer=1)
+     * Q3HttpRequestHeader (const Q3HttpRequestHeader &header)
+     * Q3HttpRequestHeader (const QString &str)
+     * void setRequest (const QString &method, const QString &path, int majorVer=1, int minorVer=1)
+     * QString method () const
+     * QString path () const
+     * int majorVersion () const
+     * int minorVersion () const
+     * QString toString () const
+
+Protected Member Functions
+
+     * bool parseLine (const QString &line, int number)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3HttpRequestHeader::Q3HttpRequestHeader (   )
+
+
+
+   Q3HttpRequestHeader::Q3HttpRequestHeader (  const QString &  method,
+                                               const QString &  path,
+                                               int              majorVer = 1,
+                                               int              minorVer = 1
+                                            )
+
+
+
+   Q3HttpRequestHeader::Q3HttpRequestHeader (  const Q3HttpRequestHeader &  header  )
+
+
+
+   Q3HttpRequestHeader::Q3HttpRequestHeader (  const QString &  str  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int Q3HttpRequestHeader::majorVersion (   )  const [virtual]
+
+
+
+   Implements Q3HttpHeader.
+
+   QString Q3HttpRequestHeader::method (   )  const
+
+
+
+   int Q3HttpRequestHeader::minorVersion (   )  const [virtual]
+
+
+
+   Implements Q3HttpHeader.
+
+   bool Q3HttpRequestHeader::parseLine (  const QString &  line,
+                                          int              number
+                                       )  [protected, virtual]
+
+
+
+   Reimplemented from Q3HttpHeader.
+
+   QString Q3HttpRequestHeader::path (   )  const
+
+
+
+   void Q3HttpRequestHeader::setRequest (  const QString &  method,
+                                           const QString &  path,
+                                           int              majorVer = 1,
+                                           int              minorVer = 1
+                                        )
+
+
+
+   QString Q3HttpRequestHeader::toString (   )  const [virtual]
+
+
+
+   Reimplemented from Q3HttpHeader.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3http.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

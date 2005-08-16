@@ -1,0 +1,438 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTextStream Class Reference
+
+   #include <qtextstream.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags NumberFlags
+     * enum RealNumberNotation { SmartNotation, FixedNotation, ScientificNotation }
+     * enum FieldAlignment { AlignLeft, AlignRight, AlignCenter, AlignAccountingStyle }
+     * enum NumberFlag {
+         ShowBase = 0x1, ForcePoint = 0x2, ForceSign = 0x4, UppercaseBase = 0x8,
+         UppercaseDigits = 0x10
+       }
+
+Public Member Functions
+
+     * QTextStream ()
+     * QTextStream (QIODevice *device)
+     * QTextStream (FILE *fileHandle, QIODevice::OpenMode openMode=QIODevice::ReadWrite)
+     * QTextStream (QString *string, QIODevice::OpenMode openMode=QIODevice::ReadWrite)
+     * QTextStream (QByteArray *array, QIODevice::OpenMode openMode=QIODevice::ReadWrite)
+     * QTextStream (const QByteArray &array, QIODevice::OpenMode openMode=QIODevice::ReadOnly)
+     * virtual ~QTextStream ()
+     * void setCodec (QTextCodec *codec)
+     * void setCodec (const char *codecName)
+     * QTextCodec * codec () const
+     * void setAutoDetectUnicode (bool enabled)
+     * bool autoDetectUnicode () const
+     * void setGenerateByteOrderMark (bool generate)
+     * bool generateByteOrderMark () const
+     * void setDevice (QIODevice *device)
+     * QIODevice * device () const
+     * void setString (QString *string, QIODevice::OpenMode openMode=QIODevice::ReadWrite)
+     * QString * string () const
+     * bool atEnd () const
+     * void reset ()
+     * void flush ()
+     * bool seek (qint64 pos)
+     * void skipWhiteSpace ()
+     * QString readLine (qint64 maxlen=0)
+     * QString readAll ()
+     * void setFieldAlignment (FieldAlignment alignment)
+     * FieldAlignment fieldAlignment () const
+     * void setPadChar (QChar ch)
+     * QChar padChar () const
+     * void setFieldWidth (int width)
+     * int fieldWidth () const
+     * void setNumberFlags (NumberFlags flags)
+     * NumberFlags numberFlags () const
+     * void setIntegerBase (int base)
+     * int integerBase () const
+     * void setRealNumberNotation (RealNumberNotation notation)
+     * RealNumberNotation realNumberNotation () const
+     * void setRealNumberPrecision (int precision)
+     * int realNumberPrecision () const
+     * QTextStream & operator>> (QChar &ch)
+     * QTextStream & operator>> (char &ch)
+     * QTextStream & operator>> (signed short &i)
+     * QTextStream & operator>> (unsigned short &i)
+     * QTextStream & operator>> (signed int &i)
+     * QTextStream & operator>> (unsigned int &i)
+     * QTextStream & operator>> (signed long &i)
+     * QTextStream & operator>> (unsigned long &i)
+     * QTextStream & operator>> (qlonglong &i)
+     * QTextStream & operator>> (qulonglong &i)
+     * QTextStream & operator>> (float &f)
+     * QTextStream & operator>> (double &f)
+     * QTextStream & operator>> (QString &s)
+     * QTextStream & operator>> (QByteArray &array)
+     * QTextStream & operator>> (char *c)
+     * QTextStream & operator<< (QChar ch)
+     * QTextStream & operator<< (char ch)
+     * QTextStream & operator<< (signed short i)
+     * QTextStream & operator<< (unsigned short i)
+     * QTextStream & operator<< (signed int i)
+     * QTextStream & operator<< (unsigned int i)
+     * QTextStream & operator<< (signed long i)
+     * QTextStream & operator<< (unsigned long i)
+     * QTextStream & operator<< (qlonglong i)
+     * QTextStream & operator<< (qulonglong i)
+     * QTextStream & operator<< (float f)
+     * QTextStream & operator<< (double f)
+     * QTextStream & operator<< (const QString &s)
+     * QTextStream & operator<< (const QByteArray &array)
+     * QTextStream & operator<< (const char *c)
+     * QTextStream & operator<< (const void *ptr)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QTextStream::NumberFlags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextStream::FieldAlignment
+
+
+
+   Enumerator: 
+
+          AlignLeft           
+          AlignRight          
+          AlignCenter         
+          AlignAccountingStyle
+
+   enum QTextStream::NumberFlag
+
+
+
+   Enumerator: 
+
+          ShowBase       
+          ForcePoint     
+          ForceSign      
+          UppercaseBase  
+          UppercaseDigits
+
+   enum QTextStream::RealNumberNotation
+
+
+
+   Enumerator: 
+
+          SmartNotation     
+          FixedNotation     
+          ScientificNotation
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextStream::QTextStream (   )
+
+
+
+   QTextStream::QTextStream (  QIODevice *  device  )  [explicit]
+
+
+
+   QTextStream::QTextStream (  FILE *               fileHandle,
+                               QIODevice::OpenMode  openMode = QIODevice::ReadWrite
+                            )  [explicit]
+
+
+
+   QTextStream::QTextStream (  QString *            string,
+                               QIODevice::OpenMode  openMode = QIODevice::ReadWrite
+                            )  [explicit]
+
+
+
+   QTextStream::QTextStream (  QByteArray *         array,
+                               QIODevice::OpenMode  openMode = QIODevice::ReadWrite
+                            )  [explicit]
+
+
+
+   QTextStream::QTextStream (  const QByteArray &   array,
+                               QIODevice::OpenMode  openMode = QIODevice::ReadOnly
+                            )  [explicit]
+
+
+
+   virtual QTextStream::~QTextStream (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QTextStream::atEnd (   )  const
+
+
+
+   bool QTextStream::autoDetectUnicode (   )  const
+
+
+
+   QTextCodec* QTextStream::codec (   )  const
+
+
+
+   QIODevice* QTextStream::device (   )  const
+
+
+
+   FieldAlignment QTextStream::fieldAlignment (   )  const
+
+
+
+   int QTextStream::fieldWidth (   )  const
+
+
+
+   void QTextStream::flush (   )
+
+
+
+   bool QTextStream::generateByteOrderMark (   )  const
+
+
+
+   int QTextStream::integerBase (   )  const
+
+
+
+   NumberFlags QTextStream::numberFlags (   )  const
+
+
+
+   QTextStream& QTextStream::operator<< (  const void *  ptr  )
+
+
+
+   QTextStream& QTextStream::operator<< (  const char *  c  )
+
+
+
+   QTextStream& QTextStream::operator<< (  const QByteArray &  array  )
+
+
+
+   QTextStream& QTextStream::operator<< (  const QString &  s  )
+
+
+
+   QTextStream& QTextStream::operator<< (  double  f  )
+
+
+
+   QTextStream& QTextStream::operator<< (  float  f  )
+
+
+
+   QTextStream& QTextStream::operator<< (  qulonglong  i  )
+
+
+
+   QTextStream& QTextStream::operator<< (  qlonglong  i  )
+
+
+
+   QTextStream& QTextStream::operator<< (  unsigned long  i  )
+
+
+
+   QTextStream& QTextStream::operator<< (  signed long  i  )
+
+
+
+   QTextStream& QTextStream::operator<< (  unsigned int  i  )
+
+
+
+   QTextStream& QTextStream::operator<< (  signed int  i  )
+
+
+
+   QTextStream& QTextStream::operator<< (  unsigned short  i  )
+
+
+
+   QTextStream& QTextStream::operator<< (  signed short  i  )
+
+
+
+   QTextStream& QTextStream::operator<< (  char  ch  )
+
+
+
+   QTextStream& QTextStream::operator<< (  QChar  ch  )
+
+
+
+   QTextStream& QTextStream::operator>> (  char *  c  )
+
+
+
+   QTextStream& QTextStream::operator>> (  QByteArray &  array  )
+
+
+
+   QTextStream& QTextStream::operator>> (  QString &  s  )
+
+
+
+   QTextStream& QTextStream::operator>> (  double &  f  )
+
+
+
+   QTextStream& QTextStream::operator>> (  float &  f  )
+
+
+
+   QTextStream& QTextStream::operator>> (  qulonglong &  i  )
+
+
+
+   QTextStream& QTextStream::operator>> (  qlonglong &  i  )
+
+
+
+   QTextStream& QTextStream::operator>> (  unsigned long &  i  )
+
+
+
+   QTextStream& QTextStream::operator>> (  signed long &  i  )
+
+
+
+   QTextStream& QTextStream::operator>> (  unsigned int &  i  )
+
+
+
+   QTextStream& QTextStream::operator>> (  signed int &  i  )
+
+
+
+   QTextStream& QTextStream::operator>> (  unsigned short &  i  )
+
+
+
+   QTextStream& QTextStream::operator>> (  signed short &  i  )
+
+
+
+   QTextStream& QTextStream::operator>> (  char &  ch  )
+
+
+
+   QTextStream& QTextStream::operator>> (  QChar &  ch  )
+
+
+
+   QChar QTextStream::padChar (   )  const
+
+
+
+   QString QTextStream::readAll (   )
+
+
+
+   QString QTextStream::readLine (  qint64  maxlen = 0  )
+
+
+
+   RealNumberNotation QTextStream::realNumberNotation (   )  const
+
+
+
+   int QTextStream::realNumberPrecision (   )  const
+
+
+
+   void QTextStream::reset (   )
+
+
+
+   bool QTextStream::seek (  qint64  pos  )
+
+
+
+   void QTextStream::setAutoDetectUnicode (  bool  enabled  )
+
+
+
+   void QTextStream::setCodec (  const char *  codecName  )
+
+
+
+   void QTextStream::setCodec (  QTextCodec *  codec  )
+
+
+
+   void QTextStream::setDevice (  QIODevice *  device  )
+
+
+
+   void QTextStream::setFieldAlignment (  FieldAlignment  alignment  )
+
+
+
+   void QTextStream::setFieldWidth (  int  width  )
+
+
+
+   void QTextStream::setGenerateByteOrderMark (  bool  generate  )
+
+
+
+   void QTextStream::setIntegerBase (  int  base  )
+
+
+
+   void QTextStream::setNumberFlags (  NumberFlags  flags  )
+
+
+
+   void QTextStream::setPadChar (  QChar  ch  )
+
+
+
+   void QTextStream::setRealNumberNotation (  RealNumberNotation  notation  )
+
+
+
+   void QTextStream::setRealNumberPrecision (  int  precision  )
+
+
+
+   void QTextStream::setString (  QString *            string,
+                                  QIODevice::OpenMode  openMode = QIODevice::ReadWrite
+                               )
+
+
+
+   void QTextStream::skipWhiteSpace (   )
+
+
+
+   QString* QTextStream::string (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextstream.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,359 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QAbstractButton Class Reference
+
+   #include <qabstractbutton.h>
+
+   Inherits QWidget.
+
+   Inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
+
+   List of all members.
+
+Public Slots
+
+     * void setIconSize (const QSize &size)
+     * void animateClick (int msec=100)
+     * void click ()
+     * void toggle ()
+     * void setChecked (bool)
+
+Signals
+
+     * void pressed ()
+     * void released ()
+     * void clicked (bool checked=false)
+     * void toggled (bool checked)
+
+Public Member Functions
+
+     * QAbstractButton (QWidget *parent=0)
+     * ~QAbstractButton ()
+     * void setText (const QString &text)
+     * QString text () const
+     * void setIcon (const QIcon &icon)
+     * QIcon icon () const
+     * QSize iconSize () const
+     * void setShortcut (const QKeySequence &key)
+     * QKeySequence shortcut () const
+     * void setCheckable (bool)
+     * bool isCheckable () const
+     * bool isChecked () const
+     * void setDown (bool)
+     * bool isDown () const
+     * void setAutoRepeat (bool)
+     * bool autoRepeat () const
+     * void setAutoExclusive (bool)
+     * bool autoExclusive () const
+     * QButtonGroup * group () const
+
+Protected Member Functions
+
+     * virtual void paintEvent (QPaintEvent *e)=0
+     * virtual bool hitButton (const QPoint &pos) const
+     * virtual void checkStateSet ()
+     * virtual void nextCheckState ()
+     * bool event (QEvent *e)
+     * void keyPressEvent (QKeyEvent *e)
+     * void keyReleaseEvent (QKeyEvent *e)
+     * void mousePressEvent (QMouseEvent *e)
+     * void mouseReleaseEvent (QMouseEvent *e)
+     * void mouseMoveEvent (QMouseEvent *e)
+     * void focusInEvent (QFocusEvent *e)
+     * void focusOutEvent (QFocusEvent *e)
+     * void changeEvent (QEvent *e)
+     * void timerEvent (QTimerEvent *e)
+     * QAbstractButton (QAbstractButtonPrivate &dd, QWidget *parent=0)
+
+Properties
+
+     * QString text
+     * QIcon icon
+     * QSize iconSize
+     * QKeySequence shortcut
+     * bool checkable
+     * bool checked
+     * bool autoRepeat
+     * bool autoExclusive
+     * bool down
+
+Friends
+
+     * class QButtonGroup
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractButton::QAbstractButton (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QAbstractButton::~QAbstractButton (   )
+
+
+
+   QAbstractButton::QAbstractButton (  QAbstractButtonPrivate &  dd,
+                                       QWidget *                 parent = 0
+                                    )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QAbstractButton::animateClick (  int  msec = 100  )  [slot]
+
+
+
+   bool QAbstractButton::autoExclusive (   )  const
+
+
+
+   bool QAbstractButton::autoRepeat (   )  const
+
+
+
+   void QAbstractButton::changeEvent (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QToolButton.
+
+   virtual void QAbstractButton::checkStateSet (   )  [protected, virtual]
+
+
+
+   Reimplemented in QCheckBox.
+
+   void QAbstractButton::click (   )  [slot]
+
+
+
+   void QAbstractButton::clicked (  bool  checked = false  )  [signal]
+
+
+
+   bool QAbstractButton::event (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractButton::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QPushButton.
+
+   void QAbstractButton::focusOutEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QPushButton.
+
+   QButtonGroup* QAbstractButton::group (   )  const
+
+
+
+   virtual bool QAbstractButton::hitButton (  const QPoint &  pos  )  const [protected, virtual]
+
+
+
+   Reimplemented in QCheckBox, and QRadioButton.
+
+   QIcon QAbstractButton::icon (   )  const
+
+
+
+   QSize QAbstractButton::iconSize (   )  const
+
+
+
+   bool QAbstractButton::isCheckable (   )  const
+
+
+
+   bool QAbstractButton::isChecked (   )  const
+
+
+
+   bool QAbstractButton::isDown (   )  const
+
+
+
+   void QAbstractButton::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QPushButton.
+
+   void QAbstractButton::keyReleaseEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractButton::mouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractButton::mousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QToolButton.
+
+   void QAbstractButton::mouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void QAbstractButton::nextCheckState (   )  [protected, virtual]
+
+
+
+   Reimplemented in QCheckBox, and QToolButton.
+
+   virtual void QAbstractButton::paintEvent (  QPaintEvent *  e  )  [protected, pure virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Implemented in QCheckBox, QPushButton, QRadioButton, and QToolButton.
+
+   void QAbstractButton::pressed (   )  [signal]
+
+
+
+   void QAbstractButton::released (   )  [signal]
+
+
+
+   void QAbstractButton::setAutoExclusive (  bool   )
+
+
+
+   void QAbstractButton::setAutoRepeat (  bool   )
+
+
+
+   void QAbstractButton::setCheckable (  bool   )
+
+
+
+   void QAbstractButton::setChecked (  bool   )  [slot]
+
+
+
+   void QAbstractButton::setDown (  bool   )
+
+
+
+   void QAbstractButton::setIcon (  const QIcon &  icon  )
+
+
+
+   void QAbstractButton::setIconSize (  const QSize &  size  )  [slot]
+
+
+
+   void QAbstractButton::setShortcut (  const QKeySequence &  key  )
+
+
+
+   void QAbstractButton::setText (  const QString &  text  )
+
+
+
+   QKeySequence QAbstractButton::shortcut (   )  const
+
+
+
+   QString QAbstractButton::text (   )  const
+
+
+
+   void QAbstractButton::timerEvent (  QTimerEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   Reimplemented in QToolButton.
+
+   void QAbstractButton::toggle (   )  [slot]
+
+
+
+   void QAbstractButton::toggled (  bool  checked  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QButtonGroup [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QAbstractButton::autoExclusive [read, write]
+
+
+
+   bool QAbstractButton::autoRepeat [read, write]
+
+
+
+   bool QAbstractButton::checkable [read, write]
+
+
+
+   bool QAbstractButton::checked [read, write]
+
+
+
+   bool QAbstractButton::down [read, write]
+
+
+
+   QIcon QAbstractButton::icon [read, write]
+
+
+
+   QSize QAbstractButton::iconSize [read, write]
+
+
+
+   QKeySequence QAbstractButton::shortcut [read, write]
+
+
+
+   QString QAbstractButton::text [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractbutton.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:53 2005 by  doxygen 1.4.3-20050530

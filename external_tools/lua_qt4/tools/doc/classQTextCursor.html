@@ -1,0 +1,458 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTextCursor Class Reference
+
+   #include <qtextcursor.h>
+
+   List of all members.
+
+Public Types
+
+     * enum MoveMode { MoveAnchor, KeepAnchor }
+     * enum MoveOperation {
+         NoMove, Start, Up, StartOfLine,
+         StartOfBlock, StartOfWord, PreviousBlock, PreviousCharacter,
+         PreviousWord, Left, WordLeft, End,
+         Down, EndOfLine, EndOfWord, EndOfBlock,
+         NextBlock, NextCharacter, NextWord, Right,
+         WordRight
+       }
+     * enum SelectionType { WordUnderCursor, LineUnderCursor }
+
+Public Member Functions
+
+     * QTextCursor ()
+     * QTextCursor (QTextDocument *document)
+     * QTextCursor (QTextDocumentPrivate *p, int pos)
+     * QTextCursor (QTextFrame *frame)
+     * QTextCursor (const QTextBlock &block)
+     * QTextCursor (QTextCursorPrivate *d)
+     * QTextCursor (const QTextCursor &cursor)
+     * QTextCursor & operator= (const QTextCursor &other)
+     * ~QTextCursor ()
+     * bool isNull () const
+     * void setPosition (int pos, MoveMode mode=MoveAnchor)
+     * int position () const
+     * int anchor () const
+     * void insertText (const QString &text)
+     * void insertText (const QString &text, const QTextCharFormat &format)
+     * bool movePosition (MoveOperation op, MoveMode=MoveAnchor, int n=1)
+     * void deleteChar ()
+     * void deletePreviousChar ()
+     * void select (SelectionType selection)
+     * bool hasSelection () const
+     * bool hasComplexSelection () const
+     * void removeSelectedText ()
+     * void clearSelection ()
+     * int selectionStart () const
+     * int selectionEnd () const
+     * QString selectedText () const
+     * QTextDocumentFragment selection () const
+     * void selectedTableCells (int *firstRow, int *numRows, int *firstColumn, int *numColumns) const
+     * QTextBlock block () const
+     * QTextCharFormat charFormat () const
+     * void setCharFormat (const QTextCharFormat &format)
+     * void mergeCharFormat (const QTextCharFormat &modifier)
+     * QTextBlockFormat blockFormat () const
+     * void setBlockFormat (const QTextBlockFormat &format)
+     * void mergeBlockFormat (const QTextBlockFormat &modifier)
+     * QTextCharFormat blockCharFormat () const
+     * void setBlockCharFormat (const QTextCharFormat &format)
+     * void mergeBlockCharFormat (const QTextCharFormat &modifier)
+     * bool atBlockStart () const
+     * bool atBlockEnd () const
+     * bool atStart () const
+     * bool atEnd () const
+     * void insertBlock ()
+     * void insertBlock (const QTextBlockFormat &format)
+     * void insertBlock (const QTextBlockFormat &format, const QTextCharFormat &charFormat)
+     * QTextList * insertList (const QTextListFormat &format)
+     * QTextList * insertList (QTextListFormat::Style style)
+     * QTextList * createList (const QTextListFormat &format)
+     * QTextList * createList (QTextListFormat::Style style)
+     * QTextList * currentList () const
+     * QTextTable * insertTable (int rows, int cols, const QTextTableFormat &format)
+     * QTextTable * insertTable (int rows, int cols)
+     * QTextTable * currentTable () const
+     * QTextFrame * insertFrame (const QTextFrameFormat &format)
+     * QTextFrame * currentFrame () const
+     * void insertFragment (const QTextDocumentFragment &fragment)
+     * void insertImage (const QTextImageFormat &format)
+     * void insertImage (const QString &name)
+     * void beginEditBlock ()
+     * void joinPreviousEditBlock ()
+     * void endEditBlock ()
+     * bool operator!= (const QTextCursor &rhs) const
+     * bool operator< (const QTextCursor &rhs) const
+     * bool operator<= (const QTextCursor &rhs) const
+     * bool operator== (const QTextCursor &rhs) const
+     * bool operator>= (const QTextCursor &rhs) const
+     * bool operator> (const QTextCursor &rhs) const
+     * bool isCopyOf (const QTextCursor &other) const
+
+Friends
+
+     * class QTextDocumentFragmentPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextCursor::MoveMode
+
+
+
+   Enumerator: 
+
+          MoveAnchor
+          KeepAnchor
+
+   enum QTextCursor::MoveOperation
+
+
+
+   Enumerator: 
+
+          NoMove           
+          Start            
+          Up               
+          StartOfLine      
+          StartOfBlock     
+          StartOfWord      
+          PreviousBlock    
+          PreviousCharacter
+          PreviousWord     
+          Left             
+          WordLeft         
+          End              
+          Down             
+          EndOfLine        
+          EndOfWord        
+          EndOfBlock       
+          NextBlock        
+          NextCharacter    
+          NextWord         
+          Right            
+          WordRight        
+
+   enum QTextCursor::SelectionType
+
+
+
+   Enumerator: 
+
+          WordUnderCursor
+          LineUnderCursor
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextCursor::QTextCursor (   )
+
+
+
+   QTextCursor::QTextCursor (  QTextDocument *  document  )  [explicit]
+
+
+
+   QTextCursor::QTextCursor (  QTextDocumentPrivate *  p,
+                               int                     pos
+                            )
+
+
+
+   QTextCursor::QTextCursor (  QTextFrame *  frame  )  [explicit]
+
+
+
+   QTextCursor::QTextCursor (  const QTextBlock &  block  )  [explicit]
+
+
+
+   QTextCursor::QTextCursor (  QTextCursorPrivate *  d  )  [explicit]
+
+
+
+   QTextCursor::QTextCursor (  const QTextCursor &  cursor  )
+
+
+
+   QTextCursor::~QTextCursor (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QTextCursor::anchor (   )  const
+
+
+
+   bool QTextCursor::atBlockEnd (   )  const
+
+
+
+   bool QTextCursor::atBlockStart (   )  const
+
+
+
+   bool QTextCursor::atEnd (   )  const
+
+
+
+   bool QTextCursor::atStart (   )  const
+
+
+
+   void QTextCursor::beginEditBlock (   )
+
+
+
+   QTextBlock QTextCursor::block (   )  const
+
+
+
+   QTextCharFormat QTextCursor::blockCharFormat (   )  const
+
+
+
+   QTextBlockFormat QTextCursor::blockFormat (   )  const
+
+
+
+   QTextCharFormat QTextCursor::charFormat (   )  const
+
+
+
+   void QTextCursor::clearSelection (   )
+
+
+
+   QTextList* QTextCursor::createList (  QTextListFormat::Style  style  )
+
+
+
+   QTextList* QTextCursor::createList (  const QTextListFormat &  format  )
+
+
+
+   QTextFrame* QTextCursor::currentFrame (   )  const
+
+
+
+   QTextList* QTextCursor::currentList (   )  const
+
+
+
+   QTextTable* QTextCursor::currentTable (   )  const
+
+
+
+   void QTextCursor::deleteChar (   )
+
+
+
+   void QTextCursor::deletePreviousChar (   )
+
+
+
+   void QTextCursor::endEditBlock (   )
+
+
+
+   bool QTextCursor::hasComplexSelection (   )  const
+
+
+
+   bool QTextCursor::hasSelection (   )  const
+
+
+
+   void QTextCursor::insertBlock (  const QTextBlockFormat &  format,
+                                    const QTextCharFormat &   charFormat
+                                 )
+
+
+
+   void QTextCursor::insertBlock (  const QTextBlockFormat &  format  )
+
+
+
+   void QTextCursor::insertBlock (   )
+
+
+
+   void QTextCursor::insertFragment (  const QTextDocumentFragment &  fragment  )
+
+
+
+   QTextFrame* QTextCursor::insertFrame (  const QTextFrameFormat &  format  )
+
+
+
+   void QTextCursor::insertImage (  const QString &  name  )
+
+
+
+   void QTextCursor::insertImage (  const QTextImageFormat &  format  )
+
+
+
+   QTextList* QTextCursor::insertList (  QTextListFormat::Style  style  )
+
+
+
+   QTextList* QTextCursor::insertList (  const QTextListFormat &  format  )
+
+
+
+   QTextTable* QTextCursor::insertTable (  int  rows,
+                                           int  cols
+                                        )
+
+
+
+   QTextTable* QTextCursor::insertTable (  int                       rows,
+                                           int                       cols,
+                                           const QTextTableFormat &  format
+                                        )
+
+
+
+   void QTextCursor::insertText (  const QString &          text,
+                                   const QTextCharFormat &  format
+                                )
+
+
+
+   void QTextCursor::insertText (  const QString &  text  )
+
+
+
+   bool QTextCursor::isCopyOf (  const QTextCursor &  other  )  const
+
+
+
+   bool QTextCursor::isNull (   )  const
+
+
+
+   void QTextCursor::joinPreviousEditBlock (   )
+
+
+
+   void QTextCursor::mergeBlockCharFormat (  const QTextCharFormat &  modifier  )
+
+
+
+   void QTextCursor::mergeBlockFormat (  const QTextBlockFormat &  modifier  )
+
+
+
+   void QTextCursor::mergeCharFormat (  const QTextCharFormat &  modifier  )
+
+
+
+   bool QTextCursor::movePosition (  MoveOperation  op,
+                                     MoveMode       = MoveAnchor,
+                                     int            n = 1
+                                  )
+
+
+
+   bool QTextCursor::operator!= (  const QTextCursor &  rhs  )  const
+
+
+
+   bool QTextCursor::operator< (  const QTextCursor &  rhs  )  const
+
+
+
+   bool QTextCursor::operator<= (  const QTextCursor &  rhs  )  const
+
+
+
+   QTextCursor& QTextCursor::operator= (  const QTextCursor &  other  )
+
+
+
+   bool QTextCursor::operator== (  const QTextCursor &  rhs  )  const
+
+
+
+   bool QTextCursor::operator> (  const QTextCursor &  rhs  )  const
+
+
+
+   bool QTextCursor::operator>= (  const QTextCursor &  rhs  )  const
+
+
+
+   int QTextCursor::position (   )  const
+
+
+
+   void QTextCursor::removeSelectedText (   )
+
+
+
+   void QTextCursor::select (  SelectionType  selection  )
+
+
+
+   void QTextCursor::selectedTableCells (  int *  firstRow,
+                                           int *  numRows,
+                                           int *  firstColumn,
+                                           int *  numColumns
+                                        )  const
+
+
+
+   QString QTextCursor::selectedText (   )  const
+
+
+
+   QTextDocumentFragment QTextCursor::selection (   )  const
+
+
+
+   int QTextCursor::selectionEnd (   )  const
+
+
+
+   int QTextCursor::selectionStart (   )  const
+
+
+
+   void QTextCursor::setBlockCharFormat (  const QTextCharFormat &  format  )
+
+
+
+   void QTextCursor::setBlockFormat (  const QTextBlockFormat &  format  )
+
+
+
+   void QTextCursor::setCharFormat (  const QTextCharFormat &  format  )
+
+
+
+   void QTextCursor::setPosition (  int       pos,
+                                    MoveMode  mode = MoveAnchor
+                                 )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextDocumentFragmentPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextcursor.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

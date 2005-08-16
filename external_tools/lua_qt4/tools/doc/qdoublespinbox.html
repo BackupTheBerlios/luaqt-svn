@@ -1,0 +1,323 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                       QDoubleSpinBox Class Reference
+
+   The QDoubleSpinBox class provides a spin box widget that takes
+   doubles. More...
+#include <QDoubleSpinBox>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractSpinBox.
+     * List of all members, including inherited members
+
+  Properties
+
+     * cleanText : const QString
+     * decimals : int
+     * maximum : double
+     * minimum : double
+
+     * prefix : QString
+     * singleStep : double
+     * suffix : QString
+     * value : double
+
+     * 7 properties inherited from QAbstractSpinBox
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QDoubleSpinBox ( QWidget * parent = 0 )
+     * QString cleanText () const
+     * int decimals () const
+     * double maximum () const
+     * double minimum () const
+     * QString prefix () const
+     * void setDecimals ( int prec )
+     * void setMaximum ( double max )
+     * void setMinimum ( double min )
+     * void setPrefix ( const QString & p )
+     * void setRange ( double min, double max )
+     * void setSingleStep ( double val )
+     * void setSuffix ( const QString & s )
+     * double singleStep () const
+     * QString suffix () const
+     * virtual QString textFromValue ( double v ) const
+     * double value () const
+     * virtual double valueFromText ( const QString & text ) const
+
+     * 17 public functions inherited from QAbstractSpinBox
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void setValue ( double val )
+
+     * 4 public slots inherited from QAbstractSpinBox
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void valueChanged ( double d )
+     * void valueChanged ( const QString & text )
+
+     * 1 signal inherited from QAbstractSpinBox
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 3 protected functions inherited from QAbstractSpinBox
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QDoubleSpinBox class provides a spin box widget that takes
+   doubles.
+
+   QDoubleSpinBox allows the user to choose a value by clicking the up
+   and down buttons or by pressing Up or Down on the keyboard to increase
+   or decrease the value currently displayed. The user can also type the
+   value in manually. If the value is entered directly into the spin box,
+   the value will be changed and valueChanged() will be emitted with the
+   new value when Enter or Return is pressed, when the spin box loses
+   focus or when the spin box is deactivated (see
+   QWidget::windowActivationChanged()). The spin box supports double
+   values but can be extended to use different strings with validate(),
+   textFromValue() and valueFromText().
+
+   Every time the value changes QDoubleSpinBox emits the valueChanged()
+   signal. The current value can be fetched with value() and set with
+   setValue().
+
+   Clicking the up and down buttons or using the keyboard accelerator's
+   Up and Down arrows will increase or decrease the current value in
+   steps of size singleStep(). If you want to change this behavior you
+   can reimplement the virtual function stepBy(). The minimum and maximum
+   value and the step size can be set using one of the constructors, and
+   can be changed later with setMinimum(), setMaximum() and
+   setSingleStep(). The spinbox has a default precision of 2 decimal
+   places but this can be changed using setDecimals().
+
+   Most spin boxes are directional, but QDoubleSpinBox can also operate
+   as a circular spin box, i.e. if the range is 0.0-99.9 and the current
+   value is 99.9, clicking "up" will give 0 if wrapping() is set to true.
+   Use setWrapping() if you want circular behavior.
+
+   The displayed value can be prepended and appended with arbitrary
+   strings indicating, for example, currency or the unit of measurement.
+   See setPrefix() and setSuffix(). The text in the spin box is retrieved
+   with text() (which includes any prefix() and suffix()), or with
+   cleanText() (which has no prefix(), no suffix() and no leading or
+   trailing whitespace).
+
+   It is often desirable to give the user a special (often default)
+   choice in addition to the range of numeric values. See
+   setSpecialValueText() for how to do this with QDoubleSpinBox.
+
+   See also QSpinBox, QSlider, and GUI Design Handbook: Slider.
+     _________________________________________________________________
+
+Property Documentation
+
+  cleanText : const QString
+
+   This property holds the text of the spin box excluding any prefix,
+   suffix, or leading or trailing whitespace.
+
+   Access functions:
+     * QString cleanText () const
+
+   See also text, QDoubleSpinBox::prefix, and QDoubleSpinBox::suffix.
+
+  decimals : int
+
+   This property holds the precision of the spin box, in decimals.
+
+   Sets how many decimals you want to display when displaying double
+   values. Valid ranges for decimals is 0-14.
+
+   Access functions:
+     * int decimals () const
+     * void setDecimals ( int prec )
+
+  maximum : double
+
+   This property holds the maximum value of the spin box.
+
+   When setting this property the minimum is adjusted if necessary, to
+   ensure that the range remains valid.
+
+   The default maximum value is 99.99.
+
+   Access functions:
+     * double maximum () const
+     * void setMaximum ( double max )
+
+   See also setRange().
+
+  minimum : double
+
+   This property holds the minimum value of the spin box.
+
+   When setting this property the maximum is adjusted if necessary to
+   ensure that the range remains valid.
+
+   The default minimum value is 0.0.
+
+   Access functions:
+     * double minimum () const
+     * void setMinimum ( double min )
+
+   See also setRange() and specialValueText.
+
+  prefix : QString
+
+   This property holds the spin box's prefix.
+
+   The prefix is prepended to the start of the displayed value. Typical
+   use is to display a unit of measurement or a currency symbol. For
+   example:
+    spinbox->setPrefix("$");
+
+   To turn off the prefix display, set this property to an empty string.
+   The default is no prefix. The prefix is not displayed when value() ==
+   minimum() and specialValueText() is set.
+
+   If no prefix is set, prefix() returns an empty string.
+
+   Access functions:
+     * QString prefix () const
+     * void setPrefix ( const QString & p )
+
+   See also suffix(), setSuffix(), specialValueText(), and
+   setSpecialValueText().
+
+  singleStep : double
+
+   This property holds the step value.
+
+   When the user uses the arrows to change the spin box's value the value
+   will be incremented/decremented by the amount of the singleStep. The
+   default value is 1.0. Setting a singleStep value of less than 0 does
+   nothing.
+
+   Access functions:
+     * double singleStep () const
+     * void setSingleStep ( double val )
+
+  suffix : QString
+
+   This property holds the suffix of the spin box.
+
+   The suffix is appended to the end of the displayed value. Typical use
+   is to display a unit of measurement or a currency symbol. For example:
+    spinbox->setSuffix(" km");
+
+   To turn off the suffix display, set this property to an empty string.
+   The default is no suffix. The suffix is not displayed for the
+   minimum() if specialValueText() is set.
+
+   If no suffix is set, suffix() returns an empty string.
+
+   Access functions:
+     * QString suffix () const
+     * void setSuffix ( const QString & s )
+
+   See also prefix(), setPrefix(), specialValueText(), and
+   setSpecialValueText().
+
+  value : double
+
+   This property holds the value of the spin box.
+
+   setValue() will emit valueChanged() if the new value is different from
+   the old one.
+
+   Access functions:
+     * double value () const
+     * void setValue ( double val )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QDoubleSpinBox::QDoubleSpinBox ( QWidget * parent = 0 )
+
+   Constructs a spin box with no minimum and maximum values, a step value
+   of 1.0 and a precision of 2 decimal places. The value is initially set
+   to 0.00. The spin box has the given parent.
+
+   See also setMinimum(), setMaximum(), and setSingleStep().
+
+  void QDoubleSpinBox::setRange ( double min, double max )
+
+   Convenience function to set the minimum, min, and maximum, max, values
+   with a single function call.
+    setRange(min, max);
+
+   is equivalent to:
+    setMinimum(min);
+    setMaximum(max);
+
+   See also minimum and maximum.
+
+  QString QDoubleSpinBox::textFromValue ( double v ) const   [virtual]
+
+   This virtual function is used by the spin box whenever it needs to
+   display value v. The default implementation returns a string
+   containing v printed using QLocale().toString(v, QLatin1Char('f'),
+   decimals()). Reimplementations may return anything.
+
+   Note that Qt does not call this function for specialValueText() and
+   that neither prefix() nor suffix() should be included in the return
+   value.
+
+   If you reimplement this, you may also need to reimplement
+   valueFromText().
+
+   See also valueFromText().
+
+  void QDoubleSpinBox::valueChanged ( double d )   [signal]
+
+   This signal is emitted whenever the spin box's value is changed. The
+   new value is passed in d.
+
+  void QDoubleSpinBox::valueChanged ( const QString & text )   [signal]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   The new value is passed literally in text with no prefix() or
+   suffix().
+
+  double QDoubleSpinBox::valueFromText ( const QString & text ) const
+  [virtual]
+
+   This virtual function is used by the spin box whenever it needs to
+   interpret text entered by the user as a value. Note that neither
+   prefix() nor suffix() are included when this function is called by Qt.
+
+   Subclasses that need to display spin box values in a non-numeric way
+   need to reimplement this function.
+
+   Note that Qt handles specialValueText() separately; this function is
+   only concerned with the other values.
+
+   See also textFromValue() and validate().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

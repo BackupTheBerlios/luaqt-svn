@@ -1,0 +1,343 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QSpinBox Class Reference
+
+   The QSpinBox class provides a spin box widget. More...
+#include <QSpinBox>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractSpinBox.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * cleanText : const QString
+     * maximum : int
+     * minimum : int
+     * prefix : QString
+
+     * singleStep : int
+     * suffix : QString
+     * value : int
+
+     * 7 properties inherited from QAbstractSpinBox
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QSpinBox ( QWidget * parent = 0 )
+     * QString cleanText () const
+     * int maximum () const
+     * int minimum () const
+     * QString prefix () const
+     * void setMaximum ( int max )
+     * void setMinimum ( int min )
+     * void setPrefix ( const QString & p )
+     * void setRange ( int min, int max )
+     * void setSingleStep ( int val )
+     * void setSuffix ( const QString & s )
+     * int singleStep () const
+     * QString suffix () const
+     * int value () const
+
+     * 17 public functions inherited from QAbstractSpinBox
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void setValue ( int val )
+
+     * 4 public slots inherited from QAbstractSpinBox
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void valueChanged ( int i )
+     * void valueChanged ( const QString & text )
+
+     * 1 signal inherited from QAbstractSpinBox
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * virtual QString textFromValue ( int v ) const
+     * virtual int valueFromText ( const QString & text ) const
+
+     * 3 protected functions inherited from QAbstractSpinBox
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QSpinBox class provides a spin box widget.
+
+   QSpinBox is designed to handle integers and discrete sets of values
+   (e.g., month names); use QDoubleSpinBox for floating point values.
+
+   QSpinBox allows the user to choose a value by clicking the up/down
+   buttons or pressing up/down on the keyboard to increase/decrease the
+   value currently displayed. The user can also type the value in
+   manually. If the value is entered directly into the spin box, the
+   value will be changed and valueChanged() will be emitted with the new
+   value when Enter/Return is pressed, when the spin box looses focus or
+   when the spin box is deactivated (see
+   QWidget::windowActivationChanged()). The spin box supports integer
+   values but can be extended to use different strings with validate(),
+   textFromValue() and valueFromText().
+
+   Every time the value changes QSpinBox emits the valueChanged()
+   signals. The current value can be fetched with value() and set with
+   setValue().
+
+   Clicking the up/down buttons or using the keyboard accelerator's up
+   and down arrows will increase or decrease the current value in steps
+   of size singleStep(). If you want to change this behaviour you can
+   reimplement the virtual function stepBy(). The minimum and maximum
+   value and the step size can be set using one of the constructors, and
+   can be changed later with setMinimum(), setMaximum() and
+   setSingleStep().
+
+   Most spin boxes are directional, but QSpinBox can also operate as a
+   circular spin box, i.e. if the range is 0-99 and the current value is
+   99, clicking "up" will give 0 if wrapping() is set to true. Use
+   setWrapping() if you want circular behavior.
+
+   The displayed value can be prepended and appended with arbitrary
+   strings indicating, for example, currency or the unit of measurement.
+   See setPrefix() and setSuffix(). The text in the spin box is retrieved
+   with text() (which includes any prefix() and suffix()), or with
+   cleanText() (which has no prefix(), no suffix() and no leading or
+   trailing whitespace).
+
+   It is often desirable to give the user a special (often default)
+   choice in addition to the range of numeric values. See
+   setSpecialValueText() for how to do this with QSpinBox.
+
+   Screenshot in Macintosh style Screenshot in Windows style
+
+  Subclassing QSpinBox
+
+   If using prefix(), suffix(), and specialValueText() don't provide
+   enough control, you subclass QSpinBox and reimplement valueFromText()
+   and textFromValue(). For example, here's the code for a custom spin
+   box that allows the user to enter icon sizes (e.g., "32 x 32"):
+    int IconSizeSpinBox::valueFromText(const QString &text) const
+    {
+        QRegExp regExp(tr("(\\d+)(\\s*[x×]\\s*\\d+)?"));
+
+        if (regExp.exactMatch(text)) {
+            return regExp.cap(1).toInt();
+        } else {
+            return 0;
+        }
+    }
+
+    QString IconSizeSpinBox::textFromValue(int value) const
+    {
+        return tr("%1 × %1").arg(value);
+    }
+
+   See the Icons example for the full source code.
+
+   See also QDoubleSpinBox, QSlider, and GUI Design Handbook: Slider.
+     _________________________________________________________________
+
+Property Documentation
+
+  cleanText : const QString
+
+   This property holds the text of the spin box excluding any prefix,
+   suffix, or leading or trailing whitespace.
+
+   Access functions:
+     * QString cleanText () const
+
+   See also text, QSpinBox::prefix, and QSpinBox::suffix.
+
+  maximum : int
+
+   This property holds the maximum value of the spin box.
+
+   When setting this property the minimum is adjusted if necessary, to
+   ensure that the range remains valid.
+
+   The default maximum value is 99.
+
+   Access functions:
+     * int maximum () const
+     * void setMaximum ( int max )
+
+   See also setRange() and specialValueText.
+
+  minimum : int
+
+   This property holds the minimum value of the spin box.
+
+   When setting this property the maximum is adjusted if necessary to
+   ensure that the range remains valid.
+
+   The default minimum value is 0.
+
+   Access functions:
+     * int minimum () const
+     * void setMinimum ( int min )
+
+   See also setRange() and specialValueText.
+
+  prefix : QString
+
+   This property holds the spin box's prefix.
+
+   The prefix is prepended to the start of the displayed value. Typical
+   use is to display a unit of measurement or a currency symbol. For
+   example:
+    sb->setPrefix("$");
+
+   To turn off the prefix display, set this property to an empty string.
+   The default is no prefix. The prefix is not displayed when value() ==
+   minimum() and specialValueText() is set.
+
+   If no prefix is set, prefix() returns an empty string.
+
+   Access functions:
+     * QString prefix () const
+     * void setPrefix ( const QString & p )
+
+   See also suffix(), setSuffix(), specialValueText(), and
+   setSpecialValueText().
+
+  singleStep : int
+
+   This property holds the step value.
+
+   When the user uses the arrows to change the spin box's value the value
+   will be incremented/decremented by the amount of the singleStep. The
+   default value is 1. Setting a singleStep value of less than 0 does
+   nothing.
+
+   Access functions:
+     * int singleStep () const
+     * void setSingleStep ( int val )
+
+  suffix : QString
+
+   This property holds the suffix of the spin box.
+
+   The suffix is appended to the end of the displayed value. Typical use
+   is to display a unit of measurement or a currency symbol. For example:
+    sb->setSuffix(" km");
+
+   To turn off the suffix display, set this property to an empty string.
+   The default is no suffix. The suffix is not displayed for the
+   minimum() if specialValueText() is set.
+
+   If no suffix is set, suffix() returns an empty string.
+
+   Access functions:
+     * QString suffix () const
+     * void setSuffix ( const QString & s )
+
+   See also prefix(), setPrefix(), specialValueText(), and
+   setSpecialValueText().
+
+  value : int
+
+   This property holds the value of the spin box.
+
+   setValue() will emit valueChanged() if the new value is different from
+   the old one.
+
+   Access functions:
+     * int value () const
+     * void setValue ( int val )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QSpinBox::QSpinBox ( QWidget * parent = 0 )
+
+   Constructs a spin box with no minimum and maximum values, a step value
+   of 1. The value is initially set to 0. It is parented to parent.
+
+   See also setMinimum(), setMaximum(), and setSingleStep().
+
+  void QSpinBox::setRange ( int min, int max )
+
+   Convenience function to set the minimum, min, and maximum, max, values
+   with a single function call.
+    setRange(min, max);
+
+   is equivalent to:
+    setMinimum(min);
+    setMaximum(max);
+
+   See also minimum and maximum.
+
+  QString QSpinBox::textFromValue ( int v ) const   [virtual protected]
+
+   This virtual function is used by the spin box whenever it needs to
+   display value v. The default implementation returns a string
+   containing v printed in the standard way using QLocale().toString(v).
+   Reimplementations may return anything. (See the example in the
+   detailed description.)
+
+   Note that Qt does not call this function for specialValueText() and
+   that neither prefix() nor suffix() should be included in the return
+   value.
+
+   If you reimplement this, you may also need to reimplement
+   valueFromText() and validate()
+
+   See also valueFromText() and validate().
+
+  void QSpinBox::valueChanged ( int i )   [signal]
+
+   This signal is emitted whenever the spin box's value is changed. The
+   new value's integer value is passed in i.
+
+  void QSpinBox::valueChanged ( const QString & text )   [signal]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   The new value is passed literally in text with no prefix() or
+   suffix().
+
+  int QSpinBox::valueFromText ( const QString & text ) const   [virtual
+  protected]
+
+   This virtual function is used by the spin box whenever it needs to
+   interpret text entered by the user as a value. Note that neither
+   prefix() nor suffix() are included when this function is called by Qt.
+
+   Subclasses that need to display spin box values in a non-numeric way
+   need to reimplement this function.
+
+   Note that Qt handles specialValueText() separately; this function is
+   only concerned with the other values.
+
+   The default implementation tries to interpret text as an integer using
+   QString::toInt() and returns the value.
+
+   See also textFromValue() and validate().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

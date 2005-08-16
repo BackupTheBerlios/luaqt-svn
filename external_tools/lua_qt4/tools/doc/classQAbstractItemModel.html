@@ -1,0 +1,457 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QAbstractItemModel Class Reference
+
+   #include <qabstractitemmodel.h>
+
+   Inherits QObject.
+
+   Inherited by QAbstractListModel, QAbstractTableModel, QDirModel, QProxyModel, and QStandardItemModel.
+
+   List of all members.
+
+Public Slots
+
+     * virtual bool submit ()
+     * virtual void revert ()
+
+Signals
+
+     * void dataChanged (const QModelIndex &topLeft, const QModelIndex &bottomRight)
+     * void headerDataChanged (Qt::Orientation orientation, int first, int last)
+     * void layoutChanged ()
+
+Public Member Functions
+
+     * QAbstractItemModel (QObject *parent=0)
+     * virtual ~QAbstractItemModel ()
+     * bool hasIndex (int row, int column, const QModelIndex &parent=QModelIndex()) const
+     * virtual QModelIndex index (int row, int column, const QModelIndex &parent=QModelIndex()) const =0
+     * virtual QModelIndex parent (const QModelIndex &child) const =0
+     * QModelIndex sibling (int row, int column, const QModelIndex &idx) const
+     * virtual int rowCount (const QModelIndex &parent=QModelIndex()) const =0
+     * virtual int columnCount (const QModelIndex &parent=QModelIndex()) const =0
+     * virtual bool hasChildren (const QModelIndex &parent=QModelIndex()) const
+     * virtual QVariant data (const QModelIndex &index, int role=Qt::DisplayRole) const =0
+     * virtual bool setData (const QModelIndex &index, const QVariant &value, int role=Qt::EditRole)
+     * virtual QVariant headerData (int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const
+     * virtual bool setHeaderData (int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole)
+     * virtual QMap< int, QVariant > itemData (const QModelIndex &index) const
+     * virtual bool setItemData (const QModelIndex &index, const QMap< int, QVariant > &roles)
+     * virtual QStringList mimeTypes () const
+     * virtual QMimeData * mimeData (const QModelIndexList &indexes) const
+     * virtual bool dropMimeData (const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
+     * virtual Qt::DropActions supportedDropActions () const
+     * virtual bool insertRows (int row, int count, const QModelIndex &parent=QModelIndex())
+     * virtual bool insertColumns (int column, int count, const QModelIndex &parent=QModelIndex())
+     * virtual bool removeRows (int row, int count, const QModelIndex &parent=QModelIndex())
+     * virtual bool removeColumns (int column, int count, const QModelIndex &parent=QModelIndex())
+     * bool insertRow (int row, const QModelIndex &parent=QModelIndex())
+     * bool insertColumn (int column, const QModelIndex &parent=QModelIndex())
+     * bool removeRow (int row, const QModelIndex &parent=QModelIndex())
+     * bool removeColumn (int column, const QModelIndex &parent=QModelIndex())
+     * virtual void fetchMore (const QModelIndex &parent)
+     * virtual bool canFetchMore (const QModelIndex &parent) const
+     * virtual Qt::ItemFlags flags (const QModelIndex &index) const
+     * virtual void sort (int column, Qt::SortOrder order=Qt::AscendingOrder)
+     * virtual QModelIndex buddy (const QModelIndex &index) const
+     * virtual QModelIndexList match (const QModelIndex &start, int role, const QVariant &value, int hits=1, Qt::MatchFlags flags=Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap)) const
+     * virtual QSize span (const QModelIndex &index) const
+
+Protected Member Functions
+
+     * QAbstractItemModel (QAbstractItemModelPrivate &dd, QObject *parent=0)
+     * QModelIndex createIndex (int row, int column, void *data=0) const
+     * QModelIndex createIndex (int row, int column, int id) const
+     * void encodeData (const QModelIndexList &indexes, QDataStream &stream) const
+     * bool decodeData (int row, int column, const QModelIndex &parent, QDataStream &stream)
+     * void beginInsertRows (const QModelIndex &parent, int first, int last)
+     * void endInsertRows ()
+     * void beginRemoveRows (const QModelIndex &parent, int first, int last)
+     * void endRemoveRows ()
+     * void beginInsertColumns (const QModelIndex &parent, int first, int last)
+     * void endInsertColumns ()
+     * void beginRemoveColumns (const QModelIndex &parent, int first, int last)
+     * void endRemoveColumns ()
+     * void reset ()
+     * void changePersistentIndex (const QModelIndex &from, const QModelIndex &to)
+
+Friends
+
+     * class QPersistentModelIndexData
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractItemModel::QAbstractItemModel (  QObject *  parent = 0  )  [explicit]
+
+
+
+   virtual QAbstractItemModel::~QAbstractItemModel (   )  [virtual]
+
+
+
+   QAbstractItemModel::QAbstractItemModel (  QAbstractItemModelPrivate &  dd,
+                                             QObject *                    parent = 0
+                                          )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QAbstractItemModel::beginInsertColumns (  const QModelIndex &  parent,
+                                                  int                  first,
+                                                  int                  last
+                                               )  [protected]
+
+
+
+   void QAbstractItemModel::beginInsertRows (  const QModelIndex &  parent,
+                                               int                  first,
+                                               int                  last
+                                            )  [protected]
+
+
+
+   void QAbstractItemModel::beginRemoveColumns (  const QModelIndex &  parent,
+                                                  int                  first,
+                                                  int                  last
+                                               )  [protected]
+
+
+
+   void QAbstractItemModel::beginRemoveRows (  const QModelIndex &  parent,
+                                               int                  first,
+                                               int                  last
+                                            )  [protected]
+
+
+
+   virtual QModelIndex QAbstractItemModel::buddy (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   virtual bool QAbstractItemModel::canFetchMore (  const QModelIndex &  parent  )  const [virtual]
+
+
+
+   Reimplemented in QSqlQueryModel.
+
+   void QAbstractItemModel::changePersistentIndex (  const QModelIndex &  from,
+                                                     const QModelIndex &  to
+                                                  )  [protected]
+
+
+
+   virtual int QAbstractItemModel::columnCount (  const QModelIndex &  parent = QModelIndex()  )  const [pure virtual]
+
+
+
+   Implemented in QDirModel, QProxyModel, QSqlQueryModel, and QStandardItemModel.
+
+   QModelIndex QAbstractItemModel::createIndex (  int  row,
+                                                  int  column,
+                                                  int  id
+                                               )  const [inline, protected]
+
+
+
+   QModelIndex QAbstractItemModel::createIndex (  int     row,
+                                                  int     column,
+                                                  void *  data = 0
+                                               )  const [inline, protected]
+
+
+
+   virtual QVariant QAbstractItemModel::data (  const QModelIndex &  index,
+                                                int                  role = Qt::DisplayRole
+                                             )  const [pure virtual]
+
+
+
+   Implemented in QDirModel, QProxyModel, QSqlQueryModel, QSqlRelationalTableModel, QSqlTableModel, QStandardItemModel, and QStringListModel.
+
+   void QAbstractItemModel::dataChanged (  const QModelIndex &  topLeft,
+                                           const QModelIndex &  bottomRight
+                                        )  [signal]
+
+
+
+   bool QAbstractItemModel::decodeData (  int                  row,
+                                          int                  column,
+                                          const QModelIndex &  parent,
+                                          QDataStream &        stream
+                                       )  [protected]
+
+
+
+   virtual bool QAbstractItemModel::dropMimeData (  const QMimeData *    data,
+                                                    Qt::DropAction       action,
+                                                    int                  row,
+                                                    int                  column,
+                                                    const QModelIndex &  parent
+                                                 )  [virtual]
+
+
+
+   Reimplemented in QDirModel, and QProxyModel.
+
+   void QAbstractItemModel::encodeData (  const QModelIndexList &  indexes,
+                                          QDataStream &            stream
+                                       )  const [protected]
+
+
+
+   void QAbstractItemModel::endInsertColumns (   )  [protected]
+
+
+
+   void QAbstractItemModel::endInsertRows (   )  [protected]
+
+
+
+   void QAbstractItemModel::endRemoveColumns (   )  [protected]
+
+
+
+   void QAbstractItemModel::endRemoveRows (   )  [protected]
+
+
+
+   virtual void QAbstractItemModel::fetchMore (  const QModelIndex &  parent  )  [virtual]
+
+
+
+   Reimplemented in QProxyModel, and QSqlQueryModel.
+
+   virtual Qt::ItemFlags QAbstractItemModel::flags (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Reimplemented in QDirModel, QProxyModel, QSqlTableModel, QStandardItemModel, and QStringListModel.
+
+   virtual bool QAbstractItemModel::hasChildren (  const QModelIndex &  parent = QModelIndex()  )  const [virtual]
+
+
+
+   Reimplemented in QDirModel, QProxyModel, and QStandardItemModel.
+
+   bool QAbstractItemModel::hasIndex (  int                  row,
+                                        int                  column,
+                                        const QModelIndex &  parent = QModelIndex()
+                                     )  const
+
+
+
+   virtual QVariant QAbstractItemModel::headerData (  int              section,
+                                                      Qt::Orientation  orientation,
+                                                      int              role = Qt::DisplayRole
+                                                   )  const [virtual]
+
+
+
+   Reimplemented in QDirModel, QProxyModel, QSqlQueryModel, QSqlTableModel, and QStandardItemModel.
+
+   void QAbstractItemModel::headerDataChanged (  Qt::Orientation  orientation,
+                                                 int              first,
+                                                 int              last
+                                              )  [signal]
+
+
+
+   virtual QModelIndex QAbstractItemModel::index (  int                  row,
+                                                    int                  column,
+                                                    const QModelIndex &  parent = QModelIndex()
+                                                 )  const [pure virtual]
+
+
+
+   Implemented in QAbstractTableModel, QAbstractListModel, QDirModel, QProxyModel, and QStandardItemModel.
+
+   bool QAbstractItemModel::insertColumn (  int                  column,
+                                            const QModelIndex &  parent = QModelIndex()
+                                         )  [inline]
+
+
+
+   virtual bool QAbstractItemModel::insertColumns (  int                  column,
+                                                     int                  count,
+                                                     const QModelIndex &  parent = QModelIndex()
+                                                  )  [virtual]
+
+
+
+   Reimplemented in QProxyModel, QSqlQueryModel, and QStandardItemModel.
+
+   bool QAbstractItemModel::insertRow (  int                  row,
+                                         const QModelIndex &  parent = QModelIndex()
+                                      )  [inline]
+
+
+
+   virtual bool QAbstractItemModel::insertRows (  int                  row,
+                                                  int                  count,
+                                                  const QModelIndex &  parent = QModelIndex()
+                                               )  [virtual]
+
+
+
+   Reimplemented in QProxyModel, QSqlTableModel, QStandardItemModel, and QStringListModel.
+
+   virtual QMap<int, QVariant> QAbstractItemModel::itemData (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   void QAbstractItemModel::layoutChanged (   )  [signal]
+
+
+
+   virtual QModelIndexList QAbstractItemModel::match (  const QModelIndex &  start,
+                                                        int                  role,
+                                                        const QVariant &     value,
+                                                        int                  hits = 1,
+                                                        Qt::MatchFlags       flags = Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap)
+                                                     )  const [virtual]
+
+
+
+   Reimplemented in QProxyModel.
+
+   virtual QMimeData* QAbstractItemModel::mimeData (  const QModelIndexList &  indexes  )  const [virtual]
+
+
+
+   Reimplemented in QDirModel, and QProxyModel.
+
+   virtual QStringList QAbstractItemModel::mimeTypes (   )  const [virtual]
+
+
+
+   Reimplemented in QDirModel, and QProxyModel.
+
+   virtual QModelIndex QAbstractItemModel::parent (  const QModelIndex &  child  )  const [pure virtual]
+
+
+
+   Implemented in QDirModel, QProxyModel, and QStandardItemModel.
+
+   bool QAbstractItemModel::removeColumn (  int                  column,
+                                            const QModelIndex &  parent = QModelIndex()
+                                         )  [inline]
+
+
+
+   virtual bool QAbstractItemModel::removeColumns (  int                  column,
+                                                     int                  count,
+                                                     const QModelIndex &  parent = QModelIndex()
+                                                  )  [virtual]
+
+
+
+   Reimplemented in QSqlQueryModel, QSqlTableModel, and QStandardItemModel.
+
+   bool QAbstractItemModel::removeRow (  int                  row,
+                                         const QModelIndex &  parent = QModelIndex()
+                                      )  [inline]
+
+
+
+   virtual bool QAbstractItemModel::removeRows (  int                  row,
+                                                  int                  count,
+                                                  const QModelIndex &  parent = QModelIndex()
+                                               )  [virtual]
+
+
+
+   Reimplemented in QSqlTableModel, QStandardItemModel, and QStringListModel.
+
+   void QAbstractItemModel::reset (   )  [protected]
+
+
+
+   virtual void QAbstractItemModel::revert (   )  [virtual, slot]
+
+
+
+   Reimplemented in QProxyModel, and QSqlTableModel.
+
+   virtual int QAbstractItemModel::rowCount (  const QModelIndex &  parent = QModelIndex()  )  const [pure virtual]
+
+
+
+   Implemented in QDirModel, QProxyModel, QSqlQueryModel, QSqlTableModel, QStandardItemModel, and QStringListModel.
+
+   virtual bool QAbstractItemModel::setData (  const QModelIndex &  index,
+                                               const QVariant &     value,
+                                               int                  role = Qt::EditRole
+                                            )  [virtual]
+
+
+
+   Reimplemented in QDirModel, QProxyModel, QSqlRelationalTableModel, QSqlTableModel, QStandardItemModel, and QStringListModel.
+
+   virtual bool QAbstractItemModel::setHeaderData (  int               section,
+                                                     Qt::Orientation   orientation,
+                                                     const QVariant &  value,
+                                                     int               role = Qt::EditRole
+                                                  )  [virtual]
+
+
+
+   Reimplemented in QProxyModel, QSqlQueryModel, and QStandardItemModel.
+
+   virtual bool QAbstractItemModel::setItemData (  const QModelIndex &            index,
+                                                   const QMap< int, QVariant > &  roles
+                                                )  [virtual]
+
+
+
+   QModelIndex QAbstractItemModel::sibling (  int                  row,
+                                              int                  column,
+                                              const QModelIndex &  idx
+                                           )  const [inline]
+
+
+
+   virtual void QAbstractItemModel::sort (  int            column,
+                                            Qt::SortOrder  order = Qt::AscendingOrder
+                                         )  [virtual]
+
+
+
+   Reimplemented in QDirModel, QProxyModel, and QSqlTableModel.
+
+   virtual QSize QAbstractItemModel::span (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Reimplemented in QProxyModel.
+
+   virtual bool QAbstractItemModel::submit (   )  [virtual, slot]
+
+
+
+   Reimplemented in QProxyModel, and QSqlTableModel.
+
+   virtual Qt::DropActions QAbstractItemModel::supportedDropActions (   )  const [virtual]
+
+
+
+   Reimplemented in QDirModel, and QProxyModel.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QPersistentModelIndexData [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractitemmodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

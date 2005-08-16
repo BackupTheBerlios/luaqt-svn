@@ -1,0 +1,267 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QXmlDefaultHandler Class Reference
+
+   #include <qxml.h>
+
+   Inherits QXmlContentHandler, QXmlErrorHandler, QXmlDTDHandler, QXmlEntityResolver, QXmlLexicalHandler, and QXmlDeclHandler.
+
+   List of all members.
+
+Public Member Functions
+
+     * QXmlDefaultHandler ()
+     * virtual ~QXmlDefaultHandler ()
+     * void setDocumentLocator (QXmlLocator *locator)
+     * bool startDocument ()
+     * bool endDocument ()
+     * bool startPrefixMapping (const QString &prefix, const QString &uri)
+     * bool endPrefixMapping (const QString &prefix)
+     * bool startElement (const QString &namespaceURI, const QString &localName, const QString &qName, const QXmlAttributes &atts)
+     * bool endElement (const QString &namespaceURI, const QString &localName, const QString &qName)
+     * bool characters (const QString &ch)
+     * bool ignorableWhitespace (const QString &ch)
+     * bool processingInstruction (const QString &target, const QString &data)
+     * bool skippedEntity (const QString &name)
+     * bool warning (const QXmlParseException &exception)
+     * bool error (const QXmlParseException &exception)
+     * bool fatalError (const QXmlParseException &exception)
+     * bool notationDecl (const QString &name, const QString &publicId, const QString &systemId)
+     * bool unparsedEntityDecl (const QString &name, const QString &publicId, const QString &systemId, const QString &notationName)
+     * bool resolveEntity (const QString &publicId, const QString &systemId, QXmlInputSource *&ret)
+     * bool startDTD (const QString &name, const QString &publicId, const QString &systemId)
+     * bool endDTD ()
+     * bool startEntity (const QString &name)
+     * bool endEntity (const QString &name)
+     * bool startCDATA ()
+     * bool endCDATA ()
+     * bool comment (const QString &ch)
+     * bool attributeDecl (const QString &eName, const QString &aName, const QString &type, const QString &valueDefault, const QString &value)
+     * bool internalEntityDecl (const QString &name, const QString &value)
+     * bool externalEntityDecl (const QString &name, const QString &publicId, const QString &systemId)
+     * QString errorString () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QXmlDefaultHandler::QXmlDefaultHandler (   )  [inline]
+
+
+
+   virtual QXmlDefaultHandler::~QXmlDefaultHandler (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QXmlDefaultHandler::attributeDecl (  const QString &  eName,
+                                             const QString &  aName,
+                                             const QString &  type,
+                                             const QString &  valueDefault,
+                                             const QString &  value
+                                          )  [virtual]
+
+
+
+   Implements QXmlDeclHandler.
+
+   bool QXmlDefaultHandler::characters (  const QString &  ch  )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::comment (  const QString &  ch  )  [virtual]
+
+
+
+   Implements QXmlLexicalHandler.
+
+   bool QXmlDefaultHandler::endCDATA (   )  [virtual]
+
+
+
+   Implements QXmlLexicalHandler.
+
+   bool QXmlDefaultHandler::endDocument (   )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::endDTD (   )  [virtual]
+
+
+
+   Implements QXmlLexicalHandler.
+
+   bool QXmlDefaultHandler::endElement (  const QString &  namespaceURI,
+                                          const QString &  localName,
+                                          const QString &  qName
+                                       )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::endEntity (  const QString &  name  )  [virtual]
+
+
+
+   Implements QXmlLexicalHandler.
+
+   bool QXmlDefaultHandler::endPrefixMapping (  const QString &  prefix  )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::error (  const QXmlParseException &  exception  )  [virtual]
+
+
+
+   Implements QXmlErrorHandler.
+
+   QString QXmlDefaultHandler::errorString (   )  const [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::externalEntityDecl (  const QString &  name,
+                                                  const QString &  publicId,
+                                                  const QString &  systemId
+                                               )  [virtual]
+
+
+
+   Implements QXmlDeclHandler.
+
+   bool QXmlDefaultHandler::fatalError (  const QXmlParseException &  exception  )  [virtual]
+
+
+
+   Implements QXmlErrorHandler.
+
+   bool QXmlDefaultHandler::ignorableWhitespace (  const QString &  ch  )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::internalEntityDecl (  const QString &  name,
+                                                  const QString &  value
+                                               )  [virtual]
+
+
+
+   Implements QXmlDeclHandler.
+
+   bool QXmlDefaultHandler::notationDecl (  const QString &  name,
+                                            const QString &  publicId,
+                                            const QString &  systemId
+                                         )  [virtual]
+
+
+
+   Implements QXmlDTDHandler.
+
+   bool QXmlDefaultHandler::processingInstruction (  const QString &  target,
+                                                     const QString &  data
+                                                  )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::resolveEntity (  const QString &     publicId,
+                                             const QString &     systemId,
+                                             QXmlInputSource *&  ret
+                                          )  [virtual]
+
+
+
+   Implements QXmlEntityResolver.
+
+   void QXmlDefaultHandler::setDocumentLocator (  QXmlLocator *  locator  )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::skippedEntity (  const QString &  name  )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::startCDATA (   )  [virtual]
+
+
+
+   Implements QXmlLexicalHandler.
+
+   bool QXmlDefaultHandler::startDocument (   )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::startDTD (  const QString &  name,
+                                        const QString &  publicId,
+                                        const QString &  systemId
+                                     )  [virtual]
+
+
+
+   Implements QXmlLexicalHandler.
+
+   bool QXmlDefaultHandler::startElement (  const QString &         namespaceURI,
+                                            const QString &         localName,
+                                            const QString &         qName,
+                                            const QXmlAttributes &  atts
+                                         )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::startEntity (  const QString &  name  )  [virtual]
+
+
+
+   Implements QXmlLexicalHandler.
+
+   bool QXmlDefaultHandler::startPrefixMapping (  const QString &  prefix,
+                                                  const QString &  uri
+                                               )  [virtual]
+
+
+
+   Implements QXmlContentHandler.
+
+   bool QXmlDefaultHandler::unparsedEntityDecl (  const QString &  name,
+                                                  const QString &  publicId,
+                                                  const QString &  systemId,
+                                                  const QString &  notationName
+                                               )  [virtual]
+
+
+
+   Implements QXmlDTDHandler.
+
+   bool QXmlDefaultHandler::warning (  const QXmlParseException &  exception  )  [virtual]
+
+
+
+   Implements QXmlErrorHandler.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qxml.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

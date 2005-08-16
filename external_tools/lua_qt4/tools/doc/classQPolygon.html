@@ -1,0 +1,159 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QPolygon Class Reference
+
+   #include <qpolygon.h>
+
+   Inherits QVector< QPoint >.
+
+   List of all members.
+
+Public Member Functions
+
+     * QPolygon ()
+     * ~QPolygon ()
+     * QPolygon (int size)
+     * QPolygon (const QPolygon &a)
+     * QPolygon (const QVector< QPoint > &v)
+     * QPolygon (const QRect &r, bool closed=false)
+     * QPolygon (int nPoints, const int *points)
+     * operator QVariant () const
+     * void translate (int dx, int dy)
+     * void translate (const QPoint &offset)
+     * QRect boundingRect () const
+     * void point (int i, int *x, int *y) const
+     * QPoint point (int i) const
+     * void setPoint (int index, int x, int y)
+     * void setPoint (int index, const QPoint &p)
+     * void setPoints (int nPoints, const int *points)
+     * void setPoints (int nPoints, int firstx, int firsty,...)
+     * void putPoints (int index, int nPoints, const int *points)
+     * void putPoints (int index, int nPoints, int firstx, int firsty,...)
+     * void putPoints (int index, int nPoints, const QPolygon &from, int fromIndex=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPolygon::QPolygon (   )  [inline]
+
+
+
+   QPolygon::~QPolygon (   )  [inline]
+
+
+
+   QPolygon::QPolygon (  int  size  )  [inline]
+
+
+
+   QPolygon::QPolygon (  const QPolygon &  a  )  [inline]
+
+
+
+   QPolygon::QPolygon (  const QVector< QPoint > &  v  )  [inline]
+
+
+
+   QPolygon::QPolygon (  const QRect &  r,
+                         bool           closed = false
+                      )
+
+
+
+   QPolygon::QPolygon (  int          nPoints,
+                         const int *  points
+                      )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QRect QPolygon::boundingRect (   )  const
+
+
+
+   QPolygon::operator QVariant (   )  const
+
+
+
+   QPoint QPolygon::point (  int  i  )  const [inline]
+
+
+
+   void QPolygon::point (  int    i,
+                           int *  x,
+                           int *  y
+                        )  const
+
+
+
+   void QPolygon::putPoints (  int               index,
+                               int               nPoints,
+                               const QPolygon &  from,
+                               int               fromIndex = 0
+                            )
+
+
+
+   void QPolygon::putPoints (  int  index,
+                               int  nPoints,
+                               int  firstx,
+                               int  firsty,
+                                    ...
+                            )
+
+
+
+   void QPolygon::putPoints (  int          index,
+                               int          nPoints,
+                               const int *  points
+                            )
+
+
+
+   void QPolygon::setPoint (  int             index,
+                              const QPoint &  p
+                           )  [inline]
+
+
+
+   void QPolygon::setPoint (  int  index,
+                              int  x,
+                              int  y
+                           )  [inline]
+
+
+
+   void QPolygon::setPoints (  int  nPoints,
+                               int  firstx,
+                               int  firsty,
+                                    ...
+                            )
+
+
+
+   void QPolygon::setPoints (  int          nPoints,
+                               const int *  points
+                            )
+
+
+
+   void QPolygon::translate (  const QPoint &  offset  )  [inline]
+
+
+
+   void QPolygon::translate (  int  dx,
+                               int  dy
+                            )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpolygon.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

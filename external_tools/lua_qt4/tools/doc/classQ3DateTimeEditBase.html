@@ -1,0 +1,83 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        Q3DateTimeEditBase Class Reference
+
+   #include <q3datetimeedit.h>
+
+   Inherits QWidget.
+
+   Inherited by Q3DateEdit, and Q3TimeEdit.
+
+   List of all members.
+
+Public Slots
+
+     * virtual void stepUp ()=0
+     * virtual void stepDown ()=0
+
+Public Member Functions
+
+     * Q3DateTimeEditBase (QWidget *parent=0, const char *name=0)
+     * virtual bool setFocusSection (int sec)=0
+     * virtual QString sectionFormattedText (int sec)=0
+     * virtual void addNumber (int sec, int num)=0
+     * virtual void removeLastNumber (int sec)=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3DateTimeEditBase::Q3DateTimeEditBase (  QWidget *     parent = 0,
+                                             const char *  name = 0
+                                          )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3DateTimeEditBase::addNumber (  int  sec,
+                                                 int  num
+                                              )  [pure virtual]
+
+
+
+   Implemented in Q3DateEdit, and Q3TimeEdit.
+
+   virtual void Q3DateTimeEditBase::removeLastNumber (  int  sec  )  [pure virtual]
+
+
+
+   Implemented in Q3DateEdit, and Q3TimeEdit.
+
+   virtual QString Q3DateTimeEditBase::sectionFormattedText (  int  sec  )  [pure virtual]
+
+
+
+   Implemented in Q3DateEdit, and Q3TimeEdit.
+
+   virtual bool Q3DateTimeEditBase::setFocusSection (  int  sec  )  [pure virtual]
+
+
+
+   Implemented in Q3DateEdit, and Q3TimeEdit.
+
+   virtual void Q3DateTimeEditBase::stepDown (   )  [pure virtual, slot]
+
+
+
+   Implemented in Q3DateEdit, and Q3TimeEdit.
+
+   virtual void Q3DateTimeEditBase::stepUp (   )  [pure virtual, slot]
+
+
+
+   Implemented in Q3DateEdit, and Q3TimeEdit.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3datetimeedit.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

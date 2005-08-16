@@ -1,0 +1,102 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QStringListModel Class Reference
+
+   #include <qstringlistmodel.h>
+
+   Inherits QAbstractListModel.
+
+   List of all members.
+
+Public Member Functions
+
+     * QStringListModel (QObject *parent=0)
+     * QStringListModel (const QStringList &strings, QObject *parent=0)
+     * int rowCount (const QModelIndex &parent=QModelIndex()) const
+     * QVariant data (const QModelIndex &index, int role) const
+     * bool setData (const QModelIndex &index, const QVariant &value, int role=Qt::EditRole)
+     * Qt::ItemFlags flags (const QModelIndex &index) const
+     * bool insertRows (int row, int count, const QModelIndex &parent=QModelIndex())
+     * bool removeRows (int row, int count, const QModelIndex &parent=QModelIndex())
+     * QStringList stringList () const
+     * void setStringList (const QStringList &strings)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QStringListModel::QStringListModel (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QStringListModel::QStringListModel (  const QStringList &  strings,
+                                         QObject *            parent = 0
+                                      )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QVariant QStringListModel::data (  const QModelIndex &  index,
+                                      int                  role
+                                   )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   Qt::ItemFlags QStringListModel::flags (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QStringListModel::insertRows (  int                  row,
+                                        int                  count,
+                                        const QModelIndex &  parent = QModelIndex()
+                                     )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QStringListModel::removeRows (  int                  row,
+                                        int                  count,
+                                        const QModelIndex &  parent = QModelIndex()
+                                     )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   int QStringListModel::rowCount (  const QModelIndex &  parent = QModelIndex()  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QStringListModel::setData (  const QModelIndex &  index,
+                                     const QVariant &     value,
+                                     int                  role = Qt::EditRole
+                                  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   void QStringListModel::setStringList (  const QStringList &  strings  )
+
+
+
+   QStringList QStringListModel::stringList (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstringlistmodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

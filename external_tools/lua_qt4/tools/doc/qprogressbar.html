@@ -1,0 +1,211 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QProgressBar Class Reference
+
+   The QProgressBar widget provides a horizontal progress bar. More...
+#include <QProgressBar>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+
+  Properties
+
+     * alignment : Qt::Alignment
+     * maximum : int
+     * minimum : int
+
+     * text : const QString
+     * textVisible : bool
+     * value : int
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QProgressBar ( QWidget * parent = 0 )
+     * Qt::Alignment alignment () const
+     * bool isTextVisible () const
+     * int maximum () const
+     * int minimum () const
+     * void setAlignment ( Qt::Alignment alignment )
+     * void setRange ( int minimum, int maximum )
+     * void setTextVisible ( bool visible )
+     * virtual QString text () const
+     * int value () const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void reset ()
+     * void setMaximum ( int maximum )
+     * void setMinimum ( int minimum )
+     * void setValue ( int value )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void valueChanged ( int value )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QProgressBar widget provides a horizontal progress bar.
+
+   A progress bar is used to give the user an indication of the progress
+   of an operation and to reassure them that the application is still
+   running.
+
+   The progress bar uses the concept of steps. You set it up by
+   specifying the minumum and maximum possible step values, and it will
+   display the percentage of steps that have been completed when you
+   later give it the current step value. The percentage is calculated by
+   dividing the progress (value() - minimum()) divided by maximum() -
+   minimum().
+
+   You can specify the minimum and maximum number of steps with
+   setMinimum() and setMaximum. The current number of steps is set with
+   setValue(). The progress bar can be rewound to the beginning with
+   reset().
+
+   If minimum and maximum both are set to 0, the bar shows a busy
+   indicator instead of a percentage of steps. This is useful, for
+   example, when using QFtp or QHttp to download items when they are
+   unable to determine the size of the item being downloaded.
+
+   Screenshot in Macintosh style Screenshot in Windows style
+
+   See also QProgressDialog and GUI Design Handbook: Progress Indicator.
+     _________________________________________________________________
+
+Property Documentation
+
+  alignment : Qt::Alignment
+
+   This property holds the alignment of the progress bar.
+
+   Access functions:
+     * Qt::Alignment alignment () const
+     * void setAlignment ( Qt::Alignment alignment )
+
+  maximum : int
+
+   This property holds the progress bar's maximum value.
+
+   When setting this property, the minimum is adjusted if necessary to
+   ensure that the range remains valid. If the current value falls
+   outside the new range, the progressbar is reset with reset().
+
+   Access functions:
+     * int maximum () const
+     * void setMaximum ( int maximum )
+
+  minimum : int
+
+   This property holds the progress bar's minimum value.
+
+   When setting this property, the maximum is adjusted if necessary to
+   ensure that the range remains valid. If the current value falls
+   outside the new range, the progressbar is reset with reset().
+
+   Access functions:
+     * int minimum () const
+     * void setMinimum ( int minimum )
+
+  text : const QString
+
+   This property holds the descriptive text shown with the progress bar.
+
+   The text returned is the same as the text displayed in the center (or
+   in some styles, to the left) of the progress bar.
+
+   The progress shown in the text may be smaller than the minimum value,
+   indicating that the progress bar is in the "reset" state before any
+   progress is set.
+
+   In the default implementation, the text either contains a percentage
+   value that indicates the progress so far, or it is blank because the
+   progress bar is in the reset state.
+
+   Access functions:
+     * virtual QString text () const
+
+  textVisible : bool
+
+   This property holds whether the current completed percentage should be
+   displayed.
+
+   Access functions:
+     * bool isTextVisible () const
+     * void setTextVisible ( bool visible )
+
+  value : int
+
+   This property holds the progressbar's current value.
+
+   Attemting to change the current value to one outside the
+   minimum-maximum range has no effect the current value.
+
+   Access functions:
+     * int value () const
+     * void setValue ( int value )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QProgressBar::QProgressBar ( QWidget * parent = 0 )
+
+   Constructs a progress bar with the given parent.
+
+   By default, the minimum step value is set to 0, and the maximum to
+   100.
+
+   See also setRange().
+
+  void QProgressBar::reset ()   [slot]
+
+   Reset the progress bar. The progress bar "rewinds" and shows no
+   progress.
+
+  void QProgressBar::setRange ( int minimum, int maximum )
+
+   Sets the progressbar's minimum and maximum values to minimum and
+   maximum respectively.
+
+   If maximum is smaller than minimum, minimum becomes the only legal
+   value.
+
+   If the current value falls outside the new range, the progressbar is
+   reset with reset().
+
+   See also minimum and maximum.
+
+  void QProgressBar::valueChanged ( int value )   [signal]
+
+   This signal is emitted when the value shown in the progress bar
+   changes. value is the new value shown by the progress bar.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

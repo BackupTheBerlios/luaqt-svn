@@ -1,0 +1,191 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              Q3Accel Class Reference
+
+   #include <q3accel.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Signals
+
+     * void activated (int id)
+     * void activatedAmbiguously (int id)
+
+Public Member Functions
+
+     * Q3Accel (QWidget *parent, const char *name=0)
+     * Q3Accel (QWidget *watch, QObject *parent, const char *name=0)
+     * ~Q3Accel ()
+     * bool isEnabled () const
+     * void setEnabled (bool)
+     * uint count () const
+     * int insertItem (const QKeySequence &key, int id=-1)
+     * void removeItem (int id)
+     * void clear ()
+     * QKeySequence key (int id)
+     * int findKey (const QKeySequence &key) const
+     * bool isItemEnabled (int id) const
+     * void setItemEnabled (int id, bool enable)
+     * bool connectItem (int id, const QObject *receiver, const char *member)
+     * bool disconnectItem (int id, const QObject *receiver, const char *member)
+     * void repairEventFilter ()
+     * void setWhatsThis (int id, const QString &)
+     * QString whatsThis (int id) const
+     * void setIgnoreWhatsThis (bool)
+     * bool ignoreWhatsThis () const
+
+Static Public Member Functions
+
+     * static QKeySequence shortcutKey (const QString &)
+     * static QString keyToString (QKeySequence k)
+     * static QKeySequence stringToKey (const QString &)
+
+Friends
+
+     * class Q3AccelPrivate
+     * class Q3AccelManager
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Accel::Q3Accel (  QWidget *     parent,
+                       const char *  name = 0
+                    )
+
+
+
+   Q3Accel::Q3Accel (  QWidget *     watch,
+                       QObject *     parent,
+                       const char *  name = 0
+                    )
+
+
+
+   Q3Accel::~Q3Accel (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3Accel::activated (  int  id  )  [signal]
+
+
+
+   void Q3Accel::activatedAmbiguously (  int  id  )  [signal]
+
+
+
+   void Q3Accel::clear (   )
+
+
+
+   bool Q3Accel::connectItem (  int              id,
+                                const QObject *  receiver,
+                                const char *     member
+                             )
+
+
+
+   uint Q3Accel::count (   )  const
+
+
+
+   bool Q3Accel::disconnectItem (  int              id,
+                                   const QObject *  receiver,
+                                   const char *     member
+                                )
+
+
+
+   int Q3Accel::findKey (  const QKeySequence &  key  )  const
+
+
+
+   bool Q3Accel::ignoreWhatsThis (   )  const
+
+
+
+   int Q3Accel::insertItem (  const QKeySequence &  key,
+                              int                   id = -1
+                           )
+
+
+
+   bool Q3Accel::isEnabled (   )  const
+
+
+
+   bool Q3Accel::isItemEnabled (  int  id  )  const
+
+
+
+   QKeySequence Q3Accel::key (  int  id  )
+
+
+
+   static QString Q3Accel::keyToString (  QKeySequence  k  )  [static]
+
+
+
+   void Q3Accel::removeItem (  int  id  )
+
+
+
+   void Q3Accel::repairEventFilter (   )  [inline]
+
+
+
+   void Q3Accel::setEnabled (  bool   )
+
+
+
+   void Q3Accel::setIgnoreWhatsThis (  bool   )
+
+
+
+   void Q3Accel::setItemEnabled (  int   id,
+                                   bool  enable
+                                )
+
+
+
+   void Q3Accel::setWhatsThis (  int              id,
+                                 const QString &
+                              )
+
+
+
+   static QKeySequence Q3Accel::shortcutKey (  const QString &   )  [static]
+
+
+
+   static QKeySequence Q3Accel::stringToKey (  const QString &   )  [static]
+
+
+
+   QString Q3Accel::whatsThis (  int  id  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3AccelManager [friend]
+
+
+
+   friend class Q3AccelPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3accel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

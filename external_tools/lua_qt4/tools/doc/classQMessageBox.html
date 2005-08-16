@@ -1,0 +1,341 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QMessageBox Class Reference
+
+   #include <qmessagebox.h>
+
+   Inherits QDialog.
+
+   List of all members.
+
+Public Types
+
+     * enum Icon {
+         NoIcon = 0, Information = 1, Warning = 2, Critical = 3,
+         Question = 4
+       }
+     * enum Button {
+         NoButton = 0, Ok = 1, Cancel = 2, Yes = 3,
+         No = 4, Abort = 5, Retry = 6, Ignore = 7,
+         YesAll = 8, NoAll = 9, ButtonMask = 0xff, Default = 0x100,
+         Escape = 0x200, FlagMask = 0x300
+       }
+
+Public Member Functions
+
+     * QMessageBox (QWidget *parent=0)
+     * QMessageBox (const QString &caption, const QString &text, Icon icon, int button0, int button1, int button2, QWidget *parent=0, Qt::WFlags f=Qt::Dialog|Qt::MSWindowsFixedSizeDialogHint)
+     * ~QMessageBox ()
+     * QString text () const
+     * void setText (const QString &)
+     * Icon icon () const
+     * void setIcon (Icon)
+     * QPixmap iconPixmap () const
+     * void setIconPixmap (const QPixmap &)
+     * QString buttonText (int button) const
+     * void setButtonText (int button, const QString &)
+     * Qt::TextFormat textFormat () const
+     * void setTextFormat (Qt::TextFormat)
+     * QSize sizeHint () const
+
+Static Public Member Functions
+
+     * static int information (QWidget *parent, const QString &caption, const QString &text, int button0, int button1=0, int button2=0)
+     * static int information (QWidget *parent, const QString &caption, const QString &text, const QString &button0Text=QString(), const QString &button1Text=QString(), const QString &button2Text=QString(), int defaultButtonNumber=0, int escapeButtonNumber=-1)
+     * static int question (QWidget *parent, const QString &caption, const QString &text, int button0, int button1=0, int button2=0)
+     * static int question (QWidget *parent, const QString &caption, const QString &text, const QString &button0Text=QString(), const QString &button1Text=QString(), const QString &button2Text=QString(), int defaultButtonNumber=0, int escapeButtonNumber=-1)
+     * static int warning (QWidget *parent, const QString &caption, const QString &text, int button0, int button1, int button2=0)
+     * static int warning (QWidget *parent, const QString &caption, const QString &text, const QString &button0Text=QString(), const QString &button1Text=QString(), const QString &button2Text=QString(), int defaultButtonNumber=0, int escapeButtonNumber=-1)
+     * static int critical (QWidget *parent, const QString &caption, const QString &text, int button0, int button1, int button2=0)
+     * static int critical (QWidget *parent, const QString &caption, const QString &text, const QString &button0Text=QString(), const QString &button1Text=QString(), const QString &button2Text=QString(), int defaultButtonNumber=0, int escapeButtonNumber=-1)
+     * static void about (QWidget *parent, const QString &caption, const QString &text)
+     * static void aboutQt (QWidget *parent, const QString &caption=QString())
+     * static QPixmap standardIcon (Icon icon)
+
+Protected Member Functions
+
+     * void resizeEvent (QResizeEvent *)
+     * void showEvent (QShowEvent *)
+     * void closeEvent (QCloseEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * QString text
+     * Icon icon
+     * QPixmap iconPixmap
+     * Qt TextFormat
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QMessageBox::Button
+
+
+
+   Enumerator: 
+
+          NoButton  
+          Ok        
+          Cancel    
+          Yes       
+          No        
+          Abort     
+          Retry     
+          Ignore    
+          YesAll    
+          NoAll     
+          ButtonMask
+          Default   
+          Escape    
+          FlagMask  
+
+   enum QMessageBox::Icon
+
+
+
+   Enumerator: 
+
+          NoIcon     
+          Information
+          Warning    
+          Critical   
+          Question   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMessageBox::QMessageBox (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QMessageBox::QMessageBox (  const QString &  caption,
+                               const QString &  text,
+                               Icon             icon,
+                               int              button0,
+                               int              button1,
+                               int              button2,
+                               QWidget *        parent = 0,
+                               Qt::WFlags       f = Qt::Dialog|Qt::MSWindowsFixedSizeDialogHint
+                            )
+
+
+
+   QMessageBox::~QMessageBox (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static void QMessageBox::about (  QWidget *        parent,
+                                     const QString &  caption,
+                                     const QString &  text
+                                  )  [static]
+
+
+
+   static void QMessageBox::aboutQt (  QWidget *        parent,
+                                       const QString &  caption = QString()
+                                    )  [static]
+
+
+
+   QString QMessageBox::buttonText (  int  button  )  const
+
+
+
+   void QMessageBox::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMessageBox::closeEvent (  QCloseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   static int QMessageBox::critical (  QWidget *        parent,
+                                       const QString &  caption,
+                                       const QString &  text,
+                                       const QString &  button0Text = QString(),
+                                       const QString &  button1Text = QString(),
+                                       const QString &  button2Text = QString(),
+                                       int              defaultButtonNumber = 0,
+                                       int              escapeButtonNumber = -1
+                                    )  [static]
+
+
+
+   static int QMessageBox::critical (  QWidget *        parent,
+                                       const QString &  caption,
+                                       const QString &  text,
+                                       int              button0,
+                                       int              button1,
+                                       int              button2 = 0
+                                    )  [static]
+
+
+
+   Icon QMessageBox::icon (   )  const
+
+
+
+   QPixmap QMessageBox::iconPixmap (   )  const
+
+
+
+   static int QMessageBox::information (  QWidget *        parent,
+                                          const QString &  caption,
+                                          const QString &  text,
+                                          const QString &  button0Text = QString(),
+                                          const QString &  button1Text = QString(),
+                                          const QString &  button2Text = QString(),
+                                          int              defaultButtonNumber = 0,
+                                          int              escapeButtonNumber = -1
+                                       )  [static]
+
+
+
+   static int QMessageBox::information (  QWidget *        parent,
+                                          const QString &  caption,
+                                          const QString &  text,
+                                          int              button0,
+                                          int              button1 = 0,
+                                          int              button2 = 0
+                                       )  [static]
+
+
+
+   void QMessageBox::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   static int QMessageBox::question (  QWidget *        parent,
+                                       const QString &  caption,
+                                       const QString &  text,
+                                       const QString &  button0Text = QString(),
+                                       const QString &  button1Text = QString(),
+                                       const QString &  button2Text = QString(),
+                                       int              defaultButtonNumber = 0,
+                                       int              escapeButtonNumber = -1
+                                    )  [static]
+
+
+
+   static int QMessageBox::question (  QWidget *        parent,
+                                       const QString &  caption,
+                                       const QString &  text,
+                                       int              button0,
+                                       int              button1 = 0,
+                                       int              button2 = 0
+                                    )  [static]
+
+
+
+   void QMessageBox::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   void QMessageBox::setButtonText (  int              button,
+                                      const QString &
+                                   )
+
+
+
+   void QMessageBox::setIcon (  Icon   )
+
+
+
+   void QMessageBox::setIconPixmap (  const QPixmap &   )
+
+
+
+   void QMessageBox::setText (  const QString &   )
+
+
+
+   void QMessageBox::setTextFormat (  Qt::TextFormat   )
+
+
+
+   void QMessageBox::showEvent (  QShowEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   QSize QMessageBox::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   static QPixmap QMessageBox::standardIcon (  Icon  icon  )  [static]
+
+
+
+   QString QMessageBox::text (   )  const
+
+
+
+   Qt::TextFormat QMessageBox::textFormat (   )  const
+
+
+
+   static int QMessageBox::warning (  QWidget *        parent,
+                                      const QString &  caption,
+                                      const QString &  text,
+                                      const QString &  button0Text = QString(),
+                                      const QString &  button1Text = QString(),
+                                      const QString &  button2Text = QString(),
+                                      int              defaultButtonNumber = 0,
+                                      int              escapeButtonNumber = -1
+                                   )  [static]
+
+
+
+   static int QMessageBox::warning (  QWidget *        parent,
+                                      const QString &  caption,
+                                      const QString &  text,
+                                      int              button0,
+                                      int              button1,
+                                      int              button2 = 0
+                                   )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Icon QMessageBox::icon [read, write]
+
+
+
+   QPixmap QMessageBox::iconPixmap [read, write]
+
+
+
+   QString QMessageBox::text [read, write]
+
+
+
+   Qt QMessageBox::TextFormat [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmessagebox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

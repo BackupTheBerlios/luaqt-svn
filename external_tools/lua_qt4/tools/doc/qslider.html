@@ -1,0 +1,178 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QSlider Class Reference
+
+   The QSlider widget provides a vertical or horizontal slider. More...
+#include <QSlider>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractSlider.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum TickPosition { NoTicks, TicksBothSides, TicksAbove,
+       TicksBelow, TicksLeft, TicksRight }
+
+  Properties
+
+     * tickInterval : int
+     * tickPosition : TickPosition
+
+     * 11 properties inherited from QAbstractSlider
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QSlider ( QWidget * parent = 0 )
+     * QSlider ( Qt::Orientation orientation, QWidget * parent = 0 )
+     * ~QSlider ()
+     * void setTickInterval ( int ti )
+     * void setTickPosition ( TickPosition position )
+     * int tickInterval () const
+     * TickPosition tickPosition () const
+
+     * 22 public functions inherited from QAbstractSlider
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Additional Inherited Members
+
+     * 2 public slots inherited from QAbstractSlider
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 6 signals inherited from QAbstractSlider
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 3 protected functions inherited from QAbstractSlider
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QSlider widget provides a vertical or horizontal slider.
+
+   The slider is the classic widget for controlling a bounded value. It
+   lets the user move a slider handle along a horizontal or vertical
+   groove and translates the handle's position into an integer value
+   within the legal range.
+
+   QSlider has very few of its own functions; most of the functionality
+   is in QAbstractSlider. The most useful functions are setValue() to set
+   the slider directly to some value; triggerAction() to simulate the
+   effects of clicking (useful for shortcut keys); setSingleStep(),
+   setPageStep() to set the steps; and setMinimum() and setMaximum() to
+   define the range of the scroll bar.
+
+   QSlider provides methods for controlling tickmarks. You can use
+   setTickPosition() to indicate where you want the tickmarks to be,
+   setTickInterval() to indicate how many of them you want.
+
+   QSlider inherits a comprehensive set of signals:
+
+                            Signal Emitted when
+       valueChanged() the slider's value has changed. The tracking()
+     determines whether this signal is emitted during user interaction.
+            sliderPressed() the user starts to drag the slider.
+                  sliderMoved() the user drags the slider.
+               sliderReleased() the user releases the slider.
+
+   QSlider only provides integer ranges. Note that although QSlider
+   handles very large numbers, it becomes difficult for users to use a
+   slider accurately for very large ranges.
+
+   A slider accepts focus on Tab and provides both a mouse wheel and a
+   keyboard interface. The keyboard interface is the following:
+     * Left/Right move a horizontal slider by one single step.
+     * Up/Down move a vertical slider by one single step.
+     * PageUp moves up one page.
+     * PageDown moves down one page.
+     * Home moves to the start (mininum).
+     * End moves to the end (maximum).
+
+                       Screenshot in Macintosh style
+
+   See also QScrollBar, QSpinBox, and GUI Design Handbook: Slider.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QSlider::TickPosition
+
+   This enum specifies where the tick marks are to be drawn relative to
+   the slider's groove and the handle the user moves.
+
+   Constant Value Description
+   QSlider::NoTicks 0 do not draw any tick marks.
+   QSlider::TicksBothSides 3 draw tick marks on both sides of the groove.
+   QSlider::TicksAbove 1 draw tick marks above the (horizontal) slider
+   QSlider::TicksBelow 2 draw tick marks below the (horizontal) slider
+   QSlider::TicksLeft TicksAbove draw tick marks to the left of the
+   (vertical) slider
+   QSlider::TicksRight TicksBelow draw tick marks to the right of the
+   (vertical) slider
+     _________________________________________________________________
+
+Property Documentation
+
+  tickInterval : int
+
+   This property holds the interval between tickmarks.
+
+   This is a value interval, not a pixel interval. If it is 0, the slider
+   will choose between lineStep() and pageStep(). The initial value of
+   tickInterval is 0.
+
+   Access functions:
+     * int tickInterval () const
+     * void setTickInterval ( int ti )
+
+   See also tickPosition, lineStep(), and pageStep().
+
+  tickPosition : TickPosition
+
+   This property holds the tickmark position for this slider.
+
+   The valid values are in QSlider::TickPosition. The default is NoTicks.
+
+   Access functions:
+     * TickPosition tickPosition () const
+     * void setTickPosition ( TickPosition position )
+
+   See also tickInterval.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QSlider::QSlider ( QWidget * parent = 0 )
+
+   Constructs a vertical slider.
+
+   The parent argument is sent to the QAbstractSlider constructor.
+
+  QSlider::QSlider ( Qt::Orientation orientation, QWidget * parent = 0 )
+
+   Constructs a slider.
+
+   The orientation must be Qt::Vertical or Qt::Horizontal.
+
+   The parent argument is sent on to the QAbstractSlider constructor.
+
+  QSlider::~QSlider ()
+
+   Destructor.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

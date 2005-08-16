@@ -1,0 +1,626 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                            QUrl Class Reference
+
+   The QUrl class provides a convenient interface for working with URLs.
+   More...
+#include <QUrl>
+
+   Part of the QtCore module.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum FormattingOption { None, RemoveScheme, RemovePassword,
+       RemoveUserInfo, ..., StripTrailingSlash }
+     * flags FormattingOptions
+
+  Public Functions
+
+     * QUrl ()
+     * QUrl ( const QString & url )
+     * QUrl ( const QUrl & other )
+     * ~QUrl ()
+     * void addQueryItem ( const QString & key, const QString & value )
+     * QStringList allQueryItemValues ( const QString & key ) const
+     * QString authority () const
+     * void clear ()
+     * QByteArray encodedQuery () const
+     * QString fragment () const
+     * bool hasQueryItem ( const QString & key ) const
+     * QString host () const
+     * bool isEmpty () const
+     * bool isParentOf ( const QUrl & childUrl ) const
+     * bool isRelative () const
+     * bool isValid () const
+     * QString password () const
+     * QString path () const
+     * int port () const
+     * QString queryItemValue ( const QString & key ) const
+     * QList<QPair<QString, QString> > queryItems () const
+     * char queryPairDelimiter () const
+     * char queryValueDelimiter () const
+     * void removeAllQueryItems ( const QString & key )
+     * void removeQueryItem ( const QString & key )
+     * QUrl resolved ( const QUrl & relative ) const
+     * QString scheme () const
+     * void setAuthority ( const QString & authority )
+     * void setEncodedQuery ( const QByteArray & query )
+     * void setEncodedUrl ( const QByteArray & encodedUrl )
+     * void setFragment ( const QString & fragment )
+     * void setHost ( const QString & host )
+     * void setPassword ( const QString & password )
+     * void setPath ( const QString & path )
+     * void setPort ( int port )
+     * void setQueryDelimiters ( char valueDelimiter, char pairDelimiter
+       )
+     * void setQueryItems ( const QList<QPair<QString, QString> > & query
+       )
+     * void setScheme ( const QString & scheme )
+     * void setUrl ( const QString & url )
+     * void setUserInfo ( const QString & userInfo )
+     * void setUserName ( const QString & userName )
+     * QByteArray toEncoded ( FormattingOptions options = None ) const
+     * QString toLocalFile () const
+     * QString toString ( FormattingOptions options = None ) const
+     * QString userInfo () const
+     * QString userName () const
+     * bool operator!= ( const QUrl & url ) const
+     * QUrl & operator= ( const QUrl & url )
+     * bool operator== ( const QUrl & url ) const
+
+  Static Public Members
+
+     * QUrl fromEncoded ( const QByteArray & input )
+     * QUrl fromLocalFile ( const QString & localFile )
+     * QString fromPercentEncoding ( const QByteArray & input )
+     * QString fromPunycode ( const QByteArray & pc )
+     * QByteArray toPercentEncoding ( const QString & input, const
+       QByteArray & exclude = QByteArray(), const QByteArray & include =
+       QByteArray() )
+     * QByteArray toPunycode ( const QString & uc )
+
+  Related Non-Members
+
+     * QDataStream & operator>> ( QDataStream & in, QUrl & url )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QUrl class provides a convenient interface for working with URLs.
+
+   It can parse and construct URLs in both encoded and unencoded form.
+   QUrl also has support for internationalized domain names (IDNs).
+
+   The most common way to use QUrl is to initialize it via the
+   constructor by passing a QString. Otherwise, setUrl() and
+   setEncodedUrl() can also be used.
+
+   A URL can also be constructed piece by piece by calling setScheme(),
+   setUserName(), setPassword(), setHost(), setPort(), setPath(),
+   setEncodedQuery() and setFragment(). Some convenience functions are
+   also available: setAuthority() sets the user name, password, host and
+   port. setUserInfo() sets the user name and password at once.
+
+   Call isValid() to check if the URL is valid. This can be done at any
+   point during the constructing of a URL.
+
+   Constructing a query is particularily convenient through the use of
+   setQueryItems(), addQueryItem() and removeQueryItem(). Use
+   setQueryDelimiters() to customize the delimiters used for generating
+   the query string.
+
+   For the convenience of generating encoded URL strings or query
+   strings, there are two static functions called fromPercentEncoding()
+   and toPercentEncoding() which deal with percent encoding and decoding
+   of QStrings.
+
+   Calling isRelative() will tell whether or not the URL is relative. A
+   relative URL can be resolved by passing it as argument to resolved(),
+   which returns an absolute URL. isParentOf() is used for determining
+   whether one URL is a parent of another.
+
+   isLocalFile() tells whether the URL represents the path to a local
+   file or not. fromLocalFile() constructs a QUrl by parsing a local file
+   path. toLocalFile() converts a URL to a local file path.
+
+   The human readable representation of the URL is fetched with
+   toString(). This representation is appropriate for displaying a URL to
+   a user in unencoded form. The encoded form however, as returned by
+   toEncoded(), is for internal use, passing to web servers, mail clients
+   and so on.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QUrl::FormattingOption
+  flags QUrl::FormattingOptions
+
+   The formatting options define how the URL is formatted when written
+   out as text.
+
+   Constant Value Description
+   QUrl::None 0x0 The URL is left unchanged.
+   QUrl::RemoveScheme 0x1 The scheme is removed from the URL.
+   QUrl::RemovePassword 0x2 Any password in the URL is removed.
+   QUrl::RemoveUserInfo RemovePassword | 0x4 Any user information in the
+   URL is removed.
+   QUrl::RemovePort 0x8 Any specified port is removed from the URL.
+   QUrl::RemoveAuthority RemoveUserInfo | RemovePort | 0x10
+   QUrl::RemovePath 0x20 The URL's path is removed, leaving only the
+   scheme, host address, and port (if present).
+   QUrl::RemoveQuery 0x40 The query part of the URL (following a '?'
+   character) is removed.
+   QUrl::RemoveFragment 0x80
+   QUrl::StripTrailingSlash 0x10000 The trailing slash is removed if one
+   is present.
+
+   The FormattingOptions type is a typedef for QFlags<FormattingOption>.
+   It stores an OR combination of FormattingOption values.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QUrl::QUrl ()
+
+   Constructs an empty QUrl object.
+
+  QUrl::QUrl ( const QString & url )
+
+   Constructs a URL by parsing url. url is assumed to be in human
+   readable representation, with no percent encoding. Any percent symbols
+   '%' will be interpreted as they are.
+    QUrl url("http://www.example.com/List of holidays.xml");
+
+   To construct a URL from an encoded string, call fromEncoded():
+    QUrl url = QUrl::fromEncoded("http://www.trolltech.com/List%20of%20holidays
+.xml");
+
+  QUrl::QUrl ( const QUrl & other )
+
+   Constructs a copy of other.
+
+  QUrl::~QUrl ()
+
+   Destructor; called immediately before the object is deleted.
+
+  void QUrl::addQueryItem ( const QString & key, const QString & value )
+
+   Inserts the pair key = value into the query string of the URL.
+
+  QStringList QUrl::allQueryItemValues ( const QString & key ) const
+
+   Returns the a list of query string values whose key is equal to key
+   from the URL.
+
+   See also queryItemValue().
+
+  QString QUrl::authority () const
+
+   Returns the authority of the URL if it is defined; otherwise an empty
+   string is returned.
+
+   See also setAuthority().
+
+  void QUrl::clear ()
+
+   Resets the content of the QUrl. After calling this function, the QUrl
+   is equal to one that has been constructed with the default empty
+   constructor.
+
+  QByteArray QUrl::encodedQuery () const
+
+   Returns the query string of the URL in percent encoded form.
+
+  QString QUrl::fragment () const
+
+   Returns the fragment of the URL.
+
+   See also setFragment().
+
+  QUrl QUrl::fromEncoded ( const QByteArray & input )   [static]
+
+   Parses input and returns the corresponding QUrl. input is assumed to
+   be in encoded form, containing only ASCII characters.
+
+  QUrl QUrl::fromLocalFile ( const QString & localFile )   [static]
+
+   Returns a QUrl representation of localFile, interpreted as a local
+   file.
+
+  QString QUrl::fromPercentEncoding ( const QByteArray & input )   [static]
+
+   Returns a decoded copy of input. input is first decoded from percent
+   encoding, then converted from UTF-8 to unicode.
+
+  QString QUrl::fromPunycode ( const QByteArray & pc )   [static]
+
+   Returns the Punycode decoded representation of pc.
+
+   Punycode is a Unicode encoding used for internationalized domain
+   names, as defined in RFC3492.
+
+  bool QUrl::hasQueryItem ( const QString & key ) const
+
+   Returns true if there is a query string pair whose key is equal to key
+   from the URL.
+
+  QString QUrl::host () const
+
+   Returns the host of the URL if it is defined; otherwise an empty
+   string is returned.
+
+  bool QUrl::isEmpty () const
+
+   Returns true if the URL has no data; otherwise returns false.
+
+  bool QUrl::isParentOf ( const QUrl & childUrl ) const
+
+   Returns true if this URL is a parent of childUrl. childUrl is a child
+   of this URL if the two URLs share the same scheme and authority, and
+   this URL's path is a parent of the path of childUrl.
+
+  bool QUrl::isRelative () const
+
+   Returns true if the URL is relative; otherwise returns false. A URL is
+   relative if its scheme is undefined; this function is therefore
+   equivalent to calling scheme().isEmpty().
+
+  bool QUrl::isValid () const
+
+   Returns true if the URL is valid; otherwise returns false.
+
+   The URL is run through a conformance test. Every part of the URL must
+   conform to the standard encoding rules of the URI standard for the URL
+   to be reported as valid.
+    bool checkUrl(const QUrl &url) {
+        if (!url.isValid()) {
+            qDebug(QString("Invalid URL: %1").arg(url.toString()));
+            return false;
+        }
+
+        return true;
+    }
+
+  QString QUrl::password () const
+
+   Returns the password of the URL if it is defined; otherwise an empty
+   string is returned.
+
+   See also setUserName().
+
+  QString QUrl::path () const
+
+   Returns the path of the URL.
+
+   See also setPath().
+
+  int QUrl::port () const
+
+   Returns the port of the URL, or -1 if the port is undefined.
+
+  QString QUrl::queryItemValue ( const QString & key ) const
+
+   Returns the first query string value whose key is equal to key from
+   the URL.
+
+   See also allQueryItemValues().
+
+  QList<QPair<QString, QString> > QUrl::queryItems () const
+
+   Returns the query string of the URL, as a map of keys and values.
+
+   See also setQueryItems() and setEncodedQuery().
+
+  char QUrl::queryPairDelimiter () const
+
+   Returns the character used to delimit between key-value pairs in the
+   query string of the URL.
+
+  char QUrl::queryValueDelimiter () const
+
+   Returns the character used to delimit between keys and values in the
+   query string of the URL.
+
+  void QUrl::removeAllQueryItems ( const QString & key )
+
+   Removes all the query string pairs whose key is equal to key from the
+   URL.
+
+   See also removeQueryItem().
+
+  void QUrl::removeQueryItem ( const QString & key )
+
+   Removes the first query string pair whose key is equal to key from the
+   URL.
+
+   See also removeAllQueryItems().
+
+  QUrl QUrl::resolved ( const QUrl & relative ) const
+
+   Returns the result of the merge of this URL with relative. This URL is
+   used as a base to convert relative to an absolute URL.
+
+   If relative is not a relative URL, this function will return relative
+   directly. Otherwise, the paths of the two URLs are merged, and the new
+   URL returned has the scheme and authority of the base URL, but with
+   the merged path, as in the following example:
+    QUrl baseUrl("http://www.trolltech.com/support");
+    QUrl relativeUrl("../products/solutions");
+    qDebug(baseUrl.resolved(relativeUrl).toString());
+    // prints "http://www.trolltech.com/products/solutions"
+
+   Calling resolved() with ".." returns a QUrl whose directory is one
+   level higher than the original. Similarly, calling resolved() with
+   "../.." removes two levels from the path. If relative is "/", the path
+   becomes "/".
+
+   The algorithm for this merge is described
+
+   See also isRelative().
+
+  QString QUrl::scheme () const
+
+   Returns the scheme of the URL. If an empty string is returned, this
+   means the scheme is undefined and the URL is then relative.
+
+   See also setScheme() and isRelative().
+
+  void QUrl::setAuthority ( const QString & authority )
+
+   Sets the authority of the URL to authority.
+
+   The authority of a URL is the combination of user info, a host name
+   and a port. All of these elements are optional; an empty authority is
+   therefore valid.
+
+   The user info and host are separated by a '@', and the host and port
+   are separated by a ':'. If the user info is empty, the '@' must be
+   omitted; although a stray ':' is permitted if the port is empty.
+
+   The following example shows a valid authority string:
+
+                            [qurl-authority.png]
+
+  void QUrl::setEncodedQuery ( const QByteArray & query )
+
+   Sets the query string of the URL to query. The string is inserted
+   as-is, and no further encoding is performed when calling toEncoded().
+
+   This function is useful if you need to pass a query string that does
+   not fit into the key-value pattern, or that uses a different scheme
+   for encoding special characters than what is suggested by QUrl.
+
+  void QUrl::setEncodedUrl ( const QByteArray & encodedUrl )
+
+   Constructs a URL by parsing the contents of encodedUrl.
+
+   encodedUrl is assumed to be a URL string in percent encoded form,
+   containing only ASCII characters.
+
+   Use isValid() to determine if a valid URL was constructed.
+
+   See also setUrl().
+
+  void QUrl::setFragment ( const QString & fragment )
+
+   Sets the fragment of the URL to fragment. The fragment is the last
+   part of the URL, represented by a '#' followed by a string of
+   characters. It is typically used in HTTP for referring to a certain
+   link or point on a page:
+
+                            [qurl-fragment.png]
+
+   The fragment is sometimes also referred to as the URL "reference".
+
+   See also fragment().
+
+  void QUrl::setHost ( const QString & host )
+
+   Sets the host of the URL to host. The host is part of the authority.
+
+   See also host() and setAuthority().
+
+  void QUrl::setPassword ( const QString & password )
+
+   Sets the URL's password to password. The password is part of the user
+   info element in the authority of the URL, as described in
+   setUserInfo().
+
+   See also password() and setUserInfo().
+
+  void QUrl::setPath ( const QString & path )
+
+   Sets the path of the URL to path. The path is the part of the URL that
+   comes after the authority but before the query string.
+
+                             [qurl-ftppath.png]
+
+   For non-hierarchical schemes, the path will be everything following
+   the scheme declaration, as in the following example:
+
+                           [qurl-mailtopath.png]
+
+   See also path().
+
+  void QUrl::setPort ( int port )
+
+   Sets the port of the URL to port. The port is part of the authority of
+   the URL, as described in setAuthority().
+
+   If port is negative or has a value larger than 65535, the port will be
+   set to -1 indicating that the port is indefined.
+
+  void QUrl::setQueryDelimiters ( char valueDelimiter, char pairDelimiter )
+
+   Sets the characters used for delimiting between keys and values, and
+   between key-value pairs in the URL's query string. The default value
+   delimiter is '=' and the default pair delimiter is '&'.
+
+                           [qurl-querystring.png]
+
+   valueDelimiter will be used for separating keys from values, and
+   pairDelimiter will be used to separate key-value pairs. Any
+   occurrences of these delimiting characters in the encoded
+   representation of the keys and values of the query string are percent
+   encoded.
+
+   If valueDelimiter is set to '-' and pairDelimiter is '/', the above
+   query string would instead be represented like this:
+    http://www.example.com/cgi-bin/drawgraph.cgi?type-pie/color-green
+
+   Calling this function does not change the delimiters of the current
+   query string. It only affects queryItems(), setQueryItems() and
+   addQueryItems().
+
+  void QUrl::setQueryItems ( const QList<QPair<QString, QString> > & query )
+
+   Sets the query string of the URL to an encoded version of query. The
+   contents of query are converted to a string internally, each pair
+   delimited by the character returned by pairDelimiter(), and the key
+   and value are delimited by valueDelimiter().
+
+   See also setQueryDelimiters() and queryItems().
+
+  void QUrl::setScheme ( const QString & scheme )
+
+   Sets the scheme of the URL to scheme. As a scheme can only contain
+   ASCII characters, no conversion or encoding is done on the input.
+
+   The scheme describes the type (or protocol) of the URL. It's
+   represented by one or more ASCII characters at the start the URL, and
+   is followed by a ':'. The following example shows a URL where the
+   scheme is "ftp":
+
+                           [qurl-authority2.png]
+
+   The scheme can also be empty, in which case the URL is interpreted as
+   relative.
+
+   See also scheme() and isRelative().
+
+  void QUrl::setUrl ( const QString & url )
+
+   Constructs a URL by parsing the contents of url.
+
+   url is assumed to be in unicode format, with no percent encoding.
+
+   Calling isValid() will tell whether or not a valid URL was
+   constructed.
+
+   See also setEncodedUrl().
+
+  void QUrl::setUserInfo ( const QString & userInfo )
+
+   Sets the user info of the URL to userInfo. The user info is an
+   optional part of the authority of the URL, as described in
+   setAuthority().
+
+   The user info consists of a user name and optionally a password,
+   separated by a ':'. If the password is empty, the colon must be
+   omitted. The following example shows a valid user info string:
+
+                           [qurl-authority3.png]
+
+   See also userInfo(), setUserName(), setPassword(), and setAuthority().
+
+  void QUrl::setUserName ( const QString & userName )
+
+   Sets the URL's user name to userName. The userName is part of the user
+   info element in the authority of the URL, as described in
+   setUserInfo().
+
+   See also userName() and setUserInfo().
+
+  QByteArray QUrl::toEncoded ( FormattingOptions options = None ) const
+
+   Returns the encoded representation of the URL if it's valid; otherwise
+   an empty QByteArray is returned. The output can be customized by
+   passing flags with options.
+
+   The user info, path and fragment are all converted to UTF-8, and all
+   non-ASCII characters are then percent encoded. The host name is
+   encoded using Punycode.
+
+  QString QUrl::toLocalFile () const
+
+   Returns the path of this URL formatted as a local file path.
+
+  QByteArray QUrl::toPercentEncoding ( const QString & input, const QByteArray
+  & exclude = QByteArray(), const QByteArray & include = QByteArray() )
+  [static]
+
+   Returns an encoded copy of input. input is first converted to UTF-8,
+   and all ASCII-characters that are not in the unreserved group are
+   percent encoded. To prevent characters from being percent encoded pass
+   them to exclude. To force characters to be percent encoded pass them
+   to include.
+
+   Unreserved is defined as: ALPHA / DIGIT / "-" / "." / "_" / "~"
+    QByteArray ba = QUrl::toPercentEncoding("{a fishy string?}", "{}", "s");
+    qDebug(ba.constData());
+    // prints "{a fi%73hy %73tring%3F}"
+
+  QByteArray QUrl::toPunycode ( const QString & uc )   [static]
+
+   Returns a uc in Punycode encoding.
+
+   Punycode is a Unicode encoding used for internationalized domain
+   names, as defined in RFC3492.
+
+  QString QUrl::toString ( FormattingOptions options = None ) const
+
+   Returns the human-displayable string representation of the URL. The
+   output can be customized by passing flags with options.
+
+   See also FormattingOptions and toEncoded().
+
+  QString QUrl::userInfo () const
+
+   Returns the user info of the URL, or an empty string if the user info
+   is undefined.
+
+  QString QUrl::userName () const
+
+   Returns the user name of the URL if it is defined; otherwise an empty
+   string is returned.
+
+   See also setUserName().
+
+  bool QUrl::operator!= ( const QUrl & url ) const
+
+   Returns true if this URL and the given url are not equal; otherwise
+   returns false.
+
+  QUrl & QUrl::operator= ( const QUrl & url )
+
+   Assigns the data of url to this class.
+
+  bool QUrl::operator== ( const QUrl & url ) const
+
+   Returns true if this URL and the given url are equal; otherwise
+   returns false.
+     _________________________________________________________________
+
+Related Non-Members
+
+  QDataStream & operator>> ( QDataStream & in, QUrl & url )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads a url into url from the stream in and returns a reference to the
+   stream.
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,72 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3SqlPropertyMap Class Reference
+
+   #include <q3sqlpropertymap.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3SqlPropertyMap ()
+     * virtual ~Q3SqlPropertyMap ()
+     * QVariant property (QWidget *widget)
+     * virtual void setProperty (QWidget *widget, const QVariant &value)
+     * void insert (const QString &classname, const QString &property)
+     * void remove (const QString &classname)
+
+Static Public Member Functions
+
+     * static Q3SqlPropertyMap * defaultMap ()
+     * static void installDefaultMap (Q3SqlPropertyMap *map)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3SqlPropertyMap::Q3SqlPropertyMap (   )
+
+
+
+   virtual Q3SqlPropertyMap::~Q3SqlPropertyMap (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static Q3SqlPropertyMap* Q3SqlPropertyMap::defaultMap (   )  [static]
+
+
+
+   void Q3SqlPropertyMap::insert (  const QString &  classname,
+                                    const QString &  property
+                                 )
+
+
+
+   static void Q3SqlPropertyMap::installDefaultMap (  Q3SqlPropertyMap *  map  )  [static]
+
+
+
+   QVariant Q3SqlPropertyMap::property (  QWidget *  widget  )
+
+
+
+   void Q3SqlPropertyMap::remove (  const QString &  classname  )
+
+
+
+   virtual void Q3SqlPropertyMap::setProperty (  QWidget *         widget,
+                                                 const QVariant &  value
+                                              )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3sqlpropertymap.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

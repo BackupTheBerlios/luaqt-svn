@@ -1,0 +1,122 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QCursor Class Reference
+
+   #include <qcursor.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QCursor ()
+     * QCursor (Qt::CursorShape shape)
+     * QCursor (const QBitmap &bitmap, const QBitmap &mask, int hotX=-1, int hotY=-1)
+     * QCursor (const QPixmap &pixmap, int hotX=-1, int hotY=-1)
+     * QCursor (const QCursor &cursor)
+     * ~QCursor ()
+     * QCursor & operator= (const QCursor &cursor)
+     * operator QVariant () const
+     * Qt::CursorShape shape () const
+     * void setShape (Qt::CursorShape newShape)
+     * const QBitmap * bitmap () const
+     * const QBitmap * mask () const
+     * QPixmap pixmap () const
+     * QPoint hotSpot () const
+
+Static Public Member Functions
+
+     * static QPoint pos ()
+     * static void setPos (int x, int y)
+     * static void setPos (const QPoint &p)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QCursor::QCursor (   )
+
+
+
+   QCursor::QCursor (  Qt::CursorShape  shape  )
+
+
+
+   QCursor::QCursor (  const QBitmap &  bitmap,
+                       const QBitmap &  mask,
+                       int              hotX = -1,
+                       int              hotY = -1
+                    )
+
+
+
+   QCursor::QCursor (  const QPixmap &  pixmap,
+                       int              hotX = -1,
+                       int              hotY = -1
+                    )
+
+
+
+   QCursor::QCursor (  const QCursor &  cursor  )
+
+
+
+   QCursor::~QCursor (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   const QBitmap* QCursor::bitmap (   )  const
+
+
+
+   QPoint QCursor::hotSpot (   )  const
+
+
+
+   const QBitmap* QCursor::mask (   )  const
+
+
+
+   QCursor::operator QVariant (   )  const
+
+
+
+   QCursor& QCursor::operator= (  const QCursor &  cursor  )
+
+
+
+   QPixmap QCursor::pixmap (   )  const
+
+
+
+   static QPoint QCursor::pos (   )  [static]
+
+
+
+   static void QCursor::setPos (  const QPoint &  p  )  [inline, static]
+
+
+
+   static void QCursor::setPos (  int  x,
+                                  int  y
+                               )  [static]
+
+
+
+   void QCursor::setShape (  Qt::CursorShape  newShape  )
+
+
+
+   Qt::CursorShape QCursor::shape (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qcursor.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

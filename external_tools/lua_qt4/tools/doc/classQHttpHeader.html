@@ -1,0 +1,182 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QHttpHeader Class Reference
+
+   #include <qhttp.h>
+
+   Inherited by QHttpRequestHeader, and QHttpResponseHeader.
+
+   List of all members.
+
+Public Member Functions
+
+     * QHttpHeader ()
+     * QHttpHeader (const QHttpHeader &header)
+     * QHttpHeader (const QString &str)
+     * virtual ~QHttpHeader ()
+     * QHttpHeader & operator= (const QHttpHeader &h)
+     * QString value (const QString &key) const
+     * void setValue (const QString &key, const QString &value)
+     * void removeValue (const QString &key)
+     * QStringList keys () const
+     * bool hasKey (const QString &key) const
+     * bool hasContentLength () const
+     * uint contentLength () const
+     * void setContentLength (int len)
+     * bool hasContentType () const
+     * QString contentType () const
+     * void setContentType (const QString &type)
+     * virtual QString toString () const
+     * bool isValid () const
+     * virtual int majorVersion () const =0
+     * virtual int minorVersion () const =0
+
+Protected Member Functions
+
+     * virtual bool parseLine (const QString &line, int number)
+     * bool parse (const QString &str)
+     * void setValid (bool)
+     * QHttpHeader (QHttpHeaderPrivate &dd, const QString &str=QString())
+     * QHttpHeader (QHttpHeaderPrivate &dd, const QHttpHeader &header)
+
+Protected Attributes
+
+     * QHttpHeaderPrivate * d_ptr
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QHttpHeader::QHttpHeader (   )
+
+
+
+   QHttpHeader::QHttpHeader (  const QHttpHeader &  header  )
+
+
+
+   QHttpHeader::QHttpHeader (  const QString &  str  )
+
+
+
+   virtual QHttpHeader::~QHttpHeader (   )  [virtual]
+
+
+
+   QHttpHeader::QHttpHeader (  QHttpHeaderPrivate &  dd,
+                               const QString &       str = QString()
+                            )  [protected]
+
+
+
+   QHttpHeader::QHttpHeader (  QHttpHeaderPrivate &  dd,
+                               const QHttpHeader &   header
+                            )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   uint QHttpHeader::contentLength (   )  const
+
+
+
+   QString QHttpHeader::contentType (   )  const
+
+
+
+   bool QHttpHeader::hasContentLength (   )  const
+
+
+
+   bool QHttpHeader::hasContentType (   )  const
+
+
+
+   bool QHttpHeader::hasKey (  const QString &  key  )  const
+
+
+
+   bool QHttpHeader::isValid (   )  const
+
+
+
+   QStringList QHttpHeader::keys (   )  const
+
+
+
+   virtual int QHttpHeader::majorVersion (   )  const [pure virtual]
+
+
+
+   Implemented in QHttpResponseHeader, and QHttpRequestHeader.
+
+   virtual int QHttpHeader::minorVersion (   )  const [pure virtual]
+
+
+
+   Implemented in QHttpResponseHeader, and QHttpRequestHeader.
+
+   QHttpHeader& QHttpHeader::operator= (  const QHttpHeader &  h  )
+
+
+
+   bool QHttpHeader::parse (  const QString &  str  )  [protected]
+
+
+
+   virtual bool QHttpHeader::parseLine (  const QString &  line,
+                                          int              number
+                                       )  [protected, virtual]
+
+
+
+   Reimplemented in QHttpResponseHeader, and QHttpRequestHeader.
+
+   void QHttpHeader::removeValue (  const QString &  key  )
+
+
+
+   void QHttpHeader::setContentLength (  int  len  )
+
+
+
+   void QHttpHeader::setContentType (  const QString &  type  )
+
+
+
+   void QHttpHeader::setValid (  bool   )  [protected]
+
+
+
+   void QHttpHeader::setValue (  const QString &  key,
+                                 const QString &  value
+                              )
+
+
+
+   virtual QString QHttpHeader::toString (   )  const [virtual]
+
+
+
+   Reimplemented in QHttpResponseHeader, and QHttpRequestHeader.
+
+   QString QHttpHeader::value (  const QString &  key  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QHttpHeaderPrivate* QHttpHeader::d_ptr [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qhttp.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

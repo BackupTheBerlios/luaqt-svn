@@ -1,0 +1,196 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3ProgressBar Class Reference
+
+   #include <q3progressbar.h>
+
+   Inherits QFrame.
+
+   List of all members.
+
+Public Slots
+
+     * void reset ()
+     * virtual void setTotalSteps (int totalSteps)
+     * virtual void setProgress (int progress)
+     * void setProgress (int progress, int totalSteps)
+
+Public Member Functions
+
+     * Q3ProgressBar (QWidget *parent, const char *name, Qt::WFlags f=0)
+     * Q3ProgressBar (int totalSteps, QWidget *parent, const char *name, Qt::WFlags f=0)
+     * Q3ProgressBar (QWidget *parent=0, Qt::WFlags f=0)
+     * Q3ProgressBar (int totalSteps, QWidget *parent=0, Qt::WFlags f=0)
+     * int totalSteps () const
+     * int progress () const
+     * const QString & progressString () const
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * void setCenterIndicator (bool on)
+     * bool centerIndicator () const
+     * bool percentageVisible () const
+     * void setPercentageVisible (bool)
+     * void setVisible (bool visible)
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+     * virtual bool setIndicator (QString &progress_str, int progress, int totalSteps)
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * int totalSteps
+     * int progress
+     * QString progressString
+     * bool centerIndicator
+     * bool percentageVisible
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ProgressBar::Q3ProgressBar (  QWidget *     parent,
+                                   const char *  name,
+                                   Qt::WFlags    f = 0
+                                )
+
+
+
+   Q3ProgressBar::Q3ProgressBar (  int           totalSteps,
+                                   QWidget *     parent,
+                                   const char *  name,
+                                   Qt::WFlags    f = 0
+                                )
+
+
+
+   Q3ProgressBar::Q3ProgressBar (  QWidget *   parent = 0,
+                                   Qt::WFlags  f = 0
+                                )
+
+
+
+   Q3ProgressBar::Q3ProgressBar (  int         totalSteps,
+                                   QWidget *   parent = 0,
+                                   Qt::WFlags  f = 0
+                                )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool Q3ProgressBar::centerIndicator (   )  const
+
+
+
+   void Q3ProgressBar::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   QSize Q3ProgressBar::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ProgressBar::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   bool Q3ProgressBar::percentageVisible (   )  const
+
+
+
+   int Q3ProgressBar::progress (   )  const
+
+
+
+   const QString& Q3ProgressBar::progressString (   )  const
+
+
+
+   void Q3ProgressBar::reset (   )  [slot]
+
+
+
+   void Q3ProgressBar::setCenterIndicator (  bool  on  )
+
+
+
+   virtual bool Q3ProgressBar::setIndicator (  QString &  progress_str,
+                                               int        progress,
+                                               int        totalSteps
+                                            )  [protected, virtual]
+
+
+
+   void Q3ProgressBar::setPercentageVisible (  bool   )
+
+
+
+   void Q3ProgressBar::setProgress (  int  progress,
+                                      int  totalSteps
+                                   )  [slot]
+
+
+
+   virtual void Q3ProgressBar::setProgress (  int  progress  )  [virtual, slot]
+
+
+
+   virtual void Q3ProgressBar::setTotalSteps (  int  totalSteps  )  [virtual, slot]
+
+
+
+   void Q3ProgressBar::setVisible (  bool  visible  )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize Q3ProgressBar::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   int Q3ProgressBar::totalSteps (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3ProgressBar::centerIndicator [inline, read, write]
+
+
+
+   bool Q3ProgressBar::percentageVisible [inline, read, write]
+
+
+
+   int Q3ProgressBar::progress [inline, read, write]
+
+
+
+   const QString & Q3ProgressBar::progressString [inline, read]
+
+
+
+   int Q3ProgressBar::totalSteps [inline, read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3progressbar.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

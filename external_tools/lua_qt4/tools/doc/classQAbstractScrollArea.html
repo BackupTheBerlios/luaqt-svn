@@ -1,0 +1,267 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QAbstractScrollArea Class Reference
+
+   #include <qabstractscrollarea.h>
+
+   Inherits QFrame.
+
+   Inherited by QAbstractItemView, QScrollArea, and QTextEdit.
+
+   List of all members.
+
+Public Member Functions
+
+     * QAbstractScrollArea (QWidget *parent=0)
+     * ~QAbstractScrollArea ()
+     * Qt::ScrollBarPolicy verticalScrollBarPolicy () const
+     * void setVerticalScrollBarPolicy (Qt::ScrollBarPolicy)
+     * QScrollBar * verticalScrollBar () const
+     * Qt::ScrollBarPolicy horizontalScrollBarPolicy () const
+     * void setHorizontalScrollBarPolicy (Qt::ScrollBarPolicy)
+     * QScrollBar * horizontalScrollBar () const
+     * QWidget * viewport () const
+     * QSize maximumViewportSize () const
+     * QSize minimumSizeHint () const
+     * QSize sizeHint () const
+
+Protected Member Functions
+
+     * QAbstractScrollArea (QAbstractScrollAreaPrivate &dd, QWidget *parent=0)
+     * void setViewportMargins (int left, int top, int right, int bottom)
+     * bool event (QEvent *)
+     * virtual bool viewportEvent (QEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void paintEvent (QPaintEvent *)
+     * void mousePressEvent (QMouseEvent *)
+     * void mouseReleaseEvent (QMouseEvent *)
+     * void mouseDoubleClickEvent (QMouseEvent *)
+     * void mouseMoveEvent (QMouseEvent *)
+     * void wheelEvent (QWheelEvent *)
+     * void contextMenuEvent (QContextMenuEvent *)
+     * void dragEnterEvent (QDragEnterEvent *)
+     * void dragMoveEvent (QDragMoveEvent *)
+     * void dragLeaveEvent (QDragLeaveEvent *)
+     * void dropEvent (QDropEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * virtual void scrollContentsBy (int dx, int dy)
+
+Properties
+
+     * Qt ScrollBarPolicy
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractScrollArea::QAbstractScrollArea (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QAbstractScrollArea::~QAbstractScrollArea (   )
+
+
+
+   QAbstractScrollArea::QAbstractScrollArea (  QAbstractScrollAreaPrivate &  dd,
+                                               QWidget *                     parent = 0
+                                            )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QAbstractScrollArea::contextMenuEvent (  QContextMenuEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QTextEdit.
+
+   void QAbstractScrollArea::dragEnterEvent (  QDragEnterEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, and QTextEdit.
+
+   void QAbstractScrollArea::dragLeaveEvent (  QDragLeaveEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, QListView, and QTextEdit.
+
+   void QAbstractScrollArea::dragMoveEvent (  QDragMoveEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, QListView, and QTextEdit.
+
+   void QAbstractScrollArea::dropEvent (  QDropEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, QListView, and QTextEdit.
+
+   bool QAbstractScrollArea::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QHeaderView, and QScrollArea.
+
+   QScrollBar* QAbstractScrollArea::horizontalScrollBar (   )  const
+
+
+
+   Qt::ScrollBarPolicy QAbstractScrollArea::horizontalScrollBarPolicy (   )  const
+
+
+
+   void QAbstractScrollArea::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, QTextBrowser, and QTextEdit.
+
+   QSize QAbstractScrollArea::maximumViewportSize (   )  const
+
+
+
+   QSize QAbstractScrollArea::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QAbstractScrollArea::mouseDoubleClickEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, QHeaderView, QTextEdit, and QTreeView.
+
+   void QAbstractScrollArea::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, QHeaderView, QListView, QTextBrowser, and QTextEdit.
+
+   void QAbstractScrollArea::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, QHeaderView, QTextBrowser, QTextEdit, and QTreeView.
+
+   void QAbstractScrollArea::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, QHeaderView, QListView, QTextBrowser, and QTextEdit.
+
+   void QAbstractScrollArea::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   Reimplemented in QHeaderView, QListView, QTableView, QTextBrowser, QTextEdit, and QTreeView.
+
+   void QAbstractScrollArea::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractItemView, QListView, QScrollArea, and QTextEdit.
+
+   virtual void QAbstractScrollArea::scrollContentsBy (  int  dx,
+                                                         int  dy
+                                                      )  [protected, virtual]
+
+
+
+   Reimplemented in QHeaderView, QListView, QScrollArea, QTableView, and QTreeView.
+
+   void QAbstractScrollArea::setHorizontalScrollBarPolicy (  Qt::ScrollBarPolicy   )
+
+
+
+   void QAbstractScrollArea::setVerticalScrollBarPolicy (  Qt::ScrollBarPolicy   )
+
+
+
+   void QAbstractScrollArea::setViewportMargins (  int  left,
+                                                   int  top,
+                                                   int  right,
+                                                   int  bottom
+                                                )  [protected]
+
+
+
+   QSize QAbstractScrollArea::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   Reimplemented in QHeaderView, and QScrollArea.
+
+   QScrollBar* QAbstractScrollArea::verticalScrollBar (   )  const
+
+
+
+   Qt::ScrollBarPolicy QAbstractScrollArea::verticalScrollBarPolicy (   )  const
+
+
+
+   QWidget* QAbstractScrollArea::viewport (   )  const
+
+
+
+   virtual bool QAbstractScrollArea::viewportEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractItemView.
+
+   void QAbstractScrollArea::wheelEvent (  QWheelEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QTextEdit.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Qt QAbstractScrollArea::ScrollBarPolicy [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractscrollarea.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

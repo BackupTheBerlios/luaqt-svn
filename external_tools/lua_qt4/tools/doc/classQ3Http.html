@@ -1,0 +1,332 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              Q3Http Class Reference
+
+   #include <q3http.h>
+
+   Inherits Q3NetworkProtocol.
+
+   List of all members.
+
+Public Types
+
+     * enum State {
+         Unconnected, HostLookup, Connecting, Sending,
+         Reading, Connected, Closing
+       }
+     * enum Error {
+         NoError, UnknownError, HostNotFound, ConnectionRefused,
+         UnexpectedClose, InvalidResponseHeader, WrongContentLength, Aborted
+       }
+
+Public Slots
+
+     * void abort ()
+
+Signals
+
+     * void stateChanged (int)
+     * void responseHeaderReceived (const Q3HttpResponseHeader &resp)
+     * void readyRead (const Q3HttpResponseHeader &resp)
+     * void dataSendProgress (int, int)
+     * void dataReadProgress (int, int)
+     * void requestStarted (int)
+     * void requestFinished (int, bool)
+     * void done (bool)
+
+Public Member Functions
+
+     * Q3Http ()
+     * Q3Http (QObject *parent, const char *name=0)
+     * Q3Http (const QString &hostname, Q_UINT16 port=80, QObject *parent=0, const char *name=0)
+     * virtual ~Q3Http ()
+     * int supportedOperations () const
+     * int setHost (const QString &hostname, Q_UINT16 port=80)
+     * int get (const QString &path, QIODevice *to=0)
+     * int post (const QString &path, QIODevice *data, QIODevice *to=0)
+     * int post (const QString &path, const QByteArray &data, QIODevice *to=0)
+     * int head (const QString &path)
+     * int request (const Q3HttpRequestHeader &header, QIODevice *device=0, QIODevice *to=0)
+     * int request (const Q3HttpRequestHeader &header, const QByteArray &data, QIODevice *to=0)
+     * int closeConnection ()
+     * Q_ULONG bytesAvailable () const
+     * Q_LONG readBlock (char *data, Q_ULONG maxlen)
+     * QByteArray readAll ()
+     * int currentId () const
+     * QIODevice * currentSourceDevice () const
+     * QIODevice * currentDestinationDevice () const
+     * Q3HttpRequestHeader currentRequest () const
+     * bool hasPendingRequests () const
+     * void clearPendingRequests ()
+     * State state () const
+     * Error error () const
+     * QString errorString () const
+
+Protected Member Functions
+
+     * void operationGet (Q3NetworkOperation *op)
+     * void operationPut (Q3NetworkOperation *op)
+     * void timerEvent (QTimerEvent *)
+
+Friends
+
+     * class Q3HttpNormalRequest
+     * class Q3HttpSetHostRequest
+     * class Q3HttpCloseRequest
+     * class Q3HttpPGHRequest
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3Http::Error
+
+
+
+   Enumerator: 
+
+          NoError              
+          UnknownError         
+          HostNotFound         
+          ConnectionRefused    
+          UnexpectedClose      
+          InvalidResponseHeader
+          WrongContentLength   
+          Aborted              
+
+   Reimplemented from Q3NetworkProtocol.
+
+   enum Q3Http::State
+
+
+
+   Enumerator: 
+
+          Unconnected
+          HostLookup 
+          Connecting 
+          Sending    
+          Reading    
+          Connected  
+          Closing    
+
+   Reimplemented from Q3NetworkProtocol.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Http::Q3Http (   )
+
+
+
+   Q3Http::Q3Http (  QObject *     parent,
+                     const char *  name = 0
+                  )
+
+
+
+   Q3Http::Q3Http (  const QString &  hostname,
+                     Q_UINT16         port = 80,
+                     QObject *        parent = 0,
+                     const char *     name = 0
+                  )
+
+
+
+   virtual Q3Http::~Q3Http (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3Http::abort (   )  [slot]
+
+
+
+   Q_ULONG Q3Http::bytesAvailable (   )  const
+
+
+
+   void Q3Http::clearPendingRequests (   )
+
+
+
+   int Q3Http::closeConnection (   )
+
+
+
+   QIODevice* Q3Http::currentDestinationDevice (   )  const
+
+
+
+   int Q3Http::currentId (   )  const
+
+
+
+   Q3HttpRequestHeader Q3Http::currentRequest (   )  const
+
+
+
+   QIODevice* Q3Http::currentSourceDevice (   )  const
+
+
+
+   void Q3Http::dataReadProgress (  int  ,
+                                    int
+                                 )  [signal]
+
+
+
+   void Q3Http::dataSendProgress (  int  ,
+                                    int
+                                 )  [signal]
+
+
+
+   void Q3Http::done (  bool   )  [signal]
+
+
+
+   Error Q3Http::error (   )  const
+
+
+
+   QString Q3Http::errorString (   )  const
+
+
+
+   int Q3Http::get (  const QString &  path,
+                      QIODevice *      to = 0
+                   )
+
+
+
+   bool Q3Http::hasPendingRequests (   )  const
+
+
+
+   int Q3Http::head (  const QString &  path  )
+
+
+
+   void Q3Http::operationGet (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+
+   void Q3Http::operationPut (  Q3NetworkOperation *  op  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+
+   int Q3Http::post (  const QString &     path,
+                       const QByteArray &  data,
+                       QIODevice *         to = 0
+                    )
+
+
+
+   int Q3Http::post (  const QString &  path,
+                       QIODevice *      data,
+                       QIODevice *      to = 0
+                    )
+
+
+
+   QByteArray Q3Http::readAll (   )
+
+
+
+   Q_LONG Q3Http::readBlock (  char *   data,
+                               Q_ULONG  maxlen
+                            )
+
+
+
+   void Q3Http::readyRead (  const Q3HttpResponseHeader &  resp  )  [signal]
+
+
+
+   int Q3Http::request (  const Q3HttpRequestHeader &  header,
+                          const QByteArray &           data,
+                          QIODevice *                  to = 0
+                       )
+
+
+
+   int Q3Http::request (  const Q3HttpRequestHeader &  header,
+                          QIODevice *                  device = 0,
+                          QIODevice *                  to = 0
+                       )
+
+
+
+   void Q3Http::requestFinished (  int   ,
+                                   bool
+                                )  [signal]
+
+
+
+   void Q3Http::requestStarted (  int   )  [signal]
+
+
+
+   void Q3Http::responseHeaderReceived (  const Q3HttpResponseHeader &  resp  )  [signal]
+
+
+
+   int Q3Http::setHost (  const QString &  hostname,
+                          Q_UINT16         port = 80
+                       )
+
+
+
+   State Q3Http::state (   )  const
+
+
+
+   void Q3Http::stateChanged (  int   )  [signal]
+
+
+
+   int Q3Http::supportedOperations (   )  const [virtual]
+
+
+
+   Reimplemented from Q3NetworkProtocol.
+
+   void Q3Http::timerEvent (  QTimerEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3HttpCloseRequest [friend]
+
+
+
+   friend class Q3HttpNormalRequest [friend]
+
+
+
+   friend class Q3HttpPGHRequest [friend]
+
+
+
+   friend class Q3HttpSetHostRequest [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3http.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

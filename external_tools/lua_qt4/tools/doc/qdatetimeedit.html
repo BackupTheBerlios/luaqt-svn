@@ -1,0 +1,428 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                       QDateTimeEdit Class Reference
+
+   The QDateTimeEdit class provides a widget for editing dates and times.
+   More...
+#include <QDateTimeEdit>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractSpinBox.
+
+   Inherited by QDateEdit and QTimeEdit.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum Section { NoSection, AmPmSection, MSecSection, SecondSection,
+       ..., YearSection }
+     * flags Sections
+
+  Properties
+
+     * currentSection : Section
+     * date : QDate
+     * dateTime : QDateTime
+     * displayFormat : QString
+     * displayedSections : const Sections
+
+     * maximumDate : QDate
+     * maximumTime : QTime
+     * minimumDate : QDate
+     * minimumTime : QTime
+     * time : QTime
+
+     * 7 properties inherited from QAbstractSpinBox
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QDateTimeEdit ( QWidget * parent = 0 )
+     * QDateTimeEdit ( const QDateTime & datetime, QWidget * parent = 0 )
+     * QDateTimeEdit ( const QDate & date, QWidget * parent = 0 )
+     * QDateTimeEdit ( const QTime & time, QWidget * parent = 0 )
+     * void clearMaximumDate ()
+     * void clearMaximumTime ()
+     * void clearMinimumDate ()
+     * void clearMinimumTime ()
+     * Section currentSection () const
+     * QDate date () const
+     * QDateTime dateTime () const
+     * QString displayFormat () const
+     * Sections displayedSections () const
+     * QDate maximumDate () const
+     * QTime maximumTime () const
+     * QDate minimumDate () const
+     * QTime minimumTime () const
+     * QString sectionText ( Section section ) const
+     * void setCurrentSection ( Section section )
+     * void setDateRange ( const QDate & min, const QDate & max )
+     * void setDisplayFormat ( const QString & format )
+     * void setMaximumDate ( const QDate & max )
+     * void setMaximumTime ( const QTime & max )
+     * void setMinimumDate ( const QDate & min )
+     * void setMinimumTime ( const QTime & min )
+     * void setTimeRange ( const QTime & min, const QTime & max )
+     * QTime time () const
+
+     * 17 public functions inherited from QAbstractSpinBox
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void setDate ( const QDate & date )
+     * void setDateTime ( const QDateTime & dateTime )
+     * void setTime ( const QTime & time )
+
+     * 4 public slots inherited from QAbstractSpinBox
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void dateChanged ( const QDate & date )
+     * void dateTimeChanged ( const QDateTime & datetime )
+     * void timeChanged ( const QTime & time )
+
+     * 1 signal inherited from QAbstractSpinBox
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * virtual QDateTime dateTimeFromText ( const QString & text ) const
+     * virtual QString textFromDateTime ( const QDateTime & dateTime )
+       const
+
+     * 3 protected functions inherited from QAbstractSpinBox
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QDateTimeEdit class provides a widget for editing dates and times.
+
+   QDateTimeEdit allows the user to edit dates by using the keyboard or
+   the arrow keys to increase and decrease date and time values. The
+   arrow keys can be used to move from section to section within the
+   QDateTimeEdit box. Dates and times appear in accordance with the
+   format set; see setDisplayFormat().
+    QDateTimeEdit *dateEdit = new QDateTimeEdit(QDate::currentDate());
+    dateEdit->setMinimumDate(QDate::currentDate().addDays(-365));
+    dateEdit->setMaximumDate(QDate::currentDate().addDays(365));
+    dateEdit->setDisplayFormat("yyyy.MM.dd");
+
+   Here we've created a new QDateTimeEdit object initialized with today's
+   date, and restricted the valid date range to today plus or minus 365
+   days. We've set the order to month, day, year.
+
+   The maximum and minimum values for a date value in the date editor
+   default to the maximum and minimum values for a QDate. You can change
+   this by calling setMinimumDate(), setMaximumDate(), setMinimumTime(),
+   and setMaximumTime().
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QDateTimeEdit::Section
+  flags QDateTimeEdit::Sections
+
+             Constant           Value
+   QDateTimeEdit::NoSection     0x0000
+   QDateTimeEdit::AmPmSection   0x0001
+   QDateTimeEdit::MSecSection   0x0002
+   QDateTimeEdit::SecondSection 0x0004
+   QDateTimeEdit::MinuteSection 0x0008
+   QDateTimeEdit::HourSection   0x0010
+   QDateTimeEdit::DaySection    0x0100
+   QDateTimeEdit::MonthSection  0x0200
+   QDateTimeEdit::YearSection   0x0400
+
+   The Sections type is a typedef for QFlags<Section>. It stores an OR
+   combination of Section values.
+     _________________________________________________________________
+
+Property Documentation
+
+  currentSection : Section
+
+   This property holds the current section of the spinbox
+   setCurrentSection().
+
+   Access functions:
+     * Section currentSection () const
+     * void setCurrentSection ( Section section )
+
+  date : QDate
+
+   This property holds the QDate that is set in the QDateTimeEdit.
+
+   Access functions:
+     * QDate date () const
+     * void setDate ( const QDate & date )
+
+   See also time.
+
+  dateTime : QDateTime
+
+   This property holds the QDateTime that is set in the QDateTimeEdit.
+
+   Access functions:
+     * QDateTime dateTime () const
+     * void setDateTime ( const QDateTime & dateTime )
+
+   See also minimumDate, minimumTime, maximumDate, and maximumTime.
+
+  displayFormat : QString
+
+   This property holds the format used to display the time/date of the
+   date time edit.
+
+   This format is a subset of the format described in
+   QDateTime::toString()
+
+   These expressions may be used:
+
+                             Expression Output
+       hh the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM
+                                  display)
+                mm the minute with a leading zero (00 to 59)
+               ss the second whith a leading zero (00 to 59)
+           zzz the milliseconds with leading zeroes (000 to 999)
+     AP use AM/PM display. AP will be replaced by either "AM" or "PM".
+     ap use am/pm display. ap will be replaced by either "am" or "pm".
+            dd the day as number with a leading zero (01 to 31)
+           MM the month as number with a leading zero (01 to 12)
+    MMM the abbreviated localized month name (e.g. 'Jan' to 'Dec'). Uses
+                          QDate::shortMonthName().
+                 yy the year as two digit number (00 to 99)
+             yyyy the year as four digit number (1752 to 8000)
+
+   All other input characters or sequence of characters that are enclosed
+   in singlequotes will be treated as text and can be used as delimiters.
+
+   Example format strings (assuming that the date is 20 July 1969):
+
+                             Format     Result
+                           dd.MM.yyyy 20.07.1969
+                            MMM d yy  Jul 20 69
+
+   If you specify an invalid format the format will not be set.
+
+   Multiple instances of the same field is not allowed.A format with no
+   valid fields is not allowed either.
+
+   Warning: Since QDateTimeEdit internally always operates on a
+   QDateTime, changing the format can change the minimum time or date and
+   the current time or date. For example:
+    QDateTimeEdit edit;     // default format is "yyyy.MM.dd hh:mm:ss"
+    edit.setMinimumDate(QDate(2000, 1, 1));
+    edit.setMaximumDate(QDate(2003, 1, 1));
+    edit.setDateTime(QDateTime(QDate(2002, 5, 5), QTime(10, 10, 10)));
+    edit.setDisplayFormat("hh:mm:ss");
+
+    // edit can no longer display dates. This means that the
+    // minimum and maximum date will be set to the current date,
+    // e.g. 2002, 5, 5.
+
+   Access functions:
+     * QString displayFormat () const
+     * void setDisplayFormat ( const QString & format )
+
+   See also QDateTime::toString() and displayedSections().
+
+  displayedSections : const Sections
+
+   This property holds the currently displayed fields of the date time
+   edit.
+
+   Returns a bit set of the displayed sections for this format.
+   setDisplayFormat(), displayFormat()
+
+   Access functions:
+     * Sections displayedSections () const
+
+  maximumDate : QDate
+
+   This property holds the maximum date of the date time edit.
+
+   When setting this property the minimumDate is adjusted if necessary to
+   ensure that the range remains valid. If the date is not a valid QDate
+   object, this function does nothing.
+
+   Access functions:
+     * QDate maximumDate () const
+     * void setMaximumDate ( const QDate & max )
+     * void clearMaximumDate ()
+
+   See also minimumDate, minimumTime, maximumTime, and setDateRange().
+
+  maximumTime : QTime
+
+   This property holds the maximum time of the date time edit.
+
+   When setting this property, the minimumTime is adjusted if necessary
+   to ensure that the range remains valid. If the time is not a valid
+   QTime object, this function does nothing.
+
+   Access functions:
+     * QTime maximumTime () const
+     * void setMaximumTime ( const QTime & max )
+     * void clearMaximumTime ()
+
+   See also minimumTime, minimumDate, maximumDate, and setTimeRange().
+
+  minimumDate : QDate
+
+   This property holds the minimum date of the date time edit.
+
+   When setting this property the maximumDate is adjusted if necessary,
+   to ensure that the range remains valid. If the date is not a valid
+   QDate object, this function does nothing.
+
+   Access functions:
+     * QDate minimumDate () const
+     * void setMinimumDate ( const QDate & min )
+     * void clearMinimumDate ()
+
+   See also minimumTime, maximumTime, and setDateRange().
+
+  minimumTime : QTime
+
+   This property holds the minimum time of the date time edit.
+
+   When setting this property the maximumTime is adjusted if necessary,
+   to ensure that the range remains valid. If the time is not a valid
+   QTime object, this function does nothing.
+
+   Access functions:
+     * QTime minimumTime () const
+     * void setMinimumTime ( const QTime & min )
+     * void clearMinimumTime ()
+
+   See also maximumTime, minimumDate, maximumDate, and setTimeRange().
+
+  time : QTime
+
+   This property holds the QTime that is set in the QDateTimeEdit.
+
+   Access functions:
+     * QTime time () const
+     * void setTime ( const QTime & time )
+
+   See also date.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QDateTimeEdit::QDateTimeEdit ( QWidget * parent = 0 )
+
+   Constructs an empty date time editor with a parent.
+
+  QDateTimeEdit::QDateTimeEdit ( const QDateTime & datetime, QWidget * parent =
+  0 )
+
+   Constructs an empty date time editor with a parent. The value is set
+   to datetime.
+
+  QDateTimeEdit::QDateTimeEdit ( const QDate & date, QWidget * parent = 0 )
+
+   Constructs an empty date time editor with a parent. The value is set
+   to date.
+
+  QDateTimeEdit::QDateTimeEdit ( const QTime & time, QWidget * parent = 0 )
+
+   Constructs an empty date time editor with a parent. The value is set
+   to time.
+
+  void QDateTimeEdit::dateChanged ( const QDate & date )   [signal]
+
+   This signal is emitted whenever the date is changed. The new date is
+   passed in date.
+
+  void QDateTimeEdit::dateTimeChanged ( const QDateTime & datetime )   [signal]
+
+   This signal is emitted whenever the date or time is changed. The new
+   date and time is passed in datetime.
+
+  QDateTime QDateTimeEdit::dateTimeFromText ( const QString & text ) const
+  [virtual protected]
+
+   Returns an appropriate datetime for the given text.
+
+   This virtual function is used by the datetime edit whenever it needs
+   to interpret text entered by the user as a value.
+
+   See also textFromDateTime() and validate().
+
+  QString QDateTimeEdit::sectionText ( Section section ) const
+
+   Returns the text from the given section.
+
+   See also currentSection().
+
+  void QDateTimeEdit::setDateRange ( const QDate & min, const QDate & max )
+
+   Convenience function to set minimum and maximum date with one function
+   call.
+    setDateRange(min, max);
+
+   is analogous to:
+    setMinimumDate(min);
+    setMaximumDate(max);
+
+   If either min or max are not valid, this function does nothing.
+
+   See also setMinimumDate(), maximumDate(), setMaximumDate(),
+   clearMinimumDate(), setMinimumTime(), maximumTime(), setMaximumTime(),
+   clearMinimumTime(), and QDate::isValid().
+
+  void QDateTimeEdit::setTimeRange ( const QTime & min, const QTime & max )
+
+   Convenience function to set minimum and maximum time with one function
+   call.
+    setTimeRange(min, max);
+
+   is analogous to:
+    setMinimumTime(min);
+    setMaximumTime(max);
+
+   If either min or max are not valid, this function does nothing.
+
+   See also setMinimumDate(), maximumDate(), setMaximumDate(),
+   clearMinimumDate(), setMinimumTime(), maximumTime(), setMaximumTime(),
+   clearMinimumTime(), and QTime::isValid().
+
+  QString QDateTimeEdit::textFromDateTime ( const QDateTime & dateTime )
+  const   [virtual protected]
+
+   This virtual function is used by the date time edit whenever it needs
+   to display dateTime.
+
+   If you reimplement this, you may also need to reimplement
+   valueFromText() and validate().
+
+   See also dateTimeFromText() and validate().
+
+  void QDateTimeEdit::timeChanged ( const QTime & time )   [signal]
+
+   This signal is emitted whenever the time is changed. The new time is
+   passed in time.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,232 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3ActionGroup Class Reference
+
+   #include <q3action.h>
+
+   Inherits Q3Action.
+
+   List of all members.
+
+Signals
+
+     * void selected (Q3Action *)
+     * void activated (Q3Action *)
+
+Public Member Functions
+
+     * Q3ActionGroup (QObject *parent, const char *name=0)
+     * Q3ActionGroup (QObject *parent, const char *name, bool exclusive)
+     * ~Q3ActionGroup ()
+     * void setExclusive (bool)
+     * bool isExclusive () const
+     * void add (Q3Action *a)
+     * void addSeparator ()
+     * bool addTo (QWidget *)
+     * bool removeFrom (QWidget *)
+     * void setEnabled (bool)
+     * void setToggleAction (bool toggle)
+     * void setOn (bool on)
+     * void setVisible (bool)
+     * void setUsesDropDown (bool enable)
+     * bool usesDropDown () const
+     * void setIconSet (const QIcon &)
+     * void setText (const QString &)
+     * void setMenuText (const QString &)
+     * void setToolTip (const QString &)
+     * void setWhatsThis (const QString &)
+     * void insert (Q3Action *a)
+
+Protected Member Functions
+
+     * void childEvent (QChildEvent *)
+     * virtual void addedTo (QWidget *actionWidget, QWidget *container, Q3Action *a)
+     * virtual void addedTo (int index, Q3PopupMenu *menu, Q3Action *a)
+     * virtual void addedTo (QWidget *actionWidget, QWidget *container)
+     * virtual void addedTo (int index, Q3PopupMenu *menu)
+
+Properties
+
+     * bool exclusive
+     * bool usesDropDown
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ActionGroup::Q3ActionGroup (  QObject *     parent,
+                                   const char *  name = 0
+                                )
+
+
+
+   Q3ActionGroup::Q3ActionGroup (  QObject *     parent,
+                                   const char *  name,
+                                   bool          exclusive
+                                )
+
+
+
+   Q3ActionGroup::~Q3ActionGroup (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3ActionGroup::activated (  Q3Action *   )  [signal]
+
+
+
+   void Q3ActionGroup::add (  Q3Action *  a  )
+
+
+
+   virtual void Q3ActionGroup::addedTo (  int            index,
+                                          Q3PopupMenu *  menu
+                                       )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   virtual void Q3ActionGroup::addedTo (  QWidget *  actionWidget,
+                                          QWidget *  container
+                                       )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   virtual void Q3ActionGroup::addedTo (  int            index,
+                                          Q3PopupMenu *  menu,
+                                          Q3Action *     a
+                                       )  [protected, virtual]
+
+
+
+   virtual void Q3ActionGroup::addedTo (  QWidget *   actionWidget,
+                                          QWidget *   container,
+                                          Q3Action *  a
+                                       )  [protected, virtual]
+
+
+
+   void Q3ActionGroup::addSeparator (   )
+
+
+
+   bool Q3ActionGroup::addTo (  QWidget *   )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::childEvent (  QChildEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void Q3ActionGroup::insert (  Q3Action *  a  )  [inline]
+
+
+
+   bool Q3ActionGroup::isExclusive (   )  const
+
+
+
+   bool Q3ActionGroup::removeFrom (  QWidget *   )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::selected (  Q3Action *   )  [signal]
+
+
+
+   void Q3ActionGroup::setEnabled (  bool   )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::setExclusive (  bool   )
+
+
+
+   void Q3ActionGroup::setIconSet (  const QIcon &   )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::setMenuText (  const QString &   )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::setOn (  bool  on  )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::setText (  const QString &   )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::setToggleAction (  bool  toggle  )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::setToolTip (  const QString &   )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::setUsesDropDown (  bool  enable  )
+
+
+
+   void Q3ActionGroup::setVisible (  bool   )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   void Q3ActionGroup::setWhatsThis (  const QString &   )  [virtual]
+
+
+
+   Reimplemented from Q3Action.
+
+   bool Q3ActionGroup::usesDropDown (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3ActionGroup::exclusive [read, write]
+
+
+
+   bool Q3ActionGroup::usesDropDown [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3action.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

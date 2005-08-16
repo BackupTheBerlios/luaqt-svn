@@ -1,0 +1,67 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QItemEditorFactory Class Reference
+
+   #include <qitemeditorfactory.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QItemEditorFactory ()
+     * virtual ~QItemEditorFactory ()
+     * virtual QWidget * createEditor (QVariant::Type type, QWidget *parent) const
+     * virtual QByteArray valuePropertyName (QVariant::Type type) const
+     * void registerEditor (QVariant::Type type, QItemEditorCreatorBase *creator)
+
+Static Public Member Functions
+
+     * static const QItemEditorFactory * defaultFactory ()
+     * static void setDefaultFactory (QItemEditorFactory *factory)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QItemEditorFactory::QItemEditorFactory (   )  [inline]
+
+
+
+   virtual QItemEditorFactory::~QItemEditorFactory (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QWidget* QItemEditorFactory::createEditor (  QVariant::Type  type,
+                                                        QWidget *       parent
+                                                     )  const [virtual]
+
+
+
+   static const QItemEditorFactory* QItemEditorFactory::defaultFactory (   )  [static]
+
+
+
+   void QItemEditorFactory::registerEditor (  QVariant::Type            type,
+                                              QItemEditorCreatorBase *  creator
+                                           )
+
+
+
+   static void QItemEditorFactory::setDefaultFactory (  QItemEditorFactory *  factory  )  [static]
+
+
+
+   virtual QByteArray QItemEditorFactory::valuePropertyName (  QVariant::Type  type  )  const [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qitemeditorfactory.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,573 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QFont Class Reference
+
+   #include <qfont.h>
+
+   List of all members.
+
+Public Types
+
+     * enum StyleHint {
+         Helvetica, SansSerif = Helvetica, Times, Serif = Times,
+         Courier, TypeWriter = Courier, OldEnglish, Decorative = OldEnglish,
+         System, AnyStyle
+       }
+     * enum StyleStrategy {
+         PreferDefault = 0x0001, PreferBitmap = 0x0002, PreferDevice = 0x0004, PreferOutline = 0x0008,
+         ForceOutline = 0x0010, PreferMatch = 0x0020, PreferQuality = 0x0040, PreferAntialias = 0x0080,
+         NoAntialias = 0x0100, OpenGLCompatible = 0x0200
+       }
+     * enum Weight {
+         Light = 25, Normal = 50, DemiBold = 63, Bold = 75,
+         Black = 87
+       }
+     * enum Style { StyleNormal, StyleItalic, StyleOblique }
+     * enum Stretch {
+         UltraCondensed = 50, ExtraCondensed = 62, Condensed = 75, SemiCondensed = 87,
+         Unstretched = 100, SemiExpanded = 112, Expanded = 125, ExtraExpanded = 150,
+         UltraExpanded = 200
+       }
+
+Public Member Functions
+
+     * QFont ()
+     * QFont (const QString &family, int pointSize=-1, int weight=-1, bool italic=false)
+     * QFont (const QFont &, QPaintDevice *pd)
+     * QFont (const QFont &)
+     * ~QFont ()
+     * QString family () const
+     * void setFamily (const QString &)
+     * int pointSize () const
+     * void setPointSize (int)
+     * qreal pointSizeF () const
+     * void setPointSizeF (qreal)
+     * int pixelSize () const
+     * void setPixelSize (int)
+     * int weight () const
+     * void setWeight (int)
+     * bool bold () const
+     * void setBold (bool)
+     * void setStyle (Style style)
+     * Style style () const
+     * bool italic () const
+     * void setItalic (bool b)
+     * bool underline () const
+     * void setUnderline (bool)
+     * bool overline () const
+     * void setOverline (bool)
+     * bool strikeOut () const
+     * void setStrikeOut (bool)
+     * bool fixedPitch () const
+     * void setFixedPitch (bool)
+     * bool kerning () const
+     * void setKerning (bool)
+     * StyleHint styleHint () const
+     * StyleStrategy styleStrategy () const
+     * void setStyleHint (StyleHint, StyleStrategy=PreferDefault)
+     * void setStyleStrategy (StyleStrategy s)
+     * int stretch () const
+     * void setStretch (int)
+     * bool rawMode () const
+     * void setRawMode (bool)
+     * bool exactMatch () const
+     * QFont & operator= (const QFont &)
+     * bool operator== (const QFont &) const
+     * bool operator!= (const QFont &) const
+     * bool operator< (const QFont &) const
+     * operator QVariant () const
+     * bool isCopyOf (const QFont &) const
+     * Qt::HANDLE handle () const
+     * void setRawName (const QString &)
+     * QString rawName () const
+     * QString key () const
+     * QString toString () const
+     * bool fromString (const QString &)
+     * QString defaultFamily () const
+     * QString lastResortFamily () const
+     * QString lastResortFont () const
+     * QFont resolve (const QFont &) const
+     * uint resolve () const
+     * void resolve (uint mask)
+
+Static Public Member Functions
+
+     * static QString substitute (const QString &)
+     * static QStringList substitutes (const QString &)
+     * static QStringList substitutions ()
+     * static void insertSubstitution (const QString &, const QString &)
+     * static void insertSubstitutions (const QString &, const QStringList &)
+     * static void removeSubstitution (const QString &)
+     * static void initialize ()
+     * static void cleanup ()
+     * static void cacheStatistics ()
+
+Friends
+
+     * class QFontMetrics
+     * class QFontMetricsF
+     * class QFontInfo
+     * class QPainter
+     * class QPSPrintEngineFont
+     * class QApplication
+     * class QWidget
+     * class QWidgetPrivate
+     * class Q3TextFormatCollection
+     * class QTextLayout
+     * class QTextEngine
+     * class QTextLine
+     * struct QScriptLine
+     * class QGLContext
+     * class QWin32PaintEngine
+     * class QPainterPath
+     * Q_GUI_EXPORT QDataStream & operator<< (QDataStream &, const QFont &)
+     * Q_GUI_EXPORT QDataStream & operator>> (QDataStream &, QFont &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QFont::Stretch
+
+
+
+   Enumerator: 
+
+          UltraCondensed
+          ExtraCondensed
+          Condensed     
+          SemiCondensed 
+          Unstretched   
+          SemiExpanded  
+          Expanded      
+          ExtraExpanded 
+          UltraExpanded 
+
+   enum QFont::Style
+
+
+
+   Enumerator: 
+
+          StyleNormal 
+          StyleItalic 
+          StyleOblique
+
+   enum QFont::StyleHint
+
+
+
+   Enumerator: 
+
+          Helvetica 
+          SansSerif 
+          Times     
+          Serif     
+          Courier   
+          TypeWriter
+          OldEnglish
+          Decorative
+          System    
+          AnyStyle  
+
+   enum QFont::StyleStrategy
+
+
+
+   Enumerator: 
+
+          PreferDefault   
+          PreferBitmap    
+          PreferDevice    
+          PreferOutline   
+          ForceOutline    
+          PreferMatch     
+          PreferQuality   
+          PreferAntialias 
+          NoAntialias     
+          OpenGLCompatible
+
+   enum QFont::Weight
+
+
+
+   Enumerator: 
+
+          Light   
+          Normal  
+          DemiBold
+          Bold    
+          Black   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QFont::QFont (   )
+
+
+
+   QFont::QFont (  const QString &  family,
+                   int              pointSize = -1,
+                   int              weight = -1,
+                   bool             italic = false
+                )
+
+
+
+   QFont::QFont (  const QFont &   ,
+                   QPaintDevice *  pd
+                )
+
+
+
+   QFont::QFont (  const QFont &   )
+
+
+
+   QFont::~QFont (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QFont::bold (   )  const [inline]
+
+
+
+   static void QFont::cacheStatistics (   )  [static]
+
+
+
+   static void QFont::cleanup (   )  [static]
+
+
+
+   QString QFont::defaultFamily (   )  const
+
+
+
+   bool QFont::exactMatch (   )  const
+
+
+
+   QString QFont::family (   )  const
+
+
+
+   bool QFont::fixedPitch (   )  const
+
+
+
+   bool QFont::fromString (  const QString &   )
+
+
+
+   Qt::HANDLE QFont::handle (   )  const
+
+
+
+   static void QFont::initialize (   )  [static]
+
+
+
+   static void QFont::insertSubstitution (  const QString &  ,
+                                            const QString &
+                                         )  [static]
+
+
+
+   static void QFont::insertSubstitutions (  const QString &      ,
+                                             const QStringList &
+                                          )  [static]
+
+
+
+   bool QFont::isCopyOf (  const QFont &   )  const
+
+
+
+   bool QFont::italic (   )  const [inline]
+
+
+
+   bool QFont::kerning (   )  const
+
+
+
+   QString QFont::key (   )  const
+
+
+
+   QString QFont::lastResortFamily (   )  const
+
+
+
+   QString QFont::lastResortFont (   )  const
+
+
+
+   QFont::operator QVariant (   )  const
+
+
+
+   bool QFont::operator!= (  const QFont &   )  const
+
+
+
+   bool QFont::operator< (  const QFont &   )  const
+
+
+
+   QFont& QFont::operator= (  const QFont &   )
+
+
+
+   bool QFont::operator== (  const QFont &   )  const
+
+
+
+   bool QFont::overline (   )  const
+
+
+
+   int QFont::pixelSize (   )  const
+
+
+
+   int QFont::pointSize (   )  const
+
+
+
+   qreal QFont::pointSizeF (   )  const
+
+
+
+   bool QFont::rawMode (   )  const
+
+
+
+   QString QFont::rawName (   )  const
+
+
+
+   static void QFont::removeSubstitution (  const QString &   )  [static]
+
+
+
+   void QFont::resolve (  uint  mask  )  [inline]
+
+
+
+   uint QFont::resolve (   )  const [inline]
+
+
+
+   QFont QFont::resolve (  const QFont &   )  const
+
+
+
+   void QFont::setBold (  bool   )  [inline]
+
+
+
+   void QFont::setFamily (  const QString &   )
+
+
+
+   void QFont::setFixedPitch (  bool   )
+
+
+
+   void QFont::setItalic (  bool  b  )  [inline]
+
+
+
+   void QFont::setKerning (  bool   )
+
+
+
+   void QFont::setOverline (  bool   )
+
+
+
+   void QFont::setPixelSize (  int   )
+
+
+
+   void QFont::setPointSize (  int   )
+
+
+
+   void QFont::setPointSizeF (  qreal   )
+
+
+
+   void QFont::setRawMode (  bool   )
+
+
+
+   void QFont::setRawName (  const QString &   )
+
+
+
+   void QFont::setStretch (  int   )
+
+
+
+   void QFont::setStrikeOut (  bool   )
+
+
+
+   void QFont::setStyle (  Style  style  )
+
+
+
+   void QFont::setStyleHint (  StyleHint      ,
+                               StyleStrategy  = PreferDefault
+                            )
+
+
+
+   void QFont::setStyleStrategy (  StyleStrategy  s  )
+
+
+
+   void QFont::setUnderline (  bool   )
+
+
+
+   void QFont::setWeight (  int   )
+
+
+
+   int QFont::stretch (   )  const
+
+
+
+   bool QFont::strikeOut (   )  const
+
+
+
+   Style QFont::style (   )  const
+
+
+
+   StyleHint QFont::styleHint (   )  const
+
+
+
+   StyleStrategy QFont::styleStrategy (   )  const
+
+
+
+   static QString QFont::substitute (  const QString &   )  [static]
+
+
+
+   static QStringList QFont::substitutes (  const QString &   )  [static]
+
+
+
+   static QStringList QFont::substitutions (   )  [static]
+
+
+
+   QString QFont::toString (   )  const
+
+
+
+   bool QFont::underline (   )  const
+
+
+
+   int QFont::weight (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_GUI_EXPORT QDataStream& operator<< (  QDataStream &  ,
+                                           const QFont &
+                                        )  [friend]
+
+
+
+   Q_GUI_EXPORT QDataStream& operator>> (  QDataStream &  ,
+                                           QFont &      
+                                        )  [friend]
+
+
+
+   friend class Q3TextFormatCollection [friend]
+
+
+
+   friend class QApplication [friend]
+
+
+
+   friend class QFontInfo [friend]
+
+
+
+   friend class QFontMetrics [friend]
+
+
+
+   friend class QFontMetricsF [friend]
+
+
+
+   friend class QGLContext [friend]
+
+
+
+   friend class QPainter [friend]
+
+
+
+   friend class QPainterPath [friend]
+
+
+
+   friend class QPSPrintEngineFont [friend]
+
+
+
+   friend struct QScriptLine [friend]
+
+
+
+   friend class QTextEngine [friend]
+
+
+
+   friend class QTextLayout [friend]
+
+
+
+   friend class QTextLine [friend]
+
+
+
+   friend class QWidget [friend]
+
+
+
+   friend class QWidgetPrivate [friend]
+
+
+
+   friend class QWin32PaintEngine [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qfont.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

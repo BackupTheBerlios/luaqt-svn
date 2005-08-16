@@ -1,0 +1,449 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QTime Class Reference
+
+   The QTime class provides clock time functions. More...
+#include <QTime>
+
+   Part of the QtCore module.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QTime ()
+     * QTime ( int h, int m, int s = 0, int ms = 0 )
+     * QTime addMSecs ( int ms ) const
+     * QTime addSecs ( int nsecs ) const
+     * int elapsed () const
+     * int hour () const
+     * bool isNull () const
+     * bool isValid () const
+     * int minute () const
+     * int msec () const
+     * int msecsTo ( const QTime & t ) const
+     * int restart ()
+     * int second () const
+     * int secsTo ( const QTime & t ) const
+     * bool setHMS ( int h, int m, int s, int ms = 0 )
+     * void start ()
+     * QString toString ( const QString & format ) const
+     * QString toString ( Qt::DateFormat f = Qt::TextDate ) const
+     * bool operator!= ( const QTime & t ) const
+     * bool operator< ( const QTime & t ) const
+     * bool operator<= ( const QTime & t ) const
+     * bool operator== ( const QTime & t ) const
+     * bool operator> ( const QTime & t ) const
+     * bool operator>= ( const QTime & t ) const
+
+  Static Public Members
+
+     * QTime currentTime ()
+     * QTime fromString ( const QString & string, Qt::DateFormat format =
+       Qt::TextDate )
+     * QTime fromString ( const QString & string, const QString & format
+       )
+     * bool isValid ( int h, int m, int s, int ms = 0 )
+
+  Related Non-Members
+
+     * QDataStream & operator<< ( QDataStream & out, const QTime & time )
+     * QDataStream & operator>> ( QDataStream & in, QTime & time )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QTime class provides clock time functions.
+
+   A QTime object contains a clock time, i.e. the number of hours,
+   minutes, seconds, and milliseconds since midnight. It can read the
+   current time from the system clock and measure a span of elapsed time.
+   It provides functions for comparing times and for manipulating a time
+   by adding a number of (milli)seconds.
+
+   QTime uses the 24-hour clock format; it has no concept of AM/PM. It
+   operates in local time; it knows nothing about time zones or daylight
+   savings time.
+
+   A QTime object is typically created either by giving the number of
+   hours, minutes, seconds, and milliseconds explicitly, or by using the
+   static function currentTime(), which creates a QTime object that
+   contains the system's clock time. Note that the accuracy depends on
+   the accuracy of the underlying operating system; not all systems
+   provide 1-millisecond accuracy.
+
+   The hour(), minute(), second(), and msec() functions provide access to
+   the number of hours, minutes, seconds, and milliseconds of the time.
+   The same information is provided in textual format by the toString()
+   function.
+
+   QTime provides a full set of operators to compare two QTime objects.
+   One time is considered smaller than another if it is earlier than the
+   other.
+
+   The time a given number of seconds or milliseconds later than a given
+   time can be found using the addSecs() or addMSecs() functions.
+   Correspondingly, the number of (milli)seconds between two times can be
+   found using the secsTo() or msecsTo() functions.
+
+   QTime can be used to measure a span of elapsed time using the start(),
+   restart(), and elapsed() functions.
+
+   See also QDate and QDateTime.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QTime::QTime ()
+
+   Constructs the time 0 hours, minutes, seconds and milliseconds, i.e.
+   00:00:00.000 (midnight). This is a valid time.
+
+   See also isValid().
+
+  QTime::QTime ( int h, int m, int s = 0, int ms = 0 )
+
+   Constructs a time with hour h, minute m, seconds s and milliseconds
+   ms.
+
+   h must be in the range 0 to 23, m and s must be in the range 0 to 59,
+   and ms must be in the range 0 to 999.
+
+   See also isValid().
+
+  QTime QTime::addMSecs ( int ms ) const
+
+   Returns a QTime object containing a time ms milliseconds later than
+   the time of this object (or earlier if ms is negative).
+
+   Note that the time will wrap if it passes midnight. See addSecs() for
+   an example.
+
+   See also addSecs() and msecsTo().
+
+  QTime QTime::addSecs ( int nsecs ) const
+
+   Returns a QTime object containing a time nsecs seconds later than the
+   time of this object (or earlier if nsecs is negative).
+
+   Note that the time will wrap if it passes midnight.
+
+   Example:
+    QTime n(14, 0, 0);                // n == 14:00:00
+    QTime t;
+    t = n.addSecs(70);                // t == 14:01:10
+    t = n.addSecs(-70);               // t == 13:58:50
+    t = n.addSecs(10 * 60 * 60 + 5);  // t == 00:00:05
+    t = n.addSecs(-15 * 60 * 60);     // t == 23:00:00
+
+   See also addMSecs(), secsTo(), and QDateTime::addSecs().
+
+  QTime QTime::currentTime ()   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the current time as reported by the system clock.
+
+   Note that the accuracy depends on the accuracy of the underlying
+   operating system; not all systems provide 1-millisecond accuracy.
+
+  int QTime::elapsed () const
+
+   Returns the number of milliseconds that have elapsed since the last
+   time start() or restart() was called.
+
+   Note that the counter wraps to zero 24 hours after the last call to
+   start() or restart.
+
+   Note that the accuracy depends on the accuracy of the underlying
+   operating system; not all systems provide 1-millisecond accuracy.
+
+   Warning: If the system's clock setting has been changed since the last
+   time start() or restart() was called, the result is undefined. This
+   can happen when daylight savings time is turned on or off.
+
+   See also start() and restart().
+
+  QTime QTime::fromString ( const QString & string, Qt::DateFormat format =
+  Qt::TextDate )   [static]
+
+   Returns the time represented in the string as a QTime using the format
+   given, or an invalid time if this is not possible.
+
+   Warning: Note that Qt::LocalDate cannot be used here.
+
+  QTime QTime::fromString ( const QString & string, const QString & format )
+  [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the QTime represented by the string, using the format given,
+   or an invalid time if the string cannot be parsed.
+
+   These expressions may be used for the format:
+
+                             Expression Output
+       h the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM
+                                  display)
+       hh the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM
+                                  display)
+               m the minute without a leading zero (0 to 59)
+                mm the minute with a leading zero (00 to 59)
+               s the second whithout a leading zero (0 to 59)
+               ss the second whith a leading zero (00 to 59)
+            z the milliseconds without leading zeroes (0 to 999)
+           zzz the milliseconds with leading zeroes (000 to 999)
+       AP interpret as an AM/PM time. AP must be either "AM" or "PM".
+       ap Interpret as an AM/PM time. ap must be either "am" or "pm".
+
+   All other input characters will be treated as text. Any sequence of
+   characters that are enclosed in single quotes will also be treated as
+   text and not be used as an expression.
+    QTime time = QTime::fromString("1mm12car00", "m'mm'hcarss");
+    // time is 12:01.00
+
+   If the format is not satisfied an invalid QTime is returned.
+   Expressions that do not expect leading zeroes to be given (h, m, s and
+   z) are greedy. This means that they will use two digits even if this
+   puts them outside the range of accepted values and leaves too few
+   digits for other sections. For example, the following string could
+   have meant 00:07:10, but the m will grab two digits, resulting in an
+   invalid time:
+    QTime time = QTime::fromString("00:710", "hh:ms"); // invalid
+
+   Any field that is not represented in the format will be set to zero.
+   For example:
+    QTime time = QTime::fromString("1.30", "m.s");
+    // time is 00:01:30.000
+
+   QDateTime::toString() QTime::toString()
+
+   See also QDateTime::fromString(), QDate::fromString(), and
+   QDate::toString().
+
+  int QTime::hour () const
+
+   Returns the hour part (0 to 23) of the time.
+
+   See also minute(), second(), and msec().
+
+  bool QTime::isNull () const
+
+   Returns true if the time is equal to 00:00:00.000; otherwise returns
+   false. A null time is valid.
+
+   See also isValid().
+
+  bool QTime::isValid () const
+
+   Returns true if the time is valid; otherwise returns false. For
+   example, the time 23:30:55.746 is valid, but 24:12:30 is invalid.
+
+   See also isNull().
+
+  bool QTime::isValid ( int h, int m, int s, int ms = 0 )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns true if the specified time is valid; otherwise returns false.
+
+   The time is valid if h is in the range 0 to 23, m and s are in the
+   range 0 to 59, and ms is in the range 0 to 999.
+
+   Example:
+    QTime::isValid(21, 10, 30); // returns true
+    QTime::isValid(22, 5,  62); // returns false
+
+  int QTime::minute () const
+
+   Returns the minute part (0 to 59) of the time.
+
+   See also hour(), second(), and msec().
+
+  int QTime::msec () const
+
+   Returns the millisecond part (0 to 999) of the time.
+
+   See also hour(), minute(), and second().
+
+  int QTime::msecsTo ( const QTime & t ) const
+
+   Returns the number of milliseconds from this time to t. If t is
+   earlier than this time, the number of milliseconds returned is
+   negative.
+
+   Because QTime measures time within a day and there are 86400 seconds
+   in a day, the result is always between -86400000 and 86400000 msec.
+
+   See also secsTo() and addMSecs().
+
+  int QTime::restart ()
+
+   Sets this time to the current time and returns the number of
+   milliseconds that have elapsed since the last time start() or
+   restart() was called.
+
+   This function is guaranteed to be atomic and is thus very handy for
+   repeated measurements. Call start() to start the first measurement,
+   and restart() for each later measurement.
+
+   Note that the counter wraps to zero 24 hours after the last call to
+   start() or restart().
+
+   Warning: If the system's clock setting has been changed since the last
+   time start() or restart() was called, the result is undefined. This
+   can happen when daylight savings time is turned on or off.
+
+   See also start(), elapsed(), and currentTime().
+
+  int QTime::second () const
+
+   Returns the second part (0 to 59) of the time.
+
+   See also hour(), minute(), and msec().
+
+  int QTime::secsTo ( const QTime & t ) const
+
+   Returns the number of seconds from this time to t. If t is earlier
+   than this time, the number of seconds returned is negative.
+
+   Because QTime measures time within a day and there are 86400 seconds
+   in a day, the result is always between -86400 and 86400.
+
+   See also addSecs() and QDateTime::secsTo().
+
+  bool QTime::setHMS ( int h, int m, int s, int ms = 0 )
+
+   Sets the time to hour h, minute m, seconds s and milliseconds ms.
+
+   h must be in the range 0 to 23, m and s must be in the range 0 to 59,
+   and ms must be in the range 0 to 999. Returns true if the set time is
+   valid; otherwise returns false.
+
+   See also isValid().
+
+  void QTime::start ()
+
+   Sets this time to the current time. This is practical for timing:
+    QTime t;
+    t.start();
+    some_lengthy_task();
+    qDebug("Time elapsed: %d ms", t.elapsed());
+
+   See also restart(), elapsed(), and currentTime().
+
+  QString QTime::toString ( const QString & format ) const
+
+   Returns the time as a string. The format parameter determines the
+   format of the result string.
+
+   These expressions may be used:
+
+                             Expression Output
+       h the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM
+                                  display)
+       hh the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM
+                                  display)
+               m the minute without a leading zero (0 to 59)
+                mm the minute with a leading zero (00 to 59)
+               s the second whithout a leading zero (0 to 59)
+               ss the second whith a leading zero (00 to 59)
+            z the milliseconds without leading zeroes (0 to 999)
+           zzz the milliseconds with leading zeroes (000 to 999)
+     AP use AM/PM display. AP will be replaced by either "AM" or "PM".
+     ap use am/pm display. ap will be replaced by either "am" or "pm".
+
+   All other input characters will be ignored. Any sequence of characters
+   that are enclosed in singlequotes will be treated as text and not be
+   used as an expression.
+
+   Example format strings (assuming that the QTime is 14:13:09.042)
+
+                            Format       Result
+                         hh:mm:ss.zzz 14:13:09.042
+                           h:m:s ap    2:13:9 pm
+
+   If the datetime is invalid, an empty string will be returned.
+
+   See also QDate::toString() and QDateTime::toString().
+
+  QString QTime::toString ( Qt::DateFormat f = Qt::TextDate ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the time as a string. Milliseconds are not included. The f
+   parameter determines the format of the string.
+
+   If f is Qt::TextDate, the string format is HH:MM:SS; e.g. 1 second
+   before midnight would be "23:59:59".
+
+   If f is Qt::ISODate, the string format corresponds to the ISO 8601
+   extended specification for representations of dates, which is also
+   HH:MM:SS.
+
+   If f is Qt::LocalDate, the string format depends on the locale
+   settings of the system.
+
+   If the datetime is invalid, an empty string will be returned.
+
+  bool QTime::operator!= ( const QTime & t ) const
+
+   Returns true if this time is different from t; otherwise returns
+   false.
+
+  bool QTime::operator< ( const QTime & t ) const
+
+   Returns true if this time is earlier than t; otherwise returns false.
+
+  bool QTime::operator<= ( const QTime & t ) const
+
+   Returns true if this time is earlier than or equal to t; otherwise
+   returns false.
+
+  bool QTime::operator== ( const QTime & t ) const
+
+   Returns true if this time is equal to t; otherwise returns false.
+
+  bool QTime::operator> ( const QTime & t ) const
+
+   Returns true if this time is later than t; otherwise returns false.
+
+  bool QTime::operator>= ( const QTime & t ) const
+
+   Returns true if this time is later than or equal to t; otherwise
+   returns false.
+     _________________________________________________________________
+
+Related Non-Members
+
+  QDataStream & operator<< ( QDataStream & out, const QTime & time )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Writes time to stream out.
+
+   See also Format of the QDataStream operators.
+
+  QDataStream & operator>> ( QDataStream & in, QTime & time )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads a time from stream in into the given time.
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

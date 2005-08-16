@@ -1,0 +1,231 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QTableWidgetItem Class Reference
+
+   #include <qtablewidget.h>
+
+   List of all members.
+
+Public Types
+
+     * enum { Type = 0, UserType = 1000 }
+
+Public Member Functions
+
+     * QTableWidgetItem (int type=Type)
+     * QTableWidgetItem (const QString &text, int type=Type)
+     * virtual ~QTableWidgetItem ()
+     * virtual QTableWidgetItem * clone () const
+     * QTableWidget * tableWidget () const
+     * Qt::ItemFlags flags () const
+     * void setFlags (Qt::ItemFlags flags)
+     * QString text () const
+     * void setText (const QString &text)
+     * QIcon icon () const
+     * void setIcon (const QIcon &icon)
+     * QString statusTip () const
+     * void setStatusTip (const QString &statusTip)
+     * QString toolTip () const
+     * void setToolTip (const QString &toolTip)
+     * QString whatsThis () const
+     * void setWhatsThis (const QString &whatsThis)
+     * QFont font () const
+     * void setFont (const QFont &font)
+     * int textAlignment () const
+     * void setTextAlignment (int alignment)
+     * QColor backgroundColor () const
+     * void setBackgroundColor (const QColor &color)
+     * QColor textColor () const
+     * void setTextColor (const QColor &color)
+     * Qt::CheckState checkState () const
+     * void setCheckState (Qt::CheckState state)
+     * virtual QVariant data (int role) const
+     * virtual void setData (int role, const QVariant &value)
+     * virtual bool operator< (const QTableWidgetItem &other) const
+     * virtual void read (QDataStream &in)
+     * virtual void write (QDataStream &out) const
+     * QTableWidgetItem & operator= (const QTableWidgetItem &other)
+     * int type () const
+
+Friends
+
+     * class QTableWidget
+     * class QTableModel
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Type    
+          UserType
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTableWidgetItem::QTableWidgetItem (  int  type = Type  )
+
+
+
+   QTableWidgetItem::QTableWidgetItem (  const QString &  text,
+                                         int              type = Type
+                                      )  [explicit]
+
+
+
+   virtual QTableWidgetItem::~QTableWidgetItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QColor QTableWidgetItem::backgroundColor (   )  const [inline]
+
+
+
+   Qt::CheckState QTableWidgetItem::checkState (   )  const [inline]
+
+
+
+   virtual QTableWidgetItem* QTableWidgetItem::clone (   )  const [virtual]
+
+
+
+   virtual QVariant QTableWidgetItem::data (  int  role  )  const [virtual]
+
+
+
+   Qt::ItemFlags QTableWidgetItem::flags (   )  const [inline]
+
+
+
+   QFont QTableWidgetItem::font (   )  const [inline]
+
+
+
+   QIcon QTableWidgetItem::icon (   )  const [inline]
+
+
+
+   virtual bool QTableWidgetItem::operator< (  const QTableWidgetItem &  other  )  const [virtual]
+
+
+
+   QTableWidgetItem& QTableWidgetItem::operator= (  const QTableWidgetItem &  other  )
+
+
+
+   virtual void QTableWidgetItem::read (  QDataStream &  in  )  [virtual]
+
+
+
+   void QTableWidgetItem::setBackgroundColor (  const QColor &  color  )  [inline]
+
+
+
+   void QTableWidgetItem::setCheckState (  Qt::CheckState  state  )  [inline]
+
+
+
+   virtual void QTableWidgetItem::setData (  int               role,
+                                             const QVariant &  value
+                                          )  [virtual]
+
+
+
+   void QTableWidgetItem::setFlags (  Qt::ItemFlags  flags  )  [inline]
+
+
+
+   void QTableWidgetItem::setFont (  const QFont &  font  )  [inline]
+
+
+
+   void QTableWidgetItem::setIcon (  const QIcon &  icon  )  [inline]
+
+
+
+   void QTableWidgetItem::setStatusTip (  const QString &  statusTip  )  [inline]
+
+
+
+   void QTableWidgetItem::setText (  const QString &  text  )  [inline]
+
+
+
+   void QTableWidgetItem::setTextAlignment (  int  alignment  )  [inline]
+
+
+
+   void QTableWidgetItem::setTextColor (  const QColor &  color  )  [inline]
+
+
+
+   void QTableWidgetItem::setToolTip (  const QString &  toolTip  )  [inline]
+
+
+
+   void QTableWidgetItem::setWhatsThis (  const QString &  whatsThis  )  [inline]
+
+
+
+   QString QTableWidgetItem::statusTip (   )  const [inline]
+
+
+
+   QTableWidget* QTableWidgetItem::tableWidget (   )  const [inline]
+
+
+
+   QString QTableWidgetItem::text (   )  const [inline]
+
+
+
+   int QTableWidgetItem::textAlignment (   )  const [inline]
+
+
+
+   QColor QTableWidgetItem::textColor (   )  const [inline]
+
+
+
+   QString QTableWidgetItem::toolTip (   )  const [inline]
+
+
+
+   int QTableWidgetItem::type (   )  const [inline]
+
+
+
+   QString QTableWidgetItem::whatsThis (   )  const [inline]
+
+
+
+   virtual void QTableWidgetItem::write (  QDataStream &  out  )  const [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTableModel [friend]
+
+
+
+   friend class QTableWidget [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtablewidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

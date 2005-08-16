@@ -1,0 +1,358 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QAbstractSlider Class Reference
+
+   #include <qabstractslider.h>
+
+   Inherits QWidget.
+
+   Inherited by QDial, QScrollBar, and QSlider.
+
+   List of all members.
+
+Public Types
+
+     * enum SliderAction {
+         SliderNoAction, SliderSingleStepAdd, SliderSingleStepSub, SliderPageStepAdd,
+         SliderPageStepSub, SliderToMinimum, SliderToMaximum, SliderMove
+       }
+
+Public Slots
+
+     * void setValue (int)
+     * void setOrientation (Qt::Orientation)
+
+Signals
+
+     * void valueChanged (int value)
+     * void sliderPressed ()
+     * void sliderMoved (int position)
+     * void sliderReleased ()
+     * void rangeChanged (int min, int max)
+     * void actionTriggered (int action)
+
+Public Member Functions
+
+     * QAbstractSlider (QWidget *parent=0)
+     * ~QAbstractSlider ()
+     * Qt::Orientation orientation () const
+     * void setMinimum (int)
+     * int minimum () const
+     * void setMaximum (int)
+     * int maximum () const
+     * void setRange (int min, int max)
+     * void setSingleStep (int)
+     * int singleStep () const
+     * void setPageStep (int)
+     * int pageStep () const
+     * void setTracking (bool enable)
+     * bool hasTracking () const
+     * void setSliderDown (bool)
+     * bool isSliderDown () const
+     * void setSliderPosition (int)
+     * int sliderPosition () const
+     * void setInvertedAppearance (bool)
+     * bool invertedAppearance () const
+     * void setInvertedControls (bool)
+     * bool invertedControls () const
+     * int value () const
+     * void triggerAction (SliderAction action)
+
+Protected Types
+
+     * enum SliderChange { SliderRangeChange, SliderOrientationChange, SliderStepsChange, SliderValueChange }
+
+Protected Member Functions
+
+     * void setRepeatAction (SliderAction action, int thresholdTime=500, int repeatTime=50)
+     * SliderAction repeatAction () const
+     * virtual void sliderChange (SliderChange change)
+     * void keyPressEvent (QKeyEvent *ev)
+     * void timerEvent (QTimerEvent *)
+     * void wheelEvent (QWheelEvent *e)
+     * void changeEvent (QEvent *e)
+     * QAbstractSlider (QAbstractSliderPrivate &dd, QWidget *parent=0)
+
+Properties
+
+     * int minimum
+     * int maximum
+     * int singleStep
+     * int pageStep
+     * int value
+     * int sliderPosition
+     * bool tracking
+     * Qt Orientation
+     * bool invertedAppearance
+     * bool invertedControls
+     * bool sliderDown
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QAbstractSlider::SliderAction
+
+
+
+   Enumerator: 
+
+          SliderNoAction     
+          SliderSingleStepAdd
+          SliderSingleStepSub
+          SliderPageStepAdd  
+          SliderPageStepSub  
+          SliderToMinimum    
+          SliderToMaximum    
+          SliderMove         
+
+   enum QAbstractSlider::SliderChange [protected]
+
+
+
+   Enumerator: 
+
+          SliderRangeChange      
+          SliderOrientationChange
+          SliderStepsChange      
+          SliderValueChange      
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractSlider::QAbstractSlider (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QAbstractSlider::~QAbstractSlider (   )
+
+
+
+   QAbstractSlider::QAbstractSlider (  QAbstractSliderPrivate &  dd,
+                                       QWidget *                 parent = 0
+                                    )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QAbstractSlider::actionTriggered (  int  action  )  [signal]
+
+
+
+   void QAbstractSlider::changeEvent (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QAbstractSlider::hasTracking (   )  const
+
+
+
+   bool QAbstractSlider::invertedAppearance (   )  const
+
+
+
+   bool QAbstractSlider::invertedControls (   )  const
+
+
+
+   bool QAbstractSlider::isSliderDown (   )  const
+
+
+
+   void QAbstractSlider::keyPressEvent (  QKeyEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int QAbstractSlider::maximum (   )  const
+
+
+
+   int QAbstractSlider::minimum (   )  const
+
+
+
+   Qt::Orientation QAbstractSlider::orientation (   )  const
+
+
+
+   int QAbstractSlider::pageStep (   )  const
+
+
+
+   void QAbstractSlider::rangeChanged (  int  min,
+                                         int  max
+                                      )  [signal]
+
+
+
+   SliderAction QAbstractSlider::repeatAction (   )  const [protected]
+
+
+
+   void QAbstractSlider::setInvertedAppearance (  bool   )
+
+
+
+   void QAbstractSlider::setInvertedControls (  bool   )
+
+
+
+   void QAbstractSlider::setMaximum (  int   )
+
+
+
+   void QAbstractSlider::setMinimum (  int   )
+
+
+
+   void QAbstractSlider::setOrientation (  Qt::Orientation   )  [slot]
+
+
+
+   void QAbstractSlider::setPageStep (  int   )
+
+
+
+   void QAbstractSlider::setRange (  int  min,
+                                     int  max
+                                  )
+
+
+
+   void QAbstractSlider::setRepeatAction (  SliderAction  action,
+                                            int           thresholdTime = 500,
+                                            int           repeatTime = 50
+                                         )  [protected]
+
+
+
+   void QAbstractSlider::setSingleStep (  int   )
+
+
+
+   void QAbstractSlider::setSliderDown (  bool   )
+
+
+
+   void QAbstractSlider::setSliderPosition (  int   )
+
+
+
+   void QAbstractSlider::setTracking (  bool  enable  )
+
+
+
+   void QAbstractSlider::setValue (  int   )  [slot]
+
+
+
+   int QAbstractSlider::singleStep (   )  const
+
+
+
+   virtual void QAbstractSlider::sliderChange (  SliderChange  change  )  [protected, virtual]
+
+
+
+   Reimplemented in QDial, and QScrollBar.
+
+   void QAbstractSlider::sliderMoved (  int  position  )  [signal]
+
+
+
+   int QAbstractSlider::sliderPosition (   )  const
+
+
+
+   void QAbstractSlider::sliderPressed (   )  [signal]
+
+
+
+   void QAbstractSlider::sliderReleased (   )  [signal]
+
+
+
+   void QAbstractSlider::timerEvent (  QTimerEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void QAbstractSlider::triggerAction (  SliderAction  action  )
+
+
+
+   int QAbstractSlider::value (   )  const
+
+
+
+   void QAbstractSlider::valueChanged (  int  value  )  [signal]
+
+
+
+   void QAbstractSlider::wheelEvent (  QWheelEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QAbstractSlider::invertedAppearance [read, write]
+
+
+
+   bool QAbstractSlider::invertedControls [read, write]
+
+
+
+   int QAbstractSlider::maximum [read, write]
+
+
+
+   int QAbstractSlider::minimum [read, write]
+
+
+
+   Qt QAbstractSlider::Orientation [read, write]
+
+
+
+   int QAbstractSlider::pageStep [read, write]
+
+
+
+   int QAbstractSlider::singleStep [read, write]
+
+
+
+   bool QAbstractSlider::sliderDown [read, write]
+
+
+
+   int QAbstractSlider::sliderPosition [read, write]
+
+
+
+   bool QAbstractSlider::tracking [read, write]
+
+
+
+   int QAbstractSlider::value [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractslider.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

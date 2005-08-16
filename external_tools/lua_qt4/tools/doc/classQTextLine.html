@@ -1,0 +1,176 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QTextLine Class Reference
+
+   #include <qtextlayout.h>
+
+   List of all members.
+
+Public Types
+
+     * enum Edge { Leading, Trailing }
+     * enum CursorPosition { CursorBetweenCharacters, CursorOnCharacter }
+
+Public Member Functions
+
+     * QTextLine ()
+     * bool isValid () const
+     * QRectF rect () const
+     * qreal x () const
+     * qreal y () const
+     * qreal width () const
+     * qreal ascent () const
+     * qreal descent () const
+     * qreal height () const
+     * qreal naturalTextWidth () const
+     * QRectF naturalTextRect () const
+     * qreal cursorToX (int *cursorPos, Edge edge=Leading) const
+     * qreal cursorToX (int cursorPos, Edge edge=Leading) const
+     * int xToCursor (qreal x, CursorPosition=CursorBetweenCharacters) const
+     * void setLineWidth (qreal width)
+     * void setNumColumns (int columns)
+     * void setPosition (const QPointF &pos)
+     * int textStart () const
+     * int textLength () const
+     * int lineNumber () const
+     * void draw (QPainter *p, const QPointF &point, const QTextLayout::FormatRange *selection=0) const
+
+Friends
+
+     * class QTextLayout
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextLine::CursorPosition
+
+
+
+   Enumerator: 
+
+          CursorBetweenCharacters
+          CursorOnCharacter      
+
+   enum QTextLine::Edge
+
+
+
+   Enumerator: 
+
+          Leading 
+          Trailing
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextLine::QTextLine (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   qreal QTextLine::ascent (   )  const
+
+
+
+   qreal QTextLine::cursorToX (  int   cursorPos,
+                                 Edge  edge = Leading
+                              )  const [inline]
+
+
+
+   qreal QTextLine::cursorToX (  int *  cursorPos,
+                                 Edge   edge = Leading
+                              )  const
+
+
+
+   qreal QTextLine::descent (   )  const
+
+
+
+   void QTextLine::draw (  QPainter *                        p,
+                           const QPointF &                   point,
+                           const QTextLayout::FormatRange *  selection = 0
+                        )  const
+
+
+
+   qreal QTextLine::height (   )  const
+
+
+
+   bool QTextLine::isValid (   )  const [inline]
+
+
+
+   int QTextLine::lineNumber (   )  const [inline]
+
+
+
+   QRectF QTextLine::naturalTextRect (   )  const
+
+
+
+   qreal QTextLine::naturalTextWidth (   )  const
+
+
+
+   QRectF QTextLine::rect (   )  const
+
+
+
+   void QTextLine::setLineWidth (  qreal  width  )
+
+
+
+   void QTextLine::setNumColumns (  int  columns  )
+
+
+
+   void QTextLine::setPosition (  const QPointF &  pos  )
+
+
+
+   int QTextLine::textLength (   )  const
+
+
+
+   int QTextLine::textStart (   )  const
+
+
+
+   qreal QTextLine::width (   )  const
+
+
+
+   qreal QTextLine::x (   )  const
+
+
+
+   int QTextLine::xToCursor (  qreal           x,
+                               CursorPosition  = CursorBetweenCharacters
+                            )  const
+
+
+
+   qreal QTextLine::y (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextLayout [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextlayout.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

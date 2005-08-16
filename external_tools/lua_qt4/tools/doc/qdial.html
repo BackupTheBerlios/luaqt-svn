@@ -1,0 +1,180 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QDial Class Reference
+
+   The QDial class provides a rounded range control (like a speedometer
+   or potentiometer). More...
+#include <QDial>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractSlider.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * notchSize : const int
+     * notchTarget : qreal
+     * notchesVisible : bool
+     * wrapping : bool
+
+     * 11 properties inherited from QAbstractSlider
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QDial ( QWidget * parent = 0 )
+     * ~QDial ()
+     * int notchSize () const
+     * qreal notchTarget () const
+     * bool notchesVisible () const
+     * void setNotchTarget ( double target )
+     * bool wrapping () const
+
+     * 22 public functions inherited from QAbstractSlider
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void setNotchesVisible ( bool visible )
+     * void setWrapping ( bool on )
+
+     * 2 public slots inherited from QAbstractSlider
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Additional Inherited Members
+
+     * 6 signals inherited from QAbstractSlider
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 3 protected functions inherited from QAbstractSlider
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QDial class provides a rounded range control (like a speedometer
+   or potentiometer).
+
+   QDial is used when the user needs to control a value within a
+   program-definable range, and the range either wraps around (typically,
+   0..359 degrees) or the dialog layout needs a square widget.
+
+   Both API- and UI-wise, the dial is very similar to a slider. Indeed,
+   when wrapping() is false (the default) there is no real difference
+   between a slider and a dial. They have the same signals, slots and
+   member functions, all of which do the same things. Which one you use
+   depends only on your taste and on the application.
+
+   The dial initially emits valueChanged() signals continuously while the
+   slider is being moved; you can make it emit the signal less often by
+   calling setTracking(false). dialMoved() is emitted continuously even
+   when tracking() is false.
+
+   The slider also emits dialPressed() and dialReleased() signals when
+   the mouse button is pressed and released. But note that the dial's
+   value can change without these signals being emitted; the keyboard and
+   wheel can be used to change the value.
+
+   Unlike the slider, QDial attempts to draw a "nice" number of notches
+   rather than one per lineStep(). If possible, the number of notches
+   drawn is one per lineStep(), but if there aren't enough pixels to draw
+   every one, QDial will draw every second, third etc., notch.
+   notchSize() returns the number of units per notch, hopefully a
+   multiple of lineStep(); setNotchTarget() sets the target distance
+   between neighbouring notches in pixels. The default is 3.75 pixels.
+
+   Like the slider, the dial makes the QAbstractSlider functions
+   setValue(), addLine(), subtractLine(), addPage() and subtractPage()
+   available as slots.
+
+   The dial's keyboard interface is fairly simple: The left/up and
+   right/down arrow keys move by lineStep(), page up and page down by
+   pageStep() and Home and End to minValue() and maxValue().
+
+   Screenshot in Motif style Screenshot in Windows style
+
+   See also QScrollBar, QSpinBox, and GUI Design Handbook: Slider.
+     _________________________________________________________________
+
+Property Documentation
+
+  notchSize : const int
+
+   This property holds the current notch size.
+
+   The notch size is in range control units, not pixels, and if possible
+   it is a multiple of lineStep() that results in an on-screen notch size
+   near notchTarget().
+
+   Access functions:
+     * int notchSize () const
+
+   See also notchTarget() and lineStep().
+
+  notchTarget : qreal
+
+   This property holds the target number of pixels between notches.
+
+   The notch target is the number of pixels QDial attempts to put between
+   each notch.
+
+   The actual size may differ from the target size.
+
+   Access functions:
+     * qreal notchTarget () const
+     * void setNotchTarget ( double target )
+
+  notchesVisible : bool
+
+   This property holds whether the notches are shown.
+
+   If true, the notches are shown. If false (the default) notches are not
+   shown.
+
+   Access functions:
+     * bool notchesVisible () const
+     * void setNotchesVisible ( bool visible )
+
+  wrapping : bool
+
+   This property holds whether wrapping is enabled.
+
+   If true, wrapping is enabled. This means that the arrow can be turned
+   around 360°. Otherwise there is some space at the bottom of the dial
+   which is skipped by the arrow.
+
+   This property's default is false.
+
+   Access functions:
+     * bool wrapping () const
+     * void setWrapping ( bool on )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QDial::QDial ( QWidget * parent = 0 )
+
+   Constructs a dial.
+
+   The parent argument is sent to the QAbstractSlider constructor.
+
+  QDial::~QDial ()
+
+   Destroys the dial.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

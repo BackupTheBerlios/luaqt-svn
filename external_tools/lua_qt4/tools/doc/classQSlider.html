@@ -1,0 +1,155 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QSlider Class Reference
+
+   #include <qslider.h>
+
+   Inherits QAbstractSlider.
+
+   List of all members.
+
+Public Types
+
+     * enum TickPosition {
+         NoTicks = 0, TicksAbove = 1, TicksLeft = TicksAbove, TicksBelow = 2,
+         TicksRight = TicksBelow, TicksBothSides = 3
+       }
+
+Public Member Functions
+
+     * QSlider (QWidget *parent=0)
+     * QSlider (Qt::Orientation orientation, QWidget *parent=0)
+     * ~QSlider ()
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * void setTickPosition (TickPosition position)
+     * TickPosition tickPosition () const
+     * void setTickInterval (int ti)
+     * int tickInterval () const
+     * bool event (QEvent *event)
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *ev)
+     * void mousePressEvent (QMouseEvent *ev)
+     * void mouseReleaseEvent (QMouseEvent *ev)
+     * void mouseMoveEvent (QMouseEvent *ev)
+
+Properties
+
+     * TickPosition tickPosition
+     * int tickInterval
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QSlider::TickPosition
+
+
+
+   Enumerator: 
+
+          NoTicks       
+          TicksAbove    
+          TicksLeft     
+          TicksBelow    
+          TicksRight    
+          TicksBothSides
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSlider::QSlider (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QSlider::QSlider (  Qt::Orientation  orientation,
+                       QWidget *        parent = 0
+                    )  [explicit]
+
+
+
+   QSlider::~QSlider (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QSlider::event (  QEvent *  event  )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QSlider::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QSlider::mouseMoveEvent (  QMouseEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QSlider::mousePressEvent (  QMouseEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QSlider::mouseReleaseEvent (  QMouseEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QSlider::paintEvent (  QPaintEvent *  ev  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QSlider::setTickInterval (  int  ti  )
+
+
+
+   void QSlider::setTickPosition (  TickPosition  position  )
+
+
+
+   QSize QSlider::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int QSlider::tickInterval (   )  const
+
+
+
+   TickPosition QSlider::tickPosition (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QSlider::tickInterval [read, write]
+
+
+
+   TickPosition QSlider::tickPosition [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qslider.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

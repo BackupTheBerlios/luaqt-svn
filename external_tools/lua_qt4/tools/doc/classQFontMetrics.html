@@ -1,0 +1,198 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QFontMetrics Class Reference
+
+   #include <qfontmetrics.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QFontMetrics (const QFont &)
+     * QFontMetrics (const QFont &, QPaintDevice *pd)
+     * QFontMetrics (const QFontMetrics &)
+     * ~QFontMetrics ()
+     * QFontMetrics & operator= (const QFontMetrics &)
+     * int ascent () const
+     * int descent () const
+     * int height () const
+     * int leading () const
+     * int lineSpacing () const
+     * int minLeftBearing () const
+     * int minRightBearing () const
+     * int maxWidth () const
+     * bool inFont (QChar) const
+     * int leftBearing (QChar) const
+     * int rightBearing (QChar) const
+     * int width (const QString &, int len=-1) const
+     * int width (QChar) const
+     * int charWidth (const QString &str, int pos) const
+     * QRect boundingRect (QChar) const
+     * QRect boundingRect (const QString &text) const
+     * QRect boundingRect (const QRect &r, int flags, const QString &text, int tabstops=0, int *tabarray=0) const
+     * QRect boundingRect (int x, int y, int w, int h, int flags, const QString &text, int tabstops=0, int *tabarray=0) const
+     * QSize size (int flags, const QString &str, int tabstops=0, int *tabarray=0) const
+     * int underlinePos () const
+     * int overlinePos () const
+     * int strikeOutPos () const
+     * int lineWidth () const
+     * bool operator== (const QFontMetrics &other)
+     * bool operator!= (const QFontMetrics &other)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QFontMetrics::QFontMetrics (  const QFont &   )
+
+
+
+   QFontMetrics::QFontMetrics (  const QFont &   ,
+                                 QPaintDevice *  pd
+                              )
+
+
+
+   QFontMetrics::QFontMetrics (  const QFontMetrics &   )
+
+
+
+   QFontMetrics::~QFontMetrics (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QFontMetrics::ascent (   )  const
+
+
+
+   QRect QFontMetrics::boundingRect (  int              x,
+                                       int              y,
+                                       int              w,
+                                       int              h,
+                                       int              flags,
+                                       const QString &  text,
+                                       int              tabstops = 0,
+                                       int *            tabarray = 0
+                                    )  const [inline]
+
+
+
+   QRect QFontMetrics::boundingRect (  const QRect &    r,
+                                       int              flags,
+                                       const QString &  text,
+                                       int              tabstops = 0,
+                                       int *            tabarray = 0
+                                    )  const
+
+
+
+   QRect QFontMetrics::boundingRect (  const QString &  text  )  const
+
+
+
+   QRect QFontMetrics::boundingRect (  QChar   )  const
+
+
+
+   int QFontMetrics::charWidth (  const QString &  str,
+                                  int              pos
+                               )  const
+
+
+
+   int QFontMetrics::descent (   )  const
+
+
+
+   int QFontMetrics::height (   )  const
+
+
+
+   bool QFontMetrics::inFont (  QChar   )  const
+
+
+
+   int QFontMetrics::leading (   )  const
+
+
+
+   int QFontMetrics::leftBearing (  QChar   )  const
+
+
+
+   int QFontMetrics::lineSpacing (   )  const
+
+
+
+   int QFontMetrics::lineWidth (   )  const
+
+
+
+   int QFontMetrics::maxWidth (   )  const
+
+
+
+   int QFontMetrics::minLeftBearing (   )  const
+
+
+
+   int QFontMetrics::minRightBearing (   )  const
+
+
+
+   bool QFontMetrics::operator!= (  const QFontMetrics &  other  )  [inline]
+
+
+
+   QFontMetrics& QFontMetrics::operator= (  const QFontMetrics &   )
+
+
+
+   bool QFontMetrics::operator== (  const QFontMetrics &  other  )
+
+
+
+   int QFontMetrics::overlinePos (   )  const
+
+
+
+   int QFontMetrics::rightBearing (  QChar   )  const
+
+
+
+   QSize QFontMetrics::size (  int              flags,
+                               const QString &  str,
+                               int              tabstops = 0,
+                               int *            tabarray = 0
+                            )  const
+
+
+
+   int QFontMetrics::strikeOutPos (   )  const
+
+
+
+   int QFontMetrics::underlinePos (   )  const
+
+
+
+   int QFontMetrics::width (  QChar   )  const
+
+
+
+   int QFontMetrics::width (  const QString &  ,
+                              int              len = -1
+                           )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qfontmetrics.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

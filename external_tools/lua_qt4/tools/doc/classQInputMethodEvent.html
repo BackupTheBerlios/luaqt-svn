@@ -1,0 +1,99 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QInputMethodEvent Class Reference
+
+   #include <qevent.h>
+
+   Inherits QEvent.
+
+   List of all members.
+
+Public Types
+
+     * enum AttributeType { TextFormat, Cursor, Language, Ruby }
+
+Public Member Functions
+
+     * QInputMethodEvent ()
+     * QInputMethodEvent (const QString &preeditText, const QList< Attribute > &attributes)
+     * void setCommitString (const QString &commitString, int replaceFrom=0, int replaceLength=0)
+     * const QList< Attribute > & attributes () const
+     * const QString & preeditString () const
+     * const QString & commitString () const
+     * int replacementStart () const
+     * int replacementLength () const
+     * QInputMethodEvent (const QInputMethodEvent &other)
+
+Classes
+
+     * class Attribute
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QInputMethodEvent::AttributeType
+
+
+
+   Enumerator: 
+
+          TextFormat
+          Cursor    
+          Language  
+          Ruby      
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QInputMethodEvent::QInputMethodEvent (   )
+
+
+
+   QInputMethodEvent::QInputMethodEvent (  const QString &             preeditText,
+                                           const QList< Attribute > &  attributes
+                                        )
+
+
+
+   QInputMethodEvent::QInputMethodEvent (  const QInputMethodEvent &  other  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   const QList<Attribute>& QInputMethodEvent::attributes (   )  const [inline]
+
+
+
+   const QString& QInputMethodEvent::commitString (   )  const [inline]
+
+
+
+   const QString& QInputMethodEvent::preeditString (   )  const [inline]
+
+
+
+   int QInputMethodEvent::replacementLength (   )  const [inline]
+
+
+
+   int QInputMethodEvent::replacementStart (   )  const [inline]
+
+
+
+   void QInputMethodEvent::setCommitString (  const QString &  commitString,
+                                              int              replaceFrom = 0,
+                                              int              replaceLength = 0
+                                           )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qevent.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

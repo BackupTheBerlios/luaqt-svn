@@ -1,0 +1,157 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QInputContext Class Reference
+
+   #include <qinputcontext.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * enum StandardFormat { PreeditFormat, SelectionFormat }
+
+Public Member Functions
+
+     * QInputContext (QObject *parent=0)
+     * virtual ~QInputContext ()
+     * virtual QString identifierName ()=0
+     * virtual QString language ()=0
+     * virtual void reset ()=0
+     * virtual void update ()
+     * virtual void mouseHandler (int x, QMouseEvent *event)
+     * virtual QFont font () const
+     * virtual bool isComposing () const =0
+     * QWidget * focusWidget () const
+     * virtual void setFocusWidget (QWidget *w)
+     * virtual void widgetDestroyed (QWidget *w)
+     * virtual QList< QAction * > actions ()
+     * virtual bool x11FilterEvent (QWidget *keywidget, XEvent *event)
+     * virtual bool filterEvent (const QEvent *event)
+     * void sendEvent (const QInputMethodEvent &event)
+     * QTextFormat standardFormat (StandardFormat s) const
+
+Friends
+
+     * class QWidget
+     * class QInputContextFactory
+     * class QApplication
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QInputContext::StandardFormat
+
+
+
+   Enumerator: 
+
+          PreeditFormat  
+          SelectionFormat
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QInputContext::QInputContext (  QObject *  parent = 0  )  [explicit]
+
+
+
+   virtual QInputContext::~QInputContext (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QList<QAction *> QInputContext::actions (   )  [virtual]
+
+
+
+   virtual bool QInputContext::filterEvent (  const QEvent *  event  )  [virtual]
+
+
+
+   QWidget* QInputContext::focusWidget (   )  const
+
+
+
+   virtual QFont QInputContext::font (   )  const [virtual]
+
+
+
+   virtual QString QInputContext::identifierName (   )  [pure virtual]
+
+
+
+   virtual bool QInputContext::isComposing (   )  const [pure virtual]
+
+
+
+   virtual QString QInputContext::language (   )  [pure virtual]
+
+
+
+   virtual void QInputContext::mouseHandler (  int            x,
+                                               QMouseEvent *  event
+                                            )  [virtual]
+
+
+
+   virtual void QInputContext::reset (   )  [pure virtual]
+
+
+
+   void QInputContext::sendEvent (  const QInputMethodEvent &  event  )
+
+
+
+   virtual void QInputContext::setFocusWidget (  QWidget *  w  )  [virtual]
+
+
+
+   QTextFormat QInputContext::standardFormat (  StandardFormat  s  )  const
+
+
+
+   virtual void QInputContext::update (   )  [virtual]
+
+
+
+   virtual void QInputContext::widgetDestroyed (  QWidget *  w  )  [virtual]
+
+
+
+   virtual bool QInputContext::x11FilterEvent (  QWidget *  keywidget,
+                                                 XEvent *   event
+                                              )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QApplication [friend]
+
+
+
+   Reimplemented from QObject.
+
+   friend class QInputContextFactory [friend]
+
+
+
+   friend class QWidget [friend]
+
+
+
+   Reimplemented from QObject.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qinputcontext.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

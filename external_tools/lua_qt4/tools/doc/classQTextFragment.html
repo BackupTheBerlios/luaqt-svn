@@ -1,0 +1,98 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QTextFragment Class Reference
+
+   #include <qtextobject.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QTextFragment (const QTextDocumentPrivate *priv, int f, int fe)
+     * QTextFragment ()
+     * QTextFragment (const QTextFragment &o)
+     * QTextFragment & operator= (const QTextFragment &o)
+     * bool isValid () const
+     * bool operator== (const QTextFragment &o) const
+     * bool operator!= (const QTextFragment &o) const
+     * bool operator< (const QTextFragment &o) const
+     * int position () const
+     * int length () const
+     * bool contains (int position) const
+     * QTextCharFormat charFormat () const
+     * int charFormatIndex () const
+     * QString text () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextFragment::QTextFragment (  const QTextDocumentPrivate *  priv,
+                                   int                           f,
+                                   int                           fe
+                                )  [inline]
+
+
+
+   QTextFragment::QTextFragment (   )  [inline]
+
+
+
+   QTextFragment::QTextFragment (  const QTextFragment &  o  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QTextCharFormat QTextFragment::charFormat (   )  const
+
+
+
+   int QTextFragment::charFormatIndex (   )  const
+
+
+
+   bool QTextFragment::contains (  int  position  )  const
+
+
+
+   bool QTextFragment::isValid (   )  const [inline]
+
+
+
+   int QTextFragment::length (   )  const
+
+
+
+   bool QTextFragment::operator!= (  const QTextFragment &  o  )  const [inline]
+
+
+
+   bool QTextFragment::operator< (  const QTextFragment &  o  )  const [inline]
+
+
+
+   QTextFragment& QTextFragment::operator= (  const QTextFragment &  o  )  [inline]
+
+
+
+   bool QTextFragment::operator== (  const QTextFragment &  o  )  const [inline]
+
+
+
+   int QTextFragment::position (   )  const
+
+
+
+   QString QTextFragment::text (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

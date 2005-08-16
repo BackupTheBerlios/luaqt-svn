@@ -1,0 +1,220 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QWorkspace Class Reference
+
+   #include <qworkspace.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum WindowOrder { CreationOrder, StackingOrder }
+
+Public Slots
+
+     * void setActiveWindow (QWidget *w)
+     * void cascade ()
+     * void tile ()
+     * void closeActiveWindow ()
+     * void closeAllWindows ()
+     * void activateNextWindow ()
+     * void activatePreviousWindow ()
+
+Signals
+
+     * void windowActivated (QWidget *w)
+
+Public Member Functions
+
+     * QWorkspace (QWidget *parent=0)
+     * ~QWorkspace ()
+     * QWidget * activeWindow () const
+     * QWidgetList windowList (WindowOrder order=CreationOrder) const
+     * QWidget * addWindow (QWidget *w, Qt::WFlags flags=0)
+     * QSize sizeHint () const
+     * bool scrollBarsEnabled () const
+     * void setScrollBarsEnabled (bool enable)
+     * void setBackground (const QBrush &background)
+     * QBrush background () const
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *e)
+     * void changeEvent (QEvent *)
+     * void childEvent (QChildEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * bool eventFilter (QObject *, QEvent *)
+     * void showEvent (QShowEvent *e)
+     * void hideEvent (QHideEvent *e)
+     * void wheelEvent (QWheelEvent *e)
+
+Properties
+
+     * bool scrollBarsEnabled
+     * QBrush background
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QWorkspace::WindowOrder
+
+
+
+   Enumerator: 
+
+          CreationOrder
+          StackingOrder
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QWorkspace::QWorkspace (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QWorkspace::~QWorkspace (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QWorkspace::activateNextWindow (   )  [slot]
+
+
+
+   void QWorkspace::activatePreviousWindow (   )  [slot]
+
+
+
+   QWidget* QWorkspace::activeWindow (   )  const
+
+
+
+   QWidget* QWorkspace::addWindow (  QWidget *   w,
+                                     Qt::WFlags  flags = 0
+                                  )
+
+
+
+   QBrush QWorkspace::background (   )  const
+
+
+
+   void QWorkspace::cascade (   )  [slot]
+
+
+
+   void QWorkspace::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QWorkspace::childEvent (  QChildEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void QWorkspace::closeActiveWindow (   )  [slot]
+
+
+
+   void QWorkspace::closeAllWindows (   )  [slot]
+
+
+
+   bool QWorkspace::eventFilter (  QObject *  ,
+                                   QEvent * 
+                                )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void QWorkspace::hideEvent (  QHideEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QWorkspace::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QWorkspace::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QWorkspace::scrollBarsEnabled (   )  const
+
+
+
+   void QWorkspace::setActiveWindow (  QWidget *  w  )  [slot]
+
+
+
+   void QWorkspace::setBackground (  const QBrush &  background  )
+
+
+
+   void QWorkspace::setScrollBarsEnabled (  bool  enable  )
+
+
+
+   void QWorkspace::showEvent (  QShowEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QWorkspace::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QWorkspace::tile (   )  [slot]
+
+
+
+   void QWorkspace::wheelEvent (  QWheelEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QWorkspace::windowActivated (  QWidget *  w  )  [signal]
+
+
+
+   QWidgetList QWorkspace::windowList (  WindowOrder  order = CreationOrder  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QBrush QWorkspace::background [read, write]
+
+
+
+   bool QWorkspace::scrollBarsEnabled [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qworkspace.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

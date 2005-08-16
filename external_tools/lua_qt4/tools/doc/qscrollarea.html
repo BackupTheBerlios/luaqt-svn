@@ -1,0 +1,132 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QScrollArea Class Reference
+
+   The QScrollArea class provides a scrolling view onto another widget.
+   More...
+#include <QScrollArea>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractScrollArea.
+     * List of all members, including inherited members
+
+  Properties
+
+     * widgetResizable : bool
+
+     * 2 properties inherited from QAbstractScrollArea
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QScrollArea ( QWidget * parent = 0 )
+     * ~QScrollArea ()
+     * void setWidget ( QWidget * w )
+     * void setWidgetResizable ( bool resizable )
+     * QWidget * takeWidget ()
+     * QWidget * widget () const
+     * bool widgetResizable () const
+
+     * 8 public functions inherited from QAbstractScrollArea
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Additional Inherited Members
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 17 protected functions inherited from QAbstractScrollArea
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QScrollArea class provides a scrolling view onto another widget.
+
+   A scroll area is used to display the contents of a child widget within
+   a frame. If the widget exceeds the size of the frame, the view can
+   provide scroll bars so that the entire area of the child widget can be
+   viewed.
+
+   The child widget must be specified with setWidget(); it can be
+   retrieved with widget(). The view can be made to be resizable with the
+   setWidgetResizable() function.
+
+   When using a scroll area to display the contents of a custom widget,
+   it is important to ensure that the size hint of the child widget is
+   set to a suitable value. If a standard QWidget is used for the child
+   widget, it may be necessary to call QWidget::setMinimumSize() to
+   ensure that the contents of the widget are shown correctly within the
+   scroll area.
+     _________________________________________________________________
+
+Property Documentation
+
+  widgetResizable : bool
+
+   This property holds whether the scroll area should resize the view
+   widget.
+
+   If this property is set to false (the default), the view honors the
+   size of its widget. Regardless of this property, you can
+   programmatically resize the widget using widget()->resize(), and the
+   scroll area will automatically adjust itself to the new size.
+
+   If this property is set to true, the view will automatically resize
+   the widget in order to avoid scroll bars where they can be avoided, or
+   to take advantage of extra space.
+
+   Access functions:
+     * bool widgetResizable () const
+     * void setWidgetResizable ( bool resizable )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QScrollArea::QScrollArea ( QWidget * parent = 0 )
+
+   Constructs a scroll area with the given parent, and with no widget;
+   see setWidget().
+
+  QScrollArea::~QScrollArea ()
+
+   Destroys the scroll area.
+
+  void QScrollArea::setWidget ( QWidget * w )
+
+   Set's the view widget's widget to w.
+
+   w becomes a child of the scroll area, and will be destroyed when the
+   scroll area is deleted or when a new view widget is set.
+
+   See also widget().
+
+  QWidget * QScrollArea::takeWidget ()
+
+   Removes the view widget's widget from the view, and passes ownership
+   of the widget to the caller.
+
+  QWidget * QScrollArea::widget () const
+
+   Returns the view widget's widget, or 0 if there is none.
+
+   See also setWidget().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,957 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3ListBox Class Reference
+
+   #include <q3listbox.h>
+
+   Inherits Q3ScrollView.
+
+   List of all members.
+
+Public Types
+
+     * typedef uint ComparisonFlags
+     * enum SelectionMode { Single, Multi, Extended, NoSelection }
+     * enum StringComparisonMode {
+         CaseSensitive = 0x00001, BeginsWith = 0x00002, EndsWith = 0x00004, Contains = 0x00008,
+         ExactMatch = 0x00010
+       }
+     * enum LayoutMode { FixedNumber, FitToWidth, FitToHeight = FitToWidth, Variable }
+
+Public Slots
+
+     * void clear ()
+     * virtual void ensureCurrentVisible ()
+     * virtual void clearSelection ()
+     * virtual void selectAll (bool select)
+     * virtual void invertSelection ()
+
+Signals
+
+     * void highlighted (int index)
+     * void selected (int index)
+     * void highlighted (const QString &)
+     * void selected (const QString &)
+     * void highlighted (Q3ListBoxItem *)
+     * void selected (Q3ListBoxItem *)
+     * void selectionChanged ()
+     * void selectionChanged (Q3ListBoxItem *)
+     * void currentChanged (Q3ListBoxItem *)
+     * void clicked (Q3ListBoxItem *)
+     * void clicked (Q3ListBoxItem *, const QPoint &)
+     * void pressed (Q3ListBoxItem *)
+     * void pressed (Q3ListBoxItem *, const QPoint &)
+     * void doubleClicked (Q3ListBoxItem *)
+     * void returnPressed (Q3ListBoxItem *)
+     * void rightButtonClicked (Q3ListBoxItem *, const QPoint &)
+     * void rightButtonPressed (Q3ListBoxItem *, const QPoint &)
+     * void mouseButtonPressed (int, Q3ListBoxItem *, const QPoint &)
+     * void mouseButtonClicked (int, Q3ListBoxItem *, const QPoint &)
+     * void contextMenuRequested (Q3ListBoxItem *, const QPoint &)
+     * void onItem (Q3ListBoxItem *item)
+     * void onViewport ()
+
+Public Member Functions
+
+     * Q3ListBox (QWidget *parent=0, const char *name=0, Qt::WFlags f=0)
+     * ~Q3ListBox ()
+     * uint count () const
+     * void insertStringList (const QStringList &, int index=-1)
+     * void insertStrList (const char **, int numStrings=-1, int index=-1)
+     * void insertItem (const Q3ListBoxItem *, int index=-1)
+     * void insertItem (const Q3ListBoxItem *, const Q3ListBoxItem *after)
+     * void insertItem (const QString &text, int index=-1)
+     * void insertItem (const QPixmap &pixmap, int index=-1)
+     * void insertItem (const QPixmap &pixmap, const QString &text, int index=-1)
+     * void removeItem (int index)
+     * QString text (int index) const
+     * const QPixmap * pixmap (int index) const
+     * void changeItem (const Q3ListBoxItem *, int index)
+     * void changeItem (const QString &text, int index)
+     * void changeItem (const QPixmap &pixmap, int index)
+     * void changeItem (const QPixmap &pixmap, const QString &text, int index)
+     * void takeItem (const Q3ListBoxItem *)
+     * int numItemsVisible () const
+     * int currentItem () const
+     * QString currentText () const
+     * virtual void setCurrentItem (int index)
+     * virtual void setCurrentItem (Q3ListBoxItem *)
+     * void centerCurrentItem ()
+     * int topItem () const
+     * virtual void setTopItem (int index)
+     * virtual void setBottomItem (int index)
+     * long maxItemWidth () const
+     * virtual void setSelectionMode (SelectionMode)
+     * SelectionMode selectionMode () const
+     * void setMultiSelection (bool multi)
+     * bool isMultiSelection () const
+     * QVariant inputMethodQuery (Qt::InputMethodQuery query) const
+     * virtual void setSelected (Q3ListBoxItem *, bool)
+     * void setSelected (int, bool)
+     * bool isSelected (int) const
+     * bool isSelected (const Q3ListBoxItem *) const
+     * Q3ListBoxItem * selectedItem () const
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * Q3ListBoxItem * item (int index) const
+     * int index (const Q3ListBoxItem *) const
+     * Q3ListBoxItem * findItem (const QString &text, ComparisonFlags compare=BeginsWith) const
+     * void triggerUpdate (bool doLayout)
+     * bool itemVisible (int index)
+     * bool itemVisible (const Q3ListBoxItem *)
+     * virtual void setColumnMode (LayoutMode)
+     * virtual void setColumnMode (int)
+     * virtual void setRowMode (LayoutMode)
+     * virtual void setRowMode (int)
+     * LayoutMode columnMode () const
+     * LayoutMode rowMode () const
+     * int numColumns () const
+     * int numRows () const
+     * bool variableWidth () const
+     * virtual void setVariableWidth (bool)
+     * bool variableHeight () const
+     * virtual void setVariableHeight (bool)
+     * void viewportPaintEvent (QPaintEvent *)
+     * bool dragSelect () const
+     * void setDragSelect (bool)
+     * bool autoScroll () const
+     * void setAutoScroll (bool)
+     * bool autoScrollBar () const
+     * void setAutoScrollBar (bool enable)
+     * bool scrollBar () const
+     * void setScrollBar (bool enable)
+     * bool autoBottomScrollBar () const
+     * void setAutoBottomScrollBar (bool enable)
+     * bool bottomScrollBar () const
+     * void setBottomScrollBar (bool enable)
+     * bool smoothScrolling () const
+     * void setSmoothScrolling (bool)
+     * bool autoUpdate () const
+     * void setAutoUpdate (bool)
+     * void setFixedVisibleLines (int lines)
+     * int inSort (const Q3ListBoxItem *)
+     * int inSort (const QString &text)
+     * int cellHeight (int i) const
+     * int cellHeight () const
+     * int cellWidth () const
+     * int cellWidth (int i) const
+     * int numCols () const
+     * int itemHeight (int index=0) const
+     * Q3ListBoxItem * itemAt (const QPoint &) const
+     * QRect itemRect (Q3ListBoxItem *item) const
+     * Q3ListBoxItem * firstItem () const
+     * void sort (bool ascending=true)
+
+Protected Slots
+
+     * void clearInputString ()
+
+Protected Member Functions
+
+     * void changeEvent (QEvent *)
+     * void mousePressEvent (QMouseEvent *)
+     * void mouseReleaseEvent (QMouseEvent *)
+     * void mouseDoubleClickEvent (QMouseEvent *)
+     * void mouseMoveEvent (QMouseEvent *)
+     * void contentsContextMenuEvent (QContextMenuEvent *)
+     * void keyPressEvent (QKeyEvent *e)
+     * void focusInEvent (QFocusEvent *e)
+     * void focusOutEvent (QFocusEvent *e)
+     * void resizeEvent (QResizeEvent *)
+     * void showEvent (QShowEvent *)
+     * bool eventFilter (QObject *o, QEvent *e)
+     * void updateItem (int index)
+     * void updateItem (Q3ListBoxItem *)
+     * void updateCellWidth ()
+     * int totalWidth () const
+     * int totalHeight () const
+     * virtual void paintCell (QPainter *, int row, int col)
+     * void toggleCurrentItem ()
+     * bool isRubberSelecting () const
+     * void doLayout () const
+     * int findItem (int yPos) const
+
+Properties
+
+     * uint count
+     * int numItemsVisible
+     * int currentItem
+     * QString currentText
+     * int topItem
+     * SelectionMode selectionMode
+     * bool multiSelection
+     * LayoutMode columnMode
+     * LayoutMode rowMode
+     * int numColumns
+     * int numRows
+     * bool variableWidth
+     * bool variableHeight
+
+Friends
+
+     * class Q3ListBoxItem
+     * class Q3ListBoxPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef uint Q3ListBox::ComparisonFlags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3ListBox::LayoutMode
+
+
+
+   Enumerator: 
+
+          FixedNumber
+          FitToWidth 
+          FitToHeight
+          Variable   
+
+   enum Q3ListBox::SelectionMode
+
+
+
+   Enumerator: 
+
+          Single     
+          Multi      
+          Extended   
+          NoSelection
+
+   enum Q3ListBox::StringComparisonMode
+
+
+
+   Enumerator: 
+
+          CaseSensitive
+          BeginsWith   
+          EndsWith     
+          Contains     
+          ExactMatch   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ListBox::Q3ListBox (  QWidget *     parent = 0,
+                           const char *  name = 0,
+                           Qt::WFlags    f = 0
+                        )
+
+
+
+   Q3ListBox::~Q3ListBox (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool Q3ListBox::autoBottomScrollBar (   )  const [inline]
+
+
+
+   bool Q3ListBox::autoScroll (   )  const [inline]
+
+
+
+   bool Q3ListBox::autoScrollBar (   )  const [inline]
+
+
+
+   bool Q3ListBox::autoUpdate (   )  const [inline]
+
+
+
+   bool Q3ListBox::bottomScrollBar (   )  const [inline]
+
+
+
+   int Q3ListBox::cellHeight (   )  const [inline]
+
+
+
+   int Q3ListBox::cellHeight (  int  i  )  const [inline]
+
+
+
+   int Q3ListBox::cellWidth (  int  i  )  const [inline]
+
+
+
+   int Q3ListBox::cellWidth (   )  const [inline]
+
+
+
+   void Q3ListBox::centerCurrentItem (   )  [inline]
+
+
+
+   void Q3ListBox::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   void Q3ListBox::changeItem (  const QPixmap &  pixmap,
+                                 const QString &  text,
+                                 int              index
+                              )
+
+
+
+   void Q3ListBox::changeItem (  const QPixmap &  pixmap,
+                                 int              index
+                              )
+
+
+
+   void Q3ListBox::changeItem (  const QString &  text,
+                                 int              index
+                              )
+
+
+
+   void Q3ListBox::changeItem (  const Q3ListBoxItem *  ,
+                                 int                    index
+                              )
+
+
+
+   void Q3ListBox::clear (   )  [slot]
+
+
+
+   void Q3ListBox::clearInputString (   )  [protected, slot]
+
+
+
+   virtual void Q3ListBox::clearSelection (   )  [virtual, slot]
+
+
+
+   void Q3ListBox::clicked (  Q3ListBoxItem *  ,
+                              const QPoint & 
+                           )  [signal]
+
+
+
+   void Q3ListBox::clicked (  Q3ListBoxItem *   )  [signal]
+
+
+
+   LayoutMode Q3ListBox::columnMode (   )  const
+
+
+
+   void Q3ListBox::contentsContextMenuEvent (  QContextMenuEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListBox::contextMenuRequested (  Q3ListBoxItem *  ,
+                                           const QPoint & 
+                                        )  [signal]
+
+
+
+   uint Q3ListBox::count (   )  const
+
+
+
+   void Q3ListBox::currentChanged (  Q3ListBoxItem *   )  [signal]
+
+
+
+   int Q3ListBox::currentItem (   )  const
+
+
+
+   QString Q3ListBox::currentText (   )  const [inline]
+
+
+
+   void Q3ListBox::doLayout (   )  const [protected]
+
+
+
+   void Q3ListBox::doubleClicked (  Q3ListBoxItem *   )  [signal]
+
+
+
+   bool Q3ListBox::dragSelect (   )  const [inline]
+
+
+
+   virtual void Q3ListBox::ensureCurrentVisible (   )  [virtual, slot]
+
+
+
+   bool Q3ListBox::eventFilter (  QObject *  o,
+                                  QEvent *   e
+                               )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   int Q3ListBox::findItem (  int  yPos  )  const [inline, protected]
+
+
+
+   Q3ListBoxItem* Q3ListBox::findItem (  const QString &  text,
+                                         ComparisonFlags  compare = BeginsWith
+                                      )  const
+
+
+
+   Q3ListBoxItem* Q3ListBox::firstItem (   )  const
+
+
+
+   void Q3ListBox::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ListBox::focusOutEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ListBox::highlighted (  Q3ListBoxItem *   )  [signal]
+
+
+
+   void Q3ListBox::highlighted (  const QString &   )  [signal]
+
+
+
+   void Q3ListBox::highlighted (  int  index  )  [signal]
+
+
+
+   int Q3ListBox::index (  const Q3ListBoxItem *   )  const
+
+
+
+   QVariant Q3ListBox::inputMethodQuery (  Qt::InputMethodQuery  query  )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3ListBox::insertItem (  const QPixmap &  pixmap,
+                                 const QString &  text,
+                                 int              index = -1
+                              )
+
+
+
+   void Q3ListBox::insertItem (  const QPixmap &  pixmap,
+                                 int              index = -1
+                              )
+
+
+
+   void Q3ListBox::insertItem (  const QString &  text,
+                                 int              index = -1
+                              )
+
+
+
+   void Q3ListBox::insertItem (  const Q3ListBoxItem *  ,
+                                 const Q3ListBoxItem *  after
+                              )
+
+
+
+   void Q3ListBox::insertItem (  const Q3ListBoxItem *  ,
+                                 int                    index = -1
+                              )
+
+
+
+   void Q3ListBox::insertStringList (  const QStringList &  ,
+                                       int                  index = -1
+                                    )
+
+
+
+   void Q3ListBox::insertStrList (  const char **  ,
+                                    int            numStrings = -1,
+                                    int            index = -1
+                                 )
+
+
+
+   int Q3ListBox::inSort (  const QString &  text  )
+
+
+
+   int Q3ListBox::inSort (  const Q3ListBoxItem *   )
+
+
+
+   virtual void Q3ListBox::invertSelection (   )  [virtual, slot]
+
+
+
+   bool Q3ListBox::isMultiSelection (   )  const
+
+
+
+   bool Q3ListBox::isRubberSelecting (   )  const [protected]
+
+
+
+   bool Q3ListBox::isSelected (  const Q3ListBoxItem *   )  const
+
+
+
+   bool Q3ListBox::isSelected (  int   )  const
+
+
+
+   Q3ListBoxItem* Q3ListBox::item (  int  index  )  const
+
+
+
+   Q3ListBoxItem* Q3ListBox::itemAt (  const QPoint &   )  const
+
+
+
+   int Q3ListBox::itemHeight (  int  index = 0  )  const
+
+
+
+   QRect Q3ListBox::itemRect (  Q3ListBoxItem *  item  )  const
+
+
+
+   bool Q3ListBox::itemVisible (  const Q3ListBoxItem *   )
+
+
+
+   bool Q3ListBox::itemVisible (  int  index  )
+
+
+
+   void Q3ListBox::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   long Q3ListBox::maxItemWidth (   )  const
+
+
+
+   QSize Q3ListBox::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListBox::mouseButtonClicked (  int              ,
+                                         Q3ListBoxItem *  ,
+                                         const QPoint & 
+                                      )  [signal]
+
+
+
+   void Q3ListBox::mouseButtonPressed (  int              ,
+                                         Q3ListBoxItem *  ,
+                                         const QPoint & 
+                                      )  [signal]
+
+
+
+   void Q3ListBox::mouseDoubleClickEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListBox::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListBox::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListBox::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   int Q3ListBox::numCols (   )  const [inline]
+
+
+
+   int Q3ListBox::numColumns (   )  const
+
+
+
+   int Q3ListBox::numItemsVisible (   )  const
+
+
+
+   int Q3ListBox::numRows (   )  const
+
+
+
+   void Q3ListBox::onItem (  Q3ListBoxItem *  item  )  [signal]
+
+
+
+   void Q3ListBox::onViewport (   )  [signal]
+
+
+
+   virtual void Q3ListBox::paintCell (  QPainter *  ,
+                                        int         row,
+                                        int         col
+                                     )  [protected, virtual]
+
+
+
+   const QPixmap* Q3ListBox::pixmap (  int  index  )  const
+
+
+
+   void Q3ListBox::pressed (  Q3ListBoxItem *  ,
+                              const QPoint & 
+                           )  [signal]
+
+
+
+   void Q3ListBox::pressed (  Q3ListBoxItem *   )  [signal]
+
+
+
+   void Q3ListBox::removeItem (  int  index  )
+
+
+
+   void Q3ListBox::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3ListBox::returnPressed (  Q3ListBoxItem *   )  [signal]
+
+
+
+   void Q3ListBox::rightButtonClicked (  Q3ListBoxItem *  ,
+                                         const QPoint & 
+                                      )  [signal]
+
+
+
+   void Q3ListBox::rightButtonPressed (  Q3ListBoxItem *  ,
+                                         const QPoint & 
+                                      )  [signal]
+
+
+
+   LayoutMode Q3ListBox::rowMode (   )  const
+
+
+
+   bool Q3ListBox::scrollBar (   )  const [inline]
+
+
+
+   virtual void Q3ListBox::selectAll (  bool  select  )  [virtual, slot]
+
+
+
+   void Q3ListBox::selected (  Q3ListBoxItem *   )  [signal]
+
+
+
+   void Q3ListBox::selected (  const QString &   )  [signal]
+
+
+
+   void Q3ListBox::selected (  int  index  )  [signal]
+
+
+
+   Q3ListBoxItem* Q3ListBox::selectedItem (   )  const
+
+
+
+   void Q3ListBox::selectionChanged (  Q3ListBoxItem *   )  [signal]
+
+
+
+   void Q3ListBox::selectionChanged (   )  [signal]
+
+
+
+   SelectionMode Q3ListBox::selectionMode (   )  const
+
+
+
+   void Q3ListBox::setAutoBottomScrollBar (  bool  enable  )  [inline]
+
+
+
+   void Q3ListBox::setAutoScroll (  bool   )  [inline]
+
+
+
+   void Q3ListBox::setAutoScrollBar (  bool  enable  )  [inline]
+
+
+
+   void Q3ListBox::setAutoUpdate (  bool   )  [inline]
+
+
+
+   virtual void Q3ListBox::setBottomItem (  int  index  )  [virtual]
+
+
+
+   void Q3ListBox::setBottomScrollBar (  bool  enable  )  [inline]
+
+
+
+   virtual void Q3ListBox::setColumnMode (  int   )  [virtual]
+
+
+
+   virtual void Q3ListBox::setColumnMode (  LayoutMode   )  [virtual]
+
+
+
+   virtual void Q3ListBox::setCurrentItem (  Q3ListBoxItem *   )  [virtual]
+
+
+
+   virtual void Q3ListBox::setCurrentItem (  int  index  )  [virtual]
+
+
+
+   void Q3ListBox::setDragSelect (  bool   )  [inline]
+
+
+
+   void Q3ListBox::setFixedVisibleLines (  int  lines  )  [inline]
+
+
+
+   void Q3ListBox::setMultiSelection (  bool  multi  )
+
+
+
+   virtual void Q3ListBox::setRowMode (  int   )  [virtual]
+
+
+
+   virtual void Q3ListBox::setRowMode (  LayoutMode   )  [virtual]
+
+
+
+   void Q3ListBox::setScrollBar (  bool  enable  )  [inline]
+
+
+
+   void Q3ListBox::setSelected (  int   ,
+                                  bool
+                               )
+
+
+
+   virtual void Q3ListBox::setSelected (  Q3ListBoxItem *  ,
+                                          bool           
+                                       )  [virtual]
+
+
+
+   virtual void Q3ListBox::setSelectionMode (  SelectionMode   )  [virtual]
+
+
+
+   void Q3ListBox::setSmoothScrolling (  bool   )  [inline]
+
+
+
+   virtual void Q3ListBox::setTopItem (  int  index  )  [virtual]
+
+
+
+   virtual void Q3ListBox::setVariableHeight (  bool   )  [virtual]
+
+
+
+   virtual void Q3ListBox::setVariableWidth (  bool   )  [virtual]
+
+
+
+   void Q3ListBox::showEvent (  QShowEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize Q3ListBox::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   bool Q3ListBox::smoothScrolling (   )  const [inline]
+
+
+
+   void Q3ListBox::sort (  bool  ascending = true  )
+
+
+
+   void Q3ListBox::takeItem (  const Q3ListBoxItem *   )
+
+
+
+   QString Q3ListBox::text (  int  index  )  const
+
+
+
+   void Q3ListBox::toggleCurrentItem (   )  [protected]
+
+
+
+   int Q3ListBox::topItem (   )  const
+
+
+
+   int Q3ListBox::totalHeight (   )  const [inline, protected]
+
+
+
+   int Q3ListBox::totalWidth (   )  const [inline, protected]
+
+
+
+   void Q3ListBox::triggerUpdate (  bool  doLayout  )
+
+
+
+   void Q3ListBox::updateCellWidth (   )  [inline, protected]
+
+
+
+   void Q3ListBox::updateItem (  Q3ListBoxItem *   )  [protected]
+
+
+
+   void Q3ListBox::updateItem (  int  index  )  [protected]
+
+
+
+   bool Q3ListBox::variableHeight (   )  const
+
+
+
+   bool Q3ListBox::variableWidth (   )  const
+
+
+
+   void Q3ListBox::viewportPaintEvent (  QPaintEvent *   )  [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3ListBoxItem [friend]
+
+
+
+   friend class Q3ListBoxPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   LayoutMode Q3ListBox::columnMode [read, write]
+
+
+
+   uint Q3ListBox::count [read]
+
+
+
+   int Q3ListBox::currentItem [read, write]
+
+
+
+   QString Q3ListBox::currentText [read]
+
+
+
+   bool Q3ListBox::multiSelection [read, write]
+
+
+
+   int Q3ListBox::numColumns [read]
+
+
+
+   int Q3ListBox::numItemsVisible [read]
+
+
+
+   int Q3ListBox::numRows [read]
+
+
+
+   LayoutMode Q3ListBox::rowMode [read, write]
+
+
+
+   SelectionMode Q3ListBox::selectionMode [read, write]
+
+
+
+   int Q3ListBox::topItem [read, write]
+
+
+
+   bool Q3ListBox::variableHeight [read, write]
+
+
+
+   bool Q3ListBox::variableWidth [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3listbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,863 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QDomNode Class Reference
+
+   The QDomNode class is the base class for all the nodes in a DOM tree.
+   More...
+#include <QDomNode>
+
+   Part of the QtXml module.
+
+   Inherited by QDomAttr, QDomCharacterData, QDomDocument,
+   QDomDocumentFragment, QDomDocumentType, QDomElement, QDomEntity,
+   QDomEntityReference, QDomNotation, and QDomProcessingInstruction.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum NodeType { ElementNode, AttributeNode, TextNode,
+       CDATASectionNode, ..., CharacterDataNode }
+
+  Public Functions
+
+     * QDomNode ()
+     * QDomNode ( const QDomNode & n )
+     * ~QDomNode ()
+     * QDomNode appendChild ( const QDomNode & newChild )
+     * QDomNamedNodeMap attributes () const
+     * QDomNodeList childNodes () const
+     * void clear ()
+     * QDomNode cloneNode ( bool deep = true ) const
+     * QDomNode firstChild () const
+     * QDomElement firstChildElement ( const QString & tagName =
+       QString() ) const
+     * bool hasAttributes () const
+     * bool hasChildNodes () const
+     * QDomNode insertAfter ( const QDomNode & newChild, const QDomNode &
+       refChild )
+     * QDomNode insertBefore ( const QDomNode & newChild, const QDomNode
+       & refChild )
+     * bool isAttr () const
+     * bool isCDATASection () const
+     * bool isCharacterData () const
+     * bool isComment () const
+     * bool isDocument () const
+     * bool isDocumentFragment () const
+     * bool isDocumentType () const
+     * bool isElement () const
+     * bool isEntity () const
+     * bool isEntityReference () const
+     * bool isNotation () const
+     * bool isNull () const
+     * bool isProcessingInstruction () const
+     * bool isSupported ( const QString & feature, const QString &
+       version ) const
+     * bool isText () const
+     * QDomNode lastChild () const
+     * QDomElement lastChildElement ( const QString & tagName = QString()
+       ) const
+     * QString localName () const
+     * QDomNode namedItem ( const QString & name ) const
+     * QString namespaceURI () const
+     * QDomNode nextSibling () const
+     * QDomElement nextSiblingElement ( const QString & tagName =
+       QString() ) const
+     * QString nodeName () const
+     * NodeType nodeType () const
+     * QString nodeValue () const
+     * void normalize ()
+     * QDomDocument ownerDocument () const
+     * QDomNode parentNode () const
+     * QString prefix () const
+     * QDomNode previousSibling () const
+     * QDomElement previousSiblingElement ( const QString & tagName =
+       QString() ) const
+     * QDomNode removeChild ( const QDomNode & oldChild )
+     * QDomNode replaceChild ( const QDomNode & newChild, const QDomNode
+       & oldChild )
+     * void save ( QTextStream & str, int indent ) const
+     * void setNodeValue ( const QString & v )
+     * void setPrefix ( const QString & pre )
+     * QDomAttr toAttr () const
+     * QDomCDATASection toCDATASection () const
+     * QDomCharacterData toCharacterData () const
+     * QDomComment toComment () const
+     * QDomDocument toDocument () const
+     * QDomDocumentFragment toDocumentFragment () const
+     * QDomDocumentType toDocumentType () const
+     * QDomElement toElement () const
+     * QDomEntity toEntity () const
+     * QDomEntityReference toEntityReference () const
+     * QDomNotation toNotation () const
+     * QDomProcessingInstruction toProcessingInstruction () const
+     * QDomText toText () const
+     * bool operator!= ( const QDomNode & n ) const
+     * QDomNode & operator= ( const QDomNode & n )
+     * bool operator== ( const QDomNode & n ) const
+
+  Related Non-Members
+
+     * QTextStream & operator<< ( QTextStream & str, const QDomNode &
+       node )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QDomNode class is the base class for all the nodes in a DOM tree.
+
+   Many functions in the DOM return a QDomNode.
+
+   You can find out the type of a node using isAttr(), isCDATASection(),
+   isDocumentFragment(), isDocument(), isDocumentType(), isElement(),
+   isEntityReference(), isText(), isEntity(), isNotation(),
+   isProcessingInstruction(), isCharacterData() and isComment().
+
+   A QDomNode can be converted into one of its subclasses using toAttr(),
+   toCDATASection(), toDocumentFragment(), toDocument(),
+   toDocumentType(), toElement(), toEntityReference(), toText(),
+   toEntity(), toNotation(), toProcessingInstruction(), toCharacterData()
+   or toComment(). You can convert a node to a null node with clear().
+
+   Copies of the QDomNode class share their data using explicit sharing.
+   This means that modifying one node will change all copies. This is
+   especially useful in combination with functions which return a
+   QDomNode, e.g. firstChild(). You can make an independent (deep) copy
+   of the node with cloneNode().
+
+   Nodes are inserted with insertBefore(), insertAfter() or
+   appendChild(). You can replace one node with another using
+   replaceChild() and remove a node with removeChild().
+
+   To traverse nodes use firstChild() to get a node's first child (if
+   any), and nextSibling() to traverse. QDomNode also provides
+   lastChild(), previousSibling() and parentNode(). To find the first
+   child node with a particular node name use namedItem().
+
+   To find out if a node has children use hasChildNodes() and to get a
+   list of all of a node's children use childNodes().
+
+   The node's name and value (the meaning of which varies depending on
+   its type) is returned by nodeName() and nodeValue() respectively. The
+   node's type is returned by nodeType(). The node's value can be set
+   with setNodeValue().
+
+   The document to which the node belongs is returned by ownerDocument().
+
+   Adjacent QDomText nodes can be merged into a single node with
+   normalize().
+
+   QDomElement nodes have attributes which can be retrieved with
+   attributes().
+
+   QDomElement and QDomAttr nodes can have namespaces which can be
+   retrieved with namespaceURI(). Their local name is retrieved with
+   localName(), and their prefix with prefix(). The prefix can be set
+   with setPrefix().
+
+   You can write the XML representation of the node to a text stream with
+   save().
+
+   The following example looks for the first element in an XML document
+   and prints the names of all the elements that are its direct children.
+    QDomDocument d;
+    d.setContent(someXML);
+    QDomNode n = d.firstChild();
+    while (!n.isNull()) {
+        if (n.isElement()) {
+            QDomElement e = n.toElement();
+            cout << "Element name: " << e.tagName() << endl;
+            break;
+        }
+        n = n.nextSibling();
+    }
+
+   For further information about the Document Object Model see Level 1
+   and Level 2 Core. For a more general introduction of the DOM
+   implementation see the QDomDocument documentation.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QDomNode::NodeType
+
+   This enum defines the type of the node:
+
+   Constant Value Description
+   QDomNode::ElementNode 1
+   QDomNode::AttributeNode 2
+   QDomNode::TextNode 3
+   QDomNode::CDATASectionNode 4
+   QDomNode::EntityReferenceNode 5
+   QDomNode::EntityNode 6
+   QDomNode::ProcessingInstructionNode 7
+   QDomNode::CommentNode 8
+   QDomNode::DocumentNode 9
+   QDomNode::DocumentTypeNode 10
+   QDomNode::DocumentFragmentNode 11
+   QDomNode::NotationNode 12
+   QDomNode::BaseNode 21 A QDomNode object, i.e. not a QDomNode subclass.
+   QDomNode::CharacterDataNode 22
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QDomNode::QDomNode ()
+
+   Constructs a null node.
+
+  QDomNode::QDomNode ( const QDomNode & n )
+
+   Constructs a copy of n.
+
+   The data of the copy is shared (shallow copy): modifying one node will
+   also change the other. If you want to make a deep copy, use
+   cloneNode().
+
+  QDomNode::~QDomNode ()
+
+   Destroys the object and frees its resources.
+
+  QDomNode QDomNode::appendChild ( const QDomNode & newChild )
+
+   Appends newChild as the node's last child.
+
+   If newChild is the child of another node, it is reparented to this
+   node. If newChild is a child of this node, then its position in the
+   list of children is changed.
+
+   If newChild is a QDomDocumentFragment, then the children of the
+   fragment are removed from the fragment and appended.
+
+   Returns a new reference to newChild.
+
+   See also insertBefore(), insertAfter(), replaceChild(), and
+   removeChild().
+
+  QDomNamedNodeMap QDomNode::attributes () const
+
+   Returns a named node map of all attributes. Attributes are only
+   provided for QDomElements.
+
+   Changing the attributes in the map will also change the attributes of
+   this QDomNode.
+
+  QDomNodeList QDomNode::childNodes () const
+
+   Returns a list of all direct child nodes.
+
+   Most often you will call this function on a QDomElement object.
+
+   For example, if the XML document looks like this:
+    <body>
+    <h1>Heading</h1>
+    <p>Hello <b>you</b></p>
+    </body>
+
+   Then the list of child nodes for the "body"-element will contain the
+   node created by the &lt;h1&gt; tag and the node created by the
+   &lt;p&gt; tag.
+
+   The nodes in the list are not copied; so changing the nodes in the
+   list will also change the children of this node.
+
+   See also firstChild() and lastChild().
+
+  void QDomNode::clear ()
+
+   Converts the node into a null node; if it was not a null node before,
+   its type and contents are deleted.
+
+   See also isNull().
+
+  QDomNode QDomNode::cloneNode ( bool deep = true ) const
+
+   Creates a deep (not shallow) copy of the QDomNode.
+
+   If deep is true, then the cloning is done recursively which means that
+   all the node's children are deep copied too. If deep is false only the
+   node itself is copied and the copy will have no child nodes.
+
+  QDomNode QDomNode::firstChild () const
+
+   Returns the first child of the node. If there is no child node, a null
+   node is returned. Changing the returned node will also change the node
+   in the document tree.
+
+   See also lastChild() and childNodes().
+
+  QDomElement QDomNode::firstChildElement ( const QString & tagName = QString()
+  ) const
+
+   Returns the first child element with tag name tagName if tagName is
+   non-empty; otherwise returns the last child element. Returns a null
+   element if no such child exists.
+
+   See also lastChildElement(), previousSiblingElement(), and
+   nextSiblingElement().
+
+  bool QDomNode::hasAttributes () const
+
+   Returns true if the node has attributes; otherwise returns false.
+
+   See also attributes().
+
+  bool QDomNode::hasChildNodes () const
+
+   Returns true if the node has one or more children; otherwise returns
+   false.
+
+  QDomNode QDomNode::insertAfter ( const QDomNode & newChild, const QDomNode &
+  refChild )
+
+   Inserts the node newChild after the child node refChild. refChild must
+   be a direct child of this node. If refChild is null then newChild is
+   appended as this node's last child.
+
+   If newChild is the child of another node, it is reparented to this
+   node. If newChild is a child of this node, then its position in the
+   list of children is changed.
+
+   If newChild is a QDomDocumentFragment, then the children of the
+   fragment are removed from the fragment and inserted after refChild.
+
+   Returns a new reference to newChild on success or a null node on
+   failure.
+
+   See also insertBefore(), replaceChild(), removeChild(), and
+   appendChild().
+
+  QDomNode QDomNode::insertBefore ( const QDomNode & newChild, const QDomNode &
+  refChild )
+
+   Inserts the node newChild before the child node refChild. refChild
+   must be a direct child of this node. If refChild is null then newChild
+   is inserted as the node's first child.
+
+   If newChild is the child of another node, it is reparented to this
+   node. If newChild is a child of this node, then its position in the
+   list of children is changed.
+
+   If newChild is a QDomDocumentFragment, then the children of the
+   fragment are removed from the fragment and inserted before refChild.
+
+   Returns a new reference to newChild on success or a null node on
+   failure.
+
+   See also insertAfter(), replaceChild(), removeChild(), and
+   appendChild().
+
+  bool QDomNode::isAttr () const
+
+   Returns true if the node is an attribute; otherwise returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomAttribute; you can get the QDomAttribute with toAttribute().
+
+   See also toAttr().
+
+  bool QDomNode::isCDATASection () const
+
+   Returns true if the node is a CDATA section; otherwise returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomCDATASection; you can get the QDomCDATASection with
+   toCDATASection().
+
+   See also toCDATASection().
+
+  bool QDomNode::isCharacterData () const
+
+   Returns true if the node is a character data node; otherwise returns
+   false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomCharacterData; you can get the QDomCharacterData with
+   toCharacterData().
+
+   See also toCharacterData().
+
+  bool QDomNode::isComment () const
+
+   Returns true if the node is a comment; otherwise returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomComment; you can get the QDomComment with toComment().
+
+   See also toComment().
+
+  bool QDomNode::isDocument () const
+
+   Returns true if the node is a document; otherwise returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomDocument; you can get the QDomDocument with toDocument().
+
+   See also toDocument().
+
+  bool QDomNode::isDocumentFragment () const
+
+   Returns true if the node is a document fragment; otherwise returns
+   false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomDocumentFragment; you can get the QDomDocumentFragment with
+   toDocumentFragment().
+
+   See also toDocumentFragment().
+
+  bool QDomNode::isDocumentType () const
+
+   Returns true if the node is a document type; otherwise returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomDocumentType; you can get the QDomDocumentType with
+   toDocumentType().
+
+   See also toDocumentType().
+
+  bool QDomNode::isElement () const
+
+   Returns true if the node is an element; otherwise returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomElement; you can get the QDomElement with toElement().
+
+   See also toElement().
+
+  bool QDomNode::isEntity () const
+
+   Returns true if the node is an entity; otherwise returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomEntity; you can get the QDomEntity with toEntity().
+
+   See also toEntity().
+
+  bool QDomNode::isEntityReference () const
+
+   Returns true if the node is an entity reference; otherwise returns
+   false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomEntityReference; you can get the QDomEntityReference with
+   toEntityReference().
+
+   See also toEntityReference().
+
+  bool QDomNode::isNotation () const
+
+   Returns true if the node is a notation; otherwise returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomNotation; you can get the QDomNotation with toNotation().
+
+   See also toNotation().
+
+  bool QDomNode::isNull () const
+
+   Returns true if this node is null (i.e. if it has no type or
+   contents); otherwise returns false.
+
+  bool QDomNode::isProcessingInstruction () const
+
+   Returns true if the node is a processing instruction; otherwise
+   returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomProcessingInstruction; you can get the QProcessingInstruction with
+   toProcessingInstruction().
+
+   See also toProcessingInstruction().
+
+  bool QDomNode::isSupported ( const QString & feature, const QString & version
+  ) const
+
+   Returns true if the DOM implementation implements the feature feature
+   and this feature is supported by this node in the version version;
+   otherwise returns false.
+
+   See also QDomImplementation::hasFeature().
+
+  bool QDomNode::isText () const
+
+   Returns true if the node is a text node; otherwise returns false.
+
+   If this function returns true, it does not imply that this object is a
+   QDomText; you can get the QDomText with toText().
+
+   See also toText().
+
+  QDomNode QDomNode::lastChild () const
+
+   Returns the last child of the node. If there is no child node, a null
+   node is returned. Changing the returned node will also change the node
+   in the document tree.
+
+   See also firstChild() and childNodes().
+
+  QDomElement QDomNode::lastChildElement ( const QString & tagName = QString()
+  ) const
+
+   Returns the last child element with tag name tagName if tagName is
+   non-empty; otherwise returns the first child element. Returns a null
+   element if no such child exists.
+
+   See also firstChildElement(), previousSiblingElement(), and
+   nextSiblingElement().
+
+  QString QDomNode::localName () const
+
+   If the node uses namespaces, this function returns the local name of
+   the node; otherwise it returns an empty string.
+
+   Only nodes of type ElementNode or AttributeNode can have namespaces. A
+   namespace must have been specified at creation time; it is not
+   possible to add a namespace afterwards.
+
+   QDomDocument::createAttributeNS()
+
+   See also prefix(), namespaceURI(), and
+   QDomDocument::createElementNS().
+
+  QDomNode QDomNode::namedItem ( const QString & name ) const
+
+   Returns the first direct child node for which nodeName() equals name.
+
+   If no such direct child exists, a null node is returned.
+
+   See also nodeName().
+
+  QString QDomNode::namespaceURI () const
+
+   Returns the namespace URI of this node or an empty string if the node
+   has no namespace URI.
+
+   Only nodes of type ElementNode or AttributeNode can have namespaces. A
+   namespace URI must be specified at creation time and cannot be changed
+   later.
+
+   QDomDocument::createAttributeNS()
+
+   See also prefix(), localName(), and QDomDocument::createElementNS().
+
+  QDomNode QDomNode::nextSibling () const
+
+   Returns the next sibling in the document tree. Changing the returned
+   node will also change the node in the document tree.
+
+   If you have XML like this:
+    <h1>Heading</h1>
+    <p>The text...</p>
+    <h2>Next heading</h2>
+
+   and this QDomNode represents the &lt;p&gt; tag, nextSibling() will
+   return the node representing the &lt;h2&gt; tag.
+
+   See also previousSibling().
+
+  QDomElement QDomNode::nextSiblingElement ( const QString & tagName =
+  QString() ) const
+
+   Returns the next sibilng element with tag name tagName if tagName is
+   non-empty; otherwise returns any next sibling element. Returns a null
+   element if no such sibling exists.
+
+   See also firstChildElement(), previousSiblingElement(), and
+   lastChildElement().
+
+  QString QDomNode::nodeName () const
+
+   Returns the name of the node.
+
+   The meaning of the name depends on the subclass:
+
+               Name                            Meaning
+             QDomAttr                 The name of the attribute
+         QDomCDATASection            The string "#cdata-section"
+            QDomComment                 The string "#comment"
+           QDomDocument                 The string "#document"
+       QDomDocumentFragment        The string "#document-fragment"
+         QDomDocumentType           The name of the document type
+            QDomElement                      The tag name
+            QDomEntity                  The name of the entity
+        QDomEntityReference       The name of the referenced entity
+           QDomNotation                The name of the notation
+     QDomProcessingInstruction The target of the processing instruction
+             QDomText                     The string "#text"
+
+   See also nodeValue().
+
+  NodeType QDomNode::nodeType () const
+
+   Returns the type of the node.
+
+   See also toAttr(), toCDATASection(), toDocumentFragment(),
+   toDocument(), toDocumentType(), toElement(), toEntityReference(),
+   toText(), toEntity(), toNotation(), toProcessingInstruction(),
+   toCharacterData(), and toComment().
+
+  QString QDomNode::nodeValue () const
+
+   Returns the value of the node.
+
+   The meaning of the value depends on the subclass:
+
+                Name                           Meaning
+              QDomAttr                   The attribute value
+          QDomCDATASection        The content of the CDATA section
+             QDomComment                     The comment
+      QDomProcessingInstruction The data of the processing intruction
+              QDomText                        The text
+
+   All the other subclasses do not have a node value and will return an
+   empty string.
+
+   See also setNodeValue() and nodeName().
+
+  void QDomNode::normalize ()
+
+   Calling normalize() on an element converts all its children into a
+   standard form. This means that adjacent QDomText objects will be
+   merged into a single text object (QDomCDATASection nodes are not
+   merged).
+
+  QDomDocument QDomNode::ownerDocument () const
+
+   Returns the document to which this node belongs.
+
+  QDomNode QDomNode::parentNode () const
+
+   Returns the parent node. If this node has no parent, a null node is
+   returned (i.e. a node for which isNull() returns true).
+
+  QString QDomNode::prefix () const
+
+   Returns the namespace prefix of the node or an empty string if the
+   node has no namespace prefix.
+
+   Only nodes of type ElementNode or AttributeNode can have namespaces. A
+   namespace prefix must be specified at creation time. If a node was
+   created with a namespace prefix, you can change it later with
+   setPrefix().
+
+   If you create an element or attribute with
+   QDomDocument::createElement() or QDomDocument::createAttribute(), the
+   prefix will be an empty string. If you use
+   QDomDocument::createElementNS() or QDomDocument::createAttributeNS()
+   instead, the prefix will not be an empty string; but it might be an
+   empty string if the name does not have a prefix.
+
+   QDomDocument::createElementNS() QDomDocument::createAttributeNS()
+
+   See also setPrefix(), localName(), and namespaceURI().
+
+  QDomNode QDomNode::previousSibling () const
+
+   Returns the previous sibling in the document tree. Changing the
+   returned node will also change the node in the document tree.
+
+   For example, if you have XML like this:
+    <h1>Heading</h1>
+    <p>The text...</p>
+    <h2>Next heading</h2>
+
+   and this QDomNode represents the &lt;p&gt; tag, previousSibling() will
+   return the node representing the &lt;h1&gt; tag.
+
+   See also nextSibling().
+
+  QDomElement QDomNode::previousSiblingElement ( const QString & tagName =
+  QString() ) const
+
+   Returns the previous sibilng element with tag name tagName if tagName
+   is non-empty; otherwise returns any previous sibling element. Returns
+   a null element if no such sibling exists.
+
+   See also firstChildElement(), nextSiblingElement(), and
+   lastChildElement().
+
+  QDomNode QDomNode::removeChild ( const QDomNode & oldChild )
+
+   Removes oldChild from the list of children. oldChild must be a direct
+   child of this node.
+
+   Returns a new reference to oldChild on success or a null node on
+   failure.
+
+   See also insertBefore(), insertAfter(), replaceChild(), and
+   appendChild().
+
+  QDomNode QDomNode::replaceChild ( const QDomNode & newChild, const QDomNode &
+  oldChild )
+
+   Replaces oldChild with newChild. oldChild must be a direct child of
+   this node.
+
+   If newChild is the child of another node, it is reparented to this
+   node. If newChild is a child of this node, then its position in the
+   list of children is changed.
+
+   If newChild is a QDomDocumentFragment, then oldChild is replaced by
+   all of the children of the fragment.
+
+   Returns a new reference to oldChild on success or a null node an
+   failure.
+
+   See also insertBefore(), insertAfter(), removeChild(), and
+   appendChild().
+
+  void QDomNode::save ( QTextStream & str, int indent ) const
+
+   Writes the XML representation of the node and all its children to the
+   stream str. This function uses indent as the amount of space to indent
+   the node.
+
+  void QDomNode::setNodeValue ( const QString & v )
+
+   Sets the node's value to v.
+
+   See also nodeValue().
+
+  void QDomNode::setPrefix ( const QString & pre )
+
+   If the node has a namespace prefix, this function changes the
+   namespace prefix of the node to pre. Otherwise this function does
+   nothing.
+
+   Only nodes of type ElementNode or AttributeNode can have namespaces. A
+   namespace prefix must have be specified at creation time; it is not
+   possible to add a namespace prefix afterwards.
+
+   QDomDocument::createElementNS() QDomDocument::createAttributeNS()
+
+   See also prefix(), localName(), and namespaceURI().
+
+  QDomAttr QDomNode::toAttr () const
+
+   Converts a QDomNode into a QDomAttr. If the node is not an attribute,
+   the returned object will be null.
+
+   See also isAttr().
+
+  QDomCDATASection QDomNode::toCDATASection () const
+
+   Converts a QDomNode into a QDomCDATASection. If the node is not a
+   CDATA section, the returned object will be null.
+
+   See also isCDATASection().
+
+  QDomCharacterData QDomNode::toCharacterData () const
+
+   Converts a QDomNode into a QDomCharacterData. If the node is not a
+   character data node the returned object will be null.
+
+   See also isCharacterData().
+
+  QDomComment QDomNode::toComment () const
+
+   Converts a QDomNode into a QDomComment. If the node is not a comment
+   the returned object will be null.
+
+   See also isComment().
+
+  QDomDocument QDomNode::toDocument () const
+
+   Converts a QDomNode into a QDomDocument. If the node is not a document
+   the returned object will be null.
+
+   See also isDocument().
+
+  QDomDocumentFragment QDomNode::toDocumentFragment () const
+
+   Converts a QDomNode into a QDomDocumentFragment. If the node is not a
+   document fragment the returned object will be null.
+
+   See also isDocumentFragment().
+
+  QDomDocumentType QDomNode::toDocumentType () const
+
+   Converts a QDomNode into a QDomDocumentType. If the node is not a
+   document type the returned object will be null.
+
+   See also isDocumentType().
+
+  QDomElement QDomNode::toElement () const
+
+   Converts a QDomNode into a QDomElement. If the node is not an element
+   the returned object will be null.
+
+   See also isElement().
+
+  QDomEntity QDomNode::toEntity () const
+
+   Converts a QDomNode into a QDomEntity. If the node is not an entity
+   the returned object will be null.
+
+   See also isEntity().
+
+  QDomEntityReference QDomNode::toEntityReference () const
+
+   Converts a QDomNode into a QDomEntityReference. If the node is not an
+   entity reference, the returned object will be null.
+
+   See also isEntityReference().
+
+  QDomNotation QDomNode::toNotation () const
+
+   Converts a QDomNode into a QDomNotation. If the node is not a notation
+   the returned object will be null.
+
+   See also isNotation().
+
+  QDomProcessingInstruction QDomNode::toProcessingInstruction () const
+
+   Converts a QDomNode into a QDomProcessingInstruction. If the node is
+   not a processing instruction the returned object will be null.
+
+   See also isProcessingInstruction().
+
+  QDomText QDomNode::toText () const
+
+   Converts a QDomNode into a QDomText. If the node is not a text, the
+   returned object will be null.
+
+   See also isText().
+
+  bool QDomNode::operator!= ( const QDomNode & n ) const
+
+   Returns true if n and this DOM node are not equal; otherwise returns
+   false.
+
+  QDomNode & QDomNode::operator= ( const QDomNode & n )
+
+   Assigns a copy of n to this DOM node.
+
+   The data of the copy is shared (shallow copy): modifying one node will
+   also change the other. If you want to make a deep copy, use
+   cloneNode().
+
+  bool QDomNode::operator== ( const QDomNode & n ) const
+
+   Returns true if n and this DOM node are equal; otherwise returns
+   false.
+     _________________________________________________________________
+
+Related Non-Members
+
+  QTextStream & operator<< ( QTextStream & str, const QDomNode & node )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Writes the XML representation of the node node and all its children to
+   the stream str.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

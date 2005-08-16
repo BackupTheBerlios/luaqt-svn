@@ -1,0 +1,93 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        Q3SyntaxHighlighter Class Reference
+
+   #include <q3syntaxhighlighter.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3SyntaxHighlighter (Q3TextEdit *textEdit)
+     * virtual ~Q3SyntaxHighlighter ()
+     * virtual int highlightParagraph (const QString &text, int endStateOfLastPara)=0
+     * void setFormat (int start, int count, const QFont &font, const QColor &color)
+     * void setFormat (int start, int count, const QColor &color)
+     * void setFormat (int start, int count, const QFont &font)
+     * Q3TextEdit * textEdit () const
+     * void rehighlight ()
+     * int currentParagraph () const
+
+Friends
+
+     * class Q3SyntaxHighlighterInternal
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3SyntaxHighlighter::Q3SyntaxHighlighter (  Q3TextEdit *  textEdit  )
+
+
+
+   virtual Q3SyntaxHighlighter::~Q3SyntaxHighlighter (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int Q3SyntaxHighlighter::currentParagraph (   )  const
+
+
+
+   virtual int Q3SyntaxHighlighter::highlightParagraph (  const QString &  text,
+                                                          int              endStateOfLastPara
+                                                       )  [pure virtual]
+
+
+
+   void Q3SyntaxHighlighter::rehighlight (   )
+
+
+
+   void Q3SyntaxHighlighter::setFormat (  int            start,
+                                          int            count,
+                                          const QFont &  font
+                                       )
+
+
+
+   void Q3SyntaxHighlighter::setFormat (  int             start,
+                                          int             count,
+                                          const QColor &  color
+                                       )
+
+
+
+   void Q3SyntaxHighlighter::setFormat (  int             start,
+                                          int             count,
+                                          const QFont &   font,
+                                          const QColor &  color
+                                       )
+
+
+
+   Q3TextEdit* Q3SyntaxHighlighter::textEdit (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3SyntaxHighlighterInternal [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3syntaxhighlighter.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

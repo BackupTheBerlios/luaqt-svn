@@ -1,0 +1,133 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QDesktopWidget Class Reference
+
+   #include <qdesktopwidget.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Signals
+
+     * void resized (int)
+     * void workAreaResized (int)
+
+Public Member Functions
+
+     * QDesktopWidget ()
+     * ~QDesktopWidget ()
+     * bool isVirtualDesktop () const
+     * int numScreens () const
+     * int primaryScreen () const
+     * int screenNumber (const QWidget *widget=0) const
+     * int screenNumber (const QPoint &) const
+     * QWidget * screen (int screen=-1)
+     * const QRect screenGeometry (int screen=-1) const
+     * const QRect screenGeometry (const QWidget *widget) const
+     * const QRect screenGeometry (const QPoint &point) const
+     * const QRect availableGeometry (int screen=-1) const
+     * const QRect availableGeometry (const QWidget *widget) const
+     * const QRect availableGeometry (const QPoint &point) const
+
+Protected Member Functions
+
+     * void resizeEvent (QResizeEvent *e)
+
+Friends
+
+     * class QApplication
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesktopWidget::QDesktopWidget (   )
+
+
+
+   QDesktopWidget::~QDesktopWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   const QRect QDesktopWidget::availableGeometry (  const QPoint &  point  )  const [inline]
+
+
+
+   const QRect QDesktopWidget::availableGeometry (  const QWidget *  widget  )  const [inline]
+
+
+
+   const QRect QDesktopWidget::availableGeometry (  int  screen = -1  )  const
+
+
+
+   bool QDesktopWidget::isVirtualDesktop (   )  const
+
+
+
+   int QDesktopWidget::numScreens (   )  const
+
+
+
+   int QDesktopWidget::primaryScreen (   )  const
+
+
+
+   void QDesktopWidget::resized (  int   )  [signal]
+
+
+
+   void QDesktopWidget::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QWidget* QDesktopWidget::screen (  int  screen = -1  )
+
+
+
+   const QRect QDesktopWidget::screenGeometry (  const QPoint &  point  )  const [inline]
+
+
+
+   const QRect QDesktopWidget::screenGeometry (  const QWidget *  widget  )  const [inline]
+
+
+
+   const QRect QDesktopWidget::screenGeometry (  int  screen = -1  )  const
+
+
+
+   int QDesktopWidget::screenNumber (  const QPoint &   )  const
+
+
+
+   int QDesktopWidget::screenNumber (  const QWidget *  widget = 0  )  const
+
+
+
+   void QDesktopWidget::workAreaResized (  int   )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QApplication [friend]
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdesktopwidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,107 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3CanvasPolygon Class Reference
+
+   #include <q3canvas.h>
+
+   Inherits Q3CanvasPolygonalItem.
+
+   Inherited by Q3CanvasSpline.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CanvasPolygon (Q3Canvas *canvas)
+     * ~Q3CanvasPolygon ()
+     * void setPoints (Q3PointArray)
+     * Q3PointArray points () const
+     * void moveBy (double dx, double dy)
+     * Q3PointArray areaPoints () const
+     * int rtti () const
+
+Static Public Attributes
+
+     * static int RTTI
+
+Protected Member Functions
+
+     * void drawShape (QPainter &)
+
+Protected Attributes
+
+     * Q3PointArray poly
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasPolygon::Q3CanvasPolygon (  Q3Canvas *  canvas  )
+
+
+
+   Q3CanvasPolygon::~Q3CanvasPolygon (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3PointArray Q3CanvasPolygon::areaPoints (   )  const [virtual]
+
+
+
+   Implements Q3CanvasPolygonalItem.
+
+   void Q3CanvasPolygon::drawShape (  QPainter &   )  [protected, virtual]
+
+
+
+   Implements Q3CanvasPolygonalItem.
+
+   void Q3CanvasPolygon::moveBy (  double  dx,
+                                   double  dy
+                                )  [virtual]
+
+
+
+   Reimplemented from Q3CanvasItem.
+
+   Q3PointArray Q3CanvasPolygon::points (   )  const
+
+
+
+   int Q3CanvasPolygon::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+
+   Reimplemented in Q3CanvasSpline.
+
+   void Q3CanvasPolygon::setPoints (  Q3PointArray   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   Q3PointArray Q3CanvasPolygon::poly [protected]
+
+
+
+   int Q3CanvasPolygon::RTTI [static]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+
+   Reimplemented in Q3CanvasSpline.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

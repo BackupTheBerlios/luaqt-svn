@@ -1,0 +1,228 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QStatusBar Class Reference
+
+   The QStatusBar class provides a horizontal bar suitable for presenting
+   status information. More...
+#include <QStatusBar>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * sizeGripEnabled : bool
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QStatusBar ( QWidget * parent = 0 )
+     * virtual ~QStatusBar ()
+     * void addPermanentWidget ( QWidget * widget, int stretch = 0 )
+     * void addWidget ( QWidget * widget, int stretch = 0 )
+     * QString currentMessage () const
+     * bool isSizeGripEnabled () const
+     * void removeWidget ( QWidget * widget )
+     * void setSizeGripEnabled ( bool )
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void clearMessage ()
+     * void showMessage ( const QString & message, int timeout = 0 )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void messageChanged ( const QString & message )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * void hideOrShow ()
+     * virtual void paintEvent ( QPaintEvent * event )
+     * void reformat ()
+
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QStatusBar class provides a horizontal bar suitable for presenting
+   status information.
+
+   Each status indicator falls into one of three categories:
+     * Temporary - briefly occupies most of the status bar. Used to
+       explain tool tip texts or menu entries, for example.
+     * Normal - occupies part of the status bar and may be hidden by
+       temporary messages. Used to display the page and line number in a
+       word processor, for example.
+     * Permanent - is never hidden. Used for important mode indications,
+       for example, some applications put a Caps Lock indicator in the
+       status bar.
+
+   QStatusBar lets you display all three types of indicators.
+
+   To display a temporary message, call showMessage() (perhaps by
+   connecting a suitable signal to it). To remove a temporary message,
+   call clearMessage(), or set a time limit when calling showMessage():
+    connect(loader, SIGNAL(progressMessage(QString)),
+             statusBar(), SLOT(showMessage(QString)));
+
+    statusBar()->showMessage("Loading...");  // Initial message
+    loader.loadStuff();                  // Emits progress messages
+    statusBar()->showMessage("Done.", 2000); // Final message for 2 seconds
+
+   Normal and Permanent messages are displayed by creating a small widget
+   and then adding it to the status bar with addWidget() or
+   addPermanentWidget(). Widgets like QLabel, QProgressBar or even
+   QToolButton are useful for adding to status bars. removeWidget() is
+   used to remove widgets.
+    statusBar()->addWidget(new MyReadWriteIndication);
+
+   By default QStatusBar provides a QSizeGrip in the lower-right corner.
+   You can disable it with setSizeGripEnabled(false);
+
+   Screenshot in Motif style Screenshot in Windows style
+
+   See also QToolBar, QMainWindow, QLabel, and GUI Design Handbook:
+   Status Bar.
+     _________________________________________________________________
+
+Property Documentation
+
+  sizeGripEnabled : bool
+
+   This property holds whether the QSizeGrip in the bottom-right of the
+   status bar is enabled.
+
+   Enables or disables the QSizeGrip in the bottom-right of the status
+   bar. By default, the size grip is enabled.
+
+   Access functions:
+     * bool isSizeGripEnabled () const
+     * void setSizeGripEnabled ( bool )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QStatusBar::QStatusBar ( QWidget * parent = 0 )
+
+   Constructs a status bar with a size grip with the given parent.
+
+   See also setSizeGripEnabled().
+
+  QStatusBar::~QStatusBar ()   [virtual]
+
+   Destroys the status bar and frees any allocated resources and child
+   widgets.
+
+  void QStatusBar::addPermanentWidget ( QWidget * widget, int stretch = 0 )
+
+   Adds widget permanently to this status bar. widget is reparented if it
+   isn't already a child of the QStatusBar.
+
+   Permanently means that the widget may not be obscured by temporary
+   messages. It is is located at the far right of the status bar.
+
+   stretch is used to compute a suitable size for widget as the status
+   bar grows and shrinks. The default of 0 uses a minimum of space.
+
+   This function may cause some flicker.
+
+   See also removeWidget() and addWidget().
+
+  void QStatusBar::addWidget ( QWidget * widget, int stretch = 0 )
+
+   Adds widget to this status bar. widget is reparented if it isn't
+   already a child of the QStatusBar.
+
+   The widget is located just to the left of the first permanent widget
+   (see addWidgetPermantly()) and may be obscured by temporary messages.
+
+   stretch is used to compute a suitable size for widget as the status
+   bar grows and shrinks. The default of 0 uses a minimum of space.
+
+   This function may cause some flicker.
+
+   See also removeWidget() and addPermanentWidget().
+
+  void QStatusBar::clearMessage ()   [slot]
+
+   Removes any temporary message being shown.
+
+   See also showMessage().
+
+  QString QStatusBar::currentMessage () const
+
+   Returns the temporary message currently shown, or an empty string if
+   there is no such message.
+
+  void QStatusBar::hideOrShow ()   [protected]
+
+   Ensures that the right widgets are visible. Used by showMessage() and
+   clearMessage().
+
+  void QStatusBar::messageChanged ( const QString & message )   [signal]
+
+   This signal is emitted when the temporary status messages changes.
+   message is the new temporary message, and is a null-string when the
+   message has been removed.
+
+   See also showMessage() and clearMessage().
+
+  void QStatusBar::paintEvent ( QPaintEvent * event )   [virtual protected]
+
+   Shows the temporary message, if appropriate, in response to the paint
+   event.
+
+   Reimplemented from QWidget.
+
+  void QStatusBar::reformat ()   [protected]
+
+   Changes the status bar's appearance to account for item changes.
+   Special subclasses may need this, but geometry management will usually
+   take care of any necessary rearrangements.
+
+  void QStatusBar::removeWidget ( QWidget * widget )
+
+   Removes widget from the status bar.
+
+   This function may cause some flicker.
+
+   Note that widget is not deleted.
+
+   See also addWidget().
+
+  void QStatusBar::showMessage ( const QString & message, int timeout = 0 )
+  [slot]
+
+   Hides the normal status indications and displays message for timeout
+   milli-seconds (if non-zero), or until clearMessage() or another
+   showMessage() is called, whichever occurs first.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

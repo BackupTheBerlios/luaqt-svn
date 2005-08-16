@@ -1,0 +1,112 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3CanvasView Class Reference
+
+   #include <q3canvas.h>
+
+   Inherits Q3ScrollView.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CanvasView (QWidget *parent=0, const char *name=0, Qt::WFlags f=0)
+     * Q3CanvasView (Q3Canvas *viewing, QWidget *parent=0, const char *name=0, Qt::WFlags f=0)
+     * ~Q3CanvasView ()
+     * Q3Canvas * canvas () const
+     * void setCanvas (Q3Canvas *v)
+     * const QMatrix & worldMatrix () const
+     * const QMatrix & inverseWorldMatrix () const
+     * bool setWorldMatrix (const QMatrix &)
+
+Protected Member Functions
+
+     * void drawContents (QPainter *p, int cx, int cy, int cw, int ch)
+     * QSize sizeHint () const
+
+Friends
+
+     * class Q3Canvas
+     * void qt_unview (Q3Canvas *c)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasView::Q3CanvasView (  QWidget *     parent = 0,
+                                 const char *  name = 0,
+                                 Qt::WFlags    f = 0
+                              )
+
+
+
+   Q3CanvasView::Q3CanvasView (  Q3Canvas *    viewing,
+                                 QWidget *     parent = 0,
+                                 const char *  name = 0,
+                                 Qt::WFlags    f = 0
+                              )
+
+
+
+   Q3CanvasView::~Q3CanvasView (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3Canvas* Q3CanvasView::canvas (   )  const [inline]
+
+
+
+   void Q3CanvasView::drawContents (  QPainter *  p,
+                                      int         cx,
+                                      int         cy,
+                                      int         cw,
+                                      int         ch
+                                   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   const QMatrix& Q3CanvasView::inverseWorldMatrix (   )  const
+
+
+
+   void Q3CanvasView::setCanvas (  Q3Canvas *  v  )
+
+
+
+   bool Q3CanvasView::setWorldMatrix (  const QMatrix &   )
+
+
+
+   QSize Q3CanvasView::sizeHint (   )  const [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   const QMatrix& Q3CanvasView::worldMatrix (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3Canvas [friend]
+
+
+
+   void qt_unview (  Q3Canvas *  c  )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,453 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QDomNode Class Reference
+
+   #include <qdom.h>
+
+   Inherited by QDomAttr, QDomCharacterData, QDomDocument, QDomDocumentFragment, QDomDocumentType, QDomElement, QDomEntity, QDomEntityReference, QDomNotation, and QDomProcessingInstruction.
+
+   List of all members.
+
+Public Types
+
+     * enum NodeType {
+         ElementNode = 1, AttributeNode = 2, TextNode = 3, CDATASectionNode = 4,
+         EntityReferenceNode = 5, EntityNode = 6, ProcessingInstructionNode = 7, CommentNode = 8,
+         DocumentNode = 9, DocumentTypeNode = 10, DocumentFragmentNode = 11, NotationNode = 12,
+         BaseNode = 21, CharacterDataNode = 22
+       }
+
+Public Member Functions
+
+     * QDomNode ()
+     * QDomNode (const QDomNode &)
+     * QDomNode & operator= (const QDomNode &)
+     * bool operator== (const QDomNode &) const
+     * bool operator!= (const QDomNode &) const
+     * ~QDomNode ()
+     * QDomNode insertBefore (const QDomNode &newChild, const QDomNode &refChild)
+     * QDomNode insertAfter (const QDomNode &newChild, const QDomNode &refChild)
+     * QDomNode replaceChild (const QDomNode &newChild, const QDomNode &oldChild)
+     * QDomNode removeChild (const QDomNode &oldChild)
+     * QDomNode appendChild (const QDomNode &newChild)
+     * bool hasChildNodes () const
+     * QDomNode cloneNode (bool deep=true) const
+     * void normalize ()
+     * bool isSupported (const QString &feature, const QString &version) const
+     * QString nodeName () const
+     * NodeType nodeType () const
+     * QDomNode parentNode () const
+     * QDomNodeList childNodes () const
+     * QDomNode firstChild () const
+     * QDomNode lastChild () const
+     * QDomNode previousSibling () const
+     * QDomNode nextSibling () const
+     * QDomNamedNodeMap attributes () const
+     * QDomDocument ownerDocument () const
+     * QString namespaceURI () const
+     * QString localName () const
+     * bool hasAttributes () const
+     * QString nodeValue () const
+     * void setNodeValue (const QString &)
+     * QString prefix () const
+     * void setPrefix (const QString &pre)
+     * bool isAttr () const
+     * bool isCDATASection () const
+     * bool isDocumentFragment () const
+     * bool isDocument () const
+     * bool isDocumentType () const
+     * bool isElement () const
+     * bool isEntityReference () const
+     * bool isText () const
+     * bool isEntity () const
+     * bool isNotation () const
+     * bool isProcessingInstruction () const
+     * bool isCharacterData () const
+     * bool isComment () const
+     * QDomNode namedItem (const QString &name) const
+     * bool isNull () const
+     * void clear ()
+     * QDomAttr toAttr () const
+     * QDomCDATASection toCDATASection () const
+     * QDomDocumentFragment toDocumentFragment () const
+     * QDomDocument toDocument () const
+     * QDomDocumentType toDocumentType () const
+     * QDomElement toElement () const
+     * QDomEntityReference toEntityReference () const
+     * QDomText toText () const
+     * QDomEntity toEntity () const
+     * QDomNotation toNotation () const
+     * QDomProcessingInstruction toProcessingInstruction () const
+     * QDomCharacterData toCharacterData () const
+     * QDomComment toComment () const
+     * void save (QTextStream &, int) const
+     * QDomElement firstChildElement (const QString &tagName=QString()) const
+     * QDomElement lastChildElement (const QString &tagName=QString()) const
+     * QDomElement previousSiblingElement (const QString &tagName=QString()) const
+     * QDomElement nextSiblingElement (const QString &taName=QString()) const
+
+Protected Member Functions
+
+     * QDomNode (QDomNodePrivate *)
+
+Protected Attributes
+
+     * QDomNodePrivate * impl
+
+Friends
+
+     * class QDomDocument
+     * class QDomDocumentType
+     * class QDomNodeList
+     * class QDomNamedNodeMap
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDomNode::NodeType
+
+
+
+   Enumerator: 
+
+          ElementNode              
+          AttributeNode            
+          TextNode                 
+          CDATASectionNode         
+          EntityReferenceNode      
+          EntityNode               
+          ProcessingInstructionNode
+          CommentNode              
+          DocumentNode             
+          DocumentTypeNode         
+          DocumentFragmentNode     
+          NotationNode             
+          BaseNode                 
+          CharacterDataNode        
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDomNode::QDomNode (   )
+
+
+
+   QDomNode::QDomNode (  const QDomNode &   )
+
+
+
+   QDomNode::~QDomNode (   )
+
+
+
+   QDomNode::QDomNode (  QDomNodePrivate *   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QDomNode QDomNode::appendChild (  const QDomNode &  newChild  )
+
+
+
+   QDomNamedNodeMap QDomNode::attributes (   )  const
+
+
+
+   Reimplemented in QDomElement.
+
+   QDomNodeList QDomNode::childNodes (   )  const
+
+
+
+   void QDomNode::clear (   )
+
+
+
+   QDomNode QDomNode::cloneNode (  bool  deep = true  )  const
+
+
+
+   QDomNode QDomNode::firstChild (   )  const
+
+
+
+   QDomElement QDomNode::firstChildElement (  const QString &  tagName = QString()  )  const
+
+
+
+   bool QDomNode::hasAttributes (   )  const
+
+
+
+   bool QDomNode::hasChildNodes (   )  const
+
+
+
+   QDomNode QDomNode::insertAfter (  const QDomNode &  newChild,
+                                     const QDomNode &  refChild
+                                  )
+
+
+
+   QDomNode QDomNode::insertBefore (  const QDomNode &  newChild,
+                                      const QDomNode &  refChild
+                                   )
+
+
+
+   bool QDomNode::isAttr (   )  const
+
+
+
+   bool QDomNode::isCDATASection (   )  const
+
+
+
+   bool QDomNode::isCharacterData (   )  const
+
+
+
+   bool QDomNode::isComment (   )  const
+
+
+
+   bool QDomNode::isDocument (   )  const
+
+
+
+   bool QDomNode::isDocumentFragment (   )  const
+
+
+
+   bool QDomNode::isDocumentType (   )  const
+
+
+
+   bool QDomNode::isElement (   )  const
+
+
+
+   bool QDomNode::isEntity (   )  const
+
+
+
+   bool QDomNode::isEntityReference (   )  const
+
+
+
+   bool QDomNode::isNotation (   )  const
+
+
+
+   bool QDomNode::isNull (   )  const
+
+
+
+   bool QDomNode::isProcessingInstruction (   )  const
+
+
+
+   bool QDomNode::isSupported (  const QString &  feature,
+                                 const QString &  version
+                              )  const
+
+
+
+   bool QDomNode::isText (   )  const
+
+
+
+   QDomNode QDomNode::lastChild (   )  const
+
+
+
+   QDomElement QDomNode::lastChildElement (  const QString &  tagName = QString()  )  const
+
+
+
+   QString QDomNode::localName (   )  const
+
+
+
+   QDomNode QDomNode::namedItem (  const QString &  name  )  const
+
+
+
+   Shortcut to avoid dealing with QDomNodeList all the time.
+
+   QString QDomNode::namespaceURI (   )  const
+
+
+
+   QDomNode QDomNode::nextSibling (   )  const
+
+
+
+   QDomElement QDomNode::nextSiblingElement (  const QString &  taName = QString()  )  const
+
+
+
+   QString QDomNode::nodeName (   )  const
+
+
+
+   NodeType QDomNode::nodeType (   )  const
+
+
+
+   Reimplemented in QDomDocumentType, QDomDocument, QDomDocumentFragment, QDomCharacterData, QDomAttr, QDomElement, QDomText, QDomComment, QDomCDATASection, QDomNotation, QDomEntity, QDomEntityReference, and QDomProcessingInstruction.
+
+   QString QDomNode::nodeValue (   )  const
+
+
+
+   void QDomNode::normalize (   )
+
+
+
+   bool QDomNode::operator!= (  const QDomNode &   )  const
+
+
+
+   QDomNode& QDomNode::operator= (  const QDomNode &   )
+
+
+
+   bool QDomNode::operator== (  const QDomNode &   )  const
+
+
+
+   QDomDocument QDomNode::ownerDocument (   )  const
+
+
+
+   QDomNode QDomNode::parentNode (   )  const
+
+
+
+   QString QDomNode::prefix (   )  const
+
+
+
+   QDomNode QDomNode::previousSibling (   )  const
+
+
+
+   QDomElement QDomNode::previousSiblingElement (  const QString &  tagName = QString()  )  const
+
+
+
+   QDomNode QDomNode::removeChild (  const QDomNode &  oldChild  )
+
+
+
+   QDomNode QDomNode::replaceChild (  const QDomNode &  newChild,
+                                      const QDomNode &  oldChild
+                                   )
+
+
+
+   void QDomNode::save (  QTextStream &  ,
+                          int          
+                       )  const
+
+
+
+   void QDomNode::setNodeValue (  const QString &   )
+
+
+
+   void QDomNode::setPrefix (  const QString &  pre  )
+
+
+
+   QDomAttr QDomNode::toAttr (   )  const
+
+
+
+   QDomCDATASection QDomNode::toCDATASection (   )  const
+
+
+
+   QDomCharacterData QDomNode::toCharacterData (   )  const
+
+
+
+   QDomComment QDomNode::toComment (   )  const
+
+
+
+   QDomDocument QDomNode::toDocument (   )  const
+
+
+
+   QDomDocumentFragment QDomNode::toDocumentFragment (   )  const
+
+
+
+   QDomDocumentType QDomNode::toDocumentType (   )  const
+
+
+
+   QDomElement QDomNode::toElement (   )  const
+
+
+
+   QDomEntity QDomNode::toEntity (   )  const
+
+
+
+   QDomEntityReference QDomNode::toEntityReference (   )  const
+
+
+
+   QDomNotation QDomNode::toNotation (   )  const
+
+
+
+   QDomProcessingInstruction QDomNode::toProcessingInstruction (   )  const
+
+
+
+   QDomText QDomNode::toText (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QDomDocument [friend]
+
+
+
+   Reimplemented in QDomDocumentType, QDomDocumentFragment, QDomCharacterData, QDomAttr, QDomElement, QDomText, QDomComment, QDomCDATASection, QDomNotation, QDomEntityReference, and QDomProcessingInstruction.
+
+   friend class QDomDocumentType [friend]
+
+
+
+   friend class QDomNamedNodeMap [friend]
+
+
+
+   friend class QDomNodeList [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QDomNodePrivate* QDomNode::impl [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdom.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

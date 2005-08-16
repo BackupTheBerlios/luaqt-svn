@@ -1,0 +1,95 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        Q3CanvasPixmapArray Class Reference
+
+   #include <q3canvas.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CanvasPixmapArray ()
+     * Q3CanvasPixmapArray (const QString &datafilenamepattern, int framecount=0)
+     * Q3CanvasPixmapArray (Q3PtrList< QPixmap >, Q3PtrList< QPoint > hotspots)
+     * Q3CanvasPixmapArray (Q3ValueList< QPixmap >, Q3PointArray hotspots=Q3PointArray())
+     * ~Q3CanvasPixmapArray ()
+     * bool readPixmaps (const QString &datafilenamepattern, int framecount=0)
+     * bool readCollisionMasks (const QString &filenamepattern)
+     * bool operator! ()
+     * bool isValid () const
+     * Q3CanvasPixmap * image (int i) const
+     * void setImage (int i, Q3CanvasPixmap *p)
+     * uint count () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasPixmapArray::Q3CanvasPixmapArray (   )
+
+
+
+   Q3CanvasPixmapArray::Q3CanvasPixmapArray (  const QString &  datafilenamepattern,
+                                               int              framecount = 0
+                                            )
+
+
+
+   Q3CanvasPixmapArray::Q3CanvasPixmapArray (  Q3PtrList< QPixmap >  ,
+                                               Q3PtrList< QPoint >   hotspots
+                                            )
+
+
+
+   Q3CanvasPixmapArray::Q3CanvasPixmapArray (  Q3ValueList< QPixmap >  ,
+                                               Q3PointArray            hotspots = Q3PointArray()
+                                            )
+
+
+
+   Q3CanvasPixmapArray::~Q3CanvasPixmapArray (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   uint Q3CanvasPixmapArray::count (   )  const [inline]
+
+
+
+   Q3CanvasPixmap* Q3CanvasPixmapArray::image (  int  i  )  const [inline]
+
+
+
+   bool Q3CanvasPixmapArray::isValid (   )  const
+
+
+
+   bool Q3CanvasPixmapArray::operator! (   )
+
+
+
+   bool Q3CanvasPixmapArray::readCollisionMasks (  const QString &  filenamepattern  )
+
+
+
+   bool Q3CanvasPixmapArray::readPixmaps (  const QString &  datafilenamepattern,
+                                            int              framecount = 0
+                                         )
+
+
+
+   void Q3CanvasPixmapArray::setImage (  int               i,
+                                         Q3CanvasPixmap *  p
+                                      )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

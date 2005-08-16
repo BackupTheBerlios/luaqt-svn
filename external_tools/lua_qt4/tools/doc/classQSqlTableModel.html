@@ -1,0 +1,357 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QSqlTableModel Class Reference
+
+   #include <qsqltablemodel.h>
+
+   Inherits QSqlQueryModel.
+
+   Inherited by QSqlRelationalTableModel.
+
+   List of all members.
+
+Public Types
+
+     * enum EditStrategy { OnFieldChange, OnRowChange, OnManualSubmit }
+
+Public Slots
+
+     * bool submit ()
+     * void revert ()
+     * bool submitAll ()
+     * void revertAll ()
+
+Signals
+
+     * void primeInsert (int row, QSqlRecord &record)
+     * void beforeInsert (QSqlRecord &record)
+     * void beforeUpdate (int row, QSqlRecord &record)
+     * void beforeDelete (int row)
+
+Public Member Functions
+
+     * QSqlTableModel (QObject *parent=0, QSqlDatabase db=QSqlDatabase())
+     * virtual ~QSqlTableModel ()
+     * virtual bool select ()
+     * virtual void setTable (const QString &tableName)
+     * QString tableName () const
+     * Qt::ItemFlags flags (const QModelIndex &index) const
+     * QVariant data (const QModelIndex &idx, int role=Qt::DisplayRole) const
+     * bool setData (const QModelIndex &index, const QVariant &value, int role=Qt::EditRole)
+     * QVariant headerData (int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const
+     * bool isDirty (const QModelIndex &index) const
+     * void clear ()
+     * virtual void setEditStrategy (EditStrategy strategy)
+     * EditStrategy editStrategy () const
+     * QSqlIndex primaryKey () const
+     * QSqlDatabase database () const
+     * int fieldIndex (const QString &fieldName) const
+     * void sort (int column, Qt::SortOrder order)
+     * virtual void setSort (int column, Qt::SortOrder order)
+     * QString filter () const
+     * virtual void setFilter (const QString &filter)
+     * int rowCount (const QModelIndex &parent=QModelIndex()) const
+     * bool removeColumns (int column, int count, const QModelIndex &parent=QModelIndex())
+     * bool removeRows (int row, int count, const QModelIndex &parent=QModelIndex())
+     * bool insertRows (int row, int count, const QModelIndex &parent=QModelIndex())
+     * bool insertRecord (int row, const QSqlRecord &record)
+     * bool setRecord (int row, const QSqlRecord &record)
+     * virtual void revertRow (int row)
+
+Protected Member Functions
+
+     * QSqlTableModel (QSqlTableModelPrivate &dd, QObject *parent=0, QSqlDatabase db=QSqlDatabase())
+     * virtual bool updateRowInTable (int row, const QSqlRecord &values)
+     * virtual bool insertRowIntoTable (const QSqlRecord &values)
+     * virtual bool deleteRowFromTable (int row)
+     * virtual QString orderByClause () const
+     * virtual QString selectStatement () const
+     * void setPrimaryKey (const QSqlIndex &key)
+     * void setQuery (const QSqlQuery &query)
+     * QModelIndex indexInQuery (const QModelIndex &item) const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QSqlTableModel::EditStrategy
+
+
+
+   Enumerator: 
+
+          OnFieldChange 
+          OnRowChange   
+          OnManualSubmit
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSqlTableModel::QSqlTableModel (  QObject *     parent = 0,
+                                     QSqlDatabase  db = QSqlDatabase()
+                                  )  [explicit]
+
+
+
+   virtual QSqlTableModel::~QSqlTableModel (   )  [virtual]
+
+
+
+   QSqlTableModel::QSqlTableModel (  QSqlTableModelPrivate &  dd,
+                                     QObject *                parent = 0,
+                                     QSqlDatabase             db = QSqlDatabase()
+                                  )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QSqlTableModel::beforeDelete (  int  row  )  [signal]
+
+
+
+   void QSqlTableModel::beforeInsert (  QSqlRecord &  record  )  [signal]
+
+
+
+   void QSqlTableModel::beforeUpdate (  int           row,
+                                        QSqlRecord &  record
+                                     )  [signal]
+
+
+
+   void QSqlTableModel::clear (   )  [virtual]
+
+
+
+   Reimplemented from QSqlQueryModel.
+
+   Reimplemented in QSqlRelationalTableModel.
+
+   QVariant QSqlTableModel::data (  const QModelIndex &  idx,
+                                    int                  role = Qt::DisplayRole
+                                 )  const [virtual]
+
+
+
+   Reimplemented from QSqlQueryModel.
+
+   Reimplemented in QSqlRelationalTableModel.
+
+   QSqlDatabase QSqlTableModel::database (   )  const
+
+
+
+   virtual bool QSqlTableModel::deleteRowFromTable (  int  row  )  [protected, virtual]
+
+
+
+   EditStrategy QSqlTableModel::editStrategy (   )  const
+
+
+
+   int QSqlTableModel::fieldIndex (  const QString &  fieldName  )  const
+
+
+
+   QString QSqlTableModel::filter (   )  const
+
+
+
+   Qt::ItemFlags QSqlTableModel::flags (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QVariant QSqlTableModel::headerData (  int              section,
+                                          Qt::Orientation  orientation,
+                                          int              role = Qt::DisplayRole
+                                       )  const [virtual]
+
+
+
+   Reimplemented from QSqlQueryModel.
+
+   QModelIndex QSqlTableModel::indexInQuery (  const QModelIndex &  item  )  const [protected]
+
+
+
+   Reimplemented from QSqlQueryModel.
+
+   bool QSqlTableModel::insertRecord (  int                 row,
+                                        const QSqlRecord &  record
+                                     )
+
+
+
+   virtual bool QSqlTableModel::insertRowIntoTable (  const QSqlRecord &  values  )  [protected, virtual]
+
+
+
+   bool QSqlTableModel::insertRows (  int                  row,
+                                      int                  count,
+                                      const QModelIndex &  parent = QModelIndex()
+                                   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QSqlTableModel::isDirty (  const QModelIndex &  index  )  const
+
+
+
+   virtual QString QSqlTableModel::orderByClause (   )  const [protected, virtual]
+
+
+
+   Reimplemented in QSqlRelationalTableModel.
+
+   QSqlIndex QSqlTableModel::primaryKey (   )  const
+
+
+
+   void QSqlTableModel::primeInsert (  int           row,
+                                       QSqlRecord &  record
+                                    )  [signal]
+
+
+
+   bool QSqlTableModel::removeColumns (  int                  column,
+                                         int                  count,
+                                         const QModelIndex &  parent = QModelIndex()
+                                      )  [virtual]
+
+
+
+   Reimplemented from QSqlQueryModel.
+
+   bool QSqlTableModel::removeRows (  int                  row,
+                                      int                  count,
+                                      const QModelIndex &  parent = QModelIndex()
+                                   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   void QSqlTableModel::revert (   )  [virtual, slot]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   void QSqlTableModel::revertAll (   )  [slot]
+
+
+
+   virtual void QSqlTableModel::revertRow (  int  row  )  [virtual]
+
+
+
+   Reimplemented in QSqlRelationalTableModel.
+
+   int QSqlTableModel::rowCount (  const QModelIndex &  parent = QModelIndex()  )  const [virtual]
+
+
+
+   Reimplemented from QSqlQueryModel.
+
+   virtual bool QSqlTableModel::select (   )  [virtual]
+
+
+
+   Reimplemented in QSqlRelationalTableModel.
+
+   virtual QString QSqlTableModel::selectStatement (   )  const [protected, virtual]
+
+
+
+   Reimplemented in QSqlRelationalTableModel.
+
+   bool QSqlTableModel::setData (  const QModelIndex &  index,
+                                   const QVariant &     value,
+                                   int                  role = Qt::EditRole
+                                )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   Reimplemented in QSqlRelationalTableModel.
+
+   virtual void QSqlTableModel::setEditStrategy (  EditStrategy  strategy  )  [virtual]
+
+
+
+   virtual void QSqlTableModel::setFilter (  const QString &  filter  )  [virtual]
+
+
+
+   void QSqlTableModel::setPrimaryKey (  const QSqlIndex &  key  )  [protected]
+
+
+
+   void QSqlTableModel::setQuery (  const QSqlQuery &  query  )  [protected]
+
+
+
+   Reimplemented from QSqlQueryModel.
+
+   bool QSqlTableModel::setRecord (  int                 row,
+                                     const QSqlRecord &  record
+                                  )
+
+
+
+   virtual void QSqlTableModel::setSort (  int            column,
+                                           Qt::SortOrder  order
+                                        )  [virtual]
+
+
+
+   virtual void QSqlTableModel::setTable (  const QString &  tableName  )  [virtual]
+
+
+
+   Reimplemented in QSqlRelationalTableModel.
+
+   void QSqlTableModel::sort (  int            column,
+                                Qt::SortOrder  order
+                             )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QSqlTableModel::submit (   )  [virtual, slot]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QSqlTableModel::submitAll (   )  [slot]
+
+
+
+   QString QSqlTableModel::tableName (   )  const
+
+
+
+   virtual bool QSqlTableModel::updateRowInTable (  int                 row,
+                                                    const QSqlRecord &  values
+                                                 )  [protected, virtual]
+
+
+
+   Reimplemented in QSqlRelationalTableModel.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqltablemodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

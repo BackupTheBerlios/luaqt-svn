@@ -1,0 +1,390 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QMenu Class Reference
+
+   #include <qmenu.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Signals
+
+     * void aboutToShow ()
+     * void triggered (QAction *action)
+     * void hovered (QAction *action)
+
+Public Member Functions
+
+     * QMenu (QWidget *parent=0)
+     * QMenu (const QString &title, QWidget *parent=0)
+     * ~QMenu ()
+     * QAction * addAction (const QString &text)
+     * QAction * addAction (const QIcon &icon, const QString &text)
+     * QAction * addAction (const QString &text, const QObject *receiver, const char *member, const QKeySequence &shortcut=0)
+     * QAction * addAction (const QIcon &icon, const QString &text, const QObject *receiver, const char *member, const QKeySequence &shortcut=0)
+     * QAction * addMenu (QMenu *menu)
+     * QMenu * addMenu (const QString &title)
+     * QMenu * addMenu (const QIcon &icon, const QString &title)
+     * QAction * addSeparator ()
+     * QAction * insertMenu (QAction *before, QMenu *menu)
+     * QAction * insertSeparator (QAction *before)
+     * void clear ()
+     * void setTearOffEnabled (bool)
+     * bool isTearOffEnabled () const
+     * bool isTearOffMenuVisible () const
+     * void hideTearOffMenu ()
+     * void setDefaultAction (QAction *)
+     * QAction * defaultAction () const
+     * void setActiveAction (QAction *act)
+     * QAction * activeAction () const
+     * void popup (const QPoint &pos, QAction *at=0)
+     * QAction * exec ()
+     * QAction * exec (const QPoint &pos, QAction *at=0)
+     * QSize sizeHint () const
+     * QRect actionGeometry (QAction *) const
+     * QAction * actionAt (const QPoint &) const
+     * QAction * menuAction () const
+     * QString title () const
+     * void setTitle (const QString &title)
+     * QIcon icon () const
+     * void setIcon (const QIcon &icon)
+     * void setNoReplayFor (QWidget *widget)
+
+Static Public Member Functions
+
+     * static QAction * exec (QList< QAction * > actions, const QPoint &pos, QAction *at=0)
+
+Protected Member Functions
+
+     * int columnCount () const
+     * void changeEvent (QEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * void mouseReleaseEvent (QMouseEvent *)
+     * void mousePressEvent (QMouseEvent *)
+     * void mouseMoveEvent (QMouseEvent *)
+     * void wheelEvent (QWheelEvent *)
+     * void enterEvent (QEvent *)
+     * void leaveEvent (QEvent *)
+     * void hideEvent (QHideEvent *)
+     * void paintEvent (QPaintEvent *)
+     * void actionEvent (QActionEvent *)
+     * void timerEvent (QTimerEvent *)
+     * bool event (QEvent *)
+
+Properties
+
+     * bool tearOffEnabled
+     * QString title
+     * QIcon icon
+
+Friends
+
+     * class QTornOffMenu
+     * class Q3PopupMenu
+     * class QComboBox
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMenu::QMenu (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QMenu::QMenu (  const QString &  title,
+                   QWidget *        parent = 0
+                )  [explicit]
+
+
+
+   QMenu::~QMenu (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QMenu::aboutToShow (   )  [signal]
+
+
+
+   QAction* QMenu::actionAt (  const QPoint &   )  const
+
+
+
+   void QMenu::actionEvent (  QActionEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QRect QMenu::actionGeometry (  QAction *   )  const
+
+
+
+   QAction* QMenu::activeAction (   )  const
+
+
+
+   QAction* QMenu::addAction (  const QIcon &         icon,
+                                const QString &       text,
+                                const QObject *       receiver,
+                                const char *          member,
+                                const QKeySequence &  shortcut = 0
+                             )
+
+
+
+   QAction* QMenu::addAction (  const QString &       text,
+                                const QObject *       receiver,
+                                const char *          member,
+                                const QKeySequence &  shortcut = 0
+                             )
+
+
+
+   QAction* QMenu::addAction (  const QIcon &    icon,
+                                const QString &  text
+                             )
+
+
+
+   QAction* QMenu::addAction (  const QString &  text  )
+
+
+
+   QMenu* QMenu::addMenu (  const QIcon &    icon,
+                            const QString &  title
+                         )
+
+
+
+   QMenu* QMenu::addMenu (  const QString &  title  )
+
+
+
+   QAction* QMenu::addMenu (  QMenu *  menu  )
+
+
+
+   QAction* QMenu::addSeparator (   )
+
+
+
+   void QMenu::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenu::clear (   )
+
+
+
+   int QMenu::columnCount (   )  const [protected]
+
+
+
+   QAction* QMenu::defaultAction (   )  const
+
+
+
+   void QMenu::enterEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QMenu::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   static QAction* QMenu::exec (  QList< QAction * >  actions,
+                                  const QPoint &      pos,
+                                  QAction *           at = 0
+                               )  [static]
+
+
+
+   QAction* QMenu::exec (  const QPoint &  pos,
+                           QAction *       at = 0
+                        )
+
+
+
+   QAction* QMenu::exec (   )
+
+
+
+   void QMenu::hideEvent (  QHideEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenu::hideTearOffMenu (   )
+
+
+
+   void QMenu::hovered (  QAction *  action  )  [signal]
+
+
+
+   QIcon QMenu::icon (   )  const
+
+
+
+   QAction* QMenu::insertMenu (  QAction *  before,
+                                 QMenu *    menu
+                              )
+
+
+
+   QAction* QMenu::insertSeparator (  QAction *  before  )
+
+
+
+   bool QMenu::isTearOffEnabled (   )  const
+
+
+
+   bool QMenu::isTearOffMenuVisible (   )  const
+
+
+
+   void QMenu::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenu::leaveEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QAction* QMenu::menuAction (   )  const
+
+
+
+   void QMenu::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenu::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenu::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenu::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenu::popup (  const QPoint &  pos,
+                        QAction *       at = 0
+                     )
+
+
+
+   void QMenu::setActiveAction (  QAction *  act  )
+
+
+
+   void QMenu::setDefaultAction (  QAction *   )
+
+
+
+   void QMenu::setIcon (  const QIcon &  icon  )
+
+
+
+   void QMenu::setNoReplayFor (  QWidget *  widget  )
+
+
+
+   void QMenu::setTearOffEnabled (  bool   )
+
+
+
+   void QMenu::setTitle (  const QString &  title  )
+
+
+
+   QSize QMenu::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenu::timerEvent (  QTimerEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   QString QMenu::title (   )  const
+
+
+
+   void QMenu::triggered (  QAction *  action  )  [signal]
+
+
+
+   void QMenu::wheelEvent (  QWheelEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3PopupMenu [friend]
+
+
+
+   friend class QComboBox [friend]
+
+
+
+   friend class QTornOffMenu [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QIcon QMenu::icon [read, write]
+
+
+
+   bool QMenu::tearOffEnabled [read, write]
+
+
+
+   QString QMenu::title [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmenu.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

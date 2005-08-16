@@ -1,0 +1,521 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3Header Class Reference
+
+   #include <q3header.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Slots
+
+     * void setUpdatesEnabled (bool enable)
+     * virtual void setOffset (int pos)
+
+Signals
+
+     * void clicked (int section)
+     * void pressed (int section)
+     * void released (int section)
+     * void sizeChange (int section, int oldSize, int newSize)
+     * void indexChange (int section, int fromIndex, int toIndex)
+     * void sectionClicked (int)
+     * void moved (int, int)
+     * void sectionHandleDoubleClicked (int section)
+
+Public Member Functions
+
+     * Q3Header (QWidget *parent=0, const char *name=0)
+     * Q3Header (int, QWidget *parent=0, const char *name=0)
+     * ~Q3Header ()
+     * int addLabel (const QString &, int size=-1)
+     * int addLabel (const QIcon &, const QString &, int size=-1)
+     * void removeLabel (int section)
+     * virtual void setLabel (int, const QString &, int size=-1)
+     * virtual void setLabel (int, const QIcon &, const QString &, int size=-1)
+     * QString label (int section) const
+     * QIcon * iconSet (int section) const
+     * virtual void setOrientation (Qt::Orientation)
+     * Qt::Orientation orientation () const
+     * virtual void setTracking (bool enable)
+     * bool tracking () const
+     * virtual void setClickEnabled (bool, int section=-1)
+     * virtual void setResizeEnabled (bool, int section=-1)
+     * virtual void setMovingEnabled (bool)
+     * virtual void setStretchEnabled (bool b, int section)
+     * void setStretchEnabled (bool b)
+     * bool isClickEnabled (int section=-1) const
+     * bool isResizeEnabled (int section=-1) const
+     * bool isMovingEnabled () const
+     * bool isStretchEnabled () const
+     * bool isStretchEnabled (int section) const
+     * void resizeSection (int section, int s)
+     * int sectionSize (int section) const
+     * int sectionPos (int section) const
+     * int sectionAt (int pos) const
+     * int count () const
+     * int headerWidth () const
+     * QRect sectionRect (int section) const
+     * virtual void setCellSize (int, int)
+     * int cellSize (int i) const
+     * int cellPos (int) const
+     * int cellAt (int pos) const
+     * int offset () const
+     * QSize sizeHint () const
+     * int mapToSection (int index) const
+     * int mapToIndex (int section) const
+     * int mapToLogical (int) const
+     * int mapToActual (int) const
+     * void moveSection (int section, int toIndex)
+     * virtual void moveCell (int, int)
+     * void setSortIndicator (int section, bool ascending=true)
+     * void setSortIndicator (int section, Qt::SortOrder order)
+     * int sortIndicatorSection () const
+     * Qt::SortOrder sortIndicatorOrder () const
+     * void adjustHeaderSize ()
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+     * void showEvent (QShowEvent *e)
+     * void resizeEvent (QResizeEvent *e)
+     * QRect sRect (int index)
+     * virtual void paintSection (QPainter *p, int index, const QRect &fr)
+     * virtual void paintSectionLabel (QPainter *p, int index, const QRect &fr)
+     * void changeEvent (QEvent *)
+     * void mousePressEvent (QMouseEvent *)
+     * void mouseReleaseEvent (QMouseEvent *)
+     * void mouseMoveEvent (QMouseEvent *)
+     * void mouseDoubleClickEvent (QMouseEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * void keyReleaseEvent (QKeyEvent *)
+
+Properties
+
+     * Qt Orientation
+     * bool tracking
+     * int count
+     * int offset
+     * bool moving
+     * bool stretching
+
+Friends
+
+     * class Q3Table
+     * class Q3TableHeader
+     * class Q3ListView
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Header::Q3Header (  QWidget *     parent = 0,
+                         const char *  name = 0
+                      )
+
+
+
+   Q3Header::Q3Header (  int           ,
+                         QWidget *     parent = 0,
+                         const char *  name = 0
+                      )
+
+
+
+   Q3Header::~Q3Header (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int Q3Header::addLabel (  const QIcon &    ,
+                             const QString &  ,
+                             int              size = -1
+                          )
+
+
+
+   int Q3Header::addLabel (  const QString &  ,
+                             int              size = -1
+                          )
+
+
+
+   void Q3Header::adjustHeaderSize (   )  [inline]
+
+
+
+   int Q3Header::cellAt (  int  pos  )  const [inline]
+
+
+
+   int Q3Header::cellPos (  int   )  const
+
+
+
+   int Q3Header::cellSize (  int  i  )  const [inline]
+
+
+
+   void Q3Header::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3Header::clicked (  int  section  )  [signal]
+
+
+
+   int Q3Header::count (   )  const
+
+
+
+   int Q3Header::headerWidth (   )  const
+
+
+
+   QIcon* Q3Header::iconSet (  int  section  )  const
+
+
+
+   void Q3Header::indexChange (  int  section,
+                                 int  fromIndex,
+                                 int  toIndex
+                              )  [signal]
+
+
+
+   bool Q3Header::isClickEnabled (  int  section = -1  )  const
+
+
+
+   bool Q3Header::isMovingEnabled (   )  const
+
+
+
+   bool Q3Header::isResizeEnabled (  int  section = -1  )  const
+
+
+
+   bool Q3Header::isStretchEnabled (  int  section  )  const
+
+
+
+   bool Q3Header::isStretchEnabled (   )  const
+
+
+
+   void Q3Header::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3Header::keyReleaseEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QString Q3Header::label (  int  section  )  const
+
+
+
+   int Q3Header::mapToActual (  int   )  const
+
+
+
+   int Q3Header::mapToIndex (  int  section  )  const
+
+
+
+   int Q3Header::mapToLogical (  int   )  const
+
+
+
+   int Q3Header::mapToSection (  int  index  )  const
+
+
+
+   void Q3Header::mouseDoubleClickEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3Header::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3Header::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3Header::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3Header::moveCell (  int  ,
+                                      int
+                                   )  [virtual]
+
+
+
+   void Q3Header::moved (  int  ,
+                           int
+                        )  [signal]
+
+
+
+   void Q3Header::moveSection (  int  section,
+                                 int  toIndex
+                              )
+
+
+
+   int Q3Header::offset (   )  const
+
+
+
+   Qt::Orientation Q3Header::orientation (   )  const [inline]
+
+
+
+   void Q3Header::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3Header::paintSection (  QPainter *     p,
+                                          int            index,
+                                          const QRect &  fr
+                                       )  [protected, virtual]
+
+
+
+   virtual void Q3Header::paintSectionLabel (  QPainter *     p,
+                                               int            index,
+                                               const QRect &  fr
+                                            )  [protected, virtual]
+
+
+
+   void Q3Header::pressed (  int  section  )  [signal]
+
+
+
+   void Q3Header::released (  int  section  )  [signal]
+
+
+
+   void Q3Header::removeLabel (  int  section  )
+
+
+
+   void Q3Header::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3Header::resizeSection (  int  section,
+                                   int  s
+                                )
+
+
+
+   int Q3Header::sectionAt (  int  pos  )  const
+
+
+
+   void Q3Header::sectionClicked (  int   )  [signal]
+
+
+
+   void Q3Header::sectionHandleDoubleClicked (  int  section  )  [signal]
+
+
+
+   int Q3Header::sectionPos (  int  section  )  const
+
+
+
+   QRect Q3Header::sectionRect (  int  section  )  const
+
+
+
+   int Q3Header::sectionSize (  int  section  )  const
+
+
+
+   virtual void Q3Header::setCellSize (  int  ,
+                                         int
+                                      )  [virtual]
+
+
+
+   virtual void Q3Header::setClickEnabled (  bool  ,
+                                             int   section = -1
+                                          )  [virtual]
+
+
+
+   virtual void Q3Header::setLabel (  int              ,
+                                      const QIcon &    ,
+                                      const QString &  ,
+                                      int              size = -1
+                                   )  [virtual]
+
+
+
+   virtual void Q3Header::setLabel (  int              ,
+                                      const QString &  ,
+                                      int              size = -1
+                                   )  [virtual]
+
+
+
+   virtual void Q3Header::setMovingEnabled (  bool   )  [virtual]
+
+
+
+   virtual void Q3Header::setOffset (  int  pos  )  [virtual, slot]
+
+
+
+   virtual void Q3Header::setOrientation (  Qt::Orientation   )  [virtual]
+
+
+
+   virtual void Q3Header::setResizeEnabled (  bool  ,
+                                              int   section = -1
+                                           )  [virtual]
+
+
+
+   void Q3Header::setSortIndicator (  int            section,
+                                      Qt::SortOrder  order
+                                   )  [inline]
+
+
+
+   void Q3Header::setSortIndicator (  int   section,
+                                      bool  ascending = true
+                                   )
+
+
+
+   void Q3Header::setStretchEnabled (  bool  b  )  [inline]
+
+
+
+   virtual void Q3Header::setStretchEnabled (  bool  b,
+                                               int   section
+                                            )  [virtual]
+
+
+
+   void Q3Header::setTracking (  bool  enable  )  [inline, virtual]
+
+
+
+   void Q3Header::setUpdatesEnabled (  bool  enable  )  [slot]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3Header::showEvent (  QShowEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3Header::sizeChange (  int  section,
+                                int  oldSize,
+                                int  newSize
+                             )  [signal]
+
+
+
+   QSize Q3Header::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Qt::SortOrder Q3Header::sortIndicatorOrder (   )  const
+
+
+
+   int Q3Header::sortIndicatorSection (   )  const
+
+
+
+   QRect Q3Header::sRect (  int  index  )  [protected]
+
+
+
+   bool Q3Header::tracking (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3ListView [friend]
+
+
+
+   friend class Q3Table [friend]
+
+
+
+   friend class Q3TableHeader [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int Q3Header::count [read]
+
+
+
+   bool Q3Header::moving [read, write]
+
+
+
+   int Q3Header::offset [read, write]
+
+
+
+   Qt Q3Header::Orientation [read, write]
+
+
+
+   bool Q3Header::stretching [read, write]
+
+
+
+   bool Q3Header::tracking [inline, read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3header.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

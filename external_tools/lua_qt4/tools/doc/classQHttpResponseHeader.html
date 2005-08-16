@@ -1,0 +1,96 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QHttpResponseHeader Class Reference
+
+   #include <qhttp.h>
+
+   Inherits QHttpHeader.
+
+   List of all members.
+
+Public Member Functions
+
+     * QHttpResponseHeader ()
+     * QHttpResponseHeader (const QHttpResponseHeader &header)
+     * QHttpResponseHeader & operator= (const QHttpResponseHeader &header)
+     * int statusCode () const
+     * QString reasonPhrase () const
+     * int majorVersion () const
+     * int minorVersion () const
+     * QString toString () const
+
+Protected Member Functions
+
+     * bool parseLine (const QString &line, int number)
+
+Friends
+
+     * class QHttpPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QHttpResponseHeader::QHttpResponseHeader (   )
+
+
+
+   QHttpResponseHeader::QHttpResponseHeader (  const QHttpResponseHeader &  header  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QHttpResponseHeader::majorVersion (   )  const [virtual]
+
+
+
+   Implements QHttpHeader.
+
+   int QHttpResponseHeader::minorVersion (   )  const [virtual]
+
+
+
+   Implements QHttpHeader.
+
+   QHttpResponseHeader& QHttpResponseHeader::operator= (  const QHttpResponseHeader &  header  )
+
+
+
+   bool QHttpResponseHeader::parseLine (  const QString &  line,
+                                          int              number
+                                       )  [protected, virtual]
+
+
+
+   Reimplemented from QHttpHeader.
+
+   QString QHttpResponseHeader::reasonPhrase (   )  const
+
+
+
+   int QHttpResponseHeader::statusCode (   )  const
+
+
+
+   QString QHttpResponseHeader::toString (   )  const [virtual]
+
+
+
+   Reimplemented from QHttpHeader.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QHttpPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qhttp.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,208 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         QXmlSimpleReader Class Reference
+
+   #include <qxml.h>
+
+   Inherits QXmlReader.
+
+   List of all members.
+
+Public Member Functions
+
+     * QXmlSimpleReader ()
+     * virtual ~QXmlSimpleReader ()
+     * bool feature (const QString &name, bool *ok=0) const
+     * void setFeature (const QString &name, bool value)
+     * bool hasFeature (const QString &name) const
+     * void * property (const QString &name, bool *ok=0) const
+     * void setProperty (const QString &name, void *value)
+     * bool hasProperty (const QString &name) const
+     * void setEntityResolver (QXmlEntityResolver *handler)
+     * QXmlEntityResolver * entityResolver () const
+     * void setDTDHandler (QXmlDTDHandler *handler)
+     * QXmlDTDHandler * DTDHandler () const
+     * void setContentHandler (QXmlContentHandler *handler)
+     * QXmlContentHandler * contentHandler () const
+     * void setErrorHandler (QXmlErrorHandler *handler)
+     * QXmlErrorHandler * errorHandler () const
+     * void setLexicalHandler (QXmlLexicalHandler *handler)
+     * QXmlLexicalHandler * lexicalHandler () const
+     * void setDeclHandler (QXmlDeclHandler *handler)
+     * QXmlDeclHandler * declHandler () const
+     * bool parse (const QXmlInputSource &input)
+     * bool parse (const QXmlInputSource *input)
+     * virtual bool parse (const QXmlInputSource *input, bool incremental)
+     * virtual bool parseContinue ()
+
+Friends
+
+     * class QXmlSimpleReaderLocator
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QXmlSimpleReader::QXmlSimpleReader (   )
+
+
+
+   virtual QXmlSimpleReader::~QXmlSimpleReader (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QXmlContentHandler* QXmlSimpleReader::contentHandler (   )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   QXmlDeclHandler* QXmlSimpleReader::declHandler (   )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   QXmlDTDHandler* QXmlSimpleReader::DTDHandler (   )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   QXmlEntityResolver* QXmlSimpleReader::entityResolver (   )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   QXmlErrorHandler* QXmlSimpleReader::errorHandler (   )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   bool QXmlSimpleReader::feature (  const QString &  name,
+                                     bool *           ok = 0
+                                  )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   bool QXmlSimpleReader::hasFeature (  const QString &  name  )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   bool QXmlSimpleReader::hasProperty (  const QString &  name  )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   QXmlLexicalHandler* QXmlSimpleReader::lexicalHandler (   )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   virtual bool QXmlSimpleReader::parse (  const QXmlInputSource *  input,
+                                           bool                     incremental
+                                        )  [virtual]
+
+
+
+   bool QXmlSimpleReader::parse (  const QXmlInputSource *  input  )  [virtual]
+
+
+
+   Implements QXmlReader.
+
+   bool QXmlSimpleReader::parse (  const QXmlInputSource &  input  )  [virtual]
+
+
+
+   Implements QXmlReader.
+
+   virtual bool QXmlSimpleReader::parseContinue (   )  [virtual]
+
+
+
+   void* QXmlSimpleReader::property (  const QString &  name,
+                                       bool *           ok = 0
+                                    )  const [virtual]
+
+
+
+   Implements QXmlReader.
+
+   void QXmlSimpleReader::setContentHandler (  QXmlContentHandler *  handler  )  [virtual]
+
+
+
+   Implements QXmlReader.
+
+   void QXmlSimpleReader::setDeclHandler (  QXmlDeclHandler *  handler  )  [virtual]
+
+
+
+   Implements QXmlReader.
+
+   void QXmlSimpleReader::setDTDHandler (  QXmlDTDHandler *  handler  )  [virtual]
+
+
+
+   Implements QXmlReader.
+
+   void QXmlSimpleReader::setEntityResolver (  QXmlEntityResolver *  handler  )  [virtual]
+
+
+
+   Implements QXmlReader.
+
+   void QXmlSimpleReader::setErrorHandler (  QXmlErrorHandler *  handler  )  [virtual]
+
+
+
+   Implements QXmlReader.
+
+   void QXmlSimpleReader::setFeature (  const QString &  name,
+                                        bool             value
+                                     )  [virtual]
+
+
+
+   Implements QXmlReader.
+
+   void QXmlSimpleReader::setLexicalHandler (  QXmlLexicalHandler *  handler  )  [virtual]
+
+
+
+   Implements QXmlReader.
+
+   void QXmlSimpleReader::setProperty (  const QString &  name,
+                                         void *           value
+                                      )  [virtual]
+
+
+
+   Implements QXmlReader.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QXmlSimpleReaderLocator [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qxml.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,565 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QVector< T > Class Template Reference
+
+   #include <qvector.h>
+
+   Inherited by QStack< T >.
+
+   List of all members.
+
+Public Types
+
+     * typedef T * iterator
+     * typedef const T * const_iterator
+     * typedef T value_type
+     * typedef value_type * pointer
+     * typedef const value_type * const_pointer
+     * typedef value_type & reference
+     * typedef const value_type & const_reference
+     * typedef ptrdiff_t difference_type
+     * typedef iterator Iterator
+     * typedef const_iterator ConstIterator
+     * typedef int size_type
+
+Public Member Functions
+
+     * QVector ()
+     * QVector (int size)
+     * QVector (int size, const T &t)
+     * QVector (const QVector &v)
+     * ~QVector ()
+     * QVector & operator= (const QVector &v)
+     * bool operator== (const QVector &v) const
+     * bool operator!= (const QVector &v) const
+     * int size () const
+     * bool isEmpty () const
+     * void resize (int size)
+     * int capacity () const
+     * void reserve (int size)
+     * void squeeze ()
+     * void detach ()
+     * bool isDetached () const
+     * void setSharable (bool sharable)
+     * T * data ()
+     * const T * data () const
+     * const T * constData () const
+     * void clear ()
+     * const T & at (int i) const
+     * T & operator[] (int i)
+     * const T & operator[] (int i) const
+     * void append (const T &t)
+     * void prepend (const T &t)
+     * void insert (int i, const T &t)
+     * void insert (int i, int n, const T &t)
+     * void replace (int i, const T &t)
+     * void remove (int i)
+     * void remove (int i, int n)
+     * QVector & fill (const T &t, int size=-1)
+     * int indexOf (const T &t, int from=0) const
+     * int lastIndexOf (const T &t, int from=-1) const
+     * bool contains (const T &t) const
+     * int count (const T &t) const
+     * iterator begin ()
+     * const_iterator begin () const
+     * const_iterator constBegin () const
+     * iterator end ()
+     * const_iterator end () const
+     * const_iterator constEnd () const
+     * iterator insert (iterator before, int n, const T &x)
+     * iterator insert (iterator before, const T &x)
+     * iterator erase (iterator begin, iterator end)
+     * iterator erase (iterator pos)
+     * int count () const
+     * T & first ()
+     * const T & first () const
+     * T & last ()
+     * const T & last () const
+     * QVector< T > mid (int pos, int length=-1) const
+     * T value (int i) const
+     * T value (int i, const T &defaultValue) const
+     * void push_back (const T &t)
+     * void push_front (const T &t)
+     * void pop_back ()
+     * void pop_front ()
+     * bool empty () const
+     * T & front ()
+     * const_reference front () const
+     * reference back ()
+     * const_reference back () const
+     * QVector & operator+= (const QVector &l)
+     * QVector operator+ (const QVector &l) const
+     * QVector & operator+= (const T &t)
+     * QVector & operator<< (const T &t)
+     * QVector & operator<< (const QVector &l)
+     * QList< T > toList () const
+     * std::vector< T > toStdVector () const
+
+Static Public Member Functions
+
+     * static QVector< T > fromList (const QList< T > &list)
+     * static QVector< T > fromStdVector (const std::vector< T > &vector)
+
+  template<typename T>
+  class QVector< T >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<typename T>
+   typedef const T* QVector< T >::const_iterator
+
+
+
+   template<typename T>
+   typedef const value_type* QVector< T >::const_pointer
+
+
+
+   template<typename T>
+   typedef const value_type& QVector< T >::const_reference
+
+
+
+   template<typename T>
+   typedef const_iterator QVector< T >::ConstIterator
+
+
+
+   template<typename T>
+   typedef ptrdiff_t QVector< T >::difference_type
+
+
+
+   template<typename T>
+   typedef iterator QVector< T >::Iterator
+
+
+
+   template<typename T>
+   typedef T* QVector< T >::iterator
+
+
+
+   template<typename T>
+   typedef value_type* QVector< T >::pointer
+
+
+
+   template<typename T>
+   typedef value_type& QVector< T >::reference
+
+
+
+   template<typename T>
+   typedef int QVector< T >::size_type
+
+
+
+   template<typename T>
+   typedef T QVector< T >::value_type
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<typename T>
+   QVector< T >::QVector (   )  [inline]
+
+
+
+   template<typename T>
+   QVector< T >::QVector (  int  size  )  [explicit]
+
+
+
+   template<typename T>
+   QVector< T >::QVector (  int        size,
+                            const T &  t
+                         )
+
+
+
+   template<typename T>
+   QVector< T >::QVector (  const QVector< T > &  v  )  [inline]
+
+
+
+   template<typename T>
+   QVector< T >::~QVector (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<typename T>
+   void QVector< T >::append (  const T &  t  )
+
+
+
+   template<typename T>
+   const T & QVector< T >::at (  int  i  )  const [inline]
+
+
+
+   template<typename T>
+   const_reference QVector< T >::back (   )  const [inline]
+
+
+
+   template<typename T>
+   reference QVector< T >::back (   )  [inline]
+
+
+
+   template<typename T>
+   const_iterator QVector< T >::begin (   )  const [inline]
+
+
+
+   template<typename T>
+   iterator QVector< T >::begin (   )  [inline]
+
+
+
+   template<typename T>
+   int QVector< T >::capacity (   )  const [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::clear (   )  [inline]
+
+
+
+   template<typename T>
+   const_iterator QVector< T >::constBegin (   )  const [inline]
+
+
+
+   template<typename T>
+   const T* QVector< T >::constData (   )  const [inline]
+
+
+
+   template<typename T>
+   const_iterator QVector< T >::constEnd (   )  const [inline]
+
+
+
+   template<typename T>
+   bool QVector< T >::contains (  const T &  t  )  const
+
+
+
+   template<typename T>
+   int QVector< T >::count (   )  const [inline]
+
+
+
+   template<typename T>
+   int QVector< T >::count (  const T &  t  )  const
+
+
+
+   template<typename T>
+   const T* QVector< T >::data (   )  const [inline]
+
+
+
+   template<typename T>
+   T* QVector< T >::data (   )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::detach (   )  [inline]
+
+
+
+   template<typename T>
+   bool QVector< T >::empty (   )  const [inline]
+
+
+
+   template<typename T>
+   const_iterator QVector< T >::end (   )  const [inline]
+
+
+
+   template<typename T>
+   iterator QVector< T >::end (   )  [inline]
+
+
+
+   template<typename T>
+   iterator QVector< T >::erase (  iterator  pos  )  [inline]
+
+
+
+   template<typename T>
+   Q_TYPENAME QVector< T >::iterator QVector< T >::erase (  iterator  begin,
+                                                            iterator  end
+                                                         )
+
+
+
+   template<typename T>
+   QVector< T > & QVector< T >::fill (  const T &  t,
+                                        int        size = -1
+                                     )
+
+
+
+   template<typename T>
+   const T& QVector< T >::first (   )  const [inline]
+
+
+
+   template<typename T>
+   T& QVector< T >::first (   )  [inline]
+
+
+
+   template<typename T>
+   QVector< T > QVector< T >::fromList (  const QList< T > &  list  )  [static]
+
+
+
+   template<typename T>
+   static QVector<T> QVector< T >::fromStdVector (  const std::vector< T > &  vector  )  [inline, static]
+
+
+
+   template<typename T>
+   const_reference QVector< T >::front (   )  const [inline]
+
+
+
+   template<typename T>
+   T& QVector< T >::front (   )  [inline]
+
+
+
+   template<typename T>
+   int QVector< T >::indexOf (  const T &  t,
+                                int        from = 0
+                             )  const
+
+
+
+   template<typename T>
+   iterator QVector< T >::insert (  iterator   before,
+                                    const T &  x
+                                 )  [inline]
+
+
+
+   template<typename T>
+   Q_TYPENAME QVector< T >::iterator QVector< T >::insert (  iterator   before,
+                                                             int        n,
+                                                             const T &  x
+                                                          )
+
+
+
+   template<typename T>
+   void QVector< T >::insert (  int        i,
+                                int        n,
+                                const T &  t
+                             )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::insert (  int        i,
+                                const T &  t
+                             )  [inline]
+
+
+
+   template<typename T>
+   bool QVector< T >::isDetached (   )  const [inline]
+
+
+
+   template<typename T>
+   bool QVector< T >::isEmpty (   )  const [inline]
+
+
+
+   template<typename T>
+   const T& QVector< T >::last (   )  const [inline]
+
+
+
+   template<typename T>
+   T& QVector< T >::last (   )  [inline]
+
+
+
+   template<typename T>
+   int QVector< T >::lastIndexOf (  const T &  t,
+                                    int        from = -1
+                                 )  const
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE QVector< T > QVector< T >::mid (  int  pos,
+                                                          int  length = -1
+                                                       )  const
+
+
+
+   template<typename T>
+   bool QVector< T >::operator!= (  const QVector< T > &  v  )  const [inline]
+
+
+
+   template<typename T>
+   QVector QVector< T >::operator+ (  const QVector< T > &  l  )  const [inline]
+
+
+
+   template<typename T>
+   QVector& QVector< T >::operator+= (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   QVector< T > & QVector< T >::operator+= (  const QVector< T > &  l  )
+
+
+
+   template<typename T>
+   QVector& QVector< T >::operator<< (  const QVector< T > &  l  )  [inline]
+
+
+
+   template<typename T>
+   QVector& QVector< T >::operator<< (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   QVector& QVector< T >::operator= (  const QVector< T > &  v  )
+
+
+
+   template<typename T>
+   bool QVector< T >::operator== (  const QVector< T > &  v  )  const
+
+
+
+   template<typename T>
+   const T & QVector< T >::operator[] (  int  i  )  const [inline]
+
+
+
+   template<typename T>
+   T & QVector< T >::operator[] (  int  i  )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::pop_back (   )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::pop_front (   )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::prepend (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::push_back (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::push_front (  const T &  t  )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::remove (  int  i,
+                                int  n
+                             )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::remove (  int  i  )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::replace (  int        i,
+                                 const T &  t
+                              )  [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::reserve (  int  size  )
+
+
+
+   template<typename T>
+   void QVector< T >::resize (  int  size  )
+
+
+
+   template<typename T>
+   void QVector< T >::setSharable (  bool  sharable  )  [inline]
+
+
+
+   template<typename T>
+   int QVector< T >::size (   )  const [inline]
+
+
+
+   template<typename T>
+   void QVector< T >::squeeze (   )  [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE QList< T > QVector< T >::toList (   )  const
+
+
+
+   template<typename T>
+   std::vector<T> QVector< T >::toStdVector (   )  const [inline]
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE T QVector< T >::value (  int        i,
+                                                 const T &  defaultValue
+                                              )  const
+
+
+
+   template<typename T>
+   Q_OUTOFLINE_TEMPLATE T QVector< T >::value (  int  i  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qvector.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

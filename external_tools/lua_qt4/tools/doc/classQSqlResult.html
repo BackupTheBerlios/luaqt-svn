@@ -1,0 +1,335 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QSqlResult Class Reference
+
+   #include <qsqlresult.h>
+
+   Inherited by QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   List of all members.
+
+Public Member Functions
+
+     * virtual ~QSqlResult ()
+     * virtual QVariant handle () const
+
+Protected Types
+
+     * enum BindingSyntax { PositionalBinding, NamedBinding }
+
+Protected Member Functions
+
+     * QSqlResult (const QSqlDriver *db)
+     * int at () const
+     * QString lastQuery () const
+     * QSqlError lastError () const
+     * bool isValid () const
+     * bool isActive () const
+     * bool isSelect () const
+     * bool isForwardOnly () const
+     * const QSqlDriver * driver () const
+     * virtual void setAt (int at)
+     * virtual void setActive (bool a)
+     * virtual void setLastError (const QSqlError &e)
+     * virtual void setQuery (const QString &query)
+     * virtual void setSelect (bool s)
+     * virtual void setForwardOnly (bool forward)
+     * virtual bool exec ()
+     * virtual bool prepare (const QString &query)
+     * virtual bool savePrepare (const QString &sqlquery)
+     * virtual void bindValue (int pos, const QVariant &val, QSql::ParamType type)
+     * virtual void bindValue (const QString &placeholder, const QVariant &val, QSql::ParamType type)
+     * void addBindValue (const QVariant &val, QSql::ParamType type)
+     * QVariant boundValue (const QString &placeholder) const
+     * QVariant boundValue (int pos) const
+     * QSql::ParamType bindValueType (const QString &placeholder) const
+     * QSql::ParamType bindValueType (int pos) const
+     * int boundValueCount () const
+     * QVector< QVariant > & boundValues () const
+     * QString executedQuery () const
+     * QString boundValueName (int pos) const
+     * void clear ()
+     * bool hasOutValues () const
+     * BindingSyntax bindingSyntax () const
+     * virtual QVariant data (int i)=0
+     * virtual bool isNull (int i)=0
+     * virtual bool reset (const QString &sqlquery)=0
+     * virtual bool fetch (int i)=0
+     * virtual bool fetchNext ()
+     * virtual bool fetchPrevious ()
+     * virtual bool fetchFirst ()=0
+     * virtual bool fetchLast ()=0
+     * virtual int size ()=0
+     * virtual int numRowsAffected ()=0
+     * virtual QSqlRecord record () const
+     * virtual QVariant lastInsertId () const
+     * virtual void virtual_hook (int id, void *data)
+
+Friends
+
+     * class QSqlQuery
+     * class QSqlResultPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QSqlResult::BindingSyntax [protected]
+
+
+
+   Enumerator: 
+
+          PositionalBinding
+          NamedBinding     
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QSqlResult::~QSqlResult (   )  [virtual]
+
+
+
+   QSqlResult::QSqlResult (  const QSqlDriver *  db  )  [explicit, protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QSqlResult::addBindValue (  const QVariant &  val,
+                                    QSql::ParamType   type
+                                 )  [protected]
+
+
+
+   int QSqlResult::at (   )  const [protected]
+
+
+
+   BindingSyntax QSqlResult::bindingSyntax (   )  const [protected]
+
+
+
+   virtual void QSqlResult::bindValue (  const QString &   placeholder,
+                                         const QVariant &  val,
+                                         QSql::ParamType   type
+                                      )  [protected, virtual]
+
+
+
+   virtual void QSqlResult::bindValue (  int               pos,
+                                         const QVariant &  val,
+                                         QSql::ParamType   type
+                                      )  [protected, virtual]
+
+
+
+   QSql::ParamType QSqlResult::bindValueType (  int  pos  )  const [protected]
+
+
+
+   QSql::ParamType QSqlResult::bindValueType (  const QString &  placeholder  )  const [protected]
+
+
+
+   QVariant QSqlResult::boundValue (  int  pos  )  const [protected]
+
+
+
+   QVariant QSqlResult::boundValue (  const QString &  placeholder  )  const [protected]
+
+
+
+   int QSqlResult::boundValueCount (   )  const [protected]
+
+
+
+   QString QSqlResult::boundValueName (  int  pos  )  const [protected]
+
+
+
+   QVector<QVariant>& QSqlResult::boundValues (   )  const [protected]
+
+
+
+   void QSqlResult::clear (   )  [protected]
+
+
+
+   virtual QVariant QSqlResult::data (  int  i  )  [protected, pure virtual]
+
+
+
+   Implemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   const QSqlDriver* QSqlResult::driver (   )  const [protected]
+
+
+
+   virtual bool QSqlResult::exec (   )  [protected, virtual]
+
+
+
+   Reimplemented in QODBCResult.
+
+   QString QSqlResult::executedQuery (   )  const [protected]
+
+
+
+   virtual bool QSqlResult::fetch (  int  i  )  [protected, pure virtual]
+
+
+
+   Implemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   virtual bool QSqlResult::fetchFirst (   )  [protected, pure virtual]
+
+
+
+   Implemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   virtual bool QSqlResult::fetchLast (   )  [protected, pure virtual]
+
+
+
+   Implemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   virtual bool QSqlResult::fetchNext (   )  [protected, virtual]
+
+
+
+   Reimplemented in QMYSQLResult, and QODBCResult.
+
+   virtual bool QSqlResult::fetchPrevious (   )  [protected, virtual]
+
+
+
+   virtual QVariant QSqlResult::handle (   )  const [virtual]
+
+
+
+   Reimplemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   bool QSqlResult::hasOutValues (   )  const [protected]
+
+
+
+   bool QSqlResult::isActive (   )  const [protected]
+
+
+
+   bool QSqlResult::isForwardOnly (   )  const [protected]
+
+
+
+   virtual bool QSqlResult::isNull (  int  i  )  [protected, pure virtual]
+
+
+
+   Implemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   bool QSqlResult::isSelect (   )  const [protected]
+
+
+
+   bool QSqlResult::isValid (   )  const [protected]
+
+
+
+   QSqlError QSqlResult::lastError (   )  const [protected]
+
+
+
+   virtual QVariant QSqlResult::lastInsertId (   )  const [protected, virtual]
+
+
+
+   Reimplemented in QMYSQLResult, and QPSQLResult.
+
+   QString QSqlResult::lastQuery (   )  const [protected]
+
+
+
+   virtual int QSqlResult::numRowsAffected (   )  [protected, pure virtual]
+
+
+
+   Implemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   virtual bool QSqlResult::prepare (  const QString &  query  )  [protected, virtual]
+
+
+
+   Reimplemented in QODBCResult.
+
+   virtual QSqlRecord QSqlResult::record (   )  const [protected, virtual]
+
+
+
+   Reimplemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   virtual bool QSqlResult::reset (  const QString &  sqlquery  )  [protected, pure virtual]
+
+
+
+   Implemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   virtual bool QSqlResult::savePrepare (  const QString &  sqlquery  )  [protected, virtual]
+
+
+
+   virtual void QSqlResult::setActive (  bool  a  )  [protected, virtual]
+
+
+
+   virtual void QSqlResult::setAt (  int  at  )  [protected, virtual]
+
+
+
+   virtual void QSqlResult::setForwardOnly (  bool  forward  )  [protected, virtual]
+
+
+
+   virtual void QSqlResult::setLastError (  const QSqlError &  e  )  [protected, virtual]
+
+
+
+   virtual void QSqlResult::setQuery (  const QString &  query  )  [protected, virtual]
+
+
+
+   virtual void QSqlResult::setSelect (  bool  s  )  [protected, virtual]
+
+
+
+   virtual int QSqlResult::size (   )  [protected, pure virtual]
+
+
+
+   Implemented in QMYSQLResult, QODBCResult, and QPSQLResult.
+
+   virtual void QSqlResult::virtual_hook (  int     id,
+                                            void *  data
+                                         )  [protected, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QSqlQuery [friend]
+
+
+
+   friend class QSqlResultPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqlresult.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

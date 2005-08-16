@@ -1,0 +1,247 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QTabletEvent Class Reference
+
+   #include <qevent.h>
+
+   Inherits QInputEvent.
+
+   List of all members.
+
+Public Types
+
+     * enum TabletDevice {
+         NoDevice, Puck, Stylus, Airbrush,
+         FourDMouse, XFreeEraser
+       }
+     * enum PointerType { UnknownPointer, Pen, Cursor, Eraser }
+
+Public Member Functions
+
+     * QTabletEvent (Type t, const QPoint &pos, const QPoint &globalPos, const QPointF &hiResGlobalPos, int device, int pointerType, qreal pressure, int xTilt, int yTilt, qreal tangentialPressure, qreal rotation, int z, Qt::KeyboardModifiers keyState, qint64 uniqueID)
+     * ~QTabletEvent ()
+     * const QPoint & pos () const
+     * const QPoint & globalPos () const
+     * const QPointF & hiResGlobalPos () const
+     * int x () const
+     * int y () const
+     * int globalX () const
+     * int globalY () const
+     * qreal hiResGlobalX () const
+     * qreal hiResGlobalY () const
+     * TabletDevice device () const
+     * PointerType pointerType () const
+     * qint64 uniqueId () const
+     * qreal pressure () const
+     * int z () const
+     * qreal tangentialPressure () const
+     * qreal rotation () const
+     * int xTilt () const
+     * int yTilt () const
+
+Protected Attributes
+
+     * QPoint mPos
+     * QPoint mGPos
+     * QPointF mHiResGlobalPos
+     * int mDev
+     * int mPointerType
+     * int mXT
+     * int mYT
+     * int mZ
+     * qreal mPress
+     * qreal mTangential
+     * qreal mRot
+     * qint64 mUnique
+     * void * mExtra
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTabletEvent::PointerType
+
+
+
+   Enumerator: 
+
+          UnknownPointer
+          Pen           
+          Cursor        
+          Eraser        
+
+   enum QTabletEvent::TabletDevice
+
+
+
+   Enumerator: 
+
+          NoDevice   
+          Puck       
+          Stylus     
+          Airbrush   
+          FourDMouse 
+          XFreeEraser
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTabletEvent::QTabletEvent (  Type                   t,
+                                 const QPoint &         pos,
+                                 const QPoint &         globalPos,
+                                 const QPointF &        hiResGlobalPos,
+                                 int                    device,
+                                 int                    pointerType,
+                                 qreal                  pressure,
+                                 int                    xTilt,
+                                 int                    yTilt,
+                                 qreal                  tangentialPressure,
+                                 qreal                  rotation,
+                                 int                    z,
+                                 Qt::KeyboardModifiers  keyState,
+                                 qint64                 uniqueID
+                              )
+
+
+
+   QTabletEvent::~QTabletEvent (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   TabletDevice QTabletEvent::device (   )  const [inline]
+
+
+
+   const QPoint& QTabletEvent::globalPos (   )  const [inline]
+
+
+
+   int QTabletEvent::globalX (   )  const [inline]
+
+
+
+   int QTabletEvent::globalY (   )  const [inline]
+
+
+
+   const QPointF& QTabletEvent::hiResGlobalPos (   )  const [inline]
+
+
+
+   qreal QTabletEvent::hiResGlobalX (   )  const [inline]
+
+
+
+   qreal QTabletEvent::hiResGlobalY (   )  const [inline]
+
+
+
+   PointerType QTabletEvent::pointerType (   )  const [inline]
+
+
+
+   const QPoint& QTabletEvent::pos (   )  const [inline]
+
+
+
+   qreal QTabletEvent::pressure (   )  const [inline]
+
+
+
+   qreal QTabletEvent::rotation (   )  const [inline]
+
+
+
+   qreal QTabletEvent::tangentialPressure (   )  const [inline]
+
+
+
+   qint64 QTabletEvent::uniqueId (   )  const [inline]
+
+
+
+   int QTabletEvent::x (   )  const [inline]
+
+
+
+   int QTabletEvent::xTilt (   )  const [inline]
+
+
+
+   int QTabletEvent::y (   )  const [inline]
+
+
+
+   int QTabletEvent::yTilt (   )  const [inline]
+
+
+
+   int QTabletEvent::z (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int QTabletEvent::mDev [protected]
+
+
+
+   void* QTabletEvent::mExtra [protected]
+
+
+
+   QPoint QTabletEvent::mGPos [protected]
+
+
+
+   QPointF QTabletEvent::mHiResGlobalPos [protected]
+
+
+
+   int QTabletEvent::mPointerType [protected]
+
+
+
+   QPoint QTabletEvent::mPos [protected]
+
+
+
+   qreal QTabletEvent::mPress [protected]
+
+
+
+   qreal QTabletEvent::mRot [protected]
+
+
+
+   qreal QTabletEvent::mTangential [protected]
+
+
+
+   qint64 QTabletEvent::mUnique [protected]
+
+
+
+   int QTabletEvent::mXT [protected]
+
+
+
+   int QTabletEvent::mYT [protected]
+
+
+
+   int QTabletEvent::mZ [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qevent.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,230 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QFrame Class Reference
+
+   #include <qframe.h>
+
+   Inherits QWidget.
+
+   Inherited by QAbstractScrollArea, QLabel, QLCDNumber, QSplitter, QStackedWidget, and QToolBox.
+
+   List of all members.
+
+Public Types
+
+     * enum Shape {
+         NoFrame = 0, Box = 0x0001, Panel = 0x0002, WinPanel = 0x0003,
+         HLine = 0x0004, VLine = 0x0005, StyledPanel = 0x0006
+       }
+     * enum Shadow { Plain = 0x0010, Raised = 0x0020, Sunken = 0x0030 }
+     * enum { Shadow_Mask = 0x00f0, Shape_Mask = 0x000f }
+
+Public Member Functions
+
+     * QFrame (QWidget *parent=0, Qt::WFlags f=0)
+     * ~QFrame ()
+     * int frameStyle () const
+     * void setFrameStyle (int)
+     * int frameWidth () const
+     * QSize sizeHint () const
+     * Shape frameShape () const
+     * void setFrameShape (Shape)
+     * Shadow frameShadow () const
+     * void setFrameShadow (Shadow)
+     * int lineWidth () const
+     * void setLineWidth (int)
+     * int midLineWidth () const
+     * void setMidLineWidth (int)
+     * QRect frameRect () const
+     * void setFrameRect (const QRect &)
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+     * void changeEvent (QEvent *)
+     * void drawFrame (QPainter *)
+     * QFrame (QFramePrivate &dd, QWidget *parent=0, Qt::WFlags f=0)
+
+Properties
+
+     * Shape frameShape
+     * Shadow frameShadow
+     * int lineWidth
+     * int midLineWidth
+     * int frameWidth
+     * QRect frameRect
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Shadow_Mask
+          Shape_Mask 
+
+   enum QFrame::Shadow
+
+
+
+   Enumerator: 
+
+          Plain 
+          Raised
+          Sunken
+
+   enum QFrame::Shape
+
+
+
+   Enumerator: 
+
+          NoFrame    
+          Box        
+          Panel      
+          WinPanel   
+          HLine      
+          VLine      
+          StyledPanel
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QFrame::QFrame (  QWidget *   parent = 0,
+                     Qt::WFlags  f = 0
+                  )  [explicit]
+
+
+
+   QFrame::~QFrame (   )
+
+
+
+   QFrame::QFrame (  QFramePrivate &  dd,
+                     QWidget *        parent = 0,
+                     Qt::WFlags       f = 0
+                  )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QFrame::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QLabel, QSplitter, QTextEdit, and QToolBox.
+
+   void QFrame::drawFrame (  QPainter *   )  [protected]
+
+
+
+   QRect QFrame::frameRect (   )  const
+
+
+
+   Shadow QFrame::frameShadow (   )  const
+
+
+
+   Shape QFrame::frameShape (   )  const
+
+
+
+   int QFrame::frameStyle (   )  const
+
+
+
+   int QFrame::frameWidth (   )  const
+
+
+
+   int QFrame::lineWidth (   )  const
+
+
+
+   int QFrame::midLineWidth (   )  const
+
+
+
+   void QFrame::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractScrollArea, QHeaderView, QLabel, QLCDNumber, QListView, QTableView, QTextBrowser, QTextEdit, and QTreeView.
+
+   void QFrame::setFrameRect (  const QRect &   )
+
+
+
+   void QFrame::setFrameShadow (  Shadow   )
+
+
+
+   void QFrame::setFrameShape (  Shape   )
+
+
+
+   void QFrame::setFrameStyle (  int   )
+
+
+
+   void QFrame::setLineWidth (  int   )
+
+
+
+   void QFrame::setMidLineWidth (  int   )
+
+
+
+   QSize QFrame::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in QAbstractScrollArea, QHeaderView, QLabel, QLCDNumber, QScrollArea, and QSplitter.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QRect QFrame::frameRect [read, write]
+
+
+
+   Shadow QFrame::frameShadow [read, write]
+
+
+
+   Shape QFrame::frameShape [read, write]
+
+
+
+   int QFrame::frameWidth [read]
+
+
+
+   int QFrame::lineWidth [read, write]
+
+
+
+   int QFrame::midLineWidth [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qframe.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

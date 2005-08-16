@@ -1,0 +1,872 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3IconView Class Reference
+
+   #include <q3iconview.h>
+
+   Inherits Q3ScrollView.
+
+   List of all members.
+
+Public Types
+
+     * typedef uint ComparisonFlags
+     * enum SelectionMode { Single = 0, Multi, Extended, NoSelection }
+     * enum Arrangement { LeftToRight = 0, TopToBottom }
+     * enum ResizeMode { Fixed = 0, Adjust }
+     * enum ItemTextPos { Bottom = 0, Right }
+     * enum StringComparisonMode {
+         CaseSensitive = 0x00001, BeginsWith = 0x00002, EndsWith = 0x00004, Contains = 0x00008,
+         ExactMatch = 0x00010
+       }
+
+Public Slots
+
+     * virtual void arrangeItemsInGrid (const QSize &grid, bool update=true)
+     * virtual void arrangeItemsInGrid (bool update=true)
+     * virtual void setContentsPos (int x, int y)
+     * virtual void updateContents ()
+
+Signals
+
+     * void selectionChanged ()
+     * void selectionChanged (Q3IconViewItem *item)
+     * void currentChanged (Q3IconViewItem *item)
+     * void clicked (Q3IconViewItem *)
+     * void clicked (Q3IconViewItem *, const QPoint &)
+     * void pressed (Q3IconViewItem *)
+     * void pressed (Q3IconViewItem *, const QPoint &)
+     * void doubleClicked (Q3IconViewItem *item)
+     * void returnPressed (Q3IconViewItem *item)
+     * void rightButtonClicked (Q3IconViewItem *item, const QPoint &pos)
+     * void rightButtonPressed (Q3IconViewItem *item, const QPoint &pos)
+     * void mouseButtonPressed (int button, Q3IconViewItem *item, const QPoint &pos)
+     * void mouseButtonClicked (int button, Q3IconViewItem *item, const QPoint &pos)
+     * void contextMenuRequested (Q3IconViewItem *item, const QPoint &pos)
+     * void dropped (QDropEvent *e, const Q3ValueList< Q3IconDragItem > &lst)
+     * void moved ()
+     * void onItem (Q3IconViewItem *item)
+     * void onViewport ()
+     * void itemRenamed (Q3IconViewItem *item, const QString &)
+     * void itemRenamed (Q3IconViewItem *item)
+
+Public Member Functions
+
+     * Q3IconView (QWidget *parent=0, const char *name=0, Qt::WFlags f=0)
+     * virtual ~Q3IconView ()
+     * virtual void insertItem (Q3IconViewItem *item, Q3IconViewItem *after=0L)
+     * virtual void takeItem (Q3IconViewItem *item)
+     * int index (const Q3IconViewItem *item) const
+     * Q3IconViewItem * firstItem () const
+     * Q3IconViewItem * lastItem () const
+     * Q3IconViewItem * currentItem () const
+     * virtual void setCurrentItem (Q3IconViewItem *item)
+     * virtual void setSelected (Q3IconViewItem *item, bool s, bool cb=false)
+     * uint count () const
+     * virtual void showEvent (QShowEvent *)
+     * virtual void setSelectionMode (SelectionMode m)
+     * SelectionMode selectionMode () const
+     * Q3IconViewItem * findItem (const QPoint &pos) const
+     * Q3IconViewItem * findItem (const QString &text, ComparisonFlags=BeginsWith|Qt::CaseSensitive) const
+     * virtual void selectAll (bool select)
+     * virtual void clearSelection ()
+     * virtual void invertSelection ()
+     * virtual void repaintItem (Q3IconViewItem *item)
+     * void repaintSelectedItems ()
+     * void ensureItemVisible (Q3IconViewItem *item)
+     * Q3IconViewItem * findFirstVisibleItem (const QRect &r) const
+     * Q3IconViewItem * findLastVisibleItem (const QRect &r) const
+     * virtual void clear ()
+     * virtual void setGridX (int rx)
+     * virtual void setGridY (int ry)
+     * int gridX () const
+     * int gridY () const
+     * virtual void setSpacing (int sp)
+     * int spacing () const
+     * virtual void setItemTextPos (ItemTextPos pos)
+     * ItemTextPos itemTextPos () const
+     * virtual void setItemTextBackground (const QBrush &b)
+     * QBrush itemTextBackground () const
+     * virtual void setArrangement (Arrangement am)
+     * Arrangement arrangement () const
+     * virtual void setResizeMode (ResizeMode am)
+     * ResizeMode resizeMode () const
+     * virtual void setMaxItemWidth (int w)
+     * int maxItemWidth () const
+     * virtual void setMaxItemTextLength (int w)
+     * int maxItemTextLength () const
+     * virtual void setAutoArrange (bool b)
+     * bool autoArrange () const
+     * virtual void setShowToolTips (bool b)
+     * bool showToolTips () const
+     * void setSorting (bool sort, bool ascending=true)
+     * bool sorting () const
+     * bool sortDirection () const
+     * virtual void setItemsMovable (bool b)
+     * bool itemsMovable () const
+     * virtual void setWordWrapIconText (bool b)
+     * bool wordWrapIconText () const
+     * bool eventFilter (QObject *o, QEvent *)
+     * QSize minimumSizeHint () const
+     * QSize sizeHint () const
+     * virtual void sort (bool ascending=true)
+     * bool isRenaming () const
+     * QVariant inputMethodQuery (Qt::InputMethodQuery query) const
+
+Protected Slots
+
+     * virtual void doAutoScroll ()
+     * virtual void adjustItems ()
+     * virtual void slotUpdate ()
+
+Protected Member Functions
+
+     * void drawContents (QPainter *p, int cx, int cy, int cw, int ch)
+     * void contentsMousePressEvent (QMouseEvent *e)
+     * void contentsMouseReleaseEvent (QMouseEvent *e)
+     * void contentsMouseMoveEvent (QMouseEvent *e)
+     * void contentsMouseDoubleClickEvent (QMouseEvent *e)
+     * void contentsContextMenuEvent (QContextMenuEvent *e)
+     * void contentsDragEnterEvent (QDragEnterEvent *e)
+     * void contentsDragMoveEvent (QDragMoveEvent *e)
+     * void contentsDragLeaveEvent (QDragLeaveEvent *e)
+     * void contentsDropEvent (QDropEvent *e)
+     * void resizeEvent (QResizeEvent *e)
+     * void keyPressEvent (QKeyEvent *e)
+     * void focusInEvent (QFocusEvent *e)
+     * void focusOutEvent (QFocusEvent *e)
+     * void enterEvent (QEvent *e)
+     * virtual void drawRubber (QPainter *p)
+     * virtual Q3DragObject * dragObject ()
+     * virtual void startDrag ()
+     * virtual void insertInGrid (Q3IconViewItem *item)
+     * virtual void drawBackground (QPainter *p, const QRect &r)
+     * void emitSelectionChanged (Q3IconViewItem *i=0)
+     * void emitRenamed (Q3IconViewItem *item)
+     * Q3IconViewItem * makeRowLayout (Q3IconViewItem *begin, int &y, bool &changed)
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * bool sorting
+     * bool sortDirection
+     * SelectionMode selectionMode
+     * int gridX
+     * int gridY
+     * int spacing
+     * ItemTextPos itemTextPos
+     * QBrush itemTextBackground
+     * Arrangement arrangement
+     * ResizeMode resizeMode
+     * int maxItemWidth
+     * int maxItemTextLength
+     * bool autoArrange
+     * bool itemsMovable
+     * bool wordWrapIconText
+     * bool showToolTips
+     * uint count
+
+Friends
+
+     * class Q3IconViewItem
+     * class Q3IconViewPrivate
+     * class Q3IconViewToolTip
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef uint Q3IconView::ComparisonFlags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3IconView::Arrangement
+
+
+
+   Enumerator: 
+
+          LeftToRight
+          TopToBottom
+
+   enum Q3IconView::ItemTextPos
+
+
+
+   Enumerator: 
+
+          Bottom
+          Right 
+
+   enum Q3IconView::ResizeMode
+
+
+
+   Enumerator: 
+
+          Fixed 
+          Adjust
+
+   enum Q3IconView::SelectionMode
+
+
+
+   Enumerator: 
+
+          Single     
+          Multi      
+          Extended   
+          NoSelection
+
+   enum Q3IconView::StringComparisonMode
+
+
+
+   Enumerator: 
+
+          CaseSensitive
+          BeginsWith   
+          EndsWith     
+          Contains     
+          ExactMatch   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3IconView::Q3IconView (  QWidget *     parent = 0,
+                             const char *  name = 0,
+                             Qt::WFlags    f = 0
+                          )
+
+
+
+   virtual Q3IconView::~Q3IconView (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3IconView::adjustItems (   )  [protected, virtual, slot]
+
+
+
+   virtual void Q3IconView::arrangeItemsInGrid (  bool  update = true  )  [virtual, slot]
+
+
+
+   virtual void Q3IconView::arrangeItemsInGrid (  const QSize &  grid,
+                                                  bool           update = true
+                                               )  [virtual, slot]
+
+
+
+   Arrangement Q3IconView::arrangement (   )  const
+
+
+
+   bool Q3IconView::autoArrange (   )  const
+
+
+
+   void Q3IconView::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   virtual void Q3IconView::clear (   )  [virtual]
+
+
+
+   virtual void Q3IconView::clearSelection (   )  [virtual]
+
+
+
+   void Q3IconView::clicked (  Q3IconViewItem *  ,
+                               const QPoint &  
+                            )  [signal]
+
+
+
+   void Q3IconView::clicked (  Q3IconViewItem *   )  [signal]
+
+
+
+   void Q3IconView::contentsContextMenuEvent (  QContextMenuEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::contentsDragEnterEvent (  QDragEnterEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::contentsDragLeaveEvent (  QDragLeaveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::contentsDragMoveEvent (  QDragMoveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::contentsDropEvent (  QDropEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::contentsMouseDoubleClickEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::contentsMouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::contentsMousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::contentsMouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::contextMenuRequested (  Q3IconViewItem *  item,
+                                            const QPoint &    pos
+                                         )  [signal]
+
+
+
+   uint Q3IconView::count (   )  const
+
+
+
+   void Q3IconView::currentChanged (  Q3IconViewItem *  item  )  [signal]
+
+
+
+   Q3IconViewItem* Q3IconView::currentItem (   )  const
+
+
+
+   virtual void Q3IconView::doAutoScroll (   )  [protected, virtual, slot]
+
+
+
+   void Q3IconView::doubleClicked (  Q3IconViewItem *  item  )  [signal]
+
+
+
+   virtual Q3DragObject* Q3IconView::dragObject (   )  [protected, virtual]
+
+
+
+   virtual void Q3IconView::drawBackground (  QPainter *     p,
+                                              const QRect &  r
+                                           )  [protected, virtual]
+
+
+
+   void Q3IconView::drawContents (  QPainter *  p,
+                                    int         cx,
+                                    int         cy,
+                                    int         cw,
+                                    int         ch
+                                 )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3IconView::drawRubber (  QPainter *  p  )  [protected, virtual]
+
+
+
+   void Q3IconView::dropped (  QDropEvent *                           e,
+                               const Q3ValueList< Q3IconDragItem > &  lst
+                            )  [signal]
+
+
+
+   void Q3IconView::emitRenamed (  Q3IconViewItem *  item  )  [protected]
+
+
+
+   void Q3IconView::emitSelectionChanged (  Q3IconViewItem *  i = 0  )  [protected]
+
+
+
+   void Q3IconView::ensureItemVisible (  Q3IconViewItem *  item  )
+
+
+
+   void Q3IconView::enterEvent (  QEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool Q3IconView::eventFilter (  QObject *  o,
+                                   QEvent * 
+                                )  [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   Q3IconViewItem* Q3IconView::findFirstVisibleItem (  const QRect &  r  )  const
+
+
+
+   Q3IconViewItem* Q3IconView::findItem (  const QString &  text,
+                                           ComparisonFlags  = BeginsWith|Qt::CaseSensitive
+                                        )  const
+
+
+
+   Q3IconViewItem* Q3IconView::findItem (  const QPoint &  pos  )  const
+
+
+
+   Q3IconViewItem* Q3IconView::findLastVisibleItem (  const QRect &  r  )  const
+
+
+
+   Q3IconViewItem* Q3IconView::firstItem (   )  const
+
+
+
+   void Q3IconView::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3IconView::focusOutEvent (  QFocusEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int Q3IconView::gridX (   )  const
+
+
+
+   int Q3IconView::gridY (   )  const
+
+
+
+   int Q3IconView::index (  const Q3IconViewItem *  item  )  const
+
+
+
+   QVariant Q3IconView::inputMethodQuery (  Qt::InputMethodQuery  query  )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3IconView::insertInGrid (  Q3IconViewItem *  item  )  [protected, virtual]
+
+
+
+   virtual void Q3IconView::insertItem (  Q3IconViewItem *  item,
+                                          Q3IconViewItem *  after = 0L
+                                       )  [virtual]
+
+
+
+   virtual void Q3IconView::invertSelection (   )  [virtual]
+
+
+
+   bool Q3IconView::isRenaming (   )  const
+
+
+
+   void Q3IconView::itemRenamed (  Q3IconViewItem *  item  )  [signal]
+
+
+
+   void Q3IconView::itemRenamed (  Q3IconViewItem *  item,
+                                   const QString & 
+                                )  [signal]
+
+
+
+   bool Q3IconView::itemsMovable (   )  const
+
+
+
+   QBrush Q3IconView::itemTextBackground (   )  const
+
+
+
+   ItemTextPos Q3IconView::itemTextPos (   )  const
+
+
+
+   void Q3IconView::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Q3IconViewItem* Q3IconView::lastItem (   )  const
+
+
+
+   Q3IconViewItem* Q3IconView::makeRowLayout (  Q3IconViewItem *  begin,
+                                                int &             y,
+                                                bool &            changed
+                                             )  [protected]
+
+
+
+   int Q3IconView::maxItemTextLength (   )  const
+
+
+
+   int Q3IconView::maxItemWidth (   )  const
+
+
+
+   QSize Q3IconView::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3IconView::mouseButtonClicked (  int               button,
+                                          Q3IconViewItem *  item,
+                                          const QPoint &    pos
+                                       )  [signal]
+
+
+
+   void Q3IconView::mouseButtonPressed (  int               button,
+                                          Q3IconViewItem *  item,
+                                          const QPoint &    pos
+                                       )  [signal]
+
+
+
+   void Q3IconView::moved (   )  [signal]
+
+
+
+   void Q3IconView::onItem (  Q3IconViewItem *  item  )  [signal]
+
+
+
+   void Q3IconView::onViewport (   )  [signal]
+
+
+
+   void Q3IconView::pressed (  Q3IconViewItem *  ,
+                               const QPoint &  
+                            )  [signal]
+
+
+
+   void Q3IconView::pressed (  Q3IconViewItem *   )  [signal]
+
+
+
+   virtual void Q3IconView::repaintItem (  Q3IconViewItem *  item  )  [virtual]
+
+
+
+   void Q3IconView::repaintSelectedItems (   )
+
+
+
+   void Q3IconView::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   ResizeMode Q3IconView::resizeMode (   )  const
+
+
+
+   void Q3IconView::returnPressed (  Q3IconViewItem *  item  )  [signal]
+
+
+
+   void Q3IconView::rightButtonClicked (  Q3IconViewItem *  item,
+                                          const QPoint &    pos
+                                       )  [signal]
+
+
+
+   void Q3IconView::rightButtonPressed (  Q3IconViewItem *  item,
+                                          const QPoint &    pos
+                                       )  [signal]
+
+
+
+   virtual void Q3IconView::selectAll (  bool  select  )  [virtual]
+
+
+
+   void Q3IconView::selectionChanged (  Q3IconViewItem *  item  )  [signal]
+
+
+
+   void Q3IconView::selectionChanged (   )  [signal]
+
+
+
+   SelectionMode Q3IconView::selectionMode (   )  const
+
+
+
+   virtual void Q3IconView::setArrangement (  Arrangement  am  )  [virtual]
+
+
+
+   virtual void Q3IconView::setAutoArrange (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3IconView::setContentsPos (  int  x,
+                                              int  y
+                                           )  [virtual, slot]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3IconView::setCurrentItem (  Q3IconViewItem *  item  )  [virtual]
+
+
+
+   virtual void Q3IconView::setGridX (  int  rx  )  [virtual]
+
+
+
+   virtual void Q3IconView::setGridY (  int  ry  )  [virtual]
+
+
+
+   virtual void Q3IconView::setItemsMovable (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3IconView::setItemTextBackground (  const QBrush &  b  )  [virtual]
+
+
+
+   virtual void Q3IconView::setItemTextPos (  ItemTextPos  pos  )  [virtual]
+
+
+
+   virtual void Q3IconView::setMaxItemTextLength (  int  w  )  [virtual]
+
+
+
+   virtual void Q3IconView::setMaxItemWidth (  int  w  )  [virtual]
+
+
+
+   virtual void Q3IconView::setResizeMode (  ResizeMode  am  )  [virtual]
+
+
+
+   virtual void Q3IconView::setSelected (  Q3IconViewItem *  item,
+                                           bool              s,
+                                           bool              cb = false
+                                        )  [virtual]
+
+
+
+   virtual void Q3IconView::setSelectionMode (  SelectionMode  m  )  [virtual]
+
+
+
+   virtual void Q3IconView::setShowToolTips (  bool  b  )  [virtual]
+
+
+
+   void Q3IconView::setSorting (  bool  sort,
+                                  bool  ascending = true
+                               )
+
+
+
+   virtual void Q3IconView::setSpacing (  int  sp  )  [virtual]
+
+
+
+   virtual void Q3IconView::setWordWrapIconText (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3IconView::showEvent (  QShowEvent *   )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool Q3IconView::showToolTips (   )  const
+
+
+
+   QSize Q3IconView::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3IconView::slotUpdate (   )  [protected, virtual, slot]
+
+
+
+   virtual void Q3IconView::sort (  bool  ascending = true  )  [virtual]
+
+
+
+   bool Q3IconView::sortDirection (   )  const
+
+
+
+   bool Q3IconView::sorting (   )  const
+
+
+
+   int Q3IconView::spacing (   )  const
+
+
+
+   virtual void Q3IconView::startDrag (   )  [protected, virtual]
+
+
+
+   virtual void Q3IconView::takeItem (  Q3IconViewItem *  item  )  [virtual]
+
+
+
+   virtual void Q3IconView::updateContents (   )  [virtual, slot]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   bool Q3IconView::wordWrapIconText (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3IconViewItem [friend]
+
+
+
+   friend class Q3IconViewPrivate [friend]
+
+
+
+   friend class Q3IconViewToolTip [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   Arrangement Q3IconView::arrangement [read, write]
+
+
+
+   bool Q3IconView::autoArrange [read, write]
+
+
+
+   uint Q3IconView::count [read]
+
+
+
+   int Q3IconView::gridX [read, write]
+
+
+
+   int Q3IconView::gridY [read, write]
+
+
+
+   bool Q3IconView::itemsMovable [read, write]
+
+
+
+   QBrush Q3IconView::itemTextBackground [read, write]
+
+
+
+   ItemTextPos Q3IconView::itemTextPos [read, write]
+
+
+
+   int Q3IconView::maxItemTextLength [read, write]
+
+
+
+   int Q3IconView::maxItemWidth [read, write]
+
+
+
+   ResizeMode Q3IconView::resizeMode [read, write]
+
+
+
+   SelectionMode Q3IconView::selectionMode [read, write]
+
+
+
+   bool Q3IconView::showToolTips [read, write]
+
+
+
+   bool Q3IconView::sortDirection [read]
+
+
+
+   bool Q3IconView::sorting [read]
+
+
+
+   int Q3IconView::spacing [read, write]
+
+
+
+   bool Q3IconView::wordWrapIconText [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3iconview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

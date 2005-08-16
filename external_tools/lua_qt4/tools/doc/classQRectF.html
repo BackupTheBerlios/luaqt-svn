@@ -1,0 +1,418 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QRectF Class Reference
+
+   #include <qrect.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QRectF ()
+     * QRectF (const QPointF &topleft, const QSizeF &size)
+     * QRectF (qreal left, qreal top, qreal width, qreal height)
+     * QRectF (const QRect &rect)
+     * bool isNull () const
+     * bool isEmpty () const
+     * bool isValid () const
+     * QRectF normalized () const
+     * qreal left () const
+     * qreal top () const
+     * qreal right () const
+     * qreal bottom () const
+     * qreal x () const
+     * qreal y () const
+     * void setLeft (qreal pos)
+     * void setTop (qreal pos)
+     * void setRight (qreal pos)
+     * void setBottom (qreal pos)
+     * void setX (qreal pos)
+     * void setY (qreal pos)
+     * QPointF topLeft () const
+     * QPointF bottomRight () const
+     * QPointF topRight () const
+     * QPointF bottomLeft () const
+     * QPointF center () const
+     * void setTopLeft (const QPointF &p)
+     * void setBottomRight (const QPointF &p)
+     * void setTopRight (const QPointF &p)
+     * void setBottomLeft (const QPointF &p)
+     * void moveLeft (qreal pos)
+     * void moveTop (qreal pos)
+     * void moveRight (qreal pos)
+     * void moveBottom (qreal pos)
+     * void moveTopLeft (const QPointF &p)
+     * void moveBottomRight (const QPointF &p)
+     * void moveTopRight (const QPointF &p)
+     * void moveBottomLeft (const QPointF &p)
+     * void moveCenter (const QPointF &p)
+     * void translate (qreal dx, qreal dy)
+     * void translate (const QPointF &p)
+     * QRectF translated (qreal dx, qreal dy) const
+     * QRectF translated (const QPointF &p) const
+     * void moveTo (qreal x, qreal t)
+     * void moveTo (const QPointF &p)
+     * void setRect (qreal x, qreal y, qreal w, qreal h)
+     * void getRect (qreal *x, qreal *y, qreal *w, qreal *h) const
+     * void setCoords (qreal x1, qreal y1, qreal x2, qreal y2)
+     * void getCoords (qreal *x1, qreal *y1, qreal *x2, qreal *y2) const
+     * void adjust (qreal x1, qreal y1, qreal x2, qreal y2)
+     * QRectF adjusted (qreal x1, qreal y1, qreal x2, qreal y2) const
+     * QSizeF size () const
+     * qreal width () const
+     * qreal height () const
+     * void setWidth (qreal w)
+     * void setHeight (qreal h)
+     * void setSize (const QSizeF &s)
+     * QRectF operator| (const QRectF &r) const
+     * QRectF operator & (const QRectF &r) const
+     * QRectF & operator|= (const QRectF &r)
+     * QRectF & operator &= (const QRectF &r)
+     * bool contains (const QPointF &p) const
+     * bool contains (qreal x, qreal y) const
+     * bool contains (const QRectF &r) const
+     * QRectF unite (const QRectF &r) const
+     * QRectF intersect (const QRectF &r) const
+     * bool intersects (const QRectF &r) const
+     * QRect toRect () const
+
+Friends
+
+     * Q_CORE_EXPORT bool operator== (const QRectF &, const QRectF &)
+     * Q_CORE_EXPORT bool operator!= (const QRectF &, const QRectF &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QRectF::QRectF (   )  [inline]
+
+
+
+   QRectF::QRectF (  const QPointF &  topleft,
+                     const QSizeF &   size
+                  )  [inline]
+
+
+
+   QRectF::QRectF (  qreal  left,
+                     qreal  top,
+                     qreal  width,
+                     qreal  height
+                  )  [inline]
+
+
+
+   QRectF::QRectF (  const QRect &  rect  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QRectF::adjust (  qreal  x1,
+                          qreal  y1,
+                          qreal  x2,
+                          qreal  y2
+                       )  [inline]
+
+
+
+   QRectF QRectF::adjusted (  qreal  x1,
+                              qreal  y1,
+                              qreal  x2,
+                              qreal  y2
+                           )  const [inline]
+
+
+
+   qreal QRectF::bottom (   )  const [inline]
+
+
+
+   QPointF QRectF::bottomLeft (   )  const [inline]
+
+
+
+   QPointF QRectF::bottomRight (   )  const [inline]
+
+
+
+   QPointF QRectF::center (   )  const [inline]
+
+
+
+   bool QRectF::contains (  const QRectF &  r  )  const
+
+
+
+   bool QRectF::contains (  qreal  x,
+                            qreal  y
+                         )  const [inline]
+
+
+
+   bool QRectF::contains (  const QPointF &  p  )  const
+
+
+
+   void QRectF::getCoords (  qreal *  x1,
+                             qreal *  y1,
+                             qreal *  x2,
+                             qreal *  y2
+                          )  const [inline]
+
+
+
+   void QRectF::getRect (  qreal *  x,
+                           qreal *  y,
+                           qreal *  w,
+                           qreal *  h
+                        )  const [inline]
+
+
+
+   qreal QRectF::height (   )  const [inline]
+
+
+
+   QRectF QRectF::intersect (  const QRectF &  r  )  const [inline]
+
+
+
+   bool QRectF::intersects (  const QRectF &  r  )  const
+
+
+
+   bool QRectF::isEmpty (   )  const [inline]
+
+
+
+   bool QRectF::isNull (   )  const [inline]
+
+
+
+   bool QRectF::isValid (   )  const [inline]
+
+
+
+   qreal QRectF::left (   )  const [inline]
+
+
+
+   void QRectF::moveBottom (  qreal  pos  )  [inline]
+
+
+
+   void QRectF::moveBottomLeft (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::moveBottomRight (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::moveCenter (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::moveLeft (  qreal  pos  )  [inline]
+
+
+
+   void QRectF::moveRight (  qreal  pos  )  [inline]
+
+
+
+   void QRectF::moveTo (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::moveTo (  qreal  x,
+                          qreal  t
+                       )  [inline]
+
+
+
+   void QRectF::moveTop (  qreal  pos  )  [inline]
+
+
+
+   void QRectF::moveTopLeft (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::moveTopRight (  const QPointF &  p  )  [inline]
+
+
+
+   QRectF QRectF::normalized (   )  const
+
+
+
+   QRectF QRectF::operator & (  const QRectF &  r  )  const
+
+
+
+   QRectF & QRectF::operator &= (  const QRectF &  r  )  [inline]
+
+
+
+   QRectF QRectF::operator| (  const QRectF &  r  )  const
+
+
+
+   QRectF & QRectF::operator|= (  const QRectF &  r  )  [inline]
+
+
+
+   qreal QRectF::right (   )  const [inline]
+
+
+
+   void QRectF::setBottom (  qreal  pos  )  [inline]
+
+
+
+   void QRectF::setBottomLeft (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::setBottomRight (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::setCoords (  qreal  x1,
+                             qreal  y1,
+                             qreal  x2,
+                             qreal  y2
+                          )  [inline]
+
+
+
+   void QRectF::setHeight (  qreal  h  )  [inline]
+
+
+
+   void QRectF::setLeft (  qreal  pos  )  [inline]
+
+
+
+   void QRectF::setRect (  qreal  x,
+                           qreal  y,
+                           qreal  w,
+                           qreal  h
+                        )  [inline]
+
+
+
+   void QRectF::setRight (  qreal  pos  )  [inline]
+
+
+
+   void QRectF::setSize (  const QSizeF &  s  )  [inline]
+
+
+
+   void QRectF::setTop (  qreal  pos  )  [inline]
+
+
+
+   void QRectF::setTopLeft (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::setTopRight (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::setWidth (  qreal  w  )  [inline]
+
+
+
+   void QRectF::setX (  qreal  pos  )  [inline]
+
+
+
+   void QRectF::setY (  qreal  pos  )  [inline]
+
+
+
+   QSizeF QRectF::size (   )  const [inline]
+
+
+
+   qreal QRectF::top (   )  const [inline]
+
+
+
+   QPointF QRectF::topLeft (   )  const [inline]
+
+
+
+   QPointF QRectF::topRight (   )  const [inline]
+
+
+
+   QRect QRectF::toRect (   )  const [inline]
+
+
+
+   void QRectF::translate (  const QPointF &  p  )  [inline]
+
+
+
+   void QRectF::translate (  qreal  dx,
+                             qreal  dy
+                          )  [inline]
+
+
+
+   QRectF QRectF::translated (  const QPointF &  p  )  const [inline]
+
+
+
+   QRectF QRectF::translated (  qreal  dx,
+                                qreal  dy
+                             )  const [inline]
+
+
+
+   QRectF QRectF::unite (  const QRectF &  r  )  const [inline]
+
+
+
+   qreal QRectF::width (   )  const [inline]
+
+
+
+   qreal QRectF::x (   )  const [inline]
+
+
+
+   qreal QRectF::y (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_CORE_EXPORT bool operator!= (  const QRectF &  ,
+                                    const QRectF &
+                                 )  [friend]
+
+
+
+   Q_CORE_EXPORT bool operator== (  const QRectF &  ,
+                                    const QRectF &
+                                 )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qrect.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

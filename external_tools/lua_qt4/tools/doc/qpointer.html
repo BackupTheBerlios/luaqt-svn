@@ -1,0 +1,141 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QPointer Class Reference
+
+   The QPointer class is a template class that provides guarded pointers
+   to QObjects. More...
+#include <QPointer>
+
+   Part of the QtCore module.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QPointer ()
+     * QPointer ( T * p )
+     * QPointer ( const QPointer<T> & p )
+     * ~QPointer ()
+     * bool isNull () const
+     * operator T * () const
+     * T & operator* () const
+     * T * operator-> () const
+     * QPointer<T> & operator= ( const QPointer<T> & p )
+     * QPointer<T> & operator= ( T * p )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QPointer class is a template class that provides guarded pointers
+   to QObjects.
+
+   A guarded pointer, QPointer<T>, behaves like a normal C++ pointer T *,
+   except that it is automatically set to 0 when the referenced object is
+   destroyed (unlike normal C++ pointers, which become "dangling
+   pointers" in such cases). T must be a subclass of QObject.
+
+   Guarded pointers are useful whenever you need to store a pointer to a
+   QObject that is owned by someone else, and therefore might be
+   destroyed while you still hold a reference to it. You can safely test
+   the pointer for validity.
+
+   Example:
+        QPointer<QLabel> label = new QLabel;
+        label->setText("&Status:");
+        ...
+        if (label)
+            label->show();
+
+   If the QLabel is deleted in the meantime, the label variable will hold
+   0 instead of an invalid address, and the last line will never be
+   executed.
+
+   The functions and operators available with a QPointer are the same as
+   those available with a normal unguarded pointer, except the pointer
+   arithmetic operators (+, -, ++, and --), which are normally used only
+   with arrays of objects.
+
+   Use QPointers like normal pointers and you will not need to read this
+   class documentation.
+
+   For creating guarded pointers, you can construct or assign to them
+   from a T* or from another guarded pointer of the same type. You can
+   compare them with each other using operator==() and operator!=(), or
+   test for 0 with isNull(). You can dereference them using either the *x
+   or the x->member notation.
+
+   A guarded pointer will automatically cast to a T *, so you can freely
+   mix guarded and unguarded pointers. This means that if you have a
+   QPointer<QWidget>, you can pass it to a function that requires a
+   QWidget *. For this reason, it is of little value to declare functions
+   to take a QPointer as a parameter; just use normal pointers. Use a
+   QPointer when you are storing a pointer over time.
+
+   Note that class T must inherit QObject, or a compilation or link error
+   will result.
+
+   See also QObject and QObjectCleanupHandler.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QPointer::QPointer ()
+
+   Constructs a 0 guarded pointer.
+
+   See also isNull().
+
+  QPointer::QPointer ( T * p )
+
+   Constructs a guarded pointer that points to same object that p points
+   to.
+
+  QPointer::QPointer ( const QPointer<T> & p )
+
+   Copies one guarded pointer from another. The constructed guarded
+   pointer points to the same object that p points to (which may be 0).
+
+  QPointer::~QPointer ()
+
+   Destroys the guarded pointer. Just like a normal pointer, destroying a
+   guarded pointer does not destroy the object being pointed to.
+
+  bool QPointer::isNull () const
+
+   Returns true if the referenced object has been destroyed or if there
+   is no referenced object; otherwise returns false.
+
+  QPointer::operator T * () const
+
+   Cast operator; implements pointer semantics. Because of this function
+   you can pass a QPointer<T> to a function where a T* is required.
+
+  T & QPointer::operator* () const
+
+   Dereference operator; implements pointer semantics. Just use this
+   operator as you would with a normal C++ pointer.
+
+  T * QPointer::operator-> () const
+
+   Overloaded arrow operator; implements pointer semantics. Just use this
+   operator as you would with a normal C++ pointer.
+
+  QPointer<T> & QPointer::operator= ( const QPointer<T> & p )
+
+   Assignment operator. This guarded pointer will now point to the same
+   object that p points to.
+
+  QPointer<T> & QPointer::operator= ( T * p )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Assignment operator. This guarded pointer will now point to the same
+   object that p points to.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

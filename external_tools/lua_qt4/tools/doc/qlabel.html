@@ -1,0 +1,401 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QLabel Class Reference
+
+   The QLabel widget provides a text or image display. More...
+#include <QLabel>
+
+   Part of the QtGui module.
+
+   Inherits QFrame.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * alignment : Qt::Alignment
+     * indent : int
+     * margin : int
+     * pixmap : QPixmap
+
+     * scaledContents : bool
+     * text : QString
+     * textFormat : Qt::TextFormat
+     * wordWrap : bool
+
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QLabel ( QWidget * parent = 0, Qt::WFlags f = 0 )
+     * QLabel ( const QString & text, QWidget * parent = 0, Qt::WFlags f
+       = 0 )
+     * ~QLabel ()
+     * Qt::Alignment alignment () const
+     * QWidget * buddy () const
+     * bool hasScaledContents () const
+     * int indent () const
+     * int margin () const
+     * QMovie * movie () const
+     * const QPicture * picture () const
+     * const QPixmap * pixmap () const
+     * void setAlignment ( Qt::Alignment )
+     * void setBuddy ( QWidget * buddy )
+     * void setIndent ( int )
+     * void setMargin ( int )
+     * void setScaledContents ( bool )
+     * void setTextFormat ( Qt::TextFormat )
+     * void setWordWrap ( bool on )
+     * QString text () const
+     * Qt::TextFormat textFormat () const
+     * bool wordWrap () const
+
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Public Slots
+
+     * void clear ()
+     * void setMovie ( QMovie * movie )
+     * void setNum ( int num )
+     * void setNum ( double num )
+     * void setPicture ( const QPicture & picture )
+     * void setPixmap ( const QPixmap & )
+     * void setText ( const QString & )
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QLabel widget provides a text or image display.
+
+   QLabel is used for displaying text or an image. No user interaction
+   functionality is provided. The visual appearance of the label can be
+   configured in various ways, and it can be used for specifying a focus
+   mnemonic key for another widget.
+
+   A QLabel can contain any of the following content types:
+
+                              Content Setting
+                  Plain text Pass a QString to setText().
+       Rich text Pass a QString that contains rich text to setText().
+                  A pixmap Pass a QPixmap to setPixmap().
+                    A movie Pass a QMovie to setMovie().
+      A number Pass an int or a double to setNum(), which converts the
+                           number to plain text.
+    Nothing The same as an empty plain text. This is the default. Set by
+                                  clear().
+
+   When the content is changed using any of these functions, any previous
+   content is cleared.
+
+   The look of a QLabel can be tuned in several ways. All the settings of
+   QFrame are available for specifying a widget frame. The positioning of
+   the content within the QLabel widget area can be tuned with
+   setAlignment() and setIndent(). Text content can also wrap lines along
+   word bounderies with setWordWrap(). For example, this code sets up a
+   sunken panel with a two-line text in the bottom right corner (both
+   lines being flush with the right side of the label):
+    QLabel *label = new QLabel(this);
+    label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    label->setText("first line\nsecond line");
+    label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+
+   A QLabel is often used as a label for an interactive widget. For this
+   use QLabel provides a useful mechanism for adding an mnemonic (see
+   QKeysequence) that will set the keyboard focus to the other widget
+   (called the QLabel's "buddy"). For example:
+    QLineEdit* phoneEdit = new QLineEdit(this);
+    QLabel* phoneLabel = new QLabel("&Phone:", this);
+    phoneLabel->setBuddy(phoneEdit);
+
+   In this example, keyboard focus is transferred to the label's buddy
+   (the QLineEdit) when the user presses Alt+P. If the buddy was a button
+   (inheriting from QAbstractButton), triggering the mnemonic would
+   emulate a button click.
+
+   Screenshot in Macintosh style Screenshot in Windows style
+
+   See also QLineEdit, QTextEdit, QPixmap, QMovie, and GUI Design
+   Handbook: Label.
+     _________________________________________________________________
+
+Property Documentation
+
+  alignment : Qt::Alignment
+
+   This property holds the alignment of the label's contents.
+
+   Access functions:
+     * Qt::Alignment alignment () const
+     * void setAlignment ( Qt::Alignment )
+
+   See also text.
+
+  indent : int
+
+   This property holds the label's text indent in pixels.
+
+   If a label displays text, the indent applies to the left edge if
+   alignment() is Qt::AlignLeft, to the right edge if alignment() is
+   Qt::AlignRight, to the top edge if alignment() is Qt::AlignTop, and to
+   to the bottom edge if alignment() is Qt::AlignBottom.
+
+   If indent is negative, or if no indent has been set, the label
+   computes the effective indent as follows: If frameWidth() is 0, the
+   effective indent becomes 0. If frameWidth() is greater than 0, the
+   effective indent becomes half the width of the "x" character of the
+   widget's current font().
+
+   Access functions:
+     * int indent () const
+     * void setIndent ( int )
+
+   See also alignment, margin, frameWidth(), and font().
+
+  margin : int
+
+   This property holds the width of the margin.
+
+   The margin is the distance between the innermost pixel of the frame
+   and the outermost pixel of contents.
+
+   The default margin is 0.
+
+   Access functions:
+     * int margin () const
+     * void setMargin ( int )
+
+   See also indent.
+
+  pixmap : QPixmap
+
+   This property holds the label's pixmap.
+
+   If no pixmap has been set this will return an invalid pixmap.
+
+   Setting the pixmap clears any previous content. The buddy shortcut, if
+   any, is disabled.
+
+   Access functions:
+     * const QPixmap * pixmap () const
+     * void setPixmap ( const QPixmap & )
+
+  scaledContents : bool
+
+   This property holds whether the label will scale its contents to fill
+   all available space.
+
+   When enabled and the label shows a pixmap, it will scale the pixmap to
+   fill the available space.
+
+   This property's default is false.
+
+   Access functions:
+     * bool hasScaledContents () const
+     * void setScaledContents ( bool )
+
+  text : QString
+
+   This property holds the label's text.
+
+   If no text has been set this will return an empty string. Setting the
+   text clears any previous content, unless they are the same.
+
+   The text will be interpreted either as a plain text or as a rich text,
+   depending on the text format setting; see setTextFormat(). The default
+   setting is Qt::AutoText, i.e. QLabel will try to auto-detect the
+   format of the text set.
+
+   If the text is interpreted as a plain text and a buddy has been set,
+   the buddy mnemonic key is updated from the new text.
+
+   The label resizes itself if auto-resizing is enabled.
+
+   Note that Qlabel is well-suited to display small rich text documents,
+   i.e. those small documents that get their document specific settings
+   (font, text color, link color) from the label's palette and font
+   properties. For large documents, use QTextEdit in read-only mode
+   instead. QTextEdit will flicker less on resize and can also provide a
+   scrollbar when necessary.
+
+   Access functions:
+     * QString text () const
+     * void setText ( const QString & )
+
+   See also setTextFormat(), setBuddy(), and alignment.
+
+  textFormat : Qt::TextFormat
+
+   This property holds the label's text format.
+
+   See the Qt::TextFormat enum for an explanation of the possible
+   options.
+
+   The default format is Qt::AutoText.
+
+   Access functions:
+     * Qt::TextFormat textFormat () const
+     * void setTextFormat ( Qt::TextFormat )
+
+   See also text().
+
+  wordWrap : bool
+
+   This property holds the label's word-wrapping policy.
+
+   If this property is true then label text is wrapped where necessary at
+   word-breaks; otherwise it is not wrapped at all.
+
+   Access functions:
+     * bool wordWrap () const
+     * void setWordWrap ( bool on )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QLabel::QLabel ( QWidget * parent = 0, Qt::WFlags f = 0 )
+
+   Constructs an empty label.
+
+   The parent and widget flag f, arguments are passed to the QFrame
+   constructor.
+
+   See also setAlignment(), setFrameStyle(), and setIndent().
+
+  QLabel::QLabel ( const QString & text, QWidget * parent = 0, Qt::WFlags f = 0
+  )
+
+   Constructs a label that displays the text, text.
+
+   The parent and widget flag f, arguments are passed to the QFrame
+   constructor.
+
+   See also setText(), setAlignment(), setFrameStyle(), and setIndent().
+
+  QLabel::~QLabel ()
+
+   Destroys the label.
+
+  QWidget * QLabel::buddy () const
+
+   Returns this label's buddy, or 0 if no buddy is currently set.
+
+   See also setBuddy().
+
+  void QLabel::clear ()   [slot]
+
+   Clears any label contents.
+
+  QMovie * QLabel::movie () const
+
+   Returns a pointer to the label's movie, or 0 if no movie has been set.
+
+   See also setMovie().
+
+  const QPicture * QLabel::picture () const
+
+   Returns the label's picture or 0 if the label doesn't have a picture.
+
+  void QLabel::setBuddy ( QWidget * buddy )
+
+   Sets this label's buddy to buddy.
+
+   When the user presses the shortcut key indicated by this label, the
+   keyboard focus is transferred to the label's buddy widget.
+
+   The buddy mechanism is only available for QLabels that contain plain
+   text in which one letter is prefixed with an ampersand, &. This letter
+   is set as the shortcut key. The letter is displayed underlined, and
+   the '&' is not displayed (i.e. the Qt::TextShowMnemonic alignment flag
+   is turned on; see setAlignment()).
+
+   In a dialog, you might create two data entry widgets and a label for
+   each, and set up the geometry layout so each label is just to the left
+   of its data entry widget (its "buddy"), for example:
+    QLineEdit *nameEd  = new QLineEdit(this);
+    QLabel    *nameLb  = new QLabel("&Name:", this);
+    nameLb->setBuddy(nameEd);
+    QLineEdit *phoneEd = new QLineEdit(this);
+    QLabel    *phoneLb = new QLabel("&Phone:", this);
+    phoneLb->setBuddy(phoneEd);
+    // (layout setup not shown)
+
+   With the code above, the focus jumps to the Name field when the user
+   presses Alt+N, and to the Phone field when the user presses Alt+P.
+
+   To unset a previously set buddy, call this function with buddy set to
+   0.
+
+   See also buddy(), setText(), QShortcut, and setAlignment().
+
+  void QLabel::setMovie ( QMovie * movie )   [slot]
+
+   Sets the label contents to movie. Any previous content is cleared.
+
+   The buddy shortcut, if any, is disabled.
+
+   The label resizes itself if auto-resizing is enabled.
+
+   See also movie() and setBuddy().
+
+  void QLabel::setNum ( int num )   [slot]
+
+   Sets the label contents to plain text containing the textual
+   representation of integer num. Any previous content is cleared. Does
+   nothing if the integer's string representation is the same as the
+   current contents of the label.
+
+   The buddy shortcut, if any, is disabled.
+
+   The label resizes itself if auto-resizing is enabled.
+
+   See also setText(), QString::setNum(), and setBuddy().
+
+  void QLabel::setNum ( double num )   [slot]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Sets the label contents to plain text containing the textual
+   representation of double num. Any previous content is cleared. Does
+   nothing if the double's string representation is the same as the
+   current contents of the label.
+
+   The buddy shortcut, if any, is disabled.
+
+   The label resizes itself if auto-resizing is enabled.
+
+   See also setText(), QString::setNum(), and setBuddy().
+
+  void QLabel::setPicture ( const QPicture & picture )   [slot]
+
+   Sets the label contents to picture. Any previous content is cleared.
+
+   The buddy shortcut, if any, is disabled.
+
+   See also picture() and setBuddy().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

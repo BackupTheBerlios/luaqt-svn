@@ -1,0 +1,116 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QSqlError Class Reference
+
+   #include <qsqlerror.h>
+
+   List of all members.
+
+Public Types
+
+     * enum ErrorType {
+         NoError, ConnectionError, StatementError, TransactionError,
+         UnknownError
+       }
+
+Public Member Functions
+
+     * QSqlError (const QString &driverText=QString(), const QString &databaseText=QString(), ErrorType type=NoError, int number=-1)
+     * QSqlError (const QSqlError &other)
+     * QSqlError & operator= (const QSqlError &other)
+     * ~QSqlError ()
+     * QString driverText () const
+     * void setDriverText (const QString &driverText)
+     * QString databaseText () const
+     * void setDatabaseText (const QString &databaseText)
+     * ErrorType type () const
+     * void setType (ErrorType type)
+     * int number () const
+     * void setNumber (int number)
+     * QString text () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QSqlError::ErrorType
+
+
+
+   Enumerator: 
+
+          NoError         
+          ConnectionError 
+          StatementError  
+          TransactionError
+          UnknownError    
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSqlError::QSqlError (  const QString &  driverText = QString(),
+                           const QString &  databaseText = QString(),
+                           ErrorType        type = NoError,
+                           int              number = -1
+                        )
+
+
+
+   QSqlError::QSqlError (  const QSqlError &  other  )
+
+
+
+   QSqlError::~QSqlError (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QSqlError::databaseText (   )  const
+
+
+
+   QString QSqlError::driverText (   )  const
+
+
+
+   int QSqlError::number (   )  const
+
+
+
+   QSqlError& QSqlError::operator= (  const QSqlError &  other  )
+
+
+
+   void QSqlError::setDatabaseText (  const QString &  databaseText  )
+
+
+
+   void QSqlError::setDriverText (  const QString &  driverText  )
+
+
+
+   void QSqlError::setNumber (  int  number  )
+
+
+
+   void QSqlError::setType (  ErrorType  type  )
+
+
+
+   QString QSqlError::text (   )  const
+
+
+
+   ErrorType QSqlError::type (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqlerror.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,421 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QSplitter Class Reference
+
+   The QSplitter class implements a splitter widget. More...
+#include <QSplitter>
+
+   Part of the QtGui module.
+
+   Inherits QFrame.
+     * List of all members, including inherited members
+     * Obsolete members
+     * Qt 3 support members
+
+  Properties
+
+     * childrenCollapsible : bool
+     * handleWidth : int
+     * opaqueResize : bool
+     * orientation : Qt::Orientation
+
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QSplitter ( QWidget * parent = 0 )
+     * QSplitter ( Qt::Orientation orientation, QWidget * parent = 0 )
+     * ~QSplitter ()
+     * void addWidget ( QWidget * widget )
+     * bool childrenCollapsible () const
+     * int count () const
+     * void getRange ( int index, int * min, int * max ) const
+     * QSplitterHandle * handle ( int index ) const
+     * int handleWidth () const
+     * int indexOf ( QWidget * widget ) const
+     * void insertWidget ( int index, QWidget * widget )
+     * bool isCollapsible ( int index ) const
+     * bool opaqueResize () const
+     * Qt::Orientation orientation () const
+     * void refresh ()
+     * bool restoreState ( const QByteArray & state )
+     * QByteArray saveState () const
+     * void setChildrenCollapsible ( bool )
+     * void setCollapsible ( int index, bool collapse )
+     * void setHandleWidth ( int )
+     * void setOpaqueResize ( bool opaque = true )
+     * void setOrientation ( Qt::Orientation )
+     * void setSizes ( const QList<int> & list )
+     * void setStretchFactor ( int index, int stretch )
+     * QList<int> sizes () const
+     * QWidget * widget ( int index ) const
+
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Signals
+
+     * void splitterMoved ( int pos, int index )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Protected Functions
+
+     * int closestLegalPosition ( int pos, int index )
+     * virtual QSplitterHandle * createHandle ()
+     * void moveSplitter ( int pos, int index )
+     * void setRubberBand ( int pos )
+
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QSplitter class implements a splitter widget.
+
+   A splitter lets the user control the size of child widgets by dragging
+   the boundary between the children. Any number of widgets may be
+   controlled by a single splitter. The typical use of a QSplitter is to
+   create several widgets and add them using insertWidget() or
+   addWidget().
+
+   The following example will show a QListView, QTreeView, and QTextEdit
+   side by side, with two splitter handles:
+        QSplitter *splitter = new QSplitter(parent);
+        QListView *listview = new QListView;
+        QTreeView *treeview = new QTreeView;
+        QTextEdit *textedit = new QTextEdit;
+        splitter->addWidget(listview);
+        splitter->addWidget(treeview);
+        splitter->addWidget(textedit);
+
+   If a widget is already inside a QSplitter when insertWidget() or
+   addWidget() is called, it will move to the new position. This can be
+   used to reorder widgets in the splitter later. You can use indexOf(),
+   widget(), and count() to get access to the widgets inside the
+   splitter.
+
+   A default QSplitter lays out its children horizontally (side by side);
+   you can use setOrientation(Qt::Vertical) to lay its children out
+   vertically.
+
+   By default, all widgets can be as large or as small as the user
+   wishes, between the minimumSizeHint() (or minimumSize()) and
+   maximumSize() of the widgets.
+
+   QSplitter resizes its children dynamically by default. If you would
+   rather have QSplitter resize the children only at the end of a resize
+   operation, call setOpaqueResize(false).
+
+   The initial distribution of size between the widgets is determined by
+   the initial size of each widget. You can also use setSizes() to set
+   the sizes of all the widgets. The function sizes() returns the sizes
+   set by the user. Alternatively, you can save and restore the sizes of
+   the widgets from a QByteArray using saveState() and restoreState()
+   respectively.
+
+   When you hide() a child its space will be distributed among the other
+   children. It will be reinstated when you show() it again.
+
+   Screenshot in Motif style Screenshot in Windows style
+
+   See also QSplitterHandle, QHBoxLayout, QVBoxLayout, and QTabWidget.
+     _________________________________________________________________
+
+Property Documentation
+
+  childrenCollapsible : bool
+
+   This property holds whether child widgets can be resized down to size
+   0 by the user.
+
+   By default, children are collapsible. It is possible to enable and
+   disable the collapsing of individual children using setCollapsible().
+
+   Access functions:
+     * bool childrenCollapsible () const
+     * void setChildrenCollapsible ( bool )
+
+   See also setCollapsible().
+
+  handleWidth : int
+
+   This property holds the width of the splitter handles.
+
+   Access functions:
+     * int handleWidth () const
+     * void setHandleWidth ( int )
+
+  opaqueResize : bool
+
+   This property holds whether resizing is opaque.
+
+   Opaque resizing is on by default.
+
+   Access functions:
+     * bool opaqueResize () const
+     * void setOpaqueResize ( bool opaque = true )
+
+  orientation : Qt::Orientation
+
+   This property holds the orientation of the splitter.
+
+   By default the orientation is horizontal (i.e., the widgets are laid
+   out side by side). The possible orientations are Qt::Horizontal and
+   Qt::Vertical.
+
+   Access functions:
+     * Qt::Orientation orientation () const
+     * void setOrientation ( Qt::Orientation )
+
+   See also QSplitterHandle::orientation().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QSplitter::QSplitter ( QWidget * parent = 0 )
+
+   Constructs a horizontal splitter with the parent arguments is passed
+   on to the QFrame constructor.
+
+   See also setOrientation().
+
+  QSplitter::QSplitter ( Qt::Orientation orientation, QWidget * parent = 0 )
+
+   Constructs a splitter with the given orientation and parent.
+
+   See also setOrientation().
+
+  QSplitter::~QSplitter ()
+
+   Destroys the splitter. All children are deleted.
+
+  void QSplitter::addWidget ( QWidget * widget )
+
+   Adds the given widget to the splitter's layout after all the other
+   items.
+
+   If widget is already in the splitter, it will be moved to the new
+   position.
+
+   See also insertWidget(), widget(), and indexOf().
+
+  int QSplitter::closestLegalPosition ( int pos, int index )   [protected]
+
+   Returns the closest legal position to pos of the widget with index
+   index.
+
+   For right-to-left languages such as Arabic and Hebrew, the layout of
+   horizontal splitters is reversed. Positions are then measured from the
+   right edge of the widget.
+
+   See also getRange().
+
+  int QSplitter::count () const
+
+   Returns the number of widgets contained in the splitter's layout.
+
+   See also widget() and handle().
+
+  QSplitterHandle * QSplitter::createHandle ()   [virtual protected]
+
+   Returns a new splitter handle as a child widget of this splitter. This
+   function can be reimplemented in subclasses to provide support for
+   custom handles.
+
+   See also handle() and indexOf().
+
+  void QSplitter::getRange ( int index, int * min, int * max ) const
+
+   Returns the valid range of the splitter with index index in *min and
+   *max if min and max are not 0.
+
+  QSplitterHandle * QSplitter::handle ( int index ) const
+
+   Returns the handle to the left (or above) for the item in the
+   splitter's layout at the given index. The handle at index 0 is always
+   hidden.
+
+   For right-to-left languages such as Arabic and Hebrew, the layout of
+   horizontal splitters is reversed. The handle will be to the right of
+   the widget at index.
+
+   See also count(), widget(), indexOf(), createHandle(), and
+   setHandleWidth().
+
+  int QSplitter::indexOf ( QWidget * widget ) const
+
+   Returns the index in the splitter's layout of the specified widget.
+   This also works for handles.
+
+   Handles are numbered from 0. There are as many handles as there are
+   child widgets, but the handle at position 0 is always hidden.
+
+   See also count() and widget().
+
+  void QSplitter::insertWidget ( int index, QWidget * widget )
+
+   Inserts the widget specified into the splitter's layout at the given
+   index.
+
+   If widget is already in the splitter, it will be moved to the new
+   position.
+
+   if index is an invalid index, then the widget will be inserted at the
+   end.
+
+   See also addWidget(), indexOf(), and widget().
+
+  bool QSplitter::isCollapsible ( int index ) const
+
+   Returns true if the widget at index is collapsible, otherwise returns
+   false
+
+  void QSplitter::moveSplitter ( int pos, int index )   [protected]
+
+   Moves the left or top edge of the splitter handle at index as close as
+   possible to position pos, which is the distance from the left or top
+   edge of the widget.
+
+   For right-to-left languages such as Arabic and Hebrew, the layout of
+   horizontal splitters is reversed. pos is then the distance from the
+   right edge of the widget.
+
+   See also splitterMoved(), closestLegalPosition(), and getRange().
+
+  void QSplitter::refresh ()
+
+   Updates the splitter's state. You should not need to call this
+   function.
+
+  bool QSplitter::restoreState ( const QByteArray & state )
+
+   Restores the splitter's layout to the state specified.
+
+   Typically this is used in conjunction with QSettings to restore the
+   size from a past session. Here is an example:
+
+   Restore the splitters's state:
+        QSettings settings;
+        splitter->restoreState(settings.value("splitterSizes").toByteArray());
+
+   See also saveState().
+
+  QByteArray QSplitter::saveState () const
+
+   Saves the state of the splitter's layout.
+
+   Typically this is used in conjunction with QSettings to remember the
+   size for a future session. A version number is stored as part of the
+   data. Here is an example:
+        QSettings settings;
+        settings.setValue("splitterSizes", splitter->saveState());
+
+   See also restoreState().
+
+  void QSplitter::setCollapsible ( int index, bool collapse )
+
+   Sets whether the child widget at index index is collapsible to
+   collapse.
+
+   By default, children are collapsible, meaning that the user can resize
+   them down to size 0, even if they have a non-zero minimumSize() or
+   minimumSizeHint(). This behavior can be changed on a per-widget basis
+   by calling this function, or globally for all the widgets in the
+   splitter by setting the childrenCollapsible property.
+
+   See also childrenCollapsible.
+
+  void QSplitter::setRubberBand ( int pos )   [protected]
+
+   Displays a rubber band at position pos. If pos is negative, the rubber
+   band is removed.
+
+  void QSplitter::setSizes ( const QList<int> & list )
+
+   Sets the size parameters to the values given in the list. If the
+   splitter is horizontal, the values set the widths of each widget going
+   from left to right. If the splitter is vertical, the values set the
+   heights of each widget going from top to bottom. Extra values in the
+   list are ignored.
+
+   If list contains too few values, the result is undefined but the
+   program will still be well-behaved.
+
+   The values in list should be the height or width (depending on
+   orientation()) that the widgets should be resized to.
+
+   See also sizes().
+
+  void QSplitter::setStretchFactor ( int index, int stretch )
+
+   Updates the size policy of the widget at position index to have a
+   stretch factor of stretch.
+
+   This function is provided for convenience. It is equivalent to
+    QWidget *widget = splitter->widget(index);
+    QSizePolicy policy = widget->sizePolicy();
+    policy.setHorizontalStretch(stretch);
+    policy.setVerticalStretch(stretch);
+    widget->setSizePolicy(policy);
+
+   See also setSizes() and widget().
+
+  QList<int> QSplitter::sizes () const
+
+   Returns a list of the size parameters of all the widgets in this
+   splitter.
+
+   If the splitter's orientation is horizontal, the list is a list of
+   widget widths; if the orientation is vertical, the list is a list of
+   widget heights.
+
+   Giving the values to another splitter's setSizes() function will
+   produce a splitter with the same layout as this one.
+
+   The easiest way to iterate over the list is to use the Java-style
+   iterators.
+        QListIterator<int> it(splitter->sizes());
+        while (it.hasNext())
+            processSize(it.next());
+
+   See also setSizes().
+
+  void QSplitter::splitterMoved ( int pos, int index )   [signal]
+
+   This signal is emitted when the splitter handle at a particular index
+   has been moved to position pos.
+
+   For right-to-left languages such as Arabic and Hebrew, the layout of
+   horizontal splitters is reversed. pos is then the distance from the
+   right edge of the widget.
+
+   See also moveSplitter().
+
+  QWidget * QSplitter::widget ( int index ) const
+
+   Returns the widget at the given index in the splitter's layout.
+
+   See also count(), handle(), indexOf(), and insertWidget().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,360 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                      QMap< Key, T > Class Template Reference
+
+   #include <qmap.h>
+
+   Inherited by QMultiMap< Key, T >.
+
+   List of all members.
+
+Public Types
+
+     * typedef iterator Iterator
+     * typedef const_iterator ConstIterator
+
+Public Member Functions
+
+     * QMap ()
+     * QMap (const QMap< Key, T > &other)
+     * ~QMap ()
+     * QMap< Key, T > & operator= (const QMap< Key, T > &other)
+     * QMap (const typename std::map< Key, T > &other)
+     * std::map< Key, T > toStdMap () const
+     * bool operator== (const QMap< Key, T > &other) const
+     * bool operator!= (const QMap< Key, T > &other) const
+     * int size () const
+     * bool isEmpty () const
+     * void detach ()
+     * bool isDetached () const
+     * void setSharable (bool sharable)
+     * void clear ()
+     * int remove (const Key &key)
+     * T take (const Key &key)
+     * bool contains (const Key &key) const
+     * const Key key (const T &value) const
+     * const T value (const Key &key) const
+     * const T value (const Key &key, const T &defaultValue) const
+     * T & operator[] (const Key &key)
+     * const T operator[] (const Key &key) const
+     * QList< Key > keys () const
+     * QList< Key > keys (const T &value) const
+     * QList< T > values () const
+     * QList< T > values (const Key &key) const
+     * int count (const Key &key) const
+     * iterator begin ()
+     * const_iterator begin () const
+     * const_iterator constBegin () const
+     * iterator end ()
+     * const_iterator end () const
+     * const_iterator constEnd () const
+     * iterator erase (iterator it)
+     * int count () const
+     * iterator find (const Key &key)
+     * const_iterator find (const Key &key) const
+     * iterator lowerBound (const Key &key)
+     * const_iterator lowerBound (const Key &key) const
+     * iterator upperBound (const Key &key)
+     * const_iterator upperBound (const Key &key) const
+     * iterator insert (const Key &key, const T &value)
+     * iterator insertMulti (const Key &key, const T &value)
+     * QMap< Key, T > & unite (const QMap< Key, T > &other)
+     * bool empty () const
+
+Friends
+
+     * class iterator
+     * class const_iterator
+     * template<class aKey, class aT> QDataStream & operator>> (QDataStream &in, QMap< aKey, aT > &map)
+
+Classes
+
+     * class const_iterator
+     * class iterator
+     * struct Node
+     * struct PayloadNode
+
+  template<class Key, class T>
+  class QMap< Key, T >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<class Key, class T>
+   typedef const_iterator QMap< Key, T >::ConstIterator
+
+
+
+   template<class Key, class T>
+   typedef iterator QMap< Key, T >::Iterator
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class Key, class T>
+   QMap< Key, T >::QMap (   )    [inline]
+
+
+
+   template<class Key, class T>
+   QMap< Key, T >::QMap (  const QMap< Key, T > &  other  )  [inline]
+
+
+
+   template<class Key, class T>
+   QMap< Key, T >::~QMap (   )   [inline]
+
+
+
+   template<class Key, class T>
+   QMap< Key, T >::QMap (  const typename std::map< Key, T > &  other  )  [explicit]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class Key, class T>
+   const_iterator QMap< Key, T >::begin (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   iterator QMap< Key, T >::begin (   )  [inline]
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE void QMap< Key, T >::clear (   )
+
+
+
+   template<class Key, class T>
+   const_iterator QMap< Key, T >::constBegin (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   const_iterator QMap< Key, T >::constEnd (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE bool QMap< Key, T >::contains (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   int QMap< Key, T >::count (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE int QMap< Key, T >::count (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   void QMap< Key, T >::detach (   )  [inline]
+
+
+
+   template<class Key, class T>
+   bool QMap< Key, T >::empty (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   const_iterator QMap< Key, T >::end (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   iterator QMap< Key, T >::end (   )  [inline]
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QMap< Key, T >::iterator QMap< Key, T >::erase (  iterator  it  )
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T >::const_iterator QMap< Key, T >::find (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T >::iterator QMap< Key, T >::find (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T >::iterator QMap< Key, T >::insert (  const Key &  key,
+                                                                        const T &    value
+                                                                     )
+
+
+
+   Reimplemented in QMultiMap< Key, T >.
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T >::iterator QMap< Key, T >::insertMulti (  const Key &  key,
+                                                                             const T &    value
+                                                                          )
+
+
+
+   template<class Key, class T>
+   bool QMap< Key, T >::isDetached (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   bool QMap< Key, T >::isEmpty (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE const Key QMap< Key, T >::key (  const T &  value  )  const
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QList< Key > QMap< Key, T >::keys (  const T &  value  )  const
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QList< Key > QMap< Key, T >::keys (   )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T >::const_iterator QMap< Key, T >::lowerBound (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T >::iterator QMap< Key, T >::lowerBound (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   bool QMap< Key, T >::operator!= (  const QMap< Key, T > &  other  )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T > & QMap< Key, T >::operator= (  const QMap< Key, T > &  other  )
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE bool QMap< Key, T >::operator== (  const QMap< Key, T > &  other  )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE const T QMap< Key, T >::operator[] (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE T & QMap< Key, T >::operator[] (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE int QMap< Key, T >::remove (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   void QMap< Key, T >::setSharable (  bool  sharable  )  [inline]
+
+
+
+   template<class Key, class T>
+   int QMap< Key, T >::size (   )  const [inline]
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE T QMap< Key, T >::take (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE std::map< Key, T > QMap< Key, T >::toStdMap (   )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T > & QMap< Key, T >::unite (  const QMap< Key, T > &  other  )
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T >::const_iterator QMap< Key, T >::upperBound (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE QMap< Key, T >::iterator QMap< Key, T >::upperBound (  const Key &  key  )
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE const T QMap< Key, T >::value (  const Key &  key,
+                                                      const T &    defaultValue
+                                                   )  const
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE const T QMap< Key, T >::value (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QList< T > QMap< Key, T >::values (  const Key &  key  )  const
+
+
+
+   template<class Key, class T>
+   Q_OUTOFLINE_TEMPLATE QList< T > QMap< Key, T >::values (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   template<class Key, class T>
+   friend class const_iterator [friend]
+
+
+
+   template<class Key, class T>
+   friend class iterator [friend]
+
+
+
+   template<class Key, class T>
+   template<class aKey, class aT>
+   QDataStream& operator>> (  QDataStream &       in,
+                              QMap< aKey, aT > &  map
+                           )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmap.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

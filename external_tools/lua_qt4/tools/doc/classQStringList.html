@@ -1,0 +1,122 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QStringList Class Reference
+
+   #include <qstringlist.h>
+
+   Inherits QList< QString >.
+
+   List of all members.
+
+Public Member Functions
+
+     * QStringList ()
+     * QStringList (const QString &i)
+     * QStringList (const QStringList &l)
+     * QStringList (const QList< QString > &l)
+     * void sort ()
+     * QString join (const QString &sep) const
+     * QStringList filter (const QString &str, Qt::CaseSensitivity cs=Qt::CaseSensitive) const
+     * QBool contains (const QString &str, Qt::CaseSensitivity cs=Qt::CaseSensitive) const
+     * QStringList & replaceInStrings (const QString &before, const QString &after, Qt::CaseSensitivity cs=Qt::CaseSensitive)
+     * QStringList operator+ (const QStringList &other) const
+     * QStringList & operator<< (const QString &str)
+     * QStringList & operator<< (const QStringList &l)
+     * QStringList filter (const QRegExp &rx) const
+     * QStringList & replaceInStrings (const QRegExp &rx, const QString &after)
+     * int indexOf (const QRegExp &rx, int from=0) const
+     * int lastIndexOf (const QRegExp &rx, int from=-1) const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QStringList::QStringList (   )  [inline]
+
+
+
+   QStringList::QStringList (  const QString &  i  )  [inline, explicit]
+
+
+
+   QStringList::QStringList (  const QStringList &  l  )  [inline]
+
+
+
+   QStringList::QStringList (  const QList< QString > &  l  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QBool QStringList::contains (  const QString &      str,
+                                  Qt::CaseSensitivity  cs = Qt::CaseSensitive
+                               )  const [inline]
+
+
+
+   QStringList QStringList::filter (  const QRegExp &  rx  )  const [inline]
+
+
+
+   QStringList QStringList::filter (  const QString &      str,
+                                      Qt::CaseSensitivity  cs = Qt::CaseSensitive
+                                   )  const [inline]
+
+
+
+   int QStringList::indexOf (  const QRegExp &  rx,
+                               int              from = 0
+                            )  const [inline]
+
+
+
+   QString QStringList::join (  const QString &  sep  )  const [inline]
+
+
+
+   int QStringList::lastIndexOf (  const QRegExp &  rx,
+                                   int              from = -1
+                                )  const [inline]
+
+
+
+   QStringList QStringList::operator+ (  const QStringList &  other  )  const [inline]
+
+
+
+   QStringList& QStringList::operator<< (  const QStringList &  l  )  [inline]
+
+
+
+   QStringList& QStringList::operator<< (  const QString &  str  )  [inline]
+
+
+
+   Reimplemented from QList< QString >.
+
+   QStringList & QStringList::replaceInStrings (  const QRegExp &  rx,
+                                                  const QString &  after
+                                               )  [inline]
+
+
+
+   QStringList & QStringList::replaceInStrings (  const QString &      before,
+                                                  const QString &      after,
+                                                  Qt::CaseSensitivity  cs = Qt::CaseSensitive
+                                               )  [inline]
+
+
+
+   void QStringList::sort (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstringlist.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

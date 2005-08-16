@@ -1,0 +1,103 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3CheckTableItem Class Reference
+
+   #include <q3table.h>
+
+   Inherits Q3TableItem.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CheckTableItem (Q3Table *table, const QString &txt)
+     * void setText (const QString &t)
+     * virtual QWidget * createEditor () const
+     * virtual void setContentFromEditor (QWidget *w)
+     * virtual void paint (QPainter *p, const QColorGroup &cg, const QRect &cr, bool selected)
+     * virtual void setChecked (bool b)
+     * bool isChecked () const
+     * int rtti () const
+     * QSize sizeHint () const
+
+Static Public Attributes
+
+     * static int RTTI
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CheckTableItem::Q3CheckTableItem (  Q3Table *        table,
+                                         const QString &  txt
+                                      )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QWidget* Q3CheckTableItem::createEditor (   )  const [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   bool Q3CheckTableItem::isChecked (   )  const
+
+
+
+   virtual void Q3CheckTableItem::paint (  QPainter *           p,
+                                           const QColorGroup &  cg,
+                                           const QRect &        cr,
+                                           bool                 selected
+                                        )  [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   int Q3CheckTableItem::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   virtual void Q3CheckTableItem::setChecked (  bool  b  )  [virtual]
+
+
+
+   virtual void Q3CheckTableItem::setContentFromEditor (  QWidget *  w  )  [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   void Q3CheckTableItem::setText (  const QString &  t  )  [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+
+   QSize Q3CheckTableItem::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3TableItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3CheckTableItem::RTTI [static]
+
+
+
+   Reimplemented from Q3TableItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3table.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

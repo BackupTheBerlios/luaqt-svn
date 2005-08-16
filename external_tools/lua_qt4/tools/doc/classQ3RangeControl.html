@@ -1,0 +1,166 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3RangeControl Class Reference
+
+   #include <q3rangecontrol.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3RangeControl ()
+     * Q3RangeControl (int minValue, int maxValue, int lineStep, int pageStep, int value)
+     * virtual ~Q3RangeControl ()
+     * int value () const
+     * void setValue (int)
+     * void addPage ()
+     * void subtractPage ()
+     * void addLine ()
+     * void subtractLine ()
+     * int minValue () const
+     * int maxValue () const
+     * void setRange (int minValue, int maxValue)
+     * void setMinValue (int minVal)
+     * void setMaxValue (int minVal)
+     * int lineStep () const
+     * int pageStep () const
+     * void setSteps (int line, int page)
+     * int bound (int) const
+
+Protected Member Functions
+
+     * int positionFromValue (int val, int space) const
+     * int valueFromPosition (int pos, int space) const
+     * void directSetValue (int val)
+     * int prevValue () const
+     * virtual void valueChange ()
+     * virtual void rangeChange ()
+     * virtual void stepChange ()
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3RangeControl::Q3RangeControl (   )
+
+
+
+   Q3RangeControl::Q3RangeControl (  int  minValue,
+                                     int  maxValue,
+                                     int  lineStep,
+                                     int  pageStep,
+                                     int  value
+                                  )
+
+
+
+   virtual Q3RangeControl::~Q3RangeControl (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3RangeControl::addLine (   )
+
+
+
+   void Q3RangeControl::addPage (   )
+
+
+
+   int Q3RangeControl::bound (  int   )  const
+
+
+
+   void Q3RangeControl::directSetValue (  int  val  )  [protected]
+
+
+
+   int Q3RangeControl::lineStep (   )  const [inline]
+
+
+
+   int Q3RangeControl::maxValue (   )  const [inline]
+
+
+
+   int Q3RangeControl::minValue (   )  const [inline]
+
+
+
+   int Q3RangeControl::pageStep (   )  const [inline]
+
+
+
+   int Q3RangeControl::positionFromValue (  int  val,
+                                            int  space
+                                         )  const [protected]
+
+
+
+   int Q3RangeControl::prevValue (   )  const [inline, protected]
+
+
+
+   virtual void Q3RangeControl::rangeChange (   )  [protected, virtual]
+
+
+
+   void Q3RangeControl::setMaxValue (  int  minVal  )
+
+
+
+   void Q3RangeControl::setMinValue (  int  minVal  )
+
+
+
+   void Q3RangeControl::setRange (  int  minValue,
+                                    int  maxValue
+                                 )
+
+
+
+   void Q3RangeControl::setSteps (  int  line,
+                                    int  page
+                                 )
+
+
+
+   void Q3RangeControl::setValue (  int   )
+
+
+
+   virtual void Q3RangeControl::stepChange (   )  [protected, virtual]
+
+
+
+   void Q3RangeControl::subtractLine (   )
+
+
+
+   void Q3RangeControl::subtractPage (   )
+
+
+
+   int Q3RangeControl::value (   )  const [inline]
+
+
+
+   virtual void Q3RangeControl::valueChange (   )  [protected, virtual]
+
+
+
+   int Q3RangeControl::valueFromPosition (  int  pos,
+                                            int  space
+                                         )  const [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3rangecontrol.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

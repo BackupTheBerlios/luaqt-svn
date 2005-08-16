@@ -1,0 +1,177 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QSound Class Reference
+
+   The QSound class provides access to the platform audio facilities.
+   More...
+#include <QSound>
+
+   Part of the QtGui module.
+
+   Inherits QObject.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QSound ( const QString & filename, QObject * parent = 0 )
+     * ~QSound ()
+     * QString fileName () const
+     * bool isFinished () const
+     * int loops () const
+     * int loopsRemaining () const
+     * void setLoops ( int n )
+
+     * 28 public functions inherited from QObject
+
+  Public Slots
+
+     * void play ()
+     * void stop ()
+
+     * 1 public slot inherited from QObject
+
+  Static Public Members
+
+     * bool isAvailable ()
+     * void play ( const QString & filename )
+
+     * 4 static public members inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 property inherited from QObject
+     * 1 signal inherited from QObject
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QSound class provides access to the platform audio facilities.
+
+   Qt provides the most commonly required audio operation in GUI
+   applications: asynchronously playing a sound file. This is most easily
+   accomplished with a single call:
+    QSound::play("mysounds/bells.wav");
+
+   A second API is provided in which a QSound object is created from a
+   sound file and is played later:
+    QSound bells("mysounds/bells.wav");
+
+    bells.play();
+
+   Sounds played using the second model may use more memory but play more
+   immediately than sounds played using the first model, depending on the
+   underlying platform audio facilities.
+
+   On Microsoft Windows the underlying multimedia system is used; only
+   WAVE format sound files are supported.
+
+   On X11 the Network Audio System is used if available, otherwise all
+   operations work silently. NAS supports WAVE and AU files.
+
+   On Mac OS X we use QuickTime for sound. All QuickTime formats are
+   supported by Qt/Mac.
+
+   On Qt/Embedded, a built-in mixing sound server is used, which accesses
+   /dev/dsp directly. Only the WAVE format is supported.
+
+   The availability of sound can be tested with QSound::isAvailable().
+
+   Note that QSound does not support resources. This might be fixed in a
+   future Qt version.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QSound::QSound ( const QString & filename, QObject * parent = 0 )
+
+   Constructs a QSound that can quickly play the sound in a file named
+   filename.
+
+   This may use more memory than the static play function.
+
+   The parent argument (default 0) is passed on to the QObject
+   constructor.
+
+  QSound::~QSound ()
+
+   Destroys the sound object. If the sound is not finished playing stop()
+   is called on it.
+
+   See also stop() and isFinished().
+
+  QString QSound::fileName () const
+
+   Returns the filename associated with the sound.
+
+  bool QSound::isAvailable ()   [static]
+
+   Returns true if sound facilities exist on the platform; otherwise
+   returns false. An application may choose either to notify the user if
+   sound is crucial to the application or to operate silently without
+   bothering the user.
+
+   If no sound is available, all QSound operations work silently and
+   quickly.
+
+   Note: On Windows this always returns true because some sound card
+   drivers do not implement a way to find out whether it is available or
+   not.
+
+  bool QSound::isFinished () const
+
+   Returns true if the sound has finished playing; otherwise returns
+   false.
+
+   Warning: On Windows this function always returns true for unlooped
+   sounds.
+
+  int QSound::loops () const
+
+   Returns the number of times the sound will play.
+
+  int QSound::loopsRemaining () const
+
+   Returns the number of times the sound will loop. This value decreases
+   each time the sound loops.
+
+  void QSound::play ( const QString & filename )   [static]
+
+   Plays the sound in a file called filename.
+
+  void QSound::play ()   [slot]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Starts the sound playing. The function returns immediately. Depending
+   on the platform audio facilities, other sounds may stop or may be
+   mixed with the new sound.
+
+   The sound can be played again at any time, possibly mixing or
+   replacing previous plays of the sound.
+
+  void QSound::setLoops ( int n )
+
+   Sets the sound to repeat n times when it is played. Passing the value
+   -1 will cause the sound to loop indefinitely.
+
+   See also loops().
+
+  void QSound::stop ()   [slot]
+
+   Stops the sound playing.
+
+   On Windows the current loop will finish if a sound is played in a
+   loop.
+
+   See also play().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

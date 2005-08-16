@@ -1,0 +1,892 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QFont Class Reference
+
+   The QFont class specifies a font used for drawing text. More...
+#include <QFont>
+
+   Part of the QtGui module.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum Stretch { UltraCondensed, ExtraCondensed, Condensed,
+       SemiCondensed, ..., UltraExpanded }
+     * enum Style { StyleNormal, StyleItalic, StyleOblique }
+     * enum StyleHint { AnyStyle, SansSerif, Helvetica, Serif, ...,
+       System }
+     * enum StyleStrategy { PreferDefault, PreferBitmap, PreferDevice,
+       PreferOutline, ..., PreferQuality }
+     * enum Weight { Light, Normal, DemiBold, Bold, Black }
+
+  Public Functions
+
+     * QFont ()
+     * QFont ( const QString & family, int pointSize = -1, int weight =
+       -1, bool italic = false )
+     * QFont ( const QFont & font, QPaintDevice * pd )
+     * QFont ( const QFont & font )
+     * ~QFont ()
+     * bool bold () const
+     * QString defaultFamily () const
+     * bool exactMatch () const
+     * QString family () const
+     * bool fixedPitch () const
+     * bool fromString ( const QString & descrip )
+     * HFONT handle () const
+     * bool isCopyOf ( const QFont & f ) const
+     * bool italic () const
+     * bool kerning () const
+     * QString key () const
+     * QString lastResortFamily () const
+     * QString lastResortFont () const
+     * bool overline () const
+     * int pixelSize () const
+     * int pointSize () const
+     * qreal pointSizeF () const
+     * bool rawMode () const
+     * QString rawName () const
+     * QFont resolve ( const QFont & other ) const
+     * void setBold ( bool enable )
+     * void setFamily ( const QString & family )
+     * void setFixedPitch ( bool enable )
+     * void setItalic ( bool enable )
+     * void setKerning ( bool enable )
+     * void setOverline ( bool enable )
+     * void setPixelSize ( int pixelSize )
+     * void setPointSize ( int pointSize )
+     * void setPointSizeF ( qreal pointSize )
+     * void setRawMode ( bool enable )
+     * void setRawName ( const QString & name )
+     * void setStretch ( int factor )
+     * void setStrikeOut ( bool enable )
+     * void setStyle ( Style style )
+     * void setStyleHint ( StyleHint hint, StyleStrategy strategy =
+       PreferDefault )
+     * void setStyleStrategy ( StyleStrategy s )
+     * void setUnderline ( bool enable )
+     * void setWeight ( int weight )
+     * int stretch () const
+     * bool strikeOut () const
+     * Style style () const
+     * StyleHint styleHint () const
+     * StyleStrategy styleStrategy () const
+     * QString toString () const
+     * bool underline () const
+     * int weight () const
+     * operator QVariant () const
+     * bool operator!= ( const QFont & f ) const
+     * bool operator< ( const QFont & f ) const
+     * QFont & operator= ( const QFont & font )
+     * bool operator== ( const QFont & f ) const
+
+  Static Public Members
+
+     * void insertSubstitution ( const QString & familyName, const
+       QString & substituteName )
+     * void insertSubstitutions ( const QString & familyName, const
+       QStringList & substituteNames )
+     * void removeSubstitution ( const QString & familyName )
+     * QString substitute ( const QString & familyName )
+     * QStringList substitutes ( const QString & familyName )
+     * QStringList substitutions ()
+
+  Related Non-Members
+
+     * QDataStream & operator<< ( QDataStream & s, const QFont & font )
+     * QDataStream & operator>> ( QDataStream & s, QFont & font )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QFont class specifies a font used for drawing text.
+
+   When you create a QFont object you specify various attributes that you
+   want the font to have. Qt will use the font with the specified
+   attributes, or if no matching font exists, Qt will use the closest
+   matching installed font. The attributes of the font that is actually
+   used are retrievable from a QFontInfo object. If the window system
+   provides an exact match exactMatch() returns true. Use QFontMetrics to
+   get measurements, e.g. the pixel length of a string using
+   QFontMetrics::width().
+
+   Use QApplication::setFont() to set the application's default font.
+
+   If a chosen font does not include all the characters that need to be
+   displayed, QFont will try to find the characters in the nearest
+   equivalent fonts. When a QPainter draws a character from a font the
+   QFont will report whether or not it has the character; if it does not,
+   QPainter will draw an unfilled square.
+
+   Create QFonts like this:
+    QFont serifFont("Times", 10, Bold);
+    QFont sansFont("Helvetica [Cronyx]", 12);
+
+   The attributes set in the constructor can also be set later, e.g.
+   setFamily(), setPointSize(), setPointSizeFloat(), setWeight() and
+   setItalic(). The remaining attributes must be set after contstruction,
+   e.g. setBold(), setUnderline(), setOverline(), setStrikeOut() and
+   setFixedPitch(). QFontInfo objects should be created after the font's
+   attributes have been set. A QFontInfo object will not change, even if
+   you change the font's attributes. The corresponding "get" functions,
+   e.g. family(), pointSize(), etc., return the values that were set,
+   even though the values used may differ. The actual values are
+   available from a QFontInfo object.
+
+   If the requested font family is unavailable you can influence the font
+   matching algorithm by choosing a particular QFont::StyleHint and
+   QFont::StyleStrategy with setStyleHint(). The default family
+   (corresponding to the current style hint) is returned by
+   defaultFamily().
+
+   The font-matching algorithm has a lastResortFamily() and
+   lastResortFont() in cases where a suitable match cannot be found. You
+   can provide substitutions for font family names using
+   insertSubstitution() and insertSubstitutions(). Substitutions can be
+   removed with removeSubstitution(). Use substitute() to retrieve a
+   family's first substitute, or the family name itself if it has no
+   substitutes. Use substitutes() to retrieve a list of a family's
+   substitutes (which may be empty).
+
+   Every QFont has a key() which you can use, for example, as the key in
+   a cache or dictionary. If you want to store a user's font preferences
+   you could use QSettings, writing the font information with toString()
+   and reading it back with fromString(). The operator<<() and
+   operator>>() functions are also available, but they work on a data
+   stream.
+
+   It is possible to set the height of characters shown on the screen to
+   a specified number of pixels with setPixelSize(); however using
+   setPointSize() has a similar effect and provides device independence.
+
+   Under X11 you can set a font using its system specific name with
+   setRawName().
+
+   Loading fonts can be expensive, especially on X11. QFont contains
+   extensive optimizations to make the copying of QFont objects fast, and
+   to cache the results of the slow window system functions it depends
+   upon.
+
+   The font matching algorithm works as follows:
+    1. The specified font family is searched for.
+    2. If not found, the styleHint() is used to select a replacement
+       family.
+    3. Each replacement font family is searched for.
+    4. If none of these are found or there was no styleHint(),
+       "helvetica" will be searched for.
+    5. If "helvetica" isn't found Qt will try the lastResortFamily().
+    6. If the lastResortFamily() isn't found Qt will try the
+       lastResortFont() which will always return a name of some kind.
+
+   Note that the actual font matching algorithm varies from platform to
+   platform.
+
+   Once a font is found, the remaining attributes are matched in order of
+   priority:
+    1. fixedPitch()
+    2. pointSize() (see below)
+    3. weight()
+    4. style()
+
+   If you have a font which matches on family, even if none of the other
+   attributes match, this font will be chosen in preference to a font
+   which doesn't match on family but which does match on the other
+   attributes. This is because font family is the dominant search
+   criteria.
+
+   The point size is defined to match if it is within 20% of the
+   requested point size. When several fonts match and are only
+   distinguished by point size, the font with the closest point size to
+   the one requested will be chosen.
+
+   The actual family, font size, weight and other font attributes used
+   for drawing text will depend on what's available for the chosen family
+   under the window system. A QFontInfo object can be used to determine
+   the actual values used for drawing the text.
+
+   Examples:
+    QFont f("Helvetica");
+
+   If you had both an Adobe and a Cronyx Helvetica, you might get either.
+    QFont f1("Helvetica [Cronyx]");  // Qt 4.x and 3.x
+    QFont f2("Cronyx-Helvetica");    // Qt 2.x compatibility
+
+   You can specify the foundry you want in the family name. Both fonts,
+   f1 and f2, in the above example will be set to "Helvetica [Cronyx]".
+
+   To determine the attributes of the font actually used in the window
+   system, use a QFontInfo object, e.g.
+    QFontInfo info(f1);
+    QString family = info.family();
+
+   To find out font metrics use a QFontMetrics object, e.g.
+    QFontMetrics fm(f1);
+    int textWidthInPixels = fm.width("How many pixels wide is this text?");
+    int textHeightInPixels = fm.height();
+
+   For more general information on fonts, see the comp.fonts FAQ.
+   Information on encodings can be found from Roman Czyborra's page.
+
+   QWidget::setFont() QPainter::setFont() QFont::StyleHint QFont::Weight
+
+   See also QFontMetrics, QFontInfo, QFontDatabase, and
+   QApplication::setFont().
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QFont::Stretch
+
+   Predefined stretch values that follow the CSS naming convention. The
+   higher the value, the more stretched the text is.
+
+         Constant        Value Description
+   QFont::UltraCondensed  50   50
+   QFont::ExtraCondensed  62   62
+   QFont::Condensed       75   75
+   QFont::SemiCondensed   87   87
+   QFont::Unstretched     100  100
+   QFont::SemiExpanded    112  112
+   QFont::Expanded        125  125
+   QFont::ExtraExpanded   150  150
+   QFont::UltraExpanded   200  200
+
+   See also setStretch() and stretch().
+
+  enum QFont::Style
+
+   This enum describes the different styles of glyphs that are used to
+   display text.
+
+   Constant Value Description
+   QFont::StyleNormal 0 Normal glyphs used in unstyled text.
+   QFont::StyleItalic 1 Italic glyphs that are specifically designed for
+   the purpose of representing italicized text.
+   QFont::StyleOblique 2 Glyphs with an italic appearance that are
+   typically based on the unstyled glyphs, but are not fine-tuned for the
+   purpose of representing italicized text.
+
+   See also Weight.
+
+  enum QFont::StyleHint
+
+   Style hints are used by the font matching algorithm to find an
+   appropriate default family if a selected font family is not available.
+
+   Constant Value Description
+   QFont::AnyStyle   leaves the font matching algorithm to choose the
+   family. This is the default.
+   QFont::SansSerif Helvetica the font matcher prefer sans serif fonts.
+   QFont::Helvetica 0 is a synonym for SansSerif.
+   QFont::Serif Times the font matcher prefers serif fonts.
+   QFont::Times   is a synonym for Serif.
+   QFont::TypeWriter Courier the font matcher prefers fixed pitch fonts.
+   QFont::Courier   a synonym for TypeWriter.
+   QFont::OldEnglish   the font matcher prefers decorative fonts.
+   QFont::Decorative OldEnglish is a synonym for OldEnglish.
+   QFont::System   the font matcher prefers system fonts.
+
+  enum QFont::StyleStrategy
+
+   The style strategy tells the font matching algorithm what type of
+   fonts should be used to find an appropriate default family.
+
+   The following strategies are available:
+
+   Constant Value Description
+   QFont::PreferDefault 0x0001 the default style strategy. It does not
+   prefer any type of font.
+   QFont::PreferBitmap 0x0002 prefers bitmap fonts (as opposed to outline
+   fonts).
+   QFont::PreferDevice 0x0004 prefers device fonts.
+   QFont::PreferOutline 0x0008 prefers outline fonts (as opposed to
+   bitmap fonts).
+   QFont::ForceOutline 0x0010 forces the use of outline fonts.
+   QFont::NoAntialias 0x0100 don't antialias the fonts.
+   QFont::PreferAntialias 0x0080 antialias if possible.
+   QFont::OpenGLCompatible 0x0200 forces the use of OpenGL compatible
+   fonts.
+
+   Any of these may be OR-ed with one of these flags:
+
+   Constant Value Description
+   QFont::PreferMatch 0x0020 prefer an exact match. The font matcher will
+   try to use the exact font size that has been specified.
+   QFont::PreferQuality 0x0040 prefer the best quality font. The font
+   matcher will use the nearest standard point size that the font
+   supports.
+
+  enum QFont::Weight
+
+   Qt uses a weighting scale from 0 to 99 similar to, but not the same
+   as, the scales used in Windows or CSS. A weight of 0 is ultralight,
+   whilst 99 will be an extremely black.
+
+   This enum contains the predefined font weights:
+
+      Constant     Value Description
+   QFont::Light     25   25
+   QFont::Normal    50   50
+   QFont::DemiBold  63   63
+   QFont::Bold      75   75
+   QFont::Black     87   87
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QFont::QFont ()
+
+   Constructs a font object that uses the application's default font.
+
+   See also QApplication::setFont() and QApplication::font().
+
+  QFont::QFont ( const QString & family, int pointSize = -1, int weight = -1,
+  bool italic = false )
+
+   Constructs a font object with the specified family, pointSize, weight
+   and italic settings.
+
+   If pointSize is <= 0, it is set to 12.
+
+   The family name may optionally also include a foundry name, e.g.
+   "Helvetica [Cronyx]". (The Qt 2.x syntax, i.e. "Cronyx-Helvetica", is
+   also supported.) If the family is available from more than one foundry
+   and the foundry isn't specified, an arbitrary foundry is chosen. If
+   the family isn't available a family will be set using the font
+   matching algorithm.
+
+   See also Weight, setFamily(), setPointSize(), setWeight(),
+   setItalic(), setStyleHint(), and QApplication::font().
+
+  QFont::QFont ( const QFont & font, QPaintDevice * pd )
+
+   Constructs a font from font for use on the paint device pd.
+
+  QFont::QFont ( const QFont & font )
+
+   Constructs a font that is a copy of font.
+
+  QFont::~QFont ()
+
+   Destroys the font object and frees all allocated resources.
+
+  bool QFont::bold () const
+
+   Returns true if weight() is a value greater than QFont::Normal;
+   otherwise returns false.
+
+   See also weight(), setBold(), and QFontInfo::bold().
+
+  QString QFont::defaultFamily () const
+
+   Returns the family name that corresponds to the current style hint.
+
+   See also StyleHint, styleHint(), and setStyleHint().
+
+  bool QFont::exactMatch () const
+
+   Returns true if a window system font exactly matching the settings of
+   this font is available.
+
+   See also QFontInfo.
+
+  QString QFont::family () const
+
+   Returns the requested font family name, i.e. the name set in the
+   constructor or the last setFont() call.
+
+   See also setFamily(), substitutes(), and substitute().
+
+  bool QFont::fixedPitch () const
+
+   Returns true if fixed pitch has been set; otherwise returns false.
+
+   See also setFixedPitch() and QFontInfo::fixedPitch().
+
+  bool QFont::fromString ( const QString & descrip )
+
+   Sets this font to match the description descrip. The description is a
+   comma-separated list of the font attributes, as returned by
+   toString().
+
+   See also toString().
+
+  HFONT QFont::handle () const
+
+   Returns the window system handle to the font, for low-level access.
+   Using this function is not portable.
+
+  void QFont::insertSubstitution ( const QString & familyName, const QString &
+  substituteName )   [static]
+
+   Inserts substituteName into the substitution table for the family
+   familyName.
+
+   See also insertSubstitutions(), removeSubstitution(), substitutions(),
+   substitute(), and substitutes().
+
+  void QFont::insertSubstitutions ( const QString & familyName, const
+  QStringList & substituteNames )   [static]
+
+   Inserts the list of families substituteNames into the substitution
+   list for familyName.
+
+   See also insertSubstitution(), removeSubstitution(), substitutions(),
+   and substitute().
+
+  bool QFont::isCopyOf ( const QFont & f ) const
+
+   Returns true if this font and f are copies of each other, i.e. one of
+   them was created as a copy of the other and neither has been modified
+   since. This is much stricter than equality.
+
+   See also operator=() and operator==().
+
+  bool QFont::italic () const
+
+   Returns true if the style() of the font is not QFont::StyleNormal
+
+   See also setItalic() and style().
+
+  bool QFont::kerning () const
+
+   Returns true if kerning should be used when drawing text with this
+   font.
+
+   See also setKerning().
+
+  QString QFont::key () const
+
+   Returns the font's key, a textual representation of a font. It is
+   typically used as the key for a cache or dictionary of fonts.
+
+   See also QMap.
+
+  QString QFont::lastResortFamily () const
+
+   Returns the "last resort" font family name.
+
+   The current implementation tries a wide variety of common fonts,
+   returning the first one it finds. Is is possible that no family is
+   found in which case an empty string is returned.
+
+   See also lastResortFont().
+
+  QString QFont::lastResortFont () const
+
+   Returns a "last resort" font name for the font matching algorithm.
+   This is used if the last resort family is not available. It will
+   always return a name, if necessary returning something like "fixed" or
+   "system".
+
+   The current implementation tries a wide variety of common fonts,
+   returning the first one it finds. The implementation may change at any
+   time, but this function will always return a string containing
+   something.
+
+   It is theoretically possible that there really isn't a
+   lastResortFont() in which case Qt will abort with an error message. We
+   have not been able to identify a case where this happens. Please
+   report it as a bug if it does, preferably with a list of the fonts you
+   have installed.
+
+   See also lastResortFamily() and rawName().
+
+  bool QFont::overline () const
+
+   Returns true if overline has been set; otherwise returns false.
+
+   See also setOverline().
+
+  int QFont::pixelSize () const
+
+   Returns the pixel size of the font if it was set with setPixelSize().
+   Returns -1 if the size was set with setPointSize() or setPointSizeF().
+
+   See also setPixelSize(), pointSize(), QFontInfo::pointSize(), and
+   QFontInfo::pixelSize().
+
+  int QFont::pointSize () const
+
+   Returns the point size of the font. Returns -1 if the font size was
+   specified in pixels.
+
+   See also setPointSize() and pointSizeF().
+
+  qreal QFont::pointSizeF () const
+
+   Returns the point size of the font. Returns -1 if the font size was
+   specified in pixels.
+
+   See also pointSize(), setPointSizeF(), pixelSize(),
+   QFontInfo::pointSize(), and QFontInfo::pixelSize().
+
+  bool QFont::rawMode () const
+
+   Returns true if raw mode is used for font name matching; otherwise
+   returns false.
+
+   See also setRawMode() and rawName().
+
+  QString QFont::rawName () const
+
+   Returns the name of the font within the underlying window system.
+
+   On Windows and Mac OS X, this is usually just the family name of a
+   TrueType font.
+
+   On X11, depending on whether Qt was built with FontConfig support, it
+   is an XLFD (X Logical Font Description) or a FontConfig pattern. An
+   XLFD may be returned even if FontConfig support is enabled..
+
+   Using the return value of this function is usually not portable.
+
+   See also setRawName().
+
+  void QFont::removeSubstitution ( const QString & familyName )   [static]
+
+   Removes all the substitutions for familyName.
+
+   See also insertSubstitutions(), insertSubstitution(), substitutions(),
+   and substitute().
+
+  QFont QFont::resolve ( const QFont & other ) const
+
+   Returns a new QFont that has attributes copied from other.
+
+  void QFont::setBold ( bool enable )
+
+   If enable is true sets the font's weight to QFont::Bold; otherwise
+   sets the weight to QFont::Normal.
+
+   For finer boldness control use setWeight().
+
+   See also bold() and setWeight().
+
+  void QFont::setFamily ( const QString & family )
+
+   Sets the family name of the font. The name is case insensitive and may
+   include a foundry name.
+
+   The family name may optionally also include a foundry name, e.g.
+   "Helvetica [Cronyx]". (The Qt 2.x syntax, i.e. "Cronyx-Helvetica", is
+   also supported.) If the family is available from more than one foundry
+   and the foundry isn't specified, an arbitrary foundry is chosen. If
+   the family isn't available a family will be set using the font
+   matching algorithm.
+
+   See also family(), setStyleHint(), and QFontInfo.
+
+  void QFont::setFixedPitch ( bool enable )
+
+   If enable is true, sets fixed pitch on; otherwise sets fixed pitch
+   off.
+
+   See also fixedPitch() and QFontInfo.
+
+  void QFont::setItalic ( bool enable )
+
+   Sets the style() of the font to QFont::StyleItalic if enable is true;
+   otherwise the style is set to QFont::StyleNormal.
+
+   See also italic() and QFontInfo.
+
+  void QFont::setKerning ( bool enable )
+
+   Enables kerning for this font if enable is true; otherwise disables
+   it. By default, kerning is enabled.
+
+   When kerning is enabled, glyph metrics do not add up anymore, even for
+   Latin text. In other words, the assumption that width('a') +
+   width('b') is equal to width("ab") is not neccesairly true.
+
+   See also kerning() and QFontMetrics.
+
+  void QFont::setOverline ( bool enable )
+
+   If enable is true, sets overline on; otherwise sets overline off.
+
+   See also overline() and QFontInfo.
+
+  void QFont::setPixelSize ( int pixelSize )
+
+   Sets the font size to pixelSize pixels.
+
+   Using this function makes the font device dependent. Use
+   setPointSize() or setPointSizeF() to set the size of the font in a
+   device independent manner.
+
+   See also pixelSize().
+
+  void QFont::setPointSize ( int pointSize )
+
+   Sets the point size to pointSize. The point size must be greater than
+   zero.
+
+   See also pointSize() and setPointSizeF().
+
+  void QFont::setPointSizeF ( qreal pointSize )
+
+   Sets the point size to pointSize. The point size must be greater than
+   zero. The requested precision may not be achieved on all platforms.
+
+   See also pointSizeF(), setPointSize(), and setPixelSize().
+
+  void QFont::setRawMode ( bool enable )
+
+   If enable is true, turns raw mode on; otherwise turns raw mode off.
+   This function only has an effect under X11.
+
+   If raw mode is enabled, Qt will search for an X font with a complete
+   font name matching the family name, ignoring all other values set for
+   the QFont. If the font name matches several fonts, Qt will use the
+   first font returned by X. QFontInfo cannot be used to fetch
+   information about a QFont using raw mode (it will return the values
+   set in the QFont for all parameters, including the family name).
+
+   Warning: Do not use raw mode unless you really, really need it! In
+   most (if not all) cases, setRawName() is a much better choice.
+
+   See also rawMode() and setRawName().
+
+  void QFont::setRawName ( const QString & name )
+
+   Sets a font by its system specific name. The function is particularly
+   useful under X, where system font settings (for example X resources)
+   are usually available in XLFD (X Logical Font Description) form only.
+   You can pass an XLFD as name to this function.
+
+   A font set with setRawName() is still a full-featured QFont. It can be
+   queried (for example with italic()) or modified (for example with
+   setItalic()) and is therefore also suitable for rendering rich text.
+
+   If Qt's internal font database cannot resolve the raw name, the font
+   becomes a raw font with name as its family.
+
+   Note that the present implementation does not handle wildcards in
+   XLFDs well, and that font aliases (file fonts.alias in the font
+   directory on X11) are not supported.
+
+   See also rawName(), setRawMode(), and setFamily().
+
+  void QFont::setStretch ( int factor )
+
+   Sets the stretch factor for the font.
+
+   The stretch factor changes the width of all characters in the font by
+   factor percent. For example, setting factor to 150 results in all
+   characters in the font being 1.5 times (ie. 150%) wider. The default
+   stretch factor is 100. The minimum stretch factor is 1, and the
+   maximum stretch factor is 4000.
+
+   The stretch factor is only applied to outline fonts. The stretch
+   factor is ignored for bitmap fonts.
+
+   NOTE: QFont cannot stretch XLFD fonts. When loading XLFD fonts on X11,
+   the stretch factor is matched against a predefined set of values for
+   the SETWIDTH_NAME field of the XLFD.
+
+   See also stretch() and QFont::Stretch.
+
+  void QFont::setStrikeOut ( bool enable )
+
+   If enable is true, sets strikeout on; otherwise sets strikeout off.
+
+   See also strikeOut() and QFontInfo.
+
+  void QFont::setStyle ( Style style )
+
+   Sets the style of the font to style.
+
+   See also italic() and QFontInfo.
+
+  void QFont::setStyleHint ( StyleHint hint, StyleStrategy strategy =
+  PreferDefault )
+
+   Sets the style hint and strategy to hint and strategy, respectively.
+
+   If these aren't set explicitly the style hint will default to AnyStyle
+   and the style strategy to PreferDefault.
+
+   Qt does not support style hints on X11 since this information is not
+   provided by the window system.
+
+   See also StyleHint, styleHint(), StyleStrategy, styleStrategy(), and
+   QFontInfo.
+
+  void QFont::setStyleStrategy ( StyleStrategy s )
+
+   Sets the style strategy for the font to s.
+
+   See also QFont::StyleStrategy.
+
+  void QFont::setUnderline ( bool enable )
+
+   If enable is true, sets underline on; otherwise sets underline off.
+
+   See also underline() and QFontInfo.
+
+  void QFont::setWeight ( int weight )
+
+   Sets the weight the font to weight, which should be a value from the
+   QFont::Weight enumeration.
+
+   See also weight() and QFontInfo.
+
+  int QFont::stretch () const
+
+   Returns the stretch factor for the font.
+
+   See also setStretch().
+
+  bool QFont::strikeOut () const
+
+   Returns true if strikeout has been set; otherwise returns false.
+
+   See also setStrikeOut().
+
+  Style QFont::style () const
+
+   Returns the style of the font.
+
+   See also setStyle().
+
+  StyleHint QFont::styleHint () const
+
+   Returns the StyleHint.
+
+   The style hint affects the font matching algorithm. See
+   QFont::StyleHint for the list of available hints.
+
+   See also setStyleHint(), QFont::StyleStrategy, and
+   QFontInfo::styleHint().
+
+  StyleStrategy QFont::styleStrategy () const
+
+   Returns the StyleStrategy.
+
+   The style strategy affects the font matching algorithm. See
+   QFont::StyleStrategy for the list of available strategies.
+
+   See also setStyleHint() and QFont::StyleHint.
+
+  QString QFont::substitute ( const QString & familyName )   [static]
+
+   Returns the first family name to be used whenever familyName is
+   specified. The lookup is case insensitive.
+
+   If there is no substitution for familyName, familyName is returned.
+
+   To obtain a list of substitutions use substitutes().
+
+   See also setFamily(), insertSubstitutions(), insertSubstitution(), and
+   removeSubstitution().
+
+  QStringList QFont::substitutes ( const QString & familyName )   [static]
+
+   Returns a list of family names to be used whenever familyName is
+   specified. The lookup is case insensitive.
+
+   If there is no substitution for familyName, an empty list is returned.
+
+   See also substitute(), insertSubstitutions(), insertSubstitution(),
+   and removeSubstitution().
+
+  QStringList QFont::substitutions ()   [static]
+
+   Returns a sorted list of substituted family names.
+
+   See also insertSubstitution(), removeSubstitution(), and substitute().
+
+  QString QFont::toString () const
+
+   Returns a description of the font. The description is a
+   comma-separated list of the attributes, perfectly suited for use in
+   QSettings.
+
+   See also fromString().
+
+  bool QFont::underline () const
+
+   Returns true if underline has been set; otherwise returns false.
+
+   See also setUnderline().
+
+  int QFont::weight () const
+
+   Returns the weight of the font which is one of the enumerated values
+   from QFont::Weight.
+
+   See also setWeight(), Weight, and QFontInfo.
+
+  QFont::operator QVariant () const
+
+   Returns the font as a QVariant
+
+  bool QFont::operator!= ( const QFont & f ) const
+
+   Returns true if this font is different from f; otherwise returns
+   false.
+
+   Two QFonts are considered to be different if their font attributes are
+   different. If rawMode() is enabled for both fonts, only the family
+   fields are compared.
+
+   See also operator==().
+
+  bool QFont::operator< ( const QFont & f ) const
+
+   Provides an arbitrary comparison of this font and font f. All that is
+   guaranteed is that the operator returns false if both fonts are equal
+   and that (f1 < f2) == !(f2 < f1) if the fonts are not equal.
+
+   This function is useful in some circumstances, for example if you want
+   to use QFont objects as keys in a QMap.
+
+   See also operator==(), operator!=(), and isCopyOf().
+
+  QFont & QFont::operator= ( const QFont & font )
+
+   Assigns font to this font and returns a reference to it.
+
+  bool QFont::operator== ( const QFont & f ) const
+
+   Returns true if this font is equal to f; otherwise returns false.
+
+   Two QFonts are considered equal if their font attributes are equal. If
+   rawMode() is enabled for both fonts, only the family fields are
+   compared.
+
+   See also operator!=() and isCopyOf().
+     _________________________________________________________________
+
+Related Non-Members
+
+  QDataStream & operator<< ( QDataStream & s, const QFont & font )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Writes the font font to the data stream s. (toString() writes to a
+   text stream.)
+
+   See also Format of the QDataStream operators.
+
+  QDataStream & operator>> ( QDataStream & s, QFont & font )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads the font font from the data stream s. (fromString() reads from a
+   text stream.)
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

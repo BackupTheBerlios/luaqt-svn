@@ -1,0 +1,209 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QItemSelectionModel Class Reference
+
+   #include <qitemselectionmodel.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags SelectionFlags
+     * enum SelectionFlag {
+         NoUpdate = 0x0000, Clear = 0x0001, Select = 0x0002, Deselect = 0x0004,
+         Toggle = 0x0008, Current = 0x0010, Rows = 0x0020, Columns = 0x0040,
+         SelectCurrent = Select | Current, ToggleCurrent = Toggle | Current, ClearAndSelect = Clear | Select
+       }
+
+Public Slots
+
+     * void setCurrentIndex (const QModelIndex &index, SelectionFlags command)
+     * virtual void select (const QModelIndex &index, SelectionFlags command)
+     * virtual void select (const QItemSelection &selection, SelectionFlags command)
+     * virtual void clear ()
+     * virtual void reset ()
+
+Signals
+
+     * void selectionChanged (const QItemSelection &selected, const QItemSelection &deselected)
+     * void currentChanged (const QModelIndex &current, const QModelIndex &previous)
+     * void currentRowChanged (const QModelIndex &current, const QModelIndex &previous)
+     * void currentColumnChanged (const QModelIndex &current, const QModelIndex &previous)
+
+Public Member Functions
+
+     * QItemSelectionModel (QAbstractItemModel *model)
+     * virtual ~QItemSelectionModel ()
+     * QModelIndex currentIndex () const
+     * bool isSelected (const QModelIndex &index) const
+     * bool isRowSelected (int row, const QModelIndex &parent) const
+     * bool isColumnSelected (int column, const QModelIndex &parent) const
+     * bool rowIntersectsSelection (int row, const QModelIndex &parent) const
+     * bool columnIntersectsSelection (int column, const QModelIndex &parent) const
+     * QModelIndexList selectedIndexes () const
+     * const QItemSelection selection () const
+     * const QAbstractItemModel * model () const
+
+Protected Member Functions
+
+     * QItemSelectionModel (QItemSelectionModelPrivate &dd, QAbstractItemModel *model)
+     * void emitSelectionChanged (const QItemSelection &newSelection, const QItemSelection &oldSelection)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QItemSelectionModel::SelectionFlags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QItemSelectionModel::SelectionFlag
+
+
+
+   Enumerator: 
+
+          NoUpdate      
+          Clear         
+          Select        
+          Deselect      
+          Toggle        
+          Current       
+          Rows          
+          Columns       
+          SelectCurrent 
+          ToggleCurrent 
+          ClearAndSelect
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QItemSelectionModel::QItemSelectionModel (  QAbstractItemModel *  model  )  [explicit]
+
+
+
+   virtual QItemSelectionModel::~QItemSelectionModel (   )  [virtual]
+
+
+
+   QItemSelectionModel::QItemSelectionModel (  QItemSelectionModelPrivate &  dd,
+                                               QAbstractItemModel *          model
+                                            )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void QItemSelectionModel::clear (   )  [virtual, slot]
+
+
+
+   bool QItemSelectionModel::columnIntersectsSelection (  int                  column,
+                                                          const QModelIndex &  parent
+                                                       )  const
+
+
+
+   void QItemSelectionModel::currentChanged (  const QModelIndex &  current,
+                                               const QModelIndex &  previous
+                                            )  [signal]
+
+
+
+   void QItemSelectionModel::currentColumnChanged (  const QModelIndex &  current,
+                                                     const QModelIndex &  previous
+                                                  )  [signal]
+
+
+
+   QModelIndex QItemSelectionModel::currentIndex (   )  const
+
+
+
+   void QItemSelectionModel::currentRowChanged (  const QModelIndex &  current,
+                                                  const QModelIndex &  previous
+                                               )  [signal]
+
+
+
+   void QItemSelectionModel::emitSelectionChanged (  const QItemSelection &  newSelection,
+                                                     const QItemSelection &  oldSelection
+                                                  )  [protected]
+
+
+
+   bool QItemSelectionModel::isColumnSelected (  int                  column,
+                                                 const QModelIndex &  parent
+                                              )  const
+
+
+
+   bool QItemSelectionModel::isRowSelected (  int                  row,
+                                              const QModelIndex &  parent
+                                           )  const
+
+
+
+   bool QItemSelectionModel::isSelected (  const QModelIndex &  index  )  const
+
+
+
+   const QAbstractItemModel* QItemSelectionModel::model (   )  const
+
+
+
+   virtual void QItemSelectionModel::reset (   )  [virtual, slot]
+
+
+
+   bool QItemSelectionModel::rowIntersectsSelection (  int                  row,
+                                                       const QModelIndex &  parent
+                                                    )  const
+
+
+
+   virtual void QItemSelectionModel::select (  const QItemSelection &  selection,
+                                               SelectionFlags          command
+                                            )  [virtual, slot]
+
+
+
+   virtual void QItemSelectionModel::select (  const QModelIndex &  index,
+                                               SelectionFlags       command
+                                            )  [virtual, slot]
+
+
+
+   QModelIndexList QItemSelectionModel::selectedIndexes (   )  const
+
+
+
+   const QItemSelection QItemSelectionModel::selection (   )  const
+
+
+
+   void QItemSelectionModel::selectionChanged (  const QItemSelection &  selected,
+                                                 const QItemSelection &  deselected
+                                              )  [signal]
+
+
+
+   void QItemSelectionModel::setCurrentIndex (  const QModelIndex &  index,
+                                                SelectionFlags       command
+                                             )  [slot]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qitemselectionmodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

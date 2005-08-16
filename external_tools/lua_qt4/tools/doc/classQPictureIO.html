@@ -1,0 +1,182 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QPictureIO Class Reference
+
+   #include <qpicture.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QPictureIO ()
+     * QPictureIO (QIODevice *ioDevice, const char *format)
+     * QPictureIO (const QString &fileName, const char *format)
+     * ~QPictureIO ()
+     * const QPicture & picture () const
+     * int status () const
+     * const char * format () const
+     * QIODevice * ioDevice () const
+     * QString fileName () const
+     * int quality () const
+     * QString description () const
+     * const char * parameters () const
+     * float gamma () const
+     * void setPicture (const QPicture &)
+     * void setStatus (int)
+     * void setFormat (const char *)
+     * void setIODevice (QIODevice *)
+     * void setFileName (const QString &)
+     * void setQuality (int)
+     * void setDescription (const QString &)
+     * void setParameters (const char *)
+     * void setGamma (float)
+     * bool read ()
+     * bool write ()
+
+Static Public Member Functions
+
+     * static QByteArray pictureFormat (const QString &fileName)
+     * static QByteArray pictureFormat (QIODevice *)
+     * static QList< QByteArray > inputFormats ()
+     * static QList< QByteArray > outputFormats ()
+     * static void defineIOHandler (const char *format, const char *header, const char *flags, picture_io_handler read_picture, picture_io_handler write_picture)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPictureIO::QPictureIO (   )
+
+
+
+   QPictureIO::QPictureIO (  QIODevice *   ioDevice,
+                             const char *  format
+                          )
+
+
+
+   QPictureIO::QPictureIO (  const QString &  fileName,
+                             const char *     format
+                          )
+
+
+
+   QPictureIO::~QPictureIO (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static void QPictureIO::defineIOHandler (  const char *        format,
+                                              const char *        header,
+                                              const char *        flags,
+                                              picture_io_handler  read_picture,
+                                              picture_io_handler  write_picture
+                                           )  [static]
+
+
+
+   QString QPictureIO::description (   )  const
+
+
+
+   QString QPictureIO::fileName (   )  const
+
+
+
+   const char* QPictureIO::format (   )  const
+
+
+
+   float QPictureIO::gamma (   )  const
+
+
+
+   static QList<QByteArray> QPictureIO::inputFormats (   )  [static]
+
+
+
+   QIODevice* QPictureIO::ioDevice (   )  const
+
+
+
+   static QList<QByteArray> QPictureIO::outputFormats (   )  [static]
+
+
+
+   const char* QPictureIO::parameters (   )  const
+
+
+
+   const QPicture& QPictureIO::picture (   )  const
+
+
+
+   static QByteArray QPictureIO::pictureFormat (  QIODevice *   )  [static]
+
+
+
+   static QByteArray QPictureIO::pictureFormat (  const QString &  fileName  )  [static]
+
+
+
+   int QPictureIO::quality (   )  const
+
+
+
+   bool QPictureIO::read (   )
+
+
+
+   void QPictureIO::setDescription (  const QString &   )
+
+
+
+   void QPictureIO::setFileName (  const QString &   )
+
+
+
+   void QPictureIO::setFormat (  const char *   )
+
+
+
+   void QPictureIO::setGamma (  float   )
+
+
+
+   void QPictureIO::setIODevice (  QIODevice *   )
+
+
+
+   void QPictureIO::setParameters (  const char *   )
+
+
+
+   void QPictureIO::setPicture (  const QPicture &   )
+
+
+
+   void QPictureIO::setQuality (  int   )
+
+
+
+   void QPictureIO::setStatus (  int   )
+
+
+
+   int QPictureIO::status (   )  const
+
+
+
+   bool QPictureIO::write (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpicture.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,138 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QSQLiteDriver Class Reference
+
+   #include <qsql_sqlite.h>
+
+   Inherits QSqlDriver.
+
+   List of all members.
+
+Public Member Functions
+
+     * QSQLiteDriver (QObject *parent=0)
+     * QSQLiteDriver (sqlite3 *connection, QObject *parent=0)
+     * ~QSQLiteDriver ()
+     * bool hasFeature (DriverFeature f) const
+     * bool open (const QString &db, const QString &user, const QString &password, const QString &host, int port, const QString &connOpts)
+     * void close ()
+     * QSqlResult * createResult () const
+     * bool beginTransaction ()
+     * bool commitTransaction ()
+     * bool rollbackTransaction ()
+     * QStringList tables (QSql::TableType) const
+     * QSqlRecord record (const QString &tablename) const
+     * QSqlIndex primaryIndex (const QString &table) const
+     * QVariant handle () const
+
+Friends
+
+     * class QSQLiteResult
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSQLiteDriver::QSQLiteDriver (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QSQLiteDriver::QSQLiteDriver (  sqlite3 *  connection,
+                                   QObject *  parent = 0
+                                )  [explicit]
+
+
+
+   QSQLiteDriver::~QSQLiteDriver (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QSQLiteDriver::beginTransaction (   )  [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   void QSQLiteDriver::close (   )  [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   bool QSQLiteDriver::commitTransaction (   )  [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QSqlResult* QSQLiteDriver::createResult (   )  const [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   QVariant QSQLiteDriver::handle (   )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   bool QSQLiteDriver::hasFeature (  DriverFeature  f  )  const [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   bool QSQLiteDriver::open (  const QString &  db,
+                               const QString &  user,
+                               const QString &  password,
+                               const QString &  host,
+                               int              port,
+                               const QString &  connOpts
+                            )  [virtual]
+
+
+
+   Implements QSqlDriver.
+
+   QSqlIndex QSQLiteDriver::primaryIndex (  const QString &  table  )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QSqlRecord QSQLiteDriver::record (  const QString &  tablename  )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   bool QSQLiteDriver::rollbackTransaction (   )  [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+
+   QStringList QSQLiteDriver::tables (  QSql::TableType   )  const [virtual]
+
+
+
+   Reimplemented from QSqlDriver.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QSQLiteResult [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsql_sqlite.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,145 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3CanvasText Class Reference
+
+   #include <q3canvas.h>
+
+   Inherits Q3CanvasItem.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CanvasText (Q3Canvas *canvas)
+     * Q3CanvasText (const QString &, Q3Canvas *canvas)
+     * Q3CanvasText (const QString &, QFont, Q3Canvas *canvas)
+     * virtual ~Q3CanvasText ()
+     * void setText (const QString &)
+     * void setFont (const QFont &)
+     * void setColor (const QColor &)
+     * QString text () const
+     * QFont font () const
+     * QColor color () const
+     * void moveBy (double dx, double dy)
+     * int textFlags () const
+     * void setTextFlags (int)
+     * QRect boundingRect () const
+     * bool collidesWith (const Q3CanvasItem *) const
+     * int rtti () const
+
+Static Public Attributes
+
+     * static int RTTI
+
+Protected Member Functions
+
+     * virtual void draw (QPainter &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasText::Q3CanvasText (  Q3Canvas *  canvas  )
+
+
+
+   Q3CanvasText::Q3CanvasText (  const QString &  ,
+                                 Q3Canvas *       canvas
+                              )
+
+
+
+   Q3CanvasText::Q3CanvasText (  const QString &  ,
+                                 QFont            ,
+                                 Q3Canvas *       canvas
+                              )
+
+
+
+   virtual Q3CanvasText::~Q3CanvasText (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QRect Q3CanvasText::boundingRect (   )  const [virtual]
+
+
+
+   Implements Q3CanvasItem.
+
+   bool Q3CanvasText::collidesWith (  const Q3CanvasItem *   )  const [virtual]
+
+
+
+   Implements Q3CanvasItem.
+
+   QColor Q3CanvasText::color (   )  const
+
+
+
+   virtual void Q3CanvasText::draw (  QPainter &   )  [protected, virtual]
+
+
+
+   Implements Q3CanvasItem.
+
+   QFont Q3CanvasText::font (   )  const
+
+
+
+   void Q3CanvasText::moveBy (  double  dx,
+                                double  dy
+                             )  [virtual]
+
+
+
+   Reimplemented from Q3CanvasItem.
+
+   int Q3CanvasText::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3CanvasItem.
+
+   void Q3CanvasText::setColor (  const QColor &   )
+
+
+
+   void Q3CanvasText::setFont (  const QFont &   )
+
+
+
+   void Q3CanvasText::setText (  const QString &   )
+
+
+
+   void Q3CanvasText::setTextFlags (  int   )
+
+
+
+   QString Q3CanvasText::text (   )  const
+
+
+
+   int Q3CanvasText::textFlags (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3CanvasText::RTTI [static]
+
+
+
+   Reimplemented from Q3CanvasItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

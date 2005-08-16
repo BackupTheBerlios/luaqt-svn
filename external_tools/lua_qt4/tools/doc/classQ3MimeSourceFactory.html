@@ -1,0 +1,137 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        Q3MimeSourceFactory Class Reference
+
+   #include <q3mimefactory.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3MimeSourceFactory ()
+     * virtual ~Q3MimeSourceFactory ()
+     * virtual const QMimeSource * data (const QString &abs_name) const
+     * virtual QString makeAbsolute (const QString &abs_or_rel_name, const QString &context) const
+     * const QMimeSource * data (const QString &abs_or_rel_name, const QString &context) const
+     * virtual void setText (const QString &abs_name, const QString &text)
+     * virtual void setImage (const QString &abs_name, const QImage &im)
+     * virtual void setPixmap (const QString &abs_name, const QPixmap &pm)
+     * virtual void setData (const QString &abs_name, QMimeSource *data)
+     * virtual void setFilePath (const QStringList &)
+     * void setFilePath (const QString &path)
+     * virtual QStringList filePath () const
+     * void addFilePath (const QString &)
+     * virtual void setExtensionType (const QString &ext, const char *mimetype)
+
+Static Public Member Functions
+
+     * static Q3MimeSourceFactory * defaultFactory ()
+     * static void setDefaultFactory (Q3MimeSourceFactory *)
+     * static Q3MimeSourceFactory * takeDefaultFactory ()
+     * static void addFactory (Q3MimeSourceFactory *f)
+     * static void removeFactory (Q3MimeSourceFactory *f)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3MimeSourceFactory::Q3MimeSourceFactory (   )
+
+
+
+   virtual Q3MimeSourceFactory::~Q3MimeSourceFactory (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static void Q3MimeSourceFactory::addFactory (  Q3MimeSourceFactory *  f  )  [static]
+
+
+
+   void Q3MimeSourceFactory::addFilePath (  const QString &   )
+
+
+
+   const QMimeSource* Q3MimeSourceFactory::data (  const QString &  abs_or_rel_name,
+                                                   const QString &  context
+                                                )  const
+
+
+
+   virtual const QMimeSource* Q3MimeSourceFactory::data (  const QString &  abs_name  )  const [virtual]
+
+
+
+   static Q3MimeSourceFactory* Q3MimeSourceFactory::defaultFactory (   )  [static]
+
+
+
+   virtual QStringList Q3MimeSourceFactory::filePath (   )  const [virtual]
+
+
+
+   virtual QString Q3MimeSourceFactory::makeAbsolute (  const QString &  abs_or_rel_name,
+                                                        const QString &  context
+                                                     )  const [virtual]
+
+
+
+   static void Q3MimeSourceFactory::removeFactory (  Q3MimeSourceFactory *  f  )  [static]
+
+
+
+   virtual void Q3MimeSourceFactory::setData (  const QString &  abs_name,
+                                                QMimeSource *    data
+                                             )  [virtual]
+
+
+
+   static void Q3MimeSourceFactory::setDefaultFactory (  Q3MimeSourceFactory *   )  [static]
+
+
+
+   virtual void Q3MimeSourceFactory::setExtensionType (  const QString &  ext,
+                                                         const char *     mimetype
+                                                      )  [virtual]
+
+
+
+   void Q3MimeSourceFactory::setFilePath (  const QString &  path  )  [inline]
+
+
+
+   virtual void Q3MimeSourceFactory::setFilePath (  const QStringList &   )  [virtual]
+
+
+
+   virtual void Q3MimeSourceFactory::setImage (  const QString &  abs_name,
+                                                 const QImage &   im
+                                              )  [virtual]
+
+
+
+   virtual void Q3MimeSourceFactory::setPixmap (  const QString &  abs_name,
+                                                  const QPixmap &  pm
+                                               )  [virtual]
+
+
+
+   virtual void Q3MimeSourceFactory::setText (  const QString &  abs_name,
+                                                const QString &  text
+                                             )  [virtual]
+
+
+
+   static Q3MimeSourceFactory* Q3MimeSourceFactory::takeDefaultFactory (   )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3mimefactory.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

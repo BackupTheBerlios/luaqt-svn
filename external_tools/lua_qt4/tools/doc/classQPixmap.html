@@ -1,0 +1,470 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QPixmap Class Reference
+
+   #include <qpixmap.h>
+
+   Inherits QPaintDevice.
+
+   Inherited by QBitmap.
+
+   List of all members.
+
+Public Member Functions
+
+     * QPixmap ()
+     * QPixmap (int w, int h)
+     * QPixmap (const QSize &)
+     * QPixmap (const QString &fileName, const char *format=0, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * QPixmap (const char *const xpm[])
+     * QPixmap (const QPixmap &)
+     * ~QPixmap ()
+     * QPixmap & operator= (const QPixmap &)
+     * operator QVariant () const
+     * bool isNull () const
+     * int devType () const
+     * int width () const
+     * int height () const
+     * QSize size () const
+     * QRect rect () const
+     * int depth () const
+     * void fill (const QColor &fillColor=Qt::white)
+     * void fill (const QWidget *widget, const QPoint &ofs)
+     * void fill (const QWidget *widget, int xofs, int yofs)
+     * QBitmap mask () const
+     * void setMask (const QBitmap &)
+     * QPixmap alphaChannel () const
+     * void setAlphaChannel (const QPixmap &)
+     * bool hasAlpha () const
+     * bool hasAlphaChannel () const
+     * QBitmap createHeuristicMask (bool clipTight=true) const
+     * QBitmap createMaskFromColor (const QColor &maskColor) const
+     * QPixmap scaled (int w, int h, Qt::AspectRatioMode aspectMode=Qt::IgnoreAspectRatio, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QPixmap scaled (const QSize &s, Qt::AspectRatioMode aspectMode=Qt::IgnoreAspectRatio, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QPixmap scaledToWidth (int w, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QPixmap scaledToHeight (int h, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QPixmap transformed (const QMatrix &, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QImage toImage () const
+     * bool load (const QString &fileName, const char *format=0, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * bool loadFromData (const uchar *buf, uint len, const char *format=0, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * bool loadFromData (const QByteArray &data, const char *format=0, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * bool save (const QString &fileName, const char *format, int quality=-1) const
+     * bool save (QIODevice *device, const char *format, int quality=-1) const
+     * QPixmap copy (int x, int y, int width, int height) const
+     * QPixmap copy (const QRect &rect=QRect()) const
+     * int serialNumber () const
+     * bool isDetached () const
+     * void detach ()
+     * bool isQBitmap () const
+     * void x11SetScreen (int screen)
+     * const QX11Info & x11Info () const
+     * Qt::HANDLE x11PictureHandle () const
+     * Qt::HANDLE handle () const
+     * QPaintEngine * paintEngine () const
+     * bool operator! () const
+
+Static Public Member Functions
+
+     * static int defaultDepth ()
+     * static QPixmap grabWindow (WId, int x=0, int y=0, int w=-1, int h=-1)
+     * static QPixmap grabWidget (QWidget *widget, const QRect &rect)
+     * static QPixmap grabWidget (QWidget *widget, int x=0, int y=0, int w=-1, int h=-1)
+     * static QMatrix trueMatrix (const QMatrix &m, int w, int h)
+     * static QPixmap fromImage (const QImage &image, Qt::ImageConversionFlags flags=Qt::AutoColor)
+     * static int x11SetDefaultScreen (int screen)
+
+Protected Member Functions
+
+     * int metric (PaintDeviceMetric) const
+
+Friends
+
+     * struct QPixmapData
+     * class QBitmap
+     * class QPaintDevice
+     * class QPainter
+     * class QGLWidget
+     * class QX11PaintEngine
+     * class QQuickDrawPaintEngine
+     * class QCoreGraphicsPaintEngine
+     * class QWidgetPrivate
+     * class QRasterPaintEngine
+     * Q_GUI_EXPORT QDataStream & operator>> (QDataStream &, QPixmap &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPixmap::QPixmap (   )
+
+
+
+   QPixmap::QPixmap (  int  w,
+                       int  h
+                    )
+
+
+
+   QPixmap::QPixmap (  const QSize &   )
+
+
+
+   QPixmap::QPixmap (  const QString &           fileName,
+                       const char *              format = 0,
+                       Qt::ImageConversionFlags  flags = Qt::AutoColor
+                    )
+
+
+
+   QPixmap::QPixmap (  const char *const   xpm[]  )
+
+
+
+   QPixmap::QPixmap (  const QPixmap &   )
+
+
+
+   QPixmap::~QPixmap (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QPixmap QPixmap::alphaChannel (   )  const
+
+
+
+   QPixmap QPixmap::copy (  const QRect &  rect = QRect()  )  const
+
+
+
+   QPixmap QPixmap::copy (  int  x,
+                            int  y,
+                            int  width,
+                            int  height
+                         )  const [inline]
+
+
+
+   QBitmap QPixmap::createHeuristicMask (  bool  clipTight = true  )  const
+
+
+
+   QBitmap QPixmap::createMaskFromColor (  const QColor &  maskColor  )  const
+
+
+
+   static int QPixmap::defaultDepth (   )  [static]
+
+
+
+   int QPixmap::depth (   )  const
+
+
+
+   Reimplemented from QPaintDevice.
+
+   void QPixmap::detach (   )
+
+
+
+   int QPixmap::devType (   )  const [virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   void QPixmap::fill (  const QWidget *  widget,
+                         int              xofs,
+                         int              yofs
+                      )  [inline]
+
+
+
+   void QPixmap::fill (  const QWidget *  widget,
+                         const QPoint &   ofs
+                      )
+
+
+
+   void QPixmap::fill (  const QColor &  fillColor = Qt::white  )
+
+
+
+   static QPixmap QPixmap::fromImage (  const QImage &            image,
+                                        Qt::ImageConversionFlags  flags = Qt::AutoColor
+                                     )  [static]
+
+
+
+   Reimplemented in QBitmap.
+
+   static QPixmap QPixmap::grabWidget (  QWidget *  widget,
+                                         int        x = 0,
+                                         int        y = 0,
+                                         int        w = -1,
+                                         int        h = -1
+                                      )  [inline, static]
+
+
+
+   static QPixmap QPixmap::grabWidget (  QWidget *      widget,
+                                         const QRect &  rect
+                                      )  [static]
+
+
+
+   static QPixmap QPixmap::grabWindow (  WId  ,
+                                         int  x = 0,
+                                         int  y = 0,
+                                         int  w = -1,
+                                         int  h = -1
+                                      )  [static]
+
+
+
+   Qt::HANDLE QPixmap::handle (   )  const
+
+
+
+   bool QPixmap::hasAlpha (   )  const
+
+
+
+   bool QPixmap::hasAlphaChannel (   )  const
+
+
+
+   int QPixmap::height (   )  const
+
+
+
+   Reimplemented from QPaintDevice.
+
+   bool QPixmap::isDetached (   )  const
+
+
+
+   bool QPixmap::isNull (   )  const
+
+
+
+   bool QPixmap::isQBitmap (   )  const [inline]
+
+
+
+   bool QPixmap::load (  const QString &           fileName,
+                         const char *              format = 0,
+                         Qt::ImageConversionFlags  flags = Qt::AutoColor
+                      )
+
+
+
+   bool QPixmap::loadFromData (  const QByteArray &        data,
+                                 const char *              format = 0,
+                                 Qt::ImageConversionFlags  flags = Qt::AutoColor
+                              )  [inline]
+
+
+
+   bool QPixmap::loadFromData (  const uchar *             buf,
+                                 uint                      len,
+                                 const char *              format = 0,
+                                 Qt::ImageConversionFlags  flags = Qt::AutoColor
+                              )
+
+
+
+   QBitmap QPixmap::mask (   )  const
+
+
+
+   int QPixmap::metric (  PaintDeviceMetric   )  const [protected, virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   QPixmap::operator QVariant (   )  const
+
+
+
+   Reimplemented in QBitmap.
+
+   bool QPixmap::operator! (   )  const [inline]
+
+
+
+   QPixmap& QPixmap::operator= (  const QPixmap &   )
+
+
+
+   Reimplemented in QBitmap.
+
+   QPaintEngine* QPixmap::paintEngine (   )  const [virtual]
+
+
+
+   Implements QPaintDevice.
+
+   QRect QPixmap::rect (   )  const
+
+
+
+   bool QPixmap::save (  QIODevice *   device,
+                         const char *  format,
+                         int           quality = -1
+                      )  const
+
+
+
+   bool QPixmap::save (  const QString &  fileName,
+                         const char *     format,
+                         int              quality = -1
+                      )  const
+
+
+
+   QPixmap QPixmap::scaled (  const QSize &           s,
+                              Qt::AspectRatioMode     aspectMode = Qt::IgnoreAspectRatio,
+                              Qt::TransformationMode  mode = Qt::FastTransformation
+                           )  const
+
+
+
+   QPixmap QPixmap::scaled (  int                     w,
+                              int                     h,
+                              Qt::AspectRatioMode     aspectMode = Qt::IgnoreAspectRatio,
+                              Qt::TransformationMode  mode = Qt::FastTransformation
+                           )  const [inline]
+
+
+
+   QPixmap QPixmap::scaledToHeight (  int                     h,
+                                      Qt::TransformationMode  mode = Qt::FastTransformation
+                                   )  const
+
+
+
+   QPixmap QPixmap::scaledToWidth (  int                     w,
+                                     Qt::TransformationMode  mode = Qt::FastTransformation
+                                  )  const
+
+
+
+   int QPixmap::serialNumber (   )  const
+
+
+
+   void QPixmap::setAlphaChannel (  const QPixmap &   )
+
+
+
+   void QPixmap::setMask (  const QBitmap &   )
+
+
+
+   QSize QPixmap::size (   )  const
+
+
+
+   QImage QPixmap::toImage (   )  const
+
+
+
+   QPixmap QPixmap::transformed (  const QMatrix &         ,
+                                   Qt::TransformationMode  mode = Qt::FastTransformation
+                                )  const
+
+
+
+   static QMatrix QPixmap::trueMatrix (  const QMatrix &  m,
+                                         int              w,
+                                         int              h
+                                      )  [static]
+
+
+
+   int QPixmap::width (   )  const
+
+
+
+   Reimplemented from QPaintDevice.
+
+   const QX11Info& QPixmap::x11Info (   )  const
+
+
+
+   Qt::HANDLE QPixmap::x11PictureHandle (   )  const
+
+
+
+   static int QPixmap::x11SetDefaultScreen (  int  screen  )  [static]
+
+
+
+   void QPixmap::x11SetScreen (  int  screen  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_GUI_EXPORT QDataStream& operator>> (  QDataStream &  ,
+                                           QPixmap &    
+                                        )  [friend]
+
+
+
+   friend class QBitmap [friend]
+
+
+
+   friend class QCoreGraphicsPaintEngine [friend]
+
+
+
+   friend class QGLWidget [friend]
+
+
+
+   friend class QPaintDevice [friend]
+
+
+
+   friend class QPainter [friend]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   friend struct QPixmapData [friend]
+
+
+
+   friend class QQuickDrawPaintEngine [friend]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   friend class QRasterPaintEngine [friend]
+
+
+
+   friend class QWidgetPrivate [friend]
+
+
+
+   friend class QX11PaintEngine [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpixmap.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

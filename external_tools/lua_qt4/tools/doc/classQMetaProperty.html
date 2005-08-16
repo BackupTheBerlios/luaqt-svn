@@ -1,0 +1,128 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QMetaProperty Class Reference
+
+   #include <qmetaobject.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QMetaProperty ()
+     * const char * name () const
+     * const char * typeName () const
+     * QVariant::Type type () const
+     * bool isReadable () const
+     * bool isWritable () const
+     * bool isDesignable (const QObject *obj=0) const
+     * bool isScriptable (const QObject *obj=0) const
+     * bool isStored (const QObject *obj=0) const
+     * bool isEditable (const QObject *obj=0) const
+     * bool isFlagType () const
+     * bool isEnumType () const
+     * QMetaEnum enumerator () const
+     * QVariant read (const QObject *obj) const
+     * bool write (QObject *obj, const QVariant &value) const
+     * bool reset (QObject *obj) const
+     * bool hasStdCppSet () const
+     * bool isValid () const
+
+Friends
+
+     * struct QMetaObject
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMetaProperty::QMetaProperty (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QMetaEnum QMetaProperty::enumerator (   )  const
+
+
+
+   bool QMetaProperty::hasStdCppSet (   )  const
+
+
+
+   bool QMetaProperty::isDesignable (  const QObject *  obj = 0  )  const
+
+
+
+   bool QMetaProperty::isEditable (  const QObject *  obj = 0  )  const
+
+
+
+   bool QMetaProperty::isEnumType (   )  const
+
+
+
+   bool QMetaProperty::isFlagType (   )  const
+
+
+
+   bool QMetaProperty::isReadable (   )  const
+
+
+
+   bool QMetaProperty::isScriptable (  const QObject *  obj = 0  )  const
+
+
+
+   bool QMetaProperty::isStored (  const QObject *  obj = 0  )  const
+
+
+
+   bool QMetaProperty::isValid (   )  const [inline]
+
+
+
+   bool QMetaProperty::isWritable (   )  const
+
+
+
+   const char* QMetaProperty::name (   )  const
+
+
+
+   QVariant QMetaProperty::read (  const QObject *  obj  )  const
+
+
+
+   bool QMetaProperty::reset (  QObject *  obj  )  const
+
+
+
+   QVariant::Type QMetaProperty::type (   )  const
+
+
+
+   const char* QMetaProperty::typeName (   )  const
+
+
+
+   bool QMetaProperty::write (  QObject *         obj,
+                                const QVariant &  value
+                             )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend struct QMetaObject [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmetaobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

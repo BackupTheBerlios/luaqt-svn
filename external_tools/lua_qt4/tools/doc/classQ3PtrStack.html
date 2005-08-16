@@ -1,0 +1,134 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    Q3PtrStack< type > Class Template Reference
+
+   #include <q3ptrstack.h>
+
+   Inherits Q3GList.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3PtrStack ()
+     * Q3PtrStack (const Q3PtrStack< type > &s)
+     * ~Q3PtrStack ()
+     * Q3PtrStack< type > & operator= (const Q3PtrStack< type > &s)
+     * bool autoDelete () const
+     * void setAutoDelete (bool del)
+     * uint count () const
+     * bool isEmpty () const
+     * void push (const type *d)
+     * type * pop ()
+     * bool remove ()
+     * void clear ()
+     * type * top () const
+     * operator type * () const
+     * type * current () const
+     * template<> void deleteItem (Q3PtrCollection::Item)
+
+  template<class type>
+  class Q3PtrStack< type >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class type>
+   Q3PtrStack< type >::Q3PtrStack (   )  [inline]
+
+
+
+   template<class type>
+   Q3PtrStack< type >::Q3PtrStack (  const Q3PtrStack< type > &  s  )  [inline]
+
+
+
+   template<class type>
+   Q3PtrStack< type >::~Q3PtrStack (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class type>
+   bool Q3PtrStack< type >::autoDelete (   )  const [inline]
+
+
+
+   Reimplemented from Q3PtrCollection.
+
+   template<class type>
+   void Q3PtrStack< type >::clear (   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   uint Q3PtrStack< type >::count (   )  const [inline, virtual]
+
+
+
+   Reimplemented from Q3GList.
+
+   template<class type>
+   type* Q3PtrStack< type >::current (   )  const [inline]
+
+
+
+   template<>
+   void Q3PtrStack< type >::deleteItem (  Q3PtrCollection::Item  d  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrStack< type >::isEmpty (   )  const [inline]
+
+
+
+   template<class type>
+   Q3PtrStack< type >::operator type * (   )  const [inline]
+
+
+
+   template<class type>
+   Q3PtrStack<type>& Q3PtrStack< type >::operator= (  const Q3PtrStack< type > &  s  )  [inline]
+
+
+
+   template<class type>
+   type* Q3PtrStack< type >::pop (   )  [inline]
+
+
+
+   template<class type>
+   void Q3PtrStack< type >::push (  const type *  d  )  [inline]
+
+
+
+   template<class type>
+   bool Q3PtrStack< type >::remove (   )  [inline]
+
+
+
+   template<class type>
+   void Q3PtrStack< type >::setAutoDelete (  bool  del  )  [inline]
+
+
+
+   Reimplemented from Q3PtrCollection.
+
+   template<class type>
+   type* Q3PtrStack< type >::top (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3ptrstack.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

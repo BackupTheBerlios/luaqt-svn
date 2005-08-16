@@ -1,0 +1,262 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QDomElement Class Reference
+
+   #include <qdom.h>
+
+   Inherits QDomNode.
+
+   List of all members.
+
+Public Member Functions
+
+     * QDomElement ()
+     * QDomElement (const QDomElement &x)
+     * QDomElement & operator= (const QDomElement &)
+     * QString attribute (const QString &name, const QString &defValue=QString()) const
+     * void setAttribute (const QString &name, const QString &value)
+     * void setAttribute (const QString &name, qlonglong value)
+     * void setAttribute (const QString &name, qulonglong value)
+     * void setAttribute (const QString &name, int value)
+     * void setAttribute (const QString &name, uint value)
+     * void setAttribute (const QString &name, double value)
+     * void removeAttribute (const QString &name)
+     * QDomAttr attributeNode (const QString &name)
+     * QDomAttr setAttributeNode (const QDomAttr &newAttr)
+     * QDomAttr removeAttributeNode (const QDomAttr &oldAttr)
+     * QDomNodeList elementsByTagName (const QString &tagname) const
+     * bool hasAttribute (const QString &name) const
+     * QString attributeNS (const QString nsURI, const QString &localName, const QString &defValue=QString()) const
+     * void setAttributeNS (const QString nsURI, const QString &qName, const QString &value)
+     * void setAttributeNS (const QString nsURI, const QString &qName, int value)
+     * void setAttributeNS (const QString nsURI, const QString &qName, uint value)
+     * void setAttributeNS (const QString nsURI, const QString &qName, qlonglong value)
+     * void setAttributeNS (const QString nsURI, const QString &qName, qulonglong value)
+     * void setAttributeNS (const QString nsURI, const QString &qName, double value)
+     * void removeAttributeNS (const QString &nsURI, const QString &localName)
+     * QDomAttr attributeNodeNS (const QString &nsURI, const QString &localName)
+     * QDomAttr setAttributeNodeNS (const QDomAttr &newAttr)
+     * QDomNodeList elementsByTagNameNS (const QString &nsURI, const QString &localName) const
+     * bool hasAttributeNS (const QString &nsURI, const QString &localName) const
+     * QString tagName () const
+     * void setTagName (const QString &name)
+     * QDomNamedNodeMap attributes () const
+     * QDomNode::NodeType nodeType () const
+     * QString text () const
+
+Friends
+
+     * class QDomDocument
+     * class QDomNode
+     * class QDomAttr
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDomElement::QDomElement (   )
+
+
+
+   QDomElement::QDomElement (  const QDomElement &  x  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QDomElement::attribute (  const QString &  name,
+                                     const QString &  defValue = QString()
+                                  )  const
+
+
+
+   QDomAttr QDomElement::attributeNode (  const QString &  name  )
+
+
+
+   QDomAttr QDomElement::attributeNodeNS (  const QString &  nsURI,
+                                            const QString &  localName
+                                         )
+
+
+
+   QString QDomElement::attributeNS (  const QString    nsURI,
+                                       const QString &  localName,
+                                       const QString &  defValue = QString()
+                                    )  const
+
+
+
+   QDomNamedNodeMap QDomElement::attributes (   )  const
+
+
+
+   Reimplemented from QDomNode.
+
+   QDomNodeList QDomElement::elementsByTagName (  const QString &  tagname  )  const
+
+
+
+   QDomNodeList QDomElement::elementsByTagNameNS (  const QString &  nsURI,
+                                                    const QString &  localName
+                                                 )  const
+
+
+
+   bool QDomElement::hasAttribute (  const QString &  name  )  const
+
+
+
+   bool QDomElement::hasAttributeNS (  const QString &  nsURI,
+                                       const QString &  localName
+                                    )  const
+
+
+
+   QDomNode::NodeType QDomElement::nodeType (   )  const [inline]
+
+
+
+   Reimplemented from QDomNode.
+
+   QDomElement& QDomElement::operator= (  const QDomElement &   )
+
+
+
+   void QDomElement::removeAttribute (  const QString &  name  )
+
+
+
+   QDomAttr QDomElement::removeAttributeNode (  const QDomAttr &  oldAttr  )
+
+
+
+   void QDomElement::removeAttributeNS (  const QString &  nsURI,
+                                          const QString &  localName
+                                       )
+
+
+
+   void QDomElement::setAttribute (  const QString &  name,
+                                     double           value
+                                  )
+
+
+
+   void QDomElement::setAttribute (  const QString &  name,
+                                     uint             value
+                                  )  [inline]
+
+
+
+   void QDomElement::setAttribute (  const QString &  name,
+                                     int              value
+                                  )  [inline]
+
+
+
+   void QDomElement::setAttribute (  const QString &  name,
+                                     qulonglong       value
+                                  )
+
+
+
+   void QDomElement::setAttribute (  const QString &  name,
+                                     qlonglong        value
+                                  )
+
+
+
+   void QDomElement::setAttribute (  const QString &  name,
+                                     const QString &  value
+                                  )
+
+
+
+   QDomAttr QDomElement::setAttributeNode (  const QDomAttr &  newAttr  )
+
+
+
+   QDomAttr QDomElement::setAttributeNodeNS (  const QDomAttr &  newAttr  )
+
+
+
+   void QDomElement::setAttributeNS (  const QString    nsURI,
+                                       const QString &  qName,
+                                       double           value
+                                    )
+
+
+
+   void QDomElement::setAttributeNS (  const QString    nsURI,
+                                       const QString &  qName,
+                                       qulonglong       value
+                                    )
+
+
+
+   void QDomElement::setAttributeNS (  const QString    nsURI,
+                                       const QString &  qName,
+                                       qlonglong        value
+                                    )
+
+
+
+   void QDomElement::setAttributeNS (  const QString    nsURI,
+                                       const QString &  qName,
+                                       uint             value
+                                    )  [inline]
+
+
+
+   void QDomElement::setAttributeNS (  const QString    nsURI,
+                                       const QString &  qName,
+                                       int              value
+                                    )  [inline]
+
+
+
+   void QDomElement::setAttributeNS (  const QString    nsURI,
+                                       const QString &  qName,
+                                       const QString &  value
+                                    )
+
+
+
+   void QDomElement::setTagName (  const QString &  name  )
+
+
+
+   QString QDomElement::tagName (   )  const
+
+
+
+   QString QDomElement::text (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QDomAttr [friend]
+
+
+
+   friend class QDomDocument [friend]
+
+
+
+   Reimplemented from QDomNode.
+
+   friend class QDomNode [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdom.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

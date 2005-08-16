@@ -1,0 +1,215 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                       QDesktopWidget Class Reference
+
+   The QDesktopWidget class provides access to screen information on
+   multi-head systems. More...
+#include <QDesktopWidget>
+
+   Part of the QtGui module.
+
+   Inherits QWidget.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QDesktopWidget ()
+     * ~QDesktopWidget ()
+     * const QRect availableGeometry ( int screen = -1 ) const
+     * const QRect availableGeometry ( const QWidget * widget ) const
+     * const QRect availableGeometry ( const QPoint & p ) const
+     * bool isVirtualDesktop () const
+     * int numScreens () const
+     * int primaryScreen () const
+     * QWidget * screen ( int screen = -1 )
+     * const QRect screenGeometry ( int screen = -1 ) const
+     * const QRect screenGeometry ( const QWidget * widget ) const
+     * const QRect screenGeometry ( const QPoint & p ) const
+     * int screenNumber ( const QWidget * widget = 0 ) const
+     * int screenNumber ( const QPoint & point ) const
+
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Signals
+
+     * void resized ( int screen )
+     * void workAreaResized ( int screen )
+
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QDesktopWidget class provides access to screen information on
+   multi-head systems.
+
+   Systems with more than one graphics card and monitor can manage the
+   physical screen space available either as multiple desktops, or as a
+   large virtual desktop, which usually has the size of the bounding
+   rectangle of all the screens (see isVirtualDesktop()). For an
+   application, one of the available screens is the primary screen, i.e.
+   the screen where the main widget resides (see primaryScreen()). All
+   windows opened in the context of the application should be constrained
+   to the boundaries of the primary screen; for example, it would be
+   inconvenient if a dialog box popped up on a different screen, or split
+   over two screens.
+
+   The QDesktopWidget provides information about the geometry of the
+   available screens with screenGeometry(). The number of screens
+   available is returned by numScreens(). The screen number that a
+   particular point or widget is located in is returned by
+   screenNumber().
+
+   Widgets provided by Qt use this class, for example, to place tooltips,
+   menus and dialog boxes according to the parent or application widget.
+
+   Applications can use this class to save window positions, or to place
+   child widgets on one screen.
+
+                         Managing Multiple Screens
+
+   In the illustration above, Application One's primary screen is screen
+   0, and App Two's primary screen is screen 1.
+
+   See also QApplication and QX11Info::appRootWindow().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QDesktopWidget::QDesktopWidget ()
+
+   Creates the desktop widget.
+
+   If the system supports a virtual desktop, this widget will have the
+   size of the virtual desktop; otherwise this widget will have the size
+   of the primary screen.
+
+   Instead of using QDesktopWidget directly, use QApplication::desktop().
+
+  QDesktopWidget::~QDesktopWidget ()
+
+   Destroy the object and free allocated resources.
+
+  const QRect QDesktopWidget::availableGeometry ( int screen = -1 ) const
+
+   Returns the available geometry of the screen with index screen. What
+   is available will be subrect of screenGeometry() based on what the
+   platform decides is available (for example excludes the Qt::Dock and
+   menu bar on Mac OS X, or the taskbar on Windows).
+
+   See also screenNumber() and screenGeometry().
+
+  const QRect QDesktopWidget::availableGeometry ( const QWidget * widget )
+  const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the available geometry of the screen which contains widget.
+
+   See also screenGeometry().
+
+  const QRect QDesktopWidget::availableGeometry ( const QPoint & p ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the available geometry of the screen which contains p.
+
+   See also screenGeometry().
+
+  bool QDesktopWidget::isVirtualDesktop () const
+
+   Returns true if the system manages the available screens in a virtual
+   desktop; otherwise returns false.
+
+   For virtual desktops, screen() will always return the same widget. The
+   size of the virtual desktop is the size of this desktop widget.
+
+  int QDesktopWidget::numScreens () const
+
+   Returns the number of available screens.
+
+   See also primaryScreen().
+
+  int QDesktopWidget::primaryScreen () const
+
+   Returns the index of the primary screen.
+
+   See also numScreens().
+
+  void QDesktopWidget::resized ( int screen )   [signal]
+
+   This signal is emitted when the size of screen changes.
+
+  QWidget * QDesktopWidget::screen ( int screen = -1 )
+
+   Returns a widget that represents the screen with index screen.
+
+   If the system uses a virtual desktop, the returned widget will have
+   the geometry of the entire virtual desktop i.e. bounding every screen.
+
+   See also primaryScreen(), numScreens(), and isVirtualDesktop().
+
+  const QRect QDesktopWidget::screenGeometry ( int screen = -1 ) const
+
+   Returns the geometry of the screen with index screen.
+
+   See also screenNumber().
+
+  const QRect QDesktopWidget::screenGeometry ( const QWidget * widget ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the geometry of the screen which contains widget.
+
+  const QRect QDesktopWidget::screenGeometry ( const QPoint & p ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the geometry of the screen which contains p.
+
+  int QDesktopWidget::screenNumber ( const QWidget * widget = 0 ) const
+
+   Returns the index of the screen that contains the largest part of
+   widget, or -1 if the widget not on a screen.
+
+   See also primaryScreen().
+
+  int QDesktopWidget::screenNumber ( const QPoint & point ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the index of the screen that contains point, or -1 if no
+   screen contains the point.
+
+   See also primaryScreen().
+
+  void QDesktopWidget::workAreaResized ( int screen )   [signal]
+
+   This signal is emitted when the work area available on screen changes.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

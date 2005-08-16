@@ -1,0 +1,199 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QMotifStyle Class Reference
+
+   #include <qmotifstyle.h>
+
+   Inherits QCommonStyle.
+
+   Inherited by QCDEStyle.
+
+   List of all members.
+
+Public Member Functions
+
+     * QMotifStyle (bool useHighlightCols=false)
+     * virtual ~QMotifStyle ()
+     * void setUseHighlightColors (bool)
+     * bool useHighlightColors () const
+     * void polish (QPalette &)
+     * void polish (QWidget *)
+     * void polish (QApplication *)
+     * void drawPrimitive (PrimitiveElement pe, const QStyleOption *opt, QPainter *p, const QWidget *w=0) const
+     * void drawControl (ControlElement element, const QStyleOption *opt, QPainter *p, const QWidget *w=0) const
+     * void drawComplexControl (ComplexControl cc, const QStyleOptionComplex *opt, QPainter *p, const QWidget *w=0) const
+     * QRect subControlRect (ComplexControl cc, const QStyleOptionComplex *opt, SubControl sc, const QWidget *widget=0) const
+     * int pixelMetric (PixelMetric metric, const QStyleOption *option=0, const QWidget *widget=0) const
+     * QSize sizeFromContents (ContentsType ct, const QStyleOption *opt, const QSize &contentsSize, const QWidget *widget=0) const
+     * QRect subElementRect (SubElement r, const QStyleOption *opt, const QWidget *widget=0) const
+     * QPixmap standardPixmap (StandardPixmap standardPixmap, const QStyleOption *opt, const QWidget *widget=0) const
+     * int styleHint (StyleHint hint, const QStyleOption *opt=0, const QWidget *widget=0, QStyleHintReturn *returnData=0) const
+     * bool event (QEvent *)
+     * QPalette standardPalette () const
+
+Protected Attributes
+
+     * QPointer< QFocusFrame > focus
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMotifStyle::QMotifStyle (  bool  useHighlightCols = false  )  [explicit]
+
+
+
+   virtual QMotifStyle::~QMotifStyle (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QMotifStyle::drawComplexControl (  ComplexControl               cc,
+                                           const QStyleOptionComplex *  opt,
+                                           QPainter *                   p,
+                                           const QWidget *              w = 0
+                                        )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   void QMotifStyle::drawControl (  ControlElement        element,
+                                    const QStyleOption *  opt,
+                                    QPainter *            p,
+                                    const QWidget *       w = 0
+                                 )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QCDEStyle.
+
+   void QMotifStyle::drawPrimitive (  PrimitiveElement      pe,
+                                      const QStyleOption *  opt,
+                                      QPainter *            p,
+                                      const QWidget *       w = 0
+                                   )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QCDEStyle.
+
+   bool QMotifStyle::event (  QEvent *   )  [virtual]
+
+
+
+   Reimplemented from QObject.
+
+   int QMotifStyle::pixelMetric (  PixelMetric           metric,
+                                   const QStyleOption *  option = 0,
+                                   const QWidget *       widget = 0
+                                )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   Reimplemented in QCDEStyle.
+
+   void QMotifStyle::polish (  QApplication *   )  [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   void QMotifStyle::polish (  QWidget *   )  [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   void QMotifStyle::polish (  QPalette &   )  [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   void QMotifStyle::setUseHighlightColors (  bool   )
+
+
+
+   QSize QMotifStyle::sizeFromContents (  ContentsType          ct,
+                                          const QStyleOption *  opt,
+                                          const QSize &         contentsSize,
+                                          const QWidget *       widget = 0
+                                       )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   QPalette QMotifStyle::standardPalette (   )  const [virtual]
+
+
+
+   Reimplemented from QStyle.
+
+   Reimplemented in QCDEStyle.
+
+   QPixmap QMotifStyle::standardPixmap (  StandardPixmap        standardPixmap,
+                                          const QStyleOption *  opt,
+                                          const QWidget *       widget = 0
+                                       )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   int QMotifStyle::styleHint (  StyleHint             hint,
+                                 const QStyleOption *  opt = 0,
+                                 const QWidget *       widget = 0,
+                                 QStyleHintReturn *    returnData = 0
+                              )  const
+
+
+
+   Reimplemented from QCommonStyle.
+
+   QRect QMotifStyle::subControlRect (  ComplexControl               cc,
+                                        const QStyleOptionComplex *  opt,
+                                        SubControl                   sc,
+                                        const QWidget *              widget = 0
+                                     )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   QRect QMotifStyle::subElementRect (  SubElement            r,
+                                        const QStyleOption *  opt,
+                                        const QWidget *       widget = 0
+                                     )  const [virtual]
+
+
+
+   Reimplemented from QCommonStyle.
+
+   bool QMotifStyle::useHighlightColors (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QPointer<QFocusFrame> QMotifStyle::focus [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmotifstyle.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

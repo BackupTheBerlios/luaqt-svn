@@ -1,0 +1,91 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3PointArray Class Reference
+
+   #include <q3pointarray.h>
+
+   Inherits QPolygon.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3PointArray ()
+     * Q3PointArray (const QRect &r, bool closed=false)
+     * Q3PointArray (const QPolygon &a)
+     * Q3PointArray copy () const
+     * bool isNull ()
+     * void makeEllipse (int x, int y, int w, int h)
+     * void makeArc (int x, int y, int w, int h, int a1, int a2)
+     * void makeArc (int x, int y, int w, int h, int a1, int a2, const QMatrix &matrix)
+     * Q3PointArray cubicBezier () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3PointArray::Q3PointArray (   )  [inline]
+
+
+
+   Q3PointArray::Q3PointArray (  const QRect &  r,
+                                 bool           closed = false
+                              )  [inline]
+
+
+
+   Q3PointArray::Q3PointArray (  const QPolygon &  a  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3PointArray Q3PointArray::copy (   )  const [inline]
+
+
+
+   Q3PointArray Q3PointArray::cubicBezier (   )  const
+
+
+
+   bool Q3PointArray::isNull (   )  [inline]
+
+
+
+   void Q3PointArray::makeArc (  int              x,
+                                 int              y,
+                                 int              w,
+                                 int              h,
+                                 int              a1,
+                                 int              a2,
+                                 const QMatrix &  matrix
+                              )
+
+
+
+   void Q3PointArray::makeArc (  int  x,
+                                 int  y,
+                                 int  w,
+                                 int  h,
+                                 int  a1,
+                                 int  a2
+                              )
+
+
+
+   void Q3PointArray::makeEllipse (  int  x,
+                                     int  y,
+                                     int  w,
+                                     int  h
+                                  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3pointarray.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

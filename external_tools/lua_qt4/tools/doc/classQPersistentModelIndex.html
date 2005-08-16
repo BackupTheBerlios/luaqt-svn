@@ -1,0 +1,142 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QPersistentModelIndex Class Reference
+
+   #include <qabstractitemmodel.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QPersistentModelIndex ()
+     * QPersistentModelIndex (const QModelIndex &index)
+     * QPersistentModelIndex (const QPersistentModelIndex &other)
+     * ~QPersistentModelIndex ()
+     * bool operator< (const QPersistentModelIndex &other) const
+     * bool operator== (const QPersistentModelIndex &other) const
+     * QPersistentModelIndex & operator= (const QPersistentModelIndex &other)
+     * bool operator== (const QModelIndex &other) const
+     * bool operator!= (const QModelIndex &other) const
+     * QPersistentModelIndex & operator= (const QModelIndex &other)
+     * operator const QModelIndex & () const
+     * int row () const
+     * int column () const
+     * void * internalPointer () const
+     * qint64 internalId () const
+     * QModelIndex parent () const
+     * QModelIndex sibling (int row, int column) const
+     * QModelIndex child (int row, int column) const
+     * const QAbstractItemModel * model () const
+     * bool isValid () const
+
+Friends
+
+     * Q_CORE_EXPORT QDebug operator<< (QDebug, const QPersistentModelIndex &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPersistentModelIndex::QPersistentModelIndex (   )
+
+
+
+   QPersistentModelIndex::QPersistentModelIndex (  const QModelIndex &  index  )
+
+
+
+   QPersistentModelIndex::QPersistentModelIndex (  const QPersistentModelIndex &  other  )
+
+
+
+   QPersistentModelIndex::~QPersistentModelIndex (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QModelIndex QPersistentModelIndex::child (  int  row,
+                                               int  column
+                                            )  const
+
+
+
+   int QPersistentModelIndex::column (   )  const
+
+
+
+   qint64 QPersistentModelIndex::internalId (   )  const
+
+
+
+   void* QPersistentModelIndex::internalPointer (   )  const
+
+
+
+   bool QPersistentModelIndex::isValid (   )  const
+
+
+
+   const QAbstractItemModel* QPersistentModelIndex::model (   )  const
+
+
+
+   QPersistentModelIndex::operator const QModelIndex & (   )  const
+
+
+
+   bool QPersistentModelIndex::operator!= (  const QModelIndex &  other  )  const
+
+
+
+   bool QPersistentModelIndex::operator< (  const QPersistentModelIndex &  other  )  const
+
+
+
+   QPersistentModelIndex& QPersistentModelIndex::operator= (  const QModelIndex &  other  )
+
+
+
+   QPersistentModelIndex& QPersistentModelIndex::operator= (  const QPersistentModelIndex &  other  )
+
+
+
+   bool QPersistentModelIndex::operator== (  const QModelIndex &  other  )  const
+
+
+
+   bool QPersistentModelIndex::operator== (  const QPersistentModelIndex &  other  )  const
+
+
+
+   QModelIndex QPersistentModelIndex::parent (   )  const
+
+
+
+   int QPersistentModelIndex::row (   )  const
+
+
+
+   QModelIndex QPersistentModelIndex::sibling (  int  row,
+                                                 int  column
+                                              )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_CORE_EXPORT QDebug operator<< (  QDebug                         ,
+                                      const QPersistentModelIndex &
+                                   )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractitemmodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

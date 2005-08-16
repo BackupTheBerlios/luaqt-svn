@@ -1,0 +1,1181 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              Q3Table Class Reference
+
+   #include <q3table.h>
+
+   Inherits Q3ScrollView.
+
+   Inherited by Q3DataTable.
+
+   List of all members.
+
+Public Types
+
+     * enum SelectionMode {
+         Single, Multi, SingleRow, MultiRow,
+         NoSelection
+       }
+     * enum FocusStyle { FollowStyle, SpreadSheet }
+
+Public Slots
+
+     * virtual void setNumRows (int r)
+     * virtual void setNumCols (int r)
+     * virtual void setShowGrid (bool b)
+     * virtual void hideRow (int row)
+     * virtual void hideColumn (int col)
+     * virtual void showRow (int row)
+     * virtual void showColumn (int col)
+     * virtual void setColumnWidth (int col, int w)
+     * virtual void setRowHeight (int row, int h)
+     * virtual void adjustColumn (int col)
+     * virtual void adjustRow (int row)
+     * virtual void setColumnStretchable (int col, bool stretch)
+     * virtual void setRowStretchable (int row, bool stretch)
+     * virtual void setSorting (bool b)
+     * virtual void swapRows (int row1, int row2, bool swapHeader=false)
+     * virtual void swapColumns (int col1, int col2, bool swapHeader=false)
+     * virtual void swapCells (int row1, int col1, int row2, int col2)
+     * virtual void setLeftMargin (int m)
+     * virtual void setTopMargin (int m)
+     * virtual void setCurrentCell (int row, int col)
+     * void clearSelection (bool repaint=true)
+     * virtual void setColumnMovingEnabled (bool b)
+     * virtual void setRowMovingEnabled (bool b)
+     * virtual void setReadOnly (bool b)
+     * virtual void setRowReadOnly (int row, bool ro)
+     * virtual void setColumnReadOnly (int col, bool ro)
+     * virtual void setDragEnabled (bool b)
+     * virtual void insertRows (int row, int count=1)
+     * virtual void insertColumns (int col, int count=1)
+     * virtual void removeRow (int row)
+     * virtual void removeRows (const Q3MemArray< int > &rows)
+     * virtual void removeColumn (int col)
+     * virtual void removeColumns (const Q3MemArray< int > &cols)
+     * virtual void editCell (int row, int col, bool replace=false)
+     * void setRowLabels (const QStringList &labels)
+     * void setColumnLabels (const QStringList &labels)
+
+Signals
+
+     * void currentChanged (int row, int col)
+     * void clicked (int row, int col, int button, const QPoint &mousePos)
+     * void doubleClicked (int row, int col, int button, const QPoint &mousePos)
+     * void pressed (int row, int col, int button, const QPoint &mousePos)
+     * void selectionChanged ()
+     * void valueChanged (int row, int col)
+     * void contextMenuRequested (int row, int col, const QPoint &pos)
+     * void dropped (QDropEvent *e)
+
+Public Member Functions
+
+     * Q3Table (QWidget *parent=0, const char *name=0)
+     * Q3Table (int numRows, int numCols, QWidget *parent=0, const char *name=0)
+     * ~Q3Table ()
+     * Q3Header * horizontalHeader () const
+     * Q3Header * verticalHeader () const
+     * virtual void setSelectionMode (SelectionMode mode)
+     * SelectionMode selectionMode () const
+     * virtual void setItem (int row, int col, Q3TableItem *item)
+     * virtual void setText (int row, int col, const QString &text)
+     * virtual void setPixmap (int row, int col, const QPixmap &pix)
+     * virtual Q3TableItem * item (int row, int col) const
+     * virtual QString text (int row, int col) const
+     * virtual QPixmap pixmap (int row, int col) const
+     * virtual void clearCell (int row, int col)
+     * virtual QRect cellGeometry (int row, int col) const
+     * virtual int columnWidth (int col) const
+     * virtual int rowHeight (int row) const
+     * virtual int columnPos (int col) const
+     * virtual int rowPos (int row) const
+     * virtual int columnAt (int x) const
+     * virtual int rowAt (int y) const
+     * virtual int numRows () const
+     * virtual int numCols () const
+     * void updateCell (int row, int col)
+     * bool eventFilter (QObject *o, QEvent *)
+     * int currentRow () const
+     * int currentColumn () const
+     * void ensureCellVisible (int row, int col)
+     * bool isSelected (int row, int col) const
+     * bool isRowSelected (int row, bool full=false) const
+     * bool isColumnSelected (int col, bool full=false) const
+     * int numSelections () const
+     * Q3TableSelection selection (int num) const
+     * virtual int addSelection (const Q3TableSelection &s)
+     * virtual void removeSelection (const Q3TableSelection &s)
+     * virtual void removeSelection (int num)
+     * virtual int currentSelection () const
+     * void selectCells (int start_row, int start_col, int end_row, int end_col)
+     * virtual void selectRow (int row)
+     * virtual void selectColumn (int col)
+     * bool showGrid () const
+     * QVariant inputMethodQuery (Qt::InputMethodQuery query) const
+     * bool columnMovingEnabled () const
+     * bool rowMovingEnabled () const
+     * virtual void sortColumn (int col, bool ascending=true, bool wholeRows=false)
+     * bool sorting () const
+     * virtual void takeItem (Q3TableItem *i)
+     * virtual void setCellWidget (int row, int col, QWidget *e)
+     * virtual QWidget * cellWidget (int row, int col) const
+     * virtual void clearCellWidget (int row, int col)
+     * virtual QRect cellRect (int row, int col) const
+     * virtual void paintCell (QPainter *p, int row, int col, const QRect &cr, bool selected)
+     * virtual void paintCell (QPainter *p, int row, int col, const QRect &cr, bool selected, const QColorGroup &cg)
+     * virtual void paintFocus (QPainter *p, const QRect &r)
+     * QSize sizeHint () const
+     * bool isReadOnly () const
+     * bool isRowReadOnly (int row) const
+     * bool isColumnReadOnly (int col) const
+     * void setEnabled (bool b)
+     * void repaintSelections ()
+     * virtual void setFocusStyle (FocusStyle fs)
+     * FocusStyle focusStyle () const
+     * void updateHeaderStates ()
+     * bool isRowHidden (int row) const
+     * bool isColumnHidden (int col) const
+     * bool isColumnStretchable (int col) const
+     * bool isRowStretchable (int row) const
+     * bool dragEnabled () const
+
+Protected Types
+
+     * enum EditMode { NotEditing, Editing, Replacing }
+
+Protected Slots
+
+     * virtual void columnWidthChanged (int col)
+     * virtual void rowHeightChanged (int row)
+     * virtual void columnIndexChanged (int section, int fromIndex, int toIndex)
+     * virtual void rowIndexChanged (int section, int fromIndex, int toIndex)
+     * virtual void columnClicked (int col)
+
+Protected Member Functions
+
+     * void drawContents (QPainter *p, int cx, int cy, int cw, int ch)
+     * void contentsMousePressEvent (QMouseEvent *)
+     * void contentsMouseMoveEvent (QMouseEvent *)
+     * void contentsMouseDoubleClickEvent (QMouseEvent *)
+     * void contentsMouseReleaseEvent (QMouseEvent *)
+     * void contentsContextMenuEvent (QContextMenuEvent *e)
+     * void keyPressEvent (QKeyEvent *)
+     * void focusInEvent (QFocusEvent *)
+     * void focusOutEvent (QFocusEvent *)
+     * void viewportResizeEvent (QResizeEvent *)
+     * void showEvent (QShowEvent *e)
+     * void paintEvent (QPaintEvent *e)
+     * void setEditMode (EditMode mode, int row, int col)
+     * virtual void contentsDragEnterEvent (QDragEnterEvent *e)
+     * virtual void contentsDragMoveEvent (QDragMoveEvent *e)
+     * virtual void contentsDragLeaveEvent (QDragLeaveEvent *e)
+     * virtual void contentsDropEvent (QDropEvent *e)
+     * virtual Q3DragObject * dragObject ()
+     * virtual void startDrag ()
+     * virtual void paintEmptyArea (QPainter *p, int cx, int cy, int cw, int ch)
+     * virtual void activateNextCell ()
+     * virtual QWidget * createEditor (int row, int col, bool initFromCell) const
+     * virtual void setCellContentFromEditor (int row, int col)
+     * virtual QWidget * beginEdit (int row, int col, bool replace)
+     * virtual void endEdit (int row, int col, bool accept, bool replace)
+     * virtual void resizeData (int len)
+     * virtual void insertWidget (int row, int col, QWidget *w)
+     * int indexOf (int row, int col) const
+     * void windowActivationChange (bool)
+     * bool isEditing () const
+     * EditMode editMode () const
+     * int currEditRow () const
+     * int currEditCol () const
+
+Properties
+
+     * int numRows
+     * int numCols
+     * bool showGrid
+     * bool rowMovingEnabled
+     * bool columnMovingEnabled
+     * bool readOnly
+     * bool sorting
+     * SelectionMode selectionMode
+     * FocusStyle focusStyle
+     * int numSelections
+
+Friends
+
+     * class Q3TableHeader
+     * class Q3ComboTableItem
+     * class Q3CheckTableItem
+     * class Q3TableItem
+
+Classes
+
+     * struct TableWidget
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3Table::EditMode [protected]
+
+
+
+   Enumerator: 
+
+          NotEditing
+          Editing   
+          Replacing 
+
+   enum Q3Table::FocusStyle
+
+
+
+   Enumerator: 
+
+          FollowStyle
+          SpreadSheet
+
+   enum Q3Table::SelectionMode
+
+
+
+   Enumerator: 
+
+          Single     
+          Multi      
+          SingleRow  
+          MultiRow   
+          NoSelection
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Table::Q3Table (  QWidget *     parent = 0,
+                       const char *  name = 0
+                    )
+
+
+
+   Q3Table::Q3Table (  int           numRows,
+                       int           numCols,
+                       QWidget *     parent = 0,
+                       const char *  name = 0
+                    )
+
+
+
+   Q3Table::~Q3Table (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3Table::activateNextCell (   )  [protected, virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual int Q3Table::addSelection (  const Q3TableSelection &  s  )  [virtual]
+
+
+
+   virtual void Q3Table::adjustColumn (  int  col  )  [virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::adjustRow (  int  row  )  [virtual, slot]
+
+
+
+   virtual QWidget* Q3Table::beginEdit (  int   row,
+                                          int   col,
+                                          bool  replace
+                                       )  [protected, virtual]
+
+
+
+   virtual QRect Q3Table::cellGeometry (  int  row,
+                                          int  col
+                                       )  const [virtual]
+
+
+
+   virtual QRect Q3Table::cellRect (  int  row,
+                                      int  col
+                                   )  const [virtual]
+
+
+
+   virtual QWidget* Q3Table::cellWidget (  int  row,
+                                           int  col
+                                        )  const [virtual]
+
+
+
+   virtual void Q3Table::clearCell (  int  row,
+                                      int  col
+                                   )  [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::clearCellWidget (  int  row,
+                                            int  col
+                                         )  [virtual]
+
+
+
+   void Q3Table::clearSelection (  bool  repaint = true  )  [slot]
+
+
+
+   void Q3Table::clicked (  int             row,
+                            int             col,
+                            int             button,
+                            const QPoint &  mousePos
+                         )  [signal]
+
+
+
+   virtual int Q3Table::columnAt (  int  x  )  const [virtual]
+
+
+
+   virtual void Q3Table::columnClicked (  int  col  )  [protected, virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::columnIndexChanged (  int  section,
+                                               int  fromIndex,
+                                               int  toIndex
+                                            )  [protected, virtual, slot]
+
+
+
+   bool Q3Table::columnMovingEnabled (   )  const
+
+
+
+   virtual int Q3Table::columnPos (  int  col  )  const [virtual]
+
+
+
+   virtual int Q3Table::columnWidth (  int  col  )  const [virtual]
+
+
+
+   virtual void Q3Table::columnWidthChanged (  int  col  )  [protected, virtual, slot]
+
+
+
+   void Q3Table::contentsContextMenuEvent (  QContextMenuEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::contentsDragEnterEvent (  QDragEnterEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3Table::contentsDragLeaveEvent (  QDragLeaveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3Table::contentsDragMoveEvent (  QDragMoveEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3Table::contentsDropEvent (  QDropEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3Table::contentsMouseDoubleClickEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3Table::contentsMouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3Table::contentsMousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   Reimplemented in Q3DataTable.
+
+   void Q3Table::contentsMouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3Table::contextMenuRequested (  int             row,
+                                         int             col,
+                                         const QPoint &  pos
+                                      )  [signal]
+
+
+
+   virtual QWidget* Q3Table::createEditor (  int   row,
+                                             int   col,
+                                             bool  initFromCell
+                                          )  const [protected, virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   int Q3Table::currEditCol (   )  const [protected]
+
+
+
+   int Q3Table::currEditRow (   )  const [protected]
+
+
+
+   void Q3Table::currentChanged (  int  row,
+                                   int  col
+                                )  [signal]
+
+
+
+   int Q3Table::currentColumn (   )  const [inline]
+
+
+
+   int Q3Table::currentRow (   )  const [inline]
+
+
+
+   virtual int Q3Table::currentSelection (   )  const [virtual]
+
+
+
+   void Q3Table::doubleClicked (  int             row,
+                                  int             col,
+                                  int             button,
+                                  const QPoint &  mousePos
+                               )  [signal]
+
+
+
+   bool Q3Table::dragEnabled (   )  const
+
+
+
+   virtual Q3DragObject* Q3Table::dragObject (   )  [protected, virtual]
+
+
+
+   void Q3Table::drawContents (  QPainter *  p,
+                                 int         cx,
+                                 int         cy,
+                                 int         cw,
+                                 int         ch
+                              )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   Reimplemented in Q3DataTable.
+
+   void Q3Table::dropped (  QDropEvent *  e  )  [signal]
+
+
+
+   virtual void Q3Table::editCell (  int   row,
+                                     int   col,
+                                     bool  replace = false
+                                  )  [virtual, slot]
+
+
+
+   EditMode Q3Table::editMode (   )  const [protected]
+
+
+
+   virtual void Q3Table::endEdit (  int   row,
+                                    int   col,
+                                    bool  accept,
+                                    bool  replace
+                                 )  [protected, virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   void Q3Table::ensureCellVisible (  int  row,
+                                      int  col
+                                   )
+
+
+
+   bool Q3Table::eventFilter (  QObject *  o,
+                                QEvent * 
+                             )  [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   Reimplemented in Q3DataTable.
+
+   void Q3Table::focusInEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3Table::focusOutEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   FocusStyle Q3Table::focusStyle (   )  const
+
+
+
+   virtual void Q3Table::hideColumn (  int  col  )  [virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::hideRow (  int  row  )  [virtual, slot]
+
+
+
+   Q3Header* Q3Table::horizontalHeader (   )  const
+
+
+
+   int Q3Table::indexOf (  int  row,
+                           int  col
+                        )  const [protected]
+
+
+
+   QVariant Q3Table::inputMethodQuery (  Qt::InputMethodQuery  query  )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3Table::insertColumns (  int  col,
+                                          int  count = 1
+                                       )  [virtual, slot]
+
+
+
+   virtual void Q3Table::insertRows (  int  row,
+                                       int  count = 1
+                                    )  [virtual, slot]
+
+
+
+   virtual void Q3Table::insertWidget (  int        row,
+                                         int        col,
+                                         QWidget *  w
+                                      )  [protected, virtual]
+
+
+
+   bool Q3Table::isColumnHidden (  int  col  )  const
+
+
+
+   bool Q3Table::isColumnReadOnly (  int  col  )  const
+
+
+
+   bool Q3Table::isColumnSelected (  int   col,
+                                     bool  full = false
+                                  )  const
+
+
+
+   bool Q3Table::isColumnStretchable (  int  col  )  const
+
+
+
+   bool Q3Table::isEditing (   )  const [protected]
+
+
+
+   bool Q3Table::isReadOnly (   )  const
+
+
+
+   bool Q3Table::isRowHidden (  int  row  )  const
+
+
+
+   bool Q3Table::isRowReadOnly (  int  row  )  const
+
+
+
+   bool Q3Table::isRowSelected (  int   row,
+                                  bool  full = false
+                               )  const
+
+
+
+   bool Q3Table::isRowStretchable (  int  row  )  const
+
+
+
+   bool Q3Table::isSelected (  int  row,
+                               int  col
+                            )  const
+
+
+
+   virtual Q3TableItem* Q3Table::item (  int  row,
+                                         int  col
+                                      )  const [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   void Q3Table::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Reimplemented in Q3DataTable.
+
+   virtual int Q3Table::numCols (   )  const [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual int Q3Table::numRows (   )  const [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   int Q3Table::numSelections (   )  const
+
+
+
+   virtual void Q3Table::paintCell (  QPainter *           p,
+                                      int                  row,
+                                      int                  col,
+                                      const QRect &        cr,
+                                      bool                 selected,
+                                      const QColorGroup &  cg
+                                   )  [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::paintCell (  QPainter *     p,
+                                      int            row,
+                                      int            col,
+                                      const QRect &  cr,
+                                      bool           selected
+                                   )  [virtual]
+
+
+
+   virtual void Q3Table::paintEmptyArea (  QPainter *  p,
+                                           int         cx,
+                                           int         cy,
+                                           int         cw,
+                                           int         ch
+                                        )  [protected, virtual]
+
+
+
+   void Q3Table::paintEvent (  QPaintEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Frame.
+
+   virtual void Q3Table::paintFocus (  QPainter *     p,
+                                       const QRect &  r
+                                    )  [virtual]
+
+
+
+   virtual QPixmap Q3Table::pixmap (  int  row,
+                                      int  col
+                                   )  const [virtual]
+
+
+
+   void Q3Table::pressed (  int             row,
+                            int             col,
+                            int             button,
+                            const QPoint &  mousePos
+                         )  [signal]
+
+
+
+   virtual void Q3Table::removeColumn (  int  col  )  [virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::removeColumns (  const Q3MemArray< int > &  cols  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::removeRow (  int  row  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::removeRows (  const Q3MemArray< int > &  rows  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::removeSelection (  int  num  )  [virtual]
+
+
+
+   virtual void Q3Table::removeSelection (  const Q3TableSelection &  s  )  [virtual]
+
+
+
+   void Q3Table::repaintSelections (   )
+
+
+
+   virtual void Q3Table::resizeData (  int  len  )  [protected, virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual int Q3Table::rowAt (  int  y  )  const [virtual]
+
+
+
+   virtual int Q3Table::rowHeight (  int  row  )  const [virtual]
+
+
+
+   virtual void Q3Table::rowHeightChanged (  int  row  )  [protected, virtual, slot]
+
+
+
+   virtual void Q3Table::rowIndexChanged (  int  section,
+                                            int  fromIndex,
+                                            int  toIndex
+                                         )  [protected, virtual, slot]
+
+
+
+   bool Q3Table::rowMovingEnabled (   )  const
+
+
+
+   virtual int Q3Table::rowPos (  int  row  )  const [virtual]
+
+
+
+   void Q3Table::selectCells (  int  start_row,
+                                int  start_col,
+                                int  end_row,
+                                int  end_col
+                             )
+
+
+
+   virtual void Q3Table::selectColumn (  int  col  )  [virtual]
+
+
+
+   Q3TableSelection Q3Table::selection (  int  num  )  const
+
+
+
+   void Q3Table::selectionChanged (   )  [signal]
+
+
+
+   SelectionMode Q3Table::selectionMode (   )  const
+
+
+
+   virtual void Q3Table::selectRow (  int  row  )  [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::setCellContentFromEditor (  int  row,
+                                                     int  col
+                                                  )  [protected, virtual]
+
+
+
+   virtual void Q3Table::setCellWidget (  int        row,
+                                          int        col,
+                                          QWidget *  e
+                                       )  [virtual]
+
+
+
+   void Q3Table::setColumnLabels (  const QStringList &  labels  )  [slot]
+
+
+
+   virtual void Q3Table::setColumnMovingEnabled (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setColumnReadOnly (  int   col,
+                                              bool  ro
+                                           )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setColumnStretchable (  int   col,
+                                                 bool  stretch
+                                              )  [virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::setColumnWidth (  int  col,
+                                           int  w
+                                        )  [virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::setCurrentCell (  int  row,
+                                           int  col
+                                        )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setDragEnabled (  bool  b  )  [virtual, slot]
+
+
+
+   void Q3Table::setEditMode (  EditMode  mode,
+                                int       row,
+                                int       col
+                             )  [protected]
+
+
+
+   void Q3Table::setEnabled (  bool  b  )
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3Table::setFocusStyle (  FocusStyle  fs  )  [virtual]
+
+
+
+   virtual void Q3Table::setItem (  int            row,
+                                    int            col,
+                                    Q3TableItem *  item
+                                 )  [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::setLeftMargin (  int  m  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setNumCols (  int  r  )  [virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::setNumRows (  int  r  )  [virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::setPixmap (  int              row,
+                                      int              col,
+                                      const QPixmap &  pix
+                                   )  [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::setReadOnly (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setRowHeight (  int  row,
+                                         int  h
+                                      )  [virtual, slot]
+
+
+
+   void Q3Table::setRowLabels (  const QStringList &  labels  )  [slot]
+
+
+
+   virtual void Q3Table::setRowMovingEnabled (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setRowReadOnly (  int   row,
+                                           bool  ro
+                                        )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setRowStretchable (  int   row,
+                                              bool  stretch
+                                           )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setSelectionMode (  SelectionMode  mode  )  [virtual]
+
+
+
+   virtual void Q3Table::setShowGrid (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setSorting (  bool  b  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::setText (  int              row,
+                                    int              col,
+                                    const QString &  text
+                                 )  [virtual]
+
+
+
+   virtual void Q3Table::setTopMargin (  int  m  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::showColumn (  int  col  )  [virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   void Q3Table::showEvent (  QShowEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool Q3Table::showGrid (   )  const
+
+
+
+   virtual void Q3Table::showRow (  int  row  )  [virtual, slot]
+
+
+
+   QSize Q3Table::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   virtual void Q3Table::sortColumn (  int   col,
+                                       bool  ascending = true,
+                                       bool  wholeRows = false
+                                    )  [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   bool Q3Table::sorting (   )  const
+
+
+
+   virtual void Q3Table::startDrag (   )  [protected, virtual]
+
+
+
+   virtual void Q3Table::swapCells (  int  row1,
+                                      int  col1,
+                                      int  row2,
+                                      int  col2
+                                   )  [virtual, slot]
+
+
+
+   virtual void Q3Table::swapColumns (  int   col1,
+                                        int   col2,
+                                        bool  swapHeader = false
+                                     )  [virtual, slot]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual void Q3Table::swapRows (  int   row1,
+                                     int   row2,
+                                     bool  swapHeader = false
+                                  )  [virtual, slot]
+
+
+
+   virtual void Q3Table::takeItem (  Q3TableItem *  i  )  [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   virtual QString Q3Table::text (  int  row,
+                                    int  col
+                                 )  const [virtual]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   void Q3Table::updateCell (  int  row,
+                               int  col
+                            )
+
+
+
+   void Q3Table::updateHeaderStates (   )
+
+
+
+   void Q3Table::valueChanged (  int  row,
+                                 int  col
+                              )  [signal]
+
+
+
+   Q3Header* Q3Table::verticalHeader (   )  const
+
+
+
+   void Q3Table::viewportResizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3Table::windowActivationChange (  bool   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3CheckTableItem [friend]
+
+
+
+   friend class Q3ComboTableItem [friend]
+
+
+
+   friend class Q3TableHeader [friend]
+
+
+
+   friend class Q3TableItem [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3Table::columnMovingEnabled [read, write]
+
+
+
+   FocusStyle Q3Table::focusStyle [read, write]
+
+
+
+   int Q3Table::numCols [read, write]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   int Q3Table::numRows [read, write]
+
+
+
+   Reimplemented in Q3DataTable.
+
+   int Q3Table::numSelections [read]
+
+
+
+   bool Q3Table::readOnly [read, write]
+
+
+
+   bool Q3Table::rowMovingEnabled [read, write]
+
+
+
+   SelectionMode Q3Table::selectionMode [read, write]
+
+
+
+   bool Q3Table::showGrid [read, write]
+
+
+
+   bool Q3Table::sorting [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3table.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

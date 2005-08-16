@@ -1,0 +1,321 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    Q3MemArray< type > Class Template Reference
+
+   #include <q3memarray.h>
+
+   Inherits Q3GArray.
+
+   List of all members.
+
+Public Types
+
+     * typedef type * Iterator
+     * typedef const type * ConstIterator
+     * typedef type ValueType
+
+Public Member Functions
+
+     * Q3MemArray ()
+     * Q3MemArray (int size)
+     * Q3MemArray (const Q3MemArray< type > &a)
+     * Q3MemArray (const QVector< type > &vector)
+     * ~Q3MemArray ()
+     * Q3MemArray< type > & operator= (const Q3MemArray< type > &a)
+     * type * data () const
+     * uint nrefs () const
+     * uint size () const
+     * uint count () const
+     * bool isEmpty () const
+     * bool isNull () const
+     * bool resize (uint size)
+     * bool resize (uint size, Optimization optim)
+     * bool truncate (uint pos)
+     * bool fill (const type &d, int size=-1)
+     * void detach ()
+     * Q3MemArray< type > copy () const
+     * Q3MemArray< type > & assign (const Q3MemArray< type > &a)
+     * Q3MemArray< type > & assign (const type *a, uint n)
+     * Q3MemArray< type > & duplicate (const Q3MemArray< type > &a)
+     * Q3MemArray< type > & duplicate (const type *a, uint n)
+     * Q3MemArray< type > & setRawData (const type *a, uint n)
+     * void resetRawData (const type *a, uint n)
+     * int find (const type &d, uint i=0) const
+     * int contains (const type &d) const
+     * void sort ()
+     * int bsearch (const type &d) const
+     * type & operator[] (int i) const
+     * type & at (uint i) const
+     * operator const type * () const
+     * bool operator== (const Q3MemArray< type > &a) const
+     * bool operator!= (const Q3MemArray< type > &a) const
+     * Iterator begin ()
+     * Iterator end ()
+     * ConstIterator begin () const
+     * ConstIterator end () const
+     * operator QVector () const
+
+Protected Member Functions
+
+     * Q3MemArray (int, int)
+
+  template<class type>
+  class Q3MemArray< type >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<class type>
+   typedef const type* Q3MemArray< type >::ConstIterator
+
+
+
+   template<class type>
+   typedef type* Q3MemArray< type >::Iterator
+
+
+
+   template<class type>
+   typedef type Q3MemArray< type >::ValueType
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class type>
+   Q3MemArray< type >::Q3MemArray (  int  ,
+                                     int
+                                  )  [inline, protected]
+
+
+
+   template<class type>
+   Q3MemArray< type >::Q3MemArray (   )  [inline]
+
+
+
+   template<class type>
+   Q3MemArray< type >::Q3MemArray (  int  size  )  [inline]
+
+
+
+   template<class type>
+   Q3MemArray< type >::Q3MemArray (  const Q3MemArray< type > &  a  )  [inline]
+
+
+
+   template<class type>
+   Q_OUTOFLINE_TEMPLATE Q3MemArray< type >::Q3MemArray (  const QVector< type > &  vector  )
+
+
+
+   template<class type>
+   Q3MemArray< type >::~Q3MemArray (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class type>
+   Q3MemArray<type>& Q3MemArray< type >::assign (  const type *  a,
+                                                   uint          n
+                                                )  [inline]
+
+
+
+   template<class type>
+   Q3MemArray<type>& Q3MemArray< type >::assign (  const Q3MemArray< type > &  a  )  [inline]
+
+
+
+   template<class type>
+   type& Q3MemArray< type >::at (  uint  i  )  const [inline]
+
+
+
+   Reimplemented from Q3GArray.
+
+   template<class type>
+   ConstIterator Q3MemArray< type >::begin (   )  const [inline]
+
+
+
+   template<class type>
+   Iterator Q3MemArray< type >::begin (   )  [inline]
+
+
+
+   template<class type>
+   int Q3MemArray< type >::bsearch (  const type &  d  )  const [inline]
+
+
+
+   template<class type>
+   int Q3MemArray< type >::contains (  const type &  d  )  const [inline]
+
+
+
+   template<class type>
+   Q3MemArray<type> Q3MemArray< type >::copy (   )  const [inline]
+
+
+
+   template<class type>
+   uint Q3MemArray< type >::count (   )  const [inline]
+
+
+
+   template<class type>
+   type* Q3MemArray< type >::data (   )  const [inline]
+
+
+
+   Reimplemented from Q3GArray.
+
+   template<class type>
+   void Q3MemArray< type >::detach (   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3GArray.
+
+   template<class type>
+   Q3MemArray<type>& Q3MemArray< type >::duplicate (  const type *  a,
+                                                      uint          n
+                                                   )  [inline]
+
+
+
+   template<class type>
+   Q3MemArray<type>& Q3MemArray< type >::duplicate (  const Q3MemArray< type > &  a  )  [inline]
+
+
+
+   template<class type>
+   ConstIterator Q3MemArray< type >::end (   )  const [inline]
+
+
+
+   template<class type>
+   Iterator Q3MemArray< type >::end (   )  [inline]
+
+
+
+   template<class type>
+   bool Q3MemArray< type >::fill (  const type &  d,
+                                    int           size = -1
+                                 )  [inline]
+
+
+
+   template<class type>
+   int Q3MemArray< type >::find (  const type &  d,
+                                   uint          i = 0
+                                )  const [inline]
+
+
+
+   template<class type>
+   bool Q3MemArray< type >::isEmpty (   )  const [inline]
+
+
+
+   template<class type>
+   bool Q3MemArray< type >::isNull (   )  const [inline]
+
+
+
+   template<class type>
+   uint Q3MemArray< type >::nrefs (   )  const [inline]
+
+
+
+   Reimplemented from Q3GArray.
+
+   template<class type>
+   Q3MemArray< type >::operator const type * (   )  const [inline]
+
+
+
+   template<class type>
+   Q_OUTOFLINE_TEMPLATE Q3MemArray< type >::operator QVector< type > (   )  const
+
+
+
+   template<class type>
+   bool Q3MemArray< type >::operator!= (  const Q3MemArray< type > &  a  )  const [inline]
+
+
+
+   template<class type>
+   Q3MemArray<type>& Q3MemArray< type >::operator= (  const Q3MemArray< type > &  a  )  [inline]
+
+
+
+   template<class type>
+   bool Q3MemArray< type >::operator== (  const Q3MemArray< type > &  a  )  const [inline]
+
+
+
+   template<class type>
+   type& Q3MemArray< type >::operator[] (  int  i  )  const [inline]
+
+
+
+   template<class type>
+   void Q3MemArray< type >::resetRawData (  const type *  a,
+                                            uint          n
+                                         )  [inline]
+
+
+
+   template<class type>
+   bool Q3MemArray< type >::resize (  uint          size,
+                                      Optimization  optim
+                                   )  [inline]
+
+
+
+   Reimplemented from Q3GArray.
+
+   template<class type>
+   bool Q3MemArray< type >::resize (  uint  size  )  [inline]
+
+
+
+   Reimplemented from Q3GArray.
+
+   template<class type>
+   Q3MemArray<type>& Q3MemArray< type >::setRawData (  const type *  a,
+                                                       uint          n
+                                                    )  [inline]
+
+
+
+   template<class type>
+   uint Q3MemArray< type >::size (   )  const [inline]
+
+
+
+   Reimplemented from Q3GArray.
+
+   template<class type>
+   void Q3MemArray< type >::sort (   )  [inline]
+
+
+
+   template<class type>
+   bool Q3MemArray< type >::truncate (  uint  pos  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3memarray.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

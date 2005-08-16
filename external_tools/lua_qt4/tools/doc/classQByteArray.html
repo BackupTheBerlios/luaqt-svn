@@ -1,0 +1,849 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QByteArray Class Reference
+
+   #include <qbytearray.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef char * iterator
+     * typedef const char * const_iterator
+     * typedef iterator Iterator
+     * typedef const_iterator ConstIterator
+
+Public Member Functions
+
+     * QByteArray ()
+     * QByteArray (const char *)
+     * QByteArray (const char *, int size)
+     * QByteArray (int size, char c)
+     * QByteArray (const QByteArray &)
+     * ~QByteArray ()
+     * QByteArray & operator= (const QByteArray &)
+     * QByteArray & operator= (const char *str)
+     * int size () const
+     * bool isEmpty () const
+     * void resize (int size)
+     * QByteArray & fill (char c, int size=-1)
+     * int capacity () const
+     * void reserve (int size)
+     * void squeeze ()
+     * operator const char * () const
+     * operator const void * () const
+     * char * data ()
+     * const char * data () const
+     * const char * constData () const
+     * void detach ()
+     * bool isDetached () const
+     * void clear ()
+     * const char at (int i) const
+     * const char operator[] (int i) const
+     * QByteRef operator[] (int i)
+     * const char operator[] (uint i) const
+     * QByteRef operator[] (uint i)
+     * int indexOf (char c, int from=0) const
+     * int indexOf (const char *c, int from=0) const
+     * int indexOf (const QByteArray &a, int from=0) const
+     * int lastIndexOf (char c, int from=-1) const
+     * int lastIndexOf (const char *c, int from=-1) const
+     * int lastIndexOf (const QByteArray &a, int from=-1) const
+     * QBool contains (char c) const
+     * QBool contains (const char *a) const
+     * QBool contains (const QByteArray &a) const
+     * int count (char c) const
+     * int count (const char *a) const
+     * int count (const QByteArray &a) const
+     * QByteArray left (int len) const
+     * QByteArray right (int len) const
+     * QByteArray mid (int index, int len=-1) const
+     * bool startsWith (const QByteArray &a) const
+     * bool startsWith (char c) const
+     * bool startsWith (const char *c) const
+     * bool endsWith (const QByteArray &a) const
+     * bool endsWith (char c) const
+     * bool endsWith (const char *c) const
+     * void truncate (int pos)
+     * void chop (int n)
+     * QByteArray toLower () const
+     * QByteArray toUpper () const
+     * QByteArray trimmed () const
+     * QByteArray simplified () const
+     * QByteArray leftJustified (int width, char fill= ' ', bool truncate=false) const
+     * QByteArray rightJustified (int width, char fill= ' ', bool truncate=false) const
+     * QByteArray & prepend (char c)
+     * QByteArray & prepend (const char *s)
+     * QByteArray & prepend (const QByteArray &a)
+     * QByteArray & append (char c)
+     * QByteArray & append (const char *s)
+     * QByteArray & append (const QByteArray &a)
+     * QByteArray & insert (int i, char c)
+     * QByteArray & insert (int i, const char *s)
+     * QByteArray & insert (int i, const QByteArray &a)
+     * QByteArray & remove (int index, int len)
+     * QByteArray & replace (int index, int len, const char *s)
+     * QByteArray & replace (int index, int len, const QByteArray &s)
+     * QByteArray & replace (char before, const char *after)
+     * QByteArray & replace (char before, const QByteArray &after)
+     * QByteArray & replace (const char *before, const char *after)
+     * QByteArray & replace (const QByteArray &before, const QByteArray &after)
+     * QByteArray & replace (const QByteArray &before, const char *after)
+     * QByteArray & replace (const char *before, const QByteArray &after)
+     * QByteArray & replace (char before, char after)
+     * QByteArray & operator+= (char c)
+     * QByteArray & operator+= (const char *s)
+     * QByteArray & operator+= (const QByteArray &a)
+     * QList< QByteArray > split (char sep) const
+     * QByteArray & append (const QString &s)
+     * QByteArray & insert (int i, const QString &s)
+     * QByteArray & replace (const QString &before, const char *after)
+     * QByteArray & replace (char c, const QString &after)
+     * QByteArray & replace (const QString &before, const QByteArray &after)
+     * QByteArray & operator+= (const QString &s)
+     * int indexOf (const QString &s, int from=0) const
+     * int lastIndexOf (const QString &s, int from=-1) const
+     * bool operator== (const QString &s2) const
+     * bool operator!= (const QString &s2) const
+     * bool operator< (const QString &s2) const
+     * bool operator> (const QString &s2) const
+     * bool operator<= (const QString &s2) const
+     * bool operator>= (const QString &s2) const
+     * short toShort (bool *ok=0, int base=10) const
+     * ushort toUShort (bool *ok=0, int base=10) const
+     * int toInt (bool *ok=0, int base=10) const
+     * uint toUInt (bool *ok=0, int base=10) const
+     * qlonglong toLongLong (bool *ok=0, int base=10) const
+     * qulonglong toULongLong (bool *ok=0, int base=10) const
+     * float toFloat (bool *ok=0) const
+     * double toDouble (bool *ok=0) const
+     * QByteArray toBase64 () const
+     * QByteArray & setNum (short, int base=10)
+     * QByteArray & setNum (ushort, int base=10)
+     * QByteArray & setNum (int, int base=10)
+     * QByteArray & setNum (uint, int base=10)
+     * QByteArray & setNum (qlonglong, int base=10)
+     * QByteArray & setNum (qulonglong, int base=10)
+     * QByteArray & setNum (float, char f= 'g', int prec=6)
+     * QByteArray & setNum (double, char f= 'g', int prec=6)
+     * iterator begin ()
+     * const_iterator begin () const
+     * const_iterator constBegin () const
+     * iterator end ()
+     * const_iterator end () const
+     * const_iterator constEnd () const
+     * void push_back (char c)
+     * void push_back (const char *c)
+     * void push_back (const QByteArray &a)
+     * void push_front (char c)
+     * void push_front (const char *c)
+     * void push_front (const QByteArray &a)
+     * int count () const
+     * int length () const
+     * bool isNull () const
+
+Static Public Member Functions
+
+     * static QByteArray number (int, int base=10)
+     * static QByteArray number (uint, int base=10)
+     * static QByteArray number (qlonglong, int base=10)
+     * static QByteArray number (qulonglong, int base=10)
+     * static QByteArray number (double, char f= 'g', int prec=6)
+     * static QByteArray fromRawData (const char *, int size)
+     * static QByteArray fromBase64 (const QByteArray &base64)
+
+Friends
+
+     * class QByteRef
+     * class QString
+
+Classes
+
+     * struct Data
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef const char* QByteArray::const_iterator
+
+
+
+   typedef const_iterator QByteArray::ConstIterator
+
+
+
+   typedef iterator QByteArray::Iterator
+
+
+
+   typedef char* QByteArray::iterator
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QByteArray::QByteArray (   )  [inline]
+
+
+
+   QByteArray::QByteArray (  const char *   )
+
+
+
+   QByteArray::QByteArray (  const char *  ,
+                             int           size
+                          )
+
+
+
+   QByteArray::QByteArray (  int   size,
+                             char  c
+                          )
+
+
+
+   QByteArray::QByteArray (  const QByteArray &   )  [inline]
+
+
+
+   QByteArray::~QByteArray (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QByteArray & QByteArray::append (  const QString &  s  )  [inline]
+
+
+
+   QByteArray& QByteArray::append (  const QByteArray &  a  )
+
+
+
+   QByteArray& QByteArray::append (  const char *  s  )
+
+
+
+   QByteArray& QByteArray::append (  char  c  )
+
+
+
+   const char QByteArray::at (  int  i  )  const [inline]
+
+
+
+   QByteArray::const_iterator QByteArray::begin (   )  const [inline]
+
+
+
+   QByteArray::iterator QByteArray::begin (   )  [inline]
+
+
+
+   int QByteArray::capacity (   )  const [inline]
+
+
+
+   void QByteArray::chop (  int  n  )
+
+
+
+   void QByteArray::clear (   )
+
+
+
+   QByteArray::const_iterator QByteArray::constBegin (   )  const [inline]
+
+
+
+   const char * QByteArray::constData (   )  const [inline]
+
+
+
+   QByteArray::const_iterator QByteArray::constEnd (   )  const [inline]
+
+
+
+   QBool QByteArray::contains (  const QByteArray &  a  )  const [inline]
+
+
+
+   QBool QByteArray::contains (  const char *  a  )  const [inline]
+
+
+
+   QBool QByteArray::contains (  char  c  )  const [inline]
+
+
+
+   int QByteArray::count (   )  const [inline]
+
+
+
+   int QByteArray::count (  const QByteArray &  a  )  const
+
+
+
+   int QByteArray::count (  const char *  a  )  const
+
+
+
+   int QByteArray::count (  char  c  )  const
+
+
+
+   const char * QByteArray::data (   )  const [inline]
+
+
+
+   char * QByteArray::data (   )  [inline]
+
+
+
+   void QByteArray::detach (   )  [inline]
+
+
+
+   QByteArray::const_iterator QByteArray::end (   )  const [inline]
+
+
+
+   QByteArray::iterator QByteArray::end (   )  [inline]
+
+
+
+   bool QByteArray::endsWith (  const char *  c  )  const
+
+
+
+   bool QByteArray::endsWith (  char  c  )  const
+
+
+
+   bool QByteArray::endsWith (  const QByteArray &  a  )  const
+
+
+
+   QByteArray& QByteArray::fill (  char  c,
+                                   int   size = -1
+                                )
+
+
+
+   static QByteArray QByteArray::fromBase64 (  const QByteArray &  base64  )  [static]
+
+
+
+   static QByteArray QByteArray::fromRawData (  const char *  ,
+                                                int           size
+                                             )  [static]
+
+
+
+   int QByteArray::indexOf (  const QString &  s,
+                              int              from = 0
+                           )  const [inline]
+
+
+
+   int QByteArray::indexOf (  const QByteArray &  a,
+                              int                 from = 0
+                           )  const
+
+
+
+   int QByteArray::indexOf (  const char *  c,
+                              int           from = 0
+                           )  const [inline]
+
+
+
+   int QByteArray::indexOf (  char  c,
+                              int   from = 0
+                           )  const
+
+
+
+   QByteArray & QByteArray::insert (  int              i,
+                                      const QString &  s
+                                   )  [inline]
+
+
+
+   QByteArray& QByteArray::insert (  int                 i,
+                                     const QByteArray &  a
+                                  )
+
+
+
+   QByteArray& QByteArray::insert (  int           i,
+                                     const char *  s
+                                  )
+
+
+
+   QByteArray& QByteArray::insert (  int   i,
+                                     char  c
+                                  )
+
+
+
+   bool QByteArray::isDetached (   )  const [inline]
+
+
+
+   bool QByteArray::isEmpty (   )  const [inline]
+
+
+
+   bool QByteArray::isNull (   )  const
+
+
+
+   int QByteArray::lastIndexOf (  const QString &  s,
+                                  int              from = -1
+                               )  const [inline]
+
+
+
+   int QByteArray::lastIndexOf (  const QByteArray &  a,
+                                  int                 from = -1
+                               )  const
+
+
+
+   int QByteArray::lastIndexOf (  const char *  c,
+                                  int           from = -1
+                               )  const [inline]
+
+
+
+   int QByteArray::lastIndexOf (  char  c,
+                                  int   from = -1
+                               )  const
+
+
+
+   QByteArray QByteArray::left (  int  len  )  const
+
+
+
+   QByteArray QByteArray::leftJustified (  int   width,
+                                           char  fill = ' ',
+                                           bool  truncate = false
+                                        )  const
+
+
+
+   int QByteArray::length (   )  const [inline]
+
+
+
+   QByteArray QByteArray::mid (  int  index,
+                                 int  len = -1
+                              )  const
+
+
+
+   static QByteArray QByteArray::number (  double  ,
+                                           char    f = 'g',
+                                           int     prec = 6
+                                        )  [static]
+
+
+
+   static QByteArray QByteArray::number (  qulonglong  ,
+                                           int         base = 10
+                                        )  [static]
+
+
+
+   static QByteArray QByteArray::number (  qlonglong  ,
+                                           int        base = 10
+                                        )  [static]
+
+
+
+   static QByteArray QByteArray::number (  uint  ,
+                                           int   base = 10
+                                        )  [static]
+
+
+
+   static QByteArray QByteArray::number (  int  ,
+                                           int  base = 10
+                                        )  [static]
+
+
+
+   QByteArray::operator const char * (   )  const [inline]
+
+
+
+   QByteArray::operator const void * (   )  const [inline]
+
+
+
+   bool QByteArray::operator!= (  const QString &  s2  )  const [inline]
+
+
+
+   QByteArray & QByteArray::operator+= (  const QString &  s  )  [inline]
+
+
+
+   QByteArray & QByteArray::operator+= (  const QByteArray &  a  )  [inline]
+
+
+
+   QByteArray & QByteArray::operator+= (  const char *  s  )  [inline]
+
+
+
+   QByteArray & QByteArray::operator+= (  char  c  )  [inline]
+
+
+
+   bool QByteArray::operator< (  const QString &  s2  )  const [inline]
+
+
+
+   bool QByteArray::operator<= (  const QString &  s2  )  const [inline]
+
+
+
+   QByteArray& QByteArray::operator= (  const char *  str  )
+
+
+
+   QByteArray& QByteArray::operator= (  const QByteArray &   )
+
+
+
+   bool QByteArray::operator== (  const QString &  s2  )  const [inline]
+
+
+
+   bool QByteArray::operator> (  const QString &  s2  )  const [inline]
+
+
+
+   bool QByteArray::operator>= (  const QString &  s2  )  const [inline]
+
+
+
+   QByteRef QByteArray::operator[] (  uint  i  )  [inline]
+
+
+
+   const char QByteArray::operator[] (  uint  i  )  const [inline]
+
+
+
+   QByteRef QByteArray::operator[] (  int  i  )  [inline]
+
+
+
+   const char QByteArray::operator[] (  int  i  )  const [inline]
+
+
+
+   QByteArray& QByteArray::prepend (  const QByteArray &  a  )
+
+
+
+   QByteArray& QByteArray::prepend (  const char *  s  )
+
+
+
+   QByteArray& QByteArray::prepend (  char  c  )
+
+
+
+   void QByteArray::push_back (  const QByteArray &  a  )  [inline]
+
+
+
+   void QByteArray::push_back (  const char *  c  )  [inline]
+
+
+
+   void QByteArray::push_back (  char  c  )  [inline]
+
+
+
+   void QByteArray::push_front (  const QByteArray &  a  )  [inline]
+
+
+
+   void QByteArray::push_front (  const char *  c  )  [inline]
+
+
+
+   void QByteArray::push_front (  char  c  )  [inline]
+
+
+
+   QByteArray& QByteArray::remove (  int  index,
+                                     int  len
+                                  )
+
+
+
+   QByteArray & QByteArray::replace (  const QString &     before,
+                                       const QByteArray &  after
+                                    )  [inline]
+
+
+
+   QByteArray & QByteArray::replace (  char             c,
+                                       const QString &  after
+                                    )  [inline]
+
+
+
+   QByteArray & QByteArray::replace (  const QString &  before,
+                                       const char *     after
+                                    )  [inline]
+
+
+
+   QByteArray& QByteArray::replace (  char  before,
+                                      char  after
+                                   )
+
+
+
+   QByteArray & QByteArray::replace (  const char *        before,
+                                       const QByteArray &  after
+                                    )  [inline]
+
+
+
+   QByteArray & QByteArray::replace (  const QByteArray &  before,
+                                       const char *        after
+                                    )  [inline]
+
+
+
+   QByteArray& QByteArray::replace (  const QByteArray &  before,
+                                      const QByteArray &  after
+                                   )
+
+
+
+   QByteArray & QByteArray::replace (  const char *  before,
+                                       const char *  after
+                                    )  [inline]
+
+
+
+   QByteArray& QByteArray::replace (  char                before,
+                                      const QByteArray &  after
+                                   )
+
+
+
+   QByteArray & QByteArray::replace (  char          before,
+                                       const char *  after
+                                    )  [inline]
+
+
+
+   QByteArray& QByteArray::replace (  int                 index,
+                                      int                 len,
+                                      const QByteArray &  s
+                                   )
+
+
+
+   QByteArray & QByteArray::replace (  int           index,
+                                       int           len,
+                                       const char *  s
+                                    )  [inline]
+
+
+
+   void QByteArray::reserve (  int  size  )  [inline]
+
+
+
+   void QByteArray::resize (  int  size  )
+
+
+
+   QByteArray QByteArray::right (  int  len  )  const
+
+
+
+   QByteArray QByteArray::rightJustified (  int   width,
+                                            char  fill = ' ',
+                                            bool  truncate = false
+                                         )  const
+
+
+
+   QByteArray& QByteArray::setNum (  double  ,
+                                     char    f = 'g',
+                                     int     prec = 6
+                                  )
+
+
+
+   QByteArray & QByteArray::setNum (  float  ,
+                                      char   f = 'g',
+                                      int    prec = 6
+                                   )  [inline]
+
+
+
+   QByteArray& QByteArray::setNum (  qulonglong  ,
+                                     int         base = 10
+                                  )
+
+
+
+   QByteArray& QByteArray::setNum (  qlonglong  ,
+                                     int        base = 10
+                                  )
+
+
+
+   QByteArray & QByteArray::setNum (  uint  ,
+                                      int   base = 10
+                                   )  [inline]
+
+
+
+   QByteArray & QByteArray::setNum (  int  ,
+                                      int  base = 10
+                                   )  [inline]
+
+
+
+   QByteArray & QByteArray::setNum (  ushort  ,
+                                      int     base = 10
+                                   )  [inline]
+
+
+
+   QByteArray & QByteArray::setNum (  short  ,
+                                      int    base = 10
+                                   )  [inline]
+
+
+
+   QByteArray QByteArray::simplified (   )  const
+
+
+
+   int QByteArray::size (   )  const [inline]
+
+
+
+   QList<QByteArray> QByteArray::split (  char  sep  )  const
+
+
+
+   void QByteArray::squeeze (   )  [inline]
+
+
+
+   bool QByteArray::startsWith (  const char *  c  )  const
+
+
+
+   bool QByteArray::startsWith (  char  c  )  const
+
+
+
+   bool QByteArray::startsWith (  const QByteArray &  a  )  const
+
+
+
+   QByteArray QByteArray::toBase64 (   )  const
+
+
+
+   double QByteArray::toDouble (  bool *  ok = 0  )  const
+
+
+
+   float QByteArray::toFloat (  bool *  ok = 0  )  const
+
+
+
+   int QByteArray::toInt (  bool *  ok = 0,
+                            int     base = 10
+                         )  const
+
+
+
+   qlonglong QByteArray::toLongLong (  bool *  ok = 0,
+                                       int     base = 10
+                                    )  const
+
+
+
+   QByteArray QByteArray::toLower (   )  const
+
+
+
+   short QByteArray::toShort (  bool *  ok = 0,
+                                int     base = 10
+                             )  const
+
+
+
+   uint QByteArray::toUInt (  bool *  ok = 0,
+                              int     base = 10
+                           )  const
+
+
+
+   qulonglong QByteArray::toULongLong (  bool *  ok = 0,
+                                         int     base = 10
+                                      )  const
+
+
+
+   QByteArray QByteArray::toUpper (   )  const
+
+
+
+   ushort QByteArray::toUShort (  bool *  ok = 0,
+                                  int     base = 10
+                               )  const
+
+
+
+   QByteArray QByteArray::trimmed (   )  const
+
+
+
+   void QByteArray::truncate (  int  pos  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QByteRef [friend]
+
+
+
+   friend class QString [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following files:
+     * include/qbytearray.h
+     * include/qstring.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

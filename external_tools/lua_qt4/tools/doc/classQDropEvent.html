@@ -1,0 +1,162 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QDropEvent Class Reference
+
+   #include <qevent.h>
+
+   Inherits QEvent, and QMimeSource.
+
+   Inherited by QDragMoveEvent.
+
+   List of all members.
+
+Public Member Functions
+
+     * QDropEvent (const QPoint &pos, Qt::DropActions actions, const QMimeData *data, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, Type type=Drop)
+     * ~QDropEvent ()
+     * const QPoint & pos () const
+     * Qt::MouseButtons mouseButtons () const
+     * Qt::KeyboardModifiers keyboardModifiers () const
+     * Qt::DropActions possibleActions () const
+     * Qt::DropAction proposedAction () const
+     * void acceptProposedAction ()
+     * Qt::DropAction dropAction () const
+     * void setDropAction (Qt::DropAction action)
+     * QWidget * source () const
+     * const QMimeData * mimeData () const
+     * const char * format (int n=0) const
+     * QByteArray encodedData (const char *) const
+     * bool provides (const char *) const
+
+Protected Attributes
+
+     * QPoint p
+     * Qt::MouseButtons mouseState
+     * Qt::KeyboardModifiers modState
+     * Qt::DropActions act
+     * Qt::DropAction drop_action
+     * Qt::DropAction default_action
+     * const QMimeData * mdata
+     * QList< QByteArray > fmts
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDropEvent::QDropEvent (  const QPoint &         pos,
+                             Qt::DropActions        actions,
+                             const QMimeData *      data,
+                             Qt::MouseButtons       buttons,
+                             Qt::KeyboardModifiers  modifiers,
+                             Type                   type = Drop
+                          )
+
+
+
+   QDropEvent::~QDropEvent (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QDropEvent::acceptProposedAction (   )  [inline]
+
+
+
+   Qt::DropAction QDropEvent::dropAction (   )  const [inline]
+
+
+
+   QByteArray QDropEvent::encodedData (  const char *   )  const [virtual]
+
+
+
+   Implements QMimeSource.
+
+   const char* QDropEvent::format (  int  n = 0  )  const [virtual]
+
+
+
+   Implements QMimeSource.
+
+   Qt::KeyboardModifiers QDropEvent::keyboardModifiers (   )  const [inline]
+
+
+
+   const QMimeData* QDropEvent::mimeData (   )  const [inline]
+
+
+
+   Qt::MouseButtons QDropEvent::mouseButtons (   )  const [inline]
+
+
+
+   const QPoint& QDropEvent::pos (   )  const [inline]
+
+
+
+   Qt::DropActions QDropEvent::possibleActions (   )  const [inline]
+
+
+
+   Qt::DropAction QDropEvent::proposedAction (   )  const [inline]
+
+
+
+   bool QDropEvent::provides (  const char *   )  const [virtual]
+
+
+
+   Reimplemented from QMimeSource.
+
+   void QDropEvent::setDropAction (  Qt::DropAction  action  )
+
+
+
+   QWidget* QDropEvent::source (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   Qt::DropActions QDropEvent::act [protected]
+
+
+
+   Qt::DropAction QDropEvent::default_action [protected]
+
+
+
+   Qt::DropAction QDropEvent::drop_action [protected]
+
+
+
+   QList<QByteArray> QDropEvent::fmts [mutable, protected]
+
+
+
+   const QMimeData* QDropEvent::mdata [protected]
+
+
+
+   Qt::KeyboardModifiers QDropEvent::modState [protected]
+
+
+
+   Qt::MouseButtons QDropEvent::mouseState [protected]
+
+
+
+   QPoint QDropEvent::p [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qevent.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,97 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+   QDesignerWidgetBoxInterface::Widget
+
+                                                                                                                                                                                                                                QDesignerWidgetBoxInterface::Widget Class Reference
+
+   #include <abstractwidgetbox.h>
+
+   List of all members.
+
+Public Types
+
+     * enum Type { Default, Custom }
+
+Public Member Functions
+
+     * Widget (const QString &aname=QString(), const QString &xml=QString(), const QString &icon_name=QString(), Type atype=Default)
+     * QString name () const
+     * void setName (const QString &aname)
+     * QString domXml () const
+     * void setDomXml (const QString &xml)
+     * QString iconName () const
+     * void setIconName (const QString &icon_name)
+     * Type type () const
+     * void setType (Type atype)
+     * bool isNull () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDesignerWidgetBoxInterface::Widget::Type
+
+
+
+   Enumerator: 
+
+          Default
+          Custom 
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesignerWidgetBoxInterface::Widget::Widget (  const QString &  aname = QString(),
+                                                  const QString &  xml = QString(),
+                                                  const QString &  icon_name = QString(),
+                                                  Type             atype = Default
+                                               )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QDesignerWidgetBoxInterface::Widget::domXml (   )  const [inline]
+
+
+
+   QString QDesignerWidgetBoxInterface::Widget::iconName (   )  const [inline]
+
+
+
+   bool QDesignerWidgetBoxInterface::Widget::isNull (   )  const [inline]
+
+
+
+   QString QDesignerWidgetBoxInterface::Widget::name (   )  const [inline]
+
+
+
+   void QDesignerWidgetBoxInterface::Widget::setDomXml (  const QString &  xml  )  [inline]
+
+
+
+   void QDesignerWidgetBoxInterface::Widget::setIconName (  const QString &  icon_name  )  [inline]
+
+
+
+   void QDesignerWidgetBoxInterface::Widget::setName (  const QString &  aname  )  [inline]
+
+
+
+   void QDesignerWidgetBoxInterface::Widget::setType (  Type  atype  )  [inline]
+
+
+
+   Type QDesignerWidgetBoxInterface::Widget::type (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractwidgetbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

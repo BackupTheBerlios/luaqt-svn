@@ -1,0 +1,377 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3StyleSheetItem Class Reference
+
+   #include <q3stylesheet.h>
+
+   List of all members.
+
+Public Types
+
+     * enum AdditionalStyleValues { Undefined = -1 }
+     * enum DisplayMode {
+         DisplayBlock, DisplayInline, DisplayListItem, DisplayNone,
+         DisplayModeUndefined = -1
+       }
+     * enum VerticalAlignment { VAlignBaseline, VAlignSub, VAlignSuper }
+     * enum WhiteSpaceMode { WhiteSpaceNormal, WhiteSpacePre, WhiteSpaceNoWrap, WhiteSpaceModeUndefined = -1 }
+     * enum Margin {
+         MarginLeft, MarginRight, MarginTop, MarginBottom,
+         MarginFirstLine, MarginAll, MarginVertical, MarginHorizontal,
+         MarginUndefined = -1
+       }
+     * enum ListStyle {
+         ListDisc, ListCircle, ListSquare, ListDecimal,
+         ListLowerAlpha, ListUpperAlpha, ListStyleUndefined = -1
+       }
+
+Public Member Functions
+
+     * Q3StyleSheetItem (Q3StyleSheet *parent, const QString &name)
+     * Q3StyleSheetItem (const Q3StyleSheetItem &)
+     * ~Q3StyleSheetItem ()
+     * Q3StyleSheetItem & operator= (const Q3StyleSheetItem &other)
+     * QString name () const
+     * Q3StyleSheet * styleSheet ()
+     * const Q3StyleSheet * styleSheet () const
+     * DisplayMode displayMode () const
+     * void setDisplayMode (DisplayMode m)
+     * int alignment () const
+     * void setAlignment (int f)
+     * VerticalAlignment verticalAlignment () const
+     * void setVerticalAlignment (VerticalAlignment valign)
+     * int fontWeight () const
+     * void setFontWeight (int w)
+     * int logicalFontSize () const
+     * void setLogicalFontSize (int s)
+     * int logicalFontSizeStep () const
+     * void setLogicalFontSizeStep (int s)
+     * int fontSize () const
+     * void setFontSize (int s)
+     * QString fontFamily () const
+     * void setFontFamily (const QString &)
+     * int numberOfColumns () const
+     * void setNumberOfColumns (int ncols)
+     * QColor color () const
+     * void setColor (const QColor &)
+     * bool fontItalic () const
+     * void setFontItalic (bool)
+     * bool definesFontItalic () const
+     * bool fontUnderline () const
+     * void setFontUnderline (bool)
+     * bool definesFontUnderline () const
+     * bool fontStrikeOut () const
+     * void setFontStrikeOut (bool)
+     * bool definesFontStrikeOut () const
+     * bool isAnchor () const
+     * void setAnchor (bool anc)
+     * WhiteSpaceMode whiteSpaceMode () const
+     * void setWhiteSpaceMode (WhiteSpaceMode m)
+     * int margin (Margin m) const
+     * void setMargin (Margin, int)
+     * ListStyle listStyle () const
+     * void setListStyle (ListStyle)
+     * QString contexts () const
+     * void setContexts (const QString &)
+     * bool allowedInContext (const Q3StyleSheetItem *) const
+     * bool selfNesting () const
+     * void setSelfNesting (bool)
+     * void setLineSpacing (int ls)
+     * int lineSpacing () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3StyleSheetItem::AdditionalStyleValues
+
+
+
+   Enumerator: 
+
+          Undefined
+
+   enum Q3StyleSheetItem::DisplayMode
+
+
+
+   Enumerator: 
+
+          DisplayBlock        
+          DisplayInline       
+          DisplayListItem     
+          DisplayNone         
+          DisplayModeUndefined
+
+   enum Q3StyleSheetItem::ListStyle
+
+
+
+   Enumerator: 
+
+          ListDisc          
+          ListCircle        
+          ListSquare        
+          ListDecimal       
+          ListLowerAlpha    
+          ListUpperAlpha    
+          ListStyleUndefined
+
+   enum Q3StyleSheetItem::Margin
+
+
+
+   Enumerator: 
+
+          MarginLeft      
+          MarginRight     
+          MarginTop       
+          MarginBottom    
+          MarginFirstLine 
+          MarginAll       
+          MarginVertical  
+          MarginHorizontal
+          MarginUndefined 
+
+   enum Q3StyleSheetItem::VerticalAlignment
+
+
+
+   Enumerator: 
+
+          VAlignBaseline
+          VAlignSub     
+          VAlignSuper   
+
+   enum Q3StyleSheetItem::WhiteSpaceMode
+
+
+
+   Enumerator: 
+
+          WhiteSpaceNormal       
+          WhiteSpacePre          
+          WhiteSpaceNoWrap       
+          WhiteSpaceModeUndefined
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3StyleSheetItem::Q3StyleSheetItem (  Q3StyleSheet *   parent,
+                                         const QString &  name
+                                      )
+
+
+
+   Q3StyleSheetItem::Q3StyleSheetItem (  const Q3StyleSheetItem &   )
+
+
+
+   Q3StyleSheetItem::~Q3StyleSheetItem (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int Q3StyleSheetItem::alignment (   )  const
+
+
+
+   bool Q3StyleSheetItem::allowedInContext (  const Q3StyleSheetItem *   )  const
+
+
+
+   QColor Q3StyleSheetItem::color (   )  const
+
+
+
+   QString Q3StyleSheetItem::contexts (   )  const
+
+
+
+   bool Q3StyleSheetItem::definesFontItalic (   )  const
+
+
+
+   bool Q3StyleSheetItem::definesFontStrikeOut (   )  const
+
+
+
+   bool Q3StyleSheetItem::definesFontUnderline (   )  const
+
+
+
+   DisplayMode Q3StyleSheetItem::displayMode (   )  const
+
+
+
+   QString Q3StyleSheetItem::fontFamily (   )  const
+
+
+
+   bool Q3StyleSheetItem::fontItalic (   )  const
+
+
+
+   int Q3StyleSheetItem::fontSize (   )  const
+
+
+
+   bool Q3StyleSheetItem::fontStrikeOut (   )  const
+
+
+
+   bool Q3StyleSheetItem::fontUnderline (   )  const
+
+
+
+   int Q3StyleSheetItem::fontWeight (   )  const
+
+
+
+   bool Q3StyleSheetItem::isAnchor (   )  const
+
+
+
+   int Q3StyleSheetItem::lineSpacing (   )  const
+
+
+
+   ListStyle Q3StyleSheetItem::listStyle (   )  const
+
+
+
+   int Q3StyleSheetItem::logicalFontSize (   )  const
+
+
+
+   int Q3StyleSheetItem::logicalFontSizeStep (   )  const
+
+
+
+   int Q3StyleSheetItem::margin (  Margin  m  )  const
+
+
+
+   QString Q3StyleSheetItem::name (   )  const
+
+
+
+   int Q3StyleSheetItem::numberOfColumns (   )  const
+
+
+
+   Q3StyleSheetItem& Q3StyleSheetItem::operator= (  const Q3StyleSheetItem &  other  )
+
+
+
+   bool Q3StyleSheetItem::selfNesting (   )  const
+
+
+
+   void Q3StyleSheetItem::setAlignment (  int  f  )
+
+
+
+   void Q3StyleSheetItem::setAnchor (  bool  anc  )
+
+
+
+   void Q3StyleSheetItem::setColor (  const QColor &   )
+
+
+
+   void Q3StyleSheetItem::setContexts (  const QString &   )
+
+
+
+   void Q3StyleSheetItem::setDisplayMode (  DisplayMode  m  )
+
+
+
+   void Q3StyleSheetItem::setFontFamily (  const QString &   )
+
+
+
+   void Q3StyleSheetItem::setFontItalic (  bool   )
+
+
+
+   void Q3StyleSheetItem::setFontSize (  int  s  )
+
+
+
+   void Q3StyleSheetItem::setFontStrikeOut (  bool   )
+
+
+
+   void Q3StyleSheetItem::setFontUnderline (  bool   )
+
+
+
+   void Q3StyleSheetItem::setFontWeight (  int  w  )
+
+
+
+   void Q3StyleSheetItem::setLineSpacing (  int  ls  )
+
+
+
+   void Q3StyleSheetItem::setListStyle (  ListStyle   )
+
+
+
+   void Q3StyleSheetItem::setLogicalFontSize (  int  s  )
+
+
+
+   void Q3StyleSheetItem::setLogicalFontSizeStep (  int  s  )
+
+
+
+   void Q3StyleSheetItem::setMargin (  Margin  ,
+                                       int   
+                                    )
+
+
+
+   void Q3StyleSheetItem::setNumberOfColumns (  int  ncols  )
+
+
+
+   void Q3StyleSheetItem::setSelfNesting (  bool   )
+
+
+
+   void Q3StyleSheetItem::setVerticalAlignment (  VerticalAlignment  valign  )
+
+
+
+   void Q3StyleSheetItem::setWhiteSpaceMode (  WhiteSpaceMode  m  )
+
+
+
+   const Q3StyleSheet* Q3StyleSheetItem::styleSheet (   )  const
+
+
+
+   Q3StyleSheet* Q3StyleSheetItem::styleSheet (   )
+
+
+
+   VerticalAlignment Q3StyleSheetItem::verticalAlignment (   )  const
+
+
+
+   WhiteSpaceMode Q3StyleSheetItem::whiteSpaceMode (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3stylesheet.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

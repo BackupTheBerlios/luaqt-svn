@@ -1,0 +1,121 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QColorDialog Class Reference
+
+   The QColorDialog class provides a dialog widget for specifying colors.
+   More...
+#include <QColorDialog>
+
+   Part of the QtGui module.
+
+   Inherits QDialog.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Static Public Members
+
+     * QRgb customColor ( int i )
+     * int customCount ()
+     * QColor getColor ( const QColor & initial = Qt::white, QWidget *
+       parent = 0 )
+     * QRgb getRgba ( QRgb initial, bool * ok = 0, QWidget * parent = 0 )
+     * void setCustomColor ( int number, QRgb color )
+     * void setStandardColor ( int number, QRgb color )
+
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+
+  Additional Inherited Members
+
+     * 2 properties inherited from QDialog
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+     * 9 public functions inherited from QDialog
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+     * 5 public slots inherited from QDialog
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QColorDialog class provides a dialog widget for specifying colors.
+
+   The color dialog's function is to allow users to choose colors. For
+   example, you might use this in a drawing program to allow the user to
+   set the brush color.
+
+   The static functions provide modal color dialogs.
+
+   The static getColor() function shows the dialog, and allows the user
+   to specify a color. The getRgba() function does the same, but also
+   allows the user to specify a color with an alpha channel
+   (transparency) value.
+
+   The user can store customCount() different custom colors. The custom
+   colors are shared by all color dialogs, and remembered during the
+   execution of the program. Use setCustomColor() to set the custom
+   colors, and use customColor() to get them.
+
+   Additional widgets that allow users to pick colors are available as Qt
+   Solutions.
+
+   The Standard Dialogs example shows how to use QColorDialog as well as
+   other built-in Qt dialogs.
+
+                             [qcolordlg-w.png]
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QRgb QColorDialog::customColor ( int i )   [static]
+
+   Returns custom color number i as a QRgb value.
+
+  int QColorDialog::customCount ()   [static]
+
+   Returns the number of custom colors supported by QColorDialog. All
+   color dialogs share the same custom colors.
+
+  QColor QColorDialog::getColor ( const QColor & initial = Qt::white, QWidget *
+  parent = 0 )   [static]
+
+   Pops up a modal color dialog, lets the user choose a color, and
+   returns that color. The color is initially set to initial. The dialog
+   is a child of parent. It returns an invalid (see QColor::isValid())
+   color if the user cancels the dialog. All colors allocated by the
+   dialog will be deallocated before this function returns.
+
+  QRgb QColorDialog::getRgba ( QRgb initial, bool * ok = 0, QWidget * parent =
+  0 )   [static]
+
+   Pops up a modal color dialog to allow the user to choose a color and
+   an alpha channel (transparency) value. The color+alpha is initially
+   set to initial. The dialog is a child of parent.
+
+   If ok is non-null, *a ok is set to true if the user clicked OK, and to
+   false if the user clicked Cancel.
+
+   If the user clicks Cancel, the initial value is returned.
+
+  void QColorDialog::setCustomColor ( int number, QRgb color )   [static]
+
+   Sets the custom color number to the QRgb color value.
+
+  void QColorDialog::setStandardColor ( int number, QRgb color )   [static]
+
+   Sets the standard color number to the QRgb color value given.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,269 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3UrlOperator Class Reference
+
+   #include <q3urloperator.h>
+
+   Inherits QObject, and Q3Url.
+
+   List of all members.
+
+Signals
+
+     * void newChildren (const Q3ValueList< QUrlInfo > &, Q3NetworkOperation *res)
+     * void finished (Q3NetworkOperation *res)
+     * void start (Q3NetworkOperation *res)
+     * void createdDirectory (const QUrlInfo &, Q3NetworkOperation *res)
+     * void removed (Q3NetworkOperation *res)
+     * void itemChanged (Q3NetworkOperation *res)
+     * void data (const QByteArray &, Q3NetworkOperation *res)
+     * void dataTransferProgress (int bytesDone, int bytesTotal, Q3NetworkOperation *res)
+     * void startedNextCopy (const Q3PtrList< Q3NetworkOperation > &lst)
+     * void connectionStateChanged (int state, const QString &data)
+
+Public Member Functions
+
+     * Q3UrlOperator ()
+     * Q3UrlOperator (const QString &urL)
+     * Q3UrlOperator (const Q3UrlOperator &url)
+     * Q3UrlOperator (const Q3UrlOperator &url, const QString &relUrl, bool checkSlash=false)
+     * virtual ~Q3UrlOperator ()
+     * virtual void setPath (const QString &path)
+     * virtual bool cdUp ()
+     * virtual const Q3NetworkOperation * listChildren ()
+     * virtual const Q3NetworkOperation * mkdir (const QString &dirname)
+     * virtual const Q3NetworkOperation * remove (const QString &filename)
+     * virtual const Q3NetworkOperation * rename (const QString &oldname, const QString &newname)
+     * virtual const Q3NetworkOperation * get (const QString &location=QString())
+     * virtual const Q3NetworkOperation * put (const QByteArray &data, const QString &location=QString())
+     * virtual Q3PtrList< Q3NetworkOperation > copy (const QString &from, const QString &to, bool move=false, bool toPath=true)
+     * virtual void copy (const QStringList &files, const QString &dest, bool move=false)
+     * virtual bool isDir (bool *ok=0)
+     * virtual void setNameFilter (const QString &nameFilter)
+     * QString nameFilter () const
+     * virtual QUrlInfo info (const QString &entry) const
+     * Q3UrlOperator & operator= (const Q3UrlOperator &url)
+     * Q3UrlOperator & operator= (const QString &url)
+     * virtual void stop ()
+
+Protected Member Functions
+
+     * void reset ()
+     * bool parse (const QString &url)
+     * virtual bool checkValid ()
+     * virtual void clearEntries ()
+     * void getNetworkProtocol ()
+     * void deleteNetworkProtocol ()
+
+Friends
+
+     * class Q3NetworkProtocol
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3UrlOperator::Q3UrlOperator (   )
+
+
+
+   Q3UrlOperator::Q3UrlOperator (  const QString &  urL  )
+
+
+
+   Q3UrlOperator::Q3UrlOperator (  const Q3UrlOperator &  url  )
+
+
+
+   Q3UrlOperator::Q3UrlOperator (  const Q3UrlOperator &  url,
+                                   const QString &        relUrl,
+                                   bool                   checkSlash = false
+                                )
+
+
+
+   virtual Q3UrlOperator::~Q3UrlOperator (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual bool Q3UrlOperator::cdUp (   )  [virtual]
+
+
+
+   Reimplemented from Q3Url.
+
+   virtual bool Q3UrlOperator::checkValid (   )  [protected, virtual]
+
+
+
+   virtual void Q3UrlOperator::clearEntries (   )  [protected, virtual]
+
+
+
+   void Q3UrlOperator::connectionStateChanged (  int              state,
+                                                 const QString &  data
+                                              )  [signal]
+
+
+
+   virtual void Q3UrlOperator::copy (  const QStringList &  files,
+                                       const QString &      dest,
+                                       bool                 move = false
+                                    )  [virtual]
+
+
+
+   virtual Q3PtrList<Q3NetworkOperation> Q3UrlOperator::copy (  const QString &  from,
+                                                                const QString &  to,
+                                                                bool             move = false,
+                                                                bool             toPath = true
+                                                             )  [virtual]
+
+
+
+   void Q3UrlOperator::createdDirectory (  const QUrlInfo &      ,
+                                           Q3NetworkOperation *  res
+                                        )  [signal]
+
+
+
+   void Q3UrlOperator::data (  const QByteArray &    ,
+                               Q3NetworkOperation *  res
+                            )  [signal]
+
+
+
+   void Q3UrlOperator::dataTransferProgress (  int                   bytesDone,
+                                               int                   bytesTotal,
+                                               Q3NetworkOperation *  res
+                                            )  [signal]
+
+
+
+   void Q3UrlOperator::deleteNetworkProtocol (   )  [protected]
+
+
+
+   void Q3UrlOperator::finished (  Q3NetworkOperation *  res  )  [signal]
+
+
+
+   virtual const Q3NetworkOperation* Q3UrlOperator::get (  const QString &  location = QString()  )  [virtual]
+
+
+
+   void Q3UrlOperator::getNetworkProtocol (   )  [protected]
+
+
+
+   virtual QUrlInfo Q3UrlOperator::info (  const QString &  entry  )  const [virtual]
+
+
+
+   virtual bool Q3UrlOperator::isDir (  bool *  ok = 0  )  [virtual]
+
+
+
+   void Q3UrlOperator::itemChanged (  Q3NetworkOperation *  res  )  [signal]
+
+
+
+   virtual const Q3NetworkOperation* Q3UrlOperator::listChildren (   )  [virtual]
+
+
+
+   virtual const Q3NetworkOperation* Q3UrlOperator::mkdir (  const QString &  dirname  )  [virtual]
+
+
+
+   QString Q3UrlOperator::nameFilter (   )  const
+
+
+
+   void Q3UrlOperator::newChildren (  const Q3ValueList< QUrlInfo > &  ,
+                                      Q3NetworkOperation *             res
+                                   )  [signal]
+
+
+
+   Q3UrlOperator& Q3UrlOperator::operator= (  const QString &  url  )
+
+
+
+   Reimplemented from Q3Url.
+
+   Q3UrlOperator& Q3UrlOperator::operator= (  const Q3UrlOperator &  url  )
+
+
+
+   bool Q3UrlOperator::parse (  const QString &  url  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Url.
+
+   virtual const Q3NetworkOperation* Q3UrlOperator::put (  const QByteArray &  data,
+                                                           const QString &     location = QString()
+                                                        )  [virtual]
+
+
+
+   virtual const Q3NetworkOperation* Q3UrlOperator::remove (  const QString &  filename  )  [virtual]
+
+
+
+   void Q3UrlOperator::removed (  Q3NetworkOperation *  res  )  [signal]
+
+
+
+   virtual const Q3NetworkOperation* Q3UrlOperator::rename (  const QString &  oldname,
+                                                              const QString &  newname
+                                                           )  [virtual]
+
+
+
+   void Q3UrlOperator::reset (   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Url.
+
+   virtual void Q3UrlOperator::setNameFilter (  const QString &  nameFilter  )  [virtual]
+
+
+
+   virtual void Q3UrlOperator::setPath (  const QString &  path  )  [virtual]
+
+
+
+   Reimplemented from Q3Url.
+
+   void Q3UrlOperator::start (  Q3NetworkOperation *  res  )  [signal]
+
+
+
+   void Q3UrlOperator::startedNextCopy (  const Q3PtrList< Q3NetworkOperation > &  lst  )  [signal]
+
+
+
+   virtual void Q3UrlOperator::stop (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3NetworkProtocol [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3urloperator.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530

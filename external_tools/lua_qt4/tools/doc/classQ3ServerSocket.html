@@ -1,0 +1,96 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3ServerSocket Class Reference
+
+   #include <q3serversocket.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3ServerSocket (Q_UINT16 port, int backlog=1, QObject *parent=0, const char *name=0)
+     * Q3ServerSocket (const QHostAddress &address, Q_UINT16 port, int backlog=1, QObject *parent=0, const char *name=0)
+     * Q3ServerSocket (QObject *parent=0, const char *name=0)
+     * virtual ~Q3ServerSocket ()
+     * bool ok () const
+     * Q_UINT16 port () const
+     * int socket () const
+     * virtual void setSocket (int socket)
+     * QHostAddress address () const
+     * virtual void newConnection (int socket)=0
+
+Protected Member Functions
+
+     * Q3SocketDevice * socketDevice ()
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ServerSocket::Q3ServerSocket (  Q_UINT16      port,
+                                     int           backlog = 1,
+                                     QObject *     parent = 0,
+                                     const char *  name = 0
+                                  )
+
+
+
+   Q3ServerSocket::Q3ServerSocket (  const QHostAddress &  address,
+                                     Q_UINT16              port,
+                                     int                   backlog = 1,
+                                     QObject *             parent = 0,
+                                     const char *          name = 0
+                                  )
+
+
+
+   Q3ServerSocket::Q3ServerSocket (  QObject *     parent = 0,
+                                     const char *  name = 0
+                                  )
+
+
+
+   virtual Q3ServerSocket::~Q3ServerSocket (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QHostAddress Q3ServerSocket::address (   )  const
+
+
+
+   virtual void Q3ServerSocket::newConnection (  int  socket  )  [pure virtual]
+
+
+
+   bool Q3ServerSocket::ok (   )  const
+
+
+
+   Q_UINT16 Q3ServerSocket::port (   )  const
+
+
+
+   virtual void Q3ServerSocket::setSocket (  int  socket  )  [virtual]
+
+
+
+   int Q3ServerSocket::socket (   )  const
+
+
+
+   Q3SocketDevice* Q3ServerSocket::socketDevice (   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3serversocket.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

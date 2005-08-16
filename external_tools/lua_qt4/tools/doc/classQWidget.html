@@ -1,0 +1,1831 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QWidget Class Reference
+
+   #include <qwidget.h>
+
+   Inherits QObject, and QPaintDevice.
+
+   Inherited by QAbstractButton, QAbstractSlider, QAbstractSpinBox, QComboBox, QDesignerFormWindowInterface, QDesignerObjectInspectorInterface, QDesignerPropertyEditorInterface, QDesignerWidgetBoxInterface, QDesktopWidget, QDialog, QDockWidget, QFocusFrame, QFrame, QGLWidget, QGroupBox, QLineEdit, QMainWindow, QMenu, QMenuBar, QProgressBar, QRubberBand, QSizeGrip, QSplashScreen, QSplitterHandle, QStatusBar, QTabBar, QTabWidget, QToolBar, QWorkspace, QX11EmbedContainer, and
+   QX11EmbedWidget.
+
+   List of all members.
+
+Public Slots
+
+     * void setEnabled (bool)
+     * void setDisabled (bool)
+     * void setWindowModified (bool)
+     * void setFocus ()
+     * void update ()
+     * void repaint ()
+     * virtual void setVisible (bool visible)
+     * void setHidden (bool hidden)
+     * void show ()
+     * void hide ()
+     * QT_MOC_COMPAT void setShown (bool shown)
+     * void showMinimized ()
+     * void showMaximized ()
+     * void showFullScreen ()
+     * void showNormal ()
+     * bool close ()
+     * void raise ()
+     * void lower ()
+
+Signals
+
+     * void customContextMenuRequested (const QPoint &pos)
+
+Public Member Functions
+
+     * QWidget (QWidget *parent=0, Qt::WFlags f=0)
+     * ~QWidget ()
+     * int devType () const
+     * WId winId () const
+     * QStyle * style () const
+     * void setStyle (QStyle *)
+     * bool isTopLevel () const
+     * bool isWindow () const
+     * bool isModal () const
+     * bool isEnabled () const
+     * bool isEnabledTo (QWidget *) const
+     * bool isEnabledToTLW () const
+     * QRect frameGeometry () const
+     * const QRect & geometry () const
+     * QRect normalGeometry () const
+     * int x () const
+     * int y () const
+     * QPoint pos () const
+     * QSize frameSize () const
+     * QSize size () const
+     * int width () const
+     * int height () const
+     * QRect rect () const
+     * QRect childrenRect () const
+     * QRegion childrenRegion () const
+     * QSize minimumSize () const
+     * QSize maximumSize () const
+     * int minimumWidth () const
+     * int minimumHeight () const
+     * int maximumWidth () const
+     * int maximumHeight () const
+     * void setMinimumSize (const QSize &)
+     * void setMinimumSize (int minw, int minh)
+     * void setMaximumSize (const QSize &)
+     * void setMaximumSize (int maxw, int maxh)
+     * void setMinimumWidth (int minw)
+     * void setMinimumHeight (int minh)
+     * void setMaximumWidth (int maxw)
+     * void setMaximumHeight (int maxh)
+     * QSize sizeIncrement () const
+     * void setSizeIncrement (const QSize &)
+     * void setSizeIncrement (int w, int h)
+     * QSize baseSize () const
+     * void setBaseSize (const QSize &)
+     * void setBaseSize (int basew, int baseh)
+     * void setFixedSize (const QSize &)
+     * void setFixedSize (int w, int h)
+     * void setFixedWidth (int w)
+     * void setFixedHeight (int h)
+     * QPoint mapToGlobal (const QPoint &) const
+     * QPoint mapFromGlobal (const QPoint &) const
+     * QPoint mapToParent (const QPoint &) const
+     * QPoint mapFromParent (const QPoint &) const
+     * QPoint mapTo (QWidget *, const QPoint &) const
+     * QPoint mapFrom (QWidget *, const QPoint &) const
+     * QWidget * window () const
+     * QWidget * topLevelWidget () const
+     * const QPalette & palette () const
+     * void setPalette (const QPalette &)
+     * void setBackgroundRole (QPalette::ColorRole)
+     * QPalette::ColorRole backgroundRole () const
+     * void setForegroundRole (QPalette::ColorRole)
+     * QPalette::ColorRole foregroundRole () const
+     * const QFont & font () const
+     * void setFont (const QFont &)
+     * QFontMetrics fontMetrics () const
+     * QFontInfo fontInfo () const
+     * QCursor cursor () const
+     * void setCursor (const QCursor &)
+     * void unsetCursor ()
+     * void setMouseTracking (bool enable)
+     * bool hasMouseTracking () const
+     * bool underMouse () const
+     * void setMask (const QBitmap &)
+     * void setMask (const QRegion &)
+     * QRegion mask () const
+     * void clearMask ()
+     * void setWindowTitle (const QString &)
+     * QString windowTitle () const
+     * void setWindowIcon (const QIcon &icon)
+     * QIcon windowIcon () const
+     * void setWindowIconText (const QString &)
+     * QString windowIconText () const
+     * void setWindowRole (const QString &)
+     * QString windowRole () const
+     * void setWindowOpacity (qreal level)
+     * qreal windowOpacity () const
+     * bool isWindowModified () const
+     * void setToolTip (const QString &)
+     * QString toolTip () const
+     * void setStatusTip (const QString &)
+     * QString statusTip () const
+     * void setWhatsThis (const QString &)
+     * QString whatsThis () const
+     * QString accessibleName () const
+     * void setAccessibleName (const QString &name)
+     * QString accessibleDescription () const
+     * void setAccessibleDescription (const QString &description)
+     * void setLayoutDirection (Qt::LayoutDirection direction)
+     * Qt::LayoutDirection layoutDirection () const
+     * void unsetLayoutDirection ()
+     * bool isRightToLeft () const
+     * bool isLeftToRight () const
+     * bool isActiveWindow () const
+     * void activateWindow ()
+     * void clearFocus ()
+     * void setFocus (Qt::FocusReason reason)
+     * Qt::FocusPolicy focusPolicy () const
+     * void setFocusPolicy (Qt::FocusPolicy policy)
+     * bool hasFocus () const
+     * void setFocusProxy (QWidget *)
+     * QWidget * focusProxy () const
+     * Qt::ContextMenuPolicy contextMenuPolicy () const
+     * void setContextMenuPolicy (Qt::ContextMenuPolicy policy)
+     * void grabMouse ()
+     * void grabMouse (const QCursor &)
+     * void releaseMouse ()
+     * void grabKeyboard ()
+     * void releaseKeyboard ()
+     * int grabShortcut (const QKeySequence &key, Qt::ShortcutContext context=Qt::WindowShortcut)
+     * void releaseShortcut (int id)
+     * void setShortcutEnabled (int id, bool enable=true)
+     * bool updatesEnabled () const
+     * void setUpdatesEnabled (bool enable)
+     * void update (int x, int y, int w, int h)
+     * void update (const QRect &)
+     * void update (const QRegion &)
+     * void repaint (int x, int y, int w, int h)
+     * void repaint (const QRect &)
+     * void repaint (const QRegion &)
+     * void stackUnder (QWidget *)
+     * void move (int x, int y)
+     * void move (const QPoint &)
+     * void resize (int w, int h)
+     * void resize (const QSize &)
+     * void setGeometry (int x, int y, int w, int h)
+     * void setGeometry (const QRect &)
+     * void adjustSize ()
+     * bool isVisible () const
+     * bool isVisibleTo (QWidget *) const
+     * bool isHidden () const
+     * bool isMinimized () const
+     * bool isMaximized () const
+     * bool isFullScreen () const
+     * Qt::WindowStates windowState () const
+     * void setWindowState (Qt::WindowStates state)
+     * void overrideWindowState (Qt::WindowStates state)
+     * virtual QSize sizeHint () const
+     * virtual QSize minimumSizeHint () const
+     * QSizePolicy sizePolicy () const
+     * void setSizePolicy (QSizePolicy)
+     * void setSizePolicy (QSizePolicy::Policy horizontal, QSizePolicy::Policy vertical)
+     * virtual int heightForWidth (int) const
+     * QRegion visibleRegion () const
+     * void setContentsMargins (int left, int top, int right, int bottom)
+     * void getContentsMargins (int *left, int *top, int *right, int *bottom) const
+     * QRect contentsRect () const
+     * QLayout * layout () const
+     * void setLayout (QLayout *)
+     * void updateGeometry ()
+     * void setParent (QWidget *parent)
+     * void setParent (QWidget *parent, Qt::WFlags f)
+     * void scroll (int dx, int dy)
+     * void scroll (int dx, int dy, const QRect &)
+     * QWidget * focusWidget () const
+     * QWidget * nextInFocusChain () const
+     * bool acceptDrops () const
+     * void setAcceptDrops (bool on)
+     * void addAction (QAction *action)
+     * void addActions (QList< QAction * > actions)
+     * void insertAction (QAction *before, QAction *action)
+     * void insertActions (QAction *before, QList< QAction * > actions)
+     * void removeAction (QAction *action)
+     * QList< QAction * > actions () const
+     * QWidget * parentWidget () const
+     * void setWindowFlags (Qt::WindowFlags type)
+     * Qt::WindowFlags windowFlags () const
+     * void overrideWindowFlags (Qt::WindowFlags type)
+     * Qt::WindowType windowType () const
+     * QWidget * childAt (int x, int y) const
+     * QWidget * childAt (const QPoint &p) const
+     * Qt::HANDLE handle () const
+     * void setAttribute (Qt::WidgetAttribute, bool on=true)
+     * bool testAttribute (Qt::WidgetAttribute) const
+     * QPaintEngine * paintEngine () const
+     * void ensurePolished () const
+     * QInputContext * inputContext ()
+     * void setInputContext (QInputContext *)
+     * bool isAncestorOf (const QWidget *child) const
+     * virtual QVariant inputMethodQuery (Qt::InputMethodQuery) const
+
+Static Public Member Functions
+
+     * static void setTabOrder (QWidget *, QWidget *)
+     * static QWidget * mouseGrabber ()
+     * static QWidget * keyboardGrabber ()
+     * static QWidget * find (WId)
+
+Protected Member Functions
+
+     * bool event (QEvent *)
+     * virtual void mousePressEvent (QMouseEvent *)
+     * virtual void mouseReleaseEvent (QMouseEvent *)
+     * virtual void mouseDoubleClickEvent (QMouseEvent *)
+     * virtual void mouseMoveEvent (QMouseEvent *)
+     * virtual void wheelEvent (QWheelEvent *)
+     * virtual void keyPressEvent (QKeyEvent *)
+     * virtual void keyReleaseEvent (QKeyEvent *)
+     * virtual void focusInEvent (QFocusEvent *)
+     * virtual void focusOutEvent (QFocusEvent *)
+     * virtual void enterEvent (QEvent *)
+     * virtual void leaveEvent (QEvent *)
+     * virtual void paintEvent (QPaintEvent *)
+     * virtual void moveEvent (QMoveEvent *)
+     * virtual void resizeEvent (QResizeEvent *)
+     * virtual void closeEvent (QCloseEvent *)
+     * virtual void contextMenuEvent (QContextMenuEvent *)
+     * virtual void tabletEvent (QTabletEvent *)
+     * virtual void actionEvent (QActionEvent *)
+     * virtual void dragEnterEvent (QDragEnterEvent *)
+     * virtual void dragMoveEvent (QDragMoveEvent *)
+     * virtual void dragLeaveEvent (QDragLeaveEvent *)
+     * virtual void dropEvent (QDropEvent *)
+     * virtual void showEvent (QShowEvent *)
+     * virtual void hideEvent (QHideEvent *)
+     * virtual void changeEvent (QEvent *)
+     * int metric (PaintDeviceMetric) const
+     * virtual void inputMethodEvent (QInputMethodEvent *)
+     * void resetInputContext ()
+     * void updateMicroFocus ()
+     * void create (WId=0, bool initializeWindow=true, bool destroyOldWindow=true)
+     * void destroy (bool destroyWindow=true, bool destroySubWindows=true)
+     * virtual bool focusNextPrevChild (bool next)
+     * bool focusNextChild ()
+     * bool focusPreviousChild ()
+     * QWidget (QWidgetPrivate &d, QWidget *parent, Qt::WFlags f)
+     * virtual void styleChange (QStyle &)
+     * virtual void enabledChange (bool)
+     * virtual void paletteChange (const QPalette &)
+     * virtual void fontChange (const QFont &)
+     * virtual void windowActivationChange (bool)
+     * virtual void languageChange ()
+
+Properties
+
+     * bool modal
+     * bool enabled
+     * QRect geometry
+     * QRect frameGeometry
+     * QRect normalGeometry
+     * int x
+     * int y
+     * QPoint pos
+     * QSize frameSize
+     * QSize size
+     * int width
+     * int height
+     * QRect rect
+     * QRect childrenRect
+     * QRegion childrenRegion
+     * QSizePolicy sizePolicy
+     * QSize minimumSize
+     * QSize maximumSize
+     * int minimumWidth
+     * int minimumHeight
+     * int maximumWidth
+     * int maximumHeight
+     * QSize sizeIncrement
+     * QSize baseSize
+     * QPalette palette
+     * QFont font
+     * QCursor cursor
+     * bool mouseTracking
+     * bool isActiveWindow
+     * Qt FocusPolicy
+     * bool focus
+     * Qt ContextMenuPolicy
+     * bool updatesEnabled
+     * bool visible
+     * bool minimized
+     * bool maximized
+     * bool fullScreen
+     * QSize sizeHint
+     * QSize minimumSizeHint
+     * bool acceptDrops
+     * QString windowTitle
+     * QIcon windowIcon
+     * QString windowIconText
+     * double windowOpacity
+     * bool windowModified
+     * QString toolTip
+     * QString statusTip
+     * QString whatsThis
+     * QString accessibleName
+     * QString accessibleDescription
+     * Qt LayoutDirection
+
+Friends
+
+     * class QApplication
+     * class QApplicationPrivate
+     * class QBaseApplication
+     * class QPainter
+     * class QPixmap
+     * class QFontMetrics
+     * class QFontInfo
+     * class QETWidget
+     * class QLayout
+     * class QWidgetItem
+     * class QGLContext
+     * class QX11PaintEngine
+     * class QWin32PaintEngine
+     * class QShortcutPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QWidget::QWidget (  QWidget *   parent = 0,
+                       Qt::WFlags  f = 0
+                    )  [explicit]
+
+
+
+   QWidget::~QWidget (   )
+
+
+
+   QWidget::QWidget (  QWidgetPrivate &  d,
+                       QWidget *         parent,
+                       Qt::WFlags        f
+                    )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QWidget::acceptDrops (   )  const
+
+
+
+   QString QWidget::accessibleDescription (   )  const
+
+
+
+   QString QWidget::accessibleName (   )  const
+
+
+
+   virtual void QWidget::actionEvent (  QActionEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QMenu, QMenuBar, QToolBar, and QToolButton.
+
+   QList<QAction*> QWidget::actions (   )  const
+
+
+
+   void QWidget::activateWindow (   )
+
+
+
+   void QWidget::addAction (  QAction *  action  )
+
+
+
+   void QWidget::addActions (  QList< QAction * >  actions  )
+
+
+
+   void QWidget::adjustSize (   )
+
+
+
+   QPalette::ColorRole QWidget::backgroundRole (   )  const
+
+
+
+   QSize QWidget::baseSize (   )  const
+
+
+
+   virtual void QWidget::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractButton, QAbstractSlider, QAbstractSpinBox, QComboBox, QDockWidget, QFrame, QGroupBox, QLabel, QLineEdit, QMenu, QMenuBar, QMessageBox, QProgressDialog, QRubberBand, QSplitter, QTabBar, QTabWidget, QTextEdit, QToolBar, QToolBox, QToolButton, and QWorkspace.
+
+   QWidget* QWidget::childAt (  const QPoint &  p  )  const
+
+
+
+   QWidget * QWidget::childAt (  int  x,
+                                 int  y
+                              )  const [inline]
+
+
+
+   QRect QWidget::childrenRect (   )  const
+
+
+
+   QRegion QWidget::childrenRegion (   )  const
+
+
+
+   void QWidget::clearFocus (   )
+
+
+
+   void QWidget::clearMask (   )
+
+
+
+   bool QWidget::close (   )  [slot]
+
+
+
+   virtual void QWidget::closeEvent (  QCloseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractSpinBox, QDialog, QDockWidget, QMessageBox, and QProgressDialog.
+
+   QRect QWidget::contentsRect (   )  const
+
+
+
+   virtual void QWidget::contextMenuEvent (  QContextMenuEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractScrollArea, QAbstractSpinBox, QDialog, QLineEdit, QMainWindow, and QTextEdit.
+
+   Qt::ContextMenuPolicy QWidget::contextMenuPolicy (   )  const
+
+
+
+   void QWidget::create (  WId   = 0,
+                           bool  initializeWindow = true,
+                           bool  destroyOldWindow = true
+                        )  [protected]
+
+
+
+   QCursor QWidget::cursor (   )  const
+
+
+
+   Reimplemented in QDesignerFormWindowInterface.
+
+   void QWidget::customContextMenuRequested (  const QPoint &  pos  )  [signal]
+
+
+
+   void QWidget::destroy (  bool  destroyWindow = true,
+                            bool  destroySubWindows = true
+                         )  [protected]
+
+
+
+   int QWidget::devType (   )  const [virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   virtual void QWidget::dragEnterEvent (  QDragEnterEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractItemView, QAbstractScrollArea, QLineEdit, and QTextEdit.
+
+   virtual void QWidget::dragLeaveEvent (  QDragLeaveEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractItemView, QAbstractScrollArea, QLineEdit, QListView, and QTextEdit.
+
+   virtual void QWidget::dragMoveEvent (  QDragMoveEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractItemView, QAbstractScrollArea, QLineEdit, QListView, and QTextEdit.
+
+   virtual void QWidget::dropEvent (  QDropEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractItemView, QAbstractScrollArea, QLineEdit, QListView, and QTextEdit.
+
+   virtual void QWidget::enabledChange (  bool   )  [protected, virtual]
+
+
+
+   void QWidget::ensurePolished (   )  const
+
+
+
+   virtual void QWidget::enterEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QMenu, and QToolButton.
+
+   bool QWidget::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   Reimplemented in QAbstractButton, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDateTimeEdit, QDockWidget, QGLWidget, QGroupBox, QHeaderView, QLabel, QLineEdit, QMainWindow, QMenu, QMenuBar, QScrollArea, QScrollBar, QSizeGrip, QSlider, QSplitter, QSplitterHandle, QStatusBar, QTabBar, QToolBar, QX11EmbedWidget, and QX11EmbedContainer.
+
+   static QWidget* QWidget::find (  WId   )  [static]
+
+
+
+   virtual void QWidget::focusInEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractSpinBox, QComboBox, QDateTimeEdit, QGroupBox, QLineEdit, QMenuBar, QPushButton, and QTextEdit.
+
+   bool QWidget::focusNextChild (   )  [inline, protected]
+
+
+
+   virtual bool QWidget::focusNextPrevChild (  bool  next  )  [protected, virtual]
+
+
+
+   Reimplemented in QDateTimeEdit, QScrollArea, QTextBrowser, and QTextEdit.
+
+   virtual void QWidget::focusOutEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractSpinBox, QComboBox, QLineEdit, QMenuBar, QPushButton, QTextBrowser, and QTextEdit.
+
+   Qt::FocusPolicy QWidget::focusPolicy (   )  const
+
+
+
+   bool QWidget::focusPreviousChild (   )  [inline, protected]
+
+
+
+   QWidget* QWidget::focusProxy (   )  const
+
+
+
+   QWidget* QWidget::focusWidget (   )  const
+
+
+
+   const QFont& QWidget::font (   )  const
+
+
+
+   virtual void QWidget::fontChange (  const QFont &   )  [protected, virtual]
+
+
+
+   QFontInfo QWidget::fontInfo (   )  const [inline]
+
+
+
+   QFontMetrics QWidget::fontMetrics (   )  const [inline]
+
+
+
+   QPalette::ColorRole QWidget::foregroundRole (   )  const
+
+
+
+   QRect QWidget::frameGeometry (   )  const
+
+
+
+   QSize QWidget::frameSize (   )  const
+
+
+
+   const QRect& QWidget::geometry (   )  const
+
+
+
+   void QWidget::getContentsMargins (  int *  left,
+                                       int *  top,
+                                       int *  right,
+                                       int *  bottom
+                                    )  const
+
+
+
+   void QWidget::grabKeyboard (   )
+
+
+
+   void QWidget::grabMouse (  const QCursor &   )
+
+
+
+   void QWidget::grabMouse (   )
+
+
+
+   int QWidget::grabShortcut (  const QKeySequence &  key,
+                                Qt::ShortcutContext   context = Qt::WindowShortcut
+                             )
+
+
+
+   Qt::HANDLE QWidget::handle (   )  const
+
+
+
+   bool QWidget::hasFocus (   )  const
+
+
+
+   bool QWidget::hasMouseTracking (   )  const [inline]
+
+
+
+   int QWidget::height (   )  const [inline]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   virtual int QWidget::heightForWidth (  int   )  const [virtual]
+
+
+
+   Reimplemented in QLabel, and QMenuBar.
+
+   void QWidget::hide (   )  [inline, slot]
+
+
+
+   virtual void QWidget::hideEvent (  QHideEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractSpinBox, QComboBox, QMenu, QScrollBar, QWorkspace, and QX11EmbedContainer.
+
+   QInputContext* QWidget::inputContext (   )
+
+
+
+   virtual void QWidget::inputMethodEvent (  QInputMethodEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QComboBox, QLineEdit, and QTextEdit.
+
+   virtual QVariant QWidget::inputMethodQuery (  Qt::InputMethodQuery   )  const [virtual]
+
+
+
+   Reimplemented in QComboBox, QLineEdit, and QTextEdit.
+
+   void QWidget::insertAction (  QAction *  before,
+                                 QAction *  action
+                              )
+
+
+
+   void QWidget::insertActions (  QAction *           before,
+                                  QList< QAction * >  actions
+                               )
+
+
+
+   bool QWidget::isActiveWindow (   )  const
+
+
+
+   bool QWidget::isAncestorOf (  const QWidget *  child  )  const
+
+
+
+   bool QWidget::isEnabled (   )  const [inline]
+
+
+
+   bool QWidget::isEnabledTo (  QWidget *   )  const
+
+
+
+   bool QWidget::isEnabledToTLW (   )  const [inline]
+
+
+
+   bool QWidget::isFullScreen (   )  const
+
+
+
+   bool QWidget::isHidden (   )  const [inline]
+
+
+
+   bool QWidget::isLeftToRight (   )  const [inline]
+
+
+
+   bool QWidget::isMaximized (   )  const
+
+
+
+   bool QWidget::isMinimized (   )  const
+
+
+
+   bool QWidget::isModal (   )  const [inline]
+
+
+
+   bool QWidget::isRightToLeft (   )  const [inline]
+
+
+
+   bool QWidget::isTopLevel (   )  const [inline]
+
+
+
+   bool QWidget::isVisible (   )  const [inline]
+
+
+
+   bool QWidget::isVisibleTo (  QWidget *   )  const
+
+
+
+   bool QWidget::isWindow (   )  const [inline]
+
+
+
+   bool QWidget::isWindowModified (   )  const
+
+
+
+   static QWidget* QWidget::keyboardGrabber (   )  [static]
+
+
+
+   virtual void QWidget::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSlider, QAbstractSpinBox, QComboBox, QDateTimeEdit, QDialog, QLineEdit, QMenu, QMenuBar, QMessageBox, QPushButton, QTabBar, QTabWidget, QTextBrowser, and QTextEdit.
+
+   virtual void QWidget::keyReleaseEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractButton, QAbstractSpinBox, and QComboBox.
+
+   virtual void QWidget::languageChange (   )  [protected, virtual]
+
+
+
+   QLayout* QWidget::layout (   )  const
+
+
+
+   Qt::LayoutDirection QWidget::layoutDirection (   )  const
+
+
+
+   virtual void QWidget::leaveEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QMenu, QMenuBar, and QToolButton.
+
+   void QWidget::lower (   )  [slot]
+
+
+
+   QPoint QWidget::mapFrom (  QWidget *       ,
+                              const QPoint &
+                           )  const
+
+
+
+   QPoint QWidget::mapFromGlobal (  const QPoint &   )  const
+
+
+
+   QPoint QWidget::mapFromParent (  const QPoint &   )  const
+
+
+
+   QPoint QWidget::mapTo (  QWidget *       ,
+                            const QPoint &
+                         )  const
+
+
+
+   QPoint QWidget::mapToGlobal (  const QPoint &   )  const
+
+
+
+   QPoint QWidget::mapToParent (  const QPoint &   )  const
+
+
+
+   QRegion QWidget::mask (   )  const
+
+
+
+   int QWidget::maximumHeight (   )  const
+
+
+
+   QSize QWidget::maximumSize (   )  const
+
+
+
+   int QWidget::maximumWidth (   )  const
+
+
+
+   int QWidget::metric (  PaintDeviceMetric   )  const [protected, virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   int QWidget::minimumHeight (   )  const
+
+
+
+   QSize QWidget::minimumSize (   )  const
+
+
+
+   virtual QSize QWidget::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented in QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDial, QDialog, QGroupBox, QLabel, QLineEdit, QMenuBar, QProgressBar, QSlider, QSplitter, QTabBar, QTabWidget, QToolButton, and QX11EmbedContainer.
+
+   int QWidget::minimumWidth (   )  const
+
+
+
+   virtual void QWidget::mouseDoubleClickEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractItemView, QAbstractScrollArea, QHeaderView, QLineEdit, QTextEdit, and QTreeView.
+
+   static QWidget* QWidget::mouseGrabber (   )  [static]
+
+
+
+   virtual void QWidget::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QDial, QHeaderView, QLineEdit, QListView, QMenu, QMenuBar, QScrollBar, QSizeGrip, QSlider, QSplitterHandle, QTabBar, QTextBrowser, and QTextEdit.
+
+   virtual void QWidget::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDial, QHeaderView, QLineEdit, QMenu, QMenuBar, QScrollBar, QSizeGrip, QSlider, QSplashScreen, QSplitterHandle, QTabBar, QTextBrowser, QTextEdit, QToolButton, and QTreeView.
+
+   virtual void QWidget::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDial, QHeaderView, QLineEdit, QListView, QMenu, QMenuBar, QScrollBar, QSlider, QSplitterHandle, QTabBar, QTextBrowser, and QTextEdit.
+
+   void QWidget::move (  const QPoint &   )
+
+
+
+   Reimplemented in QRubberBand.
+
+   void QWidget::move (  int  x,
+                         int  y
+                      )  [inline]
+
+
+
+   Reimplemented in QRubberBand.
+
+   virtual void QWidget::moveEvent (  QMoveEvent *   )  [protected, virtual]
+
+
+
+   QWidget* QWidget::nextInFocusChain (   )  const
+
+
+
+   QRect QWidget::normalGeometry (   )  const
+
+
+
+   void QWidget::overrideWindowFlags (  Qt::WindowFlags  type  )
+
+
+
+   void QWidget::overrideWindowState (  Qt::WindowStates  state  )
+
+
+
+   QPaintEngine* QWidget::paintEngine (   )  const [virtual]
+
+
+
+   Implements QPaintDevice.
+
+   Reimplemented in QGLWidget.
+
+   virtual void QWidget::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractButton, QAbstractScrollArea, QAbstractSpinBox, QCheckBox, QComboBox, QDial, QDockWidget, QFocusFrame, QFrame, QGLWidget, QGroupBox, QHeaderView, QLabel, QLCDNumber, QLineEdit, QListView, QMenu, QMenuBar, QProgressBar, QPushButton, QRadioButton, QRubberBand, QScrollBar, QSizeGrip, QSlider, QSplitterHandle, QStatusBar, QTabBar, QTableView, QTabWidget, QTextBrowser, QTextEdit, QToolBar, QToolButton, QTreeView, QWorkspace, and QX11EmbedContainer.
+
+   const QPalette& QWidget::palette (   )  const
+
+
+
+   virtual void QWidget::paletteChange (  const QPalette &   )  [protected, virtual]
+
+
+
+   QWidget * QWidget::parentWidget (   )  const [inline]
+
+
+
+   QPoint QWidget::pos (   )  const
+
+
+
+   void QWidget::raise (   )  [slot]
+
+
+
+   QRect QWidget::rect (   )  const [inline]
+
+
+
+   void QWidget::releaseKeyboard (   )
+
+
+
+   void QWidget::releaseMouse (   )
+
+
+
+   void QWidget::releaseShortcut (  int  id  )
+
+
+
+   void QWidget::removeAction (  QAction *  action  )
+
+
+
+   void QWidget::repaint (  const QRegion &   )
+
+
+
+   void QWidget::repaint (  const QRect &   )
+
+
+
+   void QWidget::repaint (  int  x,
+                            int  y,
+                            int  w,
+                            int  h
+                         )
+
+
+
+   void QWidget::repaint (   )  [slot]
+
+
+
+   Reimplemented in QSplashScreen.
+
+   void QWidget::resetInputContext (   )  [protected]
+
+
+
+   void QWidget::resize (  const QSize &   )
+
+
+
+   Reimplemented in QRubberBand.
+
+   void QWidget::resize (  int  w,
+                           int  h
+                        )  [inline]
+
+
+
+   Reimplemented in QRubberBand.
+
+   virtual void QWidget::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDesktopWidget, QDial, QDialog, QGLWidget, QGroupBox, QListView, QMenuBar, QMessageBox, QProgressDialog, QScrollArea, QSplitter, QStatusBar, QTabBar, QTabWidget, QTextEdit, QToolBar, QWorkspace, QX11EmbedWidget, and QX11EmbedContainer.
+
+   void QWidget::scroll (  int            dx,
+                           int            dy,
+                           const QRect &
+                        )
+
+
+
+   void QWidget::scroll (  int  dx,
+                           int  dy
+                        )
+
+
+
+   void QWidget::setAcceptDrops (  bool  on  )
+
+
+
+   void QWidget::setAccessibleDescription (  const QString &  description  )
+
+
+
+   void QWidget::setAccessibleName (  const QString &  name  )
+
+
+
+   void QWidget::setAttribute (  Qt::WidgetAttribute  ,
+                                 bool                 on = true
+                              )
+
+
+
+   void QWidget::setBackgroundRole (  QPalette::ColorRole   )
+
+
+
+   void QWidget::setBaseSize (  int  basew,
+                                int  baseh
+                             )
+
+
+
+   void QWidget::setBaseSize (  const QSize &   )  [inline]
+
+
+
+   void QWidget::setContentsMargins (  int  left,
+                                       int  top,
+                                       int  right,
+                                       int  bottom
+                                    )
+
+
+
+   void QWidget::setContextMenuPolicy (  Qt::ContextMenuPolicy  policy  )
+
+
+
+   void QWidget::setCursor (  const QCursor &   )
+
+
+
+   void QWidget::setDisabled (  bool   )  [slot]
+
+
+
+   void QWidget::setEnabled (  bool   )  [slot]
+
+
+
+   void QWidget::setFixedHeight (  int  h  )
+
+
+
+   void QWidget::setFixedSize (  int  w,
+                                 int  h
+                              )
+
+
+
+   void QWidget::setFixedSize (  const QSize &   )
+
+
+
+   void QWidget::setFixedWidth (  int  w  )
+
+
+
+   void QWidget::setFocus (  Qt::FocusReason  reason  )
+
+
+
+   void QWidget::setFocus (   )  [inline, slot]
+
+
+
+   void QWidget::setFocusPolicy (  Qt::FocusPolicy  policy  )
+
+
+
+   void QWidget::setFocusProxy (  QWidget *   )
+
+
+
+   void QWidget::setFont (  const QFont &   )
+
+
+
+   void QWidget::setForegroundRole (  QPalette::ColorRole   )
+
+
+
+   void QWidget::setGeometry (  const QRect &   )
+
+
+
+   Reimplemented in QRubberBand.
+
+   void QWidget::setGeometry (  int  x,
+                                int  y,
+                                int  w,
+                                int  h
+                             )  [inline]
+
+
+
+   Reimplemented in QRubberBand.
+
+   void QWidget::setHidden (  bool  hidden  )  [inline, slot]
+
+
+
+   void QWidget::setInputContext (  QInputContext *   )
+
+
+
+   void QWidget::setLayout (  QLayout *   )
+
+
+
+   void QWidget::setLayoutDirection (  Qt::LayoutDirection  direction  )
+
+
+
+   void QWidget::setMask (  const QRegion &   )
+
+
+
+   void QWidget::setMask (  const QBitmap &   )
+
+
+
+   void QWidget::setMaximumHeight (  int  maxh  )
+
+
+
+   void QWidget::setMaximumSize (  int  maxw,
+                                   int  maxh
+                                )
+
+
+
+   void QWidget::setMaximumSize (  const QSize &   )  [inline]
+
+
+
+   void QWidget::setMaximumWidth (  int  maxw  )
+
+
+
+   void QWidget::setMinimumHeight (  int  minh  )
+
+
+
+   void QWidget::setMinimumSize (  int  minw,
+                                   int  minh
+                                )
+
+
+
+   void QWidget::setMinimumSize (  const QSize &   )  [inline]
+
+
+
+   void QWidget::setMinimumWidth (  int  minw  )
+
+
+
+   void QWidget::setMouseTracking (  bool  enable  )  [inline]
+
+
+
+   Reimplemented in QGLWidget.
+
+   void QWidget::setPalette (  const QPalette &   )
+
+
+
+   void QWidget::setParent (  QWidget *   parent,
+                              Qt::WFlags  f
+                           )
+
+
+
+   void QWidget::setParent (  QWidget *  parent  )
+
+
+
+   void QWidget::setShortcutEnabled (  int   id,
+                                       bool  enable = true
+                                    )
+
+
+
+   QT_MOC_COMPAT void QWidget::setShown (  bool  shown  )  [inline, slot]
+
+
+
+   void QWidget::setSizeIncrement (  int  w,
+                                     int  h
+                                  )
+
+
+
+   void QWidget::setSizeIncrement (  const QSize &   )  [inline]
+
+
+
+   void QWidget::setSizePolicy (  QSizePolicy::Policy  horizontal,
+                                  QSizePolicy::Policy  vertical
+                               )  [inline]
+
+
+
+   void QWidget::setSizePolicy (  QSizePolicy   )
+
+
+
+   void QWidget::setStatusTip (  const QString &   )
+
+
+
+   void QWidget::setStyle (  QStyle *   )
+
+
+
+   static void QWidget::setTabOrder (  QWidget *  ,
+                                       QWidget *
+                                    )  [static]
+
+
+
+   void QWidget::setToolTip (  const QString &   )
+
+
+
+   void QWidget::setUpdatesEnabled (  bool  enable  )
+
+
+
+   virtual void QWidget::setVisible (  bool  visible  )  [virtual, slot]
+
+
+
+   Reimplemented in QDialog, and QSizeGrip.
+
+   void QWidget::setWhatsThis (  const QString &   )
+
+
+
+   void QWidget::setWindowFlags (  Qt::WindowFlags  type  )
+
+
+
+   void QWidget::setWindowIcon (  const QIcon &  icon  )
+
+
+
+   void QWidget::setWindowIconText (  const QString &   )
+
+
+
+   void QWidget::setWindowModified (  bool   )  [slot]
+
+
+
+   void QWidget::setWindowOpacity (  qreal  level  )
+
+
+
+   void QWidget::setWindowRole (  const QString &   )
+
+
+
+   void QWidget::setWindowState (  Qt::WindowStates  state  )
+
+
+
+   void QWidget::setWindowTitle (  const QString &   )
+
+
+
+   void QWidget::show (   )  [inline, slot]
+
+
+
+   virtual void QWidget::showEvent (  QShowEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractSpinBox, QComboBox, QDialog, QMessageBox, QProgressDialog, QTabBar, QTabWidget, QTextEdit, QToolBox, QWorkspace, and QX11EmbedContainer.
+
+   void QWidget::showFullScreen (   )  [slot]
+
+
+
+   void QWidget::showMaximized (   )  [slot]
+
+
+
+   void QWidget::showMinimized (   )  [slot]
+
+
+
+   void QWidget::showNormal (   )  [slot]
+
+
+
+   QSize QWidget::size (   )  const
+
+
+
+   virtual QSize QWidget::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented in QAbstractScrollArea, QAbstractSpinBox, QCheckBox, QComboBox, QDateTimeEdit, QDial, QDialog, QFrame, QHeaderView, QLabel, QLCDNumber, QLineEdit, QMenu, QMenuBar, QMessageBox, QProgressBar, QProgressDialog, QPushButton, QRadioButton, QScrollArea, QScrollBar, QSizeGrip, QSlider, QSplitter, QSplitterHandle, QTabBar, QTabWidget, QToolButton, and QWorkspace.
+
+   QSize QWidget::sizeIncrement (   )  const
+
+
+
+   QSizePolicy QWidget::sizePolicy (   )  const
+
+
+
+   void QWidget::stackUnder (  QWidget *   )
+
+
+
+   QString QWidget::statusTip (   )  const
+
+
+
+   QStyle* QWidget::style (   )  const
+
+
+
+   virtual void QWidget::styleChange (  QStyle &   )  [protected, virtual]
+
+
+
+   virtual void QWidget::tabletEvent (  QTabletEvent *   )  [protected, virtual]
+
+
+
+   bool QWidget::testAttribute (  Qt::WidgetAttribute   )  const [inline]
+
+
+
+   QString QWidget::toolTip (   )  const
+
+
+
+   QWidget* QWidget::topLevelWidget (   )  const [inline]
+
+
+
+   bool QWidget::underMouse (   )  const [inline]
+
+
+
+   void QWidget::unsetCursor (   )
+
+
+
+   void QWidget::unsetLayoutDirection (   )
+
+
+
+   void QWidget::update (  const QRegion &   )
+
+
+
+   void QWidget::update (  const QRect &   )
+
+
+
+   void QWidget::update (  int  x,
+                           int  y,
+                           int  w,
+                           int  h
+                        )  [inline]
+
+
+
+   void QWidget::update (   )  [slot]
+
+
+
+   void QWidget::updateGeometry (   )
+
+
+
+   void QWidget::updateMicroFocus (   )  [protected]
+
+
+
+   bool QWidget::updatesEnabled (   )  const [inline]
+
+
+
+   QRegion QWidget::visibleRegion (   )  const
+
+
+
+   QString QWidget::whatsThis (   )  const
+
+
+
+   virtual void QWidget::wheelEvent (  QWheelEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented in QAbstractScrollArea, QAbstractSlider, QAbstractSpinBox, QComboBox, QDateTimeEdit, QMenu, QTextEdit, and QWorkspace.
+
+   int QWidget::width (   )  const [inline]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   QWidget* QWidget::window (   )  const
+
+
+
+   virtual void QWidget::windowActivationChange (  bool   )  [protected, virtual]
+
+
+
+   Qt::WindowFlags QWidget::windowFlags (   )  const [inline]
+
+
+
+   QIcon QWidget::windowIcon (   )  const
+
+
+
+   QString QWidget::windowIconText (   )  const
+
+
+
+   qreal QWidget::windowOpacity (   )  const
+
+
+
+   QString QWidget::windowRole (   )  const
+
+
+
+   Qt::WindowStates QWidget::windowState (   )  const
+
+
+
+   QString QWidget::windowTitle (   )  const
+
+
+
+   Qt::WindowType QWidget::windowType (   )  const [inline]
+
+
+
+   WId QWidget::winId (   )  const [inline]
+
+
+
+   int QWidget::x (   )  const
+
+
+
+   int QWidget::y (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QApplication [friend]
+
+
+
+   Reimplemented from QObject.
+
+   Reimplemented in QDesktopWidget.
+
+   friend class QApplicationPrivate [friend]
+
+
+
+   Reimplemented from QObject.
+
+   friend class QBaseApplication [friend]
+
+
+
+   friend class QETWidget [friend]
+
+
+
+   friend class QFontInfo [friend]
+
+
+
+   friend class QFontMetrics [friend]
+
+
+
+   friend class QGLContext [friend]
+
+
+
+   Reimplemented in QGLWidget.
+
+   friend class QLayout [friend]
+
+
+
+   friend class QPainter [friend]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   friend class QPixmap [friend]
+
+
+
+   friend class QShortcutPrivate [friend]
+
+
+
+   friend class QWidgetItem [friend]
+
+
+
+   friend class QWin32PaintEngine [friend]
+
+
+
+   friend class QX11PaintEngine [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QWidget::acceptDrops [read, write]
+
+
+
+   QString QWidget::accessibleDescription [read, write]
+
+
+
+   QString QWidget::accessibleName [read, write]
+
+
+
+   QSize QWidget::baseSize [read, write]
+
+
+
+   QRect QWidget::childrenRect [read]
+
+
+
+   QRegion QWidget::childrenRegion [read]
+
+
+
+   Qt QWidget::ContextMenuPolicy [read, write]
+
+
+
+   QCursor QWidget::cursor [read, write]
+
+
+
+   bool QWidget::enabled [read, write]
+
+
+
+   bool QWidget::focus [read]
+
+
+
+   Qt QWidget::FocusPolicy [read, write]
+
+
+
+   const QFont & QWidget::font [inline, read, write]
+
+
+
+   QRect QWidget::frameGeometry [read]
+
+
+
+   QSize QWidget::frameSize [read]
+
+
+
+   bool QWidget::fullScreen [read]
+
+
+
+   const QRect & QWidget::geometry [inline, read, write]
+
+
+
+   int QWidget::height [inline, read]
+
+
+
+   bool QWidget::isActiveWindow [read]
+
+
+
+   Qt QWidget::LayoutDirection [read, write]
+
+
+
+   bool QWidget::maximized [read]
+
+
+
+   int QWidget::maximumHeight [inline, read, write]
+
+
+
+   QSize QWidget::maximumSize [read, write]
+
+
+
+   int QWidget::maximumWidth [inline, read, write]
+
+
+
+   bool QWidget::minimized [read]
+
+
+
+   int QWidget::minimumHeight [inline, read, write]
+
+
+
+   QSize QWidget::minimumSize [read, write]
+
+
+
+   QSize QWidget::minimumSizeHint [read]
+
+
+
+   int QWidget::minimumWidth [inline, read, write]
+
+
+
+   bool QWidget::modal [read]
+
+
+
+   Reimplemented in QDialog.
+
+   bool QWidget::mouseTracking [read, write]
+
+
+
+   QRect QWidget::normalGeometry [read]
+
+
+
+   QPalette QWidget::palette [read, write]
+
+
+
+   QPoint QWidget::pos [read, write]
+
+
+
+   QRect QWidget::rect [inline, read]
+
+
+
+   QSize QWidget::size [inline, read, write]
+
+
+
+   QSize QWidget::sizeHint [read]
+
+
+
+   QSize QWidget::sizeIncrement [read, write]
+
+
+
+   QSizePolicy QWidget::sizePolicy [read, write]
+
+
+
+   QString QWidget::statusTip [read, write]
+
+
+
+   QString QWidget::toolTip [read, write]
+
+
+
+   bool QWidget::updatesEnabled [inline, read, write]
+
+
+
+   bool QWidget::visible [read, write]
+
+
+
+   QString QWidget::whatsThis [read, write]
+
+
+
+   int QWidget::width [inline, read]
+
+
+
+   QIcon QWidget::windowIcon [read, write]
+
+
+
+   QString QWidget::windowIconText [read, write]
+
+
+
+   bool QWidget::windowModified [read, write]
+
+
+
+   double QWidget::windowOpacity [read, write]
+
+
+
+   QString QWidget::windowTitle [read, write]
+
+
+
+   int QWidget::x [read]
+
+
+
+   int QWidget::y [read]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qwidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

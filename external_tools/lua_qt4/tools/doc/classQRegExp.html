@@ -1,0 +1,199 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QRegExp Class Reference
+
+   #include <qregexp.h>
+
+   List of all members.
+
+Public Types
+
+     * enum PatternSyntax { RegExp, Wildcard }
+     * enum CaretMode { CaretAtZero, CaretAtOffset, CaretWontMatch }
+
+Public Member Functions
+
+     * QRegExp ()
+     * QRegExp (const QString &pattern, Qt::CaseSensitivity cs=Qt::CaseSensitive, PatternSyntax syntax=RegExp)
+     * QRegExp (const QRegExp &rx)
+     * ~QRegExp ()
+     * QRegExp & operator= (const QRegExp &rx)
+     * bool operator== (const QRegExp &rx) const
+     * bool operator!= (const QRegExp &rx) const
+     * bool isEmpty () const
+     * bool isValid () const
+     * QString pattern () const
+     * void setPattern (const QString &pattern)
+     * Qt::CaseSensitivity caseSensitivity () const
+     * void setCaseSensitivity (Qt::CaseSensitivity cs)
+     * PatternSyntax patternSyntax () const
+     * void setPatternSyntax (PatternSyntax syntax)
+     * bool isMinimal () const
+     * void setMinimal (bool minimal)
+     * bool exactMatch (const QString &str) const
+     * int indexIn (const QString &str, int offset=0, CaretMode caretMode=CaretAtZero) const
+     * int lastIndexIn (const QString &str, int offset=-1, CaretMode caretMode=CaretAtZero) const
+     * int matchedLength () const
+     * int numCaptures () const
+     * QStringList capturedTexts ()
+     * QString cap (int nth=0)
+     * int pos (int nth=0)
+     * QString errorString ()
+
+Static Public Member Functions
+
+     * static QString escape (const QString &str)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QRegExp::CaretMode
+
+
+
+   Enumerator: 
+
+          CaretAtZero   
+          CaretAtOffset 
+          CaretWontMatch
+
+   enum QRegExp::PatternSyntax
+
+
+
+   Enumerator: 
+
+          RegExp  
+          Wildcard
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QRegExp::QRegExp (   )
+
+
+
+   QRegExp::QRegExp (  const QString &      pattern,
+                       Qt::CaseSensitivity  cs = Qt::CaseSensitive,
+                       PatternSyntax        syntax = RegExp
+                    )  [explicit]
+
+
+
+   QRegExp::QRegExp (  const QRegExp &  rx  )
+
+
+
+   QRegExp::~QRegExp (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QRegExp::cap (  int  nth = 0  )
+
+
+
+   QStringList QRegExp::capturedTexts (   )
+
+
+
+   Qt::CaseSensitivity QRegExp::caseSensitivity (   )  const
+
+
+
+   QString QRegExp::errorString (   )
+
+
+
+   static QString QRegExp::escape (  const QString &  str  )  [static]
+
+
+
+   bool QRegExp::exactMatch (  const QString &  str  )  const
+
+
+
+   int QRegExp::indexIn (  const QString &  str,
+                           int              offset = 0,
+                           CaretMode        caretMode = CaretAtZero
+                        )  const
+
+
+
+   bool QRegExp::isEmpty (   )  const
+
+
+
+   bool QRegExp::isMinimal (   )  const
+
+
+
+   bool QRegExp::isValid (   )  const
+
+
+
+   int QRegExp::lastIndexIn (  const QString &  str,
+                               int              offset = -1,
+                               CaretMode        caretMode = CaretAtZero
+                            )  const
+
+
+
+   int QRegExp::matchedLength (   )  const
+
+
+
+   int QRegExp::numCaptures (   )  const
+
+
+
+   bool QRegExp::operator!= (  const QRegExp &  rx  )  const [inline]
+
+
+
+   QRegExp& QRegExp::operator= (  const QRegExp &  rx  )
+
+
+
+   bool QRegExp::operator== (  const QRegExp &  rx  )  const
+
+
+
+   QString QRegExp::pattern (   )  const
+
+
+
+   PatternSyntax QRegExp::patternSyntax (   )  const
+
+
+
+   int QRegExp::pos (  int  nth = 0  )
+
+
+
+   void QRegExp::setCaseSensitivity (  Qt::CaseSensitivity  cs  )
+
+
+
+   void QRegExp::setMinimal (  bool  minimal  )
+
+
+
+   void QRegExp::setPattern (  const QString &  pattern  )
+
+
+
+   void QRegExp::setPatternSyntax (  PatternSyntax  syntax  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qregexp.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

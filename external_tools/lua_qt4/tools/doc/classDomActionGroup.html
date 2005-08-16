@@ -1,0 +1,117 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          DomActionGroup Class Reference
+
+   #include <ui4.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * DomActionGroup ()
+     * ~DomActionGroup ()
+     * void read (const QDomElement &node)
+     * QDomElement write (QDomDocument &doc, const QString &tagName=QString())
+     * QString text () const
+     * void setText (const QString &s)
+     * bool hasAttributeName ()
+     * QString attributeName ()
+     * void setAttributeName (const QString &a)
+     * void clearAttributeName ()
+     * QList< DomAction * > elementAction ()
+     * void setElementAction (const QList< DomAction * > &a)
+     * QList< DomActionGroup * > elementActionGroup ()
+     * void setElementActionGroup (const QList< DomActionGroup * > &a)
+     * QList< DomProperty * > elementProperty ()
+     * void setElementProperty (const QList< DomProperty * > &a)
+     * QList< DomProperty * > elementAttribute ()
+     * void setElementAttribute (const QList< DomProperty * > &a)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   DomActionGroup::DomActionGroup (   )
+
+
+
+   DomActionGroup::~DomActionGroup (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString DomActionGroup::attributeName (   )  [inline]
+
+
+
+   void DomActionGroup::clearAttributeName (   )  [inline]
+
+
+
+   QList<DomAction*> DomActionGroup::elementAction (   )  [inline]
+
+
+
+   QList<DomActionGroup*> DomActionGroup::elementActionGroup (   )  [inline]
+
+
+
+   QList<DomProperty*> DomActionGroup::elementAttribute (   )  [inline]
+
+
+
+   QList<DomProperty*> DomActionGroup::elementProperty (   )  [inline]
+
+
+
+   bool DomActionGroup::hasAttributeName (   )  [inline]
+
+
+
+   void DomActionGroup::read (  const QDomElement &  node  )
+
+
+
+   void DomActionGroup::setAttributeName (  const QString &  a  )  [inline]
+
+
+
+   void DomActionGroup::setElementAction (  const QList< DomAction * > &  a  )
+
+
+
+   void DomActionGroup::setElementActionGroup (  const QList< DomActionGroup * > &  a  )
+
+
+
+   void DomActionGroup::setElementAttribute (  const QList< DomProperty * > &  a  )
+
+
+
+   void DomActionGroup::setElementProperty (  const QList< DomProperty * > &  a  )
+
+
+
+   void DomActionGroup::setText (  const QString &  s  )  [inline]
+
+
+
+   QString DomActionGroup::text (   )  const [inline]
+
+
+
+   QDomElement DomActionGroup::write (  QDomDocument &   doc,
+                                        const QString &  tagName = QString()
+                                     )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/ui4.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:53 2005 by  doxygen 1.4.3-20050530

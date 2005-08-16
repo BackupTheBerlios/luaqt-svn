@@ -1,0 +1,105 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QXmlNamespaceSupport Class Reference
+
+   #include <qxml.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QXmlNamespaceSupport ()
+     * ~QXmlNamespaceSupport ()
+     * void setPrefix (const QString &, const QString &)
+     * QString prefix (const QString &) const
+     * QString uri (const QString &) const
+     * void splitName (const QString &, QString &, QString &) const
+     * void processName (const QString &, bool, QString &, QString &) const
+     * QStringList prefixes () const
+     * QStringList prefixes (const QString &) const
+     * void pushContext ()
+     * void popContext ()
+     * void reset ()
+
+Friends
+
+     * class QXmlSimpleReaderPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QXmlNamespaceSupport::QXmlNamespaceSupport (   )
+
+
+
+   QXmlNamespaceSupport::~QXmlNamespaceSupport (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QXmlNamespaceSupport::popContext (   )
+
+
+
+   QString QXmlNamespaceSupport::prefix (  const QString &   )  const
+
+
+
+   QStringList QXmlNamespaceSupport::prefixes (  const QString &   )  const
+
+
+
+   QStringList QXmlNamespaceSupport::prefixes (   )  const
+
+
+
+   void QXmlNamespaceSupport::processName (  const QString &  ,
+                                             bool             ,
+                                             QString &        ,
+                                             QString &      
+                                          )  const
+
+
+
+   void QXmlNamespaceSupport::pushContext (   )
+
+
+
+   void QXmlNamespaceSupport::reset (   )
+
+
+
+   void QXmlNamespaceSupport::setPrefix (  const QString &  ,
+                                           const QString &
+                                        )
+
+
+
+   void QXmlNamespaceSupport::splitName (  const QString &  ,
+                                           QString &        ,
+                                           QString &      
+                                        )  const
+
+
+
+   QString QXmlNamespaceSupport::uri (  const QString &   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QXmlSimpleReaderPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qxml.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

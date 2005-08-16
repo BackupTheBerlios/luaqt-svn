@@ -1,0 +1,319 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QTreeWidgetItem Class Reference
+
+   #include <qtreewidget.h>
+
+   List of all members.
+
+Public Types
+
+     * enum { Type = 0, UserType = 1000 }
+
+Public Member Functions
+
+     * QTreeWidgetItem (int type=Type)
+     * QTreeWidgetItem (QTreeWidget *view, int type=Type)
+     * QTreeWidgetItem (QTreeWidget *view, QTreeWidgetItem *after, int type=Type)
+     * QTreeWidgetItem (QTreeWidgetItem *parent, int type=Type)
+     * QTreeWidgetItem (QTreeWidgetItem *parent, QTreeWidgetItem *after, int type=Type)
+     * virtual ~QTreeWidgetItem ()
+     * virtual QTreeWidgetItem * clone () const
+     * QTreeWidget * treeWidget () const
+     * Qt::ItemFlags flags () const
+     * void setFlags (Qt::ItemFlags flags)
+     * QString text (int column) const
+     * void setText (int column, const QString &text)
+     * QIcon icon (int column) const
+     * void setIcon (int column, const QIcon &icon)
+     * QString statusTip (int column) const
+     * void setStatusTip (int column, const QString &statusTip)
+     * QString toolTip (int column) const
+     * void setToolTip (int column, const QString &toolTip)
+     * QString whatsThis (int column) const
+     * void setWhatsThis (int column, const QString &whatsThis)
+     * QFont font (int column) const
+     * void setFont (int column, const QFont &font)
+     * int textAlignment (int column) const
+     * void setTextAlignment (int column, int alignment)
+     * QColor backgroundColor (int column) const
+     * void setBackgroundColor (int column, const QColor &color)
+     * QColor textColor (int column) const
+     * void setTextColor (int column, const QColor &color)
+     * Qt::CheckState checkState (int column) const
+     * void setCheckState (int column, Qt::CheckState state)
+     * virtual QVariant data (int column, int role) const
+     * virtual void setData (int column, int role, const QVariant &value)
+     * virtual bool operator< (const QTreeWidgetItem &other) const
+     * virtual void read (QDataStream &in)
+     * virtual void write (QDataStream &out) const
+     * QTreeWidgetItem & operator= (const QTreeWidgetItem &other)
+     * QTreeWidgetItem * parent () const
+     * QTreeWidgetItem * child (int index) const
+     * int childCount () const
+     * int columnCount () const
+     * int indexOfChild (QTreeWidgetItem *child) const
+     * void addChild (QTreeWidgetItem *child)
+     * void insertChild (int index, QTreeWidgetItem *child)
+     * QTreeWidgetItem * takeChild (int index)
+     * int type () const
+
+Friends
+
+     * class QTreeModel
+     * class QTreeWidget
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Type    
+          UserType
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTreeWidgetItem::QTreeWidgetItem (  int  type = Type  )
+
+
+
+   QTreeWidgetItem::QTreeWidgetItem (  QTreeWidget *  view,
+                                       int            type = Type
+                                    )  [explicit]
+
+
+
+   QTreeWidgetItem::QTreeWidgetItem (  QTreeWidget *      view,
+                                       QTreeWidgetItem *  after,
+                                       int                type = Type
+                                    )
+
+
+
+   QTreeWidgetItem::QTreeWidgetItem (  QTreeWidgetItem *  parent,
+                                       int                type = Type
+                                    )  [explicit]
+
+
+
+   QTreeWidgetItem::QTreeWidgetItem (  QTreeWidgetItem *  parent,
+                                       QTreeWidgetItem *  after,
+                                       int                type = Type
+                                    )
+
+
+
+   virtual QTreeWidgetItem::~QTreeWidgetItem (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QTreeWidgetItem::addChild (  QTreeWidgetItem *  child  )
+
+
+
+   QColor QTreeWidgetItem::backgroundColor (  int  column  )  const [inline]
+
+
+
+   Qt::CheckState QTreeWidgetItem::checkState (  int  column  )  const [inline]
+
+
+
+   QTreeWidgetItem* QTreeWidgetItem::child (  int  index  )  const [inline]
+
+
+
+   int QTreeWidgetItem::childCount (   )  const [inline]
+
+
+
+   virtual QTreeWidgetItem* QTreeWidgetItem::clone (   )  const [virtual]
+
+
+
+   int QTreeWidgetItem::columnCount (   )  const [inline]
+
+
+
+   virtual QVariant QTreeWidgetItem::data (  int  column,
+                                             int  role
+                                          )  const [virtual]
+
+
+
+   Qt::ItemFlags QTreeWidgetItem::flags (   )  const [inline]
+
+
+
+   QFont QTreeWidgetItem::font (  int  column  )  const [inline]
+
+
+
+   QIcon QTreeWidgetItem::icon (  int  column  )  const [inline]
+
+
+
+   int QTreeWidgetItem::indexOfChild (  QTreeWidgetItem *  child  )  const [inline]
+
+
+
+   void QTreeWidgetItem::insertChild (  int                index,
+                                        QTreeWidgetItem *  child
+                                     )
+
+
+
+   virtual bool QTreeWidgetItem::operator< (  const QTreeWidgetItem &  other  )  const [virtual]
+
+
+
+   QTreeWidgetItem& QTreeWidgetItem::operator= (  const QTreeWidgetItem &  other  )
+
+
+
+   QTreeWidgetItem* QTreeWidgetItem::parent (   )  const [inline]
+
+
+
+   virtual void QTreeWidgetItem::read (  QDataStream &  in  )  [virtual]
+
+
+
+   void QTreeWidgetItem::setBackgroundColor (  int             column,
+                                               const QColor &  color
+                                            )  [inline]
+
+
+
+   void QTreeWidgetItem::setCheckState (  int             column,
+                                          Qt::CheckState  state
+                                       )  [inline]
+
+
+
+   virtual void QTreeWidgetItem::setData (  int               column,
+                                            int               role,
+                                            const QVariant &  value
+                                         )  [virtual]
+
+
+
+   void QTreeWidgetItem::setFlags (  Qt::ItemFlags  flags  )  [inline]
+
+
+
+   void QTreeWidgetItem::setFont (  int            column,
+                                    const QFont &  font
+                                 )  [inline]
+
+
+
+   void QTreeWidgetItem::setIcon (  int            column,
+                                    const QIcon &  icon
+                                 )  [inline]
+
+
+
+   void QTreeWidgetItem::setStatusTip (  int              column,
+                                         const QString &  statusTip
+                                      )  [inline]
+
+
+
+   void QTreeWidgetItem::setText (  int              column,
+                                    const QString &  text
+                                 )  [inline]
+
+
+
+   void QTreeWidgetItem::setTextAlignment (  int  column,
+                                             int  alignment
+                                          )  [inline]
+
+
+
+   void QTreeWidgetItem::setTextColor (  int             column,
+                                         const QColor &  color
+                                      )  [inline]
+
+
+
+   void QTreeWidgetItem::setToolTip (  int              column,
+                                       const QString &  toolTip
+                                    )  [inline]
+
+
+
+   void QTreeWidgetItem::setWhatsThis (  int              column,
+                                         const QString &  whatsThis
+                                      )  [inline]
+
+
+
+   QString QTreeWidgetItem::statusTip (  int  column  )  const [inline]
+
+
+
+   QTreeWidgetItem* QTreeWidgetItem::takeChild (  int  index  )
+
+
+
+   QString QTreeWidgetItem::text (  int  column  )  const [inline]
+
+
+
+   int QTreeWidgetItem::textAlignment (  int  column  )  const [inline]
+
+
+
+   QColor QTreeWidgetItem::textColor (  int  column  )  const [inline]
+
+
+
+   QString QTreeWidgetItem::toolTip (  int  column  )  const [inline]
+
+
+
+   QTreeWidget* QTreeWidgetItem::treeWidget (   )  const [inline]
+
+
+
+   int QTreeWidgetItem::type (   )  const [inline]
+
+
+
+   QString QTreeWidgetItem::whatsThis (  int  column  )  const [inline]
+
+
+
+   virtual void QTreeWidgetItem::write (  QDataStream &  out  )  const [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTreeModel [friend]
+
+
+
+   friend class QTreeWidget [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtreewidget.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

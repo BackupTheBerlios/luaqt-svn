@@ -1,0 +1,193 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QSqlQueryModel Class Reference
+
+   #include <qsqlquerymodel.h>
+
+   Inherits QAbstractTableModel.
+
+   Inherited by QSqlTableModel.
+
+   List of all members.
+
+Public Member Functions
+
+     * QSqlQueryModel (QObject *parent=0)
+     * virtual ~QSqlQueryModel ()
+     * int rowCount (const QModelIndex &parent=QModelIndex()) const
+     * int columnCount (const QModelIndex &parent=QModelIndex()) const
+     * QSqlRecord record (int row) const
+     * QSqlRecord record () const
+     * QVariant data (const QModelIndex &item, int role=Qt::DisplayRole) const
+     * QVariant headerData (int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const
+     * bool setHeaderData (int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole)
+     * bool insertColumns (int column, int count, const QModelIndex &parent=QModelIndex())
+     * bool removeColumns (int column, int count, const QModelIndex &parent=QModelIndex())
+     * void setQuery (const QSqlQuery &query)
+     * void setQuery (const QString &query, const QSqlDatabase &db=QSqlDatabase())
+     * QSqlQuery query () const
+     * virtual void clear ()
+     * QSqlError lastError () const
+     * void fetchMore (const QModelIndex &parent=QModelIndex())
+     * bool canFetchMore (const QModelIndex &parent=QModelIndex()) const
+
+Protected Member Functions
+
+     * virtual void queryChange ()
+     * QModelIndex indexInQuery (const QModelIndex &item) const
+     * void setLastError (const QSqlError &error)
+     * QSqlQueryModel (QSqlQueryModelPrivate &dd, QObject *parent=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSqlQueryModel::QSqlQueryModel (  QObject *  parent = 0  )  [explicit]
+
+
+
+   virtual QSqlQueryModel::~QSqlQueryModel (   )  [virtual]
+
+
+
+   QSqlQueryModel::QSqlQueryModel (  QSqlQueryModelPrivate &  dd,
+                                     QObject *                parent = 0
+                                  )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QSqlQueryModel::canFetchMore (  const QModelIndex &  parent = QModelIndex()  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   virtual void QSqlQueryModel::clear (   )  [virtual]
+
+
+
+   Reimplemented in QSqlRelationalTableModel, and QSqlTableModel.
+
+   int QSqlQueryModel::columnCount (  const QModelIndex &  parent = QModelIndex()  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   QVariant QSqlQueryModel::data (  const QModelIndex &  item,
+                                    int                  role = Qt::DisplayRole
+                                 )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   Reimplemented in QSqlRelationalTableModel, and QSqlTableModel.
+
+   void QSqlQueryModel::fetchMore (  const QModelIndex &  parent = QModelIndex()  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QVariant QSqlQueryModel::headerData (  int              section,
+                                          Qt::Orientation  orientation,
+                                          int              role = Qt::DisplayRole
+                                       )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   Reimplemented in QSqlTableModel.
+
+   QModelIndex QSqlQueryModel::indexInQuery (  const QModelIndex &  item  )  const [protected]
+
+
+
+   Reimplemented in QSqlTableModel.
+
+   bool QSqlQueryModel::insertColumns (  int                  column,
+                                         int                  count,
+                                         const QModelIndex &  parent = QModelIndex()
+                                      )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QSqlError QSqlQueryModel::lastError (   )  const
+
+
+
+   QSqlQuery QSqlQueryModel::query (   )  const
+
+
+
+   virtual void QSqlQueryModel::queryChange (   )  [protected, virtual]
+
+
+
+   QSqlRecord QSqlQueryModel::record (   )  const
+
+
+
+   QSqlRecord QSqlQueryModel::record (  int  row  )  const
+
+
+
+   bool QSqlQueryModel::removeColumns (  int                  column,
+                                         int                  count,
+                                         const QModelIndex &  parent = QModelIndex()
+                                      )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   Reimplemented in QSqlTableModel.
+
+   int QSqlQueryModel::rowCount (  const QModelIndex &  parent = QModelIndex()  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   Reimplemented in QSqlTableModel.
+
+   bool QSqlQueryModel::setHeaderData (  int               section,
+                                         Qt::Orientation   orientation,
+                                         const QVariant &  value,
+                                         int               role = Qt::EditRole
+                                      )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   void QSqlQueryModel::setLastError (  const QSqlError &  error  )  [protected]
+
+
+
+   void QSqlQueryModel::setQuery (  const QString &       query,
+                                    const QSqlDatabase &  db = QSqlDatabase()
+                                 )
+
+
+
+   void QSqlQueryModel::setQuery (  const QSqlQuery &  query  )
+
+
+
+   Reimplemented in QSqlTableModel.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqlquerymodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,344 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              Q3GList Class Reference
+
+   #include <q3glist.h>
+
+   Inherits Q3PtrCollection.
+
+   Inherited by Q3PtrList< type >, Q3PtrList< char >, Q3PtrList< Q3TableSelection >, Q3PtrQueue< type > [protected], and Q3PtrStack< type > [protected].
+
+   List of all members.
+
+Public Member Functions
+
+     * uint count () const
+     * QDataStream & read (QDataStream &)
+     * QDataStream & write (QDataStream &) const
+
+Protected Member Functions
+
+     * Q3GList ()
+     * Q3GList (const Q3GList &)
+     * virtual ~Q3GList ()
+     * Q3GList & operator= (const Q3GList &)
+     * bool operator== (const Q3GList &) const
+     * void inSort (Q3PtrCollection::Item)
+     * void append (Q3PtrCollection::Item)
+     * bool insertAt (uint index, Q3PtrCollection::Item)
+     * void relinkNode (Q3LNode *)
+     * bool removeNode (Q3LNode *)
+     * bool remove (Q3PtrCollection::Item=0)
+     * bool removeRef (Q3PtrCollection::Item=0)
+     * bool removeFirst ()
+     * bool removeLast ()
+     * bool removeAt (uint)
+     * bool replaceAt (uint, Q3PtrCollection::Item)
+     * Q3PtrCollection::Item takeNode (Q3LNode *)
+     * Q3PtrCollection::Item take ()
+     * Q3PtrCollection::Item takeAt (uint index)
+     * Q3PtrCollection::Item takeFirst ()
+     * Q3PtrCollection::Item takeLast ()
+     * void sort ()
+     * void clear ()
+     * int findRef (Q3PtrCollection::Item, bool=true)
+     * int find (Q3PtrCollection::Item, bool=true)
+     * uint containsRef (Q3PtrCollection::Item) const
+     * uint contains (Q3PtrCollection::Item) const
+     * Q3PtrCollection::Item at (uint index)
+     * int at () const
+     * Q3LNode * currentNode () const
+     * Q3PtrCollection::Item get () const
+     * Q3PtrCollection::Item cfirst () const
+     * Q3PtrCollection::Item clast () const
+     * Q3PtrCollection::Item first ()
+     * Q3PtrCollection::Item last ()
+     * Q3PtrCollection::Item next ()
+     * Q3PtrCollection::Item prev ()
+     * void toVector (Q3GVector *) const
+     * virtual int compareItems (Q3PtrCollection::Item, Q3PtrCollection::Item)
+     * virtual QDataStream & read (QDataStream &, Q3PtrCollection::Item &)
+     * virtual QDataStream & write (QDataStream &, Q3PtrCollection::Item) const
+     * Q3LNode * begin () const
+     * Q3LNode * end () const
+     * Q3LNode * erase (Q3LNode *it)
+
+Friends
+
+     * class Q3GListIterator
+     * class Q3GListIteratorList
+     * class Q3GVector
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3GList::Q3GList (   )  [protected]
+
+
+
+   Q3GList::Q3GList (  const Q3GList &   )  [protected]
+
+
+
+   virtual Q3GList::~Q3GList (   )  [protected, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3GList::append (  Q3PtrCollection::Item   )  [protected]
+
+
+
+   int Q3GList::at (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3PtrCollection::Item Q3GList::at (  uint  index  )  [inline, protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3LNode* Q3GList::begin (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3PtrCollection::Item Q3GList::cfirst (   )  const [inline, protected]
+
+
+
+   Q3PtrCollection::Item Q3GList::clast (   )  const [inline, protected]
+
+
+
+   void Q3GList::clear (   )  [protected, virtual]
+
+
+
+   Implements Q3PtrCollection.
+
+   Reimplemented in Q3PtrList< type >, Q3PtrQueue< type >, Q3PtrStack< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   virtual int Q3GList::compareItems (  Q3PtrCollection::Item  ,
+                                        Q3PtrCollection::Item
+                                     )  [protected, virtual]
+
+
+
+   Reimplemented in Q3SortedList< type >.
+
+   uint Q3GList::contains (  Q3PtrCollection::Item   )  const [protected]
+
+
+
+   uint Q3GList::containsRef (  Q3PtrCollection::Item   )  const [protected]
+
+
+
+   uint Q3GList::count (   )  const [inline, virtual]
+
+
+
+   Implements Q3PtrCollection.
+
+   Reimplemented in Q3PtrList< type >, Q3PtrQueue< type >, Q3PtrStack< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3LNode * Q3GList::currentNode (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3LNode* Q3GList::end (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3LNode* Q3GList::erase (  Q3LNode *  it  )  [protected]
+
+
+
+   int Q3GList::find (  Q3PtrCollection::Item  ,
+                        bool                   = true
+                     )  [protected]
+
+
+
+   int Q3GList::findRef (  Q3PtrCollection::Item  ,
+                           bool                   = true
+                        )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GList::first (   )  [protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3PtrCollection::Item Q3GList::get (   )  const [inline, protected]
+
+
+
+   bool Q3GList::insertAt (  uint                   index,
+                             Q3PtrCollection::Item
+                          )  [protected]
+
+
+
+   void Q3GList::inSort (  Q3PtrCollection::Item   )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GList::last (   )  [protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3PtrCollection::Item Q3GList::next (   )  [protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3GList& Q3GList::operator= (  const Q3GList &   )  [protected]
+
+
+
+   bool Q3GList::operator== (  const Q3GList &   )  const [protected]
+
+
+
+   Q3PtrCollection::Item Q3GList::prev (   )  [protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   virtual QDataStream& Q3GList::read (  QDataStream &            ,
+                                         Q3PtrCollection::Item &
+                                      )  [protected, virtual]
+
+
+
+   QDataStream& Q3GList::read (  QDataStream &   )
+
+
+
+   void Q3GList::relinkNode (  Q3LNode *   )  [protected]
+
+
+
+   bool Q3GList::remove (  Q3PtrCollection::Item  = 0  )  [protected]
+
+
+
+   bool Q3GList::removeAt (  uint   )  [protected]
+
+
+
+   bool Q3GList::removeFirst (   )  [inline, protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   bool Q3GList::removeLast (   )  [inline, protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   bool Q3GList::removeNode (  Q3LNode *   )  [protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   bool Q3GList::removeRef (  Q3PtrCollection::Item  = 0  )  [protected]
+
+
+
+   bool Q3GList::replaceAt (  uint                   ,
+                              Q3PtrCollection::Item
+                           )  [protected]
+
+
+
+   void Q3GList::sort (   )  [protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3PtrCollection::Item Q3GList::take (   )  [protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   Q3PtrCollection::Item Q3GList::takeAt (  uint  index  )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GList::takeFirst (   )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GList::takeLast (   )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GList::takeNode (  Q3LNode *   )  [protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   void Q3GList::toVector (  Q3GVector *   )  const [protected]
+
+
+
+   Reimplemented in Q3PtrList< type >, Q3PtrList< Q3TableSelection >, and Q3PtrList< char >.
+
+   virtual QDataStream& Q3GList::write (  QDataStream &          ,
+                                          Q3PtrCollection::Item
+                                       )  const [protected, virtual]
+
+
+
+   QDataStream& Q3GList::write (  QDataStream &   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3GListIterator [friend]
+
+
+
+   friend class Q3GListIteratorList [friend]
+
+
+
+   friend class Q3GVector [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3glist.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

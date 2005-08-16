@@ -1,0 +1,593 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QApplication Class Reference
+
+   #include <qapplication.h>
+
+   Inherits QCoreApplication.
+
+   List of all members.
+
+Public Types
+
+     * enum Type { Tty, GuiClient, GuiServer }
+     * enum ColorSpec { NormalColor = 0, CustomColor = 1, ManyColor = 2 }
+
+Public Slots
+
+     * static void closeAllWindows ()
+     * static void aboutQt ()
+
+Signals
+
+     * void lastWindowClosed ()
+
+Public Member Functions
+
+     * QApplication (int &argc, char **argv)
+     * QApplication (int &argc, char **argv, bool GUIenabled)
+     * QApplication (int &argc, char **argv, Type)
+     * virtual ~QApplication ()
+     * bool isSessionRestored () const
+     * QString sessionId () const
+     * QString sessionKey () const
+     * virtual void commitData (QSessionManager &sm)
+     * virtual void saveState (QSessionManager &sm)
+     * void setInputContext (QInputContext *)
+     * QInputContext * inputContext () const
+     * bool notify (QObject *, QEvent *)
+
+Static Public Member Functions
+
+     * static Type type ()
+     * static QStyle * style ()
+     * static void setStyle (QStyle *)
+     * static QStyle * setStyle (const QString &)
+     * static int colorSpec ()
+     * static void setColorSpec (int)
+     * static QCursor * overrideCursor ()
+     * static void setOverrideCursor (const QCursor &)
+     * static void changeOverrideCursor (const QCursor &)
+     * static void restoreOverrideCursor ()
+     * static QPalette palette ()
+     * static QPalette palette (const QWidget *)
+     * static QPalette palette (const char *className)
+     * static void setPalette (const QPalette &, const char *className=0)
+     * static QFont font (const QWidget *=0)
+     * static void setFont (const QFont &, const char *className=0)
+     * static QFontMetrics fontMetrics ()
+     * static void setWindowIcon (const QIcon &icon)
+     * static QIcon windowIcon ()
+     * static QWidgetList allWidgets ()
+     * static QWidgetList topLevelWidgets ()
+     * static QDesktopWidget * desktop ()
+     * static QWidget * activePopupWidget ()
+     * static QWidget * activeModalWidget ()
+     * static QClipboard * clipboard ()
+     * static QWidget * focusWidget ()
+     * static QWidget * activeWindow ()
+     * static void setActiveWindow (QWidget *act)
+     * static QWidget * widgetAt (const QPoint &p)
+     * static QWidget * widgetAt (int x, int y)
+     * static QWidget * topLevelAt (const QPoint &p)
+     * static QWidget * topLevelAt (int x, int y)
+     * static void syncX ()
+     * static void beep ()
+     * static Qt::KeyboardModifiers keyboardModifiers ()
+     * static Qt::MouseButtons mouseButtons ()
+     * static void setDesktopSettingsAware (bool)
+     * static bool desktopSettingsAware ()
+     * static void setCursorFlashTime (int)
+     * static int cursorFlashTime ()
+     * static void setDoubleClickInterval (int)
+     * static int doubleClickInterval ()
+     * static void setKeyboardInputInterval (int)
+     * static int keyboardInputInterval ()
+     * static void setWheelScrollLines (int)
+     * static int wheelScrollLines ()
+     * static void setGlobalStrut (const QSize &)
+     * static QSize globalStrut ()
+     * static void setStartDragTime (int ms)
+     * static int startDragTime ()
+     * static void setStartDragDistance (int l)
+     * static int startDragDistance ()
+     * static void setLayoutDirection (Qt::LayoutDirection direction)
+     * static Qt::LayoutDirection layoutDirection ()
+     * static bool isRightToLeft ()
+     * static bool isLeftToRight ()
+     * static bool isEffectEnabled (Qt::UIEffect)
+     * static void setEffectEnabled (Qt::UIEffect, bool enable=true)
+     * static int exec ()
+     * static void setQuitOnLastWindowClosed (bool quit)
+     * static bool quitOnLastWindowClosed ()
+
+Protected Member Functions
+
+     * bool event (QEvent *)
+     * bool compressEvent (QEvent *, QObject *receiver, QPostEventList *)
+
+Properties
+
+     * Qt LayoutDirection
+     * QIcon windowIcon
+     * int cursorFlashTime
+     * int doubleClickInterval
+     * int keyboardInputInterval
+     * int wheelScrollLines
+     * QSize globalStrut
+     * int startDragTime
+     * int startDragDistance
+     * bool quitOnLastWindowClosed
+
+Friends
+
+     * class QWidget
+     * class QWidgetPrivate
+     * class QETWidget
+     * class Q3AccelManager
+     * class QTranslator
+     * class QShortcut
+     * class QAction
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QApplication::ColorSpec
+
+
+
+   Enumerator: 
+
+          NormalColor
+          CustomColor
+          ManyColor  
+
+   enum QApplication::Type
+
+
+
+   Enumerator: 
+
+          Tty      
+          GuiClient
+          GuiServer
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QApplication::QApplication (  int &    argc,
+                                 char **  argv
+                              )
+
+
+
+   QApplication::QApplication (  int &    argc,
+                                 char **  argv,
+                                 bool     GUIenabled
+                              )
+
+
+
+   QApplication::QApplication (  int &    argc,
+                                 char **  argv,
+                                 Type   
+                              )
+
+
+
+   virtual QApplication::~QApplication (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static void QApplication::aboutQt (   )  [static, slot]
+
+
+
+   static QWidget* QApplication::activeModalWidget (   )  [static]
+
+
+
+   static QWidget* QApplication::activePopupWidget (   )  [static]
+
+
+
+   static QWidget* QApplication::activeWindow (   )  [static]
+
+
+
+   static QWidgetList QApplication::allWidgets (   )  [static]
+
+
+
+   static void QApplication::beep (   )  [static]
+
+
+
+   static void QApplication::changeOverrideCursor (  const QCursor &   )  [static]
+
+
+
+   static QClipboard* QApplication::clipboard (   )  [static]
+
+
+
+   static void QApplication::closeAllWindows (   )  [static, slot]
+
+
+
+   static int QApplication::colorSpec (   )  [static]
+
+
+
+   virtual void QApplication::commitData (  QSessionManager &  sm  )  [virtual]
+
+
+
+   bool QApplication::compressEvent (  QEvent *          ,
+                                       QObject *         receiver,
+                                       QPostEventList *
+                                    )  [protected, virtual]
+
+
+
+   Reimplemented from QCoreApplication.
+
+   static int QApplication::cursorFlashTime (   )  [static]
+
+
+
+   static QDesktopWidget* QApplication::desktop (   )  [static]
+
+
+
+   static bool QApplication::desktopSettingsAware (   )  [static]
+
+
+
+   static int QApplication::doubleClickInterval (   )  [static]
+
+
+
+   bool QApplication::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QCoreApplication.
+
+   static int QApplication::exec (   )  [static]
+
+
+
+   Reimplemented from QCoreApplication.
+
+   static QWidget* QApplication::focusWidget (   )  [static]
+
+
+
+   static QFont QApplication::font (  const QWidget *  = 0  )  [static]
+
+
+
+   static QFontMetrics QApplication::fontMetrics (   )  [static]
+
+
+
+   static QSize QApplication::globalStrut (   )  [static]
+
+
+
+   QInputContext* QApplication::inputContext (   )  const
+
+
+
+   static bool QApplication::isEffectEnabled (  Qt::UIEffect   )  [static]
+
+
+
+   static bool QApplication::isLeftToRight (   )  [inline, static]
+
+
+
+   static bool QApplication::isRightToLeft (   )  [inline, static]
+
+
+
+   bool QApplication::isSessionRestored (   )  const
+
+
+
+   static int QApplication::keyboardInputInterval (   )  [static]
+
+
+
+   static Qt::KeyboardModifiers QApplication::keyboardModifiers (   )  [static]
+
+
+
+   void QApplication::lastWindowClosed (   )  [signal]
+
+
+
+   static Qt::LayoutDirection QApplication::layoutDirection (   )  [static]
+
+
+
+   static Qt::MouseButtons QApplication::mouseButtons (   )  [static]
+
+
+
+   bool QApplication::notify (  QObject *  ,
+                                QEvent * 
+                             )  [virtual]
+
+
+
+   Reimplemented from QCoreApplication.
+
+   static QCursor* QApplication::overrideCursor (   )  [static]
+
+
+
+   static QPalette QApplication::palette (  const char *  className  )  [static]
+
+
+
+   static QPalette QApplication::palette (  const QWidget *   )  [static]
+
+
+
+   static QPalette QApplication::palette (   )  [static]
+
+
+
+   static bool QApplication::quitOnLastWindowClosed (   )  [static]
+
+
+
+   static void QApplication::restoreOverrideCursor (   )  [static]
+
+
+
+   virtual void QApplication::saveState (  QSessionManager &  sm  )  [virtual]
+
+
+
+   QString QApplication::sessionId (   )  const
+
+
+
+   QString QApplication::sessionKey (   )  const
+
+
+
+   static void QApplication::setActiveWindow (  QWidget *  act  )  [static]
+
+
+
+   static void QApplication::setColorSpec (  int   )  [static]
+
+
+
+   static void QApplication::setCursorFlashTime (  int   )  [static]
+
+
+
+   static void QApplication::setDesktopSettingsAware (  bool   )  [static]
+
+
+
+   static void QApplication::setDoubleClickInterval (  int   )  [static]
+
+
+
+   static void QApplication::setEffectEnabled (  Qt::UIEffect  ,
+                                                 bool          enable = true
+                                              )  [static]
+
+
+
+   static void QApplication::setFont (  const QFont &  ,
+                                        const char *   className = 0
+                                     )  [static]
+
+
+
+   static void QApplication::setGlobalStrut (  const QSize &   )  [static]
+
+
+
+   void QApplication::setInputContext (  QInputContext *   )
+
+
+
+   static void QApplication::setKeyboardInputInterval (  int   )  [static]
+
+
+
+   static void QApplication::setLayoutDirection (  Qt::LayoutDirection  direction  )  [static]
+
+
+
+   static void QApplication::setOverrideCursor (  const QCursor &   )  [static]
+
+
+
+   static void QApplication::setPalette (  const QPalette &  ,
+                                           const char *      className = 0
+                                        )  [static]
+
+
+
+   static void QApplication::setQuitOnLastWindowClosed (  bool  quit  )  [static]
+
+
+
+   static void QApplication::setStartDragDistance (  int  l  )  [static]
+
+
+
+   static void QApplication::setStartDragTime (  int  ms  )  [static]
+
+
+
+   static QStyle* QApplication::setStyle (  const QString &   )  [static]
+
+
+
+   static void QApplication::setStyle (  QStyle *   )  [static]
+
+
+
+   static void QApplication::setWheelScrollLines (  int   )  [static]
+
+
+
+   static void QApplication::setWindowIcon (  const QIcon &  icon  )  [static]
+
+
+
+   static int QApplication::startDragDistance (   )  [static]
+
+
+
+   static int QApplication::startDragTime (   )  [static]
+
+
+
+   static QStyle* QApplication::style (   )  [static]
+
+
+
+   static void QApplication::syncX (   )  [static]
+
+
+
+   static QWidget* QApplication::topLevelAt (  int  x,
+                                               int  y
+                                            )  [inline, static]
+
+
+
+   static QWidget* QApplication::topLevelAt (  const QPoint &  p  )  [static]
+
+
+
+   static QWidgetList QApplication::topLevelWidgets (   )  [static]
+
+
+
+   static Type QApplication::type (   )  [static]
+
+
+
+   static int QApplication::wheelScrollLines (   )  [static]
+
+
+
+   static QWidget* QApplication::widgetAt (  int  x,
+                                             int  y
+                                          )  [inline, static]
+
+
+
+   static QWidget* QApplication::widgetAt (  const QPoint &  p  )  [static]
+
+
+
+   static QIcon QApplication::windowIcon (   )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3AccelManager [friend]
+
+
+
+   Reimplemented from QCoreApplication.
+
+   friend class QAction [friend]
+
+
+
+   friend class QETWidget [friend]
+
+
+
+   Reimplemented from QCoreApplication.
+
+   friend class QShortcut [friend]
+
+
+
+   friend class QTranslator [friend]
+
+
+
+   friend class QWidget [friend]
+
+
+
+   Reimplemented from QCoreApplication.
+
+   friend class QWidgetPrivate [friend]
+
+
+
+   Reimplemented from QCoreApplication.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QApplication::cursorFlashTime [read, write]
+
+
+
+   int QApplication::doubleClickInterval [read, write]
+
+
+
+   QSize QApplication::globalStrut [read, write]
+
+
+
+   int QApplication::keyboardInputInterval [read, write]
+
+
+
+   Qt QApplication::LayoutDirection [read, write]
+
+
+
+   bool QApplication::quitOnLastWindowClosed [read, write]
+
+
+
+   int QApplication::startDragDistance [read, write]
+
+
+
+   int QApplication::startDragTime [read, write]
+
+
+
+   int QApplication::wheelScrollLines [read, write]
+
+
+
+   QIcon QApplication::windowIcon [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qapplication.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

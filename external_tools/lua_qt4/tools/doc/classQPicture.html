@@ -1,0 +1,209 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QPicture Class Reference
+
+   #include <qpicture.h>
+
+   Inherits QPaintDevice.
+
+   List of all members.
+
+Public Member Functions
+
+     * QPicture (int formatVersion=-1)
+     * QPicture (const QPicture &)
+     * ~QPicture ()
+     * bool isNull () const
+     * int devType () const
+     * uint size () const
+     * const char * data () const
+     * virtual void setData (const char *data, uint size)
+     * bool play (QPainter *p)
+     * bool load (QIODevice *dev, const char *format=0)
+     * bool load (const QString &fileName, const char *format=0)
+     * bool save (QIODevice *dev, const char *format=0)
+     * bool save (const QString &fileName, const char *format=0)
+     * QRect boundingRect () const
+     * void setBoundingRect (const QRect &r)
+     * QPicture & operator= (const QPicture &p)
+     * void detach ()
+     * bool isDetached () const
+     * QPaintEngine * paintEngine () const
+
+Static Public Member Functions
+
+     * static const char * pictureFormat (const QString &fileName)
+     * static QList< QByteArray > inputFormats ()
+     * static QList< QByteArray > outputFormats ()
+     * static QStringList inputFormatList ()
+     * static QStringList outputFormatList ()
+
+Protected Member Functions
+
+     * QPicture (QPicturePrivate &data)
+     * int metric (PaintDeviceMetric m) const
+
+Friends
+
+     * class QPicturePaintEngine
+     * class Q3Picture
+     * Q_GUI_EXPORT QDataStream & operator<< (QDataStream &in, const QPicture &p)
+     * Q_GUI_EXPORT QDataStream & operator>> (QDataStream &in, QPicture &p)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPicture::QPicture (  int  formatVersion = -1  )  [explicit]
+
+
+
+   QPicture::QPicture (  const QPicture &   )
+
+
+
+   QPicture::~QPicture (   )
+
+
+
+   QPicture::QPicture (  QPicturePrivate &  data  )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QRect QPicture::boundingRect (   )  const
+
+
+
+   const char* QPicture::data (   )  const
+
+
+
+   void QPicture::detach (   )
+
+
+
+   int QPicture::devType (   )  const [virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   static QStringList QPicture::inputFormatList (   )  [static]
+
+
+
+   static QList<QByteArray> QPicture::inputFormats (   )  [static]
+
+
+
+   bool QPicture::isDetached (   )  const
+
+
+
+   bool QPicture::isNull (   )  const
+
+
+
+   bool QPicture::load (  const QString &  fileName,
+                          const char *     format = 0
+                       )
+
+
+
+   bool QPicture::load (  QIODevice *   dev,
+                          const char *  format = 0
+                       )
+
+
+
+   int QPicture::metric (  PaintDeviceMetric  m  )  const [protected, virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   QPicture& QPicture::operator= (  const QPicture &  p  )
+
+
+
+   static QStringList QPicture::outputFormatList (   )  [static]
+
+
+
+   static QList<QByteArray> QPicture::outputFormats (   )  [static]
+
+
+
+   QPaintEngine* QPicture::paintEngine (   )  const [virtual]
+
+
+
+   Implements QPaintDevice.
+
+   static const char* QPicture::pictureFormat (  const QString &  fileName  )  [static]
+
+
+
+   bool QPicture::play (  QPainter *  p  )
+
+
+
+   bool QPicture::save (  const QString &  fileName,
+                          const char *     format = 0
+                       )
+
+
+
+   bool QPicture::save (  QIODevice *   dev,
+                          const char *  format = 0
+                       )
+
+
+
+   void QPicture::setBoundingRect (  const QRect &  r  )
+
+
+
+   virtual void QPicture::setData (  const char *  data,
+                                     uint          size
+                                  )  [virtual]
+
+
+
+   uint QPicture::size (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_GUI_EXPORT QDataStream& operator<< (  QDataStream &     in,
+                                           const QPicture &  p
+                                        )  [friend]
+
+
+
+   Q_GUI_EXPORT QDataStream& operator>> (  QDataStream &  in,
+                                           QPicture &     p
+                                        )  [friend]
+
+
+
+   friend class Q3Picture [friend]
+
+
+
+   friend class QPicturePaintEngine [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpicture.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

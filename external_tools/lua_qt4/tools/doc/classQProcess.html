@@ -1,0 +1,357 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QProcess Class Reference
+
+   #include <qprocess.h>
+
+   Inherits QIODevice.
+
+   List of all members.
+
+Public Types
+
+     * enum ProcessError {
+         FailedToStart, Crashed, Timedout, ReadError,
+         WriteError, UnknownError
+       }
+     * enum ProcessState { NotRunning, Starting, Running }
+     * enum ProcessChannel { StandardOutput, StandardError }
+     * enum ProcessChannelMode { SeparateChannels, MergedChannels, ForwardedChannels }
+
+Public Slots
+
+     * void terminate ()
+     * void kill ()
+
+Signals
+
+     * void started ()
+     * void finished (int exitCode)
+     * void error (ProcessError error)
+     * void stateChanged (ProcessState state)
+     * void readyReadStandardOutput ()
+     * void readyReadStandardError ()
+
+Public Member Functions
+
+     * QProcess (QObject *parent=0)
+     * virtual ~QProcess ()
+     * void start (const QString &program, const QStringList &arguments, OpenMode mode=ReadWrite)
+     * void start (const QString &program, OpenMode mode=ReadWrite)
+     * ProcessChannelMode readChannelMode () const
+     * void setReadChannelMode (ProcessChannelMode mode)
+     * ProcessChannel readChannel () const
+     * void setReadChannel (ProcessChannel channel)
+     * void closeReadChannel (ProcessChannel channel)
+     * void closeWriteChannel ()
+     * QString workingDirectory () const
+     * void setWorkingDirectory (const QString &dir)
+     * void setEnvironment (const QStringList &environment)
+     * QStringList environment () const
+     * QProcess::ProcessError error () const
+     * QProcess::ProcessState state () const
+     * Q_PID pid () const
+     * bool waitForStarted (int msecs=30000)
+     * bool waitForReadyRead (int msecs=30000)
+     * bool waitForBytesWritten (int msecs=30000)
+     * bool waitForFinished (int msecs=30000)
+     * QByteArray readAllStandardOutput ()
+     * QByteArray readAllStandardError ()
+     * int exitCode () const
+     * qint64 bytesAvailable () const
+     * qint64 bytesToWrite () const
+     * bool isSequential () const
+     * bool canReadLine () const
+     * void close ()
+     * bool atEnd () const
+
+Static Public Member Functions
+
+     * static int execute (const QString &program, const QStringList &arguments)
+     * static int execute (const QString &program)
+     * static bool startDetached (const QString &program, const QStringList &arguments)
+     * static bool startDetached (const QString &program)
+
+Protected Member Functions
+
+     * void setProcessState (ProcessState state)
+     * virtual void setupChildProcess ()
+     * qint64 readData (char *data, qint64 maxlen)
+     * qint64 writeData (const char *data, qint64 len)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QProcess::ProcessChannel
+
+
+
+   Enumerator: 
+
+          StandardOutput
+          StandardError 
+
+   enum QProcess::ProcessChannelMode
+
+
+
+   Enumerator: 
+
+          SeparateChannels 
+          MergedChannels   
+          ForwardedChannels
+
+   enum QProcess::ProcessError
+
+
+
+   Enumerator: 
+
+          FailedToStart
+          Crashed      
+          Timedout     
+          ReadError    
+          WriteError   
+          UnknownError 
+
+   enum QProcess::ProcessState
+
+
+
+   Enumerator: 
+
+          NotRunning
+          Starting  
+          Running   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QProcess::QProcess (  QObject *  parent = 0  )  [explicit]
+
+
+
+   virtual QProcess::~QProcess (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QProcess::atEnd (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   qint64 QProcess::bytesAvailable (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   qint64 QProcess::bytesToWrite (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   bool QProcess::canReadLine (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void QProcess::close (   )  [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void QProcess::closeReadChannel (  ProcessChannel  channel  )
+
+
+
+   void QProcess::closeWriteChannel (   )
+
+
+
+   QStringList QProcess::environment (   )  const
+
+
+
+   void QProcess::error (  ProcessError  error  )  [signal]
+
+
+
+   QProcess::ProcessError QProcess::error (   )  const
+
+
+
+   static int QProcess::execute (  const QString &  program  )  [static]
+
+
+
+   static int QProcess::execute (  const QString &      program,
+                                   const QStringList &  arguments
+                                )  [static]
+
+
+
+   int QProcess::exitCode (   )  const
+
+
+
+   void QProcess::finished (  int  exitCode  )  [signal]
+
+
+
+   bool QProcess::isSequential (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void QProcess::kill (   )  [slot]
+
+
+
+   Q_PID QProcess::pid (   )  const
+
+
+
+   QByteArray QProcess::readAllStandardError (   )
+
+
+
+   QByteArray QProcess::readAllStandardOutput (   )
+
+
+
+   ProcessChannel QProcess::readChannel (   )  const
+
+
+
+   ProcessChannelMode QProcess::readChannelMode (   )  const
+
+
+
+   qint64 QProcess::readData (  char *  data,
+                                qint64  maxlen
+                             )  [protected, virtual]
+
+
+
+   Implements QIODevice.
+
+   void QProcess::readyReadStandardError (   )  [signal]
+
+
+
+   void QProcess::readyReadStandardOutput (   )  [signal]
+
+
+
+   void QProcess::setEnvironment (  const QStringList &  environment  )
+
+
+
+   void QProcess::setProcessState (  ProcessState  state  )  [protected]
+
+
+
+   void QProcess::setReadChannel (  ProcessChannel  channel  )
+
+
+
+   void QProcess::setReadChannelMode (  ProcessChannelMode  mode  )
+
+
+
+   virtual void QProcess::setupChildProcess (   )  [protected, virtual]
+
+
+
+   void QProcess::setWorkingDirectory (  const QString &  dir  )
+
+
+
+   void QProcess::start (  const QString &  program,
+                           OpenMode         mode = ReadWrite
+                        )
+
+
+
+   void QProcess::start (  const QString &      program,
+                           const QStringList &  arguments,
+                           OpenMode             mode = ReadWrite
+                        )
+
+
+
+   static bool QProcess::startDetached (  const QString &  program  )  [static]
+
+
+
+   static bool QProcess::startDetached (  const QString &      program,
+                                          const QStringList &  arguments
+                                       )  [static]
+
+
+
+   void QProcess::started (   )  [signal]
+
+
+
+   QProcess::ProcessState QProcess::state (   )  const
+
+
+
+   void QProcess::stateChanged (  ProcessState  state  )  [signal]
+
+
+
+   void QProcess::terminate (   )  [slot]
+
+
+
+   bool QProcess::waitForBytesWritten (  int  msecs = 30000  )  [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   bool QProcess::waitForFinished (  int  msecs = 30000  )
+
+
+
+   bool QProcess::waitForReadyRead (  int  msecs = 30000  )  [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   bool QProcess::waitForStarted (  int  msecs = 30000  )
+
+
+
+   QString QProcess::workingDirectory (   )  const
+
+
+
+   qint64 QProcess::writeData (  const char *  data,
+                                 qint64        len
+                              )  [protected, virtual]
+
+
+
+   Implements QIODevice.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qprocess.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,119 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QMouseEvent Class Reference
+
+   #include <qevent.h>
+
+   Inherits QInputEvent.
+
+   List of all members.
+
+Public Member Functions
+
+     * QMouseEvent (Type type, const QPoint &pos, Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers)
+     * QMouseEvent (Type type, const QPoint &pos, const QPoint &globalPos, Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers)
+     * ~QMouseEvent ()
+     * const QPoint & pos () const
+     * const QPoint & globalPos () const
+     * int x () const
+     * int y () const
+     * int globalX () const
+     * int globalY () const
+     * Qt::MouseButton button () const
+     * Qt::MouseButtons buttons () const
+
+Protected Attributes
+
+     * QPoint p
+     * QPoint g
+     * Qt::MouseButton b
+     * Qt::MouseButtons mouseState
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMouseEvent::QMouseEvent (  Type                   type,
+                               const QPoint &         pos,
+                               Qt::MouseButton        button,
+                               Qt::MouseButtons       buttons,
+                               Qt::KeyboardModifiers  modifiers
+                            )
+
+
+
+   QMouseEvent::QMouseEvent (  Type                   type,
+                               const QPoint &         pos,
+                               const QPoint &         globalPos,
+                               Qt::MouseButton        button,
+                               Qt::MouseButtons       buttons,
+                               Qt::KeyboardModifiers  modifiers
+                            )
+
+
+
+   QMouseEvent::~QMouseEvent (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::MouseButton QMouseEvent::button (   )  const [inline]
+
+
+
+   Qt::MouseButtons QMouseEvent::buttons (   )  const [inline]
+
+
+
+   const QPoint& QMouseEvent::globalPos (   )  const [inline]
+
+
+
+   int QMouseEvent::globalX (   )  const [inline]
+
+
+
+   int QMouseEvent::globalY (   )  const [inline]
+
+
+
+   const QPoint& QMouseEvent::pos (   )  const [inline]
+
+
+
+   int QMouseEvent::x (   )  const [inline]
+
+
+
+   int QMouseEvent::y (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   Qt::MouseButton QMouseEvent::b [protected]
+
+
+
+   QPoint QMouseEvent::g [protected]
+
+
+
+   Qt::MouseButtons QMouseEvent::mouseState [protected]
+
+
+
+   QPoint QMouseEvent::p [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qevent.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

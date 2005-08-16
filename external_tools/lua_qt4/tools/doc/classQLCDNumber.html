@@ -1,0 +1,232 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QLCDNumber Class Reference
+
+   #include <qlcdnumber.h>
+
+   Inherits QFrame.
+
+   List of all members.
+
+Public Types
+
+     * enum Mode { Hex, Dec, Oct, Bin }
+     * enum SegmentStyle { Outline, Filled, Flat }
+
+Public Slots
+
+     * void display (const QString &str)
+     * void display (int num)
+     * void display (double num)
+     * void setHexMode ()
+     * void setDecMode ()
+     * void setOctMode ()
+     * void setBinMode ()
+     * void setSmallDecimalPoint (bool)
+
+Signals
+
+     * void overflow ()
+
+Public Member Functions
+
+     * QLCDNumber (QWidget *parent=0)
+     * QLCDNumber (uint numDigits, QWidget *parent=0)
+     * ~QLCDNumber ()
+     * bool smallDecimalPoint () const
+     * int numDigits () const
+     * void setNumDigits (int nDigits)
+     * bool checkOverflow (double num) const
+     * bool checkOverflow (int num) const
+     * Mode mode () const
+     * void setMode (Mode)
+     * SegmentStyle segmentStyle () const
+     * void setSegmentStyle (SegmentStyle)
+     * double value () const
+     * int intValue () const
+     * QSize sizeHint () const
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+
+Properties
+
+     * bool smallDecimalPoint
+     * int numDigits
+     * Mode mode
+     * SegmentStyle segmentStyle
+     * double value
+     * int intValue
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QLCDNumber::Mode
+
+
+
+   Enumerator: 
+
+          Hex
+          Dec
+          Oct
+          Bin
+
+   enum QLCDNumber::SegmentStyle
+
+
+
+   Enumerator: 
+
+          Outline
+          Filled 
+          Flat   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QLCDNumber::QLCDNumber (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QLCDNumber::QLCDNumber (  uint       numDigits,
+                             QWidget *  parent = 0
+                          )  [explicit]
+
+
+
+   QLCDNumber::~QLCDNumber (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QLCDNumber::checkOverflow (  int  num  )  const
+
+
+
+   bool QLCDNumber::checkOverflow (  double  num  )  const
+
+
+
+   void QLCDNumber::display (  double  num  )  [slot]
+
+
+
+   void QLCDNumber::display (  int  num  )  [slot]
+
+
+
+   void QLCDNumber::display (  const QString &  str  )  [slot]
+
+
+
+   int QLCDNumber::intValue (   )  const
+
+
+
+   Mode QLCDNumber::mode (   )  const
+
+
+
+   int QLCDNumber::numDigits (   )  const
+
+
+
+   void QLCDNumber::overflow (   )  [signal]
+
+
+
+   void QLCDNumber::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   SegmentStyle QLCDNumber::segmentStyle (   )  const
+
+
+
+   void QLCDNumber::setBinMode (   )  [slot]
+
+
+
+   void QLCDNumber::setDecMode (   )  [slot]
+
+
+
+   void QLCDNumber::setHexMode (   )  [slot]
+
+
+
+   void QLCDNumber::setMode (  Mode   )
+
+
+
+   void QLCDNumber::setNumDigits (  int  nDigits  )
+
+
+
+   void QLCDNumber::setOctMode (   )  [slot]
+
+
+
+   void QLCDNumber::setSegmentStyle (  SegmentStyle   )
+
+
+
+   void QLCDNumber::setSmallDecimalPoint (  bool   )  [slot]
+
+
+
+   QSize QLCDNumber::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QFrame.
+
+   bool QLCDNumber::smallDecimalPoint (   )  const
+
+
+
+   double QLCDNumber::value (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QLCDNumber::intValue [read, write]
+
+
+
+   Mode QLCDNumber::mode [read, write]
+
+
+
+   int QLCDNumber::numDigits [read, write]
+
+
+
+   SegmentStyle QLCDNumber::segmentStyle [read, write]
+
+
+
+   bool QLCDNumber::smallDecimalPoint [read, write]
+
+
+
+   double QLCDNumber::value [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlcdnumber.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,105 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QColormap Class Reference
+
+   #include <qcolormap.h>
+
+   List of all members.
+
+Public Types
+
+     * enum Mode { Direct, Indexed, Gray }
+
+Public Member Functions
+
+     * QColormap (const QColormap &colormap)
+     * ~QColormap ()
+     * QColormap & operator= (const QColormap &colormap)
+     * Mode mode () const
+     * int depth () const
+     * int size () const
+     * uint pixel (const QColor &color) const
+     * const QColor colorAt (uint pixel) const
+     * const QVector< QColor > colormap () const
+
+Static Public Member Functions
+
+     * static void initialize ()
+     * static void cleanup ()
+     * static QColormap instance (int screen=-1)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QColormap::Mode
+
+
+
+   Enumerator: 
+
+          Direct 
+          Indexed
+          Gray   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QColormap::QColormap (  const QColormap &  colormap  )
+
+
+
+   QColormap::~QColormap (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static void QColormap::cleanup (   )  [static]
+
+
+
+   const QColor QColormap::colorAt (  uint  pixel  )  const
+
+
+
+   const QVector<QColor> QColormap::colormap (   )  const
+
+
+
+   int QColormap::depth (   )  const
+
+
+
+   static void QColormap::initialize (   )  [static]
+
+
+
+   static QColormap QColormap::instance (  int  screen = -1  )  [static]
+
+
+
+   Mode QColormap::mode (   )  const
+
+
+
+   QColormap& QColormap::operator= (  const QColormap &  colormap  )
+
+
+
+   uint QColormap::pixel (  const QColor &  color  )  const
+
+
+
+   int QColormap::size (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qcolormap.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,122 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3GDictIterator Class Reference
+
+   #include <q3gdict.h>
+
+   Inherited by Q3AsciiDictIterator< type >, Q3DictIterator< type >, Q3IntDictIterator< type >, and Q3PtrDictIterator< type >.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3GDictIterator (const Q3GDict &)
+     * Q3GDictIterator (const Q3GDictIterator &)
+     * Q3GDictIterator & operator= (const Q3GDictIterator &)
+     * ~Q3GDictIterator ()
+     * Q3PtrCollection::Item toFirst ()
+     * Q3PtrCollection::Item get () const
+     * QString getKeyString () const
+     * const char * getKeyAscii () const
+     * long getKeyInt () const
+     * void * getKeyPtr () const
+     * Q3PtrCollection::Item operator() ()
+     * Q3PtrCollection::Item operator++ ()
+     * Q3PtrCollection::Item operator+= (uint)
+
+Protected Attributes
+
+     * Q3GDict * dict
+
+Friends
+
+     * class Q3GDict
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3GDictIterator::Q3GDictIterator (  const Q3GDict &   )
+
+
+
+   Q3GDictIterator::Q3GDictIterator (  const Q3GDictIterator &   )
+
+
+
+   Q3GDictIterator::~Q3GDictIterator (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3PtrCollection::Item Q3GDictIterator::get (   )  const [inline]
+
+
+
+   const char * Q3GDictIterator::getKeyAscii (   )  const [inline]
+
+
+
+   long Q3GDictIterator::getKeyInt (   )  const [inline]
+
+
+
+   void * Q3GDictIterator::getKeyPtr (   )  const [inline]
+
+
+
+   QString Q3GDictIterator::getKeyString (   )  const [inline]
+
+
+
+   Q3PtrCollection::Item Q3GDictIterator::operator() (   )
+
+
+
+   Reimplemented in Q3AsciiDictIterator< type >, Q3DictIterator< type >, Q3IntDictIterator< type >, and Q3PtrDictIterator< type >.
+
+   Q3PtrCollection::Item Q3GDictIterator::operator++ (   )
+
+
+
+   Reimplemented in Q3AsciiDictIterator< type >, Q3DictIterator< type >, Q3IntDictIterator< type >, and Q3PtrDictIterator< type >.
+
+   Q3PtrCollection::Item Q3GDictIterator::operator+= (  uint   )
+
+
+
+   Reimplemented in Q3AsciiDictIterator< type >, Q3DictIterator< type >, Q3IntDictIterator< type >, and Q3PtrDictIterator< type >.
+
+   Q3GDictIterator& Q3GDictIterator::operator= (  const Q3GDictIterator &   )
+
+
+
+   Q3PtrCollection::Item Q3GDictIterator::toFirst (   )
+
+
+
+   Reimplemented in Q3AsciiDictIterator< type >, Q3DictIterator< type >, Q3IntDictIterator< type >, and Q3PtrDictIterator< type >.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3GDict [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   Q3GDict* Q3GDictIterator::dict [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3gdict.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

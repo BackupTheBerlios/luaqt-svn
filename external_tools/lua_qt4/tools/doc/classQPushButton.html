@@ -1,0 +1,159 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QPushButton Class Reference
+
+   #include <qpushbutton.h>
+
+   Inherits QAbstractButton.
+
+   List of all members.
+
+Public Slots
+
+     * void showMenu ()
+
+Public Member Functions
+
+     * QPushButton (QWidget *parent=0)
+     * QPushButton (const QString &text, QWidget *parent=0)
+     * QPushButton (const QIcon &icon, const QString &text, QWidget *parent=0)
+     * ~QPushButton ()
+     * QSize sizeHint () const
+     * bool autoDefault () const
+     * void setAutoDefault (bool)
+     * bool isDefault () const
+     * void setDefault (bool)
+     * void setMenu (QMenu *menu)
+     * QMenu * menu () const
+     * void setFlat (bool)
+     * bool isFlat () const
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * void focusInEvent (QFocusEvent *)
+     * void focusOutEvent (QFocusEvent *)
+
+Properties
+
+     * bool autoDefault
+     * bool default
+     * bool flat
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPushButton::QPushButton (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QPushButton::QPushButton (  const QString &  text,
+                               QWidget *        parent = 0
+                            )  [explicit]
+
+
+
+   QPushButton::QPushButton (  const QIcon &    icon,
+                               const QString &  text,
+                               QWidget *        parent = 0
+                            )
+
+
+
+   QPushButton::~QPushButton (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QPushButton::autoDefault (   )  const
+
+
+
+   void QPushButton::focusInEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractButton.
+
+   void QPushButton::focusOutEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractButton.
+
+   bool QPushButton::isDefault (   )  const
+
+
+
+   bool QPushButton::isFlat (   )  const
+
+
+
+   void QPushButton::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractButton.
+
+   QMenu* QPushButton::menu (   )  const
+
+
+
+   void QPushButton::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Implements QAbstractButton.
+
+   void QPushButton::setAutoDefault (  bool   )
+
+
+
+   void QPushButton::setDefault (  bool   )
+
+
+
+   void QPushButton::setFlat (  bool   )
+
+
+
+   void QPushButton::setMenu (  QMenu *  menu  )
+
+
+
+   void QPushButton::showMenu (   )  [slot]
+
+
+
+   QSize QPushButton::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QPushButton::autoDefault [read, write]
+
+
+
+   bool QPushButton::default [read, write]
+
+
+
+   bool QPushButton::flat [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpushbutton.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

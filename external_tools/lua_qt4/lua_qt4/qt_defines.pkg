@@ -1,0 +1,22 @@
+$#define tolua_toqtstring tolua_tostring
+$#define tolua_isqtstring tolua_isstring
+$#define tolua_pushqtstring(L,s) tolua_pushstring(L, s.toAscii().constData())
+
+// Qt typedefs
+typedef unsigned char uchar;
+typedef unsigned short ushort;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+typedef unsigned int Q_ULLONG;
+typedef unsigned int Q_ULONG;
+typedef unsigned short quint16;
+typedef long long int qint64;
+typedef long long int qlonglong;
+typedef double qreal;
+
+$typedef char* arg_list;
+$typedef int arg_count;
+class arg_list;
+class arg_count;
+
+$ifile "lua_qt4/lua_qobject.h"

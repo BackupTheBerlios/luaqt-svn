@@ -1,0 +1,424 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3DataBrowser Class Reference
+
+   #include <q3databrowser.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum Boundary {
+         Unknown, None, BeforeBeginning, Beginning,
+         End, AfterEnd
+       }
+
+Public Slots
+
+     * virtual void refresh ()
+     * virtual void insert ()
+     * virtual void update ()
+     * virtual void del ()
+     * virtual void first ()
+     * virtual void last ()
+     * virtual void next ()
+     * virtual void prev ()
+     * virtual void readFields ()
+     * virtual void writeFields ()
+     * virtual void clearValues ()
+     * void updateBoundary ()
+
+Signals
+
+     * void firstRecordAvailable (bool available)
+     * void lastRecordAvailable (bool available)
+     * void nextRecordAvailable (bool available)
+     * void prevRecordAvailable (bool available)
+     * void currentChanged (const QSqlRecord *record)
+     * void primeInsert (QSqlRecord *buf)
+     * void primeUpdate (QSqlRecord *buf)
+     * void primeDelete (QSqlRecord *buf)
+     * void beforeInsert (QSqlRecord *buf)
+     * void beforeUpdate (QSqlRecord *buf)
+     * void beforeDelete (QSqlRecord *buf)
+     * void cursorChanged (Q3SqlCursor::Mode mode)
+
+Public Member Functions
+
+     * Q3DataBrowser (QWidget *parent=0, const char *name=0, Qt::WFlags fl=0)
+     * ~Q3DataBrowser ()
+     * Boundary boundary ()
+     * void setBoundaryChecking (bool active)
+     * bool boundaryChecking () const
+     * void setSort (const QSqlIndex &sort)
+     * void setSort (const QStringList &sort)
+     * QStringList sort () const
+     * void setFilter (const QString &filter)
+     * QString filter () const
+     * virtual void setSqlCursor (Q3SqlCursor *cursor, bool autoDelete=false)
+     * Q3SqlCursor * sqlCursor () const
+     * virtual void setForm (Q3SqlForm *form)
+     * Q3SqlForm * form ()
+     * virtual void setConfirmEdits (bool confirm)
+     * virtual void setConfirmInsert (bool confirm)
+     * virtual void setConfirmUpdate (bool confirm)
+     * virtual void setConfirmDelete (bool confirm)
+     * virtual void setConfirmCancels (bool confirm)
+     * bool confirmEdits () const
+     * bool confirmInsert () const
+     * bool confirmUpdate () const
+     * bool confirmDelete () const
+     * bool confirmCancels () const
+     * virtual void setReadOnly (bool active)
+     * bool isReadOnly () const
+     * virtual void setAutoEdit (bool autoEdit)
+     * bool autoEdit () const
+     * virtual bool seek (int i, bool relative=false)
+
+Protected Member Functions
+
+     * virtual bool insertCurrent ()
+     * virtual bool updateCurrent ()
+     * virtual bool deleteCurrent ()
+     * virtual bool currentEdited ()
+     * virtual QSql::Confirm confirmEdit (QSql::Op m)
+     * virtual QSql::Confirm confirmCancel (QSql::Op m)
+     * virtual void handleError (const QSqlError &error)
+
+Properties
+
+     * bool boundaryChecking
+     * QString filter
+     * QStringList sort
+     * bool confirmEdits
+     * bool confirmInsert
+     * bool confirmUpdate
+     * bool confirmDelete
+     * bool confirmCancels
+     * bool readOnly
+     * bool autoEdit
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3DataBrowser::Boundary
+
+
+
+   Enumerator: 
+
+          Unknown        
+          None           
+          BeforeBeginning
+          Beginning      
+          End            
+          AfterEnd       
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3DataBrowser::Q3DataBrowser (  QWidget *     parent = 0,
+                                   const char *  name = 0,
+                                   Qt::WFlags    fl = 0
+                                )
+
+
+
+   Q3DataBrowser::~Q3DataBrowser (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool Q3DataBrowser::autoEdit (   )  const
+
+
+
+   void Q3DataBrowser::beforeDelete (  QSqlRecord *  buf  )  [signal]
+
+
+
+   void Q3DataBrowser::beforeInsert (  QSqlRecord *  buf  )  [signal]
+
+
+
+   void Q3DataBrowser::beforeUpdate (  QSqlRecord *  buf  )  [signal]
+
+
+
+   Boundary Q3DataBrowser::boundary (   )
+
+
+
+   bool Q3DataBrowser::boundaryChecking (   )  const
+
+
+
+   virtual void Q3DataBrowser::clearValues (   )  [virtual, slot]
+
+
+
+   virtual QSql::Confirm Q3DataBrowser::confirmCancel (  QSql::Op  m  )  [protected, virtual]
+
+
+
+   bool Q3DataBrowser::confirmCancels (   )  const
+
+
+
+   bool Q3DataBrowser::confirmDelete (   )  const
+
+
+
+   virtual QSql::Confirm Q3DataBrowser::confirmEdit (  QSql::Op  m  )  [protected, virtual]
+
+
+
+   bool Q3DataBrowser::confirmEdits (   )  const
+
+
+
+   bool Q3DataBrowser::confirmInsert (   )  const
+
+
+
+   bool Q3DataBrowser::confirmUpdate (   )  const
+
+
+
+   void Q3DataBrowser::currentChanged (  const QSqlRecord *  record  )  [signal]
+
+
+
+   virtual bool Q3DataBrowser::currentEdited (   )  [protected, virtual]
+
+
+
+   void Q3DataBrowser::cursorChanged (  Q3SqlCursor::Mode  mode  )  [signal]
+
+
+
+   virtual void Q3DataBrowser::del (   )  [virtual, slot]
+
+
+
+   virtual bool Q3DataBrowser::deleteCurrent (   )  [protected, virtual]
+
+
+
+   QString Q3DataBrowser::filter (   )  const
+
+
+
+   virtual void Q3DataBrowser::first (   )  [virtual, slot]
+
+
+
+   void Q3DataBrowser::firstRecordAvailable (  bool  available  )  [signal]
+
+
+
+   Q3SqlForm* Q3DataBrowser::form (   )
+
+
+
+   virtual void Q3DataBrowser::handleError (  const QSqlError &  error  )  [protected, virtual]
+
+
+
+   virtual void Q3DataBrowser::insert (   )  [virtual, slot]
+
+
+
+   virtual bool Q3DataBrowser::insertCurrent (   )  [protected, virtual]
+
+
+
+   bool Q3DataBrowser::isReadOnly (   )  const
+
+
+
+   virtual void Q3DataBrowser::last (   )  [virtual, slot]
+
+
+
+   void Q3DataBrowser::lastRecordAvailable (  bool  available  )  [signal]
+
+
+
+   virtual void Q3DataBrowser::next (   )  [virtual, slot]
+
+
+
+   void Q3DataBrowser::nextRecordAvailable (  bool  available  )  [signal]
+
+
+
+   virtual void Q3DataBrowser::prev (   )  [virtual, slot]
+
+
+
+   void Q3DataBrowser::prevRecordAvailable (  bool  available  )  [signal]
+
+
+
+   void Q3DataBrowser::primeDelete (  QSqlRecord *  buf  )  [signal]
+
+
+
+   void Q3DataBrowser::primeInsert (  QSqlRecord *  buf  )  [signal]
+
+
+
+   void Q3DataBrowser::primeUpdate (  QSqlRecord *  buf  )  [signal]
+
+
+
+   virtual void Q3DataBrowser::readFields (   )  [virtual, slot]
+
+
+
+   virtual void Q3DataBrowser::refresh (   )  [virtual, slot]
+
+
+
+   virtual bool Q3DataBrowser::seek (  int   i,
+                                       bool  relative = false
+                                    )  [virtual]
+
+
+
+   virtual void Q3DataBrowser::setAutoEdit (  bool  autoEdit  )  [virtual]
+
+
+
+   void Q3DataBrowser::setBoundaryChecking (  bool  active  )
+
+
+
+   virtual void Q3DataBrowser::setConfirmCancels (  bool  confirm  )  [virtual]
+
+
+
+   virtual void Q3DataBrowser::setConfirmDelete (  bool  confirm  )  [virtual]
+
+
+
+   virtual void Q3DataBrowser::setConfirmEdits (  bool  confirm  )  [virtual]
+
+
+
+   virtual void Q3DataBrowser::setConfirmInsert (  bool  confirm  )  [virtual]
+
+
+
+   virtual void Q3DataBrowser::setConfirmUpdate (  bool  confirm  )  [virtual]
+
+
+
+   void Q3DataBrowser::setFilter (  const QString &  filter  )
+
+
+
+   virtual void Q3DataBrowser::setForm (  Q3SqlForm *  form  )  [virtual]
+
+
+
+   virtual void Q3DataBrowser::setReadOnly (  bool  active  )  [virtual]
+
+
+
+   void Q3DataBrowser::setSort (  const QStringList &  sort  )
+
+
+
+   void Q3DataBrowser::setSort (  const QSqlIndex &  sort  )
+
+
+
+   virtual void Q3DataBrowser::setSqlCursor (  Q3SqlCursor *  cursor,
+                                               bool           autoDelete = false
+                                            )  [virtual]
+
+
+
+   QStringList Q3DataBrowser::sort (   )  const
+
+
+
+   Q3SqlCursor* Q3DataBrowser::sqlCursor (   )  const
+
+
+
+   virtual void Q3DataBrowser::update (   )  [virtual, slot]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3DataBrowser::updateBoundary (   )  [slot]
+
+
+
+   virtual bool Q3DataBrowser::updateCurrent (   )  [protected, virtual]
+
+
+
+   virtual void Q3DataBrowser::writeFields (   )  [virtual, slot]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3DataBrowser::autoEdit [read, write]
+
+
+
+   bool Q3DataBrowser::boundaryChecking [read, write]
+
+
+
+   bool Q3DataBrowser::confirmCancels [read, write]
+
+
+
+   bool Q3DataBrowser::confirmDelete [read, write]
+
+
+
+   bool Q3DataBrowser::confirmEdits [read, write]
+
+
+
+   bool Q3DataBrowser::confirmInsert [read, write]
+
+
+
+   bool Q3DataBrowser::confirmUpdate [read, write]
+
+
+
+   QString Q3DataBrowser::filter [read, write]
+
+
+
+   bool Q3DataBrowser::readOnly [read, write]
+
+
+
+   QStringList Q3DataBrowser::sort [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3databrowser.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

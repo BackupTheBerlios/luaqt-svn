@@ -1,0 +1,127 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QRubberBand Class Reference
+
+   #include <qrubberband.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum Shape { Line, Rectangle }
+
+Public Member Functions
+
+     * QRubberBand (Shape, QWidget *=0)
+     * ~QRubberBand ()
+     * Shape shape () const
+     * void setGeometry (const QRect &r)
+     * void setGeometry (int x, int y, int w, int h)
+     * void move (int x, int y)
+     * void move (const QPoint &p)
+     * void resize (int w, int h)
+     * void resize (const QSize &s)
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+     * void changeEvent (QEvent *)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QRubberBand::Shape
+
+
+
+   Enumerator: 
+
+          Line     
+          Rectangle
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QRubberBand::QRubberBand (  Shape      ,
+                               QWidget *  = 0
+                            )  [explicit]
+
+
+
+   QRubberBand::~QRubberBand (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QRubberBand::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QRubberBand::move (  const QPoint &  p  )  [inline]
+
+
+
+   Reimplemented from QWidget.
+
+   void QRubberBand::move (  int  x,
+                             int  y
+                          )  [inline]
+
+
+
+   Reimplemented from QWidget.
+
+   void QRubberBand::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QRubberBand::resize (  const QSize &  s  )  [inline]
+
+
+
+   Reimplemented from QWidget.
+
+   void QRubberBand::resize (  int  w,
+                               int  h
+                            )  [inline]
+
+
+
+   Reimplemented from QWidget.
+
+   void QRubberBand::setGeometry (  int  x,
+                                    int  y,
+                                    int  w,
+                                    int  h
+                                 )  [inline]
+
+
+
+   Reimplemented from QWidget.
+
+   void QRubberBand::setGeometry (  const QRect &  r  )
+
+
+
+   Reimplemented from QWidget.
+
+   Shape QRubberBand::shape (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qrubberband.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,247 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QDomDocument Class Reference
+
+   #include <qdom.h>
+
+   Inherits QDomNode.
+
+   List of all members.
+
+Public Member Functions
+
+     * QDomDocument ()
+     * QDomDocument (const QString &name)
+     * QDomDocument (const QDomDocumentType &doctype)
+     * QDomDocument (const QDomDocument &x)
+     * QDomDocument & operator= (const QDomDocument &)
+     * ~QDomDocument ()
+     * QDomElement createElement (const QString &tagName)
+     * QDomDocumentFragment createDocumentFragment ()
+     * QDomText createTextNode (const QString &data)
+     * QDomComment createComment (const QString &data)
+     * QDomCDATASection createCDATASection (const QString &data)
+     * QDomProcessingInstruction createProcessingInstruction (const QString &target, const QString &data)
+     * QDomAttr createAttribute (const QString &name)
+     * QDomEntityReference createEntityReference (const QString &name)
+     * QDomNodeList elementsByTagName (const QString &tagname) const
+     * QDomNode importNode (const QDomNode &importedNode, bool deep)
+     * QDomElement createElementNS (const QString &nsURI, const QString &qName)
+     * QDomAttr createAttributeNS (const QString &nsURI, const QString &qName)
+     * QDomNodeList elementsByTagNameNS (const QString &nsURI, const QString &localName)
+     * QDomElement elementById (const QString &elementId)
+     * QDomDocumentType doctype () const
+     * QDomImplementation implementation () const
+     * QDomElement documentElement () const
+     * QDomNode::NodeType nodeType () const
+     * bool setContent (const QByteArray &text, bool namespaceProcessing, QString *errorMsg=0, int *errorLine=0, int *errorColumn=0)
+     * bool setContent (const QString &text, bool namespaceProcessing, QString *errorMsg=0, int *errorLine=0, int *errorColumn=0)
+     * bool setContent (QIODevice *dev, bool namespaceProcessing, QString *errorMsg=0, int *errorLine=0, int *errorColumn=0)
+     * bool setContent (const QByteArray &text, QString *errorMsg=0, int *errorLine=0, int *errorColumn=0)
+     * bool setContent (const QString &text, QString *errorMsg=0, int *errorLine=0, int *errorColumn=0)
+     * bool setContent (QIODevice *dev, QString *errorMsg=0, int *errorLine=0, int *errorColumn=0)
+     * bool setContent (QXmlInputSource *source, QXmlReader *reader, QString *errorMsg=0, int *errorLine=0, int *errorColumn=0)
+     * QString toString (int=1) const
+     * QByteArray toByteArray (int=1) const
+
+Friends
+
+     * class QDomNode
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDomDocument::QDomDocument (   )
+
+
+
+   QDomDocument::QDomDocument (  const QString &  name  )  [explicit]
+
+
+
+   QDomDocument::QDomDocument (  const QDomDocumentType &  doctype  )  [explicit]
+
+
+
+   QDomDocument::QDomDocument (  const QDomDocument &  x  )
+
+
+
+   QDomDocument::~QDomDocument (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QDomAttr QDomDocument::createAttribute (  const QString &  name  )
+
+
+
+   QDomAttr QDomDocument::createAttributeNS (  const QString &  nsURI,
+                                               const QString &  qName
+                                            )
+
+
+
+   QDomCDATASection QDomDocument::createCDATASection (  const QString &  data  )
+
+
+
+   QDomComment QDomDocument::createComment (  const QString &  data  )
+
+
+
+   QDomDocumentFragment QDomDocument::createDocumentFragment (   )
+
+
+
+   QDomElement QDomDocument::createElement (  const QString &  tagName  )
+
+
+
+   QDomElement QDomDocument::createElementNS (  const QString &  nsURI,
+                                                const QString &  qName
+                                             )
+
+
+
+   QDomEntityReference QDomDocument::createEntityReference (  const QString &  name  )
+
+
+
+   QDomProcessingInstruction QDomDocument::createProcessingInstruction (  const QString &  target,
+                                                                          const QString &  data
+                                                                       )
+
+
+
+   QDomText QDomDocument::createTextNode (  const QString &  data  )
+
+
+
+   QDomDocumentType QDomDocument::doctype (   )  const
+
+
+
+   QDomElement QDomDocument::documentElement (   )  const
+
+
+
+   QDomElement QDomDocument::elementById (  const QString &  elementId  )
+
+
+
+   QDomNodeList QDomDocument::elementsByTagName (  const QString &  tagname  )  const
+
+
+
+   QDomNodeList QDomDocument::elementsByTagNameNS (  const QString &  nsURI,
+                                                     const QString &  localName
+                                                  )
+
+
+
+   QDomImplementation QDomDocument::implementation (   )  const
+
+
+
+   QDomNode QDomDocument::importNode (  const QDomNode &  importedNode,
+                                        bool              deep
+                                     )
+
+
+
+   QDomNode::NodeType QDomDocument::nodeType (   )  const [inline]
+
+
+
+   Reimplemented from QDomNode.
+
+   QDomDocument& QDomDocument::operator= (  const QDomDocument &   )
+
+
+
+   bool QDomDocument::setContent (  QXmlInputSource *  source,
+                                    QXmlReader *       reader,
+                                    QString *          errorMsg = 0,
+                                    int *              errorLine = 0,
+                                    int *              errorColumn = 0
+                                 )
+
+
+
+   bool QDomDocument::setContent (  QIODevice *  dev,
+                                    QString *    errorMsg = 0,
+                                    int *        errorLine = 0,
+                                    int *        errorColumn = 0
+                                 )
+
+
+
+   bool QDomDocument::setContent (  const QString &  text,
+                                    QString *        errorMsg = 0,
+                                    int *            errorLine = 0,
+                                    int *            errorColumn = 0
+                                 )
+
+
+
+   bool QDomDocument::setContent (  const QByteArray &  text,
+                                    QString *           errorMsg = 0,
+                                    int *               errorLine = 0,
+                                    int *               errorColumn = 0
+                                 )
+
+
+
+   bool QDomDocument::setContent (  QIODevice *  dev,
+                                    bool         namespaceProcessing,
+                                    QString *    errorMsg = 0,
+                                    int *        errorLine = 0,
+                                    int *        errorColumn = 0
+                                 )
+
+
+
+   bool QDomDocument::setContent (  const QString &  text,
+                                    bool             namespaceProcessing,
+                                    QString *        errorMsg = 0,
+                                    int *            errorLine = 0,
+                                    int *            errorColumn = 0
+                                 )
+
+
+
+   bool QDomDocument::setContent (  const QByteArray &  text,
+                                    bool                namespaceProcessing,
+                                    QString *           errorMsg = 0,
+                                    int *               errorLine = 0,
+                                    int *               errorColumn = 0
+                                 )
+
+
+
+   QByteArray QDomDocument::toByteArray (  int  = 1  )  const
+
+
+
+   QString QDomDocument::toString (  int  = 1  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QDomNode [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdom.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

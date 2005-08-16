@@ -1,0 +1,379 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                          QThread Class Reference
+
+   The QThread class provides platform-independent threads. More...
+#include <QThread>
+
+   Part of the QtCore module.
+
+   Inherits QObject.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum Priority { IdlePriority, LowestPriority, LowPriority,
+       NormalPriority, ..., InheritPriority }
+
+  Public Functions
+
+     * QThread ( QObject * parent = 0 )
+     * ~QThread ()
+     * void exit ( int returnCode = 0 )
+     * bool isFinished () const
+     * bool isRunning () const
+     * void setStackSize ( uint stackSize )
+     * uint stackSize () const
+     * bool wait ( unsigned long time = ULONG_MAX )
+
+     * 28 public functions inherited from QObject
+
+  Public Slots
+
+     * void quit ()
+     * void start ( Priority priority = InheritPriority )
+     * void terminate ()
+
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void finished ()
+     * void started ()
+     * void terminated ()
+
+     * 1 signal inherited from QObject
+
+  Static Public Members
+
+     * QThread * currentThread ()
+     * Qt::HANDLE currentThreadId ()
+
+     * 4 static public members inherited from QObject
+
+  Protected Functions
+
+     * int exec ()
+     * virtual void run () = 0
+
+     * 7 protected functions inherited from QObject
+
+  Static Protected Members
+
+     * void msleep ( unsigned long msecs )
+     * void setTerminationEnabled ( bool enabled = true )
+     * void sleep ( unsigned long secs )
+     * void usleep ( unsigned long usecs )
+
+  Additional Inherited Members
+
+     * 1 property inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QThread class provides platform-independent threads.
+
+   A QThread represents a separate thread of control within the program;
+   it shares data with all the other threads within the process but
+   executes independently in the way that a separate program does on a
+   multitasking operating system. Instead of starting in main(), QThreads
+   begin executing in run(). To create your own threads, subclass QThread
+   and reimplement run(). For example:
+    class MyThread : public QThread
+    {
+    public:
+        void run();
+    };
+
+    void MyThread::run()
+    {
+        QTcpSocket socket;
+        // connect QTcpSocket's signals somewhere meaningful
+        ...
+        socket.connectToHost(hostName, portNumber);
+        exec();
+    }
+
+   This will create a QTcpSocket in the thread and then execute the
+   thread's event loop. Use the start() method to begin execution.
+   Execution ends when you return from run(), just as an application does
+   when it leaves main(). QThread will notifiy you via a signal when the
+   thread is started(), finished(), and terminated(), or you can use
+   isFinished() and isRunning() to query the state of the thread. Use
+   wait() to block until the thread has finished execution.
+
+   Each thread gets its own stack from the operating system. The
+   operating system also determines the default size of the stack. You
+   can use setStackSize() to set a custom stack size.
+
+   Each QThread can have its own event loop. You can start the event loop
+   by calling exec(); you can stop it by calling exit() or quit(). Having
+   an event loop in a thread makes it possible to connect signals from
+   other threads to slots in this threads, using a mechanism called
+   queued connections. It also makes it possible to use classes that
+   require the event loop, such as QTimer and QTcpSocket, in the thread.
+
+   In extreme cases, you may want to forcibly terminate() an executing
+   thread. However, doing so is dangerous and discouraged. Please read
+   the documentation for terminate() and setTerminationEnabled() for
+   detailed information.
+
+   The static functions currentThreadId() and currentThread() return
+   identifiers for the currently executing thread. The former returns a
+   platform specific ID for the thread; the latter returns a QThread
+   pointer.
+
+   QThread also provides platform independent sleep functions in varying
+   resolutions. Use sleep() for full second resolution, msleep() for
+   millisecond resolution, and usleep() for microsecond resolution.
+
+   See also Thread Support in Qt, QThreadStorage, QMutex, QSemaphore, and
+   QWaitCondition.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QThread::Priority
+
+   This enum type indicates how the operating system should schedule
+   newly created threads.
+
+   Constant Value Description
+   QThread::IdlePriority 0 scheduled only when no other threads are
+   running.
+   QThread::LowestPriority 1 scheduled less often than LowPriority.
+   QThread::LowPriority 2 scheduled less often than NormalPriority.
+   QThread::NormalPriority 3 the default priority of the operating
+   system.
+   QThread::HighPriority 4 scheduled more often than NormalPriority.
+   QThread::HighestPriority 5 scheduled more often than HighPriority.
+   QThread::TimeCriticalPriority 6 scheduled as often as possible.
+   QThread::InheritPriority 7 use the same priority as the creating
+   thread. This is the default.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QThread::QThread ( QObject * parent = 0 )
+
+   Constructs a new thread with the given parent. The thread does not
+   begin executing until start() is called.
+
+   See also start().
+
+  QThread::~QThread ()
+
+   Destroys the thread.
+
+   Note that deleting a QThread object will not stop the execution of the
+   thread it represents. Deleting a running QThread (i.e. isFinished()
+   returns false) will probably result in a program crash. You can wait()
+   on a thread to make sure that it has finished.
+
+  QThread * QThread::currentThread ()   [static]
+
+   Returns a pointer to the currently executing QThread. If the current
+   thread was not started using the QThread API (e.g., the GUI thread),
+   this function returns zero.
+
+  Qt::HANDLE QThread::currentThreadId ()   [static]
+
+   Returns the thread handle of the currently executing thread.
+
+   Warning: The handle returned by this function is used for internal
+   purposes and should not be used in any application code. On Windows,
+   the returned value is a pseudo-handle for the current thread that
+   cannot be used for numerical comparison.
+
+  int QThread::exec ()   [protected]
+
+   Enters the event loop and waits until exit() is called or the main
+   widget is destroyed, and returns the value that was set to exit()
+   (which is 0 if exit() is called via quit()).
+
+   It is necessary to call this function to start event handling.
+
+   See also quit() and exit().
+
+  void QThread::exit ( int returnCode = 0 )
+
+   Tells the thread's event loop to exit with a return code.
+
+   After calling this function, the thread leaves the event loop and
+   returns from the call to QEventLoop::exec(). The QEventLoop::exec()
+   function returns returnCode.
+
+   By convention, a returnCode of 0 means success, any non-zero value
+   indicates an error.
+
+   Note that unlike the C library function of the same name, this
+   function does return to the caller -- it is event processing that
+   stops.
+
+   This function does nothing if the thread does not have an event loop.
+
+   See also quit() and QEventLoop.
+
+  void QThread::finished ()   [signal]
+
+   This signal is emitted when the thread has finished executing.
+
+   See also started() and terminated().
+
+  bool QThread::isFinished () const
+
+   Returns true is the thread is finished; otherwise returns false.
+
+   See also isRunning().
+
+  bool QThread::isRunning () const
+
+   Returns true if the thread is running; otherwise returns false.
+
+   See also isFinished().
+
+  void QThread::msleep ( unsigned long msecs )   [static protected]
+
+   Causes the current thread to sleep for msecs milliseconds.
+
+   See also sleep() and usleep().
+
+  void QThread::quit ()   [slot]
+
+   Tells the thread's event loop to exit with return code 0 (success).
+   Equivalent to calling QThread::exit(0).
+
+   This function does nothing if the thread does not have an event loop.
+
+   See also exit() and QEventLoop.
+
+  void QThread::run ()   [pure virtual protected]
+
+   This method is pure virtual and must be implemented in derived classes
+   in order to do useful work. Returning from this method will end the
+   execution of the thread.
+
+   See also wait().
+
+  void QThread::setStackSize ( uint stackSize )
+
+   Sets the maximum stack size for the thread to stackSize. If stackSize
+   is greater than zero, the maximum stack size is set to stackSize
+   bytes, otherwise the maximum stack size is automatically determined by
+   the operating system.
+
+   Warning: Most operating systems place minimum and maximum limits on
+   thread stack sizes. The thread will fail to start if the stack size is
+   outside these limits.
+
+   See also stackSize().
+
+  void QThread::setTerminationEnabled ( bool enabled = true )   [static
+  protected]
+
+   Enables or disables termination of the current thread based on the
+   enabled parameter. The thread must have been started by QThread.
+
+   When enabled is false, termination is disabled. Future calls to
+   QThread::terminate() will return immediately without effect. Instead,
+   the termination is deferred until termination is enabled.
+
+   When enabled is true, termination is enabled. Future calls to
+   QThread::terminate() will terminate the thread normally. If
+   termination has been deferred (i.e. QThread::terminate() was called
+   with termination disabled), this function will terminate the calling
+   thread immediately. Note that this function will not return in this
+   case.
+
+   See also terminate().
+
+  void QThread::sleep ( unsigned long secs )   [static protected]
+
+   Forces the current thread to sleep for secs seconds.
+
+   See also msleep() and usleep().
+
+  uint QThread::stackSize () const
+
+   Returns the maximum stack size for the thread (if set with
+   setStackSize()); otherwise returns zero.
+
+   See also setStackSize().
+
+  void QThread::start ( Priority priority = InheritPriority )   [slot]
+
+   Begins execution of the thread by calling run(), which should be
+   reimplemented in a QThread subclass to contain your code. The
+   operating system will schedule the thread according to the priority
+   parameter. If the thread is already running, this function does
+   nothing.
+
+   See also run() and terminate().
+
+  void QThread::started ()   [signal]
+
+   This signal is emitted when the thread starts executing.
+
+   See also finished() and terminated().
+
+  void QThread::terminate ()   [slot]
+
+   Terminates the execution of the thread. The thread may or may not be
+   terminated immediately, depending on the operating systems scheduling
+   policies. Use QThread::wait() after terminate() for synchronous
+   termination.
+
+   When the thread is terminated, all threads waiting for the thread to
+   finish will be woken up.
+
+   Warning: This function is dangerous and its use is discouraged. The
+   thread can be terminate at any point in its code path. Threads can be
+   terminated while modifying data. There is no chance for the thread to
+   cleanup after itself, unlock any held mutexes, etc. In short, use this
+   function only if absolutely necessary.
+
+   Termination can be explicitly enabled or disabled by calling
+   QThread::setTerminationEnabled(). Calling this function while
+   termination is disabled results in the termination being deferred,
+   until termination is re-enabled. See the documentation of
+   QThread::setTerminationEnabled() for more information.
+
+   See also setTerminationEnabled().
+
+  void QThread::terminated ()   [signal]
+
+   This signal is emitted when the thread is terminated.
+
+   See also started() and finished().
+
+  void QThread::usleep ( unsigned long usecs )   [static protected]
+
+   Causes the current thread to sleep for usecs microseconds.
+
+   See also sleep() and msleep().
+
+  bool QThread::wait ( unsigned long time = ULONG_MAX )
+
+   Blocks the thread until either of these conditions is met:
+     * The thread associated with this QThread object has finished
+       execution (i.e. when it returns from run()). This function will
+       return true if the thread has finished. It also returns true if
+       the thread has not been started yet.
+     * time milliseconds has elapsed. If time is ULONG_MAX (the default),
+       then the wait will never timeout (the thread must return from
+       run()). This function will return false if the wait timed out.
+
+   This provides similar functionality to the POSIX pthread_join()
+   function.
+
+   See also sleep() and terminate().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

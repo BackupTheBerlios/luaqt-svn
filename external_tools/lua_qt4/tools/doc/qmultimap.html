@@ -1,0 +1,149 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QMultiMap Class Reference
+
+   The QMultiMap class is a convenience QMap subclass that provides
+   multi-valued maps. More...
+#include <QMultiMap>
+
+   Part of the QtCore module.
+
+   Inherits QMap<Key, T>.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+
+  Public Functions
+
+     * QMultiMap ()
+     * QMultiMap ( const QMap<Key, T> & other )
+     * QMap<Key, T>::iterator insert ( const Key & key, const T & value )
+     * QMap<Key, T>::iterator replace ( const Key & key, const T & value
+       )
+     * QMultiMap operator+ ( const QMultiMap & other ) const
+     * QMultiMap & operator+= ( const QMultiMap & other )
+
+     * 38 public functions inherited from QMap
+     _________________________________________________________________
+
+Detailed Description
+
+   The QMultiMap class is a convenience QMap subclass that provides
+   multi-valued maps.
+
+   QMultiMap<Key, T> is one of Qt's generic container classes. It
+   inherits QMap and extends it with a few convenience functions that
+   make it more suitable than QMap for storing multi-valued maps. A
+   multi-valued map is a map that allows multiple values with the same
+   key; QMap normally doesn't allow that, unless you call
+   QMap::insertMulti().
+
+   Because QMultiMap inherits QMap, all of QMap's functionality also
+   applies to QMultiMap. For example, you can use isEmpty() to test
+   whether the map is empty, and you can traverse a QMultiMap using
+   QMap's iterator classes (for example, QMapIterator). But in addition,
+   it provides an insert() function that corresponds to
+   QMap::insertMulti(), and a replace() function that corresponds to
+   QMap::insert(). It also provides convenient operator+() and
+   operator+=().
+
+   Example:
+    QMultiMap<QString, int> map1, map2, map3;
+
+    map1.insert("plenty", 100);
+    map1.insert("plenty", 2000);
+    // map1.size() == 2
+
+    map2.insert("plenty", 5000);
+    // map2.size() == 1
+
+    map3 = map1 + map2;
+    // map3.size() == 3
+
+   Unlike QMap, QMultiMap provides no operator[]. Use value() or
+   replace() if you want to access the most recently inserted item with a
+   certain key.
+
+   If you want to retrieve all the values for a single key, you can use
+   values(const Key &key), which returns a QList<T>:
+    QList<int> values = map.values("plenty");
+    for (int i = 0; i < values.size(); ++i)
+        cout << values.at(i) << endl;
+
+   The items that share the same key are available from most recently to
+   least recently inserted.
+
+   If you prefer the STL-style iterators, you can call find() to get the
+   iterator for the first item with a key and iterate from there:
+    QMultiMap<QString, int>::iterator i = map.find("plenty");
+    while (i != map.end() && i.key() == "plenty") {
+        cout << i.value() << endl;
+        ++i;
+    }
+
+   QMultiMap's key and value data types must be assignable data types.
+   This covers most data types you are likely to encounter, but the
+   compiler won't let you, for example, store a QWidget as a value;
+   instead, store a QWidget *. In addition, QMultiMap's key type must
+   provide operator<(). See the QMap documentation for details.
+
+   See also QMap, QMapIterator, QMutableMapIterator, and QMultiHash.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QMultiMap::QMultiMap ()
+
+   Constructs an empty map.
+
+  QMultiMap::QMultiMap ( const QMap<Key, T> & other )
+
+   Constructs a copy of other (which can be a QMap or a QMultiMap).
+
+   See also operator=().
+
+  QMap<Key, T>::iterator QMultiMap::insert ( const Key & key, const T & value )
+
+   Inserts a new item with the key key and a value of value.
+
+   If there is already an item with the same key in the map, this
+   function will simply create a new one. (This behavior is different
+   from replace(), which overwrites the value of an existing item.)
+
+   See also replace().
+
+  QMap<Key, T>::iterator QMultiMap::replace ( const Key & key, const T & value
+  )
+
+   Inserts a new item with the key key and a value of value.
+
+   If there is already an item with the key key, that item's value is
+   replaced with value.
+
+   If there are multiple items with the key key, the most recently
+   inserted item's value is replaced with value.
+
+   See also insert().
+
+  QMultiMap QMultiMap::operator+ ( const QMultiMap & other ) const
+
+   Returns a map that contains all the items in this map in addition to
+   all the items in other. If a key is common to both maps, the resulting
+   map will contain the key multiple times.
+
+   See also operator+=().
+
+  QMultiMap & QMultiMap::operator+= ( const QMultiMap & other )
+
+   Inserts all the items in the other map into this map and returns a
+   reference to this map.
+
+   See also insert() and operator+().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

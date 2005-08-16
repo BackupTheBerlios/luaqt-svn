@@ -1,0 +1,413 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QFileDialog Class Reference
+
+   #include <qfiledialog.h>
+
+   Inherits QDialog.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags Options
+     * enum ViewMode { Detail, List }
+     * enum FileMode {
+         AnyFile, ExistingFile, Directory, ExistingFiles,
+         DirectoryOnly
+       }
+     * enum AcceptMode { AcceptOpen, AcceptSave }
+     * enum DialogLabel {
+         LookIn, FileName, FileType, Accept,
+         Reject
+       }
+     * enum Option {
+         ShowDirsOnly = 0x01, DontResolveSymlinks = 0x02, DontConfirmOverwrite = 0x04, DontUseSheet = 0x08,
+         DontUseNativeDialog = 0x10
+       }
+
+Signals
+
+     * void filesSelected (const QStringList &files)
+     * void currentChanged (const QString &path)
+
+Public Member Functions
+
+     * QFileDialog (QWidget *parent, Qt::WFlags f)
+     * QFileDialog (QWidget *parent=0, const QString &caption=QString(), const QString &directory=QString(), const QString &filter=QString())
+     * ~QFileDialog ()
+     * void setDirectory (const QString &directory)
+     * void setDirectory (const QDir &directory)
+     * QDir directory () const
+     * void selectFile (const QString &filename)
+     * QStringList selectedFiles () const
+     * void setFilter (const QString &filter)
+     * void setFilters (const QStringList &filters)
+     * QStringList filters () const
+     * void selectFilter (const QString &filter)
+     * QString selectedFilter () const
+     * void setViewMode (ViewMode mode)
+     * ViewMode viewMode () const
+     * void setFileMode (FileMode mode)
+     * FileMode fileMode () const
+     * void setAcceptMode (AcceptMode mode)
+     * AcceptMode acceptMode () const
+     * void setReadOnly (bool enabled)
+     * bool isReadOnly () const
+     * void setResolveSymlinks (bool enabled)
+     * bool resolveSymlinks () const
+     * void setConfirmOverwrite (bool enabled)
+     * bool confirmOverwrite () const
+     * void setDefaultSuffix (const QString &suffix)
+     * QString defaultSuffix () const
+     * void setHistory (const QStringList &paths)
+     * QStringList history () const
+     * void setItemDelegate (QAbstractItemDelegate *delegate)
+     * QAbstractItemDelegate * itemDelegate () const
+     * void setIconProvider (QFileIconProvider *provider)
+     * QFileIconProvider * iconProvider () const
+     * void setLabelText (DialogLabel label, const QString &text)
+     * QString labelText (DialogLabel label) const
+
+Static Public Member Functions
+
+     * static QString getOpenFileName (QWidget *parent=0, const QString &caption=QString(), const QString &dir=QString(), const QString &filter=QString(), QString *selectedFilter=0, Options options=0)
+     * static QString getSaveFileName (QWidget *parent=0, const QString &caption=QString(), const QString &dir=QString(), const QString &filter=QString(), QString *selectedFilter=0, Options options=0)
+     * static QString getExistingDirectory (QWidget *parent=0, const QString &caption=QString(), const QString &dir=QString(), Options options=ShowDirsOnly)
+     * static QStringList getOpenFileNames (QWidget *parent=0, const QString &caption=QString(), const QString &dir=QString(), const QString &filter=QString(), QString *selectedFilter=0, Options options=0)
+
+Protected Member Functions
+
+     * QFileDialog (const QFileDialogArgs &args)
+     * void done (int result)
+     * void accept ()
+
+Properties
+
+     * ViewMode viewMode
+     * FileMode fileMode
+     * AcceptMode acceptMode
+     * bool readOnly
+     * bool resolveSymlinks
+     * bool confirmOverwrite
+     * QString defaultSuffix
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QFileDialog::Options
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QFileDialog::AcceptMode
+
+
+
+   Enumerator: 
+
+          AcceptOpen
+          AcceptSave
+
+   enum QFileDialog::DialogLabel
+
+
+
+   Enumerator: 
+
+          LookIn  
+          FileName
+          FileType
+          Accept  
+          Reject  
+
+   enum QFileDialog::FileMode
+
+
+
+   Enumerator: 
+
+          AnyFile      
+          ExistingFile 
+          Directory    
+          ExistingFiles
+          DirectoryOnly
+
+   enum QFileDialog::Option
+
+
+
+   Enumerator: 
+
+          ShowDirsOnly        
+          DontResolveSymlinks 
+          DontConfirmOverwrite
+          DontUseSheet        
+          DontUseNativeDialog 
+
+   enum QFileDialog::ViewMode
+
+
+
+   Enumerator: 
+
+          Detail
+          List  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QFileDialog::QFileDialog (  QWidget *   parent,
+                               Qt::WFlags  f
+                            )
+
+
+
+   QFileDialog::QFileDialog (  QWidget *        parent = 0,
+                               const QString &  caption = QString(),
+                               const QString &  directory = QString(),
+                               const QString &  filter = QString()
+                            )  [explicit]
+
+
+
+   QFileDialog::~QFileDialog (   )
+
+
+
+   QFileDialog::QFileDialog (  const QFileDialogArgs &  args  )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QFileDialog::accept (   )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   AcceptMode QFileDialog::acceptMode (   )  const
+
+
+
+   bool QFileDialog::confirmOverwrite (   )  const
+
+
+
+   void QFileDialog::currentChanged (  const QString &  path  )  [signal]
+
+
+
+   QString QFileDialog::defaultSuffix (   )  const
+
+
+
+   QDir QFileDialog::directory (   )  const
+
+
+
+   void QFileDialog::done (  int  result  )  [protected, virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   FileMode QFileDialog::fileMode (   )  const
+
+
+
+   void QFileDialog::filesSelected (  const QStringList &  files  )  [signal]
+
+
+
+   QStringList QFileDialog::filters (   )  const
+
+
+
+   static QString QFileDialog::getExistingDirectory (  QWidget *        parent = 0,
+                                                       const QString &  caption = QString(),
+                                                       const QString &  dir = QString(),
+                                                       Options          options = ShowDirsOnly
+                                                    )  [static]
+
+
+
+   static QString QFileDialog::getOpenFileName (  QWidget *        parent = 0,
+                                                  const QString &  caption = QString(),
+                                                  const QString &  dir = QString(),
+                                                  const QString &  filter = QString(),
+                                                  QString *        selectedFilter = 0,
+                                                  Options          options = 0
+                                               )  [static]
+
+
+
+   static QStringList QFileDialog::getOpenFileNames (  QWidget *        parent = 0,
+                                                       const QString &  caption = QString(),
+                                                       const QString &  dir = QString(),
+                                                       const QString &  filter = QString(),
+                                                       QString *        selectedFilter = 0,
+                                                       Options          options = 0
+                                                    )  [static]
+
+
+
+   static QString QFileDialog::getSaveFileName (  QWidget *        parent = 0,
+                                                  const QString &  caption = QString(),
+                                                  const QString &  dir = QString(),
+                                                  const QString &  filter = QString(),
+                                                  QString *        selectedFilter = 0,
+                                                  Options          options = 0
+                                               )  [static]
+
+
+
+   QStringList QFileDialog::history (   )  const
+
+
+
+   QFileIconProvider* QFileDialog::iconProvider (   )  const
+
+
+
+   bool QFileDialog::isReadOnly (   )  const
+
+
+
+   QAbstractItemDelegate* QFileDialog::itemDelegate (   )  const
+
+
+
+   QString QFileDialog::labelText (  DialogLabel  label  )  const
+
+
+
+   bool QFileDialog::resolveSymlinks (   )  const
+
+
+
+   QStringList QFileDialog::selectedFiles (   )  const
+
+
+
+   QString QFileDialog::selectedFilter (   )  const
+
+
+
+   void QFileDialog::selectFile (  const QString &  filename  )
+
+
+
+   void QFileDialog::selectFilter (  const QString &  filter  )
+
+
+
+   void QFileDialog::setAcceptMode (  AcceptMode  mode  )
+
+
+
+   void QFileDialog::setConfirmOverwrite (  bool  enabled  )
+
+
+
+   void QFileDialog::setDefaultSuffix (  const QString &  suffix  )
+
+
+
+   void QFileDialog::setDirectory (  const QDir &  directory  )  [inline]
+
+
+
+   void QFileDialog::setDirectory (  const QString &  directory  )
+
+
+
+   void QFileDialog::setFileMode (  FileMode  mode  )
+
+
+
+   void QFileDialog::setFilter (  const QString &  filter  )
+
+
+
+   void QFileDialog::setFilters (  const QStringList &  filters  )
+
+
+
+   void QFileDialog::setHistory (  const QStringList &  paths  )
+
+
+
+   void QFileDialog::setIconProvider (  QFileIconProvider *  provider  )
+
+
+
+   void QFileDialog::setItemDelegate (  QAbstractItemDelegate *  delegate  )
+
+
+
+   void QFileDialog::setLabelText (  DialogLabel      label,
+                                     const QString &  text
+                                  )
+
+
+
+   void QFileDialog::setReadOnly (  bool  enabled  )
+
+
+
+   void QFileDialog::setResolveSymlinks (  bool  enabled  )
+
+
+
+   void QFileDialog::setViewMode (  ViewMode  mode  )
+
+
+
+   ViewMode QFileDialog::viewMode (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   AcceptMode QFileDialog::acceptMode [read, write]
+
+
+
+   bool QFileDialog::confirmOverwrite [read, write]
+
+
+
+   QString QFileDialog::defaultSuffix [read, write]
+
+
+
+   FileMode QFileDialog::fileMode [read, write]
+
+
+
+   bool QFileDialog::readOnly [read, write]
+
+
+
+   bool QFileDialog::resolveSymlinks [read, write]
+
+
+
+   ViewMode QFileDialog::viewMode [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qfiledialog.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

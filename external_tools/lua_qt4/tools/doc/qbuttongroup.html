@@ -1,0 +1,137 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QButtonGroup Class Reference
+
+   The QButtonGroup class provides a container to organize groups of
+   button widgets. More...
+#include <QButtonGroup>
+
+   Part of the QtGui module.
+
+   Inherits QObject.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * exclusive : bool
+
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QButtonGroup ( QObject * parent = 0 )
+     * ~QButtonGroup ()
+     * void addButton ( QAbstractButton * button )
+     * QList<QAbstractButton *> buttons () const
+     * QAbstractButton * checkedButton () const
+     * bool exclusive () const
+     * void removeButton ( QAbstractButton * button )
+     * void setExclusive ( bool )
+
+     * 28 public functions inherited from QObject
+
+  Signals
+
+     * void buttonClicked ( QAbstractButton * button )
+
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 1 public slot inherited from QObject
+     * 4 static public members inherited from QObject
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QButtonGroup class provides a container to organize groups of
+   button widgets.
+
+   QButtonGroup provides an abstract container into which button widgets
+   can be placed. It does not provide a visual representation of this
+   container (see QGroupBox for a container widget), but instead manages
+   the states of each of the buttons in the group.
+
+   An exclusive button group switches off all checkable (toggle) buttons
+   except the one that was clicked. By default, a button group is
+   exclusive. The buttons in a button group are usually checkable
+   QPushButton's, QCheckBoxes (normally for non-exclusive button groups),
+   or QRadioButtons.
+
+   A button is added to the group with addButton(). It can be removed
+   from the group with removeButton(). If the group is exclusive, the
+   currently checked button is available as checkedButton(). If a button
+   is clicked the buttonClicked() signal is emitted. For a checkable
+   button in an exclusive group this means that the button was checked.
+   The list of buttons in the group is returned by buttons().
+
+   See also QGroupBox, QPushButton, QCheckBox, and QRadioButton.
+     _________________________________________________________________
+
+Property Documentation
+
+  exclusive : bool
+
+   This property holds whether the button group is exclusive.
+
+   If this property is true, then the buttons in the group are checked
+   (toggled), and to untoggle a button you must click on another button
+   in the group. The default value is true.
+
+   Access functions:
+     * bool exclusive () const
+     * void setExclusive ( bool )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QButtonGroup::QButtonGroup ( QObject * parent = 0 )
+
+   Constructs a new, empty button group with the given parent.
+
+   See also addButton() and setExclusive().
+
+  QButtonGroup::~QButtonGroup ()
+
+   Destroys the button group.
+
+  void QButtonGroup::addButton ( QAbstractButton * button )
+
+   Adds the given button to the button group.
+
+   See also removeButton() and buttons().
+
+  void QButtonGroup::buttonClicked ( QAbstractButton * button )   [signal]
+
+   This signal is emitted when the given button is clicked.
+
+   See also checkedButton() and QAbstractButton::clicked().
+
+  QList<QAbstractButton *> QButtonGroup::buttons () const
+
+   Returns the list of this groups's buttons. This may be empty.
+
+   See also addButton() and removeButton().
+
+  QAbstractButton * QButtonGroup::checkedButton () const
+
+   Returns the button group's checked button, or 0 if no buttons are
+   checked.
+
+   See also buttonClicked().
+
+  void QButtonGroup::removeButton ( QAbstractButton * button )
+
+   Removes the given button from the button group.
+
+   See also addButton() and buttons().
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

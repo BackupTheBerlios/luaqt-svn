@@ -1,0 +1,85 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QUdpSocket Class Reference
+
+   #include <qudpsocket.h>
+
+   Inherits QAbstractSocket.
+
+   List of all members.
+
+Public Member Functions
+
+     * QUdpSocket (QObject *parent=0)
+     * virtual ~QUdpSocket ()
+     * bool bind (const QHostAddress &address, quint16 port)
+     * bool bind (quint16 port=0)
+     * bool hasPendingDatagrams () const
+     * qint64 pendingDatagramSize () const
+     * qint64 readDatagram (char *data, qint64 maxlen, QHostAddress *host=0, quint16 *port=0)
+     * qint64 writeDatagram (const char *data, qint64 len, const QHostAddress &host, quint16 port)
+     * qint64 writeDatagram (const QByteArray &datagram, const QHostAddress &host, quint16 port)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QUdpSocket::QUdpSocket (  QObject *  parent = 0  )  [explicit]
+
+
+
+   virtual QUdpSocket::~QUdpSocket (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QUdpSocket::bind (  quint16  port = 0  )
+
+
+
+   bool QUdpSocket::bind (  const QHostAddress &  address,
+                            quint16               port
+                         )
+
+
+
+   bool QUdpSocket::hasPendingDatagrams (   )  const
+
+
+
+   qint64 QUdpSocket::pendingDatagramSize (   )  const
+
+
+
+   qint64 QUdpSocket::readDatagram (  char *          data,
+                                      qint64          maxlen,
+                                      QHostAddress *  host = 0,
+                                      quint16 *       port = 0
+                                   )
+
+
+
+   qint64 QUdpSocket::writeDatagram (  const QByteArray &    datagram,
+                                       const QHostAddress &  host,
+                                       quint16               port
+                                    )  [inline]
+
+
+
+   qint64 QUdpSocket::writeDatagram (  const char *          data,
+                                       qint64                len,
+                                       const QHostAddress &  host,
+                                       quint16               port
+                                    )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qudpsocket.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:05 2005 by  doxygen 1.4.3-20050530

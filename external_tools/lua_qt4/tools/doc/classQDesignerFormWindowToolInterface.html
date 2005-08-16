@@ -1,0 +1,89 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                 QDesignerFormWindowToolInterface Class Reference
+
+   #include <abstractformwindowtool.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Member Functions
+
+     * QDesignerFormWindowToolInterface (QObject *parent=0)
+     * virtual ~QDesignerFormWindowToolInterface ()
+     * virtual QDesignerFormEditorInterface * core () const =0
+     * virtual QDesignerFormWindowInterface * formWindow () const =0
+     * virtual QWidget * editor () const =0
+     * virtual QAction * action () const =0
+     * virtual void activated ()=0
+     * virtual void deactivated ()=0
+     * virtual void saveToDom (DomUI *, QWidget *)
+     * virtual void loadFromDom (DomUI *, QWidget *)
+     * virtual bool handleEvent (QWidget *widget, QWidget *managedWidget, QEvent *event)=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface (  QObject *  parent = 0  )
+
+
+
+   virtual QDesignerFormWindowToolInterface::~QDesignerFormWindowToolInterface (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QAction* QDesignerFormWindowToolInterface::action (   )  const [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowToolInterface::activated (   )  [pure virtual]
+
+
+
+   virtual QDesignerFormEditorInterface* QDesignerFormWindowToolInterface::core (   )  const [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowToolInterface::deactivated (   )  [pure virtual]
+
+
+
+   virtual QWidget* QDesignerFormWindowToolInterface::editor (   )  const [pure virtual]
+
+
+
+   virtual QDesignerFormWindowInterface* QDesignerFormWindowToolInterface::formWindow (   )  const [pure virtual]
+
+
+
+   virtual bool QDesignerFormWindowToolInterface::handleEvent (  QWidget *  widget,
+                                                                 QWidget *  managedWidget,
+                                                                 QEvent *   event
+                                                              )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowToolInterface::loadFromDom (  DomUI *    ,
+                                                                 QWidget *
+                                                              )  [inline, virtual]
+
+
+
+   virtual void QDesignerFormWindowToolInterface::saveToDom (  DomUI *    ,
+                                                               QWidget *
+                                                            )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractformwindowtool.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

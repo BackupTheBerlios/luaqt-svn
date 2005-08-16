@@ -1,0 +1,240 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+   QList::iterator
+
+                                                                                                                                                                                                                                       QList< T >::iterator Class Reference
+
+   #include <qlist.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef std::random_access_iterator_tag iterator_category
+     * typedef ptrdiff_t difference_type
+     * typedef T value_type
+     * typedef T * pointer
+     * typedef T & reference
+
+Public Member Functions
+
+     * iterator ()
+     * iterator (Node *n)
+     * iterator (const iterator &o)
+     * T & operator * () const
+     * T * operator-> () const
+     * T & operator[] (int j) const
+     * bool operator== (const iterator &o) const
+     * bool operator!= (const iterator &o) const
+     * bool operator< (const iterator &other) const
+     * bool operator<= (const iterator &other) const
+     * bool operator> (const iterator &other) const
+     * bool operator>= (const iterator &other) const
+     * bool operator== (const const_iterator &o) const
+     * bool operator!= (const const_iterator &o) const
+     * bool operator< (const const_iterator &other) const
+     * bool operator<= (const const_iterator &other) const
+     * bool operator> (const const_iterator &other) const
+     * bool operator>= (const const_iterator &other) const
+     * iterator & operator++ ()
+     * iterator operator++ (int)
+     * iterator & operator-- ()
+     * iterator operator-- (int)
+     * iterator & operator+= (int j)
+     * iterator & operator-= (int j)
+     * iterator operator+ (int j) const
+     * iterator operator- (int j) const
+     * int operator- (iterator j) const
+
+Public Attributes
+
+     * Node * i
+
+  template<typename T>
+  class QList< T >::iterator
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   template<typename T>
+   typedef ptrdiff_t QList< T >::iterator::difference_type
+
+
+
+   template<typename T>
+   typedef std::random_access_iterator_tag QList< T >::iterator::iterator_category
+
+
+
+   template<typename T>
+   typedef T* QList< T >::iterator::pointer
+
+
+
+   template<typename T>
+   typedef T& QList< T >::iterator::reference
+
+
+
+   template<typename T>
+   typedef T QList< T >::iterator::value_type
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<typename T>
+   QList< T >::iterator::iterator (   )  [inline]
+
+
+
+   template<typename T>
+   QList< T >::iterator::iterator (  Node *  n  )  [inline]
+
+
+
+   template<typename T>
+   QList< T >::iterator::iterator (  const iterator &  o  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<typename T>
+   T& QList< T >::iterator::operator * (   )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator!= (  const const_iterator &  o  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator!= (  const iterator &  o  )  const [inline]
+
+
+
+   template<typename T>
+   iterator QList< T >::iterator::operator+ (  int  j  )  const [inline]
+
+
+
+   template<typename T>
+   iterator QList< T >::iterator::operator++ (  int   )  [inline]
+
+
+
+   template<typename T>
+   iterator& QList< T >::iterator::operator++ (   )  [inline]
+
+
+
+   template<typename T>
+   iterator& QList< T >::iterator::operator+= (  int  j  )  [inline]
+
+
+
+   template<typename T>
+   int QList< T >::iterator::operator- (  iterator  j  )  const [inline]
+
+
+
+   template<typename T>
+   iterator QList< T >::iterator::operator- (  int  j  )  const [inline]
+
+
+
+   template<typename T>
+   iterator QList< T >::iterator::operator-- (  int   )  [inline]
+
+
+
+   template<typename T>
+   iterator& QList< T >::iterator::operator-- (   )  [inline]
+
+
+
+   template<typename T>
+   iterator& QList< T >::iterator::operator-= (  int  j  )  [inline]
+
+
+
+   template<typename T>
+   T* QList< T >::iterator::operator-> (   )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator< (  const const_iterator &  other  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator< (  const iterator &  other  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator<= (  const const_iterator &  other  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator<= (  const iterator &  other  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator== (  const const_iterator &  o  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator== (  const iterator &  o  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator> (  const const_iterator &  other  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator> (  const iterator &  other  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator>= (  const const_iterator &  other  )  const [inline]
+
+
+
+   template<typename T>
+   bool QList< T >::iterator::operator>= (  const iterator &  other  )  const [inline]
+
+
+
+   template<typename T>
+   T& QList< T >::iterator::operator[] (  int  j  )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   template<typename T>
+   Node* QList< T >::iterator::i
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qlist.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

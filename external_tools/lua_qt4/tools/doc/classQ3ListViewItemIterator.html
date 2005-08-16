@@ -1,0 +1,163 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                      Q3ListViewItemIterator Class Reference
+
+   #include <q3listview.h>
+
+   List of all members.
+
+Public Types
+
+     * enum IteratorFlag {
+         Visible = 0x00000001, Invisible = 0x00000002, Selected = 0x00000004, Unselected = 0x00000008,
+         Selectable = 0x00000010, NotSelectable = 0x00000020, DragEnabled = 0x00000040, DragDisabled = 0x00000080,
+         DropEnabled = 0x00000100, DropDisabled = 0x00000200, Expandable = 0x00000400, NotExpandable = 0x00000800,
+         Checked = 0x00001000, NotChecked = 0x00002000
+       }
+
+Public Member Functions
+
+     * Q3ListViewItemIterator ()
+     * Q3ListViewItemIterator (Q3ListViewItem *item)
+     * Q3ListViewItemIterator (Q3ListViewItem *item, int iteratorFlags)
+     * Q3ListViewItemIterator (const Q3ListViewItemIterator &it)
+     * Q3ListViewItemIterator (Q3ListView *lv)
+     * Q3ListViewItemIterator (Q3ListView *lv, int iteratorFlags)
+     * Q3ListViewItemIterator & operator= (const Q3ListViewItemIterator &it)
+     * ~Q3ListViewItemIterator ()
+     * Q3ListViewItemIterator & operator++ ()
+     * const Q3ListViewItemIterator operator++ (int)
+     * Q3ListViewItemIterator & operator+= (int j)
+     * Q3ListViewItemIterator & operator-- ()
+     * const Q3ListViewItemIterator operator-- (int)
+     * Q3ListViewItemIterator & operator-= (int j)
+     * Q3ListViewItem * operator * ()
+     * Q3ListViewItem * current () const
+
+Friends
+
+     * struct Q3ListViewPrivate
+     * class Q3ListView
+     * class Q3ListViewItem
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3ListViewItemIterator::IteratorFlag
+
+
+
+   Enumerator: 
+
+          Visible      
+          Invisible    
+          Selected     
+          Unselected   
+          Selectable   
+          NotSelectable
+          DragEnabled  
+          DragDisabled 
+          DropEnabled  
+          DropDisabled 
+          Expandable   
+          NotExpandable
+          Checked      
+          NotChecked   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3ListViewItemIterator::Q3ListViewItemIterator (   )
+
+
+
+   Q3ListViewItemIterator::Q3ListViewItemIterator (  Q3ListViewItem *  item  )
+
+
+
+   Q3ListViewItemIterator::Q3ListViewItemIterator (  Q3ListViewItem *  item,
+                                                     int               iteratorFlags
+                                                  )
+
+
+
+   Q3ListViewItemIterator::Q3ListViewItemIterator (  const Q3ListViewItemIterator &  it  )
+
+
+
+   Q3ListViewItemIterator::Q3ListViewItemIterator (  Q3ListView *  lv  )
+
+
+
+   Q3ListViewItemIterator::Q3ListViewItemIterator (  Q3ListView *  lv,
+                                                     int           iteratorFlags
+                                                  )
+
+
+
+   Q3ListViewItemIterator::~Q3ListViewItemIterator (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3ListViewItem* Q3ListViewItemIterator::current (   )  const
+
+
+
+   Q3ListViewItem* Q3ListViewItemIterator::operator * (   )
+
+
+
+   const Q3ListViewItemIterator Q3ListViewItemIterator::operator++ (  int   )
+
+
+
+   Q3ListViewItemIterator& Q3ListViewItemIterator::operator++ (   )
+
+
+
+   Q3ListViewItemIterator& Q3ListViewItemIterator::operator+= (  int  j  )
+
+
+
+   const Q3ListViewItemIterator Q3ListViewItemIterator::operator-- (  int   )
+
+
+
+   Q3ListViewItemIterator& Q3ListViewItemIterator::operator-- (   )
+
+
+
+   Q3ListViewItemIterator& Q3ListViewItemIterator::operator-= (  int  j  )
+
+
+
+   Q3ListViewItemIterator& Q3ListViewItemIterator::operator= (  const Q3ListViewItemIterator &  it  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3ListView [friend]
+
+
+
+   friend class Q3ListViewItem [friend]
+
+
+
+   friend struct Q3ListViewPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3listview.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,149 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                   Q3AsciiDict< type > Class Template Reference
+
+   #include <q3asciidict.h>
+
+   Inherits Q3GDict.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3AsciiDict (int size=17, bool caseSensitive=true, bool copyKeys=true)
+     * Q3AsciiDict (const Q3AsciiDict< type > &d)
+     * ~Q3AsciiDict ()
+     * Q3AsciiDict< type > & operator= (const Q3AsciiDict< type > &d)
+     * uint count () const
+     * uint size () const
+     * bool isEmpty () const
+     * void insert (const char *k, const type *d)
+     * void replace (const char *k, const type *d)
+     * bool remove (const char *k)
+     * type * take (const char *k)
+     * type * find (const char *k) const
+     * type * operator[] (const char *k) const
+     * void clear ()
+     * void resize (uint n)
+     * void statistics () const
+     * template<> void deleteItem (Q3PtrCollection::Item)
+
+  template<class type>
+  class Q3AsciiDict< type >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class type>
+   Q3AsciiDict< type >::Q3AsciiDict (  int   size = 17,
+                                       bool  caseSensitive = true,
+                                       bool  copyKeys = true
+                                    )  [inline]
+
+
+
+   template<class type>
+   Q3AsciiDict< type >::Q3AsciiDict (  const Q3AsciiDict< type > &  d  )  [inline]
+
+
+
+   template<class type>
+   Q3AsciiDict< type >::~Q3AsciiDict (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class type>
+   void Q3AsciiDict< type >::clear (   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   uint Q3AsciiDict< type >::count (   )  const [inline, virtual]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<>
+   void Q3AsciiDict< type >::deleteItem (  Q3PtrCollection::Item  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3AsciiDict< type >::find (  const char *  k  )  const [inline]
+
+
+
+   template<class type>
+   void Q3AsciiDict< type >::insert (  const char *  k,
+                                       const type *  d
+                                    )  [inline]
+
+
+
+   template<class type>
+   bool Q3AsciiDict< type >::isEmpty (   )  const [inline]
+
+
+
+   template<class type>
+   Q3AsciiDict<type>& Q3AsciiDict< type >::operator= (  const Q3AsciiDict< type > &  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3AsciiDict< type >::operator[] (  const char *  k  )  const [inline]
+
+
+
+   template<class type>
+   bool Q3AsciiDict< type >::remove (  const char *  k  )  [inline]
+
+
+
+   template<class type>
+   void Q3AsciiDict< type >::replace (  const char *  k,
+                                        const type *  d
+                                     )  [inline]
+
+
+
+   template<class type>
+   void Q3AsciiDict< type >::resize (  uint  n  )  [inline]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   uint Q3AsciiDict< type >::size (   )  const [inline]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   void Q3AsciiDict< type >::statistics (   )  const [inline]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   type* Q3AsciiDict< type >::take (  const char *  k  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3asciidict.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

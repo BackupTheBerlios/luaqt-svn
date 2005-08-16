@@ -1,0 +1,331 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QTabBar Class Reference
+
+   #include <qtabbar.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum Shape {
+         RoundedNorth, RoundedSouth, RoundedWest, RoundedEast,
+         TriangularNorth, TriangularSouth, TriangularWest, TriangularEast
+       }
+
+Public Slots
+
+     * void setCurrentIndex (int index)
+
+Signals
+
+     * void currentChanged (int index)
+
+Public Member Functions
+
+     * QTabBar (QWidget *parent=0)
+     * ~QTabBar ()
+     * Shape shape () const
+     * void setShape (Shape shape)
+     * int addTab (const QString &text)
+     * int addTab (const QIcon &icon, const QString &text)
+     * int insertTab (int index, const QString &text)
+     * int insertTab (int index, const QIcon &icon, const QString &text)
+     * void removeTab (int index)
+     * bool isTabEnabled (int index) const
+     * void setTabEnabled (int index, bool)
+     * QString tabText (int index) const
+     * void setTabText (int index, const QString &text)
+     * QIcon tabIcon (int index) const
+     * void setTabIcon (int index, const QIcon &icon)
+     * void setTabToolTip (int index, const QString &tip)
+     * QString tabToolTip (int index) const
+     * void setTabData (int index, const QVariant &data)
+     * QVariant tabData (int index) const
+     * QRect tabRect (int index) const
+     * int currentIndex () const
+     * int count () const
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * void setDrawBase (bool drawTheBase)
+     * bool drawBase () const
+
+Protected Member Functions
+
+     * virtual QSize tabSizeHint (int index) const
+     * virtual void tabInserted (int index)
+     * virtual void tabRemoved (int index)
+     * virtual void tabLayoutChange ()
+     * bool event (QEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void showEvent (QShowEvent *)
+     * void paintEvent (QPaintEvent *)
+     * void mousePressEvent (QMouseEvent *)
+     * void mouseMoveEvent (QMouseEvent *)
+     * void mouseReleaseEvent (QMouseEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * Shape shape
+     * int currentIndex
+     * int count
+     * bool drawBase
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTabBar::Shape
+
+
+
+   Enumerator: 
+
+          RoundedNorth   
+          RoundedSouth   
+          RoundedWest    
+          RoundedEast    
+          TriangularNorth
+          TriangularSouth
+          TriangularWest 
+          TriangularEast 
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTabBar::QTabBar (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QTabBar::~QTabBar (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QTabBar::addTab (  const QIcon &    icon,
+                          const QString &  text
+                       )
+
+
+
+   int QTabBar::addTab (  const QString &  text  )
+
+
+
+   void QTabBar::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int QTabBar::count (   )  const
+
+
+
+   void QTabBar::currentChanged (  int  index  )  [signal]
+
+
+
+   int QTabBar::currentIndex (   )  const
+
+
+
+   bool QTabBar::drawBase (   )  const
+
+
+
+   bool QTabBar::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int QTabBar::insertTab (  int              index,
+                             const QIcon &    icon,
+                             const QString &  text
+                          )
+
+
+
+   int QTabBar::insertTab (  int              index,
+                             const QString &  text
+                          )
+
+
+
+   bool QTabBar::isTabEnabled (  int  index  )  const
+
+
+
+   void QTabBar::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QTabBar::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QTabBar::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QTabBar::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QTabBar::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QTabBar::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QTabBar::removeTab (  int  index  )
+
+
+
+   void QTabBar::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QTabBar::setCurrentIndex (  int  index  )  [slot]
+
+
+
+   void QTabBar::setDrawBase (  bool  drawTheBase  )
+
+
+
+   void QTabBar::setShape (  Shape  shape  )
+
+
+
+   void QTabBar::setTabData (  int               index,
+                               const QVariant &  data
+                            )
+
+
+
+   void QTabBar::setTabEnabled (  int   index,
+                                  bool
+                               )
+
+
+
+   void QTabBar::setTabIcon (  int            index,
+                               const QIcon &  icon
+                            )
+
+
+
+   void QTabBar::setTabText (  int              index,
+                               const QString &  text
+                            )
+
+
+
+   void QTabBar::setTabToolTip (  int              index,
+                                  const QString &  tip
+                               )
+
+
+
+   Shape QTabBar::shape (   )  const
+
+
+
+   void QTabBar::showEvent (  QShowEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QTabBar::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QVariant QTabBar::tabData (  int  index  )  const
+
+
+
+   QIcon QTabBar::tabIcon (  int  index  )  const
+
+
+
+   virtual void QTabBar::tabInserted (  int  index  )  [protected, virtual]
+
+
+
+   virtual void QTabBar::tabLayoutChange (   )  [protected, virtual]
+
+
+
+   QRect QTabBar::tabRect (  int  index  )  const
+
+
+
+   virtual void QTabBar::tabRemoved (  int  index  )  [protected, virtual]
+
+
+
+   virtual QSize QTabBar::tabSizeHint (  int  index  )  const [protected, virtual]
+
+
+
+   QString QTabBar::tabText (  int  index  )  const
+
+
+
+   QString QTabBar::tabToolTip (  int  index  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int QTabBar::count [read]
+
+
+
+   int QTabBar::currentIndex [read, write]
+
+
+
+   bool QTabBar::drawBase [read, write]
+
+
+
+   Shape QTabBar::shape [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtabbar.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

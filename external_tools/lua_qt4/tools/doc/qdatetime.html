@@ -1,0 +1,528 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QDateTime Class Reference
+
+   The QDateTime class provides date and time functions. More...
+#include <QDateTime>
+
+   Part of the QtCore module.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QDateTime ()
+     * QDateTime ( const QDate & date )
+     * QDateTime ( const QDate & date, const QTime & time, Qt::TimeSpec
+       spec = Qt::LocalTime )
+     * QDateTime ( const QDateTime & other )
+     * ~QDateTime ()
+     * QDateTime addDays ( int ndays ) const
+     * QDateTime addMonths ( int nmonths ) const
+     * QDateTime addSecs ( int nsecs ) const
+     * QDateTime addYears ( int nyears ) const
+     * QDate date () const
+     * int daysTo ( const QDateTime & other ) const
+     * bool isNull () const
+     * bool isValid () const
+     * int secsTo ( const QDateTime & other ) const
+     * void setDate ( const QDate & date )
+     * void setTime ( const QTime & time )
+     * void setTimeSpec ( Qt::TimeSpec spec )
+     * void setTime_t ( uint seconds )
+     * QTime time () const
+     * Qt::TimeSpec timeSpec () const
+     * QDateTime toLocalTime () const
+     * QString toString ( const QString & format ) const
+     * QString toString ( Qt::DateFormat format = Qt::TextDate ) const
+     * QDateTime toTimeSpec ( Qt::TimeSpec specification ) const
+     * uint toTime_t () const
+     * QDateTime toUTC () const
+     * bool operator!= ( const QDateTime & other ) const
+     * bool operator< ( const QDateTime & other ) const
+     * bool operator<= ( const QDateTime & other ) const
+     * QDateTime & operator= ( const QDateTime & other )
+     * bool operator== ( const QDateTime & other ) const
+     * bool operator> ( const QDateTime & other ) const
+     * bool operator>= ( const QDateTime & other ) const
+
+  Static Public Members
+
+     * QDateTime currentDateTime ()
+     * QDateTime fromString ( const QString & string, Qt::DateFormat
+       format = Qt::TextDate )
+     * QDateTime fromString ( const QString & string, const QString &
+       format )
+
+  Related Non-Members
+
+     * QDataStream & operator<< ( QDataStream & out, const QDateTime &
+       dateTime )
+     * QDataStream & operator>> ( QDataStream & in, QDateTime & dateTime
+       )
+     _________________________________________________________________
+
+Detailed Description
+
+   The QDateTime class provides date and time functions.
+
+   A QDateTime object contains a calendar date and a clock time (a
+   "datetime"). It is a combination of the QDate and QTime classes. It
+   can read the current datetime from the system clock. It provides
+   functions for comparing datetimes and for manipulating a datetime by
+   adding a number of seconds, days, months, or years.
+
+   A QDateTime object is typically created either by giving a date and
+   time explicitly in the constructor, or by using the static function
+   currentDateTime() that returns a QDateTime object set to the system
+   clock's time. The date and time can be changed with setDate() and
+   setTime(). A datetime can also be set using the setTime_t() function
+   that takes a POSIX-standard "number of seconds since 00:00:00 on
+   January 1, 1970" value. The fromString() function returns a QDateTime,
+   given a string and a date format used to interpret the date within the
+   string.
+
+   The date() and time() functions provide access to the date and time
+   parts of the datetime. The same information is provided in textual
+   format by the toString() function.
+
+   QDateTime provides a full set of operators to compare two QDateTime
+   objects where smaller means earlier and larger means later.
+
+   You can increment (or decrement) a datetime by a given number of
+   seconds using addSecs(), or days using addDays(). Similarly you can
+   use addMonths() and addYears(). The daysTo() function returns the
+   number of days between two datetimes, and secsTo() returns the number
+   of seconds between two datetimes.
+
+   QDateTime can store datetimes as local time or as UTC.
+   QDateTime::currentDateTime() returns a QDateTime expressed as local
+   time; use toUTC() to convert it to UTC. You can also use timeSpec() to
+   find out if a QDateTime object stores a UTC time or a local time.
+   Operations such as addSecs() and secsTo() are aware of daylight saving
+   time (DST).
+
+   See also QDate, QTime, and QDateTimeEdit.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QDateTime::QDateTime ()
+
+   Constructs a null datetime (i.e. null date and null time). A null
+   datetime is invalid, since the date is invalid.
+
+   See also isValid().
+
+  QDateTime::QDateTime ( const QDate & date )
+
+   Constructs a datetime with the given date, and a null but valid time
+   (00:00:00.000).
+
+  QDateTime::QDateTime ( const QDate & date, const QTime & time, Qt::TimeSpec
+  spec = Qt::LocalTime )
+
+   Constructs a datetime with the given date and time, using the time
+   specification defined by spec.
+
+  QDateTime::QDateTime ( const QDateTime & other )
+
+   Constructs a copy of the other datetime.
+
+  QDateTime::~QDateTime ()
+
+   Destroys the datetime.
+
+  QDateTime QDateTime::addDays ( int ndays ) const
+
+   Returns a QDateTime object containing a datetime ndays days later than
+   the datetime of this object (or earlier if ndays is negative).
+
+   See also daysTo(), addMonths(), addYears(), and addSecs().
+
+  QDateTime QDateTime::addMonths ( int nmonths ) const
+
+   Returns a QDateTime object containing a datetime nmonths months later
+   than the datetime of this object (or earlier if nmonths is negative).
+
+   See also daysTo(), addDays(), addYears(), and addSecs().
+
+  QDateTime QDateTime::addSecs ( int nsecs ) const
+
+   Returns a QDateTime object containing a datetime nsecs seconds later
+   than the datetime of this object (or earlier if nsecs is negative).
+
+   See also secsTo(), addDays(), addMonths(), and addYears().
+
+  QDateTime QDateTime::addYears ( int nyears ) const
+
+   Returns a QDateTime object containing a datetime nyears years later
+   than the datetime of this object (or earlier if nyears is negative).
+
+   See also daysTo(), addDays(), addMonths(), and addSecs().
+
+  QDateTime QDateTime::currentDateTime ()   [static]
+
+   Returns the current datetime, as reported by the system clock, in the
+   local time zone.
+
+   See also QDate::currentDate(), QTime::currentTime(), and toTimeSpec().
+
+  QDate QDateTime::date () const
+
+   Returns the date part of the datetime.
+
+   See also setDate(), time(), and timeSpec().
+
+  int QDateTime::daysTo ( const QDateTime & other ) const
+
+   Returns the number of days from this datetime to the other datetime.
+   If the other datetime is earlier than this datetime, the value
+   returned is negative.
+
+   See also addDays() and secsTo().
+
+  QDateTime QDateTime::fromString ( const QString & string, Qt::DateFormat
+  format = Qt::TextDate )   [static]
+
+   Returns the QDateTime represented by the string, using the format
+   given, or an invalid datetime if this is not possible.
+
+   Note for Qt::TextDate: It is recommended that you use the English
+   short month names (e.g. "Jan"). Although localized month names can
+   also be used, they depend on the user's locale settings.
+
+   Warning: Note that Qt::LocalDate cannot be used here.
+
+  QDateTime QDateTime::fromString ( const QString & string, const QString &
+  format )   [static]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the QDateTime represented by the string, using the format
+   given, or an invalid datetime if the string cannot be parsed.
+
+   These expressions may be used for the date part of the format string:
+
+                             Expression Output
+            d the day as number without a leading zero (1 to 31)
+            dd the day as number with a leading zero (01 to 31)
+     ddd the abbreviated localized day name (e.g. 'Mon' to 'Sun'). Uses
+                           QDate::shortDayName().
+   dddd the long localized day name (e.g. 'Qt::Monday' to 'Qt::Sunday').
+                         Uses QDate::longDayName().
+            M the month as number without a leading zero (1-12)
+             MM the month as number with a leading zero (01-12)
+    MMM the abbreviated localized month name (e.g. 'Jan' to 'Dec'). Uses
+                          QDate::shortMonthName().
+     MMMM the long localized month name (e.g. 'January' to 'December').
+                        Uses QDate::longMonthName().
+                  yy the year as two digit number (00-99)
+               yyyy the year as four digit number (1752-8000)
+
+   These expressions may be used for the time part of the format string:
+
+                             Expression Output
+       h the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM
+                                  display)
+       hh the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM
+                                  display)
+               m the minute without a leading zero (0 to 59)
+                mm the minute with a leading zero (00 to 59)
+               s the second whithout a leading zero (0 to 59)
+               ss the second whith a leading zero (00 to 59)
+            z the milliseconds without leading zeroes (0 to 999)
+           zzz the milliseconds with leading zeroes (000 to 999)
+       AP interpret as an AM/PM time. AP must be either "AM" or "PM".
+       ap Interpret as an AM/PM time. ap must be either "am" or "pm".
+
+   All other input characters will be treated as text. Any sequence of
+   characters that are enclosed in singlequotes will also be treated as
+   text and not be used as an expression.
+    QDateTime dateTime = QDateTime::fromString("M1d1y9800:01:02",
+                                               "'M'M'd'd'y'yyhh:mm:ss");
+    // dateTime is 1 January 1998 00:01:02
+
+   If the format is not satisfied an invalid QDateTime is returned. The
+   expressions that don't have leading zeroes (d, M, h, m, s, z) will be
+   greedy. This means that they will use two digits even if this will put
+   them outside the range and/or leave too few digits for other sections.
+    QDateTime dateTime = QDateTime::fromString("130", "Mm"); // invalid
+
+   This could have meant 1 January 00:30.00 but the M will grab two
+   digits.
+
+   For any field that is not represented in the format the following
+   defaults are used:
+
+                          Field   Default value
+                           Year  The current year
+                          Month    1 (January)
+                           Day          1
+                           Hour         0
+                          Minute        0
+                          Second        0
+
+   For example:
+    QDateTime dateTime = QDateTime::fromString("1.30.1", "M.d.s");
+    // dateTime is January 30 in the current year 00:00:01
+
+   QDateTime::toString() QTime::toString()
+
+   See also QDate::fromString(), QTime::fromString(), and
+   QDate::toString().
+
+  bool QDateTime::isNull () const
+
+   Returns true if both the date and the time are null; otherwise returns
+   false. A null datetime is invalid.
+
+   See also QDate::isNull(), QTime::isNull(), and isValid().
+
+  bool QDateTime::isValid () const
+
+   Returns true if both the date and the time are valid; otherwise
+   returns false.
+
+   See also QDate::isValid() and QTime::isValid().
+
+  int QDateTime::secsTo ( const QDateTime & other ) const
+
+   Returns the number of seconds from this datetime to the other
+   datetime. If the other datetime is earlier than this datetime, the
+   value returned is negative.
+
+   Before performing the comparison, the two datetimes are converted to
+   Qt::UTC to ensure that the result is correct if one of the two
+   datetimes has daylight saving time (DST) and the other doesn't.
+
+   Example:
+    QDateTime now = QDateTime::currentDateTime();
+    QDateTime xmas(QDate(dt.date().year(), 12, 25), QTime(0, 0));
+    qDebug("There are %d seconds to Christmas", dt.secsTo(xmas));
+
+   See also addSecs(), daysTo(), and QTime::secsTo().
+
+  void QDateTime::setDate ( const QDate & date )
+
+   Sets the date part of this datetime to date.
+
+   See also date(), setTime(), and setTimeSpec().
+
+  void QDateTime::setTime ( const QTime & time )
+
+   Sets the time part of this datetime to time.
+
+   See also time(), setDate(), and setTimeSpec().
+
+  void QDateTime::setTimeSpec ( Qt::TimeSpec spec )
+
+   Sets the time specification used in this datetime to spec.
+
+   See also timeSpec(), setDate(), setTime(), and Qt::TimeSpec.
+
+  void QDateTime::setTime_t ( uint seconds )
+
+   Sets the date and time given the number of seconds that have passed
+   since 1970-01-01T00:00:00, Coordinated Universal Time (Qt::UTC). On
+   systems that do not support timezones this function will behave as if
+   local time were Qt::UTC.
+
+   See also toTime_t().
+
+  QTime QDateTime::time () const
+
+   Returns the time part of the datetime.
+
+   See also setTime(), date(), and timeSpec().
+
+  Qt::TimeSpec QDateTime::timeSpec () const
+
+   Returns the time specification of the datetime.
+
+   See also setTimeSpec(), date(), time(), and Qt::TimeSpec.
+
+  QDateTime QDateTime::toLocalTime () const
+
+   Returns a datetime containing the date and time information in this
+   datetime, but specified using the Qt::LocalTime definition.
+
+   See also toTimeSpec().
+
+  QString QDateTime::toString ( const QString & format ) const
+
+   Returns the datetime as a string. The format parameter determines the
+   format of the result string.
+
+   These expressions may be used for the date:
+
+                             Expression Output
+            d the day as number without a leading zero (1 to 31)
+            dd the day as number with a leading zero (01 to 31)
+     ddd the abbreviated localized day name (e.g. 'Mon' to 'Sun'). Uses
+                           QDate::shortDayName().
+   dddd the long localized day name (e.g. 'Qt::Monday' to 'Qt::Sunday').
+                         Uses QDate::longDayName().
+            M the month as number without a leading zero (1-12)
+             MM the month as number with a leading zero (01-12)
+    MMM the abbreviated localized month name (e.g. 'Jan' to 'Dec'). Uses
+                          QDate::shortMonthName().
+     MMMM the long localized month name (e.g. 'January' to 'December').
+                        Uses QDate::longMonthName().
+                  yy the year as two digit number (00-99)
+               yyyy the year as four digit number (1752-8000)
+
+   These expressions may be used for the time:
+
+                             Expression Output
+       h the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM
+                                  display)
+       hh the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM
+                                  display)
+               m the minute without a leading zero (0 to 59)
+                mm the minute with a leading zero (00 to 59)
+               s the second whithout a leading zero (0 to 59)
+               ss the second whith a leading zero (00 to 59)
+            z the milliseconds without leading zeroes (0 to 999)
+           zzz the milliseconds with leading zeroes (000 to 999)
+     AP use AM/PM display. AP will be replaced by either "AM" or "PM".
+     ap use am/pm display. ap will be replaced by either "am" or "pm".
+
+   All other input characters will be ignored. Any sequence of characters
+   that are enclosed in singlequotes will be treated as text and not be
+   used as an expression.
+
+   Example format strings (assumed that the QDateTime is 21 May 2001
+   14:13:09):
+
+                           Format        Result
+                         dd.MM.yyyy    21.05.2001
+                        ddd MMMM d yy Tue May 21 01
+                        hh:mm:ss.zzz  14:13:09.042
+                          h:m:s ap      2:13:9 pm
+
+   If the datetime is invalid, an empty string will be returned.
+
+   See also QDate::toString() and QTime::toString().
+
+  QString QDateTime::toString ( Qt::DateFormat format = Qt::TextDate ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns the datetime as a string in the format given.
+
+   If the format is Qt::TextDate, the string is formatted in the default
+   way. QDate::shortDayName(), QDate::shortMonthName(), and
+   QTime::toString() are used to generate the string, so the day and
+   month names will be localized names. An example of this formatting is
+   "Wed May 20 03:40:13 1998".
+
+   If the format is Qt::ISODate, the string format corresponds to the ISO
+   8601 extended specification for representations of dates and times,
+   taking the form YYYY-MM-DDTHH:MM:SS.
+
+   If the format is Qt::LocalDate, the string format depends on the
+   locale settings of the system.
+
+   If the datetime is invalid, an empty string will be returned.
+
+   See also QDate::toString(), QTime::toString(), and Qt::DateFormat.
+
+  QDateTime QDateTime::toTimeSpec ( Qt::TimeSpec specification ) const
+
+   Returns a copy of this datetime configured to use the given time
+   specification.
+
+   See also timeSpec(), toUTC(), and toLocalTime().
+
+  uint QDateTime::toTime_t () const
+
+   Returns the datetime as the number of seconds that have passed since
+   1970-01-01T00:00:00, Coordinated Universal Time (Qt::UTC).
+
+   On systems that do not support timezones, this function will behave as
+   if local time were Qt::UTC.
+
+   See also setTime_t().
+
+  QDateTime QDateTime::toUTC () const
+
+   Returns a datetime containing the date and time information in this
+   datetime, but specified using the Qt::UTC definition.
+
+   See also toTimeSpec().
+
+  bool QDateTime::operator!= ( const QDateTime & other ) const
+
+   Returns true if this datetime is different from the other datetime;
+   otherwise returns false.
+
+   Two datetimes are different if either the date, the time, or the time
+   zone components are different.
+
+   See also operator==().
+
+  bool QDateTime::operator< ( const QDateTime & other ) const
+
+   Returns true if this datetime is earlier than the other datetime;
+   otherwise returns false.
+
+  bool QDateTime::operator<= ( const QDateTime & other ) const
+
+   Returns true if this datetime is earlier than or equal to the other
+   datetime; otherwise returns false.
+
+  QDateTime & QDateTime::operator= ( const QDateTime & other )
+
+   Makes a copy of the other datetime and returns a reference to the
+   copy.
+
+  bool QDateTime::operator== ( const QDateTime & other ) const
+
+   Returns true if this datetime is equal to the other datetime;
+   otherwise returns false.
+
+   See also operator!=().
+
+  bool QDateTime::operator> ( const QDateTime & other ) const
+
+   Returns true if this datetime is later than the other datetime;
+   otherwise returns false.
+
+  bool QDateTime::operator>= ( const QDateTime & other ) const
+
+   Returns true if this datetime is later than or equal to the other
+   datetime; otherwise returns false.
+     _________________________________________________________________
+
+Related Non-Members
+
+  QDataStream & operator<< ( QDataStream & out, const QDateTime & dateTime )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Writes dateTime to the out stream.
+
+   See also Format of the QDataStream operators.
+
+  QDataStream & operator>> ( QDataStream & in, QDateTime & dateTime )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads a datetime from the stream in into dateTime.
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

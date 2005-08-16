@@ -1,0 +1,132 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3CanvasRectangle Class Reference
+
+   #include <q3canvas.h>
+
+   Inherits Q3CanvasPolygonalItem.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CanvasRectangle (Q3Canvas *canvas)
+     * Q3CanvasRectangle (const QRect &, Q3Canvas *canvas)
+     * Q3CanvasRectangle (int x, int y, int width, int height, Q3Canvas *canvas)
+     * ~Q3CanvasRectangle ()
+     * int width () const
+     * int height () const
+     * void setSize (int w, int h)
+     * QSize size () const
+     * Q3PointArray areaPoints () const
+     * QRect rect () const
+     * bool collidesWith (const Q3CanvasItem *) const
+     * int rtti () const
+
+Static Public Attributes
+
+     * static int RTTI
+
+Protected Member Functions
+
+     * void drawShape (QPainter &)
+     * Q3PointArray chunks () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasRectangle::Q3CanvasRectangle (  Q3Canvas *  canvas  )
+
+
+
+   Q3CanvasRectangle::Q3CanvasRectangle (  const QRect &  ,
+                                           Q3Canvas *     canvas
+                                        )
+
+
+
+   Q3CanvasRectangle::Q3CanvasRectangle (  int         x,
+                                           int         y,
+                                           int         width,
+                                           int         height,
+                                           Q3Canvas *  canvas
+                                        )
+
+
+
+   Q3CanvasRectangle::~Q3CanvasRectangle (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3PointArray Q3CanvasRectangle::areaPoints (   )  const [virtual]
+
+
+
+   Implements Q3CanvasPolygonalItem.
+
+   Q3PointArray Q3CanvasRectangle::chunks (   )  const [protected, virtual]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+
+   bool Q3CanvasRectangle::collidesWith (  const Q3CanvasItem *   )  const [virtual]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+
+   void Q3CanvasRectangle::drawShape (  QPainter &   )  [protected, virtual]
+
+
+
+   Implements Q3CanvasPolygonalItem.
+
+   int Q3CanvasRectangle::height (   )  const
+
+
+
+   QRect Q3CanvasRectangle::rect (   )  const [inline]
+
+
+
+   int Q3CanvasRectangle::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+
+   void Q3CanvasRectangle::setSize (  int  w,
+                                      int  h
+                                   )
+
+
+
+   QSize Q3CanvasRectangle::size (   )  const [inline]
+
+
+
+   int Q3CanvasRectangle::width (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3CanvasRectangle::RTTI [static]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

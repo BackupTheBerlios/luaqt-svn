@@ -1,0 +1,161 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QCheckBox Class Reference
+
+   The QCheckBox widget provides a checkbox with a text label. More...
+#include <QCheckBox>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractButton.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Types
+
+     * enum ToggleState { Off, NoChange, On }
+
+  Properties
+
+     * tristate : bool
+
+     * 9 properties inherited from QAbstractButton
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QCheckBox ( QWidget * parent = 0 )
+     * QCheckBox ( const QString & text, QWidget * parent = 0 )
+     * Qt::CheckState checkState () const
+     * bool isTristate () const
+     * void setCheckState ( Qt::CheckState state )
+     * void setTristate ( bool y = true )
+
+     * 17 public functions inherited from QAbstractButton
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Signals
+
+     * void stateChanged ( int state )
+
+     * 4 signals inherited from QAbstractButton
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+
+  Additional Inherited Members
+
+     * 5 public slots inherited from QAbstractButton
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 3 protected functions inherited from QAbstractButton
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QCheckBox widget provides a checkbox with a text label.
+
+   A QCheckBox is an option button that can be switched on (checked) or
+   off (unchecked). Checkboxes are typically used to represent features
+   in an application that can be enabled or disabled without affecting
+   others, but different types of behavior can be implemented.
+
+   A QButtonGroup can be used to group check buttons visually.
+
+   Whenever a checkbox is checked or cleared it emits the signal
+   stateChanged(). Connect to this signal if you want to trigger an
+   action each time the checkbox changes state. You can use isChecked()
+   to query whether or not a checkbox is checked.
+
+   In addition to the usual checked and unchecked states, QCheckBox
+   optionally provides a third state to indicate "no change". This is
+   useful whenever you need to give the user the option of neither
+   checking nor unchecking a checkbox. If you need this third state,
+   enable it with setTristate(), and use checkState() to query the
+   current toggle state.
+
+   Just like QPushButton, a checkbox button displays text, and optionally
+   a small icon. The text can be set in the constructor or with
+   setText(); the icon is set with setIcon().
+
+   Important inherited functions: text(), setText(), text(), pixmap(),
+   setPixmap(), accel(), setAccel(), isToggleButton(), setDown(),
+   isDown(), isOn(), checkState(), autoRepeat(), isExclusiveToggle(),
+   group(), setAutoRepeat(), toggle(), pressed(), released(), clicked(),
+   toggled(), checkState(), and stateChanged().
+
+   Screenshot in Macintosh style Screenshot in Windows style
+
+   See also QAbstractButton, QRadioButton, and GUI Design Handbook: Check
+   Box.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QCheckBox::ToggleState
+
+        Constant              Value
+   QCheckBox::Off         Qt::Unchecked
+   QCheckBox::NoChange Qt::PartiallyChecked
+   QCheckBox::On           Qt::Checked
+     _________________________________________________________________
+
+Property Documentation
+
+  tristate : bool
+
+   This property holds whether the checkbox is a tri-state checkbox.
+
+   The default is false; i.e. the checkbox has only two states.
+
+   Access functions:
+     * bool isTristate () const
+     * void setTristate ( bool y = true )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QCheckBox::QCheckBox ( QWidget * parent = 0 )
+
+   Constructs a checkbox with the given parent, but with no text.
+
+   The parent argument is passed on to the QAbstractButton constructor.
+
+  QCheckBox::QCheckBox ( const QString & text, QWidget * parent = 0 )
+
+   Constructs a checkbox with the given parent and text.
+
+   The parent argument is passed on to the QAbstractButton constructor.
+
+  Qt::CheckState QCheckBox::checkState () const
+
+   Returns the check box's check state.
+
+   See also setCheckState() and Qt::CheckState.
+
+  void QCheckBox::setCheckState ( Qt::CheckState state )
+
+   Sets the check box's check state to state.
+
+   See also checkState() and Qt::CheckState.
+
+  void QCheckBox::stateChanged ( int state )   [signal]
+
+   This signal is emitted whenever the check box's state changes, i.e.
+   whenever the user checks or unchecks it.
+
+   state contains the check box's new ToggleState.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

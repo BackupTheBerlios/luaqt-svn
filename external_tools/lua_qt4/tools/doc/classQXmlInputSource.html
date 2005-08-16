@@ -1,0 +1,96 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QXmlInputSource Class Reference
+
+   #include <qxml.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QXmlInputSource ()
+     * QXmlInputSource (QIODevice *dev)
+     * virtual ~QXmlInputSource ()
+     * virtual void setData (const QString &dat)
+     * virtual void setData (const QByteArray &dat)
+     * virtual void fetchData ()
+     * virtual QString data () const
+     * virtual QChar next ()
+     * virtual void reset ()
+
+Static Public Attributes
+
+     * static const ushort EndOfData
+     * static const ushort EndOfDocument
+
+Protected Member Functions
+
+     * virtual QString fromRawData (const QByteArray &data, bool beginning=false)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QXmlInputSource::QXmlInputSource (   )
+
+
+
+   QXmlInputSource::QXmlInputSource (  QIODevice *  dev  )
+
+
+
+   virtual QXmlInputSource::~QXmlInputSource (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QString QXmlInputSource::data (   )  const [virtual]
+
+
+
+   virtual void QXmlInputSource::fetchData (   )  [virtual]
+
+
+
+   virtual QString QXmlInputSource::fromRawData (  const QByteArray &  data,
+                                                   bool                beginning = false
+                                                )  [protected, virtual]
+
+
+
+   virtual QChar QXmlInputSource::next (   )  [virtual]
+
+
+
+   virtual void QXmlInputSource::reset (   )  [virtual]
+
+
+
+   virtual void QXmlInputSource::setData (  const QByteArray &  dat  )  [virtual]
+
+
+
+   virtual void QXmlInputSource::setData (  const QString &  dat  )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   const ushort QXmlInputSource::EndOfData [static]
+
+
+
+   const ushort QXmlInputSource::EndOfDocument [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qxml.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,516 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           Q3MainWindow Class Reference
+
+   #include <q3mainwindow.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * enum DockWindows { OnlyToolBars, NoToolBars, AllDockWindows }
+
+Public Slots
+
+     * virtual void setRightJustification (bool)
+     * virtual void setUsesBigPixmaps (bool)
+     * virtual void setUsesTextLabel (bool)
+     * virtual void setDockWindowsMovable (bool)
+     * virtual void setOpaqueMoving (bool)
+     * virtual void setDockMenuEnabled (bool)
+     * virtual void whatsThis ()
+     * virtual void setAppropriate (Q3DockWindow *dw, bool a)
+     * virtual void customize ()
+     * void setToolBarsMovable (bool)
+
+Signals
+
+     * void pixmapSizeChanged (bool)
+     * void usesTextLabelChanged (bool)
+     * void dockWindowPositionChanged (Q3DockWindow *)
+     * void toolBarPositionChanged (Q3ToolBar *)
+
+Public Member Functions
+
+     * Q3MainWindow (QWidget *parent=0, const char *name=0, Qt::WFlags f=Qt::WType_TopLevel)
+     * ~Q3MainWindow ()
+     * QMenuBar * menuBar () const
+     * QStatusBar * statusBar () const
+     * virtual void setCentralWidget (QWidget *)
+     * QWidget * centralWidget () const
+     * virtual void setDockEnabled (Qt::Dock dock, bool enable)
+     * bool isDockEnabled (Qt::Dock dock) const
+     * bool isDockEnabled (Q3DockArea *area) const
+     * virtual void setDockEnabled (Q3DockWindow *tb, Qt::Dock dock, bool enable)
+     * bool isDockEnabled (Q3DockWindow *tb, Qt::Dock dock) const
+     * bool isDockEnabled (Q3DockWindow *tb, Q3DockArea *area) const
+     * virtual void addDockWindow (Q3DockWindow *, Qt::Dock=Qt::DockTop, bool newLine=false)
+     * virtual void addDockWindow (Q3DockWindow *, const QString &label, Qt::Dock=Qt::DockTop, bool newLine=false)
+     * virtual void moveDockWindow (Q3DockWindow *, Qt::Dock=Qt::DockTop)
+     * virtual void moveDockWindow (Q3DockWindow *, Qt::Dock, bool nl, int index, int extraOffset=-1)
+     * virtual void removeDockWindow (Q3DockWindow *)
+     * void setVisible (bool)
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * bool rightJustification () const
+     * bool usesBigPixmaps () const
+     * bool usesTextLabel () const
+     * bool dockWindowsMovable () const
+     * bool opaqueMoving () const
+     * bool eventFilter (QObject *, QEvent *)
+     * bool getLocation (Q3DockWindow *tb, Qt::Dock &dock, int &index, bool &nl, int &extraOffset) const
+     * QList< Q3DockWindow * > dockWindows (Qt::Dock dock) const
+     * QList< Q3DockWindow * > dockWindows () const
+     * void lineUpDockWindows (bool keepNewLines=false)
+     * bool isDockMenuEnabled () const
+     * bool hasDockWindow (Q3DockWindow *dw)
+     * void addToolBar (Q3DockWindow *, Qt::Dock=Qt::DockTop, bool newLine=false)
+     * void addToolBar (Q3DockWindow *, const QString &label, Qt::Dock=Qt::DockTop, bool newLine=false)
+     * void moveToolBar (Q3DockWindow *, Qt::Dock=Qt::DockTop)
+     * void moveToolBar (Q3DockWindow *, Qt::Dock, bool nl, int index, int extraOffset=-1)
+     * void removeToolBar (Q3DockWindow *)
+     * bool toolBarsMovable () const
+     * QList< Q3ToolBar * > toolBars (Qt::Dock dock) const
+     * void lineUpToolBars (bool keepNewLines=false)
+     * virtual Q3DockArea * dockingArea (const QPoint &p)
+     * Q3DockArea * leftDock () const
+     * Q3DockArea * rightDock () const
+     * Q3DockArea * topDock () const
+     * Q3DockArea * bottomDock () const
+     * virtual bool isCustomizable () const
+     * bool appropriate (Q3DockWindow *dw) const
+     * virtual Q3PopupMenu * createDockWindowMenu (DockWindows dockWindows=AllDockWindows) const
+
+Protected Slots
+
+     * virtual void setUpLayout ()
+     * virtual bool showDockMenu (const QPoint &globalPos)
+
+Protected Member Functions
+
+     * void paintEvent (QPaintEvent *)
+     * void childEvent (QChildEvent *)
+     * bool event (QEvent *)
+
+Properties
+
+     * bool rightJustification
+     * bool usesBigPixmaps
+     * bool usesTextLabel
+     * bool dockWindowsMovable
+     * bool opaqueMoving
+
+Friends
+
+     * class Q3DockWindow
+     * class QMenuBarPrivate
+     * class QHideDock
+     * class Q3ToolBar
+     * class Q3MainWindowLayout
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3MainWindow::DockWindows
+
+
+
+   Enumerator: 
+
+          OnlyToolBars  
+          NoToolBars    
+          AllDockWindows
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3MainWindow::Q3MainWindow (  QWidget *     parent = 0,
+                                 const char *  name = 0,
+                                 Qt::WFlags    f = Qt::WType_TopLevel
+                              )
+
+
+
+   Q3MainWindow::~Q3MainWindow (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3MainWindow::addDockWindow (  Q3DockWindow *   ,
+                                               const QString &  label,
+                                               Qt::Dock         = Qt::DockTop,
+                                               bool             newLine = false
+                                            )  [virtual]
+
+
+
+   virtual void Q3MainWindow::addDockWindow (  Q3DockWindow *  ,
+                                               Qt::Dock        = Qt::DockTop,
+                                               bool            newLine = false
+                                            )  [virtual]
+
+
+
+   void Q3MainWindow::addToolBar (  Q3DockWindow *   ,
+                                    const QString &  label,
+                                    Qt::Dock         = Qt::DockTop,
+                                    bool             newLine = false
+                                 )
+
+
+
+   void Q3MainWindow::addToolBar (  Q3DockWindow *  ,
+                                    Qt::Dock        = Qt::DockTop,
+                                    bool            newLine = false
+                                 )
+
+
+
+   bool Q3MainWindow::appropriate (  Q3DockWindow *  dw  )  const
+
+
+
+   Q3DockArea* Q3MainWindow::bottomDock (   )  const
+
+
+
+   QWidget* Q3MainWindow::centralWidget (   )  const
+
+
+
+   void Q3MainWindow::childEvent (  QChildEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   virtual Q3PopupMenu* Q3MainWindow::createDockWindowMenu (  DockWindows  dockWindows = AllDockWindows  )  const [virtual]
+
+
+
+   virtual void Q3MainWindow::customize (   )  [virtual, slot]
+
+
+
+   virtual Q3DockArea* Q3MainWindow::dockingArea (  const QPoint &  p  )  [virtual]
+
+
+
+   void Q3MainWindow::dockWindowPositionChanged (  Q3DockWindow *   )  [signal]
+
+
+
+   QList<Q3DockWindow *> Q3MainWindow::dockWindows (   )  const
+
+
+
+   QList<Q3DockWindow *> Q3MainWindow::dockWindows (  Qt::Dock  dock  )  const
+
+
+
+   bool Q3MainWindow::dockWindowsMovable (   )  const
+
+
+
+   bool Q3MainWindow::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool Q3MainWindow::eventFilter (  QObject *  ,
+                                     QEvent * 
+                                  )  [virtual]
+
+
+
+   Reimplemented from QObject.
+
+   bool Q3MainWindow::getLocation (  Q3DockWindow *  tb,
+                                     Qt::Dock &      dock,
+                                     int &           index,
+                                     bool &          nl,
+                                     int &           extraOffset
+                                  )  const
+
+
+
+   bool Q3MainWindow::hasDockWindow (  Q3DockWindow *  dw  )
+
+
+
+   virtual bool Q3MainWindow::isCustomizable (   )  const [virtual]
+
+
+
+   bool Q3MainWindow::isDockEnabled (  Q3DockWindow *  tb,
+                                       Q3DockArea *    area
+                                    )  const
+
+
+
+   bool Q3MainWindow::isDockEnabled (  Q3DockWindow *  tb,
+                                       Qt::Dock        dock
+                                    )  const
+
+
+
+   bool Q3MainWindow::isDockEnabled (  Q3DockArea *  area  )  const
+
+
+
+   bool Q3MainWindow::isDockEnabled (  Qt::Dock  dock  )  const
+
+
+
+   bool Q3MainWindow::isDockMenuEnabled (   )  const
+
+
+
+   Q3DockArea* Q3MainWindow::leftDock (   )  const
+
+
+
+   void Q3MainWindow::lineUpDockWindows (  bool  keepNewLines = false  )
+
+
+
+   void Q3MainWindow::lineUpToolBars (  bool  keepNewLines = false  )  [inline]
+
+
+
+   QMenuBar* Q3MainWindow::menuBar (   )  const
+
+
+
+   QSize Q3MainWindow::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3MainWindow::moveDockWindow (  Q3DockWindow *  ,
+                                                Qt::Dock        ,
+                                                bool            nl,
+                                                int             index,
+                                                int             extraOffset = -1
+                                             )  [virtual]
+
+
+
+   virtual void Q3MainWindow::moveDockWindow (  Q3DockWindow *  ,
+                                                Qt::Dock        = Qt::DockTop
+                                             )  [virtual]
+
+
+
+   void Q3MainWindow::moveToolBar (  Q3DockWindow *  ,
+                                     Qt::Dock        ,
+                                     bool            nl,
+                                     int             index,
+                                     int             extraOffset = -1
+                                  )
+
+
+
+   void Q3MainWindow::moveToolBar (  Q3DockWindow *  ,
+                                     Qt::Dock        = Qt::DockTop
+                                  )
+
+
+
+   bool Q3MainWindow::opaqueMoving (   )  const
+
+
+
+   void Q3MainWindow::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3MainWindow::pixmapSizeChanged (  bool   )  [signal]
+
+
+
+   virtual void Q3MainWindow::removeDockWindow (  Q3DockWindow *   )  [virtual]
+
+
+
+   void Q3MainWindow::removeToolBar (  Q3DockWindow *   )  [inline]
+
+
+
+   Q3DockArea* Q3MainWindow::rightDock (   )  const
+
+
+
+   bool Q3MainWindow::rightJustification (   )  const
+
+
+
+   virtual void Q3MainWindow::setAppropriate (  Q3DockWindow *  dw,
+                                                bool            a
+                                             )  [virtual, slot]
+
+
+
+   virtual void Q3MainWindow::setCentralWidget (  QWidget *   )  [virtual]
+
+
+
+   virtual void Q3MainWindow::setDockEnabled (  Q3DockWindow *  tb,
+                                                Qt::Dock        dock,
+                                                bool            enable
+                                             )  [virtual]
+
+
+
+   virtual void Q3MainWindow::setDockEnabled (  Qt::Dock  dock,
+                                                bool      enable
+                                             )  [virtual]
+
+
+
+   virtual void Q3MainWindow::setDockMenuEnabled (  bool   )  [virtual, slot]
+
+
+
+   virtual void Q3MainWindow::setDockWindowsMovable (  bool   )  [virtual, slot]
+
+
+
+   virtual void Q3MainWindow::setOpaqueMoving (  bool   )  [virtual, slot]
+
+
+
+   virtual void Q3MainWindow::setRightJustification (  bool   )  [virtual, slot]
+
+
+
+   void Q3MainWindow::setToolBarsMovable (  bool   )  [inline, slot]
+
+
+
+   virtual void Q3MainWindow::setUpLayout (   )  [protected, virtual, slot]
+
+
+
+   virtual void Q3MainWindow::setUsesBigPixmaps (  bool   )  [virtual, slot]
+
+
+
+   virtual void Q3MainWindow::setUsesTextLabel (  bool   )  [virtual, slot]
+
+
+
+   void Q3MainWindow::setVisible (  bool   )  [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual bool Q3MainWindow::showDockMenu (  const QPoint &  globalPos  )  [protected, virtual, slot]
+
+
+
+   QSize Q3MainWindow::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QStatusBar* Q3MainWindow::statusBar (   )  const
+
+
+
+   void Q3MainWindow::toolBarPositionChanged (  Q3ToolBar *   )  [signal]
+
+
+
+   QList<Q3ToolBar *> Q3MainWindow::toolBars (  Qt::Dock  dock  )  const
+
+
+
+   bool Q3MainWindow::toolBarsMovable (   )  const [inline]
+
+
+
+   Q3DockArea* Q3MainWindow::topDock (   )  const
+
+
+
+   bool Q3MainWindow::usesBigPixmaps (   )  const
+
+
+
+   bool Q3MainWindow::usesTextLabel (   )  const
+
+
+
+   void Q3MainWindow::usesTextLabelChanged (  bool   )  [signal]
+
+
+
+   virtual void Q3MainWindow::whatsThis (   )  [virtual, slot]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3DockWindow [friend]
+
+
+
+   friend class Q3MainWindowLayout [friend]
+
+
+
+   friend class Q3ToolBar [friend]
+
+
+
+   friend class QHideDock [friend]
+
+
+
+   friend class QMenuBarPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3MainWindow::dockWindowsMovable [read, write]
+
+
+
+   bool Q3MainWindow::opaqueMoving [read, write]
+
+
+
+   bool Q3MainWindow::rightJustification [read, write]
+
+
+
+   bool Q3MainWindow::usesBigPixmaps [read, write]
+
+
+
+   bool Q3MainWindow::usesTextLabel [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3mainwindow.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

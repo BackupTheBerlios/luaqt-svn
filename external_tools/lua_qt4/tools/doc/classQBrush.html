@@ -1,0 +1,159 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QBrush Class Reference
+
+   #include <qbrush.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QBrush ()
+     * QBrush (Qt::BrushStyle bs)
+     * QBrush (const QColor &color, Qt::BrushStyle bs=Qt::SolidPattern)
+     * QBrush (Qt::GlobalColor color, Qt::BrushStyle bs=Qt::SolidPattern)
+     * QBrush (const QColor &color, const QPixmap &pixmap)
+     * QBrush (Qt::GlobalColor color, const QPixmap &pixmap)
+     * QBrush (const QPixmap &pixmap)
+     * QBrush (const QBrush &brush)
+     * QBrush (const QGradient &gradient)
+     * ~QBrush ()
+     * QBrush & operator= (const QBrush &brush)
+     * operator QVariant () const
+     * Qt::BrushStyle style () const
+     * void setStyle (Qt::BrushStyle)
+     * QPixmap texture () const
+     * void setTexture (const QPixmap &pixmap)
+     * const QColor & color () const
+     * void setColor (const QColor &color)
+     * void setColor (Qt::GlobalColor color)
+     * const QGradient * gradient () const
+     * bool isOpaque () const
+     * bool operator== (const QBrush &b) const
+     * bool operator!= (const QBrush &b) const
+
+Friends
+
+     * class QPainter
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QBrush::QBrush (   )
+
+
+
+   QBrush::QBrush (  Qt::BrushStyle  bs  )
+
+
+
+   QBrush::QBrush (  const QColor &  color,
+                     Qt::BrushStyle  bs = Qt::SolidPattern
+                  )
+
+
+
+   QBrush::QBrush (  Qt::GlobalColor  color,
+                     Qt::BrushStyle   bs = Qt::SolidPattern
+                  )
+
+
+
+   QBrush::QBrush (  const QColor &   color,
+                     const QPixmap &  pixmap
+                  )
+
+
+
+   QBrush::QBrush (  Qt::GlobalColor  color,
+                     const QPixmap &  pixmap
+                  )
+
+
+
+   QBrush::QBrush (  const QPixmap &  pixmap  )
+
+
+
+   QBrush::QBrush (  const QBrush &  brush  )
+
+
+
+   QBrush::QBrush (  const QGradient &  gradient  )
+
+
+
+   QBrush::~QBrush (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   const QColor & QBrush::color (   )  const [inline]
+
+
+
+   const QGradient* QBrush::gradient (   )  const
+
+
+
+   bool QBrush::isOpaque (   )  const
+
+
+
+   QBrush::operator QVariant (   )  const
+
+
+
+   bool QBrush::operator!= (  const QBrush &  b  )  const [inline]
+
+
+
+   QBrush& QBrush::operator= (  const QBrush &  brush  )
+
+
+
+   bool QBrush::operator== (  const QBrush &  b  )  const
+
+
+
+   void QBrush::setColor (  Qt::GlobalColor  color  )  [inline]
+
+
+
+   void QBrush::setColor (  const QColor &  color  )
+
+
+
+   void QBrush::setStyle (  Qt::BrushStyle   )
+
+
+
+   void QBrush::setTexture (  const QPixmap &  pixmap  )
+
+
+
+   Qt::BrushStyle QBrush::style (   )  const [inline]
+
+
+
+   QPixmap QBrush::texture (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QPainter [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qbrush.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:55 2005 by  doxygen 1.4.3-20050530

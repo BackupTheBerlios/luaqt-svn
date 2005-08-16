@@ -1,0 +1,334 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QDirModel Class Reference
+
+   #include <qdirmodel.h>
+
+   Inherits QAbstractItemModel.
+
+   List of all members.
+
+Public Types
+
+     * enum Roles { FileIconRole = Qt::DecorationRole, FilePathRole = Qt::UserRole + 1, FileNameRole }
+
+Public Member Functions
+
+     * QDirModel (const QStringList &nameFilters, QDir::Filters filters, QDir::SortFlags sort, QObject *parent=0)
+     * QDirModel (QObject *parent=0)
+     * ~QDirModel ()
+     * QModelIndex index (int row, int column, const QModelIndex &parent=QModelIndex()) const
+     * QModelIndex parent (const QModelIndex &child) const
+     * int rowCount (const QModelIndex &parent) const
+     * int columnCount (const QModelIndex &parent) const
+     * QVariant data (const QModelIndex &index, int role=Qt::DisplayRole) const
+     * bool setData (const QModelIndex &index, const QVariant &value, int role)
+     * QVariant headerData (int section, Qt::Orientation orientation, int role) const
+     * bool hasChildren (const QModelIndex &index) const
+     * Qt::ItemFlags flags (const QModelIndex &index) const
+     * void sort (int column, Qt::SortOrder order)
+     * QStringList mimeTypes () const
+     * QMimeData * mimeData (const QModelIndexList &indexes) const
+     * bool dropMimeData (const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
+     * Qt::DropActions supportedDropActions () const
+     * void setIconProvider (QFileIconProvider *provider)
+     * QFileIconProvider * iconProvider () const
+     * void setNameFilters (const QStringList &filters)
+     * QStringList nameFilters () const
+     * void setFilter (QDir::Filters filters)
+     * QDir::Filters filter () const
+     * void setSorting (QDir::SortFlags sort)
+     * QDir::SortFlags sorting () const
+     * void setResolveSymlinks (bool enable)
+     * bool resolveSymlinks () const
+     * void setReadOnly (bool enable)
+     * bool isReadOnly () const
+     * void setLazyChildCount (bool enable)
+     * bool lazyChildCount () const
+     * void refresh (const QModelIndex &parent=QModelIndex())
+     * QModelIndex index (const QString &path, int column=0) const
+     * bool isDir (const QModelIndex &index) const
+     * QModelIndex mkdir (const QModelIndex &parent, const QString &name)
+     * bool rmdir (const QModelIndex &index)
+     * bool remove (const QModelIndex &index)
+     * QString filePath (const QModelIndex &index) const
+     * QString fileName (const QModelIndex &index) const
+     * QIcon fileIcon (const QModelIndex &index) const
+     * QFileInfo fileInfo (const QModelIndex &index) const
+
+Protected Member Functions
+
+     * QDirModel (QDirModelPrivate &, QObject *parent=0)
+
+Properties
+
+     * bool resolveSymlinks
+     * bool readOnly
+     * bool lazyChildCount
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDirModel::Roles
+
+
+
+   Enumerator: 
+
+          FileIconRole
+          FilePathRole
+          FileNameRole
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDirModel::QDirModel (  const QStringList &  nameFilters,
+                           QDir::Filters        filters,
+                           QDir::SortFlags      sort,
+                           QObject *            parent = 0
+                        )
+
+
+
+   QDirModel::QDirModel (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QDirModel::~QDirModel (   )
+
+
+
+   QDirModel::QDirModel (  QDirModelPrivate &  ,
+                           QObject *           parent = 0
+                        )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QDirModel::columnCount (  const QModelIndex &  parent  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   QVariant QDirModel::data (  const QModelIndex &  index,
+                               int                  role = Qt::DisplayRole
+                            )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QDirModel::dropMimeData (  const QMimeData *    data,
+                                   Qt::DropAction       action,
+                                   int                  row,
+                                   int                  column,
+                                   const QModelIndex &  parent
+                                )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QIcon QDirModel::fileIcon (  const QModelIndex &  index  )  const
+
+
+
+   QFileInfo QDirModel::fileInfo (  const QModelIndex &  index  )  const
+
+
+
+   QString QDirModel::fileName (  const QModelIndex &  index  )  const
+
+
+
+   QString QDirModel::filePath (  const QModelIndex &  index  )  const
+
+
+
+   QDir::Filters QDirModel::filter (   )  const
+
+
+
+   Qt::ItemFlags QDirModel::flags (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QDirModel::hasChildren (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QVariant QDirModel::headerData (  int              section,
+                                     Qt::Orientation  orientation,
+                                     int              role
+                                  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QFileIconProvider* QDirModel::iconProvider (   )  const
+
+
+
+   QModelIndex QDirModel::index (  const QString &  path,
+                                   int              column = 0
+                                )  const
+
+
+
+   QModelIndex QDirModel::index (  int                  row,
+                                   int                  column,
+                                   const QModelIndex &  parent = QModelIndex()
+                                )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QDirModel::isDir (  const QModelIndex &  index  )  const
+
+
+
+   bool QDirModel::isReadOnly (   )  const
+
+
+
+   bool QDirModel::lazyChildCount (   )  const
+
+
+
+   QMimeData* QDirModel::mimeData (  const QModelIndexList &  indexes  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QStringList QDirModel::mimeTypes (   )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QModelIndex QDirModel::mkdir (  const QModelIndex &  parent,
+                                   const QString &      name
+                                )
+
+
+
+   QStringList QDirModel::nameFilters (   )  const
+
+
+
+   QModelIndex QDirModel::parent (  const QModelIndex &  child  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   void QDirModel::refresh (  const QModelIndex &  parent = QModelIndex()  )
+
+
+
+   bool QDirModel::remove (  const QModelIndex &  index  )
+
+
+
+   bool QDirModel::resolveSymlinks (   )  const
+
+
+
+   bool QDirModel::rmdir (  const QModelIndex &  index  )
+
+
+
+   int QDirModel::rowCount (  const QModelIndex &  parent  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QDirModel::setData (  const QModelIndex &  index,
+                              const QVariant &     value,
+                              int                  role
+                           )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   void QDirModel::setFilter (  QDir::Filters  filters  )
+
+
+
+   void QDirModel::setIconProvider (  QFileIconProvider *  provider  )
+
+
+
+   void QDirModel::setLazyChildCount (  bool  enable  )
+
+
+
+   void QDirModel::setNameFilters (  const QStringList &  filters  )
+
+
+
+   void QDirModel::setReadOnly (  bool  enable  )
+
+
+
+   void QDirModel::setResolveSymlinks (  bool  enable  )
+
+
+
+   void QDirModel::setSorting (  QDir::SortFlags  sort  )
+
+
+
+   void QDirModel::sort (  int            column,
+                           Qt::SortOrder  order
+                        )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QDir::SortFlags QDirModel::sorting (   )  const
+
+
+
+   Qt::DropActions QDirModel::supportedDropActions (   )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QDirModel::lazyChildCount [read, write]
+
+
+
+   bool QDirModel::readOnly [read, write]
+
+
+
+   bool QDirModel::resolveSymlinks [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdirmodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

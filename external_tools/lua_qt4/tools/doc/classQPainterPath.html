@@ -1,0 +1,345 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           QPainterPath Class Reference
+
+   #include <qpainterpath.h>
+
+   List of all members.
+
+Public Types
+
+     * enum ElementType { MoveToElement, LineToElement, CurveToElement, CurveToDataElement }
+
+Public Member Functions
+
+     * QPainterPath ()
+     * QPainterPath (const QPointF &startPoint)
+     * QPainterPath (const QPainterPath &other)
+     * QPainterPath & operator= (const QPainterPath &other)
+     * ~QPainterPath ()
+     * void closeSubpath ()
+     * void moveTo (const QPointF &p)
+     * void moveTo (qreal x, qreal y)
+     * void lineTo (const QPointF &p)
+     * void lineTo (qreal x, qreal y)
+     * void arcTo (const QRectF &rect, qreal startAngle, qreal arcLength)
+     * void arcTo (qreal x, qreal y, qreal w, qreal h, qreal startAngle, qreal arcLength)
+     * void cubicTo (const QPointF &ctrlPt1, const QPointF &ctrlPt2, const QPointF &endPt)
+     * void cubicTo (qreal ctrlPt1x, qreal ctrlPt1y, qreal ctrlPt2x, qreal ctrlPt2y, qreal endPtx, qreal endPty)
+     * void quadTo (const QPointF &ctrlPt, const QPointF &endPt)
+     * void quadTo (qreal ctrlPtx, qreal ctrlPty, qreal endPtx, qreal endPty)
+     * QPointF currentPosition () const
+     * void addRect (const QRectF &rect)
+     * void addRect (qreal x, qreal y, qreal w, qreal h)
+     * void addEllipse (const QRectF &rect)
+     * void addEllipse (qreal x, qreal y, qreal w, qreal h)
+     * void addPolygon (const QPolygonF &polygon)
+     * void addText (const QPointF &point, const QFont &f, const QString &text)
+     * void addText (qreal x, qreal y, const QFont &f, const QString &text)
+     * void addPath (const QPainterPath &path)
+     * void addRegion (const QRegion &region)
+     * void connectPath (const QPainterPath &path)
+     * bool contains (const QPointF &pt) const
+     * bool contains (const QRectF &rect) const
+     * bool intersects (const QRectF &rect) const
+     * QRectF boundingRect () const
+     * QRectF controlPointRect () const
+     * Qt::FillRule fillRule () const
+     * void setFillRule (Qt::FillRule fillRule)
+     * bool isEmpty () const
+     * QPainterPath toReversed () const
+     * QList< QPolygonF > toSubpathPolygons (const QMatrix &matrix=QMatrix()) const
+     * QList< QPolygonF > toFillPolygons (const QMatrix &matrix=QMatrix()) const
+     * QPolygonF toFillPolygon (const QMatrix &matrix=QMatrix()) const
+     * int elementCount () const
+     * const QPainterPath::Element & elementAt (int i) const
+     * bool operator== (const QPainterPath &other) const
+     * bool operator!= (const QPainterPath &other) const
+
+Friends
+
+     * class QPainterPathData
+     * class QPainterPathStroker
+     * class QPainterPathStrokerPrivate
+     * class QMatrix
+     * Q_GUI_EXPORT QDataStream & operator<< (QDataStream &, const QPainterPath &)
+     * Q_GUI_EXPORT QDataStream & operator>> (QDataStream &, QPainterPath &)
+
+Classes
+
+     * class Element
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QPainterPath::ElementType
+
+
+
+   Enumerator: 
+
+          MoveToElement     
+          LineToElement     
+          CurveToElement    
+          CurveToDataElement
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPainterPath::QPainterPath (   )
+
+
+
+   QPainterPath::QPainterPath (  const QPointF &  startPoint  )  [explicit]
+
+
+
+   QPainterPath::QPainterPath (  const QPainterPath &  other  )
+
+
+
+   QPainterPath::~QPainterPath (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QPainterPath::addEllipse (  qreal  x,
+                                    qreal  y,
+                                    qreal  w,
+                                    qreal  h
+                                 )  [inline]
+
+
+
+   void QPainterPath::addEllipse (  const QRectF &  rect  )
+
+
+
+   void QPainterPath::addPath (  const QPainterPath &  path  )
+
+
+
+   void QPainterPath::addPolygon (  const QPolygonF &  polygon  )
+
+
+
+   void QPainterPath::addRect (  qreal  x,
+                                 qreal  y,
+                                 qreal  w,
+                                 qreal  h
+                              )  [inline]
+
+
+
+   void QPainterPath::addRect (  const QRectF &  rect  )
+
+
+
+   void QPainterPath::addRegion (  const QRegion &  region  )
+
+
+
+   void QPainterPath::addText (  qreal            x,
+                                 qreal            y,
+                                 const QFont &    f,
+                                 const QString &  text
+                              )  [inline]
+
+
+
+   void QPainterPath::addText (  const QPointF &  point,
+                                 const QFont &    f,
+                                 const QString &  text
+                              )
+
+
+
+   void QPainterPath::arcTo (  qreal  x,
+                               qreal  y,
+                               qreal  w,
+                               qreal  h,
+                               qreal  startAngle,
+                               qreal  arcLength
+                            )  [inline]
+
+
+
+   void QPainterPath::arcTo (  const QRectF &  rect,
+                               qreal           startAngle,
+                               qreal           arcLength
+                            )
+
+
+
+   QRectF QPainterPath::boundingRect (   )  const
+
+
+
+   void QPainterPath::closeSubpath (   )
+
+
+
+   void QPainterPath::connectPath (  const QPainterPath &  path  )
+
+
+
+   bool QPainterPath::contains (  const QRectF &  rect  )  const
+
+
+
+   bool QPainterPath::contains (  const QPointF &  pt  )  const
+
+
+
+   QRectF QPainterPath::controlPointRect (   )  const
+
+
+
+   void QPainterPath::cubicTo (  qreal  ctrlPt1x,
+                                 qreal  ctrlPt1y,
+                                 qreal  ctrlPt2x,
+                                 qreal  ctrlPt2y,
+                                 qreal  endPtx,
+                                 qreal  endPty
+                              )  [inline]
+
+
+
+   void QPainterPath::cubicTo (  const QPointF &  ctrlPt1,
+                                 const QPointF &  ctrlPt2,
+                                 const QPointF &  endPt
+                              )
+
+
+
+   QPointF QPainterPath::currentPosition (   )  const
+
+
+
+   const QPainterPath::Element & QPainterPath::elementAt (  int  i  )  const [inline]
+
+
+
+   int QPainterPath::elementCount (   )  const [inline]
+
+
+
+   Qt::FillRule QPainterPath::fillRule (   )  const
+
+
+
+   bool QPainterPath::intersects (  const QRectF &  rect  )  const
+
+
+
+   bool QPainterPath::isEmpty (   )  const [inline]
+
+
+
+   void QPainterPath::lineTo (  qreal  x,
+                                qreal  y
+                             )  [inline]
+
+
+
+   void QPainterPath::lineTo (  const QPointF &  p  )
+
+
+
+   void QPainterPath::moveTo (  qreal  x,
+                                qreal  y
+                             )  [inline]
+
+
+
+   void QPainterPath::moveTo (  const QPointF &  p  )
+
+
+
+   bool QPainterPath::operator!= (  const QPainterPath &  other  )  const
+
+
+
+   QPainterPath& QPainterPath::operator= (  const QPainterPath &  other  )
+
+
+
+   bool QPainterPath::operator== (  const QPainterPath &  other  )  const
+
+
+
+   void QPainterPath::quadTo (  qreal  ctrlPtx,
+                                qreal  ctrlPty,
+                                qreal  endPtx,
+                                qreal  endPty
+                             )  [inline]
+
+
+
+   void QPainterPath::quadTo (  const QPointF &  ctrlPt,
+                                const QPointF &  endPt
+                             )
+
+
+
+   void QPainterPath::setFillRule (  Qt::FillRule  fillRule  )
+
+
+
+   QPolygonF QPainterPath::toFillPolygon (  const QMatrix &  matrix = QMatrix()  )  const
+
+
+
+   QList<QPolygonF> QPainterPath::toFillPolygons (  const QMatrix &  matrix = QMatrix()  )  const
+
+
+
+   QPainterPath QPainterPath::toReversed (   )  const
+
+
+
+   QList<QPolygonF> QPainterPath::toSubpathPolygons (  const QMatrix &  matrix = QMatrix()  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   Q_GUI_EXPORT QDataStream& operator<< (  QDataStream &         ,
+                                           const QPainterPath &
+                                        )  [friend]
+
+
+
+   Q_GUI_EXPORT QDataStream& operator>> (  QDataStream &   ,
+                                           QPainterPath &
+                                        )  [friend]
+
+
+
+   friend class QMatrix [friend]
+
+
+
+   friend class QPainterPathData [friend]
+
+
+
+   friend class QPainterPathStroker [friend]
+
+
+
+   friend class QPainterPathStrokerPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpainterpath.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

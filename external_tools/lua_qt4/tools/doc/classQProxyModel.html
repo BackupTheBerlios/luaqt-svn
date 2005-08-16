@@ -1,0 +1,244 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QProxyModel Class Reference
+
+   #include <qproxymodel.h>
+
+   Inherits QAbstractItemModel.
+
+   List of all members.
+
+Public Member Functions
+
+     * QProxyModel (QObject *parent=0)
+     * ~QProxyModel ()
+     * virtual void setModel (QAbstractItemModel *model)
+     * QAbstractItemModel * model () const
+     * QModelIndex index (int row, int column, const QModelIndex &parent) const
+     * QModelIndex parent (const QModelIndex &child) const
+     * int rowCount (const QModelIndex &parent) const
+     * int columnCount (const QModelIndex &parent) const
+     * bool hasChildren (const QModelIndex &parent) const
+     * QVariant data (const QModelIndex &index, int role) const
+     * bool setData (const QModelIndex &index, const QVariant &value, int role)
+     * QVariant headerData (int section, Qt::Orientation orientation, int role) const
+     * bool setHeaderData (int section, Qt::Orientation orientation, const QVariant &value, int role)
+     * QStringList mimeTypes () const
+     * QMimeData * mimeData (const QModelIndexList &indexes) const
+     * bool dropMimeData (const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
+     * Qt::DropActions supportedDropActions () const
+     * bool insertRows (int row, int count, const QModelIndex &parent)
+     * bool insertColumns (int column, int count, const QModelIndex &parent)
+     * void fetchMore (const QModelIndex &parent)
+     * Qt::ItemFlags flags (const QModelIndex &index) const
+     * void sort (int column, Qt::SortOrder order)
+     * QModelIndexList match (const QModelIndex &start, int role, const QVariant &value, int hits, Qt::MatchFlags flags) const
+     * QSize span (const QModelIndex &index) const
+     * bool submit ()
+     * void revert ()
+
+Protected Member Functions
+
+     * QProxyModel (QProxyModelPrivate &, QObject *parent=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QProxyModel::QProxyModel (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QProxyModel::~QProxyModel (   )
+
+
+
+   QProxyModel::QProxyModel (  QProxyModelPrivate &  ,
+                               QObject *             parent = 0
+                            )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int QProxyModel::columnCount (  const QModelIndex &  parent  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   QVariant QProxyModel::data (  const QModelIndex &  index,
+                                 int                  role
+                              )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QProxyModel::dropMimeData (  const QMimeData *    data,
+                                     Qt::DropAction       action,
+                                     int                  row,
+                                     int                  column,
+                                     const QModelIndex &  parent
+                                  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   void QProxyModel::fetchMore (  const QModelIndex &  parent  )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   Qt::ItemFlags QProxyModel::flags (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QProxyModel::hasChildren (  const QModelIndex &  parent  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QVariant QProxyModel::headerData (  int              section,
+                                       Qt::Orientation  orientation,
+                                       int              role
+                                    )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QModelIndex QProxyModel::index (  int                  row,
+                                     int                  column,
+                                     const QModelIndex &  parent
+                                  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QProxyModel::insertColumns (  int                  column,
+                                      int                  count,
+                                      const QModelIndex &  parent
+                                   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QProxyModel::insertRows (  int                  row,
+                                   int                  count,
+                                   const QModelIndex &  parent
+                                )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QModelIndexList QProxyModel::match (  const QModelIndex &  start,
+                                         int                  role,
+                                         const QVariant &     value,
+                                         int                  hits,
+                                         Qt::MatchFlags       flags
+                                      )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QMimeData* QProxyModel::mimeData (  const QModelIndexList &  indexes  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QStringList QProxyModel::mimeTypes (   )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QAbstractItemModel* QProxyModel::model (   )  const
+
+
+
+   QModelIndex QProxyModel::parent (  const QModelIndex &  child  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   void QProxyModel::revert (   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   int QProxyModel::rowCount (  const QModelIndex &  parent  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QProxyModel::setData (  const QModelIndex &  index,
+                                const QVariant &     value,
+                                int                  role
+                             )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QProxyModel::setHeaderData (  int               section,
+                                      Qt::Orientation   orientation,
+                                      const QVariant &  value,
+                                      int               role
+                                   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   virtual void QProxyModel::setModel (  QAbstractItemModel *  model  )  [virtual]
+
+
+
+   void QProxyModel::sort (  int            column,
+                             Qt::SortOrder  order
+                          )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QSize QProxyModel::span (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QProxyModel::submit (   )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   Qt::DropActions QProxyModel::supportedDropActions (   )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qproxymodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:02 2005 by  doxygen 1.4.3-20050530

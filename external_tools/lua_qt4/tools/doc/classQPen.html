@@ -1,0 +1,171 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QPen Class Reference
+
+   #include <qpen.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QPen ()
+     * QPen (Qt::PenStyle)
+     * QPen (const QColor &color)
+     * QPen (const QBrush &brush, qreal width, Qt::PenStyle s=Qt::SolidLine, Qt::PenCapStyle c=Qt::SquareCap, Qt::PenJoinStyle j=Qt::BevelJoin)
+     * QPen (const QPen &pen)
+     * ~QPen ()
+     * QPen & operator= (const QPen &pen)
+     * Qt::PenStyle style () const
+     * void setStyle (Qt::PenStyle)
+     * qreal widthF () const
+     * void setWidthF (qreal width)
+     * int width () const
+     * void setWidth (int width)
+     * QColor color () const
+     * void setColor (const QColor &color)
+     * QBrush brush () const
+     * void setBrush (const QBrush &brush)
+     * bool isSolid () const
+     * Qt::PenCapStyle capStyle () const
+     * void setCapStyle (Qt::PenCapStyle pcs)
+     * Qt::PenJoinStyle joinStyle () const
+     * void setJoinStyle (Qt::PenJoinStyle pcs)
+     * bool operator== (const QPen &p) const
+     * bool operator!= (const QPen &p) const
+     * operator QVariant () const
+     * bool isDetached ()
+
+Friends
+
+     * class QPainter
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QPen::QPen (   )
+
+
+
+   QPen::QPen (  Qt::PenStyle   )
+
+
+
+   QPen::QPen (  const QColor &  color  )
+
+
+
+   QPen::QPen (  const QBrush &    brush,
+                 qreal             width,
+                 Qt::PenStyle      s = Qt::SolidLine,
+                 Qt::PenCapStyle   c = Qt::SquareCap,
+                 Qt::PenJoinStyle  j = Qt::BevelJoin
+              )
+
+
+
+   QPen::QPen (  const QPen &  pen  )
+
+
+
+   QPen::~QPen (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QBrush QPen::brush (   )  const
+
+
+
+   Qt::PenCapStyle QPen::capStyle (   )  const
+
+
+
+   QColor QPen::color (   )  const
+
+
+
+   bool QPen::isDetached (   )
+
+
+
+   bool QPen::isSolid (   )  const
+
+
+
+   Qt::PenJoinStyle QPen::joinStyle (   )  const
+
+
+
+   QPen::operator QVariant (   )  const
+
+
+
+   bool QPen::operator!= (  const QPen &  p  )  const [inline]
+
+
+
+   QPen& QPen::operator= (  const QPen &  pen  )
+
+
+
+   bool QPen::operator== (  const QPen &  p  )  const
+
+
+
+   void QPen::setBrush (  const QBrush &  brush  )
+
+
+
+   void QPen::setCapStyle (  Qt::PenCapStyle  pcs  )
+
+
+
+   void QPen::setColor (  const QColor &  color  )
+
+
+
+   void QPen::setJoinStyle (  Qt::PenJoinStyle  pcs  )
+
+
+
+   void QPen::setStyle (  Qt::PenStyle   )
+
+
+
+   void QPen::setWidth (  int  width  )
+
+
+
+   void QPen::setWidthF (  qreal  width  )
+
+
+
+   Qt::PenStyle QPen::style (   )  const
+
+
+
+   int QPen::width (   )  const
+
+
+
+   qreal QPen::widthF (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QPainter [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qpen.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

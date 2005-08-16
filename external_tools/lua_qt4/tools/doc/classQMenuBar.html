@@ -1,0 +1,273 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QMenuBar Class Reference
+
+   #include <qmenubar.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Signals
+
+     * void triggered (QAction *action)
+     * void hovered (QAction *action)
+
+Public Member Functions
+
+     * QMenuBar (QWidget *parent=0)
+     * ~QMenuBar ()
+     * QAction * addAction (const QString &text)
+     * QAction * addAction (const QString &text, const QObject *receiver, const char *member)
+     * QAction * addMenu (QMenu *menu)
+     * QMenu * addMenu (const QString &title)
+     * QMenu * addMenu (const QIcon &icon, const QString &title)
+     * QAction * addSeparator ()
+     * QAction * insertMenu (QAction *before, QMenu *menu)
+     * void clear ()
+     * QAction * activeAction () const
+     * void setDefaultUp (bool)
+     * bool isDefaultUp () const
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * int heightForWidth (int) const
+     * QRect actionGeometry (QAction *) const
+     * QAction * actionAt (const QPoint &) const
+     * void setCornerWidget (QWidget *w, Qt::Corner corner=Qt::TopRightCorner)
+     * QWidget * cornerWidget (Qt::Corner corner=Qt::TopRightCorner) const
+
+Protected Member Functions
+
+     * void changeEvent (QEvent *)
+     * void keyPressEvent (QKeyEvent *)
+     * void mouseReleaseEvent (QMouseEvent *)
+     * void mousePressEvent (QMouseEvent *)
+     * void mouseMoveEvent (QMouseEvent *)
+     * void leaveEvent (QEvent *)
+     * void paintEvent (QPaintEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void actionEvent (QActionEvent *)
+     * void focusOutEvent (QFocusEvent *)
+     * void focusInEvent (QFocusEvent *)
+     * bool eventFilter (QObject *, QEvent *)
+     * bool event (QEvent *)
+
+Properties
+
+     * bool defaultUp
+
+Friends
+
+     * class QMenuPrivate
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QMenuBar::QMenuBar (  QWidget *  parent = 0  )  [explicit]
+
+
+
+   QMenuBar::~QMenuBar (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QAction* QMenuBar::actionAt (  const QPoint &   )  const
+
+
+
+   void QMenuBar::actionEvent (  QActionEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QRect QMenuBar::actionGeometry (  QAction *   )  const
+
+
+
+   QAction* QMenuBar::activeAction (   )  const
+
+
+
+   QAction* QMenuBar::addAction (  const QString &  text,
+                                   const QObject *  receiver,
+                                   const char *     member
+                                )
+
+
+
+   QAction* QMenuBar::addAction (  const QString &  text  )
+
+
+
+   QMenu* QMenuBar::addMenu (  const QIcon &    icon,
+                               const QString &  title
+                            )
+
+
+
+   QMenu* QMenuBar::addMenu (  const QString &  title  )
+
+
+
+   QAction* QMenuBar::addMenu (  QMenu *  menu  )
+
+
+
+   QAction* QMenuBar::addSeparator (   )
+
+
+
+   void QMenuBar::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::clear (   )
+
+
+
+   QWidget* QMenuBar::cornerWidget (  Qt::Corner  corner = Qt::TopRightCorner  )  const
+
+
+
+   bool QMenuBar::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   bool QMenuBar::eventFilter (  QObject *  ,
+                                 QEvent * 
+                              )  [protected, virtual]
+
+
+
+   Reimplemented from QObject.
+
+   void QMenuBar::focusInEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::focusOutEvent (  QFocusEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int QMenuBar::heightForWidth (  int   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::hovered (  QAction *  action  )  [signal]
+
+
+
+   QAction* QMenuBar::insertMenu (  QAction *  before,
+                                    QMenu *    menu
+                                 )
+
+
+
+   bool QMenuBar::isDefaultUp (   )  const
+
+
+
+   void QMenuBar::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::leaveEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   QSize QMenuBar::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::mouseMoveEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::setCornerWidget (  QWidget *   w,
+                                     Qt::Corner  corner = Qt::TopRightCorner
+                                  )
+
+
+
+   void QMenuBar::setDefaultUp (  bool   )
+
+
+
+   QSize QMenuBar::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QMenuBar::triggered (  QAction *  action  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QMenuPrivate [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool QMenuBar::defaultUp [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmenubar.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:00 2005 by  doxygen 1.4.3-20050530

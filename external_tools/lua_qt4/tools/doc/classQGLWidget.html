@@ -1,0 +1,344 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QGLWidget Class Reference
+
+   #include <qgl.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Slots
+
+     * virtual void updateGL ()
+     * virtual void updateOverlayGL ()
+
+Public Member Functions
+
+     * QGLWidget (QWidget *parent=0, const QGLWidget *shareWidget=0, Qt::WFlags f=0)
+     * QGLWidget (QGLContext *context, QWidget *parent=0, const QGLWidget *shareWidget=0, Qt::WFlags f=0)
+     * QGLWidget (const QGLFormat &format, QWidget *parent=0, const QGLWidget *shareWidget=0, Qt::WFlags f=0)
+     * ~QGLWidget ()
+     * void qglColor (const QColor &c) const
+     * void qglClearColor (const QColor &c) const
+     * bool isValid () const
+     * bool isSharing () const
+     * void makeCurrent ()
+     * void doneCurrent ()
+     * bool doubleBuffer () const
+     * void swapBuffers ()
+     * QGLFormat format () const
+     * void setFormat (const QGLFormat &format)
+     * const QGLContext * context () const
+     * void setContext (QGLContext *context, const QGLContext *shareContext=0, bool deleteOldContext=true)
+     * QPixmap renderPixmap (int w=0, int h=0, bool useContext=false)
+     * QImage grabFrameBuffer (bool withAlpha=false)
+     * void makeOverlayCurrent ()
+     * const QGLContext * overlayContext () const
+     * void setMouseTracking (bool enable)
+     * const QGLColormap & colormap () const
+     * void setColormap (const QGLColormap &map)
+     * void renderText (int x, int y, const QString &str, const QFont &fnt=QFont(), int listBase=2000)
+     * void renderText (double x, double y, double z, const QString &str, const QFont &fnt=QFont(), int listBase=2000)
+     * QPaintEngine * paintEngine () const
+     * GLuint bindTexture (const QImage &image, GLenum target=GL_TEXTURE_2D, GLint format=GL_RGBA8)
+     * GLuint bindTexture (const QPixmap &pixmap, GLenum target=GL_TEXTURE_2D, GLint format=GL_RGBA8)
+     * GLuint bindTexture (const QString &fileName)
+     * void deleteTexture (GLuint tx_id)
+
+Static Public Member Functions
+
+     * static QImage convertToGLFormat (const QImage &img)
+
+Protected Member Functions
+
+     * bool event (QEvent *)
+     * virtual void initializeGL ()
+     * virtual void resizeGL (int w, int h)
+     * virtual void paintGL ()
+     * virtual void initializeOverlayGL ()
+     * virtual void resizeOverlayGL (int w, int h)
+     * virtual void paintOverlayGL ()
+     * void setAutoBufferSwap (bool on)
+     * bool autoBufferSwap () const
+     * void paintEvent (QPaintEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * virtual void glInit ()
+     * virtual void glDraw ()
+     * int fontDisplayListBase (const QFont &fnt, int listBase=2000)
+
+Friends
+
+     * class QGLContext
+     * class QGLOverlayWidget
+     * class QOpenGLPaintEngine
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QGLWidget::QGLWidget (  QWidget *          parent = 0,
+                           const QGLWidget *  shareWidget = 0,
+                           Qt::WFlags         f = 0
+                        )  [explicit]
+
+
+
+   QGLWidget::QGLWidget (  QGLContext *       context,
+                           QWidget *          parent = 0,
+                           const QGLWidget *  shareWidget = 0,
+                           Qt::WFlags         f = 0
+                        )  [explicit]
+
+
+
+   QGLWidget::QGLWidget (  const QGLFormat &  format,
+                           QWidget *          parent = 0,
+                           const QGLWidget *  shareWidget = 0,
+                           Qt::WFlags         f = 0
+                        )  [explicit]
+
+
+
+   QGLWidget::~QGLWidget (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QGLWidget::autoBufferSwap (   )  const [protected]
+
+
+
+   GLuint QGLWidget::bindTexture (  const QString &  fileName  )
+
+
+
+   GLuint QGLWidget::bindTexture (  const QPixmap &  pixmap,
+                                    GLenum           target = GL_TEXTURE_2D,
+                                    GLint            format = GL_RGBA8
+                                 )
+
+
+
+   GLuint QGLWidget::bindTexture (  const QImage &  image,
+                                    GLenum          target = GL_TEXTURE_2D,
+                                    GLint           format = GL_RGBA8
+                                 )
+
+
+
+   const QGLColormap& QGLWidget::colormap (   )  const
+
+
+
+   const QGLContext* QGLWidget::context (   )  const
+
+
+
+   static QImage QGLWidget::convertToGLFormat (  const QImage &  img  )  [static]
+
+
+
+   void QGLWidget::deleteTexture (  GLuint  tx_id  )
+
+
+
+   void QGLWidget::doneCurrent (   )
+
+
+
+   bool QGLWidget::doubleBuffer (   )  const
+
+
+
+   bool QGLWidget::event (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   int QGLWidget::fontDisplayListBase (  const QFont &  fnt,
+                                         int            listBase = 2000
+                                      )  [protected]
+
+
+
+   QGLFormat QGLWidget::format (   )  const
+
+
+
+   virtual void QGLWidget::glDraw (   )  [protected, virtual]
+
+
+
+   virtual void QGLWidget::glInit (   )  [protected, virtual]
+
+
+
+   QImage QGLWidget::grabFrameBuffer (  bool  withAlpha = false  )
+
+
+
+   virtual void QGLWidget::initializeGL (   )  [protected, virtual]
+
+
+
+   virtual void QGLWidget::initializeOverlayGL (   )  [protected, virtual]
+
+
+
+   bool QGLWidget::isSharing (   )  const
+
+
+
+   bool QGLWidget::isValid (   )  const
+
+
+
+   void QGLWidget::makeCurrent (   )
+
+
+
+   void QGLWidget::makeOverlayCurrent (   )
+
+
+
+   const QGLContext* QGLWidget::overlayContext (   )  const
+
+
+
+   QPaintEngine* QGLWidget::paintEngine (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void QGLWidget::paintEvent (  QPaintEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void QGLWidget::paintGL (   )  [protected, virtual]
+
+
+
+   virtual void QGLWidget::paintOverlayGL (   )  [protected, virtual]
+
+
+
+   void QGLWidget::qglClearColor (  const QColor &  c  )  const
+
+
+
+   void QGLWidget::qglColor (  const QColor &  c  )  const
+
+
+
+   QPixmap QGLWidget::renderPixmap (  int   w = 0,
+                                      int   h = 0,
+                                      bool  useContext = false
+                                   )
+
+
+
+   void QGLWidget::renderText (  double           x,
+                                 double           y,
+                                 double           z,
+                                 const QString &  str,
+                                 const QFont &    fnt = QFont(),
+                                 int              listBase = 2000
+                              )
+
+
+
+   void QGLWidget::renderText (  int              x,
+                                 int              y,
+                                 const QString &  str,
+                                 const QFont &    fnt = QFont(),
+                                 int              listBase = 2000
+                              )
+
+
+
+   void QGLWidget::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void QGLWidget::resizeGL (  int  w,
+                                       int  h
+                                    )  [protected, virtual]
+
+
+
+   virtual void QGLWidget::resizeOverlayGL (  int  w,
+                                              int  h
+                                           )  [protected, virtual]
+
+
+
+   void QGLWidget::setAutoBufferSwap (  bool  on  )  [protected]
+
+
+
+   void QGLWidget::setColormap (  const QGLColormap &  map  )
+
+
+
+   void QGLWidget::setContext (  QGLContext *        context,
+                                 const QGLContext *  shareContext = 0,
+                                 bool                deleteOldContext = true
+                              )
+
+
+
+   void QGLWidget::setFormat (  const QGLFormat &  format  )
+
+
+
+   void QGLWidget::setMouseTracking (  bool  enable  )
+
+
+
+   Reimplemented from QWidget.
+
+   void QGLWidget::swapBuffers (   )
+
+
+
+   virtual void QGLWidget::updateGL (   )  [virtual, slot]
+
+
+
+   virtual void QGLWidget::updateOverlayGL (   )  [virtual, slot]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QGLContext [friend]
+
+
+
+   Reimplemented from QWidget.
+
+   friend class QGLOverlayWidget [friend]
+
+
+
+   friend class QOpenGLPaintEngine [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qgl.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

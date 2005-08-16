@@ -1,0 +1,67 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    QDesignerContainerExtension Class Reference
+
+   #include <container.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * virtual ~QDesignerContainerExtension ()
+     * virtual int count () const =0
+     * virtual QWidget * widget (int index) const =0
+     * virtual int currentIndex () const =0
+     * virtual void setCurrentIndex (int index)=0
+     * virtual void addWidget (QWidget *widget)=0
+     * virtual void insertWidget (int index, QWidget *widget)=0
+     * virtual void remove (int index)=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QDesignerContainerExtension::~QDesignerContainerExtension (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void QDesignerContainerExtension::addWidget (  QWidget *  widget  )  [pure virtual]
+
+
+
+   virtual int QDesignerContainerExtension::count (   )  const [pure virtual]
+
+
+
+   virtual int QDesignerContainerExtension::currentIndex (   )  const [pure virtual]
+
+
+
+   virtual void QDesignerContainerExtension::insertWidget (  int        index,
+                                                             QWidget *  widget
+                                                          )  [pure virtual]
+
+
+
+   virtual void QDesignerContainerExtension::remove (  int  index  )  [pure virtual]
+
+
+
+   virtual void QDesignerContainerExtension::setCurrentIndex (  int  index  )  [pure virtual]
+
+
+
+   virtual QWidget* QDesignerContainerExtension::widget (  int  index  )  const [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/container.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

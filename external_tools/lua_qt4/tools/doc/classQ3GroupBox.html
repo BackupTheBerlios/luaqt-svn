@@ -1,0 +1,186 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3GroupBox Class Reference
+
+   #include <q3groupbox.h>
+
+   Inherits QGroupBox.
+
+   Inherited by Q3ButtonGroup.
+
+   List of all members.
+
+Public Types
+
+     * enum DummyFrame { Box, Sunken }
+
+Public Member Functions
+
+     * Q3GroupBox (QWidget *parent=0, const char *name=0)
+     * Q3GroupBox (const QString &title, QWidget *parent=0, const char *name=0)
+     * Q3GroupBox (int strips, Qt::Orientation o, QWidget *parent=0, const char *name=0)
+     * Q3GroupBox (int strips, Qt::Orientation o, const QString &title, QWidget *parent=0, const char *name=0)
+     * ~Q3GroupBox ()
+     * virtual void setColumnLayout (int strips, Qt::Orientation o)
+     * int columns () const
+     * void setColumns (int)
+     * Qt::Orientation orientation () const
+     * void setOrientation (Qt::Orientation)
+     * int insideMargin () const
+     * int insideSpacing () const
+     * void setInsideMargin (int m)
+     * void setInsideSpacing (int s)
+     * void addSpace (int)
+     * void setFrameShadow (DummyFrame)
+     * void setFrameShape (DummyFrame)
+
+Protected Member Functions
+
+     * void childEvent (QChildEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void changeEvent (QEvent *)
+
+Properties
+
+     * Qt Orientation
+     * int columns
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3GroupBox::DummyFrame
+
+
+
+   Enumerator: 
+
+          Box   
+          Sunken
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3GroupBox::Q3GroupBox (  QWidget *     parent = 0,
+                             const char *  name = 0
+                          )  [explicit]
+
+
+
+   Q3GroupBox::Q3GroupBox (  const QString &  title,
+                             QWidget *        parent = 0,
+                             const char *     name = 0
+                          )  [explicit]
+
+
+
+   Q3GroupBox::Q3GroupBox (  int              strips,
+                             Qt::Orientation  o,
+                             QWidget *        parent = 0,
+                             const char *     name = 0
+                          )
+
+
+
+   Q3GroupBox::Q3GroupBox (  int              strips,
+                             Qt::Orientation  o,
+                             const QString &  title,
+                             QWidget *        parent = 0,
+                             const char *     name = 0
+                          )
+
+
+
+   Q3GroupBox::~Q3GroupBox (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3GroupBox::addSpace (  int   )
+
+
+
+   void Q3GroupBox::changeEvent (  QEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QGroupBox.
+
+   void Q3GroupBox::childEvent (  QChildEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QGroupBox.
+
+   int Q3GroupBox::columns (   )  const
+
+
+
+   int Q3GroupBox::insideMargin (   )  const
+
+
+
+   int Q3GroupBox::insideSpacing (   )  const
+
+
+
+   Qt::Orientation Q3GroupBox::orientation (   )  const
+
+
+
+   void Q3GroupBox::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QGroupBox.
+
+   virtual void Q3GroupBox::setColumnLayout (  int              strips,
+                                               Qt::Orientation  o
+                                            )  [virtual]
+
+
+
+   void Q3GroupBox::setColumns (  int   )
+
+
+
+   void Q3GroupBox::setFrameShadow (  DummyFrame   )  [inline]
+
+
+
+   void Q3GroupBox::setFrameShape (  DummyFrame   )  [inline]
+
+
+
+   void Q3GroupBox::setInsideMargin (  int  m  )
+
+
+
+   void Q3GroupBox::setInsideSpacing (  int  s  )
+
+
+
+   void Q3GroupBox::setOrientation (  Qt::Orientation   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   int Q3GroupBox::columns [read, write]
+
+
+
+   Qt Q3GroupBox::Orientation [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3groupbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

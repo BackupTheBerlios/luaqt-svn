@@ -1,0 +1,190 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                           DomLayoutItem Class Reference
+
+   #include <ui4.h>
+
+   List of all members.
+
+Public Types
+
+     * enum Kind { Unknown = 0, Widget, Layout, Spacer }
+
+Public Member Functions
+
+     * DomLayoutItem ()
+     * ~DomLayoutItem ()
+     * void read (const QDomElement &node)
+     * QDomElement write (QDomDocument &doc, const QString &tagName=QString())
+     * QString text () const
+     * void setText (const QString &s)
+     * bool hasAttributeRow ()
+     * int attributeRow ()
+     * void setAttributeRow (int a)
+     * void clearAttributeRow ()
+     * bool hasAttributeColumn ()
+     * int attributeColumn ()
+     * void setAttributeColumn (int a)
+     * void clearAttributeColumn ()
+     * bool hasAttributeRowSpan ()
+     * int attributeRowSpan ()
+     * void setAttributeRowSpan (int a)
+     * void clearAttributeRowSpan ()
+     * bool hasAttributeColSpan ()
+     * int attributeColSpan ()
+     * void setAttributeColSpan (int a)
+     * void clearAttributeColSpan ()
+     * Kind kind ()
+     * DomWidget * elementWidget ()
+     * void setElementWidget (DomWidget *a)
+     * DomLayout * elementLayout ()
+     * void setElementLayout (DomLayout *a)
+     * DomSpacer * elementSpacer ()
+     * void setElementSpacer (DomSpacer *a)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum DomLayoutItem::Kind
+
+
+
+   Enumerator: 
+
+          Unknown
+          Widget 
+          Layout 
+          Spacer 
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   DomLayoutItem::DomLayoutItem (   )
+
+
+
+   DomLayoutItem::~DomLayoutItem (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int DomLayoutItem::attributeColSpan (   )  [inline]
+
+
+
+   int DomLayoutItem::attributeColumn (   )  [inline]
+
+
+
+   int DomLayoutItem::attributeRow (   )  [inline]
+
+
+
+   int DomLayoutItem::attributeRowSpan (   )  [inline]
+
+
+
+   void DomLayoutItem::clearAttributeColSpan (   )  [inline]
+
+
+
+   void DomLayoutItem::clearAttributeColumn (   )  [inline]
+
+
+
+   void DomLayoutItem::clearAttributeRow (   )  [inline]
+
+
+
+   void DomLayoutItem::clearAttributeRowSpan (   )  [inline]
+
+
+
+   DomLayout* DomLayoutItem::elementLayout (   )  [inline]
+
+
+
+   DomSpacer* DomLayoutItem::elementSpacer (   )  [inline]
+
+
+
+   DomWidget* DomLayoutItem::elementWidget (   )  [inline]
+
+
+
+   bool DomLayoutItem::hasAttributeColSpan (   )  [inline]
+
+
+
+   bool DomLayoutItem::hasAttributeColumn (   )  [inline]
+
+
+
+   bool DomLayoutItem::hasAttributeRow (   )  [inline]
+
+
+
+   bool DomLayoutItem::hasAttributeRowSpan (   )  [inline]
+
+
+
+   Kind DomLayoutItem::kind (   )  [inline]
+
+
+
+   void DomLayoutItem::read (  const QDomElement &  node  )
+
+
+
+   void DomLayoutItem::setAttributeColSpan (  int  a  )  [inline]
+
+
+
+   void DomLayoutItem::setAttributeColumn (  int  a  )  [inline]
+
+
+
+   void DomLayoutItem::setAttributeRow (  int  a  )  [inline]
+
+
+
+   void DomLayoutItem::setAttributeRowSpan (  int  a  )  [inline]
+
+
+
+   void DomLayoutItem::setElementLayout (  DomLayout *  a  )
+
+
+
+   void DomLayoutItem::setElementSpacer (  DomSpacer *  a  )
+
+
+
+   void DomLayoutItem::setElementWidget (  DomWidget *  a  )
+
+
+
+   void DomLayoutItem::setText (  const QString &  s  )  [inline]
+
+
+
+   QString DomLayoutItem::text (   )  const [inline]
+
+
+
+   QDomElement DomLayoutItem::write (  QDomDocument &   doc,
+                                       const QString &  tagName = QString()
+                                    )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/ui4.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:53 2005 by  doxygen 1.4.3-20050530

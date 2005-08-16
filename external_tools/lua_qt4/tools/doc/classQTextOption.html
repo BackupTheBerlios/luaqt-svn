@@ -1,0 +1,159 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTextOption Class Reference
+
+   #include <qtextoption.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags Flags
+     * enum WrapMode {
+         NoWrap, WordWrap, ManualWrap, WrapAnywhere,
+         WrapAtWordBoundaryOrAnywhere
+       }
+     * enum Flag { IncludeTrailingSpaces = 0x80000000 }
+
+Public Member Functions
+
+     * QTextOption ()
+     * QTextOption (Qt::Alignment alignment)
+     * ~QTextOption ()
+     * QTextOption (const QTextOption &o)
+     * QTextOption & operator= (const QTextOption &o)
+     * void setAlignment (Qt::Alignment alignment)
+     * Qt::Alignment alignment () const
+     * void setTextDirection (Qt::LayoutDirection aDirection)
+     * Qt::LayoutDirection textDirection () const
+     * void setWrapMode (WrapMode wrap)
+     * WrapMode wrapMode () const
+     * void setFlags (Flags flags)
+     * Flags flags () const
+     * void setTabStop (qreal tabStop)
+     * qreal tabStop () const
+     * void setTabArray (QList< qreal > tabStops)
+     * QList< qreal > tabArray () const
+     * void setUseDesignMetrics (bool b)
+     * bool useDesignMetrics () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QTextOption::Flags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QTextOption::Flag
+
+
+
+   Enumerator: 
+
+          IncludeTrailingSpaces
+
+   enum QTextOption::WrapMode
+
+
+
+   Enumerator: 
+
+          NoWrap                      
+          WordWrap                    
+          ManualWrap                  
+          WrapAnywhere                
+          WrapAtWordBoundaryOrAnywhere
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextOption::QTextOption (   )
+
+
+
+   QTextOption::QTextOption (  Qt::Alignment  alignment  )
+
+
+
+   QTextOption::~QTextOption (   )
+
+
+
+   QTextOption::QTextOption (  const QTextOption &  o  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Qt::Alignment QTextOption::alignment (   )  const [inline]
+
+
+
+   Flags QTextOption::flags (   )  const [inline]
+
+
+
+   QTextOption& QTextOption::operator= (  const QTextOption &  o  )
+
+
+
+   void QTextOption::setAlignment (  Qt::Alignment  alignment  )  [inline]
+
+
+
+   void QTextOption::setFlags (  Flags  flags  )  [inline]
+
+
+
+   void QTextOption::setTabArray (  QList< qreal >  tabStops  )
+
+
+
+   void QTextOption::setTabStop (  qreal  tabStop  )  [inline]
+
+
+
+   void QTextOption::setTextDirection (  Qt::LayoutDirection  aDirection  )  [inline]
+
+
+
+   void QTextOption::setUseDesignMetrics (  bool  b  )  [inline]
+
+
+
+   void QTextOption::setWrapMode (  WrapMode  wrap  )  [inline]
+
+
+
+   QList<qreal> QTextOption::tabArray (   )  const
+
+
+
+   qreal QTextOption::tabStop (   )  const [inline]
+
+
+
+   Qt::LayoutDirection QTextOption::textDirection (   )  const [inline]
+
+
+
+   bool QTextOption::useDesignMetrics (   )  const [inline]
+
+
+
+   WrapMode QTextOption::wrapMode (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextoption.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,180 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QIcon Class Reference
+
+   #include <qicon.h>
+
+   List of all members.
+
+Public Types
+
+     * enum Mode { Normal, Disabled, Active }
+     * enum State { On, Off }
+
+Public Member Functions
+
+     * QIcon ()
+     * QIcon (const QPixmap &pixmap)
+     * QIcon (const QIcon &other)
+     * QIcon (const QString &fileName)
+     * QIcon (QIconEngine *engine)
+     * ~QIcon ()
+     * QIcon & operator= (const QIcon &other)
+     * operator QVariant () const
+     * QPixmap pixmap (const QSize &size, Mode mode=Normal, State state=Off) const
+     * QPixmap pixmap (int w, int h, Mode mode=Normal, State state=Off) const
+     * QPixmap pixmap (int extent, Mode mode=Normal, State state=Off) const
+     * QSize actualSize (const QSize &size, Mode mode=Normal, State state=Off) const
+     * void paint (QPainter *painter, const QRect &rect, Qt::Alignment alignment=Qt::AlignCenter, Mode mode=Normal, State state=Off) const
+     * void paint (QPainter *painter, int x, int y, int w, int h, Qt::Alignment alignment=Qt::AlignCenter, Mode mode=Normal, State state=Off) const
+     * bool isNull () const
+     * bool isDetached () const
+     * int serialNumber () const
+     * void addPixmap (const QPixmap &pixmap, Mode mode=Normal, State state=Off)
+     * void addFile (const QString &fileName, const QSize &size=QSize(), Mode mode=Normal, State state=Off)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QIcon::Mode
+
+
+
+   Enumerator: 
+
+          Normal  
+          Disabled
+          Active  
+
+   enum QIcon::State
+
+
+
+   Enumerator: 
+
+          On 
+          Off
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QIcon::QIcon (   )
+
+
+
+   QIcon::QIcon (  const QPixmap &  pixmap  )
+
+
+
+   QIcon::QIcon (  const QIcon &  other  )
+
+
+
+   QIcon::QIcon (  const QString &  fileName  )  [explicit]
+
+
+
+   QIcon::QIcon (  QIconEngine *  engine  )  [explicit]
+
+
+
+   QIcon::~QIcon (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QSize QIcon::actualSize (  const QSize &  size,
+                              Mode           mode = Normal,
+                              State          state = Off
+                           )  const
+
+
+
+   void QIcon::addFile (  const QString &  fileName,
+                          const QSize &    size = QSize(),
+                          Mode             mode = Normal,
+                          State            state = Off
+                       )
+
+
+
+   void QIcon::addPixmap (  const QPixmap &  pixmap,
+                            Mode             mode = Normal,
+                            State            state = Off
+                         )
+
+
+
+   bool QIcon::isDetached (   )  const
+
+
+
+   bool QIcon::isNull (   )  const
+
+
+
+   QIcon::operator QVariant (   )  const
+
+
+
+   QIcon& QIcon::operator= (  const QIcon &  other  )
+
+
+
+   void QIcon::paint (  QPainter *     painter,
+                        int            x,
+                        int            y,
+                        int            w,
+                        int            h,
+                        Qt::Alignment  alignment = Qt::AlignCenter,
+                        Mode           mode = Normal,
+                        State          state = Off
+                     )  const [inline]
+
+
+
+   void QIcon::paint (  QPainter *     painter,
+                        const QRect &  rect,
+                        Qt::Alignment  alignment = Qt::AlignCenter,
+                        Mode           mode = Normal,
+                        State          state = Off
+                     )  const
+
+
+
+   QPixmap QIcon::pixmap (  int    extent,
+                            Mode   mode = Normal,
+                            State  state = Off
+                         )  const [inline]
+
+
+
+   QPixmap QIcon::pixmap (  int    w,
+                            int    h,
+                            Mode   mode = Normal,
+                            State  state = Off
+                         )  const [inline]
+
+
+
+   QPixmap QIcon::pixmap (  const QSize &  size,
+                            Mode           mode = Normal,
+                            State          state = Off
+                         )  const
+
+
+
+   int QIcon::serialNumber (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qicon.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

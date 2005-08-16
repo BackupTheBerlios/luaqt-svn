@@ -1,0 +1,354 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                         QListView Class Reference
+
+   The QListView class provides a list or icon view onto a model. More...
+#include <QListView>
+
+   Part of the QtGui module.
+
+   Inherits QAbstractItemView.
+
+   Inherited by QListWidget.
+     * List of all members, including inherited members
+
+  Public Types
+
+     * enum Flow { LeftToRight, TopToBottom }
+     * enum LayoutMode { SinglePass, Batched }
+     * enum Movement { Static, Free, Snap }
+     * enum ResizeMode { Fixed, Adjust }
+     * enum ViewMode { ListMode, IconMode }
+
+  Properties
+
+     * flow : Flow
+     * gridSize : QSize
+     * isWrapping : bool
+     * layoutMode : LayoutMode
+     * modelColumn : int
+
+     * movement : Movement
+     * resizeMode : ResizeMode
+     * spacing : int
+     * viewMode : ViewMode
+
+     * 10 properties inherited from QAbstractItemView
+     * 2 properties inherited from QAbstractScrollArea
+     * 6 properties inherited from QFrame
+     * 52 properties inherited from QWidget
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QListView ( QWidget * parent = 0 )
+     * ~QListView ()
+     * void clearPropertyFlags ()
+     * Flow flow () const
+     * QSize gridSize () const
+     * bool isRowHidden ( int row ) const
+     * bool isWrapping () const
+     * LayoutMode layoutMode () const
+     * int modelColumn () const
+     * Movement movement () const
+     * ResizeMode resizeMode () const
+     * void setFlow ( Flow flow )
+     * void setGridSize ( const QSize & size )
+     * void setLayoutMode ( LayoutMode mode )
+     * void setModelColumn ( int column )
+     * void setMovement ( Movement movement )
+     * void setResizeMode ( ResizeMode mode )
+     * void setRowHidden ( int row, bool hide )
+     * void setSpacing ( int space )
+     * void setViewMode ( ViewMode mode )
+     * void setWrapping ( bool enable )
+     * int spacing () const
+     * ViewMode viewMode () const
+
+     * 37 public functions inherited from QAbstractItemView
+     * 8 public functions inherited from QAbstractScrollArea
+     * 13 public functions inherited from QFrame
+     * 183 public functions inherited from QWidget
+     * 28 public functions inherited from QObject
+     * 10 public functions inherited from QPaintDevice
+
+  Protected Functions
+
+     * QRect rectForIndex ( const QModelIndex & index ) const
+
+     * 35 protected functions inherited from QAbstractItemView
+     * 17 protected functions inherited from QAbstractScrollArea
+     * 39 protected functions inherited from QWidget
+     * 7 protected functions inherited from QObject
+
+  Additional Inherited Members
+
+     * 6 public slots inherited from QAbstractItemView
+     * 17 public slots inherited from QWidget
+     * 1 public slot inherited from QObject
+     * 6 signals inherited from QAbstractItemView
+     * 1 signal inherited from QWidget
+     * 1 signal inherited from QObject
+     * 2 static public members inherited from QFrame
+     * 4 static public members inherited from QWidget
+     * 4 static public members inherited from QObject
+     * 8 protected slots inherited from QAbstractItemView
+     _________________________________________________________________
+
+Detailed Description
+
+   The QListView class provides a list or icon view onto a model.
+
+   A QListView presents items stored in a model, either as a simple
+   non-hierarchical list, or as a collection of icons. This class is used
+   to provide lists and icon views that were previously provided by the
+   QListBox and QIconView classes, but using the more flexible approach
+   provided by Qt's model/view architecture.
+
+   The QListView class is one of the Model/View Classes and is part of
+   Qt's model/view framework.
+
+   This view does not display horizontal or vertical headers; to display
+   a list of items with a horizontal header, use QTreeView instead.
+
+   QListView implements the interfaces defined by the QAbstractItemView
+   class to allow it to display data provided by models derived from the
+   QAbstractItemModel class.
+
+   Items in a list view can be displayed using one of two view modes: In
+   ListMode, the items are displayed in the form of a simple list; in
+   IconMode, the list view takes the form of an icon view in which the
+   items are displayed with icons like files in a file manager. By
+   default, the list view is in ListMode. To change the view mode, use
+   the setViewMode() function, and to determine the current view mode,
+   use viewMode().
+
+   Items in these views are laid out in the direction specified by the
+   flow() of the list view. The items may be fixed in place, or allowed
+   to move, depending on the view's movement() state.
+
+   If the items in the model cannot be completely laid out in the
+   direction of flow, they can be wrapped at the boundary of the view
+   widget; this depends on isWrapping(). This property is useful when the
+   items are being represented by an icon view.
+
+   The resizeMode() and layoutMode() govern how and when the items are
+   laid out. Items are spaced according to their spacing(), and can exist
+   within a notional grid of size specified by gridSize(). The items can
+   be rendered as large or small icons depending on their iconSize().
+
+   See also Model/View Programming.
+     _________________________________________________________________
+
+Member Type Documentation
+
+  enum QListView::Flow
+
+   Constant Value Description
+   QListView::LeftToRight 0 The items are laid out in the view from the
+   left to the right.
+   QListView::TopToBottom 1 The items are laid out in the view from the
+   top to the bottom.
+
+  enum QListView::LayoutMode
+
+         Constant        Value                   Description
+   QListView::SinglePass   0   The items are laid out all at once.
+   QListView::Batched      1   The items are laid out in batches of 100 items.
+
+  enum QListView::Movement
+
+   Constant Value Description
+   QListView::Static 0 The items cannot be moved by the user.
+   QListView::Free 1 The items can be moved freely by the user.
+   QListView::Snap 2 The items snap to the specified grid when moved; see
+   setGridSize().
+
+  enum QListView::ResizeMode
+
+   Constant Value Description
+   QListView::Fixed 0 The items will only be laid out the first time the
+   view is shown.
+   QListView::Adjust 1 The items will be laid out every time the view is
+   resized.
+
+  enum QListView::ViewMode
+
+   Constant Value Description
+   QListView::ListMode 0 The items are layed out using TopToBottom flow,
+   with Small size and Static movement
+   QListView::IconMode 1 The items are layed out using LeftToRight flow,
+   with Large size and Free movement
+     _________________________________________________________________
+
+Property Documentation
+
+  flow : Flow
+
+   This property holds which direction the items layout should flow.
+
+   If this property is LeftToRight, the items will be laid out left to
+   right. If the isWrapping property is true, the layout will wrap when
+   it reaches the right side of the visible area. If this property is
+   TopToBottom, the items will be laid out from the top of the visible
+   area, wrapping when it reaches the bottom.
+
+   Setting this property when the view is visible will cause the items to
+   be laid out again.
+
+   Access functions:
+     * Flow flow () const
+     * void setFlow ( Flow flow )
+
+  gridSize : QSize
+
+   This property holds the size of the layout grid.
+
+   This property is the size of the grid in which the items are laid out.
+   The default is an empty size which means that there is no grid and the
+   layout is not done in a grid. Setting this property to a non-empty
+   size switches on the grid layout. (When a grid layout is in force the
+   spacing property is ignored.)
+
+   Setting this property when the view is visible will cause the items to
+   be laid out again.
+
+   Access functions:
+     * QSize gridSize () const
+     * void setGridSize ( const QSize & size )
+
+  isWrapping : bool
+
+   This property holds whether the items layout should wrap.
+
+   This property holds whether the layout should wrap when there is no
+   more space in the visible area. The point at which the layout wraps
+   depends on the flow property.
+
+   Setting this property when the view is visible will cause the items to
+   be laid out again.
+
+   Access functions:
+     * bool isWrapping () const
+     * void setWrapping ( bool enable )
+
+  layoutMode : LayoutMode
+
+   This property holds whether the layout of items should happen
+   immediately or be delayed.
+
+   This property holds the layout mode for the items. When the mode is
+   Instant (the default), the items are laid out all in one go. When the
+   mode is Batched, the items are laid out in batches of 100 items, while
+   processing events. This makes it possible to instantly view and
+   interact with the visible items while the rest are being laid out.
+
+   Access functions:
+     * LayoutMode layoutMode () const
+     * void setLayoutMode ( LayoutMode mode )
+
+  modelColumn : int
+
+   This property holds the column in the model that is visible.
+
+   Access functions:
+     * int modelColumn () const
+     * void setModelColumn ( int column )
+
+  movement : Movement
+
+   This property holds whether the items can be moved freely, are snapped
+   to a grid, or cannot be moved at all.
+
+   This property determines how the user can move the items in the view.
+   Static means that the items can't be moved the user. Free means that
+   the user can drag and drop the items to any position in the view. Snap
+   means that the user can drag and drop the items, but only to the
+   positions in a notional grid signified by the gridSize property.
+
+   Setting this property when the view is visible will cause the items to
+   be laid out again.
+
+   Access functions:
+     * Movement movement () const
+     * void setMovement ( Movement movement )
+
+   See also gridSize.
+
+  resizeMode : ResizeMode
+
+   This property holds whether the items are laid out again when the view
+   is resized.
+
+   If this property is Adjust, the items will be laid out again when the
+   view is resized. If the value is Fixed, the items will not be laid out
+   when the view is resized.
+
+   Access functions:
+     * ResizeMode resizeMode () const
+     * void setResizeMode ( ResizeMode mode )
+
+  spacing : int
+
+   This property holds the space between items in the layout.
+
+   This property is the size of the empty space between items in the
+   layout. This property is ignored if the items are laid out in a grid.
+
+   Setting this property when the view is visible will cause the items to
+   be laid out again.
+
+   Access functions:
+     * int spacing () const
+     * void setSpacing ( int space )
+
+  viewMode : ViewMode
+
+   This property holds the view mode of the QListView.
+
+   This property will change the other unset properties to conform with
+   the set view mode. Properties that have already been set will not be
+   changed, unless clearPropertyFlags() has been called.
+
+   Access functions:
+     * ViewMode viewMode () const
+     * void setViewMode ( ViewMode mode )
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QListView::QListView ( QWidget * parent = 0 )
+
+   Creates a new QListView with the given parent to view a model. Use
+   setModel() to set the model.
+
+  QListView::~QListView ()
+
+   Destroys the view.
+
+  void QListView::clearPropertyFlags ()
+
+   Clears the property flags. See viewMode.
+
+  bool QListView::isRowHidden ( int row ) const
+
+   Returns true if the row is hidden, otherwise returns false.
+
+  QRect QListView::rectForIndex ( const QModelIndex & index ) const
+  [protected]
+
+   Returns the rectangle of the item at position index in the model. The
+   rectangle is in contents coordinates.
+
+  void QListView::setRowHidden ( int row, bool hide )
+
+   If hide is true the row will be hidden, otherwise the row will be
+   shown.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

@@ -1,0 +1,234 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                           QTimer Class Reference
+
+   The QTimer class provides repetitive and single-shot timers. More...
+#include <QTimer>
+
+   Part of the QtCore module.
+
+   Inherits QObject.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Properties
+
+     * interval : int
+     * singleShot : bool
+
+     * 1 property inherited from QObject
+
+  Public Functions
+
+     * QTimer ( QObject * parent = 0 )
+     * ~QTimer ()
+     * int interval () const
+     * bool isActive () const
+     * bool isSingleShot () const
+     * void setInterval ( int msec )
+     * void setSingleShot ( bool singleShot )
+     * int timerId () const
+
+     * 28 public functions inherited from QObject
+
+  Public Slots
+
+     * void start ( int msec )
+     * void start ()
+     * void stop ()
+
+     * 1 public slot inherited from QObject
+
+  Signals
+
+     * void timeout ()
+
+     * 1 signal inherited from QObject
+
+  Static Public Members
+
+     * void singleShot ( int msec, QObject * receiver, const char *
+       member )
+
+     * 4 static public members inherited from QObject
+
+  Additional Inherited Members
+
+     * 7 protected functions inherited from QObject
+     _________________________________________________________________
+
+Detailed Description
+
+   The QTimer class provides repetitive and single-shot timers.
+
+   The QTimer class provides a high-level programming interface for
+   timers. To use it, create a QTimer, connect its timeout() signal to
+   the appropriate slots, and call start(). From then on it will emit the
+   timeout() signal at constant intervals.
+
+   Example for a one second (1000 millisecond) timer (from the Analog
+   Clock example):
+        QTimer *timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+        timer->start(1000);
+
+   From then on, the update() slot is called every second.
+
+   You can set a timer to time out only once by calling
+   setSingleShot(true). You can also use the static QTimer::singleShot()
+   function to call a slot after a specified interval:
+        QTimer::singleShot(200, this, SLOT(updateCaption()));
+
+   As a special case, a QTimer with a timeout of 0 will time out as soon
+   as all the events in the window system's event queue have been
+   processed. This can be used to do heavy work while providing a snappy
+   user interface:
+        QTimer *timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(processOneThing()));
+        timer->start();
+
+   processOneThing() will from then on be called repeatedly. It should be
+   written in such a way that it always returns quickly (typically after
+   processing one data item) so that Qt can deliver events to widgets and
+   stop the timer as soon as it has done all its work. This is the
+   traditional way of implementing heavy work in GUI applications;
+   multithreading is now becoming available on more and more platforms,
+   and we expect that zero-milliseconds QTimers will gradually be
+   replaced by QThreads.
+
+   Note that QTimer's accuracy depends on the underlying operating system
+   and hardware. Most platforms support an accuracy of 1 milliseconds,
+   but Windows 95 and 98 support only 55. If Qt is unable to deliver the
+   requested number of timer clicks, it will silently discard some.
+
+   An alternative to using QTimer is to call QObject::startTimer() for
+   your object and reimplement the QObject::timerEvent() event handler in
+   your class (which must inherit QObject). The disadvantage is that
+   timerEvent() does not support such high-level features as single-shot
+   timers or signals.
+
+   Another alternative to using QTimer is to use QBasicTimer. It is
+   typically less cumbersome than using QObject::startTimer() directly.
+   See Timers for an overview of all three approaches.
+
+   Some operating systems limit the number of timers that may be used; Qt
+   tries to work around these limitations.
+
+   See also QBasicTimer, QTimerEvent, QObject::timerEvent(), and Timers.
+     _________________________________________________________________
+
+Property Documentation
+
+  interval : int
+
+   This property holds the timeout interval in milliseconds.
+
+   The default value for this property is 0. A QTimer with a timeout
+   interval of 0 will time out as soon as all the events in the window
+   system's event queue have been processed.
+
+   Setting the interval of an active timer changes its timerId().
+
+   Access functions:
+     * int interval () const
+     * void setInterval ( int msec )
+
+   See also singleShot.
+
+  singleShot : bool
+
+   This property holds whether the timer is a single-shot timer.
+
+   A single-shot timer fires only once, non-single-shot timers fire every
+   interval milliseconds.
+
+   Access functions:
+     * bool isSingleShot () const
+     * void setSingleShot ( bool singleShot )
+
+   See also interval and singleShot().
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QTimer::QTimer ( QObject * parent = 0 )
+
+   Constructs a timer with the given parent.
+
+  QTimer::~QTimer ()
+
+   Destroys the timer.
+
+  bool QTimer::isActive () const
+
+   Returns true if the timer is running (pending); otherwise returns
+   false.
+
+  void QTimer::singleShot ( int msec, QObject * receiver, const char * member
+  )   [static]
+
+   This static function calls a slot after a given time interval.
+
+   It is very convenient to use this function because you do not need to
+   bother with a timerEvent or create a local QTimer object.
+
+   Example:
+    #include <QApplication>
+    #include <QTimer>
+
+    int main(int argc, char *argv[])
+    {
+        QApplication app(argc, argv);
+        QTimer::singleShot(60000, &app, SLOT(quit()));
+        ...
+        return app.exec();
+    }
+
+   This sample program automatically terminates after 10 minutes (600000
+   milliseconds).
+
+   The receiver is the receiving object and the member is the slot. The
+   time interval is msec milliseconds.
+
+   Note: This function is reentrant.
+
+   See also start().
+
+  void QTimer::start ( int msec )   [slot]
+
+   Starts or restarts the timer with a timeout interval of msec
+   milliseconds.
+
+  void QTimer::start ()   [slot]
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Starts or restarts the timer with the timeout specified in interval.
+
+   If singleShot is true, the timer will be activated only once.
+
+  void QTimer::stop ()   [slot]
+
+   Stops the timer.
+
+   See also start().
+
+  void QTimer::timeout ()   [signal]
+
+   This signal is emitted when the timer times out.
+
+   See also interval, start(), and stop().
+
+  int QTimer::timerId () const
+
+   Returns the ID of the timer if the timer is running; otherwise returns
+   -1.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

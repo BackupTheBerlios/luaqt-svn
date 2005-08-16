@@ -1,0 +1,352 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QAbstractSocket Class Reference
+
+   #include <qabstractsocket.h>
+
+   Inherits QIODevice.
+
+   Inherited by QTcpSocket, and QUdpSocket.
+
+   List of all members.
+
+Public Types
+
+     * enum SocketType { TcpSocket, UdpSocket, UnknownSocketType = -1 }
+     * enum NetworkLayerProtocol { IPv4Protocol, IPv6Protocol, UnknownNetworkLayerProtocol = -1 }
+     * enum SocketError {
+         ConnectionRefusedError, RemoteHostClosedError, HostNotFoundError, SocketAccessError,
+         SocketResourceError, SocketTimeoutError, DatagramTooLargeError, NetworkError,
+         AddressInUseError, SocketAddressNotAvailableError, UnsupportedSocketOperationError, UnknownSocketError = -1
+       }
+     * enum SocketState {
+         UnconnectedState, HostLookupState, ConnectingState, ConnectedState,
+         BoundState, ListeningState, ClosingState
+       }
+
+Signals
+
+     * void hostFound ()
+     * void connected ()
+     * void disconnected ()
+     * void stateChanged (SocketState)
+     * void error (SocketError)
+
+Public Member Functions
+
+     * QAbstractSocket (SocketType socketType, QObject *parent)
+     * virtual ~QAbstractSocket ()
+     * void connectToHost (const QString &hostName, quint16 port, OpenMode mode=ReadWrite)
+     * void connectToHost (const QHostAddress &address, quint16 port, OpenMode mode=ReadWrite)
+     * void disconnectFromHost ()
+     * bool isValid () const
+     * qint64 bytesAvailable () const
+     * qint64 bytesToWrite () const
+     * bool canReadLine () const
+     * quint16 localPort () const
+     * QHostAddress localAddress () const
+     * quint16 peerPort () const
+     * QHostAddress peerAddress () const
+     * QString peerName () const
+     * qint64 readBufferSize () const
+     * void setReadBufferSize (qint64 size)
+     * void abort ()
+     * int socketDescriptor () const
+     * bool setSocketDescriptor (int socketDescriptor, SocketState state=ConnectedState, OpenMode openMode=ReadWrite)
+     * SocketType socketType () const
+     * SocketState state () const
+     * SocketError error () const
+     * void close ()
+     * bool isSequential () const
+     * bool atEnd () const
+     * bool flush ()
+     * bool waitForConnected (int msecs=30000)
+     * bool waitForReadyRead (int msecs=30000)
+     * bool waitForBytesWritten (int msecs=30000)
+     * bool waitForDisconnected (int msecs=30000)
+
+Protected Member Functions
+
+     * qint64 readData (char *data, qint64 maxlen)
+     * qint64 readLineData (char *data, qint64 maxlen)
+     * qint64 writeData (const char *data, qint64 len)
+     * void setSocketState (SocketState state)
+     * void setSocketError (SocketError socketError)
+     * QAbstractSocket (SocketType socketType, QAbstractSocketPrivate &dd, QObject *parent=0)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QAbstractSocket::NetworkLayerProtocol
+
+
+
+   Enumerator: 
+
+          IPv4Protocol               
+          IPv6Protocol               
+          UnknownNetworkLayerProtocol
+
+   enum QAbstractSocket::SocketError
+
+
+
+   Enumerator: 
+
+          ConnectionRefusedError         
+          RemoteHostClosedError          
+          HostNotFoundError              
+          SocketAccessError              
+          SocketResourceError            
+          SocketTimeoutError             
+          DatagramTooLargeError          
+          NetworkError                   
+          AddressInUseError              
+          SocketAddressNotAvailableError 
+          UnsupportedSocketOperationError
+          UnknownSocketError             
+
+   enum QAbstractSocket::SocketState
+
+
+
+   Enumerator: 
+
+          UnconnectedState
+          HostLookupState 
+          ConnectingState 
+          ConnectedState  
+          BoundState      
+          ListeningState  
+          ClosingState    
+
+   enum QAbstractSocket::SocketType
+
+
+
+   Enumerator: 
+
+          TcpSocket        
+          UdpSocket        
+          UnknownSocketType
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractSocket::QAbstractSocket (  SocketType  socketType,
+                                       QObject *   parent
+                                    )
+
+
+
+   virtual QAbstractSocket::~QAbstractSocket (   )  [virtual]
+
+
+
+   QAbstractSocket::QAbstractSocket (  SocketType                socketType,
+                                       QAbstractSocketPrivate &  dd,
+                                       QObject *                 parent = 0
+                                    )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QAbstractSocket::abort (   )
+
+
+
+   bool QAbstractSocket::atEnd (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   qint64 QAbstractSocket::bytesAvailable (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   qint64 QAbstractSocket::bytesToWrite (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   bool QAbstractSocket::canReadLine (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void QAbstractSocket::close (   )  [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void QAbstractSocket::connected (   )  [signal]
+
+
+
+   void QAbstractSocket::connectToHost (  const QHostAddress &  address,
+                                          quint16               port,
+                                          OpenMode              mode = ReadWrite
+                                       )
+
+
+
+   void QAbstractSocket::connectToHost (  const QString &  hostName,
+                                          quint16          port,
+                                          OpenMode         mode = ReadWrite
+                                       )
+
+
+
+   void QAbstractSocket::disconnected (   )  [signal]
+
+
+
+   void QAbstractSocket::disconnectFromHost (   )
+
+
+
+   void QAbstractSocket::error (  SocketError   )  [signal]
+
+
+
+   SocketError QAbstractSocket::error (   )  const
+
+
+
+   bool QAbstractSocket::flush (   )
+
+
+
+   void QAbstractSocket::hostFound (   )  [signal]
+
+
+
+   bool QAbstractSocket::isSequential (   )  const [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   bool QAbstractSocket::isValid (   )  const
+
+
+
+   QHostAddress QAbstractSocket::localAddress (   )  const
+
+
+
+   quint16 QAbstractSocket::localPort (   )  const
+
+
+
+   QHostAddress QAbstractSocket::peerAddress (   )  const
+
+
+
+   QString QAbstractSocket::peerName (   )  const
+
+
+
+   quint16 QAbstractSocket::peerPort (   )  const
+
+
+
+   qint64 QAbstractSocket::readBufferSize (   )  const
+
+
+
+   qint64 QAbstractSocket::readData (  char *  data,
+                                       qint64  maxlen
+                                    )  [protected, virtual]
+
+
+
+   Implements QIODevice.
+
+   qint64 QAbstractSocket::readLineData (  char *  data,
+                                           qint64  maxlen
+                                        )  [protected, virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   void QAbstractSocket::setReadBufferSize (  qint64  size  )
+
+
+
+   bool QAbstractSocket::setSocketDescriptor (  int          socketDescriptor,
+                                                SocketState  state = ConnectedState,
+                                                OpenMode     openMode = ReadWrite
+                                             )
+
+
+
+   void QAbstractSocket::setSocketError (  SocketError  socketError  )  [protected]
+
+
+
+   void QAbstractSocket::setSocketState (  SocketState  state  )  [protected]
+
+
+
+   int QAbstractSocket::socketDescriptor (   )  const
+
+
+
+   SocketType QAbstractSocket::socketType (   )  const
+
+
+
+   SocketState QAbstractSocket::state (   )  const
+
+
+
+   void QAbstractSocket::stateChanged (  SocketState   )  [signal]
+
+
+
+   bool QAbstractSocket::waitForBytesWritten (  int  msecs = 30000  )  [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   bool QAbstractSocket::waitForConnected (  int  msecs = 30000  )
+
+
+
+   bool QAbstractSocket::waitForDisconnected (  int  msecs = 30000  )
+
+
+
+   bool QAbstractSocket::waitForReadyRead (  int  msecs = 30000  )  [virtual]
+
+
+
+   Reimplemented from QIODevice.
+
+   qint64 QAbstractSocket::writeData (  const char *  data,
+                                        qint64        len
+                                     )  [protected, virtual]
+
+
+
+   Implements QIODevice.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstractsocket.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

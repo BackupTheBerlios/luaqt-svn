@@ -1,0 +1,257 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QX11Info Class Reference
+
+   #include <qx11info_x11.h>
+
+   List of all members.
+
+Public Member Functions
+
+     * QX11Info ()
+     * ~QX11Info ()
+     * QX11Info (const QX11Info &other)
+     * QX11Info & operator= (const QX11Info &other)
+     * int screen () const
+     * int depth () const
+     * int cells () const
+     * Qt::HANDLE colormap () const
+     * bool defaultColormap () const
+     * void * visual () const
+     * bool defaultVisual () const
+
+Static Public Member Functions
+
+     * static Display * display ()
+     * static const char * appClass ()
+     * static int appScreen ()
+     * static int appDepth (int screen=-1)
+     * static int appCells (int screen=-1)
+     * static Qt::HANDLE appColormap (int screen=-1)
+     * static void * appVisual (int screen=-1)
+     * static Qt::HANDLE appRootWindow (int screen=-1)
+     * static bool appDefaultColormap (int screen=-1)
+     * static bool appDefaultVisual (int screen=-1)
+     * static int appDpiX (int screen=-1)
+     * static int appDpiY (int screen=-1)
+     * static void setAppDpiX (int screen, int dpi)
+     * static void setAppDpiY (int screen, int dpi)
+     * static unsigned long appTime ()
+     * static unsigned long appUserTime ()
+     * static void setAppTime (unsigned long time)
+     * static void setAppUserTime (unsigned long time)
+
+Protected Member Functions
+
+     * void copyX11Data (const QPaintDevice *)
+     * void cloneX11Data (const QPaintDevice *)
+     * void setX11Data (const QX11InfoData *)
+     * QX11InfoData * getX11Data (bool def=false) const
+
+Protected Attributes
+
+     * QX11InfoData * x11data
+
+Friends
+
+     * class QX11PaintEngine
+     * class QPixmap
+     * class QWidget
+     * class QWidgetPrivate
+     * class QGLWidget
+     * void qt_init (QApplicationPrivate *priv, int, Display *display, Qt::HANDLE visual, Qt::HANDLE colormap)
+     * void qt_cleanup ()
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QX11Info::QX11Info (   )
+
+
+
+   QX11Info::~QX11Info (   )
+
+
+
+   QX11Info::QX11Info (  const QX11Info &  other  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static int QX11Info::appCells (  int  screen = -1  )  [static]
+
+
+
+   static const char* QX11Info::appClass (   )  [static]
+
+
+
+   static Qt::HANDLE QX11Info::appColormap (  int  screen = -1  )  [static]
+
+
+
+   static bool QX11Info::appDefaultColormap (  int  screen = -1  )  [static]
+
+
+
+   static bool QX11Info::appDefaultVisual (  int  screen = -1  )  [static]
+
+
+
+   static int QX11Info::appDepth (  int  screen = -1  )  [static]
+
+
+
+   static int QX11Info::appDpiX (  int  screen = -1  )  [static]
+
+
+
+   static int QX11Info::appDpiY (  int  screen = -1  )  [static]
+
+
+
+   static Qt::HANDLE QX11Info::appRootWindow (  int  screen = -1  )  [static]
+
+
+
+   static int QX11Info::appScreen (   )  [static]
+
+
+
+   static unsigned long QX11Info::appTime (   )  [static]
+
+
+
+   static unsigned long QX11Info::appUserTime (   )  [static]
+
+
+
+   static void* QX11Info::appVisual (  int  screen = -1  )  [static]
+
+
+
+   int QX11Info::cells (   )  const
+
+
+
+   void QX11Info::cloneX11Data (  const QPaintDevice *   )  [protected]
+
+
+
+   Qt::HANDLE QX11Info::colormap (   )  const
+
+
+
+   void QX11Info::copyX11Data (  const QPaintDevice *   )  [protected]
+
+
+
+   bool QX11Info::defaultColormap (   )  const
+
+
+
+   bool QX11Info::defaultVisual (   )  const
+
+
+
+   int QX11Info::depth (   )  const
+
+
+
+   static Display* QX11Info::display (   )  [static]
+
+
+
+   QX11InfoData* QX11Info::getX11Data (  bool  def = false  )  const [protected]
+
+
+
+   QX11Info& QX11Info::operator= (  const QX11Info &  other  )
+
+
+
+   int QX11Info::screen (   )  const
+
+
+
+   static void QX11Info::setAppDpiX (  int  screen,
+                                       int  dpi
+                                    )  [static]
+
+
+
+   static void QX11Info::setAppDpiY (  int  screen,
+                                       int  dpi
+                                    )  [static]
+
+
+
+   static void QX11Info::setAppTime (  unsigned long  time  )  [static]
+
+
+
+   static void QX11Info::setAppUserTime (  unsigned long  time  )  [static]
+
+
+
+   void QX11Info::setX11Data (  const QX11InfoData *   )  [protected]
+
+
+
+   void* QX11Info::visual (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QGLWidget [friend]
+
+
+
+   friend class QPixmap [friend]
+
+
+
+   void qt_cleanup (   )  [friend]
+
+
+
+   void qt_init (  QApplicationPrivate *  priv,
+                   int                    ,
+                   Display *              display,
+                   Qt::HANDLE             visual,
+                   Qt::HANDLE             colormap
+                )  [friend]
+
+
+
+   friend class QWidget [friend]
+
+
+
+   friend class QWidgetPrivate [friend]
+
+
+
+   friend class QX11PaintEngine [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QX11InfoData* QX11Info::x11data [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qx11info_x11.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530

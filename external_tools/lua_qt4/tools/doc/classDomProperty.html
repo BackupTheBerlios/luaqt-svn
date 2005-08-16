@@ -1,0 +1,366 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            DomProperty Class Reference
+
+   #include <ui4.h>
+
+   List of all members.
+
+Public Types
+
+     * enum Kind {
+         Unknown = 0, Bool, Color, Cstring,
+         Cursor, Enum, Font, IconSet,
+         Pixmap, Palette, Point, Rect,
+         Set, SizePolicy, Size, String,
+         StringList, Number, Float, Double,
+         Date, Time, DateTime
+       }
+
+Public Member Functions
+
+     * DomProperty ()
+     * ~DomProperty ()
+     * void read (const QDomElement &node)
+     * QDomElement write (QDomDocument &doc, const QString &tagName=QString())
+     * QString text () const
+     * void setText (const QString &s)
+     * bool hasAttributeName ()
+     * QString attributeName ()
+     * void setAttributeName (const QString &a)
+     * void clearAttributeName ()
+     * bool hasAttributeStdset ()
+     * int attributeStdset ()
+     * void setAttributeStdset (int a)
+     * void clearAttributeStdset ()
+     * Kind kind ()
+     * QString elementBool ()
+     * void setElementBool (const QString &a)
+     * DomColor * elementColor ()
+     * void setElementColor (DomColor *a)
+     * QString elementCstring ()
+     * void setElementCstring (const QString &a)
+     * int elementCursor ()
+     * void setElementCursor (int a)
+     * QString elementEnum ()
+     * void setElementEnum (const QString &a)
+     * DomFont * elementFont ()
+     * void setElementFont (DomFont *a)
+     * DomResourcePixmap * elementIconSet ()
+     * void setElementIconSet (DomResourcePixmap *a)
+     * DomResourcePixmap * elementPixmap ()
+     * void setElementPixmap (DomResourcePixmap *a)
+     * DomPalette * elementPalette ()
+     * void setElementPalette (DomPalette *a)
+     * DomPoint * elementPoint ()
+     * void setElementPoint (DomPoint *a)
+     * DomRect * elementRect ()
+     * void setElementRect (DomRect *a)
+     * QString elementSet ()
+     * void setElementSet (const QString &a)
+     * DomSizePolicy * elementSizePolicy ()
+     * void setElementSizePolicy (DomSizePolicy *a)
+     * DomSize * elementSize ()
+     * void setElementSize (DomSize *a)
+     * DomString * elementString ()
+     * void setElementString (DomString *a)
+     * DomStringList * elementStringList ()
+     * void setElementStringList (DomStringList *a)
+     * int elementNumber ()
+     * void setElementNumber (int a)
+     * float elementFloat ()
+     * void setElementFloat (float a)
+     * double elementDouble ()
+     * void setElementDouble (double a)
+     * DomDate * elementDate ()
+     * void setElementDate (DomDate *a)
+     * DomTime * elementTime ()
+     * void setElementTime (DomTime *a)
+     * DomDateTime * elementDateTime ()
+     * void setElementDateTime (DomDateTime *a)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum DomProperty::Kind
+
+
+
+   Enumerator: 
+
+          Unknown   
+          Bool      
+          Color     
+          Cstring   
+          Cursor    
+          Enum      
+          Font      
+          IconSet   
+          Pixmap    
+          Palette   
+          Point     
+          Rect      
+          Set       
+          SizePolicy
+          Size      
+          String    
+          StringList
+          Number    
+          Float     
+          Double    
+          Date      
+          Time      
+          DateTime  
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   DomProperty::DomProperty (   )
+
+
+
+   DomProperty::~DomProperty (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString DomProperty::attributeName (   )  [inline]
+
+
+
+   int DomProperty::attributeStdset (   )  [inline]
+
+
+
+   void DomProperty::clearAttributeName (   )  [inline]
+
+
+
+   void DomProperty::clearAttributeStdset (   )  [inline]
+
+
+
+   QString DomProperty::elementBool (   )  [inline]
+
+
+
+   DomColor* DomProperty::elementColor (   )  [inline]
+
+
+
+   QString DomProperty::elementCstring (   )  [inline]
+
+
+
+   int DomProperty::elementCursor (   )  [inline]
+
+
+
+   DomDate* DomProperty::elementDate (   )  [inline]
+
+
+
+   DomDateTime* DomProperty::elementDateTime (   )  [inline]
+
+
+
+   double DomProperty::elementDouble (   )  [inline]
+
+
+
+   QString DomProperty::elementEnum (   )  [inline]
+
+
+
+   float DomProperty::elementFloat (   )  [inline]
+
+
+
+   DomFont* DomProperty::elementFont (   )  [inline]
+
+
+
+   DomResourcePixmap* DomProperty::elementIconSet (   )  [inline]
+
+
+
+   int DomProperty::elementNumber (   )  [inline]
+
+
+
+   DomPalette* DomProperty::elementPalette (   )  [inline]
+
+
+
+   DomResourcePixmap* DomProperty::elementPixmap (   )  [inline]
+
+
+
+   DomPoint* DomProperty::elementPoint (   )  [inline]
+
+
+
+   DomRect* DomProperty::elementRect (   )  [inline]
+
+
+
+   QString DomProperty::elementSet (   )  [inline]
+
+
+
+   DomSize* DomProperty::elementSize (   )  [inline]
+
+
+
+   DomSizePolicy* DomProperty::elementSizePolicy (   )  [inline]
+
+
+
+   DomString* DomProperty::elementString (   )  [inline]
+
+
+
+   DomStringList* DomProperty::elementStringList (   )  [inline]
+
+
+
+   DomTime* DomProperty::elementTime (   )  [inline]
+
+
+
+   bool DomProperty::hasAttributeName (   )  [inline]
+
+
+
+   bool DomProperty::hasAttributeStdset (   )  [inline]
+
+
+
+   Kind DomProperty::kind (   )  [inline]
+
+
+
+   void DomProperty::read (  const QDomElement &  node  )
+
+
+
+   void DomProperty::setAttributeName (  const QString &  a  )  [inline]
+
+
+
+   void DomProperty::setAttributeStdset (  int  a  )  [inline]
+
+
+
+   void DomProperty::setElementBool (  const QString &  a  )
+
+
+
+   void DomProperty::setElementColor (  DomColor *  a  )
+
+
+
+   void DomProperty::setElementCstring (  const QString &  a  )
+
+
+
+   void DomProperty::setElementCursor (  int  a  )
+
+
+
+   void DomProperty::setElementDate (  DomDate *  a  )
+
+
+
+   void DomProperty::setElementDateTime (  DomDateTime *  a  )
+
+
+
+   void DomProperty::setElementDouble (  double  a  )
+
+
+
+   void DomProperty::setElementEnum (  const QString &  a  )
+
+
+
+   void DomProperty::setElementFloat (  float  a  )
+
+
+
+   void DomProperty::setElementFont (  DomFont *  a  )
+
+
+
+   void DomProperty::setElementIconSet (  DomResourcePixmap *  a  )
+
+
+
+   void DomProperty::setElementNumber (  int  a  )
+
+
+
+   void DomProperty::setElementPalette (  DomPalette *  a  )
+
+
+
+   void DomProperty::setElementPixmap (  DomResourcePixmap *  a  )
+
+
+
+   void DomProperty::setElementPoint (  DomPoint *  a  )
+
+
+
+   void DomProperty::setElementRect (  DomRect *  a  )
+
+
+
+   void DomProperty::setElementSet (  const QString &  a  )
+
+
+
+   void DomProperty::setElementSize (  DomSize *  a  )
+
+
+
+   void DomProperty::setElementSizePolicy (  DomSizePolicy *  a  )
+
+
+
+   void DomProperty::setElementString (  DomString *  a  )
+
+
+
+   void DomProperty::setElementStringList (  DomStringList *  a  )
+
+
+
+   void DomProperty::setElementTime (  DomTime *  a  )
+
+
+
+   void DomProperty::setText (  const QString &  s  )  [inline]
+
+
+
+   QString DomProperty::text (   )  const [inline]
+
+
+
+   QDomElement DomProperty::write (  QDomDocument &   doc,
+                                     const QString &  tagName = QString()
+                                  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/ui4.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:53 2005 by  doxygen 1.4.3-20050530

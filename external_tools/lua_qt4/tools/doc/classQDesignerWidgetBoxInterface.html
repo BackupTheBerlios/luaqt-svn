@@ -1,0 +1,138 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    QDesignerWidgetBoxInterface Class Reference
+
+   #include <abstractwidgetbox.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * typedef QList< Widget > WidgetList
+     * typedef QList< Category > CategoryList
+
+Public Member Functions
+
+     * QDesignerWidgetBoxInterface (QWidget *parent=0, Qt::WindowFlags flags=0)
+     * virtual ~QDesignerWidgetBoxInterface ()
+     * virtual int categoryCount () const =0
+     * virtual Category category (int cat_idx) const =0
+     * virtual void addCategory (const Category &cat)=0
+     * virtual void removeCategory (int cat_idx)=0
+     * virtual int widgetCount (int cat_idx) const =0
+     * virtual Widget widget (int cat_idx, int wgt_idx) const =0
+     * virtual void addWidget (int cat_idx, const Widget &wgt)=0
+     * virtual void removeWidget (int cat_idx, int wgt_idx)=0
+     * int findOrInsertCategory (const QString &categoryName)
+     * virtual void dropWidgets (const QList< QDesignerDnDItemInterface * > &item_list, const QPoint &global_mouse_pos)=0
+     * virtual void setFileName (const QString &file_name)=0
+     * virtual QString fileName () const =0
+     * virtual bool load ()=0
+     * virtual bool save ()=0
+
+Classes
+
+     * class Category
+     * class Widget
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef QList<Category> QDesignerWidgetBoxInterface::CategoryList
+
+
+
+   typedef QList<Widget> QDesignerWidgetBoxInterface::WidgetList
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface (  QWidget *        parent = 0,
+                                                               Qt::WindowFlags  flags = 0
+                                                            )
+
+
+
+   virtual QDesignerWidgetBoxInterface::~QDesignerWidgetBoxInterface (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void QDesignerWidgetBoxInterface::addCategory (  const Category &  cat  )  [pure virtual]
+
+
+
+   virtual void QDesignerWidgetBoxInterface::addWidget (  int             cat_idx,
+                                                          const Widget &  wgt
+                                                       )  [pure virtual]
+
+
+
+   virtual Category QDesignerWidgetBoxInterface::category (  int  cat_idx  )  const [pure virtual]
+
+
+
+   virtual int QDesignerWidgetBoxInterface::categoryCount (   )  const [pure virtual]
+
+
+
+   virtual void QDesignerWidgetBoxInterface::dropWidgets (  const QList< QDesignerDnDItemInterface * > &  item_list,
+                                                            const QPoint &                                global_mouse_pos
+                                                         )  [pure virtual]
+
+
+
+   virtual QString QDesignerWidgetBoxInterface::fileName (   )  const [pure virtual]
+
+
+
+   int QDesignerWidgetBoxInterface::findOrInsertCategory (  const QString &  categoryName  )
+
+
+
+   virtual bool QDesignerWidgetBoxInterface::load (   )  [pure virtual]
+
+
+
+   virtual void QDesignerWidgetBoxInterface::removeCategory (  int  cat_idx  )  [pure virtual]
+
+
+
+   virtual void QDesignerWidgetBoxInterface::removeWidget (  int  cat_idx,
+                                                             int  wgt_idx
+                                                          )  [pure virtual]
+
+
+
+   virtual bool QDesignerWidgetBoxInterface::save (   )  [pure virtual]
+
+
+
+   virtual void QDesignerWidgetBoxInterface::setFileName (  const QString &  file_name  )  [pure virtual]
+
+
+
+   virtual Widget QDesignerWidgetBoxInterface::widget (  int  cat_idx,
+                                                         int  wgt_idx
+                                                      )  const [pure virtual]
+
+
+
+   virtual int QDesignerWidgetBoxInterface::widgetCount (  int  cat_idx  )  const [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractwidgetbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

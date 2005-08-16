@@ -1,0 +1,190 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             QSpinBox Class Reference
+
+   #include <qspinbox.h>
+
+   Inherits QAbstractSpinBox.
+
+   List of all members.
+
+Public Slots
+
+     * void setValue (int val)
+
+Signals
+
+     * void valueChanged (int)
+     * void valueChanged (const QString &)
+
+Public Member Functions
+
+     * QSpinBox (QWidget *parent=0)
+     * int value () const
+     * QString prefix () const
+     * void setPrefix (const QString &p)
+     * QString suffix () const
+     * void setSuffix (const QString &s)
+     * QString cleanText () const
+     * int singleStep () const
+     * void setSingleStep (int val)
+     * int minimum () const
+     * void setMinimum (int min)
+     * int maximum () const
+     * void setMaximum (int max)
+     * void setRange (int min, int max)
+
+Protected Member Functions
+
+     * virtual QValidator::State validate (QString &input, int &pos) const
+     * virtual int valueFromText (const QString &text) const
+     * virtual QString textFromValue (int v) const
+     * virtual void fixup (QString &str) const
+
+Properties
+
+     * QString suffix
+     * QString prefix
+     * QString cleanText
+     * int maximum
+     * int minimum
+     * int singleStep
+     * int value
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSpinBox::QSpinBox (  QWidget *  parent = 0  )  [explicit]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QSpinBox::cleanText (   )  const
+
+
+
+   virtual void QSpinBox::fixup (  QString &  str  )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   int QSpinBox::maximum (   )  const
+
+
+
+   int QSpinBox::minimum (   )  const
+
+
+
+   QString QSpinBox::prefix (   )  const
+
+
+
+   void QSpinBox::setMaximum (  int  max  )
+
+
+
+   void QSpinBox::setMinimum (  int  min  )
+
+
+
+   void QSpinBox::setPrefix (  const QString &  p  )
+
+
+
+   void QSpinBox::setRange (  int  min,
+                              int  max
+                           )
+
+
+
+   void QSpinBox::setSingleStep (  int  val  )
+
+
+
+   void QSpinBox::setSuffix (  const QString &  s  )
+
+
+
+   void QSpinBox::setValue (  int  val  )  [slot]
+
+
+
+   int QSpinBox::singleStep (   )  const
+
+
+
+   QString QSpinBox::suffix (   )  const
+
+
+
+   virtual QString QSpinBox::textFromValue (  int  v  )  const [protected, virtual]
+
+
+
+   virtual QValidator::State QSpinBox::validate (  QString &  input,
+                                                   int &      pos
+                                                )  const [protected, virtual]
+
+
+
+   Reimplemented from QAbstractSpinBox.
+
+   int QSpinBox::value (   )  const
+
+
+
+   void QSpinBox::valueChanged (  const QString &   )  [signal]
+
+
+
+   void QSpinBox::valueChanged (  int   )  [signal]
+
+
+
+   virtual int QSpinBox::valueFromText (  const QString &  text  )  const [protected, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QString QSpinBox::cleanText [read]
+
+
+
+   int QSpinBox::maximum [read, write]
+
+
+
+   int QSpinBox::minimum [read, write]
+
+
+
+   QString QSpinBox::prefix [read, write]
+
+
+
+   int QSpinBox::singleStep [read, write]
+
+
+
+   QString QSpinBox::suffix [read, write]
+
+
+
+   int QSpinBox::value [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qspinbox.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,576 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QImage Class Reference
+
+   #include <qimage.h>
+
+   Inherits QPaintDevice.
+
+   List of all members.
+
+Public Types
+
+     * enum InvertMode { InvertRgb, InvertRgba }
+     * enum Format {
+         Format_Invalid, Format_Mono, Format_MonoLSB, Format_Indexed8,
+         Format_RGB32, Format_ARGB32, Format_ARGB32_Premultiplied
+       }
+
+Public Member Functions
+
+     * QImage ()
+     * QImage (const QSize &size, Format format)
+     * QImage (int width, int height, Format format)
+     * QImage (uchar *data, int width, int height, Format format)
+     * QImage (const char *const xpm[])
+     * QImage (const QString &fileName, const char *format=0)
+     * QImage (const char *fileName, const char *format=0)
+     * QImage (const QImage &)
+     * ~QImage ()
+     * QImage & operator= (const QImage &)
+     * bool isNull () const
+     * int devType () const
+     * bool operator== (const QImage &) const
+     * bool operator!= (const QImage &) const
+     * operator QVariant () const
+     * void detach ()
+     * bool isDetached () const
+     * QImage copy (const QRect &rect=QRect()) const
+     * QImage copy (int x, int y, int w, int h) const
+     * Format format () const
+     * QImage convertToFormat (Format f, Qt::ImageConversionFlags flags=Qt::AutoColor) const
+     * QImage convertToFormat (Format f, const QVector< QRgb > &colorTable, Qt::ImageConversionFlags flags=Qt::AutoColor) const
+     * int width () const
+     * int height () const
+     * QSize size () const
+     * QRect rect () const
+     * int depth () const
+     * int numColors () const
+     * QRgb color (int i) const
+     * void setColor (int i, QRgb c)
+     * void setNumColors (int)
+     * bool allGray () const
+     * bool isGrayscale () const
+     * uchar * bits ()
+     * const uchar * bits () const
+     * int numBytes () const
+     * uchar * scanLine (int)
+     * const uchar * scanLine (int) const
+     * int bytesPerLine () const
+     * bool valid (int x, int y) const
+     * int pixelIndex (int x, int y) const
+     * QRgb pixel (int x, int y) const
+     * void setPixel (int x, int y, uint index_or_rgb)
+     * QVector< QRgb > colorTable () const
+     * void setColorTable (const QVector< QRgb > colors)
+     * void fill (uint pixel)
+     * bool hasAlphaChannel () const
+     * void setAlphaChannel (const QImage &alphaChannel)
+     * QImage alphaChannel () const
+     * QImage createAlphaMask (Qt::ImageConversionFlags flags=Qt::AutoColor) const
+     * QImage createHeuristicMask (bool clipTight=true) const
+     * QImage scaled (int w, int h, Qt::AspectRatioMode aspectMode=Qt::IgnoreAspectRatio, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QImage scaled (const QSize &s, Qt::AspectRatioMode aspectMode=Qt::IgnoreAspectRatio, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QImage scaledToWidth (int w, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QImage scaledToHeight (int h, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QImage transformed (const QMatrix &matrix, Qt::TransformationMode mode=Qt::FastTransformation) const
+     * QImage mirrored (bool horizontally=false, bool vertically=true) const
+     * QImage rgbSwapped () const
+     * void invertPixels (InvertMode=InvertRgb)
+     * bool load (const QString &fileName, const char *format=0)
+     * bool loadFromData (const uchar *buf, int len, const char *format=0)
+     * bool loadFromData (const QByteArray &data, const char *aformat=0)
+     * bool save (const QString &fileName, const char *format, int quality=-1) const
+     * bool save (QIODevice *device, const char *format, int quality=-1) const
+     * int serialNumber () const
+     * QPaintEngine * paintEngine () const
+     * int dotsPerMeterX () const
+     * int dotsPerMeterY () const
+     * void setDotsPerMeterX (int)
+     * void setDotsPerMeterY (int)
+     * QPoint offset () const
+     * void setOffset (const QPoint &)
+     * QList< QImageTextKeyLang > textList () const
+     * QStringList textLanguages () const
+     * QStringList textKeys () const
+     * QString text (const char *key, const char *lang=0) const
+     * QString text (const QImageTextKeyLang &) const
+     * void setText (const char *key, const char *lang, const QString &)
+
+Static Public Member Functions
+
+     * static QMatrix trueMatrix (const QMatrix &, int w, int h)
+     * static QImage fromData (const uchar *data, int size, const char *format=0)
+     * static QImage fromData (const QByteArray &data, const char *format=0)
+
+Protected Member Functions
+
+     * virtual int metric (PaintDeviceMetric metric) const
+
+Friends
+
+     * class QPixmap
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QImage::Format
+
+
+
+   Enumerator: 
+
+          Format_Invalid             
+          Format_Mono                
+          Format_MonoLSB             
+          Format_Indexed8            
+          Format_RGB32               
+          Format_ARGB32              
+          Format_ARGB32_Premultiplied
+
+   enum QImage::InvertMode
+
+
+
+   Enumerator: 
+
+          InvertRgb 
+          InvertRgba
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QImage::QImage (   )
+
+
+
+   QImage::QImage (  const QSize &  size,
+                     Format         format
+                  )
+
+
+
+   QImage::QImage (  int     width,
+                     int     height,
+                     Format  format
+                  )
+
+
+
+   QImage::QImage (  uchar *  data,
+                     int      width,
+                     int      height,
+                     Format   format
+                  )
+
+
+
+   QImage::QImage (  const char *const   xpm[]  )  [explicit]
+
+
+
+   QImage::QImage (  const QString &  fileName,
+                     const char *     format = 0
+                  )  [explicit]
+
+
+
+   QImage::QImage (  const char *  fileName,
+                     const char *  format = 0
+                  )  [explicit]
+
+
+
+   QImage::QImage (  const QImage &   )
+
+
+
+   QImage::~QImage (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QImage::allGray (   )  const
+
+
+
+   QImage QImage::alphaChannel (   )  const
+
+
+
+   const uchar* QImage::bits (   )  const
+
+
+
+   uchar* QImage::bits (   )
+
+
+
+   int QImage::bytesPerLine (   )  const
+
+
+
+   QRgb QImage::color (  int  i  )  const
+
+
+
+   QVector<QRgb> QImage::colorTable (   )  const
+
+
+
+   QImage QImage::convertToFormat (  Format                    f,
+                                     const QVector< QRgb > &   colorTable,
+                                     Qt::ImageConversionFlags  flags = Qt::AutoColor
+                                  )  const
+
+
+
+   QImage QImage::convertToFormat (  Format                    f,
+                                     Qt::ImageConversionFlags  flags = Qt::AutoColor
+                                  )  const
+
+
+
+   QImage QImage::copy (  int  x,
+                          int  y,
+                          int  w,
+                          int  h
+                       )  const [inline]
+
+
+
+   QImage QImage::copy (  const QRect &  rect = QRect()  )  const
+
+
+
+   QImage QImage::createAlphaMask (  Qt::ImageConversionFlags  flags = Qt::AutoColor  )  const
+
+
+
+   QImage QImage::createHeuristicMask (  bool  clipTight = true  )  const
+
+
+
+   int QImage::depth (   )  const
+
+
+
+   Reimplemented from QPaintDevice.
+
+   void QImage::detach (   )
+
+
+
+   int QImage::devType (   )  const [virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   int QImage::dotsPerMeterX (   )  const
+
+
+
+   int QImage::dotsPerMeterY (   )  const
+
+
+
+   void QImage::fill (  uint  pixel  )
+
+
+
+   Format QImage::format (   )  const
+
+
+
+   static QImage QImage::fromData (  const QByteArray &  data,
+                                     const char *        format = 0
+                                  )  [inline, static]
+
+
+
+   static QImage QImage::fromData (  const uchar *  data,
+                                     int            size,
+                                     const char *   format = 0
+                                  )  [static]
+
+
+
+   bool QImage::hasAlphaChannel (   )  const
+
+
+
+   int QImage::height (   )  const
+
+
+
+   Reimplemented from QPaintDevice.
+
+   void QImage::invertPixels (  InvertMode  = InvertRgb  )
+
+
+
+   bool QImage::isDetached (   )  const
+
+
+
+   bool QImage::isGrayscale (   )  const
+
+
+
+   bool QImage::isNull (   )  const
+
+
+
+   bool QImage::load (  const QString &  fileName,
+                        const char *     format = 0
+                     )
+
+
+
+   bool QImage::loadFromData (  const QByteArray &  data,
+                                const char *        aformat = 0
+                             )  [inline]
+
+
+
+   bool QImage::loadFromData (  const uchar *  buf,
+                                int            len,
+                                const char *   format = 0
+                             )
+
+
+
+   virtual int QImage::metric (  PaintDeviceMetric  metric  )  const [protected, virtual]
+
+
+
+   Reimplemented from QPaintDevice.
+
+   QImage QImage::mirrored (  bool  horizontally = false,
+                              bool  vertically = true
+                           )  const
+
+
+
+   int QImage::numBytes (   )  const
+
+
+
+   int QImage::numColors (   )  const
+
+
+
+   Reimplemented from QPaintDevice.
+
+   QPoint QImage::offset (   )  const
+
+
+
+   QImage::operator QVariant (   )  const
+
+
+
+   bool QImage::operator!= (  const QImage &   )  const
+
+
+
+   QImage& QImage::operator= (  const QImage &   )
+
+
+
+   bool QImage::operator== (  const QImage &   )  const
+
+
+
+   QPaintEngine* QImage::paintEngine (   )  const [virtual]
+
+
+
+   Implements QPaintDevice.
+
+   QRgb QImage::pixel (  int  x,
+                         int  y
+                      )  const
+
+
+
+   int QImage::pixelIndex (  int  x,
+                             int  y
+                          )  const
+
+
+
+   QRect QImage::rect (   )  const
+
+
+
+   QImage QImage::rgbSwapped (   )  const
+
+
+
+   bool QImage::save (  QIODevice *   device,
+                        const char *  format,
+                        int           quality = -1
+                     )  const
+
+
+
+   bool QImage::save (  const QString &  fileName,
+                        const char *     format,
+                        int              quality = -1
+                     )  const
+
+
+
+   QImage QImage::scaled (  const QSize &           s,
+                            Qt::AspectRatioMode     aspectMode = Qt::IgnoreAspectRatio,
+                            Qt::TransformationMode  mode = Qt::FastTransformation
+                         )  const
+
+
+
+   QImage QImage::scaled (  int                     w,
+                            int                     h,
+                            Qt::AspectRatioMode     aspectMode = Qt::IgnoreAspectRatio,
+                            Qt::TransformationMode  mode = Qt::FastTransformation
+                         )  const [inline]
+
+
+
+   QImage QImage::scaledToHeight (  int                     h,
+                                    Qt::TransformationMode  mode = Qt::FastTransformation
+                                 )  const
+
+
+
+   QImage QImage::scaledToWidth (  int                     w,
+                                   Qt::TransformationMode  mode = Qt::FastTransformation
+                                )  const
+
+
+
+   const uchar* QImage::scanLine (  int   )  const
+
+
+
+   uchar* QImage::scanLine (  int   )
+
+
+
+   int QImage::serialNumber (   )  const
+
+
+
+   void QImage::setAlphaChannel (  const QImage &  alphaChannel  )
+
+
+
+   void QImage::setColor (  int   i,
+                            QRgb  c
+                         )
+
+
+
+   void QImage::setColorTable (  const QVector< QRgb >  colors  )
+
+
+
+   void QImage::setDotsPerMeterX (  int   )
+
+
+
+   void QImage::setDotsPerMeterY (  int   )
+
+
+
+   void QImage::setNumColors (  int   )
+
+
+
+   void QImage::setOffset (  const QPoint &   )
+
+
+
+   void QImage::setPixel (  int   x,
+                            int   y,
+                            uint  index_or_rgb
+                         )
+
+
+
+   void QImage::setText (  const char *     key,
+                           const char *     lang,
+                           const QString &
+                        )
+
+
+
+   QSize QImage::size (   )  const
+
+
+
+   QString QImage::text (  const QImageTextKeyLang &   )  const
+
+
+
+   QString QImage::text (  const char *  key,
+                           const char *  lang = 0
+                        )  const
+
+
+
+   QStringList QImage::textKeys (   )  const
+
+
+
+   QStringList QImage::textLanguages (   )  const
+
+
+
+   QList<QImageTextKeyLang> QImage::textList (   )  const
+
+
+
+   QImage QImage::transformed (  const QMatrix &         matrix,
+                                 Qt::TransformationMode  mode = Qt::FastTransformation
+                              )  const
+
+
+
+   static QMatrix QImage::trueMatrix (  const QMatrix &  ,
+                                        int              w,
+                                        int              h
+                                     )  [static]
+
+
+
+   bool QImage::valid (  int  x,
+                         int  y
+                      )  const
+
+
+
+   int QImage::width (   )  const
+
+
+
+   Reimplemented from QPaintDevice.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QPixmap [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qimage.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

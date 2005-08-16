@@ -1,0 +1,141 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3DateTimeEdit Class Reference
+
+   #include <q3datetimeedit.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Slots
+
+     * virtual void setDateTime (const QDateTime &dt)
+
+Signals
+
+     * void valueChanged (const QDateTime &datetime)
+
+Public Member Functions
+
+     * Q3DateTimeEdit (QWidget *parent=0, const char *name=0)
+     * Q3DateTimeEdit (const QDateTime &datetime, QWidget *parent=0, const char *name=0)
+     * ~Q3DateTimeEdit ()
+     * QSize sizeHint () const
+     * QSize minimumSizeHint () const
+     * QDateTime dateTime () const
+     * Q3DateEdit * dateEdit ()
+     * Q3TimeEdit * timeEdit ()
+     * virtual void setAutoAdvance (bool advance)
+     * bool autoAdvance () const
+
+Protected Slots
+
+     * void newValue (const QDate &d)
+     * void newValue (const QTime &t)
+
+Protected Member Functions
+
+     * void init ()
+     * void resizeEvent (QResizeEvent *)
+
+Properties
+
+     * QDateTime dateTime
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3DateTimeEdit::Q3DateTimeEdit (  QWidget *     parent = 0,
+                                     const char *  name = 0
+                                  )
+
+
+
+   Q3DateTimeEdit::Q3DateTimeEdit (  const QDateTime &  datetime,
+                                     QWidget *          parent = 0,
+                                     const char *       name = 0
+                                  )
+
+
+
+   Q3DateTimeEdit::~Q3DateTimeEdit (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool Q3DateTimeEdit::autoAdvance (   )  const
+
+
+
+   Q3DateEdit* Q3DateTimeEdit::dateEdit (   )  [inline]
+
+
+
+   QDateTime Q3DateTimeEdit::dateTime (   )  const
+
+
+
+   void Q3DateTimeEdit::init (   )  [protected]
+
+
+
+   QSize Q3DateTimeEdit::minimumSizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   void Q3DateTimeEdit::newValue (  const QTime &  t  )  [protected, slot]
+
+
+
+   void Q3DateTimeEdit::newValue (  const QDate &  d  )  [protected, slot]
+
+
+
+   void Q3DateTimeEdit::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3DateTimeEdit::setAutoAdvance (  bool  advance  )  [virtual]
+
+
+
+   virtual void Q3DateTimeEdit::setDateTime (  const QDateTime &  dt  )  [virtual, slot]
+
+
+
+   QSize Q3DateTimeEdit::sizeHint (   )  const [virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   Q3TimeEdit* Q3DateTimeEdit::timeEdit (   )  [inline]
+
+
+
+   void Q3DateTimeEdit::valueChanged (  const QDateTime &  datetime  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QDateTime Q3DateTimeEdit::dateTime [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3datetimeedit.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

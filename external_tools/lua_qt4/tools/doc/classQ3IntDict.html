@@ -1,0 +1,146 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                    Q3IntDict< type > Class Template Reference
+
+   #include <q3intdict.h>
+
+   Inherits Q3GDict.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3IntDict (int size=17)
+     * Q3IntDict (const Q3IntDict< type > &d)
+     * ~Q3IntDict ()
+     * Q3IntDict< type > & operator= (const Q3IntDict< type > &d)
+     * uint count () const
+     * uint size () const
+     * bool isEmpty () const
+     * void insert (long k, const type *d)
+     * void replace (long k, const type *d)
+     * bool remove (long k)
+     * type * take (long k)
+     * type * find (long k) const
+     * type * operator[] (long k) const
+     * void clear ()
+     * void resize (uint n)
+     * void statistics () const
+     * template<> void deleteItem (Q3PtrCollection::Item)
+
+  template<class type>
+  class Q3IntDict< type >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class type>
+   Q3IntDict< type >::Q3IntDict (  int  size = 17  )  [inline]
+
+
+
+   template<class type>
+   Q3IntDict< type >::Q3IntDict (  const Q3IntDict< type > &  d  )  [inline]
+
+
+
+   template<class type>
+   Q3IntDict< type >::~Q3IntDict (   )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class type>
+   void Q3IntDict< type >::clear (   )  [inline, virtual]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   uint Q3IntDict< type >::count (   )  const [inline, virtual]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<>
+   void Q3IntDict< type >::deleteItem (  Q3PtrCollection::Item  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3IntDict< type >::find (  long  k  )  const [inline]
+
+
+
+   template<class type>
+   void Q3IntDict< type >::insert (  long          k,
+                                     const type *  d
+                                  )  [inline]
+
+
+
+   template<class type>
+   bool Q3IntDict< type >::isEmpty (   )  const [inline]
+
+
+
+   template<class type>
+   Q3IntDict<type>& Q3IntDict< type >::operator= (  const Q3IntDict< type > &  d  )  [inline]
+
+
+
+   template<class type>
+   type* Q3IntDict< type >::operator[] (  long  k  )  const [inline]
+
+
+
+   template<class type>
+   bool Q3IntDict< type >::remove (  long  k  )  [inline]
+
+
+
+   template<class type>
+   void Q3IntDict< type >::replace (  long          k,
+                                      const type *  d
+                                   )  [inline]
+
+
+
+   template<class type>
+   void Q3IntDict< type >::resize (  uint  n  )  [inline]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   uint Q3IntDict< type >::size (   )  const [inline]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   void Q3IntDict< type >::statistics (   )  const [inline]
+
+
+
+   Reimplemented from Q3GDict.
+
+   template<class type>
+   type* Q3IntDict< type >::take (  long  k  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3intdict.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:15 2005 by  doxygen 1.4.3-20050530

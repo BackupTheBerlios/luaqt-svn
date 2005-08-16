@@ -1,0 +1,72 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                   QMultiMap< Key, T > Class Template Reference
+
+   #include <qmap.h>
+
+   Inherits QMap< Key, T >< Key, T >.
+
+   List of all members.
+
+Public Member Functions
+
+     * QMultiMap ()
+     * QMultiMap (const QMap< Key, T > &other)
+     * QMap< Key, T >::iterator replace (const Key &key, const T &value)
+     * QMap< Key, T >::iterator insert (const Key &key, const T &value)
+     * QMultiMap & operator+= (const QMultiMap &other)
+     * QMultiMap operator+ (const QMultiMap &other) const
+
+  template<class Key, class T>
+  class QMultiMap< Key, T >
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   template<class Key, class T>
+   QMultiMap< Key, T >::QMultiMap (   )  [inline]
+
+
+
+   template<class Key, class T>
+   QMultiMap< Key, T >::QMultiMap (  const QMap< Key, T > &  other  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE Q_TYPENAME QMap< Key, T >::iterator QMultiMap< Key, T >::insert (  const Key &  key,
+                                                                                        const T &    value
+                                                                                     )  [inline]
+
+
+
+   Reimplemented from QMap< Key, T >.
+
+   template<class Key, class T>
+   QMultiMap QMultiMap< Key, T >::operator+ (  const QMultiMap< Key, T > &  other  )  const [inline]
+
+
+
+   template<class Key, class T>
+   QMultiMap& QMultiMap< Key, T >::operator+= (  const QMultiMap< Key, T > &  other  )  [inline]
+
+
+
+   template<class Key, class T>
+   Q_INLINE_TEMPLATE Q_TYPENAME QMap< Key, T >::iterator QMultiMap< Key, T >::replace (  const Key &  key,
+                                                                                         const T &    value
+                                                                                      )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qmap.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530

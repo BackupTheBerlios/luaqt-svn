@@ -1,0 +1,133 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          Q3CanvasEllipse Class Reference
+
+   #include <q3canvas.h>
+
+   Inherits Q3CanvasPolygonalItem.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3CanvasEllipse (Q3Canvas *canvas)
+     * Q3CanvasEllipse (int width, int height, Q3Canvas *canvas)
+     * Q3CanvasEllipse (int width, int height, int startangle, int angle, Q3Canvas *canvas)
+     * ~Q3CanvasEllipse ()
+     * int width () const
+     * int height () const
+     * void setSize (int w, int h)
+     * void setAngles (int start, int length)
+     * int angleStart () const
+     * int angleLength () const
+     * Q3PointArray areaPoints () const
+     * bool collidesWith (const Q3CanvasItem *) const
+     * int rtti () const
+
+Static Public Attributes
+
+     * static int RTTI
+
+Protected Member Functions
+
+     * void drawShape (QPainter &)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3CanvasEllipse::Q3CanvasEllipse (  Q3Canvas *  canvas  )
+
+
+
+   Q3CanvasEllipse::Q3CanvasEllipse (  int         width,
+                                       int         height,
+                                       Q3Canvas *  canvas
+                                    )
+
+
+
+   Q3CanvasEllipse::Q3CanvasEllipse (  int         width,
+                                       int         height,
+                                       int         startangle,
+                                       int         angle,
+                                       Q3Canvas *  canvas
+                                    )
+
+
+
+   Q3CanvasEllipse::~Q3CanvasEllipse (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   int Q3CanvasEllipse::angleLength (   )  const [inline]
+
+
+
+   int Q3CanvasEllipse::angleStart (   )  const [inline]
+
+
+
+   Q3PointArray Q3CanvasEllipse::areaPoints (   )  const [virtual]
+
+
+
+   Implements Q3CanvasPolygonalItem.
+
+   bool Q3CanvasEllipse::collidesWith (  const Q3CanvasItem *   )  const [virtual]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+
+   void Q3CanvasEllipse::drawShape (  QPainter &   )  [protected, virtual]
+
+
+
+   Implements Q3CanvasPolygonalItem.
+
+   int Q3CanvasEllipse::height (   )  const
+
+
+
+   int Q3CanvasEllipse::rtti (   )  const [virtual]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+
+   void Q3CanvasEllipse::setAngles (  int  start,
+                                      int  length
+                                   )
+
+
+
+   void Q3CanvasEllipse::setSize (  int  w,
+                                    int  h
+                                 )
+
+
+
+   int Q3CanvasEllipse::width (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   int Q3CanvasEllipse::RTTI [static]
+
+
+
+   Reimplemented from Q3CanvasPolygonalItem.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,344 @@
+
+   [qt-logo.png]    Home · All Classes · Main Classes · Annotated ·
+   Grouped Classes · Functions [trolltech-logo.png]
+
+                        QStringList Class Reference
+
+   The QStringList class provides a list of strings. More...
+#include <QStringList>
+
+   Part of the QtCore module.
+
+   Inherits QList<QString>.
+
+   Note: All the functions in this class are reentrant.
+     * List of all members, including inherited members
+     * Qt 3 support members
+
+  Public Functions
+
+     * QStringList ()
+     * QStringList ( const QString & str )
+     * QStringList ( const QStringList & other )
+     * QStringList ( const QList<QString> & other )
+     * bool contains ( const QString & str, Qt::CaseSensitivity cs =
+       Qt::CaseSensitive ) const
+     * QStringList filter ( const QString & str, Qt::CaseSensitivity cs =
+       Qt::CaseSensitive ) const
+     * QStringList filter ( const QRegExp & rx ) const
+     * int indexOf ( const QRegExp & rx, int from = 0 ) const
+     * QString join ( const QString & sep ) const
+     * int lastIndexOf ( const QRegExp & rx, int from = -1 ) const
+     * QStringList & replaceInStrings ( const QString & before, const
+       QString & after, Qt::CaseSensitivity cs = Qt::CaseSensitive )
+     * QStringList & replaceInStrings ( const QRegExp & rx, const QString
+       & after )
+     * void sort ()
+     * QStringList operator+ ( const QStringList & other ) const
+     * QStringList & operator<< ( const QString & str )
+     * QStringList & operator<< ( const QStringList & other )
+
+     * 60 public functions inherited from QList
+
+  Related Non-Members
+
+     * typedef QMutableStringListIterator
+     * typedef QStringListIterator
+     * QDataStream & operator<< ( QDataStream & out, const QStringList &
+       list )
+     * QDataStream & operator>> ( QDataStream & in, QStringList & list )
+
+  Additional Inherited Members
+
+     * 3 static public members inherited from QList
+     _________________________________________________________________
+
+Detailed Description
+
+   The QStringList class provides a list of strings.
+
+   QStringList inherits from QList<QString>. All of QList's functionality
+   also applies to QStringList. For example, you can use isEmpty() to
+   test whether the list is empty, and you can call functions like
+   append(), prepend(), insert(), replace(), and remove() to modify a
+   QStringList. In addition, QStringList provides a few convenience
+   functions that make handling lists of strings easier.
+
+   Like QList, QStringList is implicitly shared. QStringList provides
+   fast index-based access as well as fast insertions and removals.
+   Passing string lists as value parameters is both fast and safe.
+
+   Strings can be added to a list using append(), operator+=(), or
+   operator<<(). For example:
+    QStringList fonts;
+    fonts << "Arial" << "Helvetica" << "Times" << "Courier";
+
+   To iterate over a string, you can either use index positions or
+   QList's Java-style and STL-style iterator types. Here are examples of
+   each approach.
+
+   Indexing:
+    for (int i = 0; i < fonts.size(); ++i)
+        cout << fonts.at(i).ascii() << endl;
+
+   Java-style iterator:
+    QStringListIterator i(fonts);
+    while (i.hasNext())
+        cout << i.next().ascii() << endl;
+
+   STL-style iterator:
+    QStringList::const_iterator i;
+    for (i = fonts.constBegin(); i != fonts.constEnd(); ++i)
+        cout << (*i).ascii() << endl;
+
+   QStringListIterator and QMutableStringListIterator are simply typedefs
+   for QListIterator<QString> and QMutableListIterator<QString>.
+
+   You can concatenate all the strings in a string list into a single
+   string (with an optional separator) using join(). For example:
+    QString str = fonts.join(",");
+    // str == "Arial,Helvetica,Times,Courier"
+
+   To break up a string into a string list, use QString::split():
+    QString str = "Arial,Helvetica,Times,Courier";
+    QStringList list = str.split(",");
+    // list: ["Arial", "Helvetica", "Times", "Courier"]
+
+   The argument to split can be a single character, a string, or a
+   QRegExp.
+
+   You can sort a string list with sort(), and extract a new list which
+   contains only those strings which contain a particular substring (or
+   match a particular regular expression) using the find() functions. For
+   example:
+    QStringList monospacedFonts = fonts.find(QRegExp("Courier|Fixed"));
+
+   Similarly, the replace() function calls QString::replace() on each
+   string in the string list in turn. Here's an example that uses it to
+   replace all occurrences of "$QTDIR" with "/usr/lib/qt" in a string
+   list:
+    QStringList files;
+    files << "$QTDIR/src/moc/moc.y"
+          << "$QTDIR/src/moc/moc.l"
+          << "$QTDIR/include/qconfig.h";
+
+    files.replace("$QTDIR", "/usr/lib/qt");
+
+   See also QString, QStringListIterator, and QMutableStringListIterator.
+     _________________________________________________________________
+
+Member Function Documentation
+
+  QStringList::QStringList ()
+
+   Constructs an empty string list.
+
+  QStringList::QStringList ( const QString & str )
+
+   Constructs a string list that contains one string, str. Longer lists
+   are easily created like this:
+    list = (QStringList() << str1 << str2 << str3);
+
+  QStringList::QStringList ( const QStringList & other )
+
+   Constructs a copy of other.
+
+   This operation takes constant time, because QStringList is implicitly
+   shared. This makes returning a QStringList from a function very fast.
+   If a shared instance is modified, it will be copied (copy-on-write),
+   and that takes linear time.
+
+   See also operator=().
+
+  QStringList::QStringList ( const QList<QString> & other )
+
+   Constructs a copy of other.
+
+   This operation takes constant time, because QStringList is implicitly
+   shared. This makes returning a QStringList from a function very fast.
+   If a shared instance is modified, it will be copied (copy-on-write),
+   and that takes linear time.
+
+   See also operator=().
+
+  bool QStringList::contains ( const QString & str, Qt::CaseSensitivity cs =
+  Qt::CaseSensitive ) const
+
+   Returns true if the list contains the string str. Does a case
+   insensitive search if cs is Qt::CaseSensitive, otherwise the search
+   will be case insensitive.
+
+  QStringList QStringList::filter ( const QString & str, Qt::CaseSensitivity cs
+  = Qt::CaseSensitive ) const
+
+   Returns a list of all the strings containing the substring str.
+
+   If cs is Qt::CaseSensitive (the default), the string comparison is
+   case sensitive; otherwise the comparison is case insensitive.
+    QStringList list;
+    list << "Bill Murray" << "John Doe" << "Bill Clinton";
+    list = list.filter("Bill");
+    // list: ["Bill Murray", "Bill Clinton"]
+
+   See also QString::contains().
+
+  QStringList QStringList::filter ( const QRegExp & rx ) const
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Returns a list of all the strings that match the regular expression
+   rx.
+
+  int QStringList::indexOf ( const QRegExp & rx, int from = 0 ) const
+
+   Returns the index position of the first exact match of rx in the list,
+   searching forward from index position from. Returns -1 if no item
+   matched.
+
+   See also lastIndexOf() and QRegExp::exactMatch().
+
+  QString QStringList::join ( const QString & sep ) const
+
+   Joins the all the string list's strings into a single string with each
+   element separated by the string sep (which can be an empty string).
+
+   See also QString::split().
+
+  int QStringList::lastIndexOf ( const QRegExp & rx, int from = -1 ) const
+
+   Returns the index position of the last exact match of rx in the list,
+   searching backward from index position from. If from is -1 (the
+   default), the search starts at the last item. Returns -1 if no item
+   matched.
+
+   See also indexOf() and QRegExp::exactMatch().
+
+  QStringList & QStringList::replaceInStrings ( const QString & before, const
+  QString & after, Qt::CaseSensitivity cs = Qt::CaseSensitive )
+
+   Returns a string list where every string has had the before text
+   replaced with the after text wherever the before text is found. The
+   before text is matched case-sensitively or not depending on the cs
+   flag.
+
+   Example:
+    QStringList list;
+    list << "alpha" << "beta" << "gamma" << "epsilon";
+    list.replace("a", "o");
+    // list == ["olpho", "beto", "gommo", "epsilon"]
+
+   See also QString::replace().
+
+  QStringList & QStringList::replaceInStrings ( const QRegExp & rx, const
+  QString & after )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Replaces every occurrence of the regexp rx, in each of the string
+   lists's strings, with after. Returns a reference to the string list.
+
+   Example:
+    QStringList list;
+    list << "alpha" << "beta" << "gamma" << "epsilon";
+    list.replace(QRegExp("^a"), "o");
+    // list == ["olpha", "beta", "gamma", "epsilon"]
+
+   For regular expressions that contain capturing parentheses,
+   occurrences of \1, \2, ..., in after are replaced with rx.cap(1),
+   rx.cap(2), ...
+
+   Example:
+    QStringList list;
+    list << "Bill Clinton" << "Murray, Bill";
+    list.replace(QRegExp("^(.*), (.*)$"), "\\2 \\1");
+    // list == ["Bill Clinton", "Bill Murray"]
+
+   See also replace().
+
+  void QStringList::sort ()
+
+   Sorts the list of strings in ascending order (case sensitively).
+
+   Sorting is performed using Qt's qSort() algorithm, which operates in
+   linear-logarithmic time, i.e. O(n log n).
+
+   If you want to sort your strings in an arbitrary order, consider using
+   a QMap. For example, you could use a QMap<QString, QString> to create
+   a case-insensitive ordering (e.g. with the keys being lower-case
+   versions of the strings, and the values being the strings), or a
+   QMap<int, QString> to sort the strings by some integer index.
+
+   See also qSort().
+
+  QStringList QStringList::operator+ ( const QStringList & other ) const
+
+   Returns a string list that is the concatenation of this string list
+   with the other string list.
+
+   See also append().
+
+  QStringList & QStringList::operator<< ( const QString & str )
+
+   Appends string str to the string list and returns a reference to the
+   string list.
+
+   See also append().
+
+  QStringList & QStringList::operator<< ( const QStringList & other )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Appends other to the string list and returns a reference to the string
+   list.
+     _________________________________________________________________
+
+Related Non-Members
+
+  typedef QMutableStringListIterator
+
+   The QStringListIterator typedef provides a Java-style non-const
+   iterator for QStringList.
+
+   QStringList provides both Java-style iterators and STL-style
+   iterators. The Java-style non-const iterator is simply a typedef for
+   QMutableListIterator<QString>.
+
+   See also QStringListIterator and QStringList::iterator.
+
+  typedef QStringListIterator
+
+   The QStringListIterator typedef provides a Java-style const iterator
+   for QStringList.
+
+   QStringList provides both Java-style iterators and STL-style
+   iterators. The Java-style const iterator is simply a typedef for
+   QListIterator<QString>.
+
+   See also QMutableStringListIterator and QStringList::const_iterator.
+
+  QDataStream & operator<< ( QDataStream & out, const QStringList & list )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Writes the string list list to stream out.
+
+   See also Format of the QDataStream operators.
+
+  QDataStream & operator>> ( QDataStream & in, QStringList & list )
+
+   This is an overloaded member function, provided for convenience. It
+   behaves essentially like the above function.
+
+   Reads a string list from stream in into list.
+
+   See also Format of the QDataStream operators.
+
+      _______________________________________________________________
+
+                   Copyright © 2005 Trolltech Trademarks
+
+                                                                 Qt 4.0.0

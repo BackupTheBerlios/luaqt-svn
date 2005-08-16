@@ -1,0 +1,196 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QSqlRecord Class Reference
+
+   #include <qsqlrecord.h>
+
+   Inherited by QSqlIndex.
+
+   List of all members.
+
+Public Member Functions
+
+     * QSqlRecord ()
+     * QSqlRecord (const QSqlRecord &other)
+     * QSqlRecord & operator= (const QSqlRecord &other)
+     * ~QSqlRecord ()
+     * bool operator== (const QSqlRecord &other) const
+     * bool operator!= (const QSqlRecord &other) const
+     * QVariant value (int i) const
+     * QVariant value (const QString &name) const
+     * void setValue (int i, const QVariant &val)
+     * void setValue (const QString &name, const QVariant &val)
+     * void setNull (int i)
+     * void setNull (const QString &name)
+     * bool isNull (int i) const
+     * bool isNull (const QString &name) const
+     * int indexOf (const QString &name) const
+     * QString fieldName (int i) const
+     * QSqlField field (int i) const
+     * QSqlField field (const QString &name) const
+     * bool isGenerated (int i) const
+     * bool isGenerated (const QString &name) const
+     * void setGenerated (const QString &name, bool generated)
+     * void setGenerated (int i, bool generated)
+     * void append (const QSqlField &field)
+     * void replace (int pos, const QSqlField &field)
+     * void insert (int pos, const QSqlField &field)
+     * void remove (int pos)
+     * bool isEmpty () const
+     * bool contains (const QString &name) const
+     * void clear ()
+     * void clearValues ()
+     * int count () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSqlRecord::QSqlRecord (   )
+
+
+
+   QSqlRecord::QSqlRecord (  const QSqlRecord &  other  )
+
+
+
+   QSqlRecord::~QSqlRecord (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QSqlRecord::append (  const QSqlField &  field  )
+
+
+
+   Reimplemented in QSqlIndex.
+
+   void QSqlRecord::clear (   )
+
+
+
+   void QSqlRecord::clearValues (   )
+
+
+
+   bool QSqlRecord::contains (  const QString &  name  )  const
+
+
+
+   int QSqlRecord::count (   )  const
+
+
+
+   QSqlField QSqlRecord::field (  const QString &  name  )  const
+
+
+
+   QSqlField QSqlRecord::field (  int  i  )  const
+
+
+
+   QString QSqlRecord::fieldName (  int  i  )  const
+
+
+
+   int QSqlRecord::indexOf (  const QString &  name  )  const
+
+
+
+   void QSqlRecord::insert (  int                pos,
+                              const QSqlField &  field
+                           )
+
+
+
+   bool QSqlRecord::isEmpty (   )  const
+
+
+
+   bool QSqlRecord::isGenerated (  const QString &  name  )  const
+
+
+
+   bool QSqlRecord::isGenerated (  int  i  )  const
+
+
+
+   bool QSqlRecord::isNull (  const QString &  name  )  const
+
+
+
+   bool QSqlRecord::isNull (  int  i  )  const
+
+
+
+   bool QSqlRecord::operator!= (  const QSqlRecord &  other  )  const [inline]
+
+
+
+   QSqlRecord& QSqlRecord::operator= (  const QSqlRecord &  other  )
+
+
+
+   bool QSqlRecord::operator== (  const QSqlRecord &  other  )  const
+
+
+
+   void QSqlRecord::remove (  int  pos  )
+
+
+
+   void QSqlRecord::replace (  int                pos,
+                               const QSqlField &  field
+                            )
+
+
+
+   void QSqlRecord::setGenerated (  int   i,
+                                    bool  generated
+                                 )
+
+
+
+   void QSqlRecord::setGenerated (  const QString &  name,
+                                    bool             generated
+                                 )
+
+
+
+   void QSqlRecord::setNull (  const QString &  name  )
+
+
+
+   void QSqlRecord::setNull (  int  i  )
+
+
+
+   void QSqlRecord::setValue (  const QString &   name,
+                                const QVariant &  val
+                             )
+
+
+
+   void QSqlRecord::setValue (  int               i,
+                                const QVariant &  val
+                             )
+
+
+
+   QVariant QSqlRecord::value (  const QString &  name  )  const
+
+
+
+   QVariant QSqlRecord::value (  int  i  )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqlrecord.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

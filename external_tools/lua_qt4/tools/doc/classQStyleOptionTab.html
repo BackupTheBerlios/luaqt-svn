@@ -1,0 +1,149 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QStyleOptionTab Class Reference
+
+   #include <qstyleoption.h>
+
+   Inherits QStyleOption.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags CornerWidgets
+     * enum { Type = SO_Tab }
+     * enum { Version = 1 }
+     * enum TabPosition { Beginning, Middle, End, OnlyOneTab }
+     * enum SelectedPosition { NotAdjacent, NextIsSelected, PreviousIsSelected }
+     * enum CornerWidget { NoCornerWidgets = 0x00, LeftCornerWidget = 0x01, RightCornerWidget = 0x02 }
+
+Public Member Functions
+
+     * QStyleOptionTab ()
+     * QStyleOptionTab (const QStyleOptionTab &other)
+
+Public Attributes
+
+     * QTabBar::Shape shape
+     * QString text
+     * QIcon icon
+     * int row
+     * TabPosition position
+     * SelectedPosition selectedPosition
+     * CornerWidgets cornerWidgets
+
+Protected Member Functions
+
+     * QStyleOptionTab (int version)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QStyleOptionTab::CornerWidgets
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Type
+
+   anonymous enum
+
+
+
+   Enumerator: 
+
+          Version
+
+   enum QStyleOptionTab::CornerWidget
+
+
+
+   Enumerator: 
+
+          NoCornerWidgets  
+          LeftCornerWidget 
+          RightCornerWidget
+
+   enum QStyleOptionTab::SelectedPosition
+
+
+
+   Enumerator: 
+
+          NotAdjacent       
+          NextIsSelected    
+          PreviousIsSelected
+
+   enum QStyleOptionTab::TabPosition
+
+
+
+   Enumerator: 
+
+          Beginning 
+          Middle    
+          End       
+          OnlyOneTab
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QStyleOptionTab::QStyleOptionTab (   )
+
+
+
+   QStyleOptionTab::QStyleOptionTab (  const QStyleOptionTab &  other  )  [inline]
+
+
+
+   QStyleOptionTab::QStyleOptionTab (  int  version  )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   CornerWidgets QStyleOptionTab::cornerWidgets
+
+
+
+   QIcon QStyleOptionTab::icon
+
+
+
+   TabPosition QStyleOptionTab::position
+
+
+
+   int QStyleOptionTab::row
+
+
+
+   SelectedPosition QStyleOptionTab::selectedPosition
+
+
+
+   QTabBar::Shape QStyleOptionTab::shape
+
+
+
+   QString QStyleOptionTab::text
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstyleoption.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

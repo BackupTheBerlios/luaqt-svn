@@ -1,0 +1,444 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QDir Class Reference
+
+   #include <qdir.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags Filters
+     * typedef LuaQtGenericFlags SortFlags
+     * enum Filter {
+         Dirs = 0x001, Files = 0x002, Drives = 0x004, NoSymLinks = 0x008,
+         TypeMask = 0x00f, Readable = 0x010, Writable = 0x020, Executable = 0x040,
+         PermissionMask = 0x070, Modified = 0x080, Hidden = 0x100, System = 0x200,
+         AccessMask = 0x3F0, AllDirs = 0x400, CaseSensitive = 0x800, NoFilter = -1
+       }
+     * enum SortFlag {
+         Name = 0x00, Time = 0x01, Size = 0x02, Unsorted = 0x03,
+         SortByMask = 0x03, DirsFirst = 0x04, Reversed = 0x08, IgnoreCase = 0x10,
+         DirsLast = 0x20, NoSort = -1
+       }
+
+Public Member Functions
+
+     * QDir (const QDir &)
+     * QDir (const QString &path=QString())
+     * QDir (const QString &path, const QString &nameFilter, SortFlags sort=SortFlags(Name|IgnoreCase), Filters filter=TypeMask)
+     * ~QDir ()
+     * QDir & operator= (const QDir &)
+     * QDir & operator= (const QString &path)
+     * void setPath (const QString &path)
+     * QString path () const
+     * QString absolutePath () const
+     * QString canonicalPath () const
+     * QString dirName () const
+     * QString filePath (const QString &fileName) const
+     * QString absoluteFilePath (const QString &fileName) const
+     * QString relativeFilePath (const QString &fileName) const
+     * bool cd (const QString &dirName)
+     * bool cdUp ()
+     * QStringList nameFilters () const
+     * void setNameFilters (const QStringList &nameFilters)
+     * Filters filter () const
+     * void setFilter (Filters filter)
+     * SortFlags sorting () const
+     * void setSorting (SortFlags sort)
+     * uint count () const
+     * QString operator[] (int) const
+     * QStringList entryList (Filters filters=NoFilter, SortFlags sort=NoSort) const
+     * QStringList entryList (const QStringList &nameFilters, Filters filters=NoFilter, SortFlags sort=NoSort) const
+     * QFileInfoList entryInfoList (Filters filters=NoFilter, SortFlags sort=NoSort) const
+     * QFileInfoList entryInfoList (const QStringList &nameFilters, Filters filters=NoFilter, SortFlags sort=NoSort) const
+     * bool mkdir (const QString &dirName) const
+     * bool rmdir (const QString &dirName) const
+     * bool mkpath (const QString &dirPath) const
+     * bool rmpath (const QString &dirPath) const
+     * bool isReadable () const
+     * bool exists () const
+     * bool isRoot () const
+     * bool isRelative () const
+     * bool isAbsolute () const
+     * bool makeAbsolute ()
+     * bool operator== (const QDir &dir) const
+     * bool operator!= (const QDir &dir) const
+     * bool remove (const QString &fileName)
+     * bool rename (const QString &oldName, const QString &newName)
+     * bool exists (const QString &name) const
+     * void refresh () const
+
+Static Public Member Functions
+
+     * static void addResourceSearchPath (const QString &path)
+     * static QString convertSeparators (const QString &pathName)
+     * static QStringList nameFiltersFromString (const QString &nameFilter)
+     * static bool isRelativePath (const QString &path)
+     * static bool isAbsolutePath (const QString &path)
+     * static QFileInfoList drives ()
+     * static QChar separator ()
+     * static bool setCurrent (const QString &path)
+     * static QDir current ()
+     * static QString currentPath ()
+     * static QDir home ()
+     * static QString homePath ()
+     * static QDir root ()
+     * static QString rootPath ()
+     * static QDir temp ()
+     * static QString tempPath ()
+     * static bool match (const QStringList &filters, const QString &fileName)
+     * static bool match (const QString &filter, const QString &fileName)
+     * static QString cleanPath (const QString &path)
+
+Protected Attributes
+
+     * QDirPrivate * d_ptr
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QDir::Filters
+
+
+
+   typedef LuaQtGenericFlags QDir::SortFlags
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDir::Filter
+
+
+
+   Enumerator: 
+
+          Dirs          
+          Files         
+          Drives        
+          NoSymLinks    
+          TypeMask      
+          Readable      
+          Writable      
+          Executable    
+          PermissionMask
+          Modified      
+          Hidden        
+          System        
+          AccessMask    
+          AllDirs       
+          CaseSensitive 
+          NoFilter      
+
+   enum QDir::SortFlag
+
+
+
+   Enumerator: 
+
+          Name      
+          Time      
+          Size      
+          Unsorted  
+          SortByMask
+          DirsFirst 
+          Reversed  
+          IgnoreCase
+          DirsLast  
+          NoSort    
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDir::QDir (  const QDir &   )
+
+
+
+   QDir::QDir (  const QString &  path = QString()  )
+
+
+
+   QDir::QDir (  const QString &  path,
+                 const QString &  nameFilter,
+                 SortFlags        sort = SortFlags(Name|IgnoreCase),
+                 Filters          filter = TypeMask
+              )
+
+
+
+   QDir::~QDir (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QString QDir::absoluteFilePath (  const QString &  fileName  )  const
+
+
+
+   QString QDir::absolutePath (   )  const
+
+
+
+   static void QDir::addResourceSearchPath (  const QString &  path  )  [static]
+
+
+
+   QString QDir::canonicalPath (   )  const
+
+
+
+   bool QDir::cd (  const QString &  dirName  )
+
+
+
+   bool QDir::cdUp (   )
+
+
+
+   static QString QDir::cleanPath (  const QString &  path  )  [static]
+
+
+
+   static QString QDir::convertSeparators (  const QString &  pathName  )  [static]
+
+
+
+   uint QDir::count (   )  const
+
+
+
+   static QDir QDir::current (   )  [inline, static]
+
+
+
+   static QString QDir::currentPath (   )  [static]
+
+
+
+   QString QDir::dirName (   )  const
+
+
+
+   static QFileInfoList QDir::drives (   )  [static]
+
+
+
+   QFileInfoList QDir::entryInfoList (  const QStringList &  nameFilters,
+                                        Filters              filters = NoFilter,
+                                        SortFlags            sort = NoSort
+                                     )  const
+
+
+
+   QFileInfoList QDir::entryInfoList (  Filters    filters = NoFilter,
+                                        SortFlags  sort = NoSort
+                                     )  const
+
+
+
+   QStringList QDir::entryList (  const QStringList &  nameFilters,
+                                  Filters              filters = NoFilter,
+                                  SortFlags            sort = NoSort
+                               )  const
+
+
+
+   QStringList QDir::entryList (  Filters    filters = NoFilter,
+                                  SortFlags  sort = NoSort
+                               )  const
+
+
+
+   bool QDir::exists (  const QString &  name  )  const
+
+
+
+   bool QDir::exists (   )  const
+
+
+
+   QString QDir::filePath (  const QString &  fileName  )  const
+
+
+
+   Filters QDir::filter (   )  const
+
+
+
+   static QDir QDir::home (   )  [inline, static]
+
+
+
+   static QString QDir::homePath (   )  [static]
+
+
+
+   bool QDir::isAbsolute (   )  const [inline]
+
+
+
+   static bool QDir::isAbsolutePath (  const QString &  path  )  [inline, static]
+
+
+
+   bool QDir::isReadable (   )  const
+
+
+
+   bool QDir::isRelative (   )  const
+
+
+
+   static bool QDir::isRelativePath (  const QString &  path  )  [static]
+
+
+
+   bool QDir::isRoot (   )  const
+
+
+
+   bool QDir::makeAbsolute (   )
+
+
+
+   static bool QDir::match (  const QString &  filter,
+                              const QString &  fileName
+                           )  [static]
+
+
+
+   static bool QDir::match (  const QStringList &  filters,
+                              const QString &      fileName
+                           )  [static]
+
+
+
+   bool QDir::mkdir (  const QString &  dirName  )  const
+
+
+
+   bool QDir::mkpath (  const QString &  dirPath  )  const
+
+
+
+   QStringList QDir::nameFilters (   )  const
+
+
+
+   static QStringList QDir::nameFiltersFromString (  const QString &  nameFilter  )  [static]
+
+
+
+   bool QDir::operator!= (  const QDir &  dir  )  const [inline]
+
+
+
+   QDir& QDir::operator= (  const QString &  path  )
+
+
+
+   QDir& QDir::operator= (  const QDir &   )
+
+
+
+   bool QDir::operator== (  const QDir &  dir  )  const
+
+
+
+   QString QDir::operator[] (  int   )  const
+
+
+
+   QString QDir::path (   )  const
+
+
+
+   void QDir::refresh (   )  const
+
+
+
+   QString QDir::relativeFilePath (  const QString &  fileName  )  const
+
+
+
+   bool QDir::remove (  const QString &  fileName  )
+
+
+
+   bool QDir::rename (  const QString &  oldName,
+                        const QString &  newName
+                     )
+
+
+
+   bool QDir::rmdir (  const QString &  dirName  )  const
+
+
+
+   bool QDir::rmpath (  const QString &  dirPath  )  const
+
+
+
+   static QDir QDir::root (   )  [inline, static]
+
+
+
+   static QString QDir::rootPath (   )  [static]
+
+
+
+   static QChar QDir::separator (   )  [static]
+
+
+
+   static bool QDir::setCurrent (  const QString &  path  )  [static]
+
+
+
+   void QDir::setFilter (  Filters  filter  )
+
+
+
+   void QDir::setNameFilters (  const QStringList &  nameFilters  )
+
+
+
+   void QDir::setPath (  const QString &  path  )
+
+
+
+   void QDir::setSorting (  SortFlags  sort  )
+
+
+
+   SortFlags QDir::sorting (   )  const
+
+
+
+   static QDir QDir::temp (   )  [inline, static]
+
+
+
+   static QString QDir::tempPath (   )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QDirPrivate* QDir::d_ptr [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qdir.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:57 2005 by  doxygen 1.4.3-20050530

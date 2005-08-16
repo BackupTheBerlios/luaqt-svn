@@ -1,0 +1,260 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                         Q3SqlSelectCursor Class Reference
+
+   #include <q3sqlselectcursor.h>
+
+   Inherits Q3SqlCursor.
+
+   List of all members.
+
+Public Member Functions
+
+     * Q3SqlSelectCursor (const QString &query=QString(), QSqlDatabase db=QSqlDatabase())
+     * Q3SqlSelectCursor (const Q3SqlSelectCursor &other)
+     * ~Q3SqlSelectCursor ()
+     * bool exec (const QString &query)
+     * bool select ()
+
+Protected Member Functions
+
+     * QSqlIndex primaryIndex (bool=true) const
+     * QSqlIndex index (const QStringList &) const
+     * QSqlIndex index (const QString &) const
+     * QSqlIndex index (const char *) const
+     * void setPrimaryIndex (const QSqlIndex &)
+     * void append (const Q3SqlFieldInfo &)
+     * void insert (int, const Q3SqlFieldInfo &)
+     * void remove (int)
+     * void clear ()
+     * void setGenerated (const QString &, bool)
+     * void setGenerated (int, bool)
+     * QSqlRecord * editBuffer (bool=false)
+     * QSqlRecord * primeInsert ()
+     * QSqlRecord * primeUpdate ()
+     * QSqlRecord * primeDelete ()
+     * int insert (bool=true)
+     * int update (bool=true)
+     * int del (bool=true)
+     * void setMode (int)
+     * void setSort (const QSqlIndex &)
+     * QSqlIndex sort () const
+     * void setFilter (const QString &)
+     * QString filter () const
+     * void setName (const QString &, bool=true)
+     * QString name () const
+     * QString toString (const QString &=QString(), const QString &=",") const
+     * bool select (const QString &, const QSqlIndex &=QSqlIndex())
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3SqlSelectCursor::Q3SqlSelectCursor (  const QString &  query = QString(),
+                                           QSqlDatabase     db = QSqlDatabase()
+                                        )
+
+
+
+   Q3SqlSelectCursor::Q3SqlSelectCursor (  const Q3SqlSelectCursor &  other  )
+
+
+
+   Q3SqlSelectCursor::~Q3SqlSelectCursor (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3SqlSelectCursor::append (  const Q3SqlFieldInfo &   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::clear (   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   int Q3SqlSelectCursor::del (  bool  = true  )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QSqlRecord* Q3SqlSelectCursor::editBuffer (  bool  = false  )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   bool Q3SqlSelectCursor::exec (  const QString &  query  )  [virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QString Q3SqlSelectCursor::filter (   )  const [inline, protected]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QSqlIndex Q3SqlSelectCursor::index (  const char *   )  const [inline, protected]
+
+
+
+   QSqlIndex Q3SqlSelectCursor::index (  const QString &   )  const [inline, protected]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QSqlIndex Q3SqlSelectCursor::index (  const QStringList &   )  const [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   int Q3SqlSelectCursor::insert (  bool  = true  )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::insert (  int                     ,
+                                     const Q3SqlFieldInfo &
+                                  )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QString Q3SqlSelectCursor::name (   )  const [inline, protected]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QSqlIndex Q3SqlSelectCursor::primaryIndex (  bool  = true  )  const [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QSqlRecord* Q3SqlSelectCursor::primeDelete (   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QSqlRecord* Q3SqlSelectCursor::primeInsert (   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QSqlRecord* Q3SqlSelectCursor::primeUpdate (   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::remove (  int   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   bool Q3SqlSelectCursor::select (  const QString &    ,
+                                     const QSqlIndex &  = QSqlIndex()
+                                  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   bool Q3SqlSelectCursor::select (   )  [inline]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::setFilter (  const QString &   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::setGenerated (  int   ,
+                                           bool
+                                        )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::setGenerated (  const QString &  ,
+                                           bool           
+                                        )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::setMode (  int   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::setName (  const QString &  ,
+                                      bool             = true
+                                   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::setPrimaryIndex (  const QSqlIndex &   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   void Q3SqlSelectCursor::setSort (  const QSqlIndex &   )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QSqlIndex Q3SqlSelectCursor::sort (   )  const [inline, protected]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   QString Q3SqlSelectCursor::toString (  const QString &  = QString(),
+                                          const QString &  = ","
+                                       )  const [inline, protected]
+
+
+
+   Reimplemented from Q3SqlCursor.
+
+   int Q3SqlSelectCursor::update (  bool  = true  )  [inline, protected, virtual]
+
+
+
+   Reimplemented from Q3SqlCursor.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3sqlselectcursor.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:16 2005 by  doxygen 1.4.3-20050530

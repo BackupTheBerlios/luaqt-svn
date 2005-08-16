@@ -1,0 +1,158 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QAccessibleInterface Class Reference
+
+   #include <qaccessible.h>
+
+   Inherits QAccessible.
+
+   Inherited by QAccessibleObject.
+
+   List of all members.
+
+Public Member Functions
+
+     * virtual ~QAccessibleInterface ()
+     * virtual bool isValid () const =0
+     * virtual QObject * object () const =0
+     * virtual int childCount () const =0
+     * virtual int indexOfChild (const QAccessibleInterface *) const =0
+     * virtual Relation relationTo (int child, const QAccessibleInterface *other, int otherChild) const =0
+     * virtual int childAt (int x, int y) const =0
+     * virtual int navigate (RelationFlag relation, int index, QAccessibleInterface **iface) const =0
+     * virtual QString text (Text t, int child) const =0
+     * virtual void setText (Text t, int child, const QString &text)=0
+     * virtual QRect rect (int child) const =0
+     * virtual Role role (int child) const =0
+     * virtual State state (int child) const =0
+     * virtual int userActionCount (int child) const =0
+     * virtual QString actionText (int action, Text t, int child) const =0
+     * virtual bool doAction (int action, int child, const QVariantList &params=QVariantList())=0
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   virtual QAccessibleInterface::~QAccessibleInterface (   )  [inline, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual QString QAccessibleInterface::actionText (  int   action,
+                                                       Text  t,
+                                                       int   child
+                                                    )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleObject, QAccessibleApplication, and QAccessibleWidget.
+
+   virtual int QAccessibleInterface::childAt (  int  x,
+                                                int  y
+                                             )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleApplication, and QAccessibleWidget.
+
+   virtual int QAccessibleInterface::childCount (   )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleApplication, and QAccessibleWidget.
+
+   virtual bool QAccessibleInterface::doAction (  int                   action,
+                                                  int                   child,
+                                                  const QVariantList &  params = QVariantList()
+                                               )  [pure virtual]
+
+
+
+   Implemented in QAccessibleObject, QAccessibleApplication, and QAccessibleWidget.
+
+   virtual int QAccessibleInterface::indexOfChild (  const QAccessibleInterface *   )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleApplication, and QAccessibleWidget.
+
+   virtual bool QAccessibleInterface::isValid (   )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleObject.
+
+   virtual int QAccessibleInterface::navigate (  RelationFlag             relation,
+                                                 int                      index,
+                                                 QAccessibleInterface **  iface
+                                              )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleApplication, and QAccessibleWidget.
+
+   virtual QObject* QAccessibleInterface::object (   )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleObject.
+
+   virtual QRect QAccessibleInterface::rect (  int  child  )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleObject, and QAccessibleWidget.
+
+   virtual Relation QAccessibleInterface::relationTo (  int                           child,
+                                                        const QAccessibleInterface *  other,
+                                                        int                           otherChild
+                                                     )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleApplication, and QAccessibleWidget.
+
+   virtual Role QAccessibleInterface::role (  int  child  )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleApplication, and QAccessibleWidget.
+
+   virtual void QAccessibleInterface::setText (  Text             t,
+                                                 int              child,
+                                                 const QString &  text
+                                              )  [pure virtual]
+
+
+
+   Implemented in QAccessibleObject.
+
+   virtual State QAccessibleInterface::state (  int  child  )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleApplication, and QAccessibleWidget.
+
+   virtual QString QAccessibleInterface::text (  Text  t,
+                                                 int   child
+                                              )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleApplication, and QAccessibleWidget.
+
+   virtual int QAccessibleInterface::userActionCount (  int  child  )  const [pure virtual]
+
+
+
+   Implemented in QAccessibleObject, and QAccessibleApplication.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qaccessible.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

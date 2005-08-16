@@ -1,0 +1,396 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3Canvas Class Reference
+
+   #include <q3canvas.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Slots
+
+     * virtual void advance ()
+     * virtual void update ()
+
+Signals
+
+     * void resized ()
+
+Public Member Functions
+
+     * Q3Canvas (QObject *parent=0, const char *name=0)
+     * Q3Canvas (int w, int h)
+     * Q3Canvas (QPixmap p, int h, int v, int tilewidth, int tileheight)
+     * virtual ~Q3Canvas ()
+     * virtual void setTiles (QPixmap tiles, int h, int v, int tilewidth, int tileheight)
+     * virtual void setBackgroundPixmap (const QPixmap &p)
+     * QPixmap backgroundPixmap () const
+     * virtual void setBackgroundColor (const QColor &c)
+     * QColor backgroundColor () const
+     * virtual void setTile (int x, int y, int tilenum)
+     * int tile (int x, int y) const
+     * int tilesHorizontally () const
+     * int tilesVertically () const
+     * int tileWidth () const
+     * int tileHeight () const
+     * virtual void resize (int width, int height)
+     * int width () const
+     * int height () const
+     * QSize size () const
+     * QRect rect () const
+     * bool onCanvas (int x, int y) const
+     * bool onCanvas (const QPoint &p) const
+     * bool validChunk (int x, int y) const
+     * bool validChunk (const QPoint &p) const
+     * int chunkSize () const
+     * virtual void retune (int chunksize, int maxclusters=100)
+     * bool sameChunk (int x1, int y1, int x2, int y2) const
+     * virtual void setChangedChunk (int i, int j)
+     * virtual void setChangedChunkContaining (int x, int y)
+     * virtual void setAllChanged ()
+     * virtual void setChanged (const QRect &area)
+     * virtual void setUnchanged (const QRect &area)
+     * void addItemToChunk (Q3CanvasItem *, int i, int j)
+     * void removeItemFromChunk (Q3CanvasItem *, int i, int j)
+     * void addItemToChunkContaining (Q3CanvasItem *, int x, int y)
+     * void removeItemFromChunkContaining (Q3CanvasItem *, int x, int y)
+     * Q3CanvasItemList allItems ()
+     * Q3CanvasItemList collisions (const QPoint &) const
+     * Q3CanvasItemList collisions (const QRect &) const
+     * Q3CanvasItemList collisions (const Q3PointArray &pa, const Q3CanvasItem *item, bool exact) const
+     * void drawArea (const QRect &, QPainter *p, bool double_buffer=false)
+     * virtual void addView (Q3CanvasView *)
+     * virtual void removeView (Q3CanvasView *)
+     * void drawCanvasArea (const QRect &, QPainter *p=0, bool double_buffer=true)
+     * void drawViewArea (Q3CanvasView *view, QPainter *p, const QRect &r, bool dbuf)
+     * virtual void addItem (Q3CanvasItem *)
+     * virtual void addAnimation (Q3CanvasItem *)
+     * virtual void removeItem (Q3CanvasItem *)
+     * virtual void removeAnimation (Q3CanvasItem *)
+     * virtual void setAdvancePeriod (int ms)
+     * virtual void setUpdatePeriod (int ms)
+     * virtual void setDoubleBuffering (bool y)
+
+Protected Member Functions
+
+     * virtual void drawBackground (QPainter &, const QRect &area)
+     * virtual void drawForeground (QPainter &, const QRect &area)
+
+Friends
+
+     * void qt_unview (Q3Canvas *c)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Canvas::Q3Canvas (  QObject *     parent = 0,
+                         const char *  name = 0
+                      )
+
+
+
+   Q3Canvas::Q3Canvas (  int  w,
+                         int  h
+                      )
+
+
+
+   Q3Canvas::Q3Canvas (  QPixmap  p,
+                         int      h,
+                         int      v,
+                         int      tilewidth,
+                         int      tileheight
+                      )
+
+
+
+   virtual Q3Canvas::~Q3Canvas (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3Canvas::addAnimation (  Q3CanvasItem *   )  [virtual]
+
+
+
+   virtual void Q3Canvas::addItem (  Q3CanvasItem *   )  [virtual]
+
+
+
+   void Q3Canvas::addItemToChunk (  Q3CanvasItem *  ,
+                                    int             i,
+                                    int             j
+                                 )
+
+
+
+   void Q3Canvas::addItemToChunkContaining (  Q3CanvasItem *  ,
+                                              int             x,
+                                              int             y
+                                           )
+
+
+
+   virtual void Q3Canvas::addView (  Q3CanvasView *   )  [virtual]
+
+
+
+   virtual void Q3Canvas::advance (   )  [virtual, slot]
+
+
+
+   Q3CanvasItemList Q3Canvas::allItems (   )
+
+
+
+   QColor Q3Canvas::backgroundColor (   )  const
+
+
+
+   QPixmap Q3Canvas::backgroundPixmap (   )  const
+
+
+
+   int Q3Canvas::chunkSize (   )  const [inline]
+
+
+
+   Q3CanvasItemList Q3Canvas::collisions (  const Q3PointArray &  pa,
+                                            const Q3CanvasItem *  item,
+                                            bool                  exact
+                                         )  const
+
+
+
+   Q3CanvasItemList Q3Canvas::collisions (  const QRect &   )  const
+
+
+
+   Q3CanvasItemList Q3Canvas::collisions (  const QPoint &   )  const
+
+
+
+   void Q3Canvas::drawArea (  const QRect &  ,
+                              QPainter *     p,
+                              bool           double_buffer = false
+                           )
+
+
+
+   virtual void Q3Canvas::drawBackground (  QPainter &     ,
+                                            const QRect &  area
+                                         )  [protected, virtual]
+
+
+
+   void Q3Canvas::drawCanvasArea (  const QRect &  ,
+                                    QPainter *     p = 0,
+                                    bool           double_buffer = true
+                                 )
+
+
+
+   virtual void Q3Canvas::drawForeground (  QPainter &     ,
+                                            const QRect &  area
+                                         )  [protected, virtual]
+
+
+
+   void Q3Canvas::drawViewArea (  Q3CanvasView *  view,
+                                  QPainter *      p,
+                                  const QRect &   r,
+                                  bool            dbuf
+                               )
+
+
+
+   int Q3Canvas::height (   )  const [inline]
+
+
+
+   bool Q3Canvas::onCanvas (  const QPoint &  p  )  const [inline]
+
+
+
+   bool Q3Canvas::onCanvas (  int  x,
+                              int  y
+                           )  const [inline]
+
+
+
+   QRect Q3Canvas::rect (   )  const [inline]
+
+
+
+   virtual void Q3Canvas::removeAnimation (  Q3CanvasItem *   )  [virtual]
+
+
+
+   virtual void Q3Canvas::removeItem (  Q3CanvasItem *   )  [virtual]
+
+
+
+   void Q3Canvas::removeItemFromChunk (  Q3CanvasItem *  ,
+                                         int             i,
+                                         int             j
+                                      )
+
+
+
+   void Q3Canvas::removeItemFromChunkContaining (  Q3CanvasItem *  ,
+                                                   int             x,
+                                                   int             y
+                                                )
+
+
+
+   virtual void Q3Canvas::removeView (  Q3CanvasView *   )  [virtual]
+
+
+
+   virtual void Q3Canvas::resize (  int  width,
+                                    int  height
+                                 )  [virtual]
+
+
+
+   void Q3Canvas::resized (   )  [signal]
+
+
+
+   virtual void Q3Canvas::retune (  int  chunksize,
+                                    int  maxclusters = 100
+                                 )  [virtual]
+
+
+
+   bool Q3Canvas::sameChunk (  int  x1,
+                               int  y1,
+                               int  x2,
+                               int  y2
+                            )  const [inline]
+
+
+
+   virtual void Q3Canvas::setAdvancePeriod (  int  ms  )  [virtual]
+
+
+
+   virtual void Q3Canvas::setAllChanged (   )  [virtual]
+
+
+
+   virtual void Q3Canvas::setBackgroundColor (  const QColor &  c  )  [virtual]
+
+
+
+   virtual void Q3Canvas::setBackgroundPixmap (  const QPixmap &  p  )  [virtual]
+
+
+
+   virtual void Q3Canvas::setChanged (  const QRect &  area  )  [virtual]
+
+
+
+   virtual void Q3Canvas::setChangedChunk (  int  i,
+                                             int  j
+                                          )  [virtual]
+
+
+
+   virtual void Q3Canvas::setChangedChunkContaining (  int  x,
+                                                       int  y
+                                                    )  [virtual]
+
+
+
+   virtual void Q3Canvas::setDoubleBuffering (  bool  y  )  [virtual]
+
+
+
+   virtual void Q3Canvas::setTile (  int  x,
+                                     int  y,
+                                     int  tilenum
+                                  )  [virtual]
+
+
+
+   virtual void Q3Canvas::setTiles (  QPixmap  tiles,
+                                      int      h,
+                                      int      v,
+                                      int      tilewidth,
+                                      int      tileheight
+                                   )  [virtual]
+
+
+
+   virtual void Q3Canvas::setUnchanged (  const QRect &  area  )  [virtual]
+
+
+
+   virtual void Q3Canvas::setUpdatePeriod (  int  ms  )  [virtual]
+
+
+
+   QSize Q3Canvas::size (   )  const [inline]
+
+
+
+   int Q3Canvas::tile (  int  x,
+                         int  y
+                      )  const [inline]
+
+
+
+   int Q3Canvas::tileHeight (   )  const [inline]
+
+
+
+   int Q3Canvas::tilesHorizontally (   )  const [inline]
+
+
+
+   int Q3Canvas::tilesVertically (   )  const [inline]
+
+
+
+   int Q3Canvas::tileWidth (   )  const [inline]
+
+
+
+   virtual void Q3Canvas::update (   )  [virtual, slot]
+
+
+
+   bool Q3Canvas::validChunk (  const QPoint &  p  )  const [inline]
+
+
+
+   bool Q3Canvas::validChunk (  int  x,
+                                int  y
+                             )  const [inline]
+
+
+
+   int Q3Canvas::width (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   void qt_unview (  Q3Canvas *  c  )  [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3canvas.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

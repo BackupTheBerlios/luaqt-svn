@@ -1,0 +1,175 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                        QStandardItemModel Class Reference
+
+   #include <qstandarditemmodel.h>
+
+   Inherits QAbstractItemModel.
+
+   List of all members.
+
+Public Member Functions
+
+     * QStandardItemModel (QObject *parent=0)
+     * QStandardItemModel (int rows, int columns, QObject *parent=0)
+     * ~QStandardItemModel ()
+     * QModelIndex index (int row, int column, const QModelIndex &parent=QModelIndex()) const
+     * QModelIndex parent (const QModelIndex &child) const
+     * int rowCount (const QModelIndex &parent=QModelIndex()) const
+     * int columnCount (const QModelIndex &parent=QModelIndex()) const
+     * bool hasChildren (const QModelIndex &parent=QModelIndex()) const
+     * QVariant data (const QModelIndex &index, int role=Qt::DisplayRole) const
+     * bool setData (const QModelIndex &index, const QVariant &value, int role=Qt::EditRole)
+     * QVariant headerData (int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const
+     * bool setHeaderData (int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole)
+     * bool insertRows (int row, int count, const QModelIndex &parent=QModelIndex())
+     * bool insertColumns (int column, int count, const QModelIndex &parent=QModelIndex())
+     * bool removeRows (int row, int count, const QModelIndex &parent=QModelIndex())
+     * bool removeColumns (int column, int count, const QModelIndex &parent=QModelIndex())
+     * Qt::ItemFlags flags (const QModelIndex &index) const
+     * void clear ()
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QStandardItemModel::QStandardItemModel (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QStandardItemModel::QStandardItemModel (  int        rows,
+                                             int        columns,
+                                             QObject *  parent = 0
+                                          )
+
+
+
+   QStandardItemModel::~QStandardItemModel (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QStandardItemModel::clear (   )
+
+
+
+   int QStandardItemModel::columnCount (  const QModelIndex &  parent = QModelIndex()  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   QVariant QStandardItemModel::data (  const QModelIndex &  index,
+                                        int                  role = Qt::DisplayRole
+                                     )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   Qt::ItemFlags QStandardItemModel::flags (  const QModelIndex &  index  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QStandardItemModel::hasChildren (  const QModelIndex &  parent = QModelIndex()  )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QVariant QStandardItemModel::headerData (  int              section,
+                                              Qt::Orientation  orientation,
+                                              int              role = Qt::DisplayRole
+                                           )  const [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QModelIndex QStandardItemModel::index (  int                  row,
+                                            int                  column,
+                                            const QModelIndex &  parent = QModelIndex()
+                                         )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QStandardItemModel::insertColumns (  int                  column,
+                                             int                  count,
+                                             const QModelIndex &  parent = QModelIndex()
+                                          )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QStandardItemModel::insertRows (  int                  row,
+                                          int                  count,
+                                          const QModelIndex &  parent = QModelIndex()
+                                       )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   QModelIndex QStandardItemModel::parent (  const QModelIndex &  child  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QStandardItemModel::removeColumns (  int                  column,
+                                             int                  count,
+                                             const QModelIndex &  parent = QModelIndex()
+                                          )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QStandardItemModel::removeRows (  int                  row,
+                                          int                  count,
+                                          const QModelIndex &  parent = QModelIndex()
+                                       )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   int QStandardItemModel::rowCount (  const QModelIndex &  parent = QModelIndex()  )  const [virtual]
+
+
+
+   Implements QAbstractItemModel.
+
+   bool QStandardItemModel::setData (  const QModelIndex &  index,
+                                       const QVariant &     value,
+                                       int                  role = Qt::EditRole
+                                    )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+
+   bool QStandardItemModel::setHeaderData (  int               section,
+                                             Qt::Orientation   orientation,
+                                             const QVariant &  value,
+                                             int               role = Qt::EditRole
+                                          )  [virtual]
+
+
+
+   Reimplemented from QAbstractItemModel.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qstandarditemmodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,238 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              Q3GDict Class Reference
+
+   #include <q3gdict.h>
+
+   Inherits Q3PtrCollection.
+
+   Inherited by Q3AsciiDict< type >, Q3AsciiDict< QMetaObject >, Q3Dict< type >, Q3IntDict< type >, Q3IntDict< int >, Q3IntDict< QWidget >, Q3PtrDict< type >, and Q3PtrDict< QWidget >.
+
+   List of all members.
+
+Public Member Functions
+
+     * uint count () const
+     * uint size () const
+     * Q3PtrCollection::Item look_string (const QString &key, Q3PtrCollection::Item, int)
+     * Q3PtrCollection::Item look_ascii (const char *key, Q3PtrCollection::Item, int)
+     * Q3PtrCollection::Item look_int (long key, Q3PtrCollection::Item, int)
+     * Q3PtrCollection::Item look_ptr (void *key, Q3PtrCollection::Item, int)
+     * QDataStream & read (QDataStream &)
+     * QDataStream & write (QDataStream &) const
+
+Protected Types
+
+     * enum KeyType { StringKey, AsciiKey, IntKey, PtrKey }
+
+Protected Member Functions
+
+     * Q3GDict (uint len, KeyType kt, bool cs, bool ck)
+     * Q3GDict (const Q3GDict &)
+     * ~Q3GDict ()
+     * Q3GDict & operator= (const Q3GDict &)
+     * bool remove_string (const QString &key, Q3PtrCollection::Item item=0)
+     * bool remove_ascii (const char *key, Q3PtrCollection::Item item=0)
+     * bool remove_int (long key, Q3PtrCollection::Item item=0)
+     * bool remove_ptr (void *key, Q3PtrCollection::Item item=0)
+     * Q3PtrCollection::Item take_string (const QString &key)
+     * Q3PtrCollection::Item take_ascii (const char *key)
+     * Q3PtrCollection::Item take_int (long key)
+     * Q3PtrCollection::Item take_ptr (void *key)
+     * void clear ()
+     * void resize (uint)
+     * int hashKeyString (const QString &)
+     * int hashKeyAscii (const char *)
+     * void statistics () const
+     * virtual QDataStream & read (QDataStream &, Q3PtrCollection::Item &)
+     * virtual QDataStream & write (QDataStream &, Q3PtrCollection::Item) const
+
+Friends
+
+     * class Q3GDictIterator
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3GDict::KeyType [protected]
+
+
+
+   Enumerator: 
+
+          StringKey
+          AsciiKey 
+          IntKey   
+          PtrKey   
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3GDict::Q3GDict (  uint     len,
+                       KeyType  kt,
+                       bool     cs,
+                       bool     ck
+                    )  [protected]
+
+
+
+   Q3GDict::Q3GDict (  const Q3GDict &   )  [protected]
+
+
+
+   Q3GDict::~Q3GDict (   )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3GDict::clear (   )  [protected, virtual]
+
+
+
+   Implements Q3PtrCollection.
+
+   Reimplemented in Q3AsciiDict< type >, Q3Dict< type >, Q3IntDict< type >, Q3PtrDict< type >, Q3AsciiDict< QMetaObject >, Q3IntDict< QWidget >, Q3IntDict< int >, and Q3PtrDict< QWidget >.
+
+   uint Q3GDict::count (   )  const [inline, virtual]
+
+
+
+   Implements Q3PtrCollection.
+
+   Reimplemented in Q3AsciiDict< type >, Q3Dict< type >, Q3IntDict< type >, Q3PtrDict< type >, Q3AsciiDict< QMetaObject >, Q3IntDict< QWidget >, Q3IntDict< int >, and Q3PtrDict< QWidget >.
+
+   int Q3GDict::hashKeyAscii (  const char *   )  [protected]
+
+
+
+   int Q3GDict::hashKeyString (  const QString &   )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GDict::look_ascii (  const char *           key,
+                                                Q3PtrCollection::Item  ,
+                                                int                  
+                                             )
+
+
+
+   Q3PtrCollection::Item Q3GDict::look_int (  long                   key,
+                                              Q3PtrCollection::Item  ,
+                                              int                  
+                                           )
+
+
+
+   Q3PtrCollection::Item Q3GDict::look_ptr (  void *                 key,
+                                              Q3PtrCollection::Item  ,
+                                              int                  
+                                           )
+
+
+
+   Q3PtrCollection::Item Q3GDict::look_string (  const QString &        key,
+                                                 Q3PtrCollection::Item  ,
+                                                 int                  
+                                              )
+
+
+
+   Q3GDict& Q3GDict::operator= (  const Q3GDict &   )  [protected]
+
+
+
+   virtual QDataStream& Q3GDict::read (  QDataStream &            ,
+                                         Q3PtrCollection::Item &
+                                      )  [protected, virtual]
+
+
+
+   QDataStream& Q3GDict::read (  QDataStream &   )
+
+
+
+   bool Q3GDict::remove_ascii (  const char *           key,
+                                 Q3PtrCollection::Item  item = 0
+                              )  [protected]
+
+
+
+   bool Q3GDict::remove_int (  long                   key,
+                               Q3PtrCollection::Item  item = 0
+                            )  [protected]
+
+
+
+   bool Q3GDict::remove_ptr (  void *                 key,
+                               Q3PtrCollection::Item  item = 0
+                            )  [protected]
+
+
+
+   bool Q3GDict::remove_string (  const QString &        key,
+                                  Q3PtrCollection::Item  item = 0
+                               )  [protected]
+
+
+
+   void Q3GDict::resize (  uint   )  [protected]
+
+
+
+   Reimplemented in Q3AsciiDict< type >, Q3Dict< type >, Q3IntDict< type >, Q3PtrDict< type >, Q3AsciiDict< QMetaObject >, Q3IntDict< QWidget >, Q3IntDict< int >, and Q3PtrDict< QWidget >.
+
+   uint Q3GDict::size (   )  const [inline]
+
+
+
+   Reimplemented in Q3AsciiDict< type >, Q3Dict< type >, Q3IntDict< type >, Q3PtrDict< type >, Q3AsciiDict< QMetaObject >, Q3IntDict< QWidget >, Q3IntDict< int >, and Q3PtrDict< QWidget >.
+
+   void Q3GDict::statistics (   )  const [protected]
+
+
+
+   Reimplemented in Q3AsciiDict< type >, Q3Dict< type >, Q3IntDict< type >, Q3PtrDict< type >, Q3AsciiDict< QMetaObject >, Q3IntDict< QWidget >, Q3IntDict< int >, and Q3PtrDict< QWidget >.
+
+   Q3PtrCollection::Item Q3GDict::take_ascii (  const char *  key  )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GDict::take_int (  long  key  )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GDict::take_ptr (  void *  key  )  [protected]
+
+
+
+   Q3PtrCollection::Item Q3GDict::take_string (  const QString &  key  )  [protected]
+
+
+
+   virtual QDataStream& Q3GDict::write (  QDataStream &          ,
+                                          Q3PtrCollection::Item
+                                       )  const [protected, virtual]
+
+
+
+   QDataStream& Q3GDict::write (  QDataStream &   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class Q3GDictIterator [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3gdict.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

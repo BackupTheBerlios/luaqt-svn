@@ -1,0 +1,257 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3GArray Class Reference
+
+   #include <q3garray.h>
+
+   Inherited by Q3MemArray< type >.
+
+   List of all members.
+
+Public Types
+
+     * enum Optimization { MemOptim, SpeedOptim }
+
+Public Member Functions
+
+     * Q3GArray ()
+
+Protected Member Functions
+
+     * Q3GArray (int, int)
+     * Q3GArray (int size)
+     * Q3GArray (const Q3GArray &a)
+     * virtual ~Q3GArray ()
+     * Q3GArray & operator= (const Q3GArray &a)
+     * virtual void detach ()
+     * char * data () const
+     * uint nrefs () const
+     * uint size () const
+     * bool isEqual (const Q3GArray &a) const
+     * bool resize (uint newsize, Optimization optim)
+     * bool resize (uint newsize)
+     * bool fill (const char *d, int len, uint sz)
+     * Q3GArray & assign (const Q3GArray &a)
+     * Q3GArray & assign (const char *d, uint len)
+     * Q3GArray & duplicate (const Q3GArray &a)
+     * Q3GArray & duplicate (const char *d, uint len)
+     * void store (const char *d, uint len)
+     * array_data * sharedBlock () const
+     * void setSharedBlock (array_data *p)
+     * Q3GArray & setRawData (const char *d, uint len)
+     * void resetRawData (const char *d, uint len)
+     * int find (const char *d, uint index, uint sz) const
+     * int contains (const char *d, uint sz) const
+     * void sort (uint sz)
+     * int bsearch (const char *d, uint sz) const
+     * char * at (uint index) const
+     * bool setExpand (uint index, const char *d, uint sz)
+     * virtual array_data * newData ()
+     * virtual void deleteData (array_data *p)
+
+Friends
+
+     * class QBuffer
+
+Classes
+
+     * struct array_data
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3GArray::Optimization
+
+
+
+   Enumerator: 
+
+          MemOptim  
+          SpeedOptim
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3GArray::Q3GArray (   )
+
+
+
+   Q3GArray::Q3GArray (  int  ,
+                         int
+                      )  [protected]
+
+
+
+   Q3GArray::Q3GArray (  int  size  )  [protected]
+
+
+
+   Q3GArray::Q3GArray (  const Q3GArray &  a  )  [protected]
+
+
+
+   virtual Q3GArray::~Q3GArray (   )  [protected, virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   Q3GArray& Q3GArray::assign (  const char *  d,
+                                 uint          len
+                              )  [protected]
+
+
+
+   Q3GArray& Q3GArray::assign (  const Q3GArray &  a  )  [protected]
+
+
+
+   char * Q3GArray::at (  uint  index  )  const [inline, protected]
+
+
+
+   Reimplemented in Q3MemArray< type >.
+
+   int Q3GArray::bsearch (  const char *  d,
+                            uint          sz
+                         )  const [protected]
+
+
+
+   int Q3GArray::contains (  const char *  d,
+                             uint          sz
+                          )  const [protected]
+
+
+
+   char* Q3GArray::data (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3MemArray< type >.
+
+   virtual void Q3GArray::deleteData (  array_data *  p  )  [protected, virtual]
+
+
+
+   virtual void Q3GArray::detach (   )  [inline, protected, virtual]
+
+
+
+   Reimplemented in Q3MemArray< type >.
+
+   Q3GArray& Q3GArray::duplicate (  const char *  d,
+                                    uint          len
+                                 )  [protected]
+
+
+
+   Q3GArray& Q3GArray::duplicate (  const Q3GArray &  a  )  [protected]
+
+
+
+   bool Q3GArray::fill (  const char *  d,
+                          int           len,
+                          uint          sz
+                       )  [protected]
+
+
+
+   int Q3GArray::find (  const char *  d,
+                         uint          index,
+                         uint          sz
+                      )  const [protected]
+
+
+
+   bool Q3GArray::isEqual (  const Q3GArray &  a  )  const [protected]
+
+
+
+   virtual array_data* Q3GArray::newData (   )  [protected, virtual]
+
+
+
+   uint Q3GArray::nrefs (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3MemArray< type >.
+
+   Q3GArray& Q3GArray::operator= (  const Q3GArray &  a  )  [inline, protected]
+
+
+
+   void Q3GArray::resetRawData (  const char *  d,
+                                  uint          len
+                               )  [protected]
+
+
+
+   bool Q3GArray::resize (  uint  newsize  )  [protected]
+
+
+
+   Reimplemented in Q3MemArray< type >.
+
+   bool Q3GArray::resize (  uint          newsize,
+                            Optimization  optim
+                         )  [protected]
+
+
+
+   Reimplemented in Q3MemArray< type >.
+
+   bool Q3GArray::setExpand (  uint          index,
+                               const char *  d,
+                               uint          sz
+                            )  [protected]
+
+
+
+   Q3GArray& Q3GArray::setRawData (  const char *  d,
+                                     uint          len
+                                  )  [protected]
+
+
+
+   void Q3GArray::setSharedBlock (  array_data *  p  )  [inline, protected]
+
+
+
+   array_data* Q3GArray::sharedBlock (   )  const [inline, protected]
+
+
+
+   uint Q3GArray::size (   )  const [inline, protected]
+
+
+
+   Reimplemented in Q3MemArray< type >.
+
+   void Q3GArray::sort (  uint  sz  )  [protected]
+
+
+
+   void Q3GArray::store (  const char *  d,
+                           uint          len
+                        )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QBuffer [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3garray.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:14 2005 by  doxygen 1.4.3-20050530

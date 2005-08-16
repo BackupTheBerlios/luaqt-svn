@@ -1,0 +1,177 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                              QLineF Class Reference
+
+   #include <qline.h>
+
+   List of all members.
+
+Public Types
+
+     * enum IntersectType { NoIntersection, BoundedIntersection, UnboundedIntersection }
+
+Public Member Functions
+
+     * QLineF ()
+     * QLineF (const QPointF &pt1, const QPointF &pt2)
+     * QLineF (qreal x1, qreal y1, qreal x2, qreal y2)
+     * QLineF (const QLine &line)
+     * bool isNull () const
+     * QPointF p1 () const
+     * QPointF p2 () const
+     * qreal x1 () const
+     * qreal y1 () const
+     * qreal x2 () const
+     * qreal y2 () const
+     * qreal dx () const
+     * qreal dy () const
+     * qreal length () const
+     * void setLength (qreal len)
+     * QLineF unitVector () const
+     * QLineF normalVector () const
+     * IntersectType intersect (const QLineF &l, QPointF *intersectionPoint) const
+     * qreal angle (const QLineF &l) const
+     * QPointF pointAt (qreal t) const
+     * void translate (const QPointF &p)
+     * void translate (qreal dx, qreal dy)
+     * bool operator== (const QLineF &d) const
+     * bool operator!= (const QLineF &d) const
+     * QLine toLine () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QLineF::IntersectType
+
+
+
+   Enumerator: 
+
+          NoIntersection       
+          BoundedIntersection  
+          UnboundedIntersection
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QLineF::QLineF (   )  [inline]
+
+
+
+   QLineF::QLineF (  const QPointF &  pt1,
+                     const QPointF &  pt2
+                  )  [inline]
+
+
+
+   QLineF::QLineF (  qreal  x1,
+                     qreal  y1,
+                     qreal  x2,
+                     qreal  y2
+                  )  [inline]
+
+
+
+   QLineF::QLineF (  const QLine &  line  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   qreal QLineF::angle (  const QLineF &  l  )  const
+
+
+
+   qreal QLineF::dx (   )  const [inline]
+
+
+
+   qreal QLineF::dy (   )  const [inline]
+
+
+
+   IntersectType QLineF::intersect (  const QLineF &  l,
+                                      QPointF *       intersectionPoint
+                                   )  const
+
+
+
+   bool QLineF::isNull (   )  const
+
+
+
+   qreal QLineF::length (   )  const
+
+
+
+   QLineF QLineF::normalVector (   )  const [inline]
+
+
+
+   bool QLineF::operator!= (  const QLineF &  d  )  const [inline]
+
+
+
+   bool QLineF::operator== (  const QLineF &  d  )  const [inline]
+
+
+
+   QPointF QLineF::p1 (   )  const [inline]
+
+
+
+   QPointF QLineF::p2 (   )  const [inline]
+
+
+
+   QPointF QLineF::pointAt (  qreal  t  )  const [inline]
+
+
+
+   void QLineF::setLength (  qreal  len  )  [inline]
+
+
+
+   QLine QLineF::toLine (   )  const [inline]
+
+
+
+   void QLineF::translate (  qreal  dx,
+                             qreal  dy
+                          )  [inline]
+
+
+
+   void QLineF::translate (  const QPointF &  p  )  [inline]
+
+
+
+   QLineF QLineF::unitVector (   )  const
+
+
+
+   qreal QLineF::x1 (   )  const [inline]
+
+
+
+   qreal QLineF::x2 (   )  const [inline]
+
+
+
+   qreal QLineF::y1 (   )  const [inline]
+
+
+
+   qreal QLineF::y2 (   )  const [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qline.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

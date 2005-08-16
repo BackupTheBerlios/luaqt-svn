@@ -1,0 +1,132 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                     QSqlRelationalTableModel Class Reference
+
+   #include <qsqlrelationaltablemodel.h>
+
+   Inherits QSqlTableModel.
+
+   List of all members.
+
+Public Slots
+
+     * void revertRow (int row)
+
+Public Member Functions
+
+     * QSqlRelationalTableModel (QObject *parent=0, QSqlDatabase db=QSqlDatabase())
+     * virtual ~QSqlRelationalTableModel ()
+     * QVariant data (const QModelIndex &item, int role=Qt::DisplayRole) const
+     * bool setData (const QModelIndex &item, const QVariant &value, int role=Qt::EditRole)
+     * void clear ()
+     * bool select ()
+     * void setTable (const QString &tableName)
+     * virtual void setRelation (int column, const QSqlRelation &relation)
+     * QSqlRelation relation (int column) const
+     * virtual QSqlTableModel * relationModel (int column) const
+
+Protected Member Functions
+
+     * QString selectStatement () const
+     * bool updateRowInTable (int row, const QSqlRecord &values)
+     * QString orderByClause () const
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QSqlRelationalTableModel::QSqlRelationalTableModel (  QObject *     parent = 0,
+                                                         QSqlDatabase  db = QSqlDatabase()
+                                                      )  [explicit]
+
+
+
+   virtual QSqlRelationalTableModel::~QSqlRelationalTableModel (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QSqlRelationalTableModel::clear (   )  [virtual]
+
+
+
+   Reimplemented from QSqlTableModel.
+
+   QVariant QSqlRelationalTableModel::data (  const QModelIndex &  item,
+                                              int                  role = Qt::DisplayRole
+                                           )  const [virtual]
+
+
+
+   Reimplemented from QSqlTableModel.
+
+   QString QSqlRelationalTableModel::orderByClause (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QSqlTableModel.
+
+   QSqlRelation QSqlRelationalTableModel::relation (  int  column  )  const
+
+
+
+   virtual QSqlTableModel* QSqlRelationalTableModel::relationModel (  int  column  )  const [virtual]
+
+
+
+   void QSqlRelationalTableModel::revertRow (  int  row  )  [virtual, slot]
+
+
+
+   Reimplemented from QSqlTableModel.
+
+   bool QSqlRelationalTableModel::select (   )  [virtual]
+
+
+
+   Reimplemented from QSqlTableModel.
+
+   QString QSqlRelationalTableModel::selectStatement (   )  const [protected, virtual]
+
+
+
+   Reimplemented from QSqlTableModel.
+
+   bool QSqlRelationalTableModel::setData (  const QModelIndex &  item,
+                                             const QVariant &     value,
+                                             int                  role = Qt::EditRole
+                                          )  [virtual]
+
+
+
+   Reimplemented from QSqlTableModel.
+
+   virtual void QSqlRelationalTableModel::setRelation (  int                   column,
+                                                         const QSqlRelation &  relation
+                                                      )  [virtual]
+
+
+
+   void QSqlRelationalTableModel::setTable (  const QString &  tableName  )  [virtual]
+
+
+
+   Reimplemented from QSqlTableModel.
+
+   bool QSqlRelationalTableModel::updateRowInTable (  int                 row,
+                                                      const QSqlRecord &  values
+                                                   )  [protected, virtual]
+
+
+
+   Reimplemented from QSqlTableModel.
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qsqlrelationaltablemodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:03 2005 by  doxygen 1.4.3-20050530

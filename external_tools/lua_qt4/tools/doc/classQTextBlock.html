@@ -1,0 +1,178 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTextBlock Class Reference
+
+   #include <qtextobject.h>
+
+   List of all members.
+
+Public Types
+
+     * typedef iterator Iterator
+
+Public Member Functions
+
+     * QTextBlock (QTextDocumentPrivate *priv, int b)
+     * QTextBlock ()
+     * QTextBlock (const QTextBlock &o)
+     * QTextBlock & operator= (const QTextBlock &o)
+     * bool isValid () const
+     * bool operator== (const QTextBlock &o) const
+     * bool operator!= (const QTextBlock &o) const
+     * bool operator< (const QTextBlock &o) const
+     * int position () const
+     * int length () const
+     * bool contains (int position) const
+     * QTextLayout * layout () const
+     * QTextBlockFormat blockFormat () const
+     * int blockFormatIndex () const
+     * QTextCharFormat charFormat () const
+     * int charFormatIndex () const
+     * QString text () const
+     * const QTextDocument * document () const
+     * QTextList * textList () const
+     * iterator begin () const
+     * iterator end () const
+     * QTextBlock next () const
+     * QTextBlock previous () const
+     * QTextDocumentPrivate * docHandle () const
+
+Friends
+
+     * class QTextDocumentPrivate
+     * class QTextLayout
+
+Classes
+
+     * class iterator
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef iterator QTextBlock::Iterator
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextBlock::QTextBlock (  QTextDocumentPrivate *  priv,
+                             int                     b
+                          )  [inline]
+
+
+
+   QTextBlock::QTextBlock (   )  [inline]
+
+
+
+   QTextBlock::QTextBlock (  const QTextBlock &  o  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   iterator QTextBlock::begin (   )  const
+
+
+
+   QTextBlockFormat QTextBlock::blockFormat (   )  const
+
+
+
+   int QTextBlock::blockFormatIndex (   )  const
+
+
+
+   QTextCharFormat QTextBlock::charFormat (   )  const
+
+
+
+   int QTextBlock::charFormatIndex (   )  const
+
+
+
+   bool QTextBlock::contains (  int  position  )  const
+
+
+
+   QTextDocumentPrivate* QTextBlock::docHandle (   )  const [inline]
+
+
+
+   const QTextDocument* QTextBlock::document (   )  const
+
+
+
+   iterator QTextBlock::end (   )  const
+
+
+
+   bool QTextBlock::isValid (   )  const [inline]
+
+
+
+   QTextLayout* QTextBlock::layout (   )  const
+
+
+
+   int QTextBlock::length (   )  const
+
+
+
+   QTextBlock QTextBlock::next (   )  const
+
+
+
+   bool QTextBlock::operator!= (  const QTextBlock &  o  )  const [inline]
+
+
+
+   bool QTextBlock::operator< (  const QTextBlock &  o  )  const [inline]
+
+
+
+   QTextBlock& QTextBlock::operator= (  const QTextBlock &  o  )  [inline]
+
+
+
+   bool QTextBlock::operator== (  const QTextBlock &  o  )  const [inline]
+
+
+
+   int QTextBlock::position (   )  const
+
+
+
+   QTextBlock QTextBlock::previous (   )  const
+
+
+
+   QString QTextBlock::text (   )  const
+
+
+
+   QTextList* QTextBlock::textList (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextDocumentPrivate [friend]
+
+
+
+   friend class QTextLayout [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtextobject.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

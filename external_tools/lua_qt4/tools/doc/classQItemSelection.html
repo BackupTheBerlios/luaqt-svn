@@ -1,0 +1,74 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                          QItemSelection Class Reference
+
+   #include <qitemselectionmodel.h>
+
+   Inherits QList< QItemSelectionRange >.
+
+   List of all members.
+
+Public Member Functions
+
+     * QItemSelection ()
+     * QItemSelection (const QModelIndex &topLeft, const QModelIndex &bottomRight)
+     * void select (const QModelIndex &topLeft, const QModelIndex &bottomRight)
+     * bool contains (const QModelIndex &index) const
+     * QModelIndexList indexes () const
+     * void merge (const QItemSelection &other, QItemSelectionModel::SelectionFlags command)
+
+Static Public Member Functions
+
+     * static void split (const QItemSelectionRange &range, const QItemSelectionRange &other, QItemSelection *result)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QItemSelection::QItemSelection (   )  [inline]
+
+
+
+   QItemSelection::QItemSelection (  const QModelIndex &  topLeft,
+                                     const QModelIndex &  bottomRight
+                                  )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   bool QItemSelection::contains (  const QModelIndex &  index  )  const
+
+
+
+   QModelIndexList QItemSelection::indexes (   )  const
+
+
+
+   void QItemSelection::merge (  const QItemSelection &               other,
+                                 QItemSelectionModel::SelectionFlags  command
+                              )
+
+
+
+   void QItemSelection::select (  const QModelIndex &  topLeft,
+                                  const QModelIndex &  bottomRight
+                               )
+
+
+
+   static void QItemSelection::split (  const QItemSelectionRange &  range,
+                                        const QItemSelectionRange &  other,
+                                        QItemSelection *             result
+                                     )  [static]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qitemselectionmodel.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:59 2005 by  doxygen 1.4.3-20050530

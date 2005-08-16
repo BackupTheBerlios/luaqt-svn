@@ -1,0 +1,169 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                     QAbstractEventDispatcher Class Reference
+
+   #include <qabstracteventdispatcher.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * typedef QPair< int, int > TimerInfo
+     * typedef bool(* EventFilter )(void *message)
+
+Signals
+
+     * void aboutToBlock ()
+     * void awake ()
+
+Public Member Functions
+
+     * QAbstractEventDispatcher (QObject *parent=0)
+     * ~QAbstractEventDispatcher ()
+     * virtual bool processEvents (QEventLoop::ProcessEventsFlags flags)=0
+     * virtual bool hasPendingEvents ()=0
+     * virtual void registerSocketNotifier (QSocketNotifier *notifier)=0
+     * virtual void unregisterSocketNotifier (QSocketNotifier *notifier)=0
+     * int registerTimer (int interval, QObject *object)
+     * virtual void registerTimer (int timerId, int interval, QObject *object)=0
+     * virtual bool unregisterTimer (int timerId)=0
+     * virtual bool unregisterTimers (QObject *object)=0
+     * virtual QList< TimerInfo > registeredTimers (QObject *object) const =0
+     * virtual void wakeUp ()=0
+     * virtual void interrupt ()=0
+     * virtual void flush ()=0
+     * virtual void startingUp ()
+     * virtual void closingDown ()
+     * EventFilter setEventFilter (EventFilter filter)
+     * bool filterEvent (void *message)
+
+Static Public Member Functions
+
+     * static QAbstractEventDispatcher * instance (QThread *thread=0)
+
+Protected Member Functions
+
+     * QAbstractEventDispatcher (QAbstractEventDispatcherPrivate &, QObject *parent)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef bool(* QAbstractEventDispatcher::EventFilter)(void *message)
+
+
+
+   typedef QPair<int, int> QAbstractEventDispatcher::TimerInfo
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractEventDispatcher::QAbstractEventDispatcher (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QAbstractEventDispatcher::~QAbstractEventDispatcher (   )
+
+
+
+   QAbstractEventDispatcher::QAbstractEventDispatcher (  QAbstractEventDispatcherPrivate &  ,
+                                                         QObject *                          parent
+                                                      )  [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QAbstractEventDispatcher::aboutToBlock (   )  [signal]
+
+
+
+   void QAbstractEventDispatcher::awake (   )  [signal]
+
+
+
+   virtual void QAbstractEventDispatcher::closingDown (   )  [virtual]
+
+
+
+   bool QAbstractEventDispatcher::filterEvent (  void *  message  )
+
+
+
+   virtual void QAbstractEventDispatcher::flush (   )  [pure virtual]
+
+
+
+   virtual bool QAbstractEventDispatcher::hasPendingEvents (   )  [pure virtual]
+
+
+
+   static QAbstractEventDispatcher* QAbstractEventDispatcher::instance (  QThread *  thread = 0  )  [static]
+
+
+
+   virtual void QAbstractEventDispatcher::interrupt (   )  [pure virtual]
+
+
+
+   virtual bool QAbstractEventDispatcher::processEvents (  QEventLoop::ProcessEventsFlags  flags  )  [pure virtual]
+
+
+
+   virtual QList<TimerInfo> QAbstractEventDispatcher::registeredTimers (  QObject *  object  )  const [pure virtual]
+
+
+
+   virtual void QAbstractEventDispatcher::registerSocketNotifier (  QSocketNotifier *  notifier  )  [pure virtual]
+
+
+
+   virtual void QAbstractEventDispatcher::registerTimer (  int        timerId,
+                                                           int        interval,
+                                                           QObject *  object
+                                                        )  [pure virtual]
+
+
+
+   int QAbstractEventDispatcher::registerTimer (  int        interval,
+                                                  QObject *  object
+                                               )
+
+
+
+   EventFilter QAbstractEventDispatcher::setEventFilter (  EventFilter  filter  )
+
+
+
+   virtual void QAbstractEventDispatcher::startingUp (   )  [virtual]
+
+
+
+   virtual void QAbstractEventDispatcher::unregisterSocketNotifier (  QSocketNotifier *  notifier  )  [pure virtual]
+
+
+
+   virtual bool QAbstractEventDispatcher::unregisterTimer (  int  timerId  )  [pure virtual]
+
+
+
+   virtual bool QAbstractEventDispatcher::unregisterTimers (  QObject *  object  )  [pure virtual]
+
+
+
+   virtual void QAbstractEventDispatcher::wakeUp (   )  [pure virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qabstracteventdispatcher.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

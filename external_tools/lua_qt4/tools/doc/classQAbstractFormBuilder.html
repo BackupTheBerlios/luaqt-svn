@@ -1,0 +1,491 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                       QAbstractFormBuilder Class Reference
+
+   #include <abstractformbuilder.h>
+
+   Inherited by QFormBuilder.
+
+   List of all members.
+
+Public Member Functions
+
+     * QAbstractFormBuilder ()
+     * virtual ~QAbstractFormBuilder ()
+     * QDir workingDirectory () const
+     * void setWorkingDirectory (const QDir &directory)
+     * virtual QWidget * load (QIODevice *dev, QWidget *parentWidget=0)
+     * virtual void save (QIODevice *dev, QWidget *widget)
+
+Protected Member Functions
+
+     * virtual void loadExtraInfo (DomWidget *ui_widget, QWidget *widget, QWidget *parentWidget)
+     * virtual QWidget * create (DomUI *ui, QWidget *parentWidget)
+     * virtual QWidget * create (DomWidget *ui_widget, QWidget *parentWidget)
+     * virtual QLayout * create (DomLayout *ui_layout, QLayout *layout, QWidget *parentWidget)
+     * virtual QLayoutItem * create (DomLayoutItem *ui_layoutItem, QLayout *layout, QWidget *parentWidget)
+     * virtual QAction * create (DomAction *ui_action, QObject *parent)
+     * virtual QActionGroup * create (DomActionGroup *ui_action_group, QObject *parent)
+     * virtual void addMenuAction (QAction *action)
+     * virtual void applyProperties (QObject *o, const QList< DomProperty * > &properties)
+     * virtual void applyTabStops (QWidget *widget, DomTabStops *tabStops)
+     * virtual QWidget * createWidget (const QString &widgetName, QWidget *parentWidget, const QString &name)
+     * virtual QLayout * createLayout (const QString &layoutName, QObject *parent, const QString &name)
+     * virtual QAction * createAction (QObject *parent, const QString &name)
+     * virtual QActionGroup * createActionGroup (QObject *parent, const QString &name)
+     * virtual void createCustomWidgets (DomCustomWidgets *)
+     * virtual void createConnections (DomConnections *, QWidget *)
+     * virtual void createResources (DomResources *)
+     * virtual bool addItem (DomLayoutItem *ui_item, QLayoutItem *item, QLayout *layout)
+     * virtual bool addItem (DomWidget *ui_widget, QWidget *widget, QWidget *parentWidget)
+     * virtual void saveExtraInfo (QWidget *widget, DomWidget *ui_widget, DomWidget *ui_parentWidget)
+     * virtual void saveDom (DomUI *ui, QWidget *widget)
+     * virtual DomActionRef * createActionRefDom (QAction *action)
+     * virtual DomWidget * createDom (QWidget *widget, DomWidget *ui_parentWidget, bool recursive=true)
+     * virtual DomLayout * createDom (QLayout *layout, DomLayout *ui_layout, DomWidget *ui_parentWidget)
+     * virtual DomLayoutItem * createDom (QLayoutItem *item, DomLayout *ui_parentLayout, DomWidget *ui_parentWidget)
+     * virtual DomSpacer * createDom (QSpacerItem *spacer, DomLayout *ui_parentLayout, DomWidget *ui_parentWidget)
+     * virtual DomAction * createDom (QAction *action)
+     * virtual DomActionGroup * createDom (QActionGroup *actionGroup)
+     * virtual DomConnections * saveConnections ()
+     * virtual DomCustomWidgets * saveCustomWidgets ()
+     * virtual DomTabStops * saveTabStops ()
+     * virtual DomResources * saveResources ()
+     * virtual QList< DomProperty * > computeProperties (QObject *obj)
+     * virtual bool checkProperty (QObject *obj, const QString &prop) const
+     * virtual DomProperty * createProperty (QObject *object, const QString &propertyName, const QVariant &value)
+     * virtual void layoutInfo (DomLayout *layout, QObject *parent, int *margin, int *spacing)
+     * virtual QIcon nameToIcon (const QString &filePath, const QString &qrcPath)
+     * virtual QString iconToFilePath (const QIcon &pm) const
+     * virtual QString iconToQrcPath (const QIcon &pm) const
+     * virtual QPixmap nameToPixmap (const QString &filePath, const QString &qrcPath)
+     * virtual QString pixmapToFilePath (const QPixmap &pm) const
+     * virtual QString pixmapToQrcPath (const QPixmap &pm) const
+     * void loadListWidgetExtraInfo (DomWidget *ui_widget, QListWidget *listWidget, QWidget *parentWidget)
+     * void loadTreeWidgetExtraInfo (DomWidget *ui_widget, QTreeWidget *treeWidget, QWidget *parentWidget)
+     * void loadComboBoxExtraInfo (DomWidget *ui_widget, QComboBox *comboBox, QWidget *parentWidget)
+     * void saveListWidgetExtraInfo (QListWidget *widget, DomWidget *ui_widget, DomWidget *ui_parentWidget)
+     * void saveTreeWidgetExtraInfo (QTreeWidget *treeWidget, DomWidget *ui_widget, DomWidget *ui_parentWidget)
+     * void saveComboBoxExtraInfo (QComboBox *widget, DomWidget *ui_widget, DomWidget *ui_parentWidget)
+     * QVariant toVariant (const QMetaObject *meta, DomProperty *property)
+     * void setupColorGroup (QPalette &palette, DomColorGroup *group)
+     * DomColorGroup * saveColorGroup (const QPalette &palette)
+     * void reset ()
+
+Static Protected Member Functions
+
+     * static bool toBool (const QString &str)
+     * static QString toString (const DomString *str)
+     * static QHash< QString, DomProperty * > propertyMap (const QList< DomProperty * > &properties)
+
+Protected Attributes
+
+     * QHash< QObject *, bool > m_laidout
+     * QHash< QString, QAction * > m_actions
+     * QHash< QString, QActionGroup * > m_actionGroups
+     * int m_defaultMargin
+     * int m_defaultSpacing
+     * QDir m_workingDirectory
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QAbstractFormBuilder::QAbstractFormBuilder (   )
+
+
+
+   virtual QAbstractFormBuilder::~QAbstractFormBuilder (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual bool QAbstractFormBuilder::addItem (  DomWidget *  ui_widget,
+                                                 QWidget *    widget,
+                                                 QWidget *    parentWidget
+                                              )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual bool QAbstractFormBuilder::addItem (  DomLayoutItem *  ui_item,
+                                                 QLayoutItem *    item,
+                                                 QLayout *        layout
+                                              )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual void QAbstractFormBuilder::addMenuAction (  QAction *  action  )  [protected, virtual]
+
+
+
+   virtual void QAbstractFormBuilder::applyProperties (  QObject *                       o,
+                                                         const QList< DomProperty * > &  properties
+                                                      )  [protected, virtual]
+
+
+
+   virtual void QAbstractFormBuilder::applyTabStops (  QWidget *      widget,
+                                                       DomTabStops *  tabStops
+                                                    )  [protected, virtual]
+
+
+
+   virtual bool QAbstractFormBuilder::checkProperty (  QObject *        obj,
+                                                       const QString &  prop
+                                                    )  const [protected, virtual]
+
+
+
+   virtual QList<DomProperty*> QAbstractFormBuilder::computeProperties (  QObject *  obj  )  [protected, virtual]
+
+
+
+   virtual QActionGroup* QAbstractFormBuilder::create (  DomActionGroup *  ui_action_group,
+                                                         QObject *         parent
+                                                      )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual QAction* QAbstractFormBuilder::create (  DomAction *  ui_action,
+                                                    QObject *    parent
+                                                 )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual QLayoutItem* QAbstractFormBuilder::create (  DomLayoutItem *  ui_layoutItem,
+                                                        QLayout *        layout,
+                                                        QWidget *        parentWidget
+                                                     )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual QLayout* QAbstractFormBuilder::create (  DomLayout *  ui_layout,
+                                                    QLayout *    layout,
+                                                    QWidget *    parentWidget
+                                                 )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual QWidget* QAbstractFormBuilder::create (  DomWidget *  ui_widget,
+                                                    QWidget *    parentWidget
+                                                 )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual QWidget* QAbstractFormBuilder::create (  DomUI *    ui,
+                                                    QWidget *  parentWidget
+                                                 )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual QAction* QAbstractFormBuilder::createAction (  QObject *        parent,
+                                                          const QString &  name
+                                                       )  [protected, virtual]
+
+
+
+   virtual QActionGroup* QAbstractFormBuilder::createActionGroup (  QObject *        parent,
+                                                                    const QString &  name
+                                                                 )  [protected, virtual]
+
+
+
+   virtual DomActionRef* QAbstractFormBuilder::createActionRefDom (  QAction *  action  )  [protected, virtual]
+
+
+
+   virtual void QAbstractFormBuilder::createConnections (  DomConnections *  ,
+                                                           QWidget *       
+                                                        )  [inline, protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual void QAbstractFormBuilder::createCustomWidgets (  DomCustomWidgets *   )  [inline, protected, virtual]
+
+
+
+   virtual DomActionGroup* QAbstractFormBuilder::createDom (  QActionGroup *  actionGroup  )  [protected, virtual]
+
+
+
+   virtual DomAction* QAbstractFormBuilder::createDom (  QAction *  action  )  [protected, virtual]
+
+
+
+   virtual DomSpacer* QAbstractFormBuilder::createDom (  QSpacerItem *  spacer,
+                                                         DomLayout *    ui_parentLayout,
+                                                         DomWidget *    ui_parentWidget
+                                                      )  [protected, virtual]
+
+
+
+   virtual DomLayoutItem* QAbstractFormBuilder::createDom (  QLayoutItem *  item,
+                                                             DomLayout *    ui_parentLayout,
+                                                             DomWidget *    ui_parentWidget
+                                                          )  [protected, virtual]
+
+
+
+   virtual DomLayout* QAbstractFormBuilder::createDom (  QLayout *    layout,
+                                                         DomLayout *  ui_layout,
+                                                         DomWidget *  ui_parentWidget
+                                                      )  [protected, virtual]
+
+
+
+   virtual DomWidget* QAbstractFormBuilder::createDom (  QWidget *    widget,
+                                                         DomWidget *  ui_parentWidget,
+                                                         bool         recursive = true
+                                                      )  [protected, virtual]
+
+
+
+   virtual QLayout* QAbstractFormBuilder::createLayout (  const QString &  layoutName,
+                                                          QObject *        parent,
+                                                          const QString &  name
+                                                       )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual DomProperty* QAbstractFormBuilder::createProperty (  QObject *         object,
+                                                                const QString &   propertyName,
+                                                                const QVariant &  value
+                                                             )  [protected, virtual]
+
+
+
+   virtual void QAbstractFormBuilder::createResources (  DomResources *   )  [inline, protected, virtual]
+
+
+
+   virtual QWidget* QAbstractFormBuilder::createWidget (  const QString &  widgetName,
+                                                          QWidget *        parentWidget,
+                                                          const QString &  name
+                                                       )  [protected, virtual]
+
+
+
+   Reimplemented in QFormBuilder.
+
+   virtual QString QAbstractFormBuilder::iconToFilePath (  const QIcon &  pm  )  const [protected, virtual]
+
+
+
+   virtual QString QAbstractFormBuilder::iconToQrcPath (  const QIcon &  pm  )  const [protected, virtual]
+
+
+
+   virtual void QAbstractFormBuilder::layoutInfo (  DomLayout *  layout,
+                                                    QObject *    parent,
+                                                    int *        margin,
+                                                    int *        spacing
+                                                 )  [protected, virtual]
+
+
+
+   virtual QWidget* QAbstractFormBuilder::load (  QIODevice *  dev,
+                                                  QWidget *    parentWidget = 0
+                                               )  [virtual]
+
+
+
+   void QAbstractFormBuilder::loadComboBoxExtraInfo (  DomWidget *  ui_widget,
+                                                       QComboBox *  comboBox,
+                                                       QWidget *    parentWidget
+                                                    )  [protected]
+
+
+
+   virtual void QAbstractFormBuilder::loadExtraInfo (  DomWidget *  ui_widget,
+                                                       QWidget *    widget,
+                                                       QWidget *    parentWidget
+                                                    )  [protected, virtual]
+
+
+
+   void QAbstractFormBuilder::loadListWidgetExtraInfo (  DomWidget *    ui_widget,
+                                                         QListWidget *  listWidget,
+                                                         QWidget *      parentWidget
+                                                      )  [protected]
+
+
+
+   void QAbstractFormBuilder::loadTreeWidgetExtraInfo (  DomWidget *    ui_widget,
+                                                         QTreeWidget *  treeWidget,
+                                                         QWidget *      parentWidget
+                                                      )  [protected]
+
+
+
+   virtual QIcon QAbstractFormBuilder::nameToIcon (  const QString &  filePath,
+                                                     const QString &  qrcPath
+                                                  )  [protected, virtual]
+
+
+
+   virtual QPixmap QAbstractFormBuilder::nameToPixmap (  const QString &  filePath,
+                                                         const QString &  qrcPath
+                                                      )  [protected, virtual]
+
+
+
+   virtual QString QAbstractFormBuilder::pixmapToFilePath (  const QPixmap &  pm  )  const [protected, virtual]
+
+
+
+   virtual QString QAbstractFormBuilder::pixmapToQrcPath (  const QPixmap &  pm  )  const [protected, virtual]
+
+
+
+   static QHash<QString, DomProperty*> QAbstractFormBuilder::propertyMap (  const QList< DomProperty * > &  properties  )  [static, protected]
+
+
+
+   void QAbstractFormBuilder::reset (   )  [protected]
+
+
+
+   virtual void QAbstractFormBuilder::save (  QIODevice *  dev,
+                                              QWidget *    widget
+                                           )  [virtual]
+
+
+
+   DomColorGroup* QAbstractFormBuilder::saveColorGroup (  const QPalette &  palette  )  [protected]
+
+
+
+   void QAbstractFormBuilder::saveComboBoxExtraInfo (  QComboBox *  widget,
+                                                       DomWidget *  ui_widget,
+                                                       DomWidget *  ui_parentWidget
+                                                    )  [protected]
+
+
+
+   virtual DomConnections* QAbstractFormBuilder::saveConnections (   )  [protected, virtual]
+
+
+
+   virtual DomCustomWidgets* QAbstractFormBuilder::saveCustomWidgets (   )  [protected, virtual]
+
+
+
+   virtual void QAbstractFormBuilder::saveDom (  DomUI *    ui,
+                                                 QWidget *  widget
+                                              )  [protected, virtual]
+
+
+
+   virtual void QAbstractFormBuilder::saveExtraInfo (  QWidget *    widget,
+                                                       DomWidget *  ui_widget,
+                                                       DomWidget *  ui_parentWidget
+                                                    )  [protected, virtual]
+
+
+
+   void QAbstractFormBuilder::saveListWidgetExtraInfo (  QListWidget *  widget,
+                                                         DomWidget *    ui_widget,
+                                                         DomWidget *    ui_parentWidget
+                                                      )  [protected]
+
+
+
+   virtual DomResources* QAbstractFormBuilder::saveResources (   )  [protected, virtual]
+
+
+
+   virtual DomTabStops* QAbstractFormBuilder::saveTabStops (   )  [protected, virtual]
+
+
+
+   void QAbstractFormBuilder::saveTreeWidgetExtraInfo (  QTreeWidget *  treeWidget,
+                                                         DomWidget *    ui_widget,
+                                                         DomWidget *    ui_parentWidget
+                                                      )  [protected]
+
+
+
+   void QAbstractFormBuilder::setupColorGroup (  QPalette &       palette,
+                                                 DomColorGroup *  group
+                                              )  [protected]
+
+
+
+   void QAbstractFormBuilder::setWorkingDirectory (  const QDir &  directory  )
+
+
+
+   static bool QAbstractFormBuilder::toBool (  const QString &  str  )  [static, protected]
+
+
+
+   static QString QAbstractFormBuilder::toString (  const DomString *  str  )  [static, protected]
+
+
+
+   QVariant QAbstractFormBuilder::toVariant (  const QMetaObject *  meta,
+                                               DomProperty *        property
+                                            )  [protected]
+
+
+
+   QDir QAbstractFormBuilder::workingDirectory (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   QHash<QString, QActionGroup*> QAbstractFormBuilder::m_actionGroups [protected]
+
+
+
+   QHash<QString, QAction*> QAbstractFormBuilder::m_actions [protected]
+
+
+
+   int QAbstractFormBuilder::m_defaultMargin [protected]
+
+
+
+   int QAbstractFormBuilder::m_defaultSpacing [protected]
+
+
+
+   QHash<QObject*, bool> QAbstractFormBuilder::m_laidout [protected]
+
+
+
+   QDir QAbstractFormBuilder::m_workingDirectory [protected]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractformbuilder.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530

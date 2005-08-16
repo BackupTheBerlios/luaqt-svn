@@ -1,0 +1,758 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            Q3DataTable Class Reference
+
+   #include <q3datatable.h>
+
+   Inherits Q3Table.
+
+   List of all members.
+
+Public Types
+
+     * enum Refresh { RefreshData = 1, RefreshColumns = 2, RefreshAll = 3 }
+
+Public Slots
+
+     * virtual void find (const QString &str, bool caseSensitive, bool backwards)
+     * virtual void sortAscending (int col)
+     * virtual void sortDescending (int col)
+     * virtual void refresh ()
+     * void setColumnWidth (int col, int w)
+     * void adjustColumn (int col)
+     * void setColumnStretchable (int col, bool stretch)
+     * void swapColumns (int col1, int col2, bool swapHeaders=false)
+
+Signals
+
+     * void currentChanged (QSqlRecord *record)
+     * void primeInsert (QSqlRecord *buf)
+     * void primeUpdate (QSqlRecord *buf)
+     * void primeDelete (QSqlRecord *buf)
+     * void beforeInsert (QSqlRecord *buf)
+     * void beforeUpdate (QSqlRecord *buf)
+     * void beforeDelete (QSqlRecord *buf)
+     * void cursorChanged (QSql::Op mode)
+
+Public Member Functions
+
+     * Q3DataTable (QWidget *parent=0, const char *name=0)
+     * Q3DataTable (Q3SqlCursor *cursor, bool autoPopulate=false, QWidget *parent=0, const char *name=0)
+     * ~Q3DataTable ()
+     * virtual void addColumn (const QString &fieldName, const QString &label=QString(), int width=-1, const QIconSet &iconset=QIconSet())
+     * virtual void removeColumn (int col)
+     * virtual void setColumn (uint col, const QString &fieldName, const QString &label=QString(), int width=-1, const QIconSet &iconset=QIconSet())
+     * QString nullText () const
+     * QString trueText () const
+     * QString falseText () const
+     * Qt::DateFormat dateFormat () const
+     * bool confirmEdits () const
+     * bool confirmInsert () const
+     * bool confirmUpdate () const
+     * bool confirmDelete () const
+     * bool confirmCancels () const
+     * bool autoDelete () const
+     * bool autoEdit () const
+     * QString filter () const
+     * QStringList sort () const
+     * virtual void setSqlCursor (Q3SqlCursor *cursor=0, bool autoPopulate=false, bool autoDelete=false)
+     * Q3SqlCursor * sqlCursor () const
+     * virtual void setNullText (const QString &nullText)
+     * virtual void setTrueText (const QString &trueText)
+     * virtual void setFalseText (const QString &falseText)
+     * virtual void setDateFormat (const Qt::DateFormat f)
+     * virtual void setConfirmEdits (bool confirm)
+     * virtual void setConfirmInsert (bool confirm)
+     * virtual void setConfirmUpdate (bool confirm)
+     * virtual void setConfirmDelete (bool confirm)
+     * virtual void setConfirmCancels (bool confirm)
+     * virtual void setAutoDelete (bool enable)
+     * virtual void setAutoEdit (bool autoEdit)
+     * virtual void setFilter (const QString &filter)
+     * virtual void setSort (const QStringList &sort)
+     * virtual void setSort (const QSqlIndex &sort)
+     * void refresh (Refresh mode)
+     * void sortColumn (int col, bool ascending=true, bool wholeRows=false)
+     * QString text (int row, int col) const
+     * QVariant value (int row, int col) const
+     * QSqlRecord * currentRecord () const
+     * void installEditorFactory (Q3SqlEditorFactory *f)
+     * void installPropertyMap (Q3SqlPropertyMap *m)
+     * int numCols () const
+     * int numRows () const
+     * void setNumCols (int c)
+     * void setNumRows (int r)
+     * bool findBuffer (const QSqlIndex &idx, int atHint=0)
+     * void hideColumn (int col)
+     * void showColumn (int col)
+     * int indexOf (uint i) const
+     * void selectRow (int row)
+
+Protected Member Functions
+
+     * virtual bool insertCurrent ()
+     * virtual bool updateCurrent ()
+     * virtual bool deleteCurrent ()
+     * virtual QSql::Confirm confirmEdit (QSql::Op m)
+     * virtual QSql::Confirm confirmCancel (QSql::Op m)
+     * virtual void handleError (const QSqlError &e)
+     * virtual bool beginInsert ()
+     * virtual QWidget * beginUpdate (int row, int col, bool replace)
+     * bool eventFilter (QObject *o, QEvent *e)
+     * void keyPressEvent (QKeyEvent *)
+     * void resizeEvent (QResizeEvent *)
+     * void contentsMousePressEvent (QMouseEvent *e)
+     * void contentsContextMenuEvent (QContextMenuEvent *e)
+     * void endEdit (int row, int col, bool accept, bool replace)
+     * QWidget * createEditor (int row, int col, bool initFromCell) const
+     * void activateNextCell ()
+     * void reset ()
+     * void setSize (Q3SqlCursor *sql)
+     * void repaintCell (int row, int col)
+     * void paintCell (QPainter *p, int row, int col, const QRect &cr, bool selected, const QColorGroup &cg)
+     * virtual void paintField (QPainter *p, const QSqlField *field, const QRect &cr, bool selected)
+     * void drawContents (QPainter *p, int cx, int cy, int cw, int ch)
+     * virtual int fieldAlignment (const QSqlField *field)
+     * void columnClicked (int col)
+     * void resizeData (int len)
+     * Q3TableItem * item (int row, int col) const
+     * void setItem (int row, int col, Q3TableItem *item)
+     * void clearCell (int row, int col)
+     * void setPixmap (int row, int col, const QPixmap &pix)
+     * void takeItem (Q3TableItem *i)
+
+Properties
+
+     * QString nullText
+     * QString trueText
+     * QString falseText
+     * Qt DateFormat
+     * bool confirmEdits
+     * bool confirmInsert
+     * bool confirmUpdate
+     * bool confirmDelete
+     * bool confirmCancels
+     * bool autoEdit
+     * QString filter
+     * QStringList sort
+     * int numCols
+     * int numRows
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum Q3DataTable::Refresh
+
+
+
+   Enumerator: 
+
+          RefreshData   
+          RefreshColumns
+          RefreshAll    
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3DataTable::Q3DataTable (  QWidget *     parent = 0,
+                               const char *  name = 0
+                            )
+
+
+
+   Q3DataTable::Q3DataTable (  Q3SqlCursor *  cursor,
+                               bool           autoPopulate = false,
+                               QWidget *      parent = 0,
+                               const char *   name = 0
+                            )
+
+
+
+   Q3DataTable::~Q3DataTable (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void Q3DataTable::activateNextCell (   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   virtual void Q3DataTable::addColumn (  const QString &   fieldName,
+                                          const QString &   label = QString(),
+                                          int               width = -1,
+                                          const QIconSet &  iconset = QIconSet()
+                                       )  [virtual]
+
+
+
+   void Q3DataTable::adjustColumn (  int  col  )  [virtual, slot]
+
+
+
+   Reimplemented from Q3Table.
+
+   bool Q3DataTable::autoDelete (   )  const
+
+
+
+   bool Q3DataTable::autoEdit (   )  const
+
+
+
+   void Q3DataTable::beforeDelete (  QSqlRecord *  buf  )  [signal]
+
+
+
+   void Q3DataTable::beforeInsert (  QSqlRecord *  buf  )  [signal]
+
+
+
+   void Q3DataTable::beforeUpdate (  QSqlRecord *  buf  )  [signal]
+
+
+
+   virtual bool Q3DataTable::beginInsert (   )  [protected, virtual]
+
+
+
+   virtual QWidget* Q3DataTable::beginUpdate (  int   row,
+                                                int   col,
+                                                bool  replace
+                                             )  [protected, virtual]
+
+
+
+   void Q3DataTable::clearCell (  int  row,
+                                  int  col
+                               )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::columnClicked (  int  col  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   virtual QSql::Confirm Q3DataTable::confirmCancel (  QSql::Op  m  )  [protected, virtual]
+
+
+
+   bool Q3DataTable::confirmCancels (   )  const
+
+
+
+   bool Q3DataTable::confirmDelete (   )  const
+
+
+
+   virtual QSql::Confirm Q3DataTable::confirmEdit (  QSql::Op  m  )  [protected, virtual]
+
+
+
+   bool Q3DataTable::confirmEdits (   )  const
+
+
+
+   bool Q3DataTable::confirmInsert (   )  const
+
+
+
+   bool Q3DataTable::confirmUpdate (   )  const
+
+
+
+   void Q3DataTable::contentsContextMenuEvent (  QContextMenuEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::contentsMousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   QWidget* Q3DataTable::createEditor (  int   row,
+                                         int   col,
+                                         bool  initFromCell
+                                      )  const [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::currentChanged (  QSqlRecord *  record  )  [signal]
+
+
+
+   QSqlRecord* Q3DataTable::currentRecord (   )  const
+
+
+
+   void Q3DataTable::cursorChanged (  QSql::Op  mode  )  [signal]
+
+
+
+   Qt::DateFormat Q3DataTable::dateFormat (   )  const
+
+
+
+   virtual bool Q3DataTable::deleteCurrent (   )  [protected, virtual]
+
+
+
+   void Q3DataTable::drawContents (  QPainter *  p,
+                                     int         cx,
+                                     int         cy,
+                                     int         cw,
+                                     int         ch
+                                  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::endEdit (  int   row,
+                                int   col,
+                                bool  accept,
+                                bool  replace
+                             )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   bool Q3DataTable::eventFilter (  QObject *  o,
+                                    QEvent *   e
+                                 )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   QString Q3DataTable::falseText (   )  const
+
+
+
+   virtual int Q3DataTable::fieldAlignment (  const QSqlField *  field  )  [protected, virtual]
+
+
+
+   QString Q3DataTable::filter (   )  const
+
+
+
+   virtual void Q3DataTable::find (  const QString &  str,
+                                     bool             caseSensitive,
+                                     bool             backwards
+                                  )  [virtual, slot]
+
+
+
+   bool Q3DataTable::findBuffer (  const QSqlIndex &  idx,
+                                   int                atHint = 0
+                                )
+
+
+
+   virtual void Q3DataTable::handleError (  const QSqlError &  e  )  [protected, virtual]
+
+
+
+   void Q3DataTable::hideColumn (  int  col  )  [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   int Q3DataTable::indexOf (  uint  i  )  const
+
+
+
+   virtual bool Q3DataTable::insertCurrent (   )  [protected, virtual]
+
+
+
+   void Q3DataTable::installEditorFactory (  Q3SqlEditorFactory *  f  )
+
+
+
+   void Q3DataTable::installPropertyMap (  Q3SqlPropertyMap *  m  )
+
+
+
+   Q3TableItem* Q3DataTable::item (  int  row,
+                                     int  col
+                                  )  const [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::keyPressEvent (  QKeyEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   QString Q3DataTable::nullText (   )  const
+
+
+
+   int Q3DataTable::numCols (   )  const [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   int Q3DataTable::numRows (   )  const [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::paintCell (  QPainter *           p,
+                                  int                  row,
+                                  int                  col,
+                                  const QRect &        cr,
+                                  bool                 selected,
+                                  const QColorGroup &  cg
+                               )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   virtual void Q3DataTable::paintField (  QPainter *         p,
+                                           const QSqlField *  field,
+                                           const QRect &      cr,
+                                           bool               selected
+                                        )  [protected, virtual]
+
+
+
+   void Q3DataTable::primeDelete (  QSqlRecord *  buf  )  [signal]
+
+
+
+   void Q3DataTable::primeInsert (  QSqlRecord *  buf  )  [signal]
+
+
+
+   void Q3DataTable::primeUpdate (  QSqlRecord *  buf  )  [signal]
+
+
+
+   virtual void Q3DataTable::refresh (   )  [virtual, slot]
+
+
+
+   void Q3DataTable::refresh (  Refresh  mode  )
+
+
+
+   virtual void Q3DataTable::removeColumn (  int  col  )  [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::repaintCell (  int  row,
+                                    int  col
+                                 )  [protected]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::reset (   )  [protected]
+
+
+
+   void Q3DataTable::resizeData (  int  len  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::resizeEvent (  QResizeEvent *   )  [protected, virtual]
+
+
+
+   Reimplemented from Q3ScrollView.
+
+   void Q3DataTable::selectRow (  int  row  )  [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   virtual void Q3DataTable::setAutoDelete (  bool  enable  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setAutoEdit (  bool  autoEdit  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setColumn (  uint              col,
+                                          const QString &   fieldName,
+                                          const QString &   label = QString(),
+                                          int               width = -1,
+                                          const QIconSet &  iconset = QIconSet()
+                                       )  [virtual]
+
+
+
+   void Q3DataTable::setColumnStretchable (  int   col,
+                                             bool  stretch
+                                          )  [virtual, slot]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::setColumnWidth (  int  col,
+                                       int  w
+                                    )  [virtual, slot]
+
+
+
+   Reimplemented from Q3Table.
+
+   virtual void Q3DataTable::setConfirmCancels (  bool  confirm  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setConfirmDelete (  bool  confirm  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setConfirmEdits (  bool  confirm  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setConfirmInsert (  bool  confirm  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setConfirmUpdate (  bool  confirm  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setDateFormat (  const Qt::DateFormat  f  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setFalseText (  const QString &  falseText  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setFilter (  const QString &  filter  )  [virtual]
+
+
+
+   void Q3DataTable::setItem (  int            row,
+                                int            col,
+                                Q3TableItem *  item
+                             )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   virtual void Q3DataTable::setNullText (  const QString &  nullText  )  [virtual]
+
+
+
+   void Q3DataTable::setNumCols (  int  c  )  [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::setNumRows (  int  r  )  [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::setPixmap (  int              row,
+                                  int              col,
+                                  const QPixmap &  pix
+                               )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::setSize (  Q3SqlCursor *  sql  )  [protected]
+
+
+
+   virtual void Q3DataTable::setSort (  const QSqlIndex &  sort  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setSort (  const QStringList &  sort  )  [virtual]
+
+
+
+   virtual void Q3DataTable::setSqlCursor (  Q3SqlCursor *  cursor = 0,
+                                             bool           autoPopulate = false,
+                                             bool           autoDelete = false
+                                          )  [virtual]
+
+
+
+   virtual void Q3DataTable::setTrueText (  const QString &  trueText  )  [virtual]
+
+
+
+   void Q3DataTable::showColumn (  int  col  )  [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   QStringList Q3DataTable::sort (   )  const
+
+
+
+   virtual void Q3DataTable::sortAscending (  int  col  )  [virtual, slot]
+
+
+
+   void Q3DataTable::sortColumn (  int   col,
+                                   bool  ascending = true,
+                                   bool  wholeRows = false
+                                )  [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   virtual void Q3DataTable::sortDescending (  int  col  )  [virtual, slot]
+
+
+
+   Q3SqlCursor* Q3DataTable::sqlCursor (   )  const
+
+
+
+   void Q3DataTable::swapColumns (  int   col1,
+                                    int   col2,
+                                    bool  swapHeaders = false
+                                 )  [virtual, slot]
+
+
+
+   Reimplemented from Q3Table.
+
+   void Q3DataTable::takeItem (  Q3TableItem *  i  )  [protected, virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   QString Q3DataTable::text (  int  row,
+                                int  col
+                             )  const [virtual]
+
+
+
+   Reimplemented from Q3Table.
+
+   QString Q3DataTable::trueText (   )  const
+
+
+
+   virtual bool Q3DataTable::updateCurrent (   )  [protected, virtual]
+
+
+
+   QVariant Q3DataTable::value (  int  row,
+                                  int  col
+                               )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   bool Q3DataTable::autoEdit [read, write]
+
+
+
+   bool Q3DataTable::confirmCancels [read, write]
+
+
+
+   bool Q3DataTable::confirmDelete [read, write]
+
+
+
+   bool Q3DataTable::confirmEdits [read, write]
+
+
+
+   bool Q3DataTable::confirmInsert [read, write]
+
+
+
+   bool Q3DataTable::confirmUpdate [read, write]
+
+
+
+   Qt Q3DataTable::DateFormat [read, write]
+
+
+
+   QString Q3DataTable::falseText [read, write]
+
+
+
+   QString Q3DataTable::filter [read, write]
+
+
+
+   QString Q3DataTable::nullText [read, write]
+
+
+
+   int Q3DataTable::numCols [read]
+
+
+
+   Reimplemented from Q3Table.
+
+   int Q3DataTable::numRows [read]
+
+
+
+   Reimplemented from Q3Table.
+
+   QStringList Q3DataTable::sort [read, write]
+
+
+
+   QString Q3DataTable::trueText [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3datatable.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:13 2005 by  doxygen 1.4.3-20050530

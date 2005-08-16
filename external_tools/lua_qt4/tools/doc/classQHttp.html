@@ -1,0 +1,335 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                               QHttp Class Reference
+
+   #include <qhttp.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Public Types
+
+     * enum State {
+         Unconnected, HostLookup, Connecting, Sending,
+         Reading, Connected, Closing
+       }
+     * enum Error {
+         NoError, UnknownError, HostNotFound, ConnectionRefused,
+         UnexpectedClose, InvalidResponseHeader, WrongContentLength, Aborted
+       }
+
+Public Slots
+
+     * void abort ()
+
+Signals
+
+     * void stateChanged (int)
+     * void responseHeaderReceived (const QHttpResponseHeader &resp)
+     * void readyRead (const QHttpResponseHeader &resp)
+     * void dataSendProgress (int, int)
+     * void dataReadProgress (int, int)
+     * void requestStarted (int)
+     * void requestFinished (int, bool)
+     * void done (bool)
+
+Public Member Functions
+
+     * QHttp (QObject *parent=0)
+     * QHttp (const QString &hostname, quint16 port=80, QObject *parent=0)
+     * virtual ~QHttp ()
+     * int supportedOperations () const
+     * int setHost (const QString &hostname, quint16 port=80)
+     * int setSocket (QTcpSocket *socket)
+     * int setUser (const QString &username, const QString &password=QString())
+     * int setProxy (const QString &host, int port, const QString &username=QString(), const QString &password=QString())
+     * int get (const QString &path, QIODevice *to=0)
+     * int post (const QString &path, QIODevice *data, QIODevice *to=0)
+     * int post (const QString &path, const QByteArray &data, QIODevice *to=0)
+     * int head (const QString &path)
+     * int request (const QHttpRequestHeader &header, QIODevice *device=0, QIODevice *to=0)
+     * int request (const QHttpRequestHeader &header, const QByteArray &data, QIODevice *to=0)
+     * int closeConnection ()
+     * int close ()
+     * qint64 bytesAvailable () const
+     * qint64 read (char *data, qint64 maxlen)
+     * QByteArray readAll ()
+     * int currentId () const
+     * QIODevice * currentSourceDevice () const
+     * QIODevice * currentDestinationDevice () const
+     * QHttpRequestHeader currentRequest () const
+     * QHttpResponseHeader lastResponse () const
+     * bool hasPendingRequests () const
+     * void clearPendingRequests ()
+     * State state () const
+     * Error error () const
+     * QString errorString () const
+
+Friends
+
+     * class QHttpSetHostRequest
+     * class QHttpSetSocketRequest
+     * class QHttpSetUserRequest
+     * class QHttpSetProxyRequest
+     * class QHttpCloseRequest
+     * class QHttpPGHRequest
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QHttp::Error
+
+
+
+   Enumerator: 
+
+          NoError              
+          UnknownError         
+          HostNotFound         
+          ConnectionRefused    
+          UnexpectedClose      
+          InvalidResponseHeader
+          WrongContentLength   
+          Aborted              
+
+   enum QHttp::State
+
+
+
+   Enumerator: 
+
+          Unconnected
+          HostLookup 
+          Connecting 
+          Sending    
+          Reading    
+          Connected  
+          Closing    
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QHttp::QHttp (  QObject *  parent = 0  )  [explicit]
+
+
+
+   QHttp::QHttp (  const QString &  hostname,
+                   quint16          port = 80,
+                   QObject *        parent = 0
+                )
+
+
+
+   virtual QHttp::~QHttp (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QHttp::abort (   )  [slot]
+
+
+
+   qint64 QHttp::bytesAvailable (   )  const
+
+
+
+   void QHttp::clearPendingRequests (   )
+
+
+
+   int QHttp::close (   )
+
+
+
+   int QHttp::closeConnection (   )
+
+
+
+   QIODevice* QHttp::currentDestinationDevice (   )  const
+
+
+
+   int QHttp::currentId (   )  const
+
+
+
+   QHttpRequestHeader QHttp::currentRequest (   )  const
+
+
+
+   QIODevice* QHttp::currentSourceDevice (   )  const
+
+
+
+   void QHttp::dataReadProgress (  int  ,
+                                   int
+                                )  [signal]
+
+
+
+   void QHttp::dataSendProgress (  int  ,
+                                   int
+                                )  [signal]
+
+
+
+   void QHttp::done (  bool   )  [signal]
+
+
+
+   Error QHttp::error (   )  const
+
+
+
+   QString QHttp::errorString (   )  const
+
+
+
+   int QHttp::get (  const QString &  path,
+                     QIODevice *      to = 0
+                  )
+
+
+
+   bool QHttp::hasPendingRequests (   )  const
+
+
+
+   int QHttp::head (  const QString &  path  )
+
+
+
+   QHttpResponseHeader QHttp::lastResponse (   )  const
+
+
+
+   int QHttp::post (  const QString &     path,
+                      const QByteArray &  data,
+                      QIODevice *         to = 0
+                   )
+
+
+
+   int QHttp::post (  const QString &  path,
+                      QIODevice *      data,
+                      QIODevice *      to = 0
+                   )
+
+
+
+   qint64 QHttp::read (  char *  data,
+                         qint64  maxlen
+                      )
+
+
+
+   QByteArray QHttp::readAll (   )
+
+
+
+   void QHttp::readyRead (  const QHttpResponseHeader &  resp  )  [signal]
+
+
+
+   int QHttp::request (  const QHttpRequestHeader &  header,
+                         const QByteArray &          data,
+                         QIODevice *                 to = 0
+                      )
+
+
+
+   int QHttp::request (  const QHttpRequestHeader &  header,
+                         QIODevice *                 device = 0,
+                         QIODevice *                 to = 0
+                      )
+
+
+
+   void QHttp::requestFinished (  int   ,
+                                  bool
+                               )  [signal]
+
+
+
+   void QHttp::requestStarted (  int   )  [signal]
+
+
+
+   void QHttp::responseHeaderReceived (  const QHttpResponseHeader &  resp  )  [signal]
+
+
+
+   int QHttp::setHost (  const QString &  hostname,
+                         quint16          port = 80
+                      )
+
+
+
+   int QHttp::setProxy (  const QString &  host,
+                          int              port,
+                          const QString &  username = QString(),
+                          const QString &  password = QString()
+                       )
+
+
+
+   int QHttp::setSocket (  QTcpSocket *  socket  )
+
+
+
+   int QHttp::setUser (  const QString &  username,
+                         const QString &  password = QString()
+                      )
+
+
+
+   State QHttp::state (   )  const
+
+
+
+   void QHttp::stateChanged (  int   )  [signal]
+
+
+
+   int QHttp::supportedOperations (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QHttpCloseRequest [friend]
+
+
+
+   friend class QHttpPGHRequest [friend]
+
+
+
+   friend class QHttpSetHostRequest [friend]
+
+
+
+   friend class QHttpSetProxyRequest [friend]
+
+
+
+   friend class QHttpSetSocketRequest [friend]
+
+
+
+   friend class QHttpSetUserRequest [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qhttp.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:58 2005 by  doxygen 1.4.3-20050530

@@ -1,0 +1,411 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                   QDesignerFormWindowInterface Class Reference
+
+   #include <abstractformwindow.h>
+
+   Inherits QWidget.
+
+   List of all members.
+
+Public Types
+
+     * typedef LuaQtGenericFlags Feature
+     * enum FeatureFlag { EditFeature = 0x01, GridFeature = 0x02, TabOrderFeature = 0x04, DefaultFeature = EditFeature | GridFeature }
+
+Public Slots
+
+     * virtual void manageWidget (QWidget *widget)=0
+     * virtual void unmanageWidget (QWidget *widget)=0
+     * virtual void setFeatures (Feature f)=0
+     * virtual void setDirty (bool dirty)=0
+     * virtual void clearSelection (bool changePropertyDisplay=true)=0
+     * virtual void selectWidget (QWidget *w, bool select=true)=0
+     * virtual void setGrid (const QPoint &grid)=0
+     * virtual void setFileName (const QString &fileName)=0
+     * virtual void setContents (const QString &contents)=0
+     * virtual void editWidgets ()=0
+
+Signals
+
+     * void mainContainerChanged (QWidget *mainContainer)
+     * void toolChanged (int toolIndex)
+     * void fileNameChanged (const QString &fileName)
+     * void featureChanged (Feature f)
+     * void selectionChanged ()
+     * void geometryChanged ()
+     * void resourceFilesChanged ()
+     * void widgetManaged (QWidget *widget)
+     * void widgetUnmanaged (QWidget *widget)
+     * void aboutToUnmanageWidget (QWidget *widget)
+     * void activated (QWidget *widget)
+     * void changed ()
+     * void widgetRemoved (QWidget *w)
+
+Public Member Functions
+
+     * QDesignerFormWindowInterface (QWidget *parent=0, Qt::WindowFlags flags=0)
+     * virtual ~QDesignerFormWindowInterface ()
+     * virtual QString fileName () const =0
+     * virtual QDir absoluteDir () const =0
+     * virtual QString contents () const =0
+     * virtual void setContents (QIODevice *dev)=0
+     * virtual Feature features () const =0
+     * virtual bool hasFeature (Feature f) const =0
+     * virtual QString author () const =0
+     * virtual void setAuthor (const QString &author)=0
+     * virtual QString comment () const =0
+     * virtual void setComment (const QString &comment)=0
+     * virtual void layoutDefault (int *margin, int *spacing)=0
+     * virtual void setLayoutDefault (int margin, int spacing)=0
+     * virtual void layoutFunction (QString *margin, QString *spacing)=0
+     * virtual void setLayoutFunction (const QString &margin, const QString &spacing)=0
+     * virtual QString pixmapFunction () const =0
+     * virtual void setPixmapFunction (const QString &pixmapFunction)=0
+     * virtual QString exportMacro () const =0
+     * virtual void setExportMacro (const QString &exportMacro)=0
+     * virtual QStringList includeHints () const =0
+     * virtual void setIncludeHints (const QStringList &includeHints)=0
+     * virtual QDesignerFormEditorInterface * core () const
+     * virtual QDesignerFormWindowCursorInterface * cursor () const =0
+     * virtual int toolCount () const =0
+     * virtual int currentTool () const =0
+     * virtual void setCurrentTool (int index)=0
+     * virtual QDesignerFormWindowToolInterface * tool (int index) const =0
+     * virtual void registerTool (QDesignerFormWindowToolInterface *tool)=0
+     * virtual QPoint grid () const =0
+     * virtual QWidget * mainContainer () const =0
+     * virtual void setMainContainer (QWidget *mainContainer)=0
+     * virtual bool isManaged (QWidget *widget) const =0
+     * virtual bool isDirty () const =0
+     * virtual QtUndoStack * commandHistory () const =0
+     * virtual void beginCommand (const QString &description)=0
+     * virtual void endCommand ()=0
+     * virtual void simplifySelection (QList< QWidget * > *widgets) const =0
+     * virtual void emitSelectionChanged ()=0
+     * virtual QStringList resourceFiles () const =0
+     * virtual void addResourceFile (const QString &path)=0
+     * virtual void removeResourceFile (const QString &path)=0
+     * virtual void ensureUniqueObjectName (QObject *object)=0
+
+Static Public Member Functions
+
+     * static QDesignerFormWindowInterface * findFormWindow (QWidget *w)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Typedef Documentation
+
+   typedef LuaQtGenericFlags QDesignerFormWindowInterface::Feature
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QDesignerFormWindowInterface::FeatureFlag
+
+
+
+   Enumerator: 
+
+          EditFeature    
+          GridFeature    
+          TabOrderFeature
+          DefaultFeature 
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QDesignerFormWindowInterface::QDesignerFormWindowInterface (  QWidget *        parent = 0,
+                                                                 Qt::WindowFlags  flags = 0
+                                                              )
+
+
+
+   virtual QDesignerFormWindowInterface::~QDesignerFormWindowInterface (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QDesignerFormWindowInterface::aboutToUnmanageWidget (  QWidget *  widget  )  [signal]
+
+
+
+   virtual QDir QDesignerFormWindowInterface::absoluteDir (   )  const [pure virtual]
+
+
+
+   void QDesignerFormWindowInterface::activated (  QWidget *  widget  )  [signal]
+
+
+
+   virtual void QDesignerFormWindowInterface::addResourceFile (  const QString &  path  )  [pure virtual]
+
+
+
+   virtual QString QDesignerFormWindowInterface::author (   )  const [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::beginCommand (  const QString &  description  )  [pure virtual]
+
+
+
+   void QDesignerFormWindowInterface::changed (   )  [signal]
+
+
+
+   virtual void QDesignerFormWindowInterface::clearSelection (  bool  changePropertyDisplay = true  )  [pure virtual, slot]
+
+
+
+   virtual QtUndoStack* QDesignerFormWindowInterface::commandHistory (   )  const [pure virtual]
+
+
+
+   virtual QString QDesignerFormWindowInterface::comment (   )  const [pure virtual]
+
+
+
+   virtual QString QDesignerFormWindowInterface::contents (   )  const [pure virtual]
+
+
+
+   virtual QDesignerFormEditorInterface* QDesignerFormWindowInterface::core (   )  const [virtual]
+
+
+
+   virtual int QDesignerFormWindowInterface::currentTool (   )  const [pure virtual]
+
+
+
+   virtual QDesignerFormWindowCursorInterface* QDesignerFormWindowInterface::cursor (   )  const [pure virtual]
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void QDesignerFormWindowInterface::editWidgets (   )  [pure virtual, slot]
+
+
+
+   virtual void QDesignerFormWindowInterface::emitSelectionChanged (   )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::endCommand (   )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::ensureUniqueObjectName (  QObject *  object  )  [pure virtual]
+
+
+
+   virtual QString QDesignerFormWindowInterface::exportMacro (   )  const [pure virtual]
+
+
+
+   void QDesignerFormWindowInterface::featureChanged (  Feature  f  )  [signal]
+
+
+
+   virtual Feature QDesignerFormWindowInterface::features (   )  const [pure virtual]
+
+
+
+   virtual QString QDesignerFormWindowInterface::fileName (   )  const [pure virtual]
+
+
+
+   void QDesignerFormWindowInterface::fileNameChanged (  const QString &  fileName  )  [signal]
+
+
+
+   static QDesignerFormWindowInterface* QDesignerFormWindowInterface::findFormWindow (  QWidget *  w  )  [static]
+
+
+
+   void QDesignerFormWindowInterface::geometryChanged (   )  [signal]
+
+
+
+   virtual QPoint QDesignerFormWindowInterface::grid (   )  const [pure virtual]
+
+
+
+   virtual bool QDesignerFormWindowInterface::hasFeature (  Feature  f  )  const [pure virtual]
+
+
+
+   virtual QStringList QDesignerFormWindowInterface::includeHints (   )  const [pure virtual]
+
+
+
+   virtual bool QDesignerFormWindowInterface::isDirty (   )  const [pure virtual]
+
+
+
+   virtual bool QDesignerFormWindowInterface::isManaged (  QWidget *  widget  )  const [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::layoutDefault (  int *  margin,
+                                                               int *  spacing
+                                                            )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::layoutFunction (  QString *  margin,
+                                                                QString *  spacing
+                                                             )  [pure virtual]
+
+
+
+   virtual QWidget* QDesignerFormWindowInterface::mainContainer (   )  const [pure virtual]
+
+
+
+   void QDesignerFormWindowInterface::mainContainerChanged (  QWidget *  mainContainer  )  [signal]
+
+
+
+   virtual void QDesignerFormWindowInterface::manageWidget (  QWidget *  widget  )  [pure virtual, slot]
+
+
+
+   virtual QString QDesignerFormWindowInterface::pixmapFunction (   )  const [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::registerTool (  QDesignerFormWindowToolInterface *  tool  )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::removeResourceFile (  const QString &  path  )  [pure virtual]
+
+
+
+   virtual QStringList QDesignerFormWindowInterface::resourceFiles (   )  const [pure virtual]
+
+
+
+   void QDesignerFormWindowInterface::resourceFilesChanged (   )  [signal]
+
+
+
+   void QDesignerFormWindowInterface::selectionChanged (   )  [signal]
+
+
+
+   virtual void QDesignerFormWindowInterface::selectWidget (  QWidget *  w,
+                                                              bool       select = true
+                                                           )  [pure virtual, slot]
+
+
+
+   virtual void QDesignerFormWindowInterface::setAuthor (  const QString &  author  )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::setComment (  const QString &  comment  )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::setContents (  const QString &  contents  )  [pure virtual, slot]
+
+
+
+   virtual void QDesignerFormWindowInterface::setContents (  QIODevice *  dev  )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::setCurrentTool (  int  index  )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::setDirty (  bool  dirty  )  [pure virtual, slot]
+
+
+
+   virtual void QDesignerFormWindowInterface::setExportMacro (  const QString &  exportMacro  )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::setFeatures (  Feature  f  )  [pure virtual, slot]
+
+
+
+   virtual void QDesignerFormWindowInterface::setFileName (  const QString &  fileName  )  [pure virtual, slot]
+
+
+
+   virtual void QDesignerFormWindowInterface::setGrid (  const QPoint &  grid  )  [pure virtual, slot]
+
+
+
+   virtual void QDesignerFormWindowInterface::setIncludeHints (  const QStringList &  includeHints  )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::setLayoutDefault (  int  margin,
+                                                                  int  spacing
+                                                               )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::setLayoutFunction (  const QString &  margin,
+                                                                   const QString &  spacing
+                                                                )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::setMainContainer (  QWidget *  mainContainer  )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::setPixmapFunction (  const QString &  pixmapFunction  )  [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::simplifySelection (  QList< QWidget * > *  widgets  )  const [pure virtual]
+
+
+
+   virtual QDesignerFormWindowToolInterface* QDesignerFormWindowInterface::tool (  int  index  )  const [pure virtual]
+
+
+
+   void QDesignerFormWindowInterface::toolChanged (  int  toolIndex  )  [signal]
+
+
+
+   virtual int QDesignerFormWindowInterface::toolCount (   )  const [pure virtual]
+
+
+
+   virtual void QDesignerFormWindowInterface::unmanageWidget (  QWidget *  widget  )  [pure virtual, slot]
+
+
+
+   void QDesignerFormWindowInterface::widgetManaged (  QWidget *  widget  )  [signal]
+
+
+
+   void QDesignerFormWindowInterface::widgetRemoved (  QWidget *  w  )  [signal]
+
+
+
+   void QDesignerFormWindowInterface::widgetUnmanaged (  QWidget *  widget  )  [signal]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/abstractformwindow.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:33:56 2005 by  doxygen 1.4.3-20050530

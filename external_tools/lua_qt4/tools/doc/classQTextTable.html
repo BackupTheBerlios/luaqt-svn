@@ -1,0 +1,132 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTextTable Class Reference
+
+   #include <qtexttable.h>
+
+   Inherits QTextFrame.
+
+   List of all members.
+
+Public Member Functions
+
+     * QTextTable (QTextDocument *doc)
+     * ~QTextTable ()
+     * void resize (int rows, int cols)
+     * void insertRows (int pos, int num)
+     * void insertColumns (int pos, int num)
+     * void removeRows (int pos, int num)
+     * void removeColumns (int pos, int num)
+     * int rows () const
+     * int columns () const
+     * QTextTableCell cellAt (int row, int col) const
+     * QTextTableCell cellAt (int position) const
+     * QTextTableCell cellAt (const QTextCursor &c) const
+     * QTextCursor rowStart (const QTextCursor &c) const
+     * QTextCursor rowEnd (const QTextCursor &c) const
+     * void setFormat (const QTextTableFormat &format)
+     * QTextTableFormat format () const
+
+Friends
+
+     * class QTextTableCell
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTextTable::QTextTable (  QTextDocument *  doc  )  [explicit]
+
+
+
+   QTextTable::~QTextTable (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   QTextTableCell QTextTable::cellAt (  const QTextCursor &  c  )  const
+
+
+
+   QTextTableCell QTextTable::cellAt (  int  position  )  const
+
+
+
+   QTextTableCell QTextTable::cellAt (  int  row,
+                                        int  col
+                                     )  const
+
+
+
+   int QTextTable::columns (   )  const
+
+
+
+   QTextTableFormat QTextTable::format (   )  const [inline]
+
+
+
+   Reimplemented from QTextObject.
+
+   void QTextTable::insertColumns (  int  pos,
+                                     int  num
+                                  )
+
+
+
+   void QTextTable::insertRows (  int  pos,
+                                  int  num
+                               )
+
+
+
+   void QTextTable::removeColumns (  int  pos,
+                                     int  num
+                                  )
+
+
+
+   void QTextTable::removeRows (  int  pos,
+                                  int  num
+                               )
+
+
+
+   void QTextTable::resize (  int  rows,
+                              int  cols
+                           )
+
+
+
+   QTextCursor QTextTable::rowEnd (  const QTextCursor &  c  )  const
+
+
+
+   int QTextTable::rows (   )  const
+
+
+
+   QTextCursor QTextTable::rowStart (  const QTextCursor &  c  )  const
+
+
+
+   void QTextTable::setFormat (  const QTextTableFormat &  format  )  [inline]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Friends And Related Function Documentation
+
+   friend class QTextTableCell [friend]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtexttable.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

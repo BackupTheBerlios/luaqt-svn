@@ -1,0 +1,127 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                            QTcpServer Class Reference
+
+   #include <qtcpserver.h>
+
+   Inherits QObject.
+
+   List of all members.
+
+Signals
+
+     * void newConnection ()
+
+Public Member Functions
+
+     * QTcpServer (QObject *parent=0)
+     * virtual ~QTcpServer ()
+     * bool listen (const QHostAddress &address=QHostAddress::Any, quint16 port=0)
+     * void close ()
+     * bool isListening () const
+     * void setMaxPendingConnections (int numConnections)
+     * int maxPendingConnections () const
+     * quint16 serverPort () const
+     * QHostAddress serverAddress () const
+     * int socketDescriptor () const
+     * bool setSocketDescriptor (int socketDescriptor)
+     * bool waitForNewConnection (int msec=0, bool *timedOut=0)
+     * virtual bool hasPendingConnections () const
+     * virtual QTcpSocket * nextPendingConnection ()
+     * QAbstractSocket::SocketError serverError () const
+     * QString errorString () const
+
+Protected Member Functions
+
+     * virtual void incomingConnection (int handle)
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   QTcpServer::QTcpServer (  QObject *  parent = 0  )  [explicit]
+
+
+
+   virtual QTcpServer::~QTcpServer (   )  [virtual]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   void QTcpServer::close (   )
+
+
+
+   QString QTcpServer::errorString (   )  const
+
+
+
+   virtual bool QTcpServer::hasPendingConnections (   )  const [virtual]
+
+
+
+   virtual void QTcpServer::incomingConnection (  int  handle  )  [protected, virtual]
+
+
+
+   bool QTcpServer::isListening (   )  const
+
+
+
+   bool QTcpServer::listen (  const QHostAddress &  address = QHostAddress::Any,
+                              quint16               port = 0
+                           )
+
+
+
+   int QTcpServer::maxPendingConnections (   )  const
+
+
+
+   void QTcpServer::newConnection (   )  [signal]
+
+
+
+   virtual QTcpSocket* QTcpServer::nextPendingConnection (   )  [virtual]
+
+
+
+   QHostAddress QTcpServer::serverAddress (   )  const
+
+
+
+   QAbstractSocket::SocketError QTcpServer::serverError (   )  const
+
+
+
+   quint16 QTcpServer::serverPort (   )  const
+
+
+
+   void QTcpServer::setMaxPendingConnections (  int  numConnections  )
+
+
+
+   bool QTcpServer::setSocketDescriptor (  int  socketDescriptor  )
+
+
+
+   int QTcpServer::socketDescriptor (   )  const
+
+
+
+   bool QTcpServer::waitForNewConnection (  int     msec = 0,
+                                            bool *  timedOut = 0
+                                         )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/qtcpserver.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Fri Aug 5 08:34:04 2005 by  doxygen 1.4.3-20050530

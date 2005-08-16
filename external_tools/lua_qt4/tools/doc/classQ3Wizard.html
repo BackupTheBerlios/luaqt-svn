@@ -1,0 +1,263 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                             Q3Wizard Class Reference
+
+   #include <q3wizard.h>
+
+   Inherits QDialog.
+
+   List of all members.
+
+Public Slots
+
+     * virtual void setBackEnabled (QWidget *, bool)
+     * virtual void setNextEnabled (QWidget *, bool)
+     * virtual void setFinishEnabled (QWidget *, bool)
+     * virtual void setHelpEnabled (QWidget *, bool)
+     * virtual void setFinish (QWidget *, bool)
+
+Signals
+
+     * void helpClicked ()
+     * void selected (const QString &)
+
+Public Member Functions
+
+     * Q3Wizard (QWidget *parent=0, const char *name=0, bool modal=false, Qt::WFlags f=0)
+     * ~Q3Wizard ()
+     * void setVisible (bool)
+     * void setFont (const QFont &font)
+     * virtual void addPage (QWidget *, const QString &)
+     * virtual void insertPage (QWidget *, const QString &, int)
+     * virtual void removePage (QWidget *)
+     * QString title (QWidget *) const
+     * void setTitle (QWidget *, const QString &)
+     * QFont titleFont () const
+     * void setTitleFont (const QFont &)
+     * virtual void showPage (QWidget *)
+     * QWidget * currentPage () const
+     * QWidget * page (int) const
+     * int pageCount () const
+     * int indexOf (QWidget *) const
+     * virtual bool appropriate (QWidget *) const
+     * virtual void setAppropriate (QWidget *, bool)
+     * QPushButton * backButton () const
+     * QPushButton * nextButton () const
+     * QPushButton * finishButton () const
+     * QPushButton * cancelButton () const
+     * QPushButton * helpButton () const
+     * bool eventFilter (QObject *, QEvent *)
+
+Protected Slots
+
+     * virtual void back ()
+     * virtual void next ()
+     * virtual void help ()
+
+Protected Member Functions
+
+     * virtual void layOutButtonRow (QHBoxLayout *)
+     * virtual void layOutTitleRow (QHBoxLayout *, const QString &)
+
+Properties
+
+     * QFont titleFont
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructor & Destructor Documentation
+
+   Q3Wizard::Q3Wizard (  QWidget *     parent = 0,
+                         const char *  name = 0,
+                         bool          modal = false,
+                         Qt::WFlags    f = 0
+                      )
+
+
+
+   Q3Wizard::~Q3Wizard (   )
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   virtual void Q3Wizard::addPage (  QWidget *        ,
+                                     const QString &
+                                  )  [virtual]
+
+
+
+   virtual bool Q3Wizard::appropriate (  QWidget *   )  const [virtual]
+
+
+
+   virtual void Q3Wizard::back (   )  [protected, virtual, slot]
+
+
+
+   QPushButton* Q3Wizard::backButton (   )  const
+
+
+
+   QPushButton* Q3Wizard::cancelButton (   )  const
+
+
+
+   QWidget* Q3Wizard::currentPage (   )  const
+
+
+
+   bool Q3Wizard::eventFilter (  QObject *  ,
+                                 QEvent * 
+                              )  [virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   QPushButton* Q3Wizard::finishButton (   )  const
+
+
+
+   virtual void Q3Wizard::help (   )  [protected, virtual, slot]
+
+
+
+   QPushButton* Q3Wizard::helpButton (   )  const
+
+
+
+   void Q3Wizard::helpClicked (   )  [signal]
+
+
+
+   int Q3Wizard::indexOf (  QWidget *   )  const
+
+
+
+   virtual void Q3Wizard::insertPage (  QWidget *        ,
+                                        const QString &  ,
+                                        int            
+                                     )  [virtual]
+
+
+
+   virtual void Q3Wizard::layOutButtonRow (  QHBoxLayout *   )  [protected, virtual]
+
+
+
+   virtual void Q3Wizard::layOutTitleRow (  QHBoxLayout *    ,
+                                            const QString &
+                                         )  [protected, virtual]
+
+
+
+   virtual void Q3Wizard::next (   )  [protected, virtual, slot]
+
+
+
+   QPushButton* Q3Wizard::nextButton (   )  const
+
+
+
+   QWidget* Q3Wizard::page (  int   )  const
+
+
+
+   int Q3Wizard::pageCount (   )  const
+
+
+
+   virtual void Q3Wizard::removePage (  QWidget *   )  [virtual]
+
+
+
+   void Q3Wizard::selected (  const QString &   )  [signal]
+
+
+
+   virtual void Q3Wizard::setAppropriate (  QWidget *  ,
+                                            bool     
+                                         )  [virtual]
+
+
+
+   virtual void Q3Wizard::setBackEnabled (  QWidget *  ,
+                                            bool     
+                                         )  [virtual, slot]
+
+
+
+   virtual void Q3Wizard::setFinish (  QWidget *  ,
+                                       bool     
+                                    )  [inline, virtual, slot]
+
+
+
+   virtual void Q3Wizard::setFinishEnabled (  QWidget *  ,
+                                              bool     
+                                           )  [virtual, slot]
+
+
+
+   void Q3Wizard::setFont (  const QFont &  font  )
+
+
+
+   Reimplemented from QWidget.
+
+   virtual void Q3Wizard::setHelpEnabled (  QWidget *  ,
+                                            bool     
+                                         )  [virtual, slot]
+
+
+
+   virtual void Q3Wizard::setNextEnabled (  QWidget *  ,
+                                            bool     
+                                         )  [virtual, slot]
+
+
+
+   void Q3Wizard::setTitle (  QWidget *        ,
+                              const QString &
+                           )
+
+
+
+   void Q3Wizard::setTitleFont (  const QFont &   )
+
+
+
+   void Q3Wizard::setVisible (  bool   )  [virtual]
+
+
+
+   Reimplemented from QDialog.
+
+   virtual void Q3Wizard::showPage (  QWidget *   )  [virtual]
+
+
+
+   QString Q3Wizard::title (  QWidget *   )  const
+
+
+
+   QFont Q3Wizard::titleFont (   )  const
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Property Documentation
+
+   QFont Q3Wizard::titleFont [read, write]
+
+
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this class was generated from the following file:
+     * include/q3wizard.h
+     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530
