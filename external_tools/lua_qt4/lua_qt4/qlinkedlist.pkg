@@ -1,0 +1,108 @@
+$#include <QLinkedList>
+
+class QLinkedList {
+
+	TEMPLATE_BIND(T, $TYPE_LIST);
+
+	class iterator {
+		iterator () ;
+		//iterator (Node *n) ;
+		iterator (const iterator &o) ;
+		iterator & operator= (const iterator &o) ;
+		//T & operator * () const ;
+		//T * operator-> () const ;
+		
+		T& __operator_star @ data;
+		iterator& __operator_inc @ inc();
+		iterator& __operator_dec @ dec();
+		
+		bool operator== (const iterator &o) const ;
+		bool operator!= (const iterator &o) const ;
+		bool operator== (const const_iterator &o) const ;
+		bool operator!= (const const_iterator &o) const ;
+		iterator & operator++ () ;
+		iterator operator++ (int) ;
+		iterator & operator-- () ;
+		iterator operator-- (int) ;
+		iterator operator+ (int j) const ;
+		iterator operator- (int j) const ;
+		iterator & operator+= (int j) ;
+		iterator & operator-= (int j);
+	};
+
+	class const_iterator {
+	
+		const_iterator () ;
+		//const_iterator (Node *n) ;
+		const_iterator (const const_iterator &o) ;
+		const_iterator (iterator ci) ;
+		const_iterator & operator= (const const_iterator &o) ;
+		const T & operator * () const ;
+		const T * operator-> () const ;
+
+		const T& __operator_star @ data;
+		const_iterator& __operator_inc @ inc();
+		const_iterator& __operator_dec @ dec();
+
+		bool operator== (const const_iterator &o) const ;
+		bool operator!= (const const_iterator &o) const ;
+		const_iterator & operator++ () ;
+		const_iterator operator++ (int) ;
+		const_iterator & operator-- () ;
+		const_iterator operator-- (int) ;
+		const_iterator operator+ (int j) const ;
+		const_iterator operator- (int j) const ;
+		const_iterator & operator+= (int j) ;
+		const_iterator & operator-= (int j)	;
+	};
+
+	QLinkedList () ;
+	QLinkedList (const QLinkedList<T> &l) ;
+	~QLinkedList () ;
+	QLinkedList< T > & operator= (const QLinkedList<T> &) ;
+	bool operator== (const QLinkedList<T> &l) const ;
+	bool operator!= (const QLinkedList<T> &l) const ;
+	int size () const ;
+	void detach () ;
+	bool isDetached () const ;
+	void setSharable (bool sharable) ;
+	bool isEmpty () const ;
+	void clear () ;
+	void append (T) ;
+	void prepend (T) ;
+	T takeFirst () ;
+	T takeLast () ;
+	int removeAll (T t) ;
+	bool contains (T t) const ;
+	int count (T t) const ;
+	iterator begin () ;
+	const_iterator begin () const ;
+	const_iterator constBegin () const ;
+	iterator end@endl () ;
+	const_iterator end@endl () const ;
+	const_iterator constEnd () const ;
+	iterator insert (iterator before, T t) ;
+	iterator erase (iterator pos) ;
+	iterator erase (iterator first, iterator last) ;
+	int count () const ;
+	T & first () ;
+	const T & first () const ;
+	T & last () ;
+	const T & last () const ;
+	void removeFirst () ;
+	void removeLast () ;
+	void push_back (T t) ;
+	void push_front (T t) ;
+	T & front () ;
+	const T & front () const ;
+	T & back () ;
+	const T & back () const ;
+	void pop_front () ;
+	void pop_back () ;
+	bool empty () const ;
+	QLinkedList<T> & operator+= (const QLinkedList<T> &l) ;
+	QLinkedList<T> operator+ (const QLinkedList<T> &l) const ;
+	QLinkedList<T> & operator+= (T t) ;
+	QLinkedList<T> & operator<< (T t) ;
+	QLinkedList<T> & operator<< (const QLinkedList<T> &l);
+};

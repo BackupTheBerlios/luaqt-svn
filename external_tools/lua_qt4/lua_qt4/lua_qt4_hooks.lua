@@ -35,6 +35,18 @@ function include_file_hook(p, filename, ...)
 	end
 end
 
+function include_hook_list.template(p, filename, type, ...)
+
+	local sep = ""
+	local list = ""
+	for k,v in ipairs(arg) do
+		list = list..sep..v
+		sep = ","
+	end
+
+	p.code = string.gsub(p.code, "%$TYPE_LIST", list)
+end
+
 function include_hook_list.qns(p, filename, ftype)
 
 	p.code = string.gsub(p.code, "Q_DECLARE_FLAGS%s*%(([^,]*),([^%)]*)%)%s*;?", "typedef %2 %1;\n")

@@ -1,0 +1,23 @@
+$#include <QCache>
+
+class QCache {
+
+	TEMPLATE_BIND(Key T, $TYPE_LIST);
+
+	QCache (int maxCost=100) ;
+	~QCache () ;
+	int maxCost () const ;
+	void setMaxCost (int m) ;
+	int totalCost () const ;
+	int size () const ;
+	int count () const ;
+	bool isEmpty () const ;
+	QList< Key > keys () const ;
+	void clear () ;
+	bool insert (Key key, T *object, int cost=1) ;
+	T * object (Key key) const ;
+	bool contains (Key key) const ;
+	T * operator[] (Key key) const ;
+	bool remove (Key key) ;
+	T * take (Key key);
+};

@@ -1,0 +1,21 @@
+$ifile "lua_qt4/qmap_base.pkg"
+
+class QMap {
+
+	TEMPLATE_BIND(Key T, $TYPE_LIST);
+
+	class iterator {
+	
+		T value () const ;
+	};
+
+	class const_iterator {
+
+		const T value () const ;
+	};
+
+	//T & operator[] (Key key) ;
+	//const T operator[] (Key key) const ;
+	
+	T __operator_sub@get(Key key);
+};

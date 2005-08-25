@@ -1,0 +1,18 @@
+$#include <QPointer>
+
+class QPointer {
+
+	TEMPLATE_BIND(T, $TYPE_LIST);
+
+	QPointer ();
+	QPointer ( T * p );
+	QPointer ( const QPointer<T> & p );
+	~QPointer ();
+	bool isNull () const;
+
+	tolua_readonly T __operator_star@p;
+	
+	QPointer<T> & __operator_assign@set(const QPointer<T> & p );
+	QPointer<T> & __operator_assign@set(T* p );
+};
+

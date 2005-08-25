@@ -1,0 +1,163 @@
+$#include <QList>
+$#include <QVector>
+$#include <QSet>
+$#include <QHash>
+$#include <QQueue>
+
+class QList {
+
+	TEMPLATE_BIND(T, $TYPE_LIST);
+
+	class Node;
+	class const_iterator;
+
+	class iterator {
+	
+		typedef std::random_access_iterator_tag iterator_category ;
+		typedef ptrdiff_t difference_type ;
+		//typedef T value_type ;
+		//typedef T * pointer ;
+		//typedef T & reference;
+		
+		iterator () ;
+		//iterator (Node *n) ;
+		iterator (const iterator &o) ;
+		//T & operator * () const ;
+
+		iterator& __operator_inc @ inc();
+		iterator& __operator_dec @ dec();
+		
+		T * operator-> () const ;
+		bool operator== (const iterator &o) const ;
+		bool operator== (const const_iterator &o) const ;
+
+		int operator- (iterator j) const;
+
+		T __operator_star @ data;
+		T operator[] (int j) const ;
+	};
+
+	class const_iterator {
+	
+		typedef std::random_access_iterator_tag iterator_category ;
+		typedef ptrdiff_t difference_type ;
+		//typedef T value_type ;
+		//typedef T * pointer ;
+		//typedef T & reference;
+		
+		
+		iterator& __operator_inc @ inc();
+		iterator& __operator_dec @ dec();
+		
+		const_iterator () ;
+		//const_iterator (Node *n) ;
+		const_iterator (const const_iterator &o) ;
+		const_iterator (const iterator &o) ;
+
+		bool operator== (const const_iterator &o) const;
+		const_iterator operator+ (int j) const ;
+		const_iterator operator- (int j) const ;
+		int operator- (const_iterator j) const;
+
+		const T __operator_star @ data;
+		const T operator[] (int j) const ;
+	};
+
+	typedef iterator Iterator;
+	typedef const_iterator ConstIterator ;
+	typedef int size_type ;
+	//typedef T value_type ;
+	//typedef value_type * pointer ;
+	//typedef const value_type * const_pointer ;
+	//typedef value_type & reference ;
+	//typedef const value_type & const_reference;
+
+
+	QList ();
+	QList (const QList<T> &l) ;
+	~QList () ;
+	//QList & operator= (const QList &l) ;
+	//bool operator== (const QList &l) const ;
+	//bool operator!= (const QList &l) const ;
+	int size () const ;
+	void detach () ;
+	bool isDetached () const ;
+	void setSharable (bool sharable) ;
+	bool isEmpty () const ;
+	void clear () ;
+
+	T takeAt (int i) ;
+	T takeFirst () ;
+	T takeLast () ;
+	void removeAt (int i) ;
+	void move (int from, int to) ;
+	void swap (int i, int j) ;
+	iterator begin () ;
+	const_iterator begin () const ;
+	const_iterator constBegin () const ;
+	iterator end@endl () ;
+	const_iterator end@endl () const ;
+	const_iterator constEnd () const ;
+	iterator erase (iterator pos) ;
+	iterator erase (iterator first, iterator last) ;
+	int count () const ;
+	void removeFirst () ;
+	void removeLast () ;
+	QList< T > mid (int pos, int length=-1) const ;
+	T value (int i) const ;
+	void pop_front () ;
+	void pop_back () ;
+	bool empty () const ;
+	QList<T> operator+ (const QList<T> &l) const ;
+	QVector< T > toVector () const ;
+	//QSet< T > toSet () const ;
+	std::list< T > toStdList () const;
+
+	QList<T> fromSet ( const QSet<T> & set );
+	QList<T> fromStdList ( const std::list<T> & list );
+	QList<T> fromVector ( const QVector<T> & vector );
+
+	const T at (int i) const ;
+	const T operator[] (int i) const ;
+	T operator[] (int i) ;
+
+	T first () ;
+	const T first () const ;
+	T last () ;
+	const T last () const ;
+	T front () ;
+	const T front () const ;
+	T back () ;
+	T front () ;
+
+	void append (T t) ;
+	void prepend (T t) ;
+	void insert (int i, T t) ;
+	void replace (int i, T t) ;
+	int removeAll (T t) ;
+	int indexOf (T t, int from=0) const ;
+	int lastIndexOf (T t, int from=-1) const ;
+	QBool contains (T t) const ;
+	int count (T t) const ;
+	iterator insert (iterator before, T t) ;
+
+	T value (int i, T defaultValue) const ;
+	void push_back (T t) ;
+	void push_front (T t) ;
+};
+
+
+class QQueue {
+
+	TEMPLATE_BIND(T, $TYPE_LIST);
+
+	QQueue ();
+	~QQueue ();
+	T dequeue ();
+
+	T head ();
+	const T head () const;
+
+	void enqueue ( T t );
+};
+

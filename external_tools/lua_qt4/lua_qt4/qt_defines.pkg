@@ -2,6 +2,13 @@ $#define tolua_toqtstring tolua_tostring
 $#define tolua_isqtstring tolua_isstring
 $#define tolua_pushqtstring(L,s) tolua_pushstring(L, s.toAscii().constData())
 
+$#define __operator_sub operator[]
+$#define __operator_assign operator=
+$#define __operator_inc operator++
+$#define __operator_dec operator--
+$#define __operator_star operator*()
+
+
 // Qt typedefs
 typedef unsigned char uchar;
 typedef unsigned short ushort;

@@ -1,36 +1,18 @@
 LuaSlot = {}
-_global_objects = {}
 
 function print_traceback(s)
 	print(debug.traceback(s))
 end
 
+--------------------------------------------- misc stuff ---------------------------------------------
 
-function class(obj, base)
+LuaQt = LuaQt or {}
 
-	local o = _G[obj] or {}
-	o['.classname'] = obj
-	o.__index = o
-	if type(base) == 'string' then
-		base = _global_objects[base]
-	end
-
-	base = base or BaseClass
-
-	setmetatable(o, base)
-
-	_G[obj] = o
-	_global_objects[obj] = o
+if arg then
+	LuaQt:init_args(arg)
 end
 
-function instance_from_script(p_script, page)
-	local obj = require(p_script)
-	local n = obj:new(page)
-
-	return n
-end
-
-function global_connect(self, sender_instance, signal, rcv_instance, method, ...)
+function LuaQt.global_connect(self, sender_instance, signal, rcv_instance, method, ...)
 
 	if not signal then
 		print(debug.traceback("** invalid signal"))
@@ -57,79 +39,8 @@ function global_connect(self, sender_instance, signal, rcv_instance, method, ...
 	end
 end
 
-BaseClass = {[".classname"] = "BaseClass"}
-BaseClass.__index = BaseClass
-BaseClass.connect = global_connect
-BaseClass.connect_signal = global_connect
-
-function BaseClass:new(...)
-	local o = {}
-	setmetatable(o, self)
-
-	init_object(self, o, arg)
-	--o:__init__(unpack(arg))
-
-	return o
-end
-
-function base__index(self, key)
-
-	local v = rawget(self, key)
-	if v ~= nil then
-		return v
-	end
-	v = getmetatable(self)[key]
-	if v ~= nil then
-		return v
-	end
-	v = rawget(self, ".c_instance")
-	if v ~= nil then
-		return v[key]
-	end
-end
-
-function BaseClass:set_c_instance(ins)
-
-	if ins.tolua__set_instance then
-
-		ins:tolua__set_instance(self)
-	end
-
-	self[".c_instance"] = ins
-
-	getmetatable(self).__index = base__index
-end
-
-function init_object(mt, obj, arg)
-
-	mt.__init_parent__(obj, arg, mt)
-	mt.__init__(obj, unpack(arg))
-end
-
-function BaseClass:__init_parent__(arg, mt)
-
-	local t = getmetatable(mt)
-	if t then
-
-		if t ~= BaseClass then
-
-			init_object(t, self, arg)
-		end
-	end
-
-end
-
-function BaseClass:__init__()
-
-end
-
---------------------------------------------- misc stuff ---------------------------------------------
-
-LuaQt = LuaQt or {}
-
-if arg then
-	LuaQt:init_args(arg)
-end
+class.BaseClass.connect = LuaQt.global_connect
+class.BaseClass.connect_signal = LuaQt.global_connect
 
 function LuaQt.copy_args(args)
 

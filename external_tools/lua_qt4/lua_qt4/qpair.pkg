@@ -1,0 +1,16 @@
+$#include <QPair>
+
+class QPair {
+
+	TEMPLATE_BIND(T1 T2, $TYPE_LIST);
+
+	QPair () ;
+	QPair (T1 t1, T2 t2) ;
+	//QPair & operator= (const QPair<T1,T2> &other);
+
+	QPair<T1,T2> __operator_assign@set(QPair<T1,T2> &other);
+
+	T1 first;
+	T2 second;
+};
+

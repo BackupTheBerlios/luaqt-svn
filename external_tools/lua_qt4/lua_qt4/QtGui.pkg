@@ -20,6 +20,12 @@ class QDir {
 	typedef LuaQtGenericFlags Filters;
 };
 
+$ifile "lua_qt4/qlist.pkg", template, QWidget*, QObject*
+$ifile "lua_qt4/qvector_ptr.pkg", template, QWidget*, QObject*
+$ifile "lua_qt4/qpointer.pkg", template, QWidget, QObject
+
+typedef QList<QWidget*> QWidgetList;
+
 $ifile "lua_qt4/QtGui_headers.pkg",qt
 
 class QAccessibleWidget {

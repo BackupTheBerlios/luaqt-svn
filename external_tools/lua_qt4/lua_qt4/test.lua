@@ -1,8 +1,8 @@
 function load_module(mod)
 
 	print("Loading module "..mod)
-	--local f, oe, ce = loadlib("./liblua_qt_"..mod..".so", "tolua_lua_qt_"..mod.."_open")
-	local f, oe, ce = loadlib("./lua_qt_"..mod..".dll", "tolua_lua_qt_"..mod.."_open")
+	local f, oe, ce = loadlib("./liblua_qt_"..mod..".so", "tolua_lua_qt_"..mod.."_open")
+	--local f, oe, ce = loadlib("./lua_qt_"..mod..".dll", "tolua_lua_qt_"..mod.."_open")
 	if not f then
 		error(oe)
 	end
@@ -62,7 +62,7 @@ function Main:__init__(parent)
 	self.hlayout:addWidget(self.label)
 	self.hlayout:addWidget(self.button)
 
-	self:connect(self.button, "clicked()", self, self.button_pressed)
+	self:connect_signal(self.button, "clicked()", self, self.button_pressed)
 	self.counter = 0
 
 	self:setWindowTitle("Qt4")
@@ -74,7 +74,7 @@ class("Bleh", Main)
 
 function Bleh:__init_parent__(arg, mt)
 
-	init_object(Main, self, {"LOL PARENT"})
+	class.init_object(Main, self, {"LOL PARENT"})
 end
 
 function Bleh:__init__()

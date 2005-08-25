@@ -1,0 +1,84 @@
+$#include <QVector>
+
+class QVector {
+
+	TEMPLATE_BIND(T, $TYPE_LIST);
+
+	class iterator;
+	class const_iterator;
+
+	QVector () ;
+	QVector (int size) ;
+	QVector (int size, T t) ;
+	QVector (const QVector<T> &v) ;
+	~QVector () ;
+	QVector<T> & operator= (const QVector<T> &v) ;
+	bool operator== (const QVector<T> &v) const ;
+	bool operator!= (const QVector<T> &v) const ;
+	int size () const ;
+	bool isEmpty () const ;
+	void resize (int size) ;
+	int capacity () const ;
+	void reserve (int size) ;
+	void squeeze () ;
+	void detach () ;
+	bool isDetached () const ;
+	void setSharable (bool sharable) ;
+	//T * data () ;
+	//const T * data () const ;
+	//const T * constData () const ;
+	void clear () ;
+	void append (T t) ;
+	void prepend (T t) ;
+	void insert (int i, T t) ;
+	void insert (int i, int n, T t) ;
+	void replace (int i, T t) ;
+	void remove (int i) ;
+	void remove (int i, int n) ;
+	QVector<T> & fill (T t, int size=-1) ;
+	int indexOf (T t, int from=0) const ;
+	int lastIndexOf (T t, int from=-1) const ;
+	bool contains (T t) const ;
+	int count (T t) const ;
+	iterator begin () ;
+	const_iterator begin () const ;
+	const_iterator constBegin () const ;
+	iterator end@endl () ;
+	const_iterator end () const ;
+	const_iterator constEnd () const ;
+	iterator insert (iterator before, int n, T x) ;
+	iterator insert (iterator before, T x) ;
+	iterator erase (iterator begin, iterator end) ;
+	iterator erase (iterator pos) ;
+	int count () const ;
+	QVector< T > mid (int pos, int length=-1) const ;
+	T value (int i) const ;
+	T value (int i, T defaultValue) const ;
+	void push_back (T t) ;
+	void push_front (T t) ;
+	void pop_back () ;
+	void pop_front () ;
+	bool empty () const ;
+	QVector<T> & operator+= (const QVector<T> &l) ;
+	QVector<T> operator+ (const QVector<T> &l) const ;
+	QVector<T> & operator+= (T t) ;
+	QVector<T> & operator<< (T t) ;
+	QVector<T> & operator<< (QVector<T> &l) ;
+	QList< T > toList () const ;
+	std::vector< T > toStdVector () const	;
+};
+
+
+$#include <QStack>
+
+class QStack {
+
+	TEMPLATE_BIND(T, $TYPE_LIST);
+
+	QStack () ;
+	~QStack (); 
+	void push (T t) ;
+	T pop () ;
+};
+
+

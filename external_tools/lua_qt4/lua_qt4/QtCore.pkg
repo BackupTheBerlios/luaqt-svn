@@ -2,6 +2,7 @@ $pfile "lua_qt4/qt_defines.pkg"
 
 $hfile "lua_qt4/lua_qt_helpers.h"
 
+$lfile "lua_qt4/class.lua"
 $lfile "lua_qt4/lua_qt_helpers.lua"
 
 $ifile "lua_qt4/qnamespace.pkg",qns
@@ -12,6 +13,23 @@ class QAbstractEventDispatcher {
 class QCoreApplication {
 	class EventFilter;
 };
+
+$ifile "lua_qt4/qlist.pkg", template, int, float, QString, QVariant, QPair<QString, QString>
+//$ifile "lua_qt4/qlinkedlist.pkg", template, int, float, QString, QVariant
+$ifile "lua_qt4/qpair.pkg", template, QString QString
+
+$ifile "lua_qt4/qvector.pkg", template, QVariant, QRect, int, QPair<QString, QString>
+
+// tested templates
+/* 
+$ifile "lua_qt4/qset.pkg", template, QVariant*, int, QString
+
+$ifile "lua_qt4/qhash.pkg", template, QString int
+$ifile "lua_qt4/qhash_ptr.pkg", template, QString QVariant*
+
+$ifile "lua_qt4/qmap.pkg", template, QString int
+$ifile "lua_qt4/qmap_ptr.pkg", template, QString QVariant*
+*/
 
 $ifile "lua_qt4/QtCore_headers.pkg",qt
 

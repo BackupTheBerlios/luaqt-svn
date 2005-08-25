@@ -1,0 +1,26 @@
+$ifile "lua_qt4/qvector_base.pkg", template, $TYPE_LIST
+
+class QVector {
+
+	TEMPLATE_BIND(T, $TYPE_LIST);
+
+	const T & at (int i) const ;
+	T & operator[] (int i) ;
+	const T & operator[] (int i) const ;
+	T & first () ;
+	const T & first () const ;
+	T & last () ;
+	const T & last () const ;
+	T & front () ;
+	const T& front () const ;
+	T& back () ;
+	const T& back () const ;
+};
+
+class QStack {
+
+	TEMPLATE_BIND(T, $TYPE_LIST);
+
+	T & top () ;
+	const T & top () const;
+};

@@ -1,0 +1,106 @@
+$#include <QMap>
+
+class QMap {
+
+	TEMPLATE_BIND(Key T, $TYPE_LIST);
+
+	class iterator {
+	
+		iterator () ;
+
+		T __operator_star@data;
+		iterator& __operator_inc @ inc();
+		iterator& __operator_dec @ dec();
+
+		const Key & key () const ;
+
+		bool operator== (const iterator &o) const ;
+		bool operator!= (const iterator &o) const ;
+		bool operator== (const const_iterator &o) const ;
+		bool operator!= (const const_iterator &o) const ;
+		iterator operator+ (int j) const ;
+		iterator operator- (int j) const ;
+	};
+
+	class const_iterator {
+	
+		const_iterator () ;
+		const_iterator (const iterator &o) ;
+
+		const Key & key () const ;
+
+		const T __operator_star@data const;
+		const_iterator& __operator_inc @ inc();
+		const_iterator& __operator_dec @ dec();
+
+		bool operator== (const const_iterator &o) const ;
+		bool operator!= (const const_iterator &o) const ;
+		const_iterator operator+ (int j) const ;
+		const_iterator operator- (int j) const ;
+	};
+
+	QMap () ;
+	QMap (const QMap< Key, T > &other) ;
+	~QMap () ;
+	QMap< Key, T > & operator= (const QMap< Key, T > &other) ;
+	QMap (const std::map< Key, T > &other) ;
+	std::map< Key, T > toStdMap () const ;
+	bool operator== (const QMap< Key, T > &other) const ;
+	bool operator!= (const QMap< Key, T > &other) const ;
+	int size () const ;
+	bool isEmpty () const ;
+	void detach () ;
+	bool isDetached () const ;
+	void setSharable (bool sharable) ;
+	void clear () ;
+	int remove (Key key) ;
+	T take (Key key) ;
+	bool contains (Key key) const ;
+	const Key key (T value) const ;
+	const T value (Key key) const ;
+	const T value (Key key, T defaultValue) const ;
+	QList< Key > keys () const ;
+	QList< Key > keys ( T value) const ;
+	QList< T > values () const ;
+	QList< T > values (Key key) const ;
+	int count (Key key) const ;
+	iterator begin () ;
+	const_iterator begin () const ;
+	const_iterator constBegin () const ;
+	iterator end () ;
+	const_iterator end () const ;
+	const_iterator constEnd () const ;
+	iterator erase (iterator it) ;
+	int count () const ;
+	iterator find (Key key) ;
+	const_iterator find (Key key) const ;
+	iterator lowerBound (Key key) ;
+	const_iterator lowerBound (Key key) const ;
+	iterator upperBound (Key key) ;
+	const_iterator upperBound (Key key) const ;
+	iterator insert (Key key, T value) ;
+	iterator insert@set (Key key, T value) ;
+	iterator insertMulti (Key key, T value) ;
+	QMap< Key, T > & unite (const QMap< Key, T > &other) ;
+	bool empty () const;
+
+	const T __operator_sub@get(Key key) const;
+};
+
+
+$#include <QMultiMap>
+
+class QMultiMap {
+
+	TEMPLATE_BIND(Key T, $TYPE_LIST);
+
+	QMultiMap () ;
+	QMultiMap (const QMap< Key, T > &other) ;
+	QMap< Key, T >::iterator replace (Key key, T value) ;
+	QMap< Key, T >::iterator insert (Key key, T value) ;
+	QMultiMap< Key, T > & operator+= (const QMultiMap< Key, T > &other) ;
+	QMultiMap< Key, T > operator+ (const QMultiMap< Key, T > &other) const;
+};
+
+
+
