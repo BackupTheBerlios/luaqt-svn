@@ -21,6 +21,7 @@ env = Environment(SCANNERS = scanners + [pkgscan], tools=['default', 'qt']);
 env.Append(CPPPATH='#.')
 
 env['QT_LIB'] = ''
+env['QT_AUTOSCAN'] = 0
 
 options_file = None
 if sys.platform == 'linux2':
@@ -79,7 +80,7 @@ if os.environ.has_key('USE_STACK_CHECK'):
 
 if (env['optimize']):
 	#env.Append(CXXFLAGS=['-O3','-ffast-math', '-march=athlon']);
-	env.Append(CXXFLAGS=['-O2']);
+	env.Append(CXXFLAGS=['-O2', '-Wall']);
 
 if (env['profile']):
 	env.Append(CXXFLAGS=['-pg']);

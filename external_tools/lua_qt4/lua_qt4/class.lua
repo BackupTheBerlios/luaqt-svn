@@ -62,7 +62,8 @@ function BaseClass:set_c_instance(ins)
 		ins:tolua__set_instance(self)
 	end
 
-	self[".c_instance"] = ins
+	--self[".c_instance"] = ins
+	tolua.inherit(self, ins)
 
 	getmetatable(self).__index = class.base__index
 end

@@ -39,6 +39,11 @@ function Main:__init__(parent)
 
 		type = QWidget,
 
+		init = {
+
+			{ QMainWindow.setCentralWidget },
+		},
+
 		{ type = QHBoxLayout,
 			name = "hlayout",
 		},
