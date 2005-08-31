@@ -21,21 +21,25 @@ function LuaQt.global_connect(self, sender_instance, signal, rcv_instance, metho
 	if type(method) == 'string' then
 		-- qt slot
 		QObject:connect(sender_instance, "2"..signal, rcv_instance, "1"..method) -- no bind
+		return nil
 	else
+		local ret
 		local slot = LuaSlot:new(rcv_instance, method, unpack(arg))
 		if type(signal) == 'string' then
 			-- qt signal, lua slot
 			local signal_pars = LuaQt.normalize_signal(signal)
 			if not signal_pars then return nil end
 			local obj = LuaQt.get_q_object(signal_pars, sender_instance)
-			slot.connection = obj:connect_signal(sender_instance, signal, slot, signal_pars)
+			ret = obj:connect_signal(sender_instance, signal, slot, signal_pars)
+			slot.connection = ret
+			slot:set_connection_collector(ConnectionCollector_LuaQConnection_(ret))
 		else
 			-- sigc signal, lua slot
 			local handler = (rcv_instance and rcv_instance.signal_handler) or self.signal_handler or global_signal_handler
-			local connection = handler:connect_signal(signal, tolua.type(signal), slot)
+			ret = handler:connect_signal(signal, tolua.type(signal), slot)
 			slot.connection = connection
 		end
-		return slot.connection
+		return ret
 	end
 end
 
@@ -215,8 +219,22 @@ function LuaSlot:__call(...)
 	end
 end
 
+function LuaSlot:set_connection_collector(col)
+
+	if self.static then
+		return
+	end
+
+	local client = self.instance.p
+	if not client then return end
+
+	self.collector = {[client] = col}
+	setmetatable(self.collector, weak_key_mt)
+end
+
 LuaSlot.call = LuaSlot.__call
 weak_val_mt = {__mode = 'v'}
+weak_key_mt = {__mode = 'k'}
 
 function LuaSlot:__init__(rcv_instance, method, ...)
 	self.bind = arg
@@ -238,11 +256,13 @@ function LuaSignal:__call(...)
 	if self.args == -1 or arg.n == self.args then
 		self:call_internal(arg)
 	else
-		local list
-		for i=1,self.args do
-			list[i] = arg[i]
+		for i=self.args+1,arg.n do
+			arg[i] = nil
 		end
-		self:call_internal(list)
+		for i=arg.n+1,self.args do
+			arg[i] = false -- we need to pad the arg list with _something_
+		end
+		self:call_internal(arg)
 	end
 end
 
@@ -252,21 +272,13 @@ function LuaSignal:call_internal(arg_list)
 
 	if arg_list.n > 0 then
 		for k,v in self.slot_list do
-			if v.rep > 1 then
-				for i=1,v.rep do
-					v.slot(unpack(arg_list))
-				end
-			else
+			for i=1,v.rep do
 				v.slot(unpack(arg_list))
 			end
 		end
 	else
 		for k,v in self.slot_list do
-			if v.rep > 1 then
-				for i=1,v.rep do
-					v.slot()
-				end
-			else
+			for i=1,v.rep do
 				v.slot()
 			end
 		end
@@ -276,6 +288,21 @@ end
 function LuaSignal:connect(p_slot)
 
 	if not p_slot then return end
+
+	local key
+	if p_slot.static then
+		key = self
+	else
+		key = p_slot.instance.p
+	end
+	if not key then return end
+
+	local cl = self.client_list[key]
+	if not cl then
+		cl = {}
+		self.client_list[key] = cl
+	end
+	cl[p_slot] = true
 
 	local st = self.slot_list[p_slot] or {rep=0, slot = p_slot}
 	st.rep = st.rep +1
@@ -290,14 +317,31 @@ function LuaSignal:remove(slot)
 
 	local st = slot_list[slot]
 	st.rep = st.rep -1
-	if st.rep <= 0 then slot_list[slot] = nil end
+
+	if st.rep <= 0 then
+		slot_list[slot] = nil
+
+		local key = (slot.static and self) or slot.instance.p
+		local client = self.client_list[key]
+		if client then
+			client[slot] = nil
+			if not next(client) then
+				self.client_list[key] = nil
+			end
+		end
+	end
 end
 
 function LuaSignal:__init__(args)
 	-- nothing?
 	self.args = args or -1
 	if self.args < -1 then self.args = -1 end
+
 	self.slot_list = {}
+	setmetatable(self.slot_list, weak_val_mt)
+
+	self.client_list = {}
+	setmetatable(self.client_list, weak_key_mt)
 end
 
 --------------------------------------------- the connection ---------------------------------------------

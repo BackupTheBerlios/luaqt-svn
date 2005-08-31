@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QMap>
 #include <QString>
+#include <QPointer>
 
 #define tolua_toqtstring tolua_tostring
 #define tolua_isqtstring tolua_isstring
@@ -15,17 +16,16 @@
 
 class LuaQConnection {
 
-	QObject *obj;
+	QPointer<QObject> obj;
 
 public:
 	void disconnect() {
-		if (obj) {
-			delete obj;
-			obj = NULL;
+		if (!obj.isNull()) {
+			obj->deleteLater();
 		};
 	};
 	bool empty() {
-		return obj!=NULL;
+		return obj.isNull();
 	};
 
 	LuaQConnection(QObject* p_obj = NULL) {

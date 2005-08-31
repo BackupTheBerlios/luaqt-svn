@@ -1,8 +1,8 @@
 function load_module(mod)
 
 	print("Loading module "..mod)
-	local f, oe, ce = loadlib("./liblua_qt_"..mod..".so", "tolua_lua_qt_"..mod.."_open")
-	--local f, oe, ce = loadlib("./lua_qt_"..mod..".dll", "tolua_lua_qt_"..mod.."_open")
+	--local f, oe, ce = loadlib("./liblua_qt_"..mod..".so", "tolua_lua_qt_"..mod.."_open")
+	local f, oe, ce = loadlib("./lua_qt_"..mod..".dll", "tolua_lua_qt_"..mod.."_open")
 	if not f then
 		error(oe)
 	end
