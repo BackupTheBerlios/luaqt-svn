@@ -1,0 +1,55 @@
+Import("env")
+
+core_lib = 'QtCore'+env['qt_append']
+gui_lib = 'QtGui'+env['qt_append']
+
+env.Append(CXXFLAGS='-DTOLUA_API="extern \\\"C\\\""')
+env.Append(CXXFLAGS=['-DLUA_QT', '-I$QTDIR/include/QtCore', '-I$QTDIR/include/QtGui']+env['extra_cxx_flags'])
+
+env.Append(LIBS=env['lua_libs']+['tolua++', core_lib])
+
+env.Append(LIBPATH = ['.']);
+
+helpers_so = env.SharedObject('lua_qt_helpers.cpp')
+qobject_so = env.SharedObject('lua_qobject.cpp')
+
+def module_targets(mod, signals=1, debug=0, extra_libs = []):
+
+	tolua = env.LuaBinding('lua_qt_'+mod+'.cpp', 'Qt'+mod+'.pkg', 'lua_qt_'+mod, None, "lua_qt4/lua_qt4_hooks.lua");
+	
+	lib = "Qt"+mod+env['qt_append']
+	if debug:
+		lib = lib+"_debug"
+	
+	if signals:
+		env.SideEffect("qt_signal_handlers_lua_qt_"+mod+".cpp", tolua)
+		env.Moc("qt_signal_handlers_lua_qt_"+mod+".cpp")
+	
+		return env.SharedLibrary('lua_qt_'+mod, [
+					tolua,
+					'qt_signal_handlers_lua_qt_'+mod+'.cpp',
+					helpers_so,
+					qobject_so,
+					], LIBS=env['LIBS']+extra_libs+[lib], CXXFLAGS=env['CXXFLAGS']+['-I$QTDIR/include/Qt'+mod])
+	else:
+	
+		return env.SharedLibrary('lua_qt_'+mod, [
+					tolua,
+					helpers_so,
+					qobject_so,
+					], LIBS=env['LIBS']+extra_libs+[lib], CXXFLAGS=env['CXXFLAGS']+['-I$QTDIR/include/Qt'+mod])
+
+
+core = module_targets("Core")
+gui = module_targets("Gui")
+gl = module_targets("OpenGL", 0, extra_libs = [gui_lib])
+net = module_targets("Network")
+xml = module_targets("Xml", 0)
+sql = module_targets("Sql")
+desg = module_targets("Designer", extra_libs = [gui_lib])
+qt3 = module_targets("3Support", extra_libs = [gui_lib])
+
+env.Alias('all', [core, gui, net, xml, sql, gl, desg, qt3])
+
+env.Moc('test.cpp')
+env.Program('test', ['test.cpp'], LIBS=env['LIBS']+[core_lib, gui_lib])
