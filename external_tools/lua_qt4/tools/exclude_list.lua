@@ -12,6 +12,9 @@ exclude_class_list = {
 	-- windows
 	"QX11Info",
 	"XEvent",
+
+	-- qt 4.0.1
+	"QDesignerImageCollectionInterface",
 }
 
 exclude_method_list = {
