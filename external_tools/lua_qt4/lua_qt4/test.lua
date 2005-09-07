@@ -12,12 +12,15 @@ end
 
 
 load_module("Core")
+load_module("Gui")
+load_module("3Support")
 load_module("Xml")
 load_module("Sql")
 load_module("OpenGL")
 load_module("Network")
 load_module("Designer")
-load_module("Gui")
+
+require "calculator.lua"
 
 app = QApplication:new(LuaQt.argc, LuaQt.argv)
 
@@ -91,5 +94,11 @@ end
 --Main:new()
 bleh = Bleh:new()
 bleh:setWindowTitle("Qt4 (NOT FROM MAIN)")
+
+local calc = Calculator:new(nil)
+
+calc:setWindowTitle("Calculator!")
+
+
 
 return QApplication:exec()

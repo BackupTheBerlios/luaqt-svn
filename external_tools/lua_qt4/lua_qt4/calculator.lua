@@ -11,12 +11,9 @@ end
 
 function Calculator:__init__(parent)
 
-	-- sets 'parent' as the instance from which our object inherts. Now we can use 'self' as a widget
-	self:set_c_instance(parent)
-
 	-- we can create a table that defines the GUI structure:
-
-	local button_row = { type = QHBox,
+	local button_row = {
+			type = Q3HBox,
 				{ type = QPushButton, name="digit"},
 				{ type = QPushButton, name="digit"},
 				{ type = QPushButton, name="digit"},
@@ -38,7 +35,6 @@ function Calculator:__init__(parent)
 			button_row,
 			{ type = Q3HBox,
 				{ type = QPushButton, name="digit"},
-
 				{ type = QPushButton, name="clear"}, -- the 'C' button
 			},
 
@@ -46,7 +42,10 @@ function Calculator:__init__(parent)
 
 	}
 
-	local root_widget = LuaQt.init_tree(self, gui, self) -- parent widget, gui definition, container (for the objects that have a 'name' field)
+	local root_widget = LuaQt.init_tree(parent, gui, self) -- parent widget, gui definition, container (for the objects that have a 'name' field)
+
+	-- sets 'root_widget' as the instance from which our object inherts. Now we can use 'self' as a widget
+	self:set_c_instance(root_widget)
 
 	for i=1,table.getn(self.digit) do -- when more than 1 objects have the same name, they become an array
 
@@ -61,5 +60,4 @@ function Calculator:__init__(parent)
 	root_widget:show()
 end
 
-
-Calculator:new(nil)
+return Calculator
