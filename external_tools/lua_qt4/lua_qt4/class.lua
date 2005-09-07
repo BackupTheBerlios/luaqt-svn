@@ -14,12 +14,23 @@ function class.create(self, obj, base)
 		base = class._global_objects[base]
 	end
 
+	if string.find(tolua.type(base), "^class ") then
+		o['.tolua_base'] = base
+		base = nil
+		o.__alloc__ = class.alloc_tolua_base
+	end
+
 	base = base or BaseClass
 
 	setmetatable(o, base)
 
 	_G[obj] = o
 	class._global_objects[obj] = o
+end
+
+function class.alloc_tolua_base(...)
+
+	return self['.tolua_base']:new(unpack(arg))
 end
 
 function class.instance_from_script(p_script, page)
@@ -29,9 +40,24 @@ function class.instance_from_script(p_script, page)
 	return n
 end
 
-function BaseClass:new(...)
-	local o = {}
-	setmetatable(o, self)
+function BaseClass.new(self, ...)
+
+	local o, t
+
+	if self.__alloc__ then
+		o = self.__alloc__(unpack(arg))
+		if type(o) == 'table' then
+			t = o
+		else
+			t = {}
+			tolua.setpeer(o, t)
+		end
+	else
+		t = {}
+		o = t
+	end
+
+	setmetatable(t, self)
 
 	class.init_object(self, o, arg)
 	--o:__init__(unpack(arg))

@@ -78,7 +78,7 @@ end
 class("Bleh", Main)
 
 function Bleh:__init_parent__(arg, mt)
-
+print("type of mt on Bleh is "..tostring(mt['.classname']))
 	class.init_object(Main, self, {"LOL PARENT"})
 end
 

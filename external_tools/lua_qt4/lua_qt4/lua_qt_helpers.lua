@@ -273,13 +273,13 @@ function LuaSignal:call_internal(arg_list)
 	if arg_list.n > 0 then
 		for k,v in self.slot_list do
 			for i=1,v.rep do
-				v.slot(unpack(arg_list))
+				k(unpack(arg_list))
 			end
 		end
 	else
 		for k,v in self.slot_list do
 			for i=1,v.rep do
-				v.slot()
+				k()
 			end
 		end
 	end

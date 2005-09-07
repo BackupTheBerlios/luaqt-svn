@@ -1,0 +1,425 @@
+lua_qt
+------
+lua_qt is a set of bindings to use the Qt toolkit with the Lua language.
+It was done using qt 4.0.1 on Debian.
+lua_qt requires tolua++ 1.0.6 (http://www.codenix.com/~tolua/)
+
+The current version uses lua 5.0, but we expect to switch to 5.1 shortly.
+The usage should be the same, except for the changes to the lua language.
+
+This package is being developed for an existing project, and may be missing
+some features, which will be added as we need them. See 'Contact' below to
+send any bugs, or requests for missing features.
+
+Availability
+------------
+lua_qt is distributed under the GNU General Public License (GPL). See
+http://www.gnu.org/copyleft/gpl.html for details. A copy of the license
+is included in the package on the file 'COPYING'
+
+This package can be downloaded from:
+
+http://www.codenix.com/~tolua/lua_qt/
+
+Contact
+-------
+lua_qt was developed by Ariel Manzur.
+Send any comments, bugs, etc to: puntob@gmail.com
+
+Building
+--------
+Starting from version 0.0.2a, lua_qt includes a set of SCons files to build
+targets with the name 'liblua_qt_<name>.so' (or 'lua_qt_<name>.dll' on windows)
+where '<name>' is the name of a qt4 module. Available modules are:
+
+Core
+Gui
+3Support (only for objects Q3HBox, Q3VBox and Q3ListView; there are no plans to
+          fully support this module)
+Xml
+Network
+Sql
+Designer
+
+To build the targets:
+
+- get SCons (http://www.scons.org)
+
+- go to the directory 'lua_qt4' inside the package
+
+- type:
+
+scons -u liblua_qt_<name>.so (or lua_qt_<name>.dll on windows, where <name> is
+                              the module you want to build)
+
+to build any specific module, or:
+
+scons -u all
+
+to build all modules. You'll need to set the 'QTDIR' environment variable with
+the correct value.
+
+Using the modules
+-----------------
+
+The each module can be loaded from a lua interpreter using loadlib,
+or linked to any host program. The initializer function for the library is
+'tolua_lua_qt_<name>_open'. See the file 'test.lua' for an example.
+
+Using lua_qt
+------------
+Usage is very straight forward; Qt objects can be created using the new()
+constructor, and then used as normal objects. For example:
+
+----
+local hbox = Q3HBox:new()
+local label = QLabel("Search", hbox)
+local text = QLineEdit(hbox)
+local but = QPushButton(hbox)
+
+but:setText("Submit")
+----
+
+Please refer to the rest of this README for more examples and instructions
+on how to use the signal system and other features of lua_qt
+
+The 'class' module
+------------------
+
+lua_qt comes with a 'class' module, cotained on the file 'class.lua'. This
+module provides a basic OO framework. It is not required to use this module
+with lua_qt. An example:
+
+-------- begin dialog.lua
+
+class "Dialog"
+
+function Dialog:__init__(parent)
+
+	self:set_c_intance(Q3VBox:new(parent))
+end
+
+
+class("AccountEditDialog", Dialog)
+
+function AccountEditDialog:save()
+	-- save account here
+end
+
+function AccountEditDialog:load(name)
+
+	-- load the account 'name'
+end
+
+function AccountEditDialog:__init_parent__(arg, mt)
+
+	class.init_object(Dialog, self, {nil}) -- 'parent' on Dialog will be NULL
+end
+
+function AccountEditDialog:__init__(account_name)
+
+	local hb = Q3HBox:new(self)
+	QLabel("Name", hb)
+	self.name = QLineEdit:new(hb)
+	
+	hb = Q3HBox:new(self)
+	QLabel("Password", hb)
+	self.pass = QLineEdit:new(hb)
+
+	hb = Q3BHox:new(self)	
+	local but = QPushButton:new("Save", hb)
+	self:connect(but, "clicked()", self, self.save)
+
+	but = QPushButton:new("Cancel", hb)
+	self:connect(but, "clicked()", self, "close()") -- 'close' slot from QWidget
+	
+	self:load(account_name)
+	
+	self:show() -- method 'show()' from QWidget
+end
+
+-------- END dialog.lua
+
+As we can see on the example, the main element of the class module is the
+module table itself, which is callable. Calling 'class' will create a global
+table with the name specified, and initialize it as a class. You can add
+methods to it normally with 'function ClassName:function_name', and you can
+create instances of the class calling:
+
+ClassName:new(...)
+
+A second parameter to 'class' can be another class, in this case the new class
+will inherit from it.
+
+The optional method '__init__' will be the class constructor. By default,
+constructors will be called with all the parameters passed to 'new', unless
+you override this using the __init_parent__ method.
+
+The __init_parent__ method recieves a table with the list of arguments that
+will be passed to your constructor, and a table that represents the type of
+your class.
+It can be used to control how the constructor of the parent class in the
+inheritance chain is called, by using the 'init_object' function, which
+takes the parent class, the object instance, and the list of parameters to pass
+to the constructor. As you can see on the example, the 'Dialog' constructor
+be called with 'nil' as the 'parent' argument when an 'AccountEditDialog' is
+created.
+
+All classes inherit from the 'BaseClass' by default, which contains the method
+'set_c_instance'. This method takes a C/C++ object, and makes our instance
+'inherit' from that object. This enables us to use 'self' as a widget during
+the creation of the GUI (self will be recognized as a 'Q3VBox'), and to call
+the QWidget methods using 'self' directly.
+
+lua_qt also adds the method 'connect' to BaseClass, to connect signals (see
+'Using signals' for more details).
+
+Using the library from a host program
+-------------------------------------
+As with any tolua++ package, you'll need to use the function to initialize each
+module (lua_qt_<name>_open, for example lua_qt_Core_open for the module 'Core')
+to initialize your lua_State. Other than that, you are free to use the
+resulting package any way you like. Here is an example of how to include a
+widget implemented in lua into your C++ program:
+
+* The LuaWidget:
+
+First we'll need a C++ class to wrap all lua widgets. For example:
+
+--------------- lua_widget.h
+extern lua_State* get_global_luastate(); // implement this as you like
+
+class LuaWidget : public Q3VBox {
+
+	lua_State* lua_state;
+	int object_ref;
+
+	void init_lua_state() {
+
+		lua_state = get_global_luastate(); // this gets the lua_state from somewhere else
+	};
+
+public:
+
+	LuaWidget(QWidget* p_parent, string p_script) : QVBox(p_parent) {
+
+		init_lua_state(); // initializes the lua_State (1 lua_State can be shared between several LuaWidget classes)
+
+		lua_getglobal(lua_state, "class");
+		lua_getfield(lua_state, -1, "instance_from_script");
+		tolua_pushstring(lua_state, p_script.c_str());
+		tolua_pushusertype(lua_state, (void*)this, "LuaWidget"); // LuaWidget must be available to use from lua.
+                                                                 // If not, use "QVBox"
+		lua_call(lua_state, 2, 1);
+		object_ref = lua_ref(lua_state, 1);
+	};
+	
+	~LuaWidget() {
+	
+		lua_unref(lua_state, object_ref);
+	};
+};
+--------------- end lua_widget.h
+
+The function "instance_from_script" is provided by the 'class' module, and is
+used to obtain an instance from a script file. The file should contain 1 main
+object (it can contain more), and the object is cached for future calls (using
+the "require" function).
+
+An example of a lua widget:
+
+--------------- calculator.lua
+class "Calculator"
+
+function Calculator:append_digit(d)
+	local t = string.gsub(self.display:text()..d, "^0*", "")
+	if t == "" then t = "0" end
+	self.display:setText(t)
+end
+
+function Calculator:__init__(parent)
+
+	self:set_c_instance(parent)
+
+	self.display = QLabel:new("0", self)
+
+	local numpad = QVBox:new(self)
+	local h, but
+
+	-- load the numpad
+	for i=1,9 do
+		if math.mod(i-1, 3) == 0 then
+			h = Q3HBox:new(numpad)
+		end
+		but = QPushButton:new(i, h)
+		self:connect(but, "clicked()", self, Calculator.append_digit, i)
+	end
+
+	h = Q3HBox:new(numpad)
+
+	but = QPushButton:new("0", h)
+	self:connect(but, "clicked()", self, Calculator.append_digit, "0")
+
+	-- the slot on this button calls setText directly with "0"
+	but = QPushButton:new("C", h)
+	self:connect(but, "clicked()", self.display, QLabel.setText, "0")
+end
+
+return Calculator
+
+--------------- END calculator.lua
+
+This widget will create a label, and 9 buttons with the digits 1..9, then
+a row with a button for 0, and a 'C' button. Each button will append a
+different digit to the label (using the append_digit method).
+
+It is required to return the main table of the class in order to be able to use
+'instance_from_script' to create instances from the LuaWidget object.
+
+Later, in our C++ code, we would invoke the class with the script name on the
+constructor:
+
+	LuaWidget* calculator = new LuaWidget(main_window, "calculator.lua");
+
+Defining GUI structures as lua data
+-----------------------------------
+TODO (check the file 'calculator.lua' for an example on how to define a GUI as
+a lua table and have it initialized automatically by 'LuaQt.init_tree()')
+
+Using signals
+-------------
+Any class created with the 'class' function will have a 'connect' method, used
+to connect signals. This method can be used in 3 different ways:
+
+* qt signal to a C++ qt slot:
+
+self:connect(button, "clicked()", widget, "repaint()")
+
+connects the 'clicked()' signal of a button to the 'repaint()' slot of a widget.
+
+* qt signal to lua function
+
+self:connect(button, "clicked()", nil, collectgarbage)
+
+connects the 'clicked()' signal of a button to the function collectgarbage
+
+* qt signal to lua method
+
+self:connect(button, "clicked()", self, self.button_clicked)
+
+connects the 'clicked()' signal of a button to the method 'button_clicked' of
+your class.
+
+When using 'connect' to connect a signal to a lua function or method, you may
+also supply any number of additional values, which will be appended to the
+function call whenever the signal is emited. These values will be unique to
+each particular connection. For example:
+
+self:connect(button1, "clicked()", self, self.append_digit, 1)
+self:connect(button2, "clicked()", self, self.append_digit)
+
+When 'button1' is pressed, the function 'append_digit' will be called with the
+number 1 as a parameter. When button 2 is pressed, 'append_digit' will be
+called with no parameters.
+
+'connect' returns a 'LuaQConnection' object (implemented in lua_qobject.h),
+which represents the connection, and has 2 methods:
+
+bool empty();
+void disconnect();
+
+Signal internals
+----------------
+Connecting qt signals to a C++ slot is pretty straightforward; we just call
+QObject:connect with the instances and the names of the signal and slot.
+
+Connecting a qt signal to a lua function is done by creating a custom QObject,
+which represents the connection. For each type of signal, a special type of
+QObject is generated (by the code found on lua_qt_hooks.lua, run during the
+tolua++ invocation; all objects are found on the file
+qt_signal_handlers_lua_qt.cpp). This QObjects contain a slot that matches the
+signal signature, and will carry a reference to a LuaSlot object, which
+represents the slot on the lua state (LuaSlot is provided on lua_qt_helpers.lua)
+
+Consider this call to 'connect':
+
+self:connect(button1, "clicked()", self, self.append_digit, "hello", "world")
+
+First, a LuaSlot object is created. The LuaSlot is a callable object that
+contains a weak reference to the instance ('self') and the function
+('self.append_digit') and a regular reference to a table with all the extra
+values appended to the connection ({"hello", "world"}).
+
+Then, a special QObject is created, by calling the function
+LuaQObject:get_q_object, with the list of parameters as the argument (in this
+case, "()", which will return an object of type "LuaQObject____"). The object
+contains a slot which will be connected to the signal in question.
+The object will also carry a reference to the LuaSlot object, and will call
+this object whenever the signal is emited, passing all the parameters that come
+with the signal. LuaSlot will append all the extra values it is carrying.
+
+When the method 'disconnect()' is called on the connection object, the QObject
+that holds the connection will be deleted, releasing the reference to the
+LuaSlot, and eliminating the connection.
+
+Multiple Inheritance
+--------------------
+tolua++ 1.0.4 supports multiple inheritance by allowing you to access the extra
+parents 'manually'.
+
+For example, consider the following class (taken from qslider.h):
+
+class QSlider : public QWidget, public QRangeControl {
+	...
+};
+
+An object of type 'QSlider' will fully retain it's inheritance with QWidget,
+and will contain a 'member' of type QRangeControl, which will return the object
+casted to the correct base type.
+
+For example:
+
+slider = QSlider:new(parent)
+slider:show() -- a QWidget method
+
+slider:setRange(0, 100) -- this won't work, because
+                        -- setRange is a method from QRangeControl
+
+slider.__QRangeControl__:setRange(0, 100) -- this is the correct way
+
+This is an experimental feature.
+
+Implementing virtual functions
+------------------------------
+TODO: port the LuaWidgetOverride object to qt4
+
+Notes
+-----
+lua_qt_hooks.lua contains code to support SigC++ signals in addition to Qt.
+This code should not get in the way if you're not using sigc++ on your
+project.
+If there's any interest in using sigc++ with lua, let me know, I can upload
+the rest of the necesary files.
+
+When compiling the files generated by tolua++ (for example 'lua_qt_Gui.cpp')
+you'll see a number of warnings about collector functions that were defined
+but not used, for example:
+
+lua_qt_Gui.cpp:207: warning: `int tolua_collect_QFontInfo(lua_State*)' defined but not used
+
+This is probably because a function is returning a QFontInfo object, but the
+object does not exist as a class exposed to tolua++.
+This can be because the class definition may exist on a different module,
+in which case that module will take care of collecting the object (provided
+that you included that module). It can also be because the class was not
+exposed to tolua++ at all, but there is a functions that returns an object of
+this type by value, in which case tolua++ will eventually try to free the object
+using the generic 'free' instead of the apropiate colector function, and crash
+the program.
+
+Links
+-----
+Qt: http://www.trolltech.com/products/qt/index.html
+tolua++: http://www.codenix.com/~tolua/
+SCons: http://www.scons.org
+
