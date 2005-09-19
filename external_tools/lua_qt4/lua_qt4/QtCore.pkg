@@ -1,5 +1,7 @@
 $pfile "lua_qt4/qt_defines.pkg"
 
+$#include "lua_qt4/tolua_base.h"
+
 $hfile "lua_qt4/lua_qt_helpers.h"
 
 $lfile "lua_qt4/class.lua"

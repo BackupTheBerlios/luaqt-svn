@@ -11,7 +11,49 @@ public:
 	 void setWorkingDirectory (const QDir &directory);
 	 virtual QWidget * load (QIODevice *dev, QWidget *parentWidget=0);
 	 virtual void save (QIODevice *dev, QWidget *widget);
-
+	protected  virtual void loadExtraInfo (DomWidget *ui_widget, QWidget *widget, QWidget *parentWidget);
+	protected  virtual QWidget * create (DomUI *ui, QWidget *parentWidget);
+	protected  virtual QWidget * create (DomWidget *ui_widget, QWidget *parentWidget);
+	protected  virtual QLayout * create (DomLayout *ui_layout, QLayout *layout, QWidget *parentWidget);
+	protected  virtual QLayoutItem * create (DomLayoutItem *ui_layoutItem, QLayout *layout, QWidget *parentWidget);
+	protected  virtual QAction * create (DomAction *ui_action, QObject *parent);
+	protected  virtual QActionGroup * create (DomActionGroup *ui_action_group, QObject *parent);
+	protected  virtual void addMenuAction (QAction *action);
+	protected  virtual void applyProperties (QObject *o, const QList< DomProperty * > &properties);
+	protected  virtual void applyTabStops (QWidget *widget, DomTabStops *tabStops);
+	protected  virtual QWidget * createWidget (const QString &widgetName, QWidget *parentWidget, const QString &name);
+	protected  virtual QLayout * createLayout (const QString &layoutName, QObject *parent, const QString &name);
+	protected  virtual QAction * createAction (QObject *parent, const QString &name);
+	protected  virtual QActionGroup * createActionGroup (QObject *parent, const QString &name);
+	protected  virtual void createCustomWidgets (DomCustomWidgets *);
+	protected  virtual void createConnections (DomConnections *, QWidget *);
+	protected  virtual void createResources (DomResources *);
+	protected  virtual bool addItem (DomLayoutItem *ui_item, QLayoutItem *item, QLayout *layout);
+	protected  virtual bool addItem (DomWidget *ui_widget, QWidget *widget, QWidget *parentWidget);
+	protected  virtual void saveExtraInfo (QWidget *widget, DomWidget *ui_widget, DomWidget *ui_parentWidget);
+	protected  virtual void saveDom (DomUI *ui, QWidget *widget);
+	protected  virtual DomActionRef * createActionRefDom (QAction *action);
+	protected  virtual DomWidget * createDom (QWidget *widget, DomWidget *ui_parentWidget, bool recursive=true);
+	protected  virtual DomLayout * createDom (QLayout *layout, DomLayout *ui_layout, DomWidget *ui_parentWidget);
+	protected  virtual DomLayoutItem * createDom (QLayoutItem *item, DomLayout *ui_parentLayout, DomWidget *ui_parentWidget);
+	protected  virtual DomSpacer * createDom (QSpacerItem *spacer, DomLayout *ui_parentLayout, DomWidget *ui_parentWidget);
+	protected  virtual DomAction * createDom (QAction *action);
+	protected  virtual DomActionGroup * createDom (QActionGroup *actionGroup);
+	protected  virtual DomConnections * saveConnections ();
+	protected  virtual DomCustomWidgets * saveCustomWidgets ();
+	protected  virtual DomTabStops * saveTabStops ();
+	protected  virtual DomResources * saveResources ();
+	protected  virtual QList< DomProperty * > computeProperties (QObject *obj);
+	protected  virtual bool checkProperty (QObject *obj, const QString &prop) const;
+	protected  virtual DomProperty * createProperty (QObject *object, const QString &propertyName, const QVariant &value);
+	protected  virtual void layoutInfo (DomLayout *layout, QObject *parent, int *margin, int *spacing);
+	protected  virtual QIcon nameToIcon (const QString &filePath, const QString &qrcPath);
+	protected  virtual QString iconToFilePath (const QIcon &pm) const;
+	protected  virtual QString iconToQrcPath (const QIcon &pm) const;
+	protected  virtual QPixmap nameToPixmap (const QString &filePath, const QString &qrcPath);
+	protected  virtual QString pixmapToFilePath (const QPixmap &pm) const;
+	protected  virtual QString pixmapToQrcPath (const QPixmap &pm) const;
+										
 };
 $#include <QDesignerLayoutDecorationExtension>
 
@@ -266,6 +308,7 @@ signals:
 public:
 	 enum DropType { MoveDrop, CopyDrop };
 
+	 QDesignerDnDItemInterface ();
 	 virtual ~QDesignerDnDItemInterface ();
 	 virtual DomUI * domUi () const =0;
 	 virtual QWidget * widget () const =0;
@@ -309,6 +352,7 @@ signals:
 	 void changed ();
 public:
 
+	 QDesignerMetaDataBaseInterface (QObject *parent=0);
 	 virtual ~QDesignerMetaDataBaseInterface ();
 	 virtual QDesignerMetaDataBaseItemInterface * item (QObject *object) const =0;
 	 virtual void add (QObject *object)=0;
@@ -327,6 +371,7 @@ signals:
 	 void activeFormWindowChanged (QDesignerFormWindowInterface *formWindow);
 public:
 
+	 QDesignerFormWindowManagerInterface (QObject *parent=0);
 	 virtual ~QDesignerFormWindowManagerInterface ();
 	 virtual QAction * actionCut () const;
 	 virtual QAction * actionCopy () const;
@@ -376,6 +421,7 @@ signals:
 	 void propertyChanged (const QString &name, const QVariant &value);
 public:
 
+	 QDesignerPropertyEditorInterface (QWidget *parent, Qt::WindowFlags flags=0);
 	 virtual ~QDesignerPropertyEditorInterface ();
 	 virtual QDesignerFormEditorInterface * core () const;
 	 virtual bool isReadOnly () const =0;
@@ -393,6 +439,7 @@ Q_OBJECT
 signals:
 public:
 
+	 QDesignerObjectInspectorInterface (QWidget *parent, Qt::WindowFlags flags=0);
 	 virtual ~QDesignerObjectInspectorInterface ();
 	 virtual QDesignerFormEditorInterface * core () const;
 	 virtual void setFormWindow (QDesignerFormWindowInterface *formWindow)=0;
@@ -408,6 +455,7 @@ public:
 	 QExtensionFactory (QExtensionManager *parent=0);
 	 virtual QObject * extension (QObject *object, const QString &iid) const;
 	 QExtensionManager * extensionManager () const;
+	protected  virtual QObject * createExtension (QObject *object, const QString &iid, QObject *parent) const;
 
 };
 $#include <QDesignerWidgetBoxInterface>
@@ -421,6 +469,7 @@ public:
 	 class Category;
 	 class Widget;
 
+	 QDesignerWidgetBoxInterface (QWidget *parent=0, Qt::WindowFlags flags=0);
 	 virtual ~QDesignerWidgetBoxInterface ();
 	 virtual int categoryCount () const =0;
 	 virtual Category category (int cat_idx) const =0;
@@ -460,6 +509,7 @@ public:
 	 typedef LuaQtGenericFlags Feature;
 	 enum FeatureFlag { EditFeature = 0x01, GridFeature = 0x02, TabOrderFeature = 0x04, DefaultFeature = EditFeature | GridFeature };
 
+	 QDesignerFormWindowInterface (QWidget *parent=0, Qt::WindowFlags flags=0);
 	 virtual ~QDesignerFormWindowInterface ();
 	 virtual QString fileName () const =0;
 	 virtual QDir absoluteDir () const =0;
@@ -522,6 +572,7 @@ Q_OBJECT
 signals:
 public:
 
+	 QDesignerFormWindowToolInterface (QObject *parent=0);
 	 virtual ~QDesignerFormWindowToolInterface ();
 	 virtual QDesignerFormEditorInterface * core () const =0;
 	 virtual QDesignerFormWindowInterface * formWindow () const =0;
@@ -560,7 +611,7 @@ public:
 	 void setPropertyEditor (QDesignerPropertyEditorInterface *propertyEditor);
 	 void setObjectInspector (QDesignerObjectInspectorInterface *objectInspector);
 	 void setPluginManager (PluginManager *pluginManager);
-
+						
 };
 $#include <QDesignerIconCacheInterface>
 
@@ -569,6 +620,7 @@ Q_OBJECT
 signals:
 public:
 
+	 QDesignerIconCacheInterface (QObject *parent_);
 	 virtual QIcon nameToIcon (const QString &filePath, const QString &qrcPath=QString())=0;
 	 virtual QPixmap nameToPixmap (const QString &filePath, const QString &qrcPath=QString())=0;
 	 virtual QString iconToFilePath (const QIcon &pm) const =0;
@@ -587,6 +639,7 @@ Q_OBJECT
 signals:
 public:
 
+	 QDesignerWidgetFactoryInterface (QObject *parent=0);
 	 virtual ~QDesignerWidgetFactoryInterface ();
 	 virtual QDesignerFormEditorInterface * core () const =0;
 	 virtual QWidget * containerOfWidget (QWidget *w) const =0;
@@ -610,6 +663,18 @@ public:
 	 void addPluginPath (const QString &pluginPath);
 	 void setPluginPath (const QStringList &pluginPaths);
 	 QList< QDesignerCustomWidgetInterface * > customWidgets () const;
+	protected  virtual QWidget * create (DomUI *ui, QWidget *parentWidget);
+	protected  virtual QWidget * create (DomWidget *ui_widget, QWidget *parentWidget);
+	protected  virtual QLayout * create (DomLayout *ui_layout, QLayout *layout, QWidget *parentWidget);
+	protected  virtual QLayoutItem * create (DomLayoutItem *ui_layoutItem, QLayout *layout, QWidget *parentWidget);
+	protected  virtual QAction * create (DomAction *ui_action, QObject *parent);
+	protected  virtual QActionGroup * create (DomActionGroup *ui_action_group, QObject *parent);
+	protected  virtual QWidget * createWidget (const QString &widgetName, QWidget *parentWidget, const QString &name);
+	protected  virtual QLayout * createLayout (const QString &layoutName, QObject *parent, const QString &name);
+	protected  virtual void createConnections (DomConnections *connections, QWidget *widget);
+	protected  virtual bool addItem (DomLayoutItem *ui_item, QLayoutItem *item, QLayout *layout);
+	protected  virtual bool addItem (DomWidget *ui_widget, QWidget *widget, QWidget *parentWidget);
+	protected  virtual void updateCustomWidgets ();
 
 };
 $#include <QDesignerWidgetDataBaseInterface>

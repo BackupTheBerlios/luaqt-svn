@@ -20,7 +20,7 @@ public:
 	 QColor entryColor (int idx) const;
 	 int find (QRgb color) const;
 	 int findNearest (QRgb color) const;
-
+		
 };
 $#include <QGLFormat>
 
@@ -103,7 +103,8 @@ public:
 	 void * getProcAddress (const QString &proc) const;
 	 QPaintDevice * device () const;
 	 QColor overlayTransparentColor () const;
-	 static void setTextureCacheLimit (int size);
+	protected  virtual bool chooseContext (const QGLContext *shareContext=0);
+										 static void setTextureCacheLimit (int size);
 	 static int textureCacheLimit ();
 	 static const QGLContext * currentContext ();
 
@@ -147,6 +148,14 @@ public:
 	 void deleteTexture (GLuint tx_id);
 	 virtual void updateGL ();
 	 virtual void updateOverlayGL ();
-	 static QImage convertToGLFormat (const QImage &img);
+		protected  virtual void initializeGL ();
+	protected  virtual void resizeGL (int w, int h);
+	protected  virtual void paintGL ();
+	protected  virtual void initializeOverlayGL ();
+	protected  virtual void resizeOverlayGL (int w, int h);
+	protected  virtual void paintOverlayGL ();
+					protected  virtual void glInit ();
+	protected  virtual void glDraw ();
+		 static QImage convertToGLFormat (const QImage &img);
 
 };

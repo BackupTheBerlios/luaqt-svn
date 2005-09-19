@@ -2,6 +2,20 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QShortcut>
+#include <QPushButton>
+#include <QMainWindow>
+
+#include <QAbstractItemView>
+#include <QAbstractSlider>
+
+struct CursorAction : public QAbstractItemView {
+	operator QAbstractItemView::CursorAction () { return (QAbstractItemView::CursorAction)0; };
+};
+
+struct SliderChange : public QAbstractSlider {
+	operator QAbstractSlider::SliderChange () { return (QAbstractSlider::SliderChange)0; };
+};
+
 
 class ASlot : public QObject {
 
@@ -20,12 +34,22 @@ public slots:
 
 };
 
+class Window : public QMainWindow {
+
+	void closeEvent(QCloseEvent* e) {
+
+		this->QMainWindow::closeEvent(e);
+		printf("oh dioh mio!!\n");
+	};
+};
+
 #include "test.moc"
 
 int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
-	QWidget* w = new QWidget();
+	Window* win = new Window();
+	QWidget* w = new QWidget(win);
 	QVBoxLayout* box = new QVBoxLayout(w);
 	//w->setLayout(box);
 	QLabel* label = new QLabel(w);
@@ -35,13 +59,19 @@ int main(int argc, char *argv[])
 	box->addWidget(label2);
 
 	ASlot* aslot = new ASlot();
+
+	QPushButton* but = new QPushButton("destry me", w);
+	box->addWidget(but);
+	QObject::connect(but, SIGNAL(clicked()), but, SLOT(deleteLater()));
+	QObject::connect(but, SIGNAL(destroyed(QObject*)), aslot, SLOT(destroyed(QObject*)));
+
 	QObject::connect(w, SIGNAL(destroyed(QObject*)), aslot, SLOT(destroyed(QObject*)));
 
 	QShortcut* sc = new QShortcut(w);
 	sc->setKey(Qt::Key_Return);
 	QObject::connect(sc, SIGNAL(activated()), aslot, SLOT(activated()));
 
-	w->show();
+	win->show();
 	return app.exec();
 }
 

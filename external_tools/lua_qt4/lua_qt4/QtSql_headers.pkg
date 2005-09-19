@@ -37,7 +37,7 @@ public:
 	 int port () const;
 	 QString connectOptions () const;
 	 QSqlDriver * driver () const;
-	 static QSqlDatabase addDatabase (const QString &type, const QString &connectionName=QLatin1String(defaultConnection));
+			 static QSqlDatabase addDatabase (const QString &type, const QString &connectionName=QLatin1String(defaultConnection));
 	 static QSqlDatabase addDatabase (QSqlDriver *driver, const QString &connectionName=QLatin1String(defaultConnection));
 	 static QSqlDatabase cloneDatabase (const QSqlDatabase &other, const QString &connectionName);
 	 static QSqlDatabase database (const QString &connectionName=QLatin1String(defaultConnection), bool open=true);
@@ -237,6 +237,30 @@ public:
 
 	 virtual ~QSqlResult ();
 	 virtual QVariant handle () const;
+										protected  virtual void setAt (int at);
+	protected  virtual void setActive (bool a);
+	protected  virtual void setLastError (const QSqlError &e);
+	protected  virtual void setQuery (const QString &query);
+	protected  virtual void setSelect (bool s);
+	protected  virtual void setForwardOnly (bool forward);
+	protected  virtual bool exec ();
+	protected  virtual bool prepare (const QString &query);
+	protected  virtual bool savePrepare (const QString &sqlquery);
+	protected  virtual void bindValue (int pos, const QVariant &val, QSql::ParamType type);
+	protected  virtual void bindValue (const QString &placeholder, const QVariant &val, QSql::ParamType type);
+													protected  virtual QVariant data (int i)=0;
+	protected  virtual bool isNull (int i)=0;
+	protected  virtual bool reset (const QString &sqlquery)=0;
+	protected  virtual bool fetch (int i)=0;
+	protected  virtual bool fetchNext ();
+	protected  virtual bool fetchPrevious ();
+	protected  virtual bool fetchFirst ()=0;
+	protected  virtual bool fetchLast ()=0;
+	protected  virtual int size ()=0;
+	protected  virtual int numRowsAffected ()=0;
+	protected  virtual QSqlRecord record () const;
+	protected  virtual QVariant lastInsertId () const;
+	protected  virtual void virtual_hook (int id, void *data);
 
 };
 $#include <QSqlDriverPlugin>
@@ -246,6 +270,7 @@ Q_OBJECT
 signals:
 public:
 
+	 QSqlDriverPlugin (QObject *parent=0);
 	 ~QSqlDriverPlugin ();
 	 virtual QStringList keys () const =0;
 	 virtual QSqlDriver * create (const QString &key)=0;
@@ -297,7 +322,8 @@ public:
 	 QSqlError lastError () const;
 	 void fetchMore (const QModelIndex &parent=QModelIndex());
 	 bool canFetchMore (const QModelIndex &parent=QModelIndex()) const;
-
+	protected  virtual void queryChange ();
+			
 };
 $#include <QSqlDriver>
 
@@ -309,6 +335,7 @@ public:
 	 enum StatementType {         WhereStatement, SelectStatement, UpdateStatement, InsertStatement,         DeleteStatement       };
 	 enum IdentifierType { FieldName, TableName };
 
+	 QSqlDriver (QObject *parent=0);
 	 ~QSqlDriver ();
 	 virtual bool isOpen () const;
 	 bool isOpenError () const;
@@ -327,6 +354,9 @@ public:
 	 virtual void close ()=0;
 	 virtual QSqlResult * createResult () const =0;
 	 virtual bool open (const QString &db, const QString &user=QString(), const QString &password=QString(), const QString &host=QString(), int port=-1, const QString &connOpts=QString())=0;
+	protected  virtual void setOpen (bool o);
+	protected  virtual void setOpenError (bool e);
+	protected  virtual void setLastError (const QSqlError &e);
 
 };
 $#include <QSqlTableModel>
@@ -372,7 +402,12 @@ public:
 	 void revert ();
 	 bool submitAll ();
 	 void revertAll ();
-
+		protected  virtual bool updateRowInTable (int row, const QSqlRecord &values);
+	protected  virtual bool insertRowIntoTable (const QSqlRecord &values);
+	protected  virtual bool deleteRowFromTable (int row);
+	protected  virtual QString orderByClause () const;
+	protected  virtual QString selectStatement () const;
+			
 };
 $#include <QSqlRelationalTableModel>
 
@@ -392,5 +427,5 @@ public:
 	 QSqlRelation relation (int column) const;
 	 virtual QSqlTableModel * relationModel (int column) const;
 	 void revertRow (int row);
-
+			
 };

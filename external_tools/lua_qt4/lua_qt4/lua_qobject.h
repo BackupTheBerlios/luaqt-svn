@@ -14,6 +14,10 @@
 #define tolua_isqtstring tolua_isstring
 #define tolua_pushqtstring(L,s) tolua_pushstring(L, s.toAscii().constData())
 
+#define tolua_toqtflags (int)tolua_tonumber
+#define tolua_isqtflags tolua_isnumber
+#define tolua_pushqtflags tolua_pushnumber
+
 class LuaQConnection {
 
 	QPointer<QObject> obj;

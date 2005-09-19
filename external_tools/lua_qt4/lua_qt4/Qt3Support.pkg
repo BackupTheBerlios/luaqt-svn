@@ -9,5 +9,34 @@ $class QColorGroup;
 $class QVariant;
 $#include <QVariant>
 
+$ifile "lua_qt4/qlinkedlist_ptr.pkg", template, Q3CanvasItem*
+
+class Q3ValueList : public QLinkedList<T> {
+
+	TEMPLATE_BIND(T, Q3CanvasItem*);
+};
+
+
 $ifile "lua_qt4/Qt3Support_headers.pkg",qt
+
+$#include <QWidget>
+class Q3CanvasView {
+
+	protected virtual void closeEvent ( QCloseEvent * e );
+
+	protected virtual void keyPressEvent ( QKeyEvent * e );
+	protected virtual void keyReleaseEvent ( QKeyEvent * e );
+
+	protected virtual void mousePressEvent ( QMouseEvent * e );
+	protected virtual void mouseReleaseEvent ( QMouseEvent * e );
+	protected virtual void moveEvent ( QMoveEvent * event );
+
+	protected virtual void wheelEvent ( QWheelEvent * e );
+
+	protected virtual void contentsMousePressEvent ( QMouseEvent * e ) ;
+
+	protected virtual void enterEvent ( QEvent * event );
+	protected virtual void leaveEvent ( QEvent * event );
+};
+
 

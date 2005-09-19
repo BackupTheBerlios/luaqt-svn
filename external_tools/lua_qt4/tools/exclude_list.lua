@@ -15,6 +15,9 @@ exclude_class_list = {
 
 	-- qt 4.0.1
 	"QDesignerImageCollectionInterface",
+
+	-- private constructor and virtual methods
+	"QTextBlockGroup",
 }
 
 exclude_method_list = {
@@ -25,6 +28,8 @@ exclude_method_list = {
 	"QIODevice",
 	"QThread",
 	"QAbstractButton",
+
+	"Q3CanvasItem",
 
 	-- undefined symbols
 	"supportedOperations", -- QHttp
@@ -41,6 +46,12 @@ exclude_method_list = {
 	"x11Info",
 	"setPrinterSelectionOption",
 	"printerSelectionOption",
+
+	-- virtual methods with protected/weird types
+	"sliderChange",
+	"moveCursor",
+	"resolveEntity",
+	"stepEnabled",
 }
 
 

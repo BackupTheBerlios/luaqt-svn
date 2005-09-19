@@ -599,6 +599,21 @@ files_set = {
 	["Qt3Support/Q3ListViewItem"] = 1,
 	["Qt3Support/Q3CheckListItem"] = 1,
 	["Qt3Support/Q3ListViewItemIterator"] = 1,
+
+	["Qt3Support/Q3Canvas"] = 1,
+	["Qt3Support/Q3CanvasEllipse"] = 1,
+	["Qt3Support/Q3CanvasItem"] = 1,
+	["Qt3Support/Q3CanvasItemList"] = 1,
+	["Qt3Support/Q3CanvasLine"] = 1,
+	["Qt3Support/Q3CanvasPixmap"] = 1,
+	["Qt3Support/Q3CanvasPixmapArray"] = 1,
+	["Qt3Support/Q3CanvasPolygon"] = 1,
+	["Qt3Support/Q3CanvasPolygonalItem"] = 1,
+	["Qt3Support/Q3CanvasRectangle"] = 1,
+	["Qt3Support/Q3CanvasSpline"] = 1,
+	["Qt3Support/Q3CanvasSprite"] = 1,
+	["Qt3Support/Q3CanvasText"] = 1,
+	["Qt3Support/Q3CanvasView"] = 1,
 }
 
 class_list = {
@@ -1085,4 +1100,19 @@ class_list = {
 	"Q3ListViewItem",
 	"Q3CheckListItem",
 	"Q3ListViewItemIterator",
+
+	"Q3Canvas",
+	"Q3CanvasEllipse",
+	"Q3CanvasItem",
+	"Q3CanvasItemList",
+	"Q3CanvasLine",
+	"Q3CanvasPixmap",
+	"Q3CanvasPixmapArray",
+	"Q3CanvasPolygon",
+	"Q3CanvasPolygonalItem",
+	"Q3CanvasRectangle",
+	"Q3CanvasSpline",
+	"Q3CanvasSprite",
+	"Q3CanvasText",
+	"Q3CanvasView",
 }

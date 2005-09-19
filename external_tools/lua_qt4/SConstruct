@@ -42,6 +42,7 @@ opts.Add('profile', 'Add profile symbols.', 0)
 opts.Add('lua_libs', 'The Lua libraries.')
 opts.Add('qt_append', 'Suffix to append to qt libraries', "")
 opts.Add('extra_cxx_flags', 'Extra for the C++ compiler', [])
+opts.Add('qt_debug', 'Use qt debug libs.', False)
 #opts.Add('QTDIR', 'Qt dir')
 
 opts.Update(env)

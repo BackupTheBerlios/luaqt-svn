@@ -55,7 +55,12 @@ public:
 	 QObject * parent () const;
 	 bool inherits (const char *classname) const;
 	 void deleteLater ();
-	 static bool connect (const QObject *sender, const char *signal, const QObject *receiver, const char *member, Qt::ConnectionType=Qt::AutoConnection);
+			protected  virtual void timerEvent (QTimerEvent *);
+	protected  virtual void childEvent (QChildEvent *);
+	protected  virtual void customEvent (QEvent *);
+	protected  virtual void connectNotify (const char *signal);
+	protected  virtual void disconnectNotify (const char *signal);
+		 static bool connect (const QObject *sender, const char *signal, const QObject *receiver, const char *member, Qt::ConnectionType=Qt::AutoConnection);
 	 static bool disconnect (const QObject *sender, const char *signal, const QObject *receiver, const char *member);
 	 static uint registerUserData ();
 
@@ -208,7 +213,7 @@ public:
 	 const void * data () const;
 	 bool operator== (const QVariant &v) const;
 	 bool operator!= (const QVariant &v) const;
-	 static const char * typeToName (Type type);
+			 static const char * typeToName (Type type);
 	 static Type nameToType (const char *name);
 
 };
@@ -514,7 +519,7 @@ public:
 	 bool operator== (const QUrl &url) const;
 	 bool operator!= (const QUrl &url) const;
 	 QUrl & operator= (const QUrl &copy);
-	 static QUrl fromLocalFile (const QString &localfile);
+		 static QUrl fromLocalFile (const QString &localfile);
 	 static QUrl fromEncoded (const QByteArray &url);
 	 static QString fromPercentEncoding (const QByteArray &);
 	 static QByteArray toPercentEncoding (const QString &, const QByteArray &exclude=QByteArray(), const QByteArray &include=QByteArray());
@@ -1476,7 +1481,7 @@ public:
 	 void setFallbacksEnabled (bool b);
 	 bool fallbacksEnabled () const;
 	 QString fileName () const;
-	 static void setSystemIniPath (const QString &dir);
+		 static void setSystemIniPath (const QString &dir);
 	 static void setUserIniPath (const QString &dir);
 
 };
@@ -1545,7 +1550,10 @@ public:
 	 bool putChar (char c);
 	 bool getChar (char *c);
 	 QString errorString () const;
-
+	protected  virtual qint64 readData (char *data, qint64 maxlen)=0;
+	protected  virtual qint64 readLineData (char *data, qint64 maxlen);
+	protected  virtual qint64 writeData (const char *data, qint64 len)=0;
+		
 };
 $#include <QAbstractEventDispatcher>
 
@@ -1558,6 +1566,7 @@ public:
 	 typedef QPair< int, int > TimerInfo;
 	class  EventFilter ;
 
+	 QAbstractEventDispatcher (QObject *parent=0);
 	 ~QAbstractEventDispatcher ();
 	 virtual bool processEvents (QEventLoop::ProcessEventsFlags flags)=0;
 	 virtual bool hasPendingEvents ()=0;
@@ -1575,7 +1584,7 @@ public:
 	 virtual void closingDown ();
 	 EventFilter setEventFilter (EventFilter filter);
 	 bool filterEvent (void *message);
-	 static QAbstractEventDispatcher * instance (QThread *thread=0);
+		 static QAbstractEventDispatcher * instance (QThread *thread=0);
 
 };
 $#include <QSocketNotifier>
@@ -1593,7 +1602,7 @@ public:
 	 Type type () const;
 	 bool isEnabled () const;
 	 void setEnabled (bool);
-
+	
 };
 $#include <QLibrary>
 
@@ -1666,7 +1675,8 @@ public:
 	 void start (Priority=InheritPriority);
 	 void terminate ();
 	 void quit ();
-	 static Qt::HANDLE currentThreadId ();
+	protected  virtual void run ()=0;
+		 static Qt::HANDLE currentThreadId ();
 
 };
 $#include <QTranslator>
@@ -1694,6 +1704,7 @@ signals:
 	 void layoutChanged ();
 public:
 
+	 QAbstractItemModel (QObject *parent=0);
 	 virtual ~QAbstractItemModel ();
 	 bool hasIndex (int row, int column, const QModelIndex &parent=QModelIndex()) const;
 	 virtual QModelIndex index (int row, int column, const QModelIndex &parent=QModelIndex()) const =0;
@@ -1729,7 +1740,7 @@ public:
 	 virtual QSize span (const QModelIndex &index) const;
 	 virtual bool submit ();
 	 virtual void revert ();
-
+															
 };
 $#include <QStringList>
 
@@ -1795,7 +1806,7 @@ public:
 	 void start (int msec);
 	 void start ();
 	 void stop ();
-	 static void singleShot (int msec, QObject *receiver, const char *member);
+		 static void singleShot (int msec, QObject *receiver, const char *member);
 
 };
 $#include <QObjectCleanupHandler>
@@ -1845,7 +1856,8 @@ public:
 	 EventFilter setEventFilter (EventFilter filter);
 	 bool filterEvent (void *message, long *result);
 	 static void quit ();
-	 static int argc ();
+		protected  virtual bool compressEvent (QEvent *, QObject *receiver, QPostEventList *);
+		 static int argc ();
 	 static char ** argv ();
 	 static void setOrganizationDomain (const QString &orgDomain);
 	 static QString organizationDomain ();
@@ -1885,6 +1897,7 @@ Q_OBJECT
 signals:
 public:
 
+	 QTextCodecPlugin (QObject *parent=0);
 	 ~QTextCodecPlugin ();
 	 virtual QList< QByteArray > names () const =0;
 	 virtual QList< QByteArray > aliases () const =0;
@@ -1922,6 +1935,7 @@ public:
 	 virtual bool hasFormat (const QString &mimetype) const;
 	 virtual QStringList formats () const;
 	 void clear ();
+	protected  virtual QVariant retrieveData (const QString &mimetype, QVariant::Type preferredType) const;
 
 };
 $#include <QAbstractListModel>
@@ -1976,7 +1990,7 @@ public:
 	 bool setPermissions (Permissions permissionSpec);
 	 int handle () const;
 	 virtual QFileEngine * fileEngine () const;
-	 static QByteArray encodeName (const QString &fileName);
+					 static QByteArray encodeName (const QString &fileName);
 	 static QString decodeName (const QByteArray &localFileName);
 	 static QString decodeName (const char *localFileName);
 	 static void setEncodingFunction (EncoderFn);
@@ -2041,7 +2055,8 @@ public:
 	 bool atEnd () const;
 	 void terminate ();
 	 void kill ();
-	 static int execute (const QString &program, const QStringList &arguments);
+		protected  virtual void setupChildProcess ();
+			 static int execute (const QString &program, const QStringList &arguments);
 	 static int execute (const QString &program);
 	 static bool startDetached (const QString &program, const QStringList &arguments);
 	 static bool startDetached (const QString &program);
@@ -2080,7 +2095,7 @@ public:
 	 bool seek (qint64 off);
 	 bool atEnd () const;
 	 bool canReadLine () const;
-
+		
 };
 $#include <QTemporaryFile>
 
@@ -2101,7 +2116,7 @@ public:
 	 QString fileTemplate () const;
 	 void setFileTemplate (const QString &name);
 	 virtual QFileEngine * fileEngine () const;
-	 static QTemporaryFile * createLocalFile (const QString &fileName);
+		 static QTemporaryFile * createLocalFile (const QString &fileName);
 	 static QTemporaryFile * createLocalFile (QFile &file);
 
 };

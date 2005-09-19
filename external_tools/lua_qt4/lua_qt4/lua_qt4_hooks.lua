@@ -1,11 +1,12 @@
+require "lua_qt4/hooks.lua"
 
 -- support for QString
 _basic['QString'] = 'qtstring'
 _basic_ctype.qtstring = 'const char*'
 
 -- suppor for weird flag things
-_basic['LuaQtGenericFlags'] = 'number'
---_basic_ctype.qtflags = 'int'
+_basic['LuaQtGenericFlags'] = 'qtflags'
+_basic_ctype.qtflags = 'int'
 
 -- support for weird QBool object
 _basic['QBool'] = 'boolean'

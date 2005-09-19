@@ -34,44 +34,59 @@ function Main:button_pressed()
 	self.label:setText(self.counter)
 end
 
+function Main:__delete__()
+
+	print "destroyed"
+end
+
 function Main:__init__(parent)
 
 	self:set_c_instance(QMainWindow:new())
 
 	local gui = {
 
-		type = QWidget,
+		type = Q3VBox,
 
 		init = {
 
 			{ QMainWindow.setCentralWidget },
 		},
 
-		{ type = QHBoxLayout,
-			name = "hlayout",
-		},
-		{ type = QLabel,
-			init = {
-				{ "setText", "press button!" },
+		{ type = Q3HBox,
+
+			{ type = QLabel,
+				init = {
+					{ "setText", "press button!" },
+				},
+				name = "label",
 			},
-			name = "label",
+			{ type = QPushButton,
+				name = "button",
+				init = {
+					{ "setText", "press me! *_*"},
+				},
+			},
+
 		},
 		{ type = QPushButton,
-			name = "button",
+
+			name = "self_destruct",
 			init = {
-				{ "setText", "press me! *_*"},
+
+				{ "setText", "Self-destruct button" },
 			},
 		},
 	}
 
 	LuaQt.init_tree(self, gui, self)
 
-	-- this is stupid
-	self.hlayout:addWidget(self.label)
-	self.hlayout:addWidget(self.button)
-
-	self:connect_signal(self.button, "clicked()", self, self.button_pressed)
+	self:connect(self.button, "clicked()", self, self.button_pressed)
 	self.counter = 0
+
+	--self:connect(self, "destroyed(QObject*)", self, self.__delete__)
+
+	self:connect(self.self_destruct, "destroyed(QObject*)", self, self.button_pressed)
+	self:connect(self.self_destruct, "clicked()", self.self_destruct, QObject.deleteLater)
 
 	self:setWindowTitle("Qt4")
 
@@ -95,9 +110,8 @@ end
 bleh = Bleh:new()
 bleh:setWindowTitle("Qt4 (NOT FROM MAIN)")
 
-local calc = Calculator:new(nil)
-
-calc:setWindowTitle("Calculator!")
+--local calc = Calculator:new(nil)
+--calc:setWindowTitle("Calculator!")
 
 
 

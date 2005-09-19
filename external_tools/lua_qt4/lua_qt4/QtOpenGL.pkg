@@ -1,5 +1,7 @@
 $pfile "lua_qt4/qt_defines.pkg"
 
+$#include "lua_qt4/tolua_base.h"
+
 typedef unsigned int GLenum;
 typedef int GLint;
 typedef int GLuint;

@@ -96,18 +96,28 @@ end
 
 function class.init_object(mt, obj, arg)
 
-	mt.__init_parent__(obj, arg, mt)
-	mt.__init__(obj, unpack(arg))
+	local ip = rawget(mt, "__init_parent__")
+	if ip then
+		ip(obj, arg, mt)
+	else
+		ip = rawget(BaseClass, "__init_parent__")
+		ip(obj, arg, mt)
+	end
+
+	local init = rawget(mt, "__init__")
+
+	if init then
+		init(obj, unpack(arg))
+	end
 end
 
 function BaseClass:__init_parent__(arg, mt)
 
 	local t = getmetatable(mt)
 	if t then
-
 		if t ~= BaseClass then
 
-			init_object(t, self, arg)
+			class.init_object(t, self, arg)
 		end
 	end
 

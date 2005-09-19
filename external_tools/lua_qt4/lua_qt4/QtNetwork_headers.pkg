@@ -109,6 +109,9 @@ Q_OBJECT
 signals:
 public:
 
+	 QHttpHeader ();
+	 QHttpHeader (const QHttpHeader &header);
+	 QHttpHeader (const QString &str);
 	 virtual ~QHttpHeader ();
 	 QHttpHeader & operator= (const QHttpHeader &h);
 	 QString value (const QString &key) const;
@@ -126,7 +129,8 @@ public:
 	 bool isValid () const;
 	 virtual int majorVersion () const =0;
 	 virtual int minorVersion () const =0;
-
+	protected  virtual bool parseLine (const QString &line, int number);
+				
 };
 $#include <QHttpRequestHeader>
 
@@ -146,7 +150,7 @@ public:
 	 int majorVersion () const;
 	 int minorVersion () const;
 	 QString toString () const;
-
+	
 };
 $#include <QAbstractSocket>
 
@@ -194,7 +198,7 @@ public:
 	 bool waitForReadyRead (int msecs=30000);
 	 bool waitForBytesWritten (int msecs=30000);
 	 bool waitForDisconnected (int msecs=30000);
-
+						
 };
 $#include <QTcpServer>
 
@@ -220,6 +224,7 @@ public:
 	 virtual QTcpSocket * nextPendingConnection ();
 	 QAbstractSocket::SocketError serverError () const;
 	 QString errorString () const;
+	protected  virtual void incomingConnection (int handle);
 
 };
 $#include <QHttpResponseHeader>
@@ -237,7 +242,7 @@ public:
 	 int majorVersion () const;
 	 int minorVersion () const;
 	 QString toString () const;
-
+	
 };
 $#include <QFtp>
 

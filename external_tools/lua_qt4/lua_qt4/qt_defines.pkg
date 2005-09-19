@@ -2,6 +2,10 @@ $#define tolua_toqtstring tolua_tostring
 $#define tolua_isqtstring tolua_isstring
 $#define tolua_pushqtstring(L,s) tolua_pushstring(L, s.toAscii().constData())
 
+$#define tolua_toqtflags (int)tolua_tonumber
+$#define tolua_isqtflags tolua_isnumber
+$#define tolua_pushqtflags tolua_pushnumber
+
 $#define __operator_sub operator[]
 $#define __operator_assign operator=
 $#define __operator_inc operator++
@@ -27,3 +31,4 @@ class arg_list;
 class arg_count;
 
 $ifile "lua_qt4/lua_qobject.h"
+$#include "lua_qt4/tolua_base.h"

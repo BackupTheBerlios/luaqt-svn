@@ -58,15 +58,17 @@ function add_class(fname, module)
 	local func = "\n"..get_section(tmp, class, "Public Member Functions")
 	local slots = get_section(tmp, class, "Public Slots")
 
-	if string.find(func, "=0;\n") or string.find(slots, "=0;\n") then
+	--if string.find(func, "=0;\n") or string.find(slots, "=0;\n") then
 
-		func = string.gsub(func, "\n%s*"..class.name.."%s*%b()%s*;", "")
+	--	func = string.gsub(func, "\n%s*"..class.name.."%s*%b()%s*;", "")
 		--table.insert(exclude_method_list, class.name)
-	end
+	--end
 
 
 	class.code = class.code..func
 	class.code = class.code..slots
+
+	class.code = class.code..get_section(tmp, class, "Protected Member Functions", "", filter_virtual)
 
 	class.code = class.code..get_section(tmp, class, "Static Public Member Functions")
 	class.code = class.code..get_section(tmp, class, "Public Attributes")
@@ -84,8 +86,17 @@ function add_class(fname, module)
 	mod.classes[class.name] = class
 end
 
+function filter_virtual(line)
 
-function get_section(file, class, sname, prep)
+	if string.find(line, "%s*virtual%s+") then
+
+		return "protected "..line
+	end
+
+	return ""
+end
+
+function get_section(file, class, sname, prep, slot)
 
 	prep = prep or ""
 
@@ -104,7 +115,9 @@ function get_section(file, class, sname, prep)
 			ac = string.gsub(ac, "^%s*%*", "")
 			ac = string.gsub(ac, "%s*\n$", "")
 			ac = string.gsub(ac, "[\n]", "")
-			ret = ret.."\t"..prep..ac..";\n"
+			local line = prep..ac..";\n"
+			if slot then line = slot(line) end
+			ret = ret.."\t"..line
 		end
 	end
 

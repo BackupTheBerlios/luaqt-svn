@@ -82,6 +82,7 @@ Q_OBJECT
 signals:
 public:
 
+	 QXmlLocator ();
 	 virtual ~QXmlLocator ();
 	 virtual int columnNumber () const =0;
 	 virtual int lineNumber () const =0;
@@ -140,7 +141,6 @@ signals:
 public:
 
 	 virtual ~QXmlEntityResolver ();
-	 virtual bool resolveEntity (const QString &publicId, const QString &systemId, QXmlInputSource *&ret)=0;
 	 virtual QString errorString () const =0;
 
 };
@@ -275,7 +275,7 @@ public:
 	 QDomElement lastChildElement (const QString &tagName=QString()) const;
 	 QDomElement previousSiblingElement (const QString &tagName=QString()) const;
 	 QDomElement nextSiblingElement (const QString &taName=QString()) const;
-
+	
 };
 $#include <QXmlInputSource>
 
@@ -293,6 +293,7 @@ public:
 	 virtual QString data () const;
 	 virtual QChar next ();
 	 virtual void reset ();
+	protected  virtual QString fromRawData (const QByteArray &data, bool beginning=false);
 	 static const ushort EndOfData;
 	 static const ushort EndOfDocument;
 
@@ -380,7 +381,6 @@ public:
 	 bool fatalError (const QXmlParseException &exception);
 	 bool notationDecl (const QString &name, const QString &publicId, const QString &systemId);
 	 bool unparsedEntityDecl (const QString &name, const QString &publicId, const QString &systemId, const QString &notationName);
-	 bool resolveEntity (const QString &publicId, const QString &systemId, QXmlInputSource *&ret);
 	 bool startDTD (const QString &name, const QString &publicId, const QString &systemId);
 	 bool endDTD ();
 	 bool startEntity (const QString &name);

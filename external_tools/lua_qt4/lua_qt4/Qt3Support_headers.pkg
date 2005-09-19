@@ -95,6 +95,83 @@ public:
 	 virtual int rtti () const;
 	 virtual void setMultiLinesEnabled (bool b);
 	 bool multiLinesEnabled () const;
+	protected  virtual void enforceSortOrder () const;
+	protected  virtual void setHeight (int);
+	protected  virtual void activate ();
+		protected  virtual void dropped (QDropEvent *e);
+	protected  virtual void dragEntered ();
+	protected  virtual void dragLeft ();
+	protected  virtual void okRename (int col);
+	protected  virtual void cancelRename (int col);
+	
+};
+$#include <Q3CanvasItem>
+
+class Q3CanvasItem {
+Q_OBJECT
+signals:
+public:
+	 enum RttiValues {         Rtti_Item = 0, Rtti_Sprite = 1, Rtti_PolygonalItem = 2, Rtti_Text = 3,         Rtti_Polygon = 4, Rtti_Rectangle = 5, Rtti_Ellipse = 6, Rtti_Line = 7,         Rtti_Spline = 8       };
+
+	 double x () const;
+	 double y () const;
+	 double z () const;
+	 virtual void moveBy (double dx, double dy);
+	 void move (double x, double y);
+	 void setX (double a);
+	 void setY (double a);
+	 void setZ (double a);
+	 bool animated () const;
+	 virtual void setAnimated (bool y);
+	 virtual void setVelocity (double vx, double vy);
+	 void setXVelocity (double vx);
+	 void setYVelocity (double vy);
+	 double xVelocity () const;
+	 double yVelocity () const;
+	 virtual void advance (int stage);
+	 virtual bool collidesWith (const Q3CanvasItem *) const =0;
+	 virtual void setCanvas (Q3Canvas *);
+	 virtual void draw (QPainter &)=0;
+	 void show ();
+	 void hide ();
+	 virtual void setVisible (bool yes);
+	 bool isVisible () const;
+	 virtual void setSelected (bool yes);
+	 bool isSelected () const;
+	 virtual void setEnabled (bool yes);
+	 bool isEnabled () const;
+	 virtual void setActive (bool yes);
+	 bool isActive () const;
+	 bool visible () const;
+	 bool selected () const;
+	 bool enabled () const;
+	 bool active () const;
+	 virtual int rtti () const;
+	 virtual QRect boundingRect () const =0;
+	 virtual QRect boundingRectAdvanced () const;
+	 Q3Canvas * canvas () const;
+		 static int RTTI;
+
+};
+$#include <Q3CanvasPixmapArray>
+
+class Q3CanvasPixmapArray {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasPixmapArray ();
+	 Q3CanvasPixmapArray (const QString &datafilenamepattern, int framecount=0);
+	 Q3CanvasPixmapArray (Q3PtrList< QPixmap >, Q3PtrList< QPoint > hotspots);
+	 Q3CanvasPixmapArray (Q3ValueList< QPixmap >, Q3PointArray hotspots=Q3PointArray());
+	 ~Q3CanvasPixmapArray ();
+	 bool readPixmaps (const QString &datafilenamepattern, int framecount=0);
+	 bool readCollisionMasks (const QString &filenamepattern);
+	 bool operator! ();
+	 bool isValid () const;
+	 Q3CanvasPixmap * image (int i) const;
+	 void setImage (int i, Q3CanvasPixmap *p);
+	 uint count () const;
 
 };
 $#include <Q3Frame>
@@ -111,6 +188,31 @@ public:
 	 void setMargin (int);
 	 QRect contentsRect () const;
 	 int frameWidth () const;
+			protected  virtual void frameChanged ();
+	protected  virtual void drawFrame (QPainter *);
+	protected  virtual void drawContents (QPainter *);
+
+};
+$#include <Q3CanvasPolygonalItem>
+
+class Q3CanvasPolygonalItem : public Q3CanvasItem {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasPolygonalItem (Q3Canvas *canvas);
+	 virtual ~Q3CanvasPolygonalItem ();
+	 bool collidesWith (const Q3CanvasItem *) const;
+	 virtual void setPen (QPen p);
+	 virtual void setBrush (QBrush b);
+	 QPen pen () const;
+	 QBrush brush () const;
+	 virtual Q3PointArray areaPoints () const =0;
+	 virtual Q3PointArray areaPointsAdvanced () const;
+	 QRect boundingRect () const;
+	 int rtti () const;
+		protected  virtual void drawShape (QPainter &)=0;
+					 static int RTTI;
 
 };
 $#include <Q3CheckListItem>
@@ -146,6 +248,196 @@ public:
 	 ToggleState state () const;
 	 void setState (ToggleState s);
 	 int rtti () const;
+			protected  virtual void stateChange (bool);
+
+};
+$#include <Q3CanvasText>
+
+class Q3CanvasText : public Q3CanvasItem {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasText (Q3Canvas *canvas);
+	 Q3CanvasText (const QString &, Q3Canvas *canvas);
+	 Q3CanvasText (const QString &, QFont, Q3Canvas *canvas);
+	 virtual ~Q3CanvasText ();
+	 void setText (const QString &);
+	 void setFont (const QFont &);
+	 void setColor (const QColor &);
+	 QString text () const;
+	 QFont font () const;
+	 QColor color () const;
+	 void moveBy (double dx, double dy);
+	 int textFlags () const;
+	 void setTextFlags (int);
+	 QRect boundingRect () const;
+	 bool collidesWith (const Q3CanvasItem *) const;
+	 int rtti () const;
+	protected  virtual void draw (QPainter &);
+	 static int RTTI;
+
+};
+$#include <Q3CanvasSprite>
+
+class Q3CanvasSprite : public Q3CanvasItem {
+Q_OBJECT
+signals:
+public:
+	 enum FrameAnimationType { Cycle, Oscillate };
+
+	 Q3CanvasSprite (Q3CanvasPixmapArray *array, Q3Canvas *canvas);
+	 void setSequence (Q3CanvasPixmapArray *seq);
+	 virtual ~Q3CanvasSprite ();
+	 void move (double x, double y);
+	 virtual void move (double x, double y, int frame);
+	 void setFrame (int);
+	 virtual void setFrameAnimation (FrameAnimationType=Cycle, int step=1, int state=0);
+	 int frame () const;
+	 int frameCount () const;
+	 int rtti () const;
+	 bool collidesWith (const Q3CanvasItem *) const;
+	 QRect boundingRect () const;
+	 int width () const;
+	 int height () const;
+	 int leftEdge () const;
+	 int topEdge () const;
+	 int rightEdge () const;
+	 int bottomEdge () const;
+	 int leftEdge (int nx) const;
+	 int topEdge (int ny) const;
+	 int rightEdge (int nx) const;
+	 int bottomEdge (int ny) const;
+	 Q3CanvasPixmap * image () const;
+	 virtual Q3CanvasPixmap * imageAdvanced () const;
+	 Q3CanvasPixmap * image (int f) const;
+	 virtual void advance (int stage);
+	 void draw (QPainter &painter);
+	 static int RTTI;
+
+};
+$#include <Q3CanvasPixmap>
+
+class Q3CanvasPixmap : public QPixmap {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasPixmap (const QString &datafilename);
+	 Q3CanvasPixmap (const QImage &image);
+	 Q3CanvasPixmap (const QPixmap &, const QPoint &hotspot);
+	 ~Q3CanvasPixmap ();
+	 int offsetX () const;
+	 int offsetY () const;
+	 void setOffset (int x, int y);
+
+};
+$#include <Q3CanvasItemList>
+
+class Q3CanvasItemList : public Q3ValueList< Q3CanvasItem * > {
+Q_OBJECT
+signals:
+public:
+
+	 void sort ();
+	 void drawUnique (QPainter &painter);
+
+};
+$#include <Q3Canvas>
+
+class Q3Canvas : public QObject {
+Q_OBJECT
+signals:
+	 void resized ();
+public:
+
+	 Q3Canvas (QObject *parent=0, const char *name=0);
+	 Q3Canvas (int w, int h);
+	 Q3Canvas (QPixmap p, int h, int v, int tilewidth, int tileheight);
+	 virtual ~Q3Canvas ();
+	 virtual void setTiles (QPixmap tiles, int h, int v, int tilewidth, int tileheight);
+	 virtual void setBackgroundPixmap (const QPixmap &p);
+	 QPixmap backgroundPixmap () const;
+	 virtual void setBackgroundColor (const QColor &c);
+	 QColor backgroundColor () const;
+	 virtual void setTile (int x, int y, int tilenum);
+	 int tile (int x, int y) const;
+	 int tilesHorizontally () const;
+	 int tilesVertically () const;
+	 int tileWidth () const;
+	 int tileHeight () const;
+	 virtual void resize (int width, int height);
+	 int width () const;
+	 int height () const;
+	 QSize size () const;
+	 QRect rect () const;
+	 bool onCanvas (int x, int y) const;
+	 bool onCanvas (const QPoint &p) const;
+	 bool validChunk (int x, int y) const;
+	 bool validChunk (const QPoint &p) const;
+	 int chunkSize () const;
+	 virtual void retune (int chunksize, int maxclusters=100);
+	 bool sameChunk (int x1, int y1, int x2, int y2) const;
+	 virtual void setChangedChunk (int i, int j);
+	 virtual void setChangedChunkContaining (int x, int y);
+	 virtual void setAllChanged ();
+	 virtual void setChanged (const QRect &area);
+	 virtual void setUnchanged (const QRect &area);
+	 void addItemToChunk (Q3CanvasItem *, int i, int j);
+	 void removeItemFromChunk (Q3CanvasItem *, int i, int j);
+	 void addItemToChunkContaining (Q3CanvasItem *, int x, int y);
+	 void removeItemFromChunkContaining (Q3CanvasItem *, int x, int y);
+	 void drawArea (const QRect &, QPainter *p, bool double_buffer=false);
+	 virtual void addView (Q3CanvasView *);
+	 virtual void removeView (Q3CanvasView *);
+	 void drawCanvasArea (const QRect &, QPainter *p=0, bool double_buffer=true);
+	 void drawViewArea (Q3CanvasView *view, QPainter *p, const QRect &r, bool dbuf);
+	 virtual void addItem (Q3CanvasItem *);
+	 virtual void addAnimation (Q3CanvasItem *);
+	 virtual void removeItem (Q3CanvasItem *);
+	 virtual void removeAnimation (Q3CanvasItem *);
+	 virtual void setAdvancePeriod (int ms);
+	 virtual void setUpdatePeriod (int ms);
+	 virtual void setDoubleBuffering (bool y);
+	 virtual void advance ();
+	 virtual void update ();
+	protected  virtual void drawBackground (QPainter &, const QRect &area);
+	protected  virtual void drawForeground (QPainter &, const QRect &area);
+
+};
+$#include <Q3CanvasPolygon>
+
+class Q3CanvasPolygon : public Q3CanvasPolygonalItem {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasPolygon (Q3Canvas *canvas);
+	 ~Q3CanvasPolygon ();
+	 void setPoints (Q3PointArray);
+	 Q3PointArray points () const;
+	 void moveBy (double dx, double dy);
+	 Q3PointArray areaPoints () const;
+	 int rtti () const;
+		 static int RTTI;
+
+};
+$#include <Q3CanvasLine>
+
+class Q3CanvasLine : public Q3CanvasPolygonalItem {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasLine (Q3Canvas *canvas);
+	 ~Q3CanvasLine ();
+	 void setPoints (int x1, int y1, int x2, int y2);
+	 QPoint startPoint () const;
+	 QPoint endPoint () const;
+	 int rtti () const;
+	 void setPen (QPen p);
+	 void moveBy (double dx, double dy);
+			 static int RTTI;
 
 };
 $#include <Q3ScrollView>
@@ -229,6 +521,77 @@ public:
 	 void center (int x, int y, float xmargin, float ymargin);
 	 void updateScrollBars ();
 	 void setEnabled (bool enable);
+	protected  virtual void drawContents (QPainter *, int cx, int cy, int cw, int ch);
+	protected  virtual void drawContentsOffset (QPainter *, int ox, int oy, int cx, int cy, int cw, int ch);
+	protected  virtual void contentsMousePressEvent (QMouseEvent *);
+	protected  virtual void contentsMouseReleaseEvent (QMouseEvent *);
+	protected  virtual void contentsMouseDoubleClickEvent (QMouseEvent *);
+	protected  virtual void contentsMouseMoveEvent (QMouseEvent *);
+	protected  virtual void contentsDragEnterEvent (QDragEnterEvent *);
+	protected  virtual void contentsDragMoveEvent (QDragMoveEvent *);
+	protected  virtual void contentsDragLeaveEvent (QDragLeaveEvent *);
+	protected  virtual void contentsDropEvent (QDropEvent *);
+	protected  virtual void contentsWheelEvent (QWheelEvent *);
+	protected  virtual void contentsContextMenuEvent (QContextMenuEvent *);
+	protected  virtual void viewportPaintEvent (QPaintEvent *);
+	protected  virtual void viewportResizeEvent (QResizeEvent *);
+	protected  virtual void viewportMousePressEvent (QMouseEvent *);
+	protected  virtual void viewportMouseReleaseEvent (QMouseEvent *);
+	protected  virtual void viewportMouseDoubleClickEvent (QMouseEvent *);
+	protected  virtual void viewportMouseMoveEvent (QMouseEvent *);
+	protected  virtual void viewportDragEnterEvent (QDragEnterEvent *);
+	protected  virtual void viewportDragMoveEvent (QDragMoveEvent *);
+	protected  virtual void viewportDragLeaveEvent (QDragLeaveEvent *);
+	protected  virtual void viewportDropEvent (QDropEvent *);
+	protected  virtual void viewportWheelEvent (QWheelEvent *);
+	protected  virtual void viewportContextMenuEvent (QContextMenuEvent *);
+			protected  virtual void setHBarGeometry (QScrollBar &hbar, int x, int y, int w, int h);
+	protected  virtual void setVBarGeometry (QScrollBar &vbar, int x, int y, int w, int h);
+											
+};
+$#include <Q3CanvasRectangle>
+
+class Q3CanvasRectangle : public Q3CanvasPolygonalItem {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasRectangle (Q3Canvas *canvas);
+	 Q3CanvasRectangle (const QRect &, Q3Canvas *canvas);
+	 Q3CanvasRectangle (int x, int y, int width, int height, Q3Canvas *canvas);
+	 ~Q3CanvasRectangle ();
+	 int width () const;
+	 int height () const;
+	 void setSize (int w, int h);
+	 QSize size () const;
+	 Q3PointArray areaPoints () const;
+	 QRect rect () const;
+	 bool collidesWith (const Q3CanvasItem *) const;
+	 int rtti () const;
+			 static int RTTI;
+
+};
+$#include <Q3CanvasEllipse>
+
+class Q3CanvasEllipse : public Q3CanvasPolygonalItem {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasEllipse (Q3Canvas *canvas);
+	 Q3CanvasEllipse (int width, int height, Q3Canvas *canvas);
+	 Q3CanvasEllipse (int width, int height, int startangle, int angle, Q3Canvas *canvas);
+	 ~Q3CanvasEllipse ();
+	 int width () const;
+	 int height () const;
+	 void setSize (int w, int h);
+	 void setAngles (int start, int length);
+	 int angleStart () const;
+	 int angleLength () const;
+	 Q3PointArray areaPoints () const;
+	 bool collidesWith (const Q3CanvasItem *) const;
+	 int rtti () const;
+		 static int RTTI;
 
 };
 $#include <Q3HBox>
@@ -242,6 +605,49 @@ public:
 	 void setSpacing (int);
 	 bool setStretchFactor (QWidget *, int stretch);
 	 QSize sizeHint () const;
+		
+};
+$#include <Q3VBox>
+
+class Q3VBox : public Q3HBox {
+Q_OBJECT
+signals:
+public:
+
+	 Q3VBox (QWidget *parent=0, const char *name=0, Qt::WFlags f=0);
+
+};
+$#include <Q3CanvasView>
+
+class Q3CanvasView : public Q3ScrollView {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasView (QWidget *parent=0, const char *name=0, Qt::WFlags f=0);
+	 Q3CanvasView (Q3Canvas *viewing, QWidget *parent=0, const char *name=0, Qt::WFlags f=0);
+	 ~Q3CanvasView ();
+	 Q3Canvas * canvas () const;
+	 void setCanvas (Q3Canvas *v);
+	 const QMatrix & worldMatrix () const;
+	 const QMatrix & inverseWorldMatrix () const;
+	 bool setWorldMatrix (const QMatrix &);
+		
+};
+$#include <Q3CanvasSpline>
+
+class Q3CanvasSpline : public Q3CanvasPolygon {
+Q_OBJECT
+signals:
+public:
+
+	 Q3CanvasSpline (Q3Canvas *canvas);
+	 ~Q3CanvasSpline ();
+	 void setControlPoints (Q3PointArray, bool closed=true);
+	 Q3PointArray controlPoints () const;
+	 bool closed () const;
+	 int rtti () const;
+	 static int RTTI;
 
 };
 $#include <Q3ListView>
@@ -356,15 +762,8 @@ public:
 	 void triggerUpdate ();
 	 void setContentsPos (int x, int y);
 	 void adjustColumn (int col);
-
-};
-$#include <Q3VBox>
-
-class Q3VBox : public Q3HBox {
-Q_OBJECT
-signals:
-public:
-
-	 Q3VBox (QWidget *parent=0, const char *name=0, Qt::WFlags f=0);
-
+										protected  virtual Q3DragObject * dragObject ();
+	protected  virtual void startDrag ();
+								protected  virtual void paintEmptyArea (QPainter *, const QRect &);
+	
 };
