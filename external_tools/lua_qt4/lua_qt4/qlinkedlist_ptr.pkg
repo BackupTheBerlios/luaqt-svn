@@ -1,0 +1,16 @@
+$ifile "lua_qt4/qlinkedlist_base.pkg", template, $TYPE_LIST
+
+class QLinkedList {
+
+	TEMPLATE_BIND(T, $TYPE_LIST);
+
+	T first () ;
+	const T first () const ;
+	T last () ;
+	const T last () const ;
+	T front () ;
+	const T front () const ;
+	T back () ;
+	const T back () const ;
+};
+
