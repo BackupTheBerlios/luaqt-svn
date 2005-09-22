@@ -32,3 +32,8 @@ class QAccessibleWidget {
 
 	TOLUA_PROTECTED_DESTRUCTOR;
 };
+
+class QMainWindow {
+
+	protected virtual void closeEvent ( QCloseEvent * e );
+};
