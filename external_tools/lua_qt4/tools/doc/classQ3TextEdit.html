@@ -1,7 +1,7 @@
 
    Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
 
-                                                                                                                                                                                                                                            Q3TextEdit Class Reference
+                                                                                                                                                                                          Q3TextEdit Class Reference
 
    #include <q3textedit.h>
 
@@ -36,9 +36,9 @@ Public Slots
      * virtual void scrollToAnchor (const QString &name)
      * virtual void setPaper (const QBrush &pap)
      * virtual void setLinkUnderline (bool)
-     * virtual void setWordWrap (WordWrap mode)
+     * virtual void setWordWrap (Q3TextEdit::WordWrap mode)
      * virtual void setWrapColumnOrWidth (int)
-     * virtual void setWrapPolicy (WrapPolicy policy)
+     * virtual void setWrapPolicy (Q3TextEdit::WrapPolicy policy)
      * virtual void copy ()
      * virtual void append (const QString &text)
      * void setText (const QString &txt)
@@ -67,7 +67,7 @@ Public Slots
      * virtual void setFamily (const QString &f)
      * virtual void setPointSize (int s)
      * virtual void setColor (const QColor &c)
-     * virtual void setVerticalAlignment (VerticalAlignment a)
+     * virtual void setVerticalAlignment (Q3TextEdit::VerticalAlignment a)
      * virtual void setAlignment (int a)
      * virtual void setParagType (Q3StyleSheetItem::DisplayMode dm, Q3StyleSheetItem::ListStyle listStyle)
      * virtual void setCursorPosition (int parag, int index)
@@ -79,8 +79,8 @@ Public Slots
      * virtual void setFormat (Q3TextFormat *f, int flags)
      * virtual void ensureCursorVisible ()
      * virtual void placeCursor (const QPoint &pos, Q3TextCursor *c=0)
-     * virtual void moveCursor (CursorAction action, bool select)
-     * virtual void doKeyboardAction (KeyboardAction action)
+     * virtual void moveCursor (Q3TextEdit::CursorAction action, bool select)
+     * virtual void doKeyboardAction (Q3TextEdit::KeyboardAction action)
      * virtual void removeSelectedText (int selNum=0)
      * virtual void removeSelection (int selNum=0)
      * virtual void setCurrentFont (const QFont &f)
@@ -109,7 +109,7 @@ Signals
      * void currentFontChanged (const QFont &f)
      * void currentColorChanged (const QColor &c)
      * void currentAlignmentChanged (int a)
-     * void currentVerticalAlignmentChanged (VerticalAlignment a)
+     * void currentVerticalAlignmentChanged (Q3TextEdit::VerticalAlignment a)
      * void cursorPositionChanged (Q3TextCursor *c)
      * void cursorPositionChanged (int para, int pos)
      * void returnPressed ()
@@ -242,14 +242,14 @@ Friends
 Classes
 
      * struct UndoRedoInfo
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Member Typedef Documentation
 
    typedef LuaQtGenericFlags Q3TextEdit::AutoFormatting
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Member Enumeration Documentation
 
@@ -336,7 +336,7 @@ Member Enumeration Documentation
           AtWhiteSpace            
           Anywhere                
           AtWordOrDocumentBoundary
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Constructor & Destructor Documentation
 
@@ -357,7 +357,7 @@ Constructor & Destructor Documentation
    virtual Q3TextEdit::~Q3TextEdit (   )  [virtual]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Member Function Documentation
 
@@ -511,7 +511,7 @@ Member Function Documentation
 
 
 
-   void Q3TextEdit::currentVerticalAlignmentChanged (  VerticalAlignment  a  )  [signal]
+   void Q3TextEdit::currentVerticalAlignmentChanged (  Q3TextEdit::VerticalAlignment  a  )  [signal]
 
 
 
@@ -545,7 +545,7 @@ Member Function Documentation
 
 
 
-   virtual void Q3TextEdit::doKeyboardAction (  KeyboardAction  action  )  [virtual, slot]
+   virtual void Q3TextEdit::doKeyboardAction (  Q3TextEdit::KeyboardAction  action  )  [virtual, slot]
 
 
 
@@ -769,8 +769,8 @@ Member Function Documentation
 
 
 
-   virtual void Q3TextEdit::moveCursor (  CursorAction  action,
-                                          bool          select
+   virtual void Q3TextEdit::moveCursor (  Q3TextEdit::CursorAction  action,
+                                          bool                      select
                                        )  [virtual, slot]
 
 
@@ -1027,11 +1027,11 @@ Member Function Documentation
 
 
 
-   virtual void Q3TextEdit::setVerticalAlignment (  VerticalAlignment  a  )  [virtual, slot]
+   virtual void Q3TextEdit::setVerticalAlignment (  Q3TextEdit::VerticalAlignment  a  )  [virtual, slot]
 
 
 
-   virtual void Q3TextEdit::setWordWrap (  WordWrap  mode  )  [virtual, slot]
+   virtual void Q3TextEdit::setWordWrap (  Q3TextEdit::WordWrap  mode  )  [virtual, slot]
 
 
 
@@ -1039,7 +1039,7 @@ Member Function Documentation
 
 
 
-   virtual void Q3TextEdit::setWrapPolicy (  WrapPolicy  policy  )  [virtual, slot]
+   virtual void Q3TextEdit::setWrapPolicy (  Q3TextEdit::WrapPolicy  policy  )  [virtual, slot]
 
 
 
@@ -1154,7 +1154,7 @@ Member Function Documentation
    virtual void Q3TextEdit::zoomTo (  int  size  )  [virtual, slot]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Friends And Related Function Documentation
 
@@ -1165,7 +1165,7 @@ Friends And Related Function Documentation
    friend class Q3TextBrowser [friend]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Property Documentation
 
@@ -1244,11 +1244,11 @@ Property Documentation
    WrapPolicy Q3TextEdit::wrapPolicy [read, write]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
    The documentation for this class was generated from the following file:
      * include/q3textedit.h
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
-    Generated on Mon Aug 15 16:29:17 2005 by  doxygen 1.4.3-20050530
+    Generated on Mon Oct 3 20:36:09 2005 by  doxygen 1.4.3-20050530

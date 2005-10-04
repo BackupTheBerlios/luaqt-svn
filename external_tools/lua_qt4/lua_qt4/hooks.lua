@@ -6,20 +6,26 @@ function parser_hook(s)
 
 	local ret = nil
 
-	local protected
+	local access
 	local b,e = string.find(s, "^%s*protected%s+")
 	if b then
-		protected = true
+		access = 1
 		s = string.sub(s, e+1)
-		-- at least remove 'protected'
-
-		if do_nothing then
-
-			-- remove protected stuff
-			s = string.gsub(s, "^[^;]*", "")
-		end
 
 		ret = s
+	end
+
+	local b,e = string.find(s, "^%s*private%s+")
+	if b then
+		access = 2
+		s = string.sub(s, e+1)
+		ret = s
+	end
+
+	if do_nothing and access then
+
+		-- remove protected stuff
+		s = string.gsub(s, "^[^;]*", "")
 	end
 
 	if do_nothing then
@@ -27,7 +33,7 @@ function parser_hook(s)
 		return ret
 	end
 
-	local b,e,decl,arg = string.find(s, "^%s*virtual%s+([^%({~]*)(%b())")
+	local b,e,decl,arg = string.find(s, "^%s*virtual%s+([^%({~]+)(%b())")
 	local const
 	if b then
 		local ret = string.sub(s, e+1)
@@ -44,7 +50,7 @@ function parser_hook(s)
 
 		local func = Function(decl, arg, const)
 		func.pure_virtual = purev
-		func.protected = protected
+		func.access = access
 		func.original_sig = decl
 
 		local curflags = classContainer.curr.flags
@@ -61,32 +67,6 @@ function parser_hook(s)
 	return ret
 end
 
-
--- override the functions 'supcode' and 'register' from 'classFunction'
-local old_supcode = classFunction.supcode
-
-function classFunction:supcode(lc)
-
-	if self.protected then
-		-- do nothing
-		return
-	end
-
-	old_supcode(self, lc)
-end
-
-local old_register = classFunction.register
-
-function classFunction:register()
-
-	if self.protected then
-
-		-- do nothing
-		return
-	end
-
-	old_register(self)
-end
 
 -- class VirtualClass
 classVirtualClass = {
@@ -111,11 +91,11 @@ function classVirtualClass:add(f)
 
 	if f.name == 'new' and not self.flags.parent_object.flags.pure_virtual then
 
-		name = self.name
+		name = self.original_name
 	elseif f.name == 'delete' then
-		name = '~'..self.name
+		name = '~'..self.original_name
 	else
-		if f.protected and (not f.pure_virtual) then
+		if f.access == 1 and (not f.pure_virtual) then
 			name = f.mod.." "..f.type..f.ptr.." "..self.flags.parent_object.lname.."__"..f.name
 		end
 	end
@@ -173,6 +153,40 @@ function classVirtualClass:get_arg_list(f, decl)
 	return "("..ret..")"
 end
 
+function classVirtualClass:add_parent_virtual_methods(parent)
+
+	parent = parent or _global_classes[self.flags.parent_object.btype]
+
+	if not parent then return end
+
+	if parent.flags.virtual_class then
+
+		local vclass = parent.flags.virtual_class
+		for k,v in ipairs(vclass.methods) do
+			if v.f.name ~= 'new' and v.f.name ~= 'delete' and (not self:has_method(v.f)) then
+				table.insert(self.methods, {f=v.f})
+			end
+		end
+	end
+
+	parent = _global_classes[parent.btype]
+	if parent then
+		self:add_parent_virtual_methods(parent)
+	end
+end
+
+function classVirtualClass:has_method(f)
+
+	for k,v in self.methods do
+		-- just match name for now
+		if v.f.name == f.name then
+			return true
+		end
+	end
+
+	return false
+end
+
 function classVirtualClass:supcode()
 
 	-- no pure virtual classes for now
@@ -180,7 +194,13 @@ function classVirtualClass:supcode()
 		output('#if (__GNUC__ == 4) || (__GNUC__ > 4 ) // I hope this works on Microsoft Visual studio .net server 2003 XP Compiler\n')
 	end
 
-	output("class "..self.name.." : public "..self.btype..", public ToluaBase {")
+	local ns
+	if self.prox.classtype == 'namespace' then
+		output('namespace ',self.prox.name, " {")
+		ns = true
+	end
+
+	output("class "..self.original_name.." : public "..self.btype..", public ToluaBase {")
 
 	output("public:\n")
 
@@ -195,6 +215,7 @@ function classVirtualClass:supcode()
 
 		i = i+1
 	end
+	self:add_parent_virtual_methods()
 
 	self:output_methods(self.btype)
 	self:output_parent_methods()
@@ -202,10 +223,14 @@ function classVirtualClass:supcode()
 	-- no constructor for pure virtual classes
 	if not self.flags.parent_object.flags.pure_virtual then
 
-		self:output_contructors()
+		self:output_constructors()
 	end
 
 	output("};\n\n")
+
+	if ns then
+		output("};")
+	end
 
 	classClass.supcode(self)
 
@@ -240,7 +265,7 @@ function classVirtualClass:output_parent_methods()
 
 	for k,v in ipairs(self.methods) do
 
-		if v.f.protected and (not v.f.pure_virtual) and v.f.name ~= 'new' and v.f.name ~= 'delete' then
+		if v.f.access == 1 and (not v.f.pure_virtual) and v.f.name ~= 'new' and v.f.name ~= 'delete' then
 
 			local rettype = v.f.mod.." "..v.f.type..v.f.ptr.." "
 			local parent_name = rettype..self.btype.."__"..v.f.name
@@ -269,7 +294,7 @@ function classVirtualClass:output_methods(btype)
 	output("\n")
 end
 
-function classVirtualClass:output_contructors()
+function classVirtualClass:output_constructors()
 
 	for k,v in ipairs(self.methods) do
 
@@ -278,12 +303,16 @@ function classVirtualClass:output_contructors()
 			local par_list = self:get_arg_list(v.f, true)
 			local var_list = self:get_arg_list(v.f, false)
 
-			output("\t",self.name,par_list,":",self.btype,var_list,"{};")
+			output("\t",self.original_name,par_list,":",self.btype,var_list,"{};")
 		end
 	end
 end
 
 function classVirtualClass:output_method(f, btype)
+
+	if f.access == 2 then -- private
+		return
+	end
 
 	local ptr
 	if f.ret ~= '' then
@@ -304,14 +333,14 @@ function classVirtualClass:output_method(f, btype)
 	-- the caller of the lua method
 	output("\t"..rettype.." "..f.name..par_list..f.const.." {")
 	local fn = f.cname
-	if f.protected then
+	if f.access == 1 then
 		fn = "NULL"
 	end
 	output('\t\tif (push_method("',f.lname,'", ',fn,')) {')
 
-	if f.type ~= 'void' then
-		output("\t\t\tint top = lua_gettop(lua_state)-2;")
-	end
+	--if f.type ~= 'void' then
+	--	output("\t\t\tint top = lua_gettop(lua_state)-1;")
+	--end
 
 	-- push the parameters
 	local argn = 0
@@ -347,7 +376,8 @@ function classVirtualClass:output_method(f, btype)
 
 		local t,ct = isbasic(f.type)
 		if t and t ~= '' then
-			output("\t\t\treturn ("..rettype..")tolua_to"..t.."(lua_state, top, 0);")
+			--output("\t\t\treturn ("..rettype..")tolua_to"..t.."(lua_state, top, 0);")
+			output("\t\t\t",rettype,"tolua_ret = ("..rettype..")tolua_to"..t.."(lua_state, -1, 0);")
 		else
 
 			local mod = ""
@@ -355,8 +385,11 @@ function classVirtualClass:output_method(f, btype)
 				mod = "*("..f.type.."*)"
 			end
 
-			output("\t\t\treturn ("..rettype..")"..mod.."tolua_tousertype(lua_state, top, 0);")
+			--output("\t\t\treturn ("..rettype..")"..mod.."tolua_tousertype(lua_state, top, 0);")
+			output("\t\t\t",rettype,"tolua_ret = ("..rettype..")"..mod.."tolua_tousertype(lua_state, -1, 0);")
 		end
+		output("\t\t\tlua_pop(lua_state, 1);")
+		output("\t\t\treturn tolua_ret;")
 	else
 		output("0);")
 	end
@@ -387,7 +420,7 @@ function VirtualClass()
 	local parent = classContainer.curr
 	pop()
 
-	local name = "Lua__"..parent.name
+	local name = "Lua__"..parent.original_name
 
 	local c = _Class(_Container{name=name, base=parent.name, extra_bases=nil})
 	setmetatable(c, classVirtualClass)

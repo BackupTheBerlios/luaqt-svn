@@ -1,13 +1,14 @@
 
    Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
 
-                                                                                                                                                                                                                                              QObject Class Reference
+                                                                                                                                                                                            QObject Class Reference
 
    #include <qobject.h>
 
-   Inherited by QAbstractEventDispatcher, QAbstractItemDelegate, QAbstractItemModel, QAbstractTextDocumentLayout, QAccessibleBridgePlugin, QAccessiblePlugin, QAction, QActionGroup, QButtonGroup, QClipboard, QCoreApplication, QDesignerFormEditorInterface, QDesignerFormWindowManagerInterface, QDesignerFormWindowToolInterface, QDesignerIconCacheInterface, QDesignerImageCollectionInterface, QDesignerMetaDataBaseInterface, QDesignerWidgetDataBaseInterface, QDesignerWidgetFactoryInterface,
-   QDrag, QEventLoop, QExtensionFactory, QExtensionManager, QFtp, QHttp, QIconEnginePlugin, QImageIOPlugin, QInputContext, QInputContextPlugin, QIODevice, QItemSelectionModel, QLayout, QLibrary, QMimeData, QMovie, QObjectCleanupHandler, QPictureFormatPlugin, QPluginLoader, QSessionManager, QSettings, QShortcut, QSignalMapper, QSocketNotifier, QSound, QSqlDriver, QSqlDriverPlugin, QStyle, QStylePlugin, QTcpServer, QTextCodecPlugin, QTextDocument, QTextObject, QThread, QTimer, QTranslator,
-   QValidator, and QWidget.
+   Inherited by Q3Accel, Q3Action, Q3Canvas, Q3Dns, Q3DnsSocket, Q3DragObject, Q3EditorFactory, Q3FileIconProvider, Q3NetworkOperation, Q3NetworkProtocol, Q3Process, Q3ServerSocket, Q3Signal, Q3SqlForm, Q3StyleSheet, Q3UrlOperator, Q3WhatsThis, QAbstractEventDispatcher, QAbstractItemDelegate, QAbstractItemModel, QAbstractTextDocumentLayout, QAccessibleBridgePlugin, QAccessiblePlugin,
+   QAction, QActionGroup, QButtonGroup, QClipboard, QCoreApplication, QDesignerFormEditorInterface, QDesignerFormWindowManagerInterface, QDesignerFormWindowToolInterface, QDesignerIconCacheInterface, QDesignerMetaDataBaseInterface, QDesignerWidgetDataBaseInterface, QDesignerWidgetFactoryInterface, QDrag, QEventLoop, QExtensionFactory, QExtensionManager, QFtp, QHttp, QIconEnginePlugin,
+   QImageIOPlugin, QInputContext, QInputContextPlugin, QIODevice, QItemSelectionModel, QLayout, QLibrary, QMimeData, QMovie, QObjectCleanupHandler, QPictureFormatPlugin, QPluginLoader, QSessionManager, QSettings, QShortcut, QSignalMapper, QSocketNotifier, QSound, QSqlDriver, QSqlDriverPlugin, QStyle, QStylePlugin, QTcpServer, QTextCodecPlugin, QTextDocument, QTextObject, QThread, QTimer,
+   QTranslator, QValidator, and QWidget.
 
    List of all members.
 
@@ -88,7 +89,7 @@ Friends
      * class QCoreApplicationPrivate
      * class QWidget
      * class QThreadData
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Constructor & Destructor Documentation
 
@@ -105,7 +106,7 @@ Constructor & Destructor Documentation
                     )  [protected]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Member Function Documentation
 
@@ -117,7 +118,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QGroupBox, QLayout, QSplitter, QToolBar, and QWorkspace.
+   Reimplemented in Q3ActionGroup, Q3GroupBox, Q3MainWindow, Q3WidgetStack, QGroupBox, QLayout, QSplitter, QToolBar, and QWorkspace.
 
    const QObjectList& QObject::children (   )  const [inline]
 
@@ -144,7 +145,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QClipboard.
+   Reimplemented in Q3Process, and QClipboard.
 
    virtual void QObject::customEvent (  QEvent *   )  [protected, virtual]
 
@@ -163,6 +164,8 @@ Member Function Documentation
                             )  [inline]
 
 
+
+   Reimplemented in Q3Signal.
 
    bool QObject::disconnect (  const char *     signal = 0,
                                const QObject *  receiver = 0,
@@ -183,6 +186,8 @@ Member Function Documentation
 
 
 
+   Reimplemented in Q3Process.
+
    void QObject::dumpObjectInfo (   )
 
 
@@ -195,7 +200,8 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractButton, QAbstractScrollArea, QAbstractSpinBox, QAction, QApplication, QClipboard, QComboBox, QCoreApplication, QDateTimeEdit, QDockWidget, QGLWidget, QGroupBox, QHeaderView, QLabel, QLineEdit, QMainWindow, QMenu, QMenuBar, QMotifStyle, QScrollArea, QScrollBar, QSettings, QShortcut, QSizeGrip, QSlider, QSocketNotifier, QSplitter, QSplitterHandle, QStatusBar, QTabBar, QToolBar, QWidget, QX11EmbedWidget, and QX11EmbedContainer.
+   Reimplemented in Q3ButtonGroup, Q3DateEdit, Q3TimeEdit, Q3DockWindow, Q3MainWindow, Q3TextEdit, Q3ToolBar, Q3WidgetStack, QAbstractButton, QAbstractScrollArea, QAbstractSpinBox, QAction, QApplication, QClipboard, QComboBox, QCoreApplication, QDateTimeEdit, QDockWidget, QGLWidget, QGroupBox, QHeaderView, QLabel, QLineEdit, QMainWindow, QMenu, QMenuBar, QMotifStyle, QScrollArea,
+   QScrollBar, QSettings, QShortcut, QSizeGrip, QSlider, QSocketNotifier, QSplitter, QSplitterHandle, QStatusBar, QTabBar, QToolBar, QWidget, QX11EmbedWidget, and QX11EmbedContainer.
 
    virtual bool QObject::eventFilter (  QObject *  ,
                                         QEvent * 
@@ -203,7 +209,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QDialog, QFocusFrame, QItemDelegate, QMenuBar, QScrollArea, QSizeGrip, QWorkspace, QX11EmbedWidget, and QX11EmbedContainer.
+   Reimplemented in Q3DataTable, Q3DockArea, Q3DockWindow, Q3FileDialog, Q3IconView, Q3ListBox, Q3ListView, Q3MainWindow, Q3ScrollView, Q3Table, Q3TextEdit, Q3WhatsThis, Q3Wizard, QDialog, QFocusFrame, QItemDelegate, QMenuBar, QScrollArea, QSizeGrip, QWorkspace, QX11EmbedWidget, and QX11EmbedContainer.
 
    bool QObject::inherits (  const char *  classname  )  const [inline]
 
@@ -289,12 +295,12 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractSlider, QAbstractSpinBox, QListView, QMenu, QTextEdit, QTimer, and QToolButton.
+   Reimplemented in Q3DateEdit, Q3TimeEdit, Q3Http, QAbstractButton, QAbstractItemView, QAbstractSlider, QAbstractSpinBox, QListView, QMenu, QTextEdit, QTimer, and QToolButton.
 
    QObjectUserData* QObject::userData (  uint  id  )  const
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Friends And Related Function Documentation
 
@@ -335,7 +341,7 @@ Friends And Related Function Documentation
 
 
    Reimplemented in QAction, QApplication, QCoreApplication, QInputContext, and QLayout.
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Member Data Documentation
 
@@ -346,18 +352,18 @@ Member Data Documentation
    const QMetaObject QObject::staticQtMetaObject [static, protected]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Property Documentation
 
    QString QObject::objectName [read, write]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
    The documentation for this class was generated from the following file:
      * include/qobject.h
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
-    Generated on Fri Aug 5 08:34:01 2005 by  doxygen 1.4.3-20050530
+    Generated on Mon Oct 3 20:36:20 2005 by  doxygen 1.4.3-20050530

@@ -28,12 +28,24 @@ typedef QList<QWidget*> QWidgetList;
 
 $ifile "lua_qt4/QtGui_headers.pkg",qt
 
+// hacks to prevent virtual class to call private member setModel
+class QListWidget {
+
+	private virtual void setModel(QAbstractItemModel*);
+};
+class QTreeWidget {
+
+	private virtual void setModel(QAbstractItemModel*);
+};
+class QTableWidget {
+
+	private virtual void setModel(QAbstractItemModel*);
+};
+
+
+
 class QAccessibleWidget {
 
 	TOLUA_PROTECTED_DESTRUCTOR;
 };
 
-class QMainWindow {
-
-	protected virtual void closeEvent ( QCloseEvent * e );
-};

@@ -1,7 +1,7 @@
 
    Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
 
-                                                                                                                                                                                                                                         QAbstractItemView Class Reference
+                                                                                                                                                                                       QAbstractItemView Class Reference
 
    #include <qabstractitemview.h>
 
@@ -140,20 +140,20 @@ Protected Member Functions
      * void startAutoScroll ()
      * void stopAutoScroll ()
      * void doAutoScroll ()
-     * bool viewportEvent (QEvent *e)
-     * void mousePressEvent (QMouseEvent *e)
-     * void mouseMoveEvent (QMouseEvent *e)
-     * void mouseReleaseEvent (QMouseEvent *e)
-     * void mouseDoubleClickEvent (QMouseEvent *e)
-     * void dragEnterEvent (QDragEnterEvent *e)
-     * void dragMoveEvent (QDragMoveEvent *e)
-     * void dragLeaveEvent (QDragLeaveEvent *e)
-     * void dropEvent (QDropEvent *e)
-     * void focusInEvent (QFocusEvent *e)
-     * void focusOutEvent (QFocusEvent *e)
-     * void keyPressEvent (QKeyEvent *e)
-     * void resizeEvent (QResizeEvent *e)
-     * void timerEvent (QTimerEvent *e)
+     * bool viewportEvent (QEvent *event)
+     * void mousePressEvent (QMouseEvent *event)
+     * void mouseMoveEvent (QMouseEvent *event)
+     * void mouseReleaseEvent (QMouseEvent *event)
+     * void mouseDoubleClickEvent (QMouseEvent *event)
+     * void dragEnterEvent (QDragEnterEvent *event)
+     * void dragMoveEvent (QDragMoveEvent *event)
+     * void dragLeaveEvent (QDragLeaveEvent *event)
+     * void dropEvent (QDropEvent *event)
+     * void focusInEvent (QFocusEvent *event)
+     * void focusOutEvent (QFocusEvent *event)
+     * void keyPressEvent (QKeyEvent *event)
+     * void resizeEvent (QResizeEvent *event)
+     * void timerEvent (QTimerEvent *event)
 
 Properties
 
@@ -167,14 +167,14 @@ Properties
      * SelectionBehavior selectionBehavior
      * QSize iconSize
      * Qt TextElideMode
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Member Typedef Documentation
 
    typedef LuaQtGenericFlags QAbstractItemView::EditTriggers
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Member Enumeration Documentation
 
@@ -252,7 +252,7 @@ Member Enumeration Documentation
           EditingState      
           ExpandingState    
           CollapsingState   
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Constructor & Destructor Documentation
 
@@ -269,7 +269,7 @@ Constructor & Destructor Documentation
                                         )  [protected]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Member Function Documentation
 
@@ -345,21 +345,13 @@ Member Function Documentation
 
 
 
-   void QAbstractItemView::dragEnterEvent (  QDragEnterEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::dragEnterEvent (  QDragEnterEvent *  event  )  [protected, virtual]
 
 
 
    Reimplemented from QAbstractScrollArea.
 
-   void QAbstractItemView::dragLeaveEvent (  QDragLeaveEvent *  e  )  [protected, virtual]
-
-
-
-   Reimplemented from QAbstractScrollArea.
-
-   Reimplemented in QListView.
-
-   void QAbstractItemView::dragMoveEvent (  QDragMoveEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::dragLeaveEvent (  QDragLeaveEvent *  event  )  [protected, virtual]
 
 
 
@@ -367,7 +359,15 @@ Member Function Documentation
 
    Reimplemented in QListView.
 
-   void QAbstractItemView::dropEvent (  QDropEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::dragMoveEvent (  QDragMoveEvent *  event  )  [protected, virtual]
+
+
+
+   Reimplemented from QAbstractScrollArea.
+
+   Reimplemented in QListView.
+
+   void QAbstractItemView::dropEvent (  QDropEvent *  event  )  [protected, virtual]
 
 
 
@@ -402,13 +402,13 @@ Member Function Documentation
 
 
 
-   void QAbstractItemView::focusInEvent (  QFocusEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::focusInEvent (  QFocusEvent *  event  )  [protected, virtual]
 
 
 
    Reimplemented from QWidget.
 
-   void QAbstractItemView::focusOutEvent (  QFocusEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::focusOutEvent (  QFocusEvent *  event  )  [protected, virtual]
 
 
 
@@ -462,7 +462,7 @@ Member Function Documentation
 
 
 
-   void QAbstractItemView::keyPressEvent (  QKeyEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::keyPressEvent (  QKeyEvent *  event  )  [protected, virtual]
 
 
 
@@ -472,7 +472,7 @@ Member Function Documentation
 
 
 
-   void QAbstractItemView::mouseDoubleClickEvent (  QMouseEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::mouseDoubleClickEvent (  QMouseEvent *  event  )  [protected, virtual]
 
 
 
@@ -480,7 +480,7 @@ Member Function Documentation
 
    Reimplemented in QHeaderView, and QTreeView.
 
-   void QAbstractItemView::mouseMoveEvent (  QMouseEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::mouseMoveEvent (  QMouseEvent *  event  )  [protected, virtual]
 
 
 
@@ -488,7 +488,7 @@ Member Function Documentation
 
    Reimplemented in QHeaderView, and QListView.
 
-   void QAbstractItemView::mousePressEvent (  QMouseEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::mousePressEvent (  QMouseEvent *  event  )  [protected, virtual]
 
 
 
@@ -496,7 +496,7 @@ Member Function Documentation
 
    Reimplemented in QHeaderView, and QTreeView.
 
-   void QAbstractItemView::mouseReleaseEvent (  QMouseEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::mouseReleaseEvent (  QMouseEvent *  event  )  [protected, virtual]
 
 
 
@@ -524,7 +524,7 @@ Member Function Documentation
 
    Reimplemented in QListView, and QTreeView.
 
-   void QAbstractItemView::resizeEvent (  QResizeEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::resizeEvent (  QResizeEvent *  event  )  [protected, virtual]
 
 
 
@@ -740,7 +740,7 @@ Member Function Documentation
 
 
 
-   void QAbstractItemView::timerEvent (  QTimerEvent *  e  )  [protected, virtual]
+   void QAbstractItemView::timerEvent (  QTimerEvent *  event  )  [protected, virtual]
 
 
 
@@ -792,7 +792,7 @@ Member Function Documentation
 
 
 
-   bool QAbstractItemView::viewportEvent (  QEvent *  e  )  [protected, virtual]
+   bool QAbstractItemView::viewportEvent (  QEvent *  event  )  [protected, virtual]
 
 
 
@@ -809,7 +809,7 @@ Member Function Documentation
 
 
    Implemented in QHeaderView, QListView, QTableView, and QTreeView.
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Property Documentation
 
@@ -852,11 +852,11 @@ Property Documentation
    Qt QAbstractItemView::TextElideMode [read, write]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
    The documentation for this class was generated from the following file:
      * include/qabstractitemview.h
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
-    Generated on Fri Aug 5 08:33:54 2005 by  doxygen 1.4.3-20050530
+    Generated on Mon Oct 3 20:36:10 2005 by  doxygen 1.4.3-20050530

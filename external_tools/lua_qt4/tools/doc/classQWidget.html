@@ -1,14 +1,14 @@
 
    Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
 
-                                                                                                                                                                                                                                              QWidget Class Reference
+                                                                                                                                                                                            QWidget Class Reference
 
    #include <qwidget.h>
 
    Inherits QObject, and QPaintDevice.
 
-   Inherited by QAbstractButton, QAbstractSlider, QAbstractSpinBox, QComboBox, QDesignerFormWindowInterface, QDesignerObjectInspectorInterface, QDesignerPropertyEditorInterface, QDesignerWidgetBoxInterface, QDesktopWidget, QDialog, QDockWidget, QFocusFrame, QFrame, QGLWidget, QGroupBox, QLineEdit, QMainWindow, QMenu, QMenuBar, QProgressBar, QRubberBand, QSizeGrip, QSplashScreen, QSplitterHandle, QStatusBar, QTabBar, QTabWidget, QToolBar, QWorkspace, QX11EmbedContainer, and
-   QX11EmbedWidget.
+   Inherited by Q3DataBrowser, Q3DataView, Q3DateTimeEdit, Q3DateTimeEditBase, Q3DockArea, Q3Header, Q3MainWindow, Q3SpinWidget, QAbstractButton, QAbstractSlider, QAbstractSpinBox, QComboBox, QDesignerFormWindowInterface, QDesignerObjectInspectorInterface, QDesignerPropertyEditorInterface, QDesignerWidgetBoxInterface, QDesktopWidget, QDialog, QDockWidget, QFocusFrame, QFrame, QGLWidget,
+   QGroupBox, QLineEdit, QMainWindow, QMenu, QMenuBar, QProgressBar, QRubberBand, QSizeGrip, QSplashScreen, QSplitterHandle, QStatusBar, QTabBar, QTabWidget, QToolBar, QWorkspace, QX11EmbedContainer, and QX11EmbedWidget.
 
    List of all members.
 
@@ -352,7 +352,7 @@ Friends
      * class QX11PaintEngine
      * class QWin32PaintEngine
      * class QShortcutPrivate
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Constructor & Destructor Documentation
 
@@ -372,7 +372,7 @@ Constructor & Destructor Documentation
                     )  [protected]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Member Function Documentation
 
@@ -392,7 +392,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QMenu, QMenuBar, QToolBar, and QToolButton.
+   Reimplemented in Q3ToolBar, QMenu, QMenuBar, QToolBar, and QToolButton.
 
    QList<QAction*> QWidget::actions (   )  const
 
@@ -426,7 +426,8 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractButton, QAbstractSlider, QAbstractSpinBox, QComboBox, QDockWidget, QFrame, QGroupBox, QLabel, QLineEdit, QMenu, QMenuBar, QMessageBox, QProgressDialog, QRubberBand, QSplitter, QTabBar, QTabWidget, QTextEdit, QToolBar, QToolBox, QToolButton, and QWorkspace.
+   Reimplemented in Q3GroupBox, Q3Header, Q3IconView, Q3ListBox, Q3ListView, Q3ProgressBar, Q3ProgressDialog, Q3SpinWidget, Q3TextEdit, QAbstractButton, QAbstractSlider, QAbstractSpinBox, QComboBox, QDockWidget, QFrame, QGroupBox, QLabel, QLineEdit, QMenu, QMenuBar, QMessageBox, QProgressDialog, QRubberBand, QSplitter, QTabBar, QTabWidget, QTextEdit, QToolBar, QToolBox, QToolButton, and
+   QWorkspace.
 
    QWidget* QWidget::childAt (  const QPoint &  p  )  const
 
@@ -462,17 +463,19 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractSpinBox, QDialog, QDockWidget, QMessageBox, and QProgressDialog.
+   Reimplemented in Q3ProgressDialog, QAbstractSpinBox, QDialog, QDockWidget, QMessageBox, and QProgressDialog.
 
    QRect QWidget::contentsRect (   )  const
 
 
 
+   Reimplemented in Q3Frame.
+
    virtual void QWidget::contextMenuEvent (  QContextMenuEvent *   )  [protected, virtual]
 
 
 
-   Reimplemented in QAbstractScrollArea, QAbstractSpinBox, QDialog, QLineEdit, QMainWindow, and QTextEdit.
+   Reimplemented in Q3DockWindow, Q3ScrollView, QAbstractScrollArea, QAbstractSpinBox, QDialog, QLineEdit, QMainWindow, and QTextEdit.
 
    Qt::ContextMenuPolicy QWidget::contextMenuPolicy (   )  const
 
@@ -543,7 +546,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QMenu, and QToolButton.
+   Reimplemented in Q3IconView, QMenu, and QToolButton.
 
    bool QWidget::event (  QEvent *   )  [protected, virtual]
 
@@ -551,7 +554,8 @@ Member Function Documentation
 
    Reimplemented from QObject.
 
-   Reimplemented in QAbstractButton, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDateTimeEdit, QDockWidget, QGLWidget, QGroupBox, QHeaderView, QLabel, QLineEdit, QMainWindow, QMenu, QMenuBar, QScrollArea, QScrollBar, QSizeGrip, QSlider, QSplitter, QSplitterHandle, QStatusBar, QTabBar, QToolBar, QX11EmbedWidget, and QX11EmbedContainer.
+   Reimplemented in Q3ButtonGroup, Q3DateEdit, Q3TimeEdit, Q3DockWindow, Q3MainWindow, Q3TextEdit, Q3ToolBar, Q3WidgetStack, QAbstractButton, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDateTimeEdit, QDockWidget, QGLWidget, QGroupBox, QHeaderView, QLabel, QLineEdit, QMainWindow, QMenu, QMenuBar, QScrollArea, QScrollBar, QSizeGrip, QSlider, QSplitter, QSplitterHandle, QStatusBar,
+   QTabBar, QToolBar, QX11EmbedWidget, and QX11EmbedContainer.
 
    static QWidget* QWidget::find (  WId   )  [static]
 
@@ -561,7 +565,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractSpinBox, QComboBox, QDateTimeEdit, QGroupBox, QLineEdit, QMenuBar, QPushButton, and QTextEdit.
+   Reimplemented in Q3IconView, Q3ListBox, Q3ListView, Q3Table, QAbstractButton, QAbstractItemView, QAbstractSpinBox, QComboBox, QDateTimeEdit, QGroupBox, QLineEdit, QMenuBar, QPushButton, and QTextEdit.
 
    bool QWidget::focusNextChild (   )  [inline, protected]
 
@@ -571,13 +575,13 @@ Member Function Documentation
 
 
 
-   Reimplemented in QDateTimeEdit, QScrollArea, QTextBrowser, and QTextEdit.
+   Reimplemented in Q3ScrollView, Q3TextEdit, QDateTimeEdit, QScrollArea, QTextBrowser, and QTextEdit.
 
    virtual void QWidget::focusOutEvent (  QFocusEvent *   )  [protected, virtual]
 
 
 
-   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractSpinBox, QComboBox, QLineEdit, QMenuBar, QPushButton, QTextBrowser, and QTextEdit.
+   Reimplemented in Q3IconView, Q3ListBox, Q3ListView, Q3Table, QAbstractButton, QAbstractItemView, QAbstractSpinBox, QComboBox, QLineEdit, QMenuBar, QPushButton, QTextBrowser, and QTextEdit.
 
    Qt::FocusPolicy QWidget::focusPolicy (   )  const
 
@@ -599,9 +603,13 @@ Member Function Documentation
 
 
 
+   Reimplemented in Q3TextEdit.
+
    virtual void QWidget::fontChange (  const QFont &   )  [protected, virtual]
 
 
+
+   Reimplemented in Q3ScrollView.
 
    QFontInfo QWidget::fontInfo (   )  const [inline]
 
@@ -675,7 +683,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QLabel, and QMenuBar.
+   Reimplemented in Q3TextEdit, QLabel, and QMenuBar.
 
    void QWidget::hide (   )  [inline, slot]
 
@@ -685,7 +693,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractSpinBox, QComboBox, QMenu, QScrollBar, QWorkspace, and QX11EmbedContainer.
+   Reimplemented in Q3DockWindow, QAbstractSpinBox, QComboBox, QMenu, QScrollBar, QWorkspace, and QX11EmbedContainer.
 
    QInputContext* QWidget::inputContext (   )
 
@@ -695,13 +703,13 @@ Member Function Documentation
 
 
 
-   Reimplemented in QComboBox, QLineEdit, and QTextEdit.
+   Reimplemented in Q3TextEdit, QComboBox, QLineEdit, and QTextEdit.
 
    virtual QVariant QWidget::inputMethodQuery (  Qt::InputMethodQuery   )  const [virtual]
 
 
 
-   Reimplemented in QComboBox, QLineEdit, and QTextEdit.
+   Reimplemented in Q3IconView, Q3ListBox, Q3ListView, Q3Table, QComboBox, QLineEdit, and QTextEdit.
 
    void QWidget::insertAction (  QAction *  before,
                                  QAction *  action
@@ -791,13 +799,13 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSlider, QAbstractSpinBox, QComboBox, QDateTimeEdit, QDialog, QLineEdit, QMenu, QMenuBar, QMessageBox, QPushButton, QTabBar, QTabWidget, QTextBrowser, and QTextEdit.
+   Reimplemented in Q3DataTable, Q3FileDialog, Q3Header, Q3IconView, Q3ListBox, Q3ListView, Q3Table, Q3TextBrowser, Q3TextEdit, QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSlider, QAbstractSpinBox, QComboBox, QDateTimeEdit, QDialog, QLineEdit, QMenu, QMenuBar, QMessageBox, QPushButton, QTabBar, QTabWidget, QTextBrowser, and QTextEdit.
 
    virtual void QWidget::keyReleaseEvent (  QKeyEvent *   )  [protected, virtual]
 
 
 
-   Reimplemented in QAbstractButton, QAbstractSpinBox, and QComboBox.
+   Reimplemented in Q3Header, QAbstractButton, QAbstractSpinBox, and QComboBox.
 
    virtual void QWidget::languageChange (   )  [protected, virtual]
 
@@ -879,11 +887,13 @@ Member Function Documentation
 
 
 
+   Reimplemented in Q3DockWindow, and Q3ToolBar.
+
    virtual QSize QWidget::minimumSizeHint (   )  const [virtual]
 
 
 
-   Reimplemented in QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDial, QDialog, QGroupBox, QLabel, QLineEdit, QMenuBar, QProgressBar, QSlider, QSplitter, QTabBar, QTabWidget, QToolButton, and QX11EmbedContainer.
+   Reimplemented in Q3DateEdit, Q3TimeEdit, Q3DateTimeEdit, Q3DockWindow, Q3IconView, Q3ListBox, Q3ListView, Q3MainWindow, Q3ProgressBar, Q3ScrollView, Q3ToolBar, Q3WidgetStack, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDial, QDialog, QGroupBox, QLabel, QLineEdit, QMenuBar, QProgressBar, QSlider, QSplitter, QTabBar, QTabWidget, QToolButton, and QX11EmbedContainer.
 
    int QWidget::minimumWidth (   )  const
 
@@ -893,7 +903,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractItemView, QAbstractScrollArea, QHeaderView, QLineEdit, QTextEdit, and QTreeView.
+   Reimplemented in Q3Header, Q3ListBox, Q3ScrollView, QAbstractItemView, QAbstractScrollArea, QHeaderView, QLineEdit, QTextEdit, and QTreeView.
 
    static QWidget* QWidget::mouseGrabber (   )  [static]
 
@@ -903,19 +913,19 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QDial, QHeaderView, QLineEdit, QListView, QMenu, QMenuBar, QScrollBar, QSizeGrip, QSlider, QSplitterHandle, QTabBar, QTextBrowser, and QTextEdit.
+   Reimplemented in Q3Header, Q3ListBox, Q3SpinWidget, Q3ScrollView, QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QDial, QHeaderView, QLineEdit, QListView, QMenu, QMenuBar, QScrollBar, QSizeGrip, QSlider, QSplitterHandle, QTabBar, QTextBrowser, and QTextEdit.
 
    virtual void QWidget::mousePressEvent (  QMouseEvent *   )  [protected, virtual]
 
 
 
-   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDial, QHeaderView, QLineEdit, QMenu, QMenuBar, QScrollBar, QSizeGrip, QSlider, QSplashScreen, QSplitterHandle, QTabBar, QTextBrowser, QTextEdit, QToolButton, and QTreeView.
+   Reimplemented in Q3Header, Q3ListBox, Q3SpinWidget, Q3ScrollView, QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDial, QHeaderView, QLineEdit, QMenu, QMenuBar, QScrollBar, QSizeGrip, QSlider, QSplashScreen, QSplitterHandle, QTabBar, QTextBrowser, QTextEdit, QToolButton, and QTreeView.
 
    virtual void QWidget::mouseReleaseEvent (  QMouseEvent *   )  [protected, virtual]
 
 
 
-   Reimplemented in QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDial, QHeaderView, QLineEdit, QListView, QMenu, QMenuBar, QScrollBar, QSlider, QSplitterHandle, QTabBar, QTextBrowser, and QTextEdit.
+   Reimplemented in Q3Header, Q3ListBox, Q3SpinWidget, Q3ScrollView, QAbstractButton, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDial, QHeaderView, QLineEdit, QListView, QMenu, QMenuBar, QScrollBar, QSlider, QSplitterHandle, QTabBar, QTextBrowser, and QTextEdit.
 
    void QWidget::move (  const QPoint &   )
 
@@ -963,7 +973,8 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractButton, QAbstractScrollArea, QAbstractSpinBox, QCheckBox, QComboBox, QDial, QDockWidget, QFocusFrame, QFrame, QGLWidget, QGroupBox, QHeaderView, QLabel, QLCDNumber, QLineEdit, QListView, QMenu, QMenuBar, QProgressBar, QPushButton, QRadioButton, QRubberBand, QScrollBar, QSizeGrip, QSlider, QSplitterHandle, QStatusBar, QTabBar, QTableView, QTabWidget, QTextBrowser, QTextEdit, QToolBar, QToolButton, QTreeView, QWorkspace, and QX11EmbedContainer.
+   Reimplemented in Q3Button, Q3Frame, Q3Header, Q3MainWindow, Q3ProgressBar, Q3SpinWidget, Q3TabDialog, Q3Table, QAbstractButton, QAbstractScrollArea, QAbstractSpinBox, QCheckBox, QComboBox, QDial, QDockWidget, QFocusFrame, QFrame, QGLWidget, QGroupBox, QHeaderView, QLabel, QLCDNumber, QLineEdit, QListView, QMenu, QMenuBar, QProgressBar, QPushButton, QRadioButton, QRubberBand, QScrollBar,
+   QSizeGrip, QSlider, QSplitterHandle, QStatusBar, QTabBar, QTableView, QTabWidget, QTextBrowser, QTextEdit, QToolBar, QToolButton, QTreeView, QWorkspace, and QX11EmbedContainer.
 
    const QPalette& QWidget::palette (   )  const
 
@@ -1035,7 +1046,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QRubberBand.
+   Reimplemented in Q3ScrollView, and QRubberBand.
 
    void QWidget::resize (  int  w,
                            int  h
@@ -1043,13 +1054,14 @@ Member Function Documentation
 
 
 
-   Reimplemented in QRubberBand.
+   Reimplemented in Q3ScrollView, and QRubberBand.
 
    virtual void QWidget::resizeEvent (  QResizeEvent *   )  [protected, virtual]
 
 
 
-   Reimplemented in QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDesktopWidget, QDial, QDialog, QGLWidget, QGroupBox, QListView, QMenuBar, QMessageBox, QProgressDialog, QScrollArea, QSplitter, QStatusBar, QTabBar, QTabWidget, QTextEdit, QToolBar, QWorkspace, QX11EmbedWidget, and QX11EmbedContainer.
+   Reimplemented in Q3DataTable, Q3DateEdit, Q3TimeEdit, Q3DateTimeEdit, Q3DockWindow, Q3FileDialog, Q3Frame, Q3GroupBox, Q3Header, Q3IconView, Q3ListBox, Q3ListView, Q3ProgressDialog, Q3SpinWidget, Q3ScrollView, Q3TabDialog, Q3TextEdit, Q3ToolBar, Q3WidgetStack, QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QComboBox, QDesktopWidget, QDial, QDialog, QGLWidget, QGroupBox,
+   QListView, QMenuBar, QMessageBox, QProgressDialog, QScrollArea, QSplitter, QStatusBar, QTabBar, QTabWidget, QTextEdit, QToolBar, QWorkspace, QX11EmbedWidget, and QX11EmbedContainer.
 
    void QWidget::scroll (  int            dx,
                            int            dy,
@@ -1120,6 +1132,8 @@ Member Function Documentation
 
 
 
+   Reimplemented in Q3ScrollView, and Q3Table.
+
    void QWidget::setFixedHeight (  int  h  )
 
 
@@ -1157,6 +1171,8 @@ Member Function Documentation
    void QWidget::setFont (  const QFont &   )
 
 
+
+   Reimplemented in Q3TabDialog, and Q3Wizard.
 
    void QWidget::setForegroundRole (  QPalette::ColorRole   )
 
@@ -1229,6 +1245,8 @@ Member Function Documentation
                                 )
 
 
+
+   Reimplemented in Q3ToolBar.
 
    void QWidget::setMinimumSize (  const QSize &   )  [inline]
 
@@ -1310,11 +1328,13 @@ Member Function Documentation
 
 
 
+   Reimplemented in Q3Header.
+
    virtual void QWidget::setVisible (  bool  visible  )  [virtual, slot]
 
 
 
-   Reimplemented in QDialog, and QSizeGrip.
+   Reimplemented in Q3MainWindow, Q3ProgressBar, Q3ScrollView, Q3ToolBar, Q3WidgetStack, Q3Wizard, QDialog, and QSizeGrip.
 
    void QWidget::setWhatsThis (  const QString &   )
 
@@ -1356,11 +1376,13 @@ Member Function Documentation
 
 
 
+   Reimplemented in Q3ListView, and Q3TabDialog.
+
    virtual void QWidget::showEvent (  QShowEvent *   )  [protected, virtual]
 
 
 
-   Reimplemented in QAbstractSpinBox, QComboBox, QDialog, QMessageBox, QProgressDialog, QTabBar, QTabWidget, QTextEdit, QToolBox, QWorkspace, and QX11EmbedContainer.
+   Reimplemented in Q3DockWindow, Q3Header, Q3IconView, Q3ListBox, Q3ListView, Q3ProgressDialog, Q3Table, QAbstractSpinBox, QComboBox, QDialog, QMessageBox, QProgressDialog, QTabBar, QTabWidget, QTextEdit, QToolBox, QWorkspace, and QX11EmbedContainer.
 
    void QWidget::showFullScreen (   )  [slot]
 
@@ -1386,7 +1408,8 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractScrollArea, QAbstractSpinBox, QCheckBox, QComboBox, QDateTimeEdit, QDial, QDialog, QFrame, QHeaderView, QLabel, QLCDNumber, QLineEdit, QMenu, QMenuBar, QMessageBox, QProgressBar, QProgressDialog, QPushButton, QRadioButton, QScrollArea, QScrollBar, QSizeGrip, QSlider, QSplitter, QSplitterHandle, QTabBar, QTabWidget, QToolButton, and QWorkspace.
+   Reimplemented in Q3CanvasView, Q3DateEdit, Q3TimeEdit, Q3DateTimeEdit, Q3DockWindow, Q3Grid, Q3HBox, Q3Header, Q3IconView, Q3ListBox, Q3ListView, Q3MainWindow, Q3ProgressBar, Q3ProgressDialog, Q3ScrollView, Q3Table, Q3TextEdit, Q3WidgetStack, QAbstractScrollArea, QAbstractSpinBox, QCheckBox, QComboBox, QDateTimeEdit, QDial, QDialog, QFrame, QHeaderView, QLabel, QLCDNumber, QLineEdit,
+   QMenu, QMenuBar, QMessageBox, QProgressBar, QProgressDialog, QPushButton, QRadioButton, QScrollArea, QScrollBar, QSizeGrip, QSlider, QSplitter, QSplitterHandle, QTabBar, QTabWidget, QToolButton, and QWorkspace.
 
    QSize QWidget::sizeIncrement (   )  const
 
@@ -1411,6 +1434,8 @@ Member Function Documentation
    virtual void QWidget::styleChange (  QStyle &   )  [protected, virtual]
 
 
+
+   Reimplemented in Q3ScrollView, Q3TabDialog, and Q3ToolBar.
 
    virtual void QWidget::tabletEvent (  QTabletEvent *   )  [protected, virtual]
 
@@ -1460,6 +1485,8 @@ Member Function Documentation
 
 
 
+   Reimplemented in Q3DataBrowser.
+
    void QWidget::updateGeometry (   )
 
 
@@ -1484,7 +1511,7 @@ Member Function Documentation
 
 
 
-   Reimplemented in QAbstractScrollArea, QAbstractSlider, QAbstractSpinBox, QComboBox, QDateTimeEdit, QMenu, QTextEdit, and QWorkspace.
+   Reimplemented in Q3SpinWidget, Q3ScrollView, QAbstractScrollArea, QAbstractSlider, QAbstractSpinBox, QComboBox, QDateTimeEdit, QMenu, QTextEdit, and QWorkspace.
 
    int QWidget::width (   )  const [inline]
 
@@ -1499,6 +1526,8 @@ Member Function Documentation
    virtual void QWidget::windowActivationChange (  bool   )  [protected, virtual]
 
 
+
+   Reimplemented in Q3Table.
 
    Qt::WindowFlags QWidget::windowFlags (   )  const [inline]
 
@@ -1528,6 +1557,8 @@ Member Function Documentation
 
 
 
+   Reimplemented in Q3DockWindow.
+
    Qt::WindowType QWidget::windowType (   )  const [inline]
 
 
@@ -1543,7 +1574,7 @@ Member Function Documentation
    int QWidget::y (   )  const
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Friends And Related Function Documentation
 
@@ -1612,7 +1643,7 @@ Friends And Related Function Documentation
    friend class QX11PaintEngine [friend]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Property Documentation
 
@@ -1821,11 +1852,11 @@ Property Documentation
    int QWidget::y [read]
 
 
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
    The documentation for this class was generated from the following file:
      * include/qwidget.h
-     _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
-    Generated on Fri Aug 5 08:34:06 2005 by  doxygen 1.4.3-20050530
+    Generated on Mon Oct 3 20:36:27 2005 by  doxygen 1.4.3-20050530

@@ -104,7 +104,7 @@ Q_OBJECT
 signals:
 public:
 	 enum FormatType {         InvalidFormat = -1, BlockFormat = 1, CharFormat = 2, ListFormat = 3,         TableFormat = 4, FrameFormat = 5, UserFormat = 100       };
-	 enum Property {         ObjectIndex = 0x0, CssFloat = 0x0800, LayoutDirection = 0x0801, OutlinePen = 0x810,         BackgroundBrush = 0x820, ForegroundBrush = 0x821, BlockAlignment = 0x1010, BlockTopMargin = 0x1030,         BlockBottomMargin = 0x1031, BlockLeftMargin = 0x1032, BlockRightMargin = 0x1033, TextIndent = 0x1034,         BlockIndent = 0x1040, BlockNonBreakableLines = 0x1050, FontFamily = 0x2000, FontPointSize = 0x2001,         FontSizeIncrement = 0x2002, FontWeight = 0x2003, FontItalic = 0x2004, FontUnderline = 0x2005,         FontOverline = 0x2006, FontStrikeOut = 0x2007, FontFixedPitch = 0x2008, TextUnderlineColor = 0x2010,         TextVerticalAlignment = 0x2021, IsAnchor = 0x2030, AnchorHref = 0x2031, AnchorName = 0x2032,         ObjectType = 0x2f00, ListStyle = 0x3000, ListIndent = 0x3001, FrameBorder = 0x4000,         FrameMargin = 0x4001, FramePadding = 0x4002, FrameWidth = 0x4003, FrameHeight = 0x4004,         TableColumns = 0x4100, TableColumnWidthConstraints = 0x4101, TableCellSpacing = 0x4102, TableCellPadding = 0x4103,         TableCellRowSpan = 0x4810, TableCellColumnSpan = 0x4811, ImageName = 0x5000, ImageWidth = 0x5010,         ImageHeight = 0x5011, DocumentFragmentMark = 0x6000, UserProperty = 0x100000       };
+	 enum Property {         ObjectIndex = 0x0, CssFloat = 0x0800, LayoutDirection = 0x0801, OutlinePen = 0x810,         BackgroundBrush = 0x820, ForegroundBrush = 0x821, BlockAlignment = 0x1010, BlockTopMargin = 0x1030,         BlockBottomMargin = 0x1031, BlockLeftMargin = 0x1032, BlockRightMargin = 0x1033, TextIndent = 0x1034,         BlockIndent = 0x1040, BlockNonBreakableLines = 0x1050, BlockTrailingHorizontalRulerWidth = 0x1060, FontFamily = 0x2000,         FontPointSize = 0x2001, FontSizeAdjustment = 0x2002, FontSizeIncrement = FontSizeAdjustment, FontWeight = 0x2003,         FontItalic = 0x2004, FontUnderline = 0x2005, FontOverline = 0x2006, FontStrikeOut = 0x2007,         FontFixedPitch = 0x2008, TextUnderlineColor = 0x2010, TextVerticalAlignment = 0x2021, IsAnchor = 0x2030,         AnchorHref = 0x2031, AnchorName = 0x2032, ObjectType = 0x2f00, ListStyle = 0x3000,         ListIndent = 0x3001, FrameBorder = 0x4000, FrameMargin = 0x4001, FramePadding = 0x4002,         FrameWidth = 0x4003, FrameHeight = 0x4004, TableColumns = 0x4100, TableColumnWidthConstraints = 0x4101,         TableCellSpacing = 0x4102, TableCellPadding = 0x4103, TableCellRowSpan = 0x4810, TableCellColumnSpan = 0x4811,         ImageName = 0x5000, ImageWidth = 0x5010, ImageHeight = 0x5011, DocumentFragmentMark = 0x6000,         UserProperty = 0x100000       };
 	 enum ObjectTypes { NoObject, ImageObject, TableObject };
 
 	 QTextFormat ();
@@ -2047,7 +2047,7 @@ signals:
 	 void started ();
 	 void resized (const QSize &size);
 	 void updated (const QRect &rect);
-	 void stateChanged (MovieState state);
+	 void stateChanged (QMovie::MovieState state);
 	 void error (QImageReader::ImageReaderError error);
 	 void finished ();
 public:
@@ -2435,9 +2435,9 @@ public:
 	 QModelIndexList selectedIndexes () const;
 	 const QItemSelection selection () const;
 	 const QAbstractItemModel * model () const;
-	 void setCurrentIndex (const QModelIndex &index, SelectionFlags command);
-	 virtual void select (const QModelIndex &index, SelectionFlags command);
-	 virtual void select (const QItemSelection &selection, SelectionFlags command);
+	 void setCurrentIndex (const QModelIndex &index, QItemSelectionModel::SelectionFlags command);
+	 virtual void select (const QModelIndex &index, QItemSelectionModel::SelectionFlags command);
+	 virtual void select (const QItemSelection &selection, QItemSelectionModel::SelectionFlags command);
 	 virtual void clear ();
 	 virtual void reset ();
 		
@@ -3211,7 +3211,7 @@ class QAbstractItemDelegate : public QObject {
 Q_OBJECT
 signals:
 	 void commitData (QWidget *editor);
-	 void closeEditor (QWidget *editor, EndEditHint hint=NoHint);
+	 void closeEditor (QWidget *editor, QAbstractItemDelegate::EndEditHint hint=NoHint);
 public:
 	 enum EndEditHint {         NoHint, EditNextItem, EditPreviousItem, SubmitModelCache,         RevertModelCache       };
 
@@ -5104,7 +5104,7 @@ $#include <QDockWidget>
 class QDockWidget : public QWidget {
 Q_OBJECT
 signals:
-	 void featuresChanged (DockWidgetFeatures features);
+	 void featuresChanged (QDockWidget::DockWidgetFeatures features);
 	 void topLevelChanged (bool topLevel);
 	 void allowedAreasChanged (Qt::DockWidgetAreas allowedAreas);
 public:
@@ -6743,7 +6743,7 @@ signals:
 	 void sectionDoubleClicked (int logicalIndex);
 	 void sectionCountChanged (int oldCount, int newCount);
 	 void sectionHandleDoubleClicked (int logicalIndex);
-	 void sectionAutoResize (int logicalIndex, ResizeMode mode);
+	 void sectionAutoResize (int logicalIndex, QHeaderView::ResizeMode mode);
 public:
 	 enum ResizeMode { Interactive, Stretch, Custom };
 
@@ -6971,7 +6971,7 @@ public:
 	 QList< QListWidgetItem * > findItems (const QString &text, Qt::MatchFlags flags) const;
 	 bool isItemHidden (const QListWidgetItem *item) const;
 	 void setItemHidden (const QListWidgetItem *item, bool hide);
-	 void scrollToItem (const QListWidgetItem *item, ScrollHint hint=EnsureVisible);
+	 void scrollToItem (const QListWidgetItem *item, QAbstractItemView::ScrollHint hint=EnsureVisible);
 	 void clear ();
 	protected  virtual QStringList mimeTypes () const;
 	protected  virtual QMimeData * mimeData (const QList< QListWidgetItem * > items) const;
@@ -7028,7 +7028,7 @@ public:
 	 void setItemHidden (const QTreeWidgetItem *item, bool hide);
 	 bool isItemExpanded (const QTreeWidgetItem *item) const;
 	 void setItemExpanded (const QTreeWidgetItem *item, bool expand);
-	 void scrollToItem (const QTreeWidgetItem *item, ScrollHint hint=EnsureVisible);
+	 void scrollToItem (const QTreeWidgetItem *item, QAbstractItemView::ScrollHint hint=EnsureVisible);
 	 void expandItem (const QTreeWidgetItem *item);
 	 void collapseItem (const QTreeWidgetItem *item);
 	 void clear ();
@@ -7094,7 +7094,7 @@ public:
 	 QRect visualItemRect (const QTableWidgetItem *item) const;
 	 const QTableWidgetItem * itemPrototype () const;
 	 void setItemPrototype (const QTableWidgetItem *item);
-	 void scrollToItem (const QTableWidgetItem *item, ScrollHint hint=EnsureVisible);
+	 void scrollToItem (const QTableWidgetItem *item, QAbstractItemView::ScrollHint hint=EnsureVisible);
 	 void insertRow (int row);
 	 void insertColumn (int column);
 	 void removeRow (int row);
