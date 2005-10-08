@@ -239,14 +239,14 @@ function classVirtualClass:supcode()
 	end
 end
 
-function classVirtualClass:register()
+function classVirtualClass:register(pre)
 
 	-- no pure virtual classes for now
 	if self.flags.parent_object.flags.pure_virtual then
 		output('#if (__GNUC__ == 4) || (__GNUC__ > 4 )\n')
 	end
 
-	classClass.register(self)
+	classClass.register(self, pre)
 
 	if self.flags.parent_object.flags.pure_virtual then
 		output('#endif // __GNUC__ >= 4\n')

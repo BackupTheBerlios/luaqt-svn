@@ -96,6 +96,11 @@ end
 
 function class.init_object(mt, obj, arg)
 
+	local pa = rawget(mt, "__parent_args__")
+	if pa then
+		arg = { pa(obj, unpack(arg)) }
+	end
+
 	local ip = rawget(mt, "__init_parent__")
 	if ip then
 		ip(obj, arg, mt)

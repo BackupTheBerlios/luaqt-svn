@@ -34,13 +34,17 @@ public slots:
 
 };
 
-class Window : public QMainWindow {
+class Virtuals {
 
+protected:
 	void closeEvent(QCloseEvent* e) {
 
-		this->QMainWindow::closeEvent(e);
-		printf("oh dioh mio!!\n");
+		printf("******* close event on Virtuals\n");
 	};
+};
+
+class Window : public QMainWindow , public Virtuals {
+
 };
 
 #include "test.moc"

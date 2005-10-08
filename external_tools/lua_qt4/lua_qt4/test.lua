@@ -41,6 +41,8 @@ end
 
 function Main:__init__(parent)
 
+	print("*********** parent on main is "..tostring(parent))
+
 	self:set_c_instance(QMainWindow:new())
 
 	local gui = {
@@ -95,9 +97,9 @@ end
 
 class("Bleh", Main)
 
-function Bleh:__init_parent__(arg, mt)
-print("type of mt on Bleh is "..tostring(mt['.classname']))
-	class.init_object(Main, self, {"LOL PARENT"})
+function Bleh:__parent_args__(...)
+
+	return "LOL PARENT"
 end
 
 function Bleh:__init__()

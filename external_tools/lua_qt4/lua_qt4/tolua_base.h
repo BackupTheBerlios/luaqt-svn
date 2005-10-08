@@ -28,6 +28,11 @@ protected:
 		} else {
 
 			if (f) {
+				if (lua_iscfunction(lua_state, -1)) {
+					lua_pop(lua_state, 2);
+					return false;
+				};
+				/* // not for now
 				lua_pushcfunction(lua_state, f);
 				if (lua_rawequal(lua_state, -1, -2)) {
 
@@ -38,6 +43,7 @@ protected:
 
 				// pop f
 				lua_pop(lua_state, 1);
+				*/
 			};
 
 			// swap table with function
