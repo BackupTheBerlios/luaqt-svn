@@ -34,8 +34,8 @@ where '<name>' is the name of a qt4 module. Available modules are:
 
 Core
 Gui
-3Support (only for objects Q3HBox, Q3VBox and Q3ListView; there are no plans to
-          fully support this module)
+3Support (only for objects Q3HBox, Q3VBox ,Q3ListView, Q3Canvas; there are no
+          plans to fully support this module)
 Xml
 Network
 Sql
@@ -78,6 +78,7 @@ local text = QLineEdit(hbox)
 local but = QPushButton(hbox)
 
 but:setText("Submit")
+hbox:show()
 ----
 
 Please refer to the rest of this README for more examples and instructions
@@ -94,9 +95,9 @@ with lua_qt. An example:
 
 class "Dialog"
 
-function Dialog:__init__(parent)
+function Dialog:__init__(parent, name)
 
-	self:set_c_intance(Q3VBox:new(parent))
+	self:set_c_intance(Q3VBox:new(parent, name))
 end
 
 
@@ -111,9 +112,9 @@ function AccountEditDialog:load(name)
 	-- load the account 'name'
 end
 
-function AccountEditDialog:__init_parent__(arg, mt)
+function AccountEditDialog:__parent_args__(account_name)
 
-	class.init_object(Dialog, self, {nil}) -- 'parent' on Dialog will be NULL
+	return nil,"AccountDialog"  -- 'parent' on Dialog will be NULL, 'name' will be "AccountDialog"
 end
 
 function AccountEditDialog:__init__(account_name)
@@ -153,17 +154,13 @@ will inherit from it.
 
 The optional method '__init__' will be the class constructor. By default,
 constructors will be called with all the parameters passed to 'new', unless
-you override this using the __init_parent__ method.
+you override this using the __parent_args__ method.
 
-The __init_parent__ method recieves a table with the list of arguments that
-will be passed to your constructor, and a table that represents the type of
-your class.
-It can be used to control how the constructor of the parent class in the
-inheritance chain is called, by using the 'init_object' function, which
-takes the parent class, the object instance, and the list of parameters to pass
-to the constructor. As you can see on the example, the 'Dialog' constructor
-be called with 'nil' as the 'parent' argument when an 'AccountEditDialog' is
-created.
+The __parent_args__ method recieves all the arguments to 'new()', and returns
+the arguments that will be used to call the constructor of the parent class
+in the inheritance chain. As you can see on the example, the 'Dialog'
+constructor be called with 'nil' as the 'parent' argument and 'AccountDialog'
+as the 'name' when an 'AccountEditDialog' is created.
 
 All classes inherit from the 'BaseClass' by default, which contains the method
 'set_c_instance'. This method takes a C/C++ object, and makes our instance
@@ -391,7 +388,62 @@ This is an experimental feature.
 
 Implementing virtual functions
 ------------------------------
-TODO: port the LuaWidgetOverride object to qt4
+Starting from version 0.0.3a, certain virtual functions can be implemented
+from lua objects. This is done by inheriting from a special class exported
+for this purpose. The name of the class will be the prefix 'Lua__' followed
+by the name of the C++ class with virtual methods. For example:
+
+---- editor.lua
+
+class "Editor"
+
+function Editor:closeEvent(event)
+
+	if not self.current_filename then
+		event:accept()
+		return
+	end
+	local res = QMessageBox:question(self, "Save changes?", "Save changes to "..self.current_filename.."?", "Yes", "No","Cancel")
+
+	if res == 0 then		-- Yes
+		self:save_changes()
+		event:accept()
+	end
+	if res ==1 then			-- No
+		event:accept()
+	end
+	if res == 2 then		-- Cancel
+		event:ignore()
+	end
+end
+
+function Editor:__init__()
+
+	self:set_c_instance(Lua__QMainWindow:new(nil)) -- inherit from 'Lua__QMainWindow'
+end
+
+---- END editor.lua
+
+This creates the a class 'Editor', that inherits from the c++ class
+Lua__QMainWindow. The method 'set_c_instance' will also pass 'self' to the c++
+object. When the method 'closeEvent' is called, the c++ instance will look
+inside the lua object for the function closeEvent, and call it with the
+parameters passed to the function. Since this is the first version of this
+feature, there are some limitations:
+
+ * method overloading is supported, but you can't have more than one lua
+ method with the same name, so your lua method should be prepared to handle
+ all the c++ methods with the same name.
+ * pure virtual methods are not supported.
+ * the lua methods cannot be assigned directly to a cfunction.
+ * not all virtual methods from one module will be present on another module;
+ for example, an object from the module 3Support might not implement the
+ virtual methods from QWidget (from the module Gui).
+
+If the method is protected, an extra method will be exported on the generated
+class to call it. For example, in the above example, you could call
+'self:QmainWindow__closeEvent(event)' to access the protected method
+QMainWindow::closeEvent.
 
 Notes
 -----
