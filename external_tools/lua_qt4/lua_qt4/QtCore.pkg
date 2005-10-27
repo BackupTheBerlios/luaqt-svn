@@ -9,6 +9,8 @@ $lfile "lua_qt4/lua_qt_helpers.lua"
 
 $ifile "lua_qt4/qnamespace.pkg",qns
 
+$typedef char* _cstring;
+
 class QAbstractEventDispatcher {
 	class EventFilter;
 };

@@ -3,7 +3,7 @@ exclude_class_list = {
 	'QString',
 	'QTextCodec',
 	"QTextStream",
-	"QByteArray",
+	--"QByteArray",
 
 	"QX11EmbedContainer",
 	"QX11EmbedWidget",

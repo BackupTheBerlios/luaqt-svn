@@ -37,7 +37,7 @@ class ConnectionCollector { // tolua_export
 public:
 
 	// tolua_begin
-	TEMPLATE_BIND(T, LuaQConnection);
+	TEMPLATE_BIND((T, LuaQConnection));
 
 	void disconnect() {
 

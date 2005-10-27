@@ -13,8 +13,7 @@ send any bugs, or requests for missing features.
 
 Availability
 ------------
-lua_qt is distributed under the GNU General Public License (GPL). See
-http://www.gnu.org/copyleft/gpl.html for details. A copy of the license
+lua_qt is distributed under the terms of the MIT license. A copy of the license
 is included in the package on the file 'COPYING'
 
 This package can be downloaded from:
