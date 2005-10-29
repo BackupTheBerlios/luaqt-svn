@@ -95,7 +95,7 @@ function classVirtualClass:add(f)
 	elseif f.name == 'delete' then
 		name = '~'..self.original_name
 	else
-		if f.access == 1 and (not f.pure_virtual) then
+		if f.access ~= 2 and (not f.pure_virtual) and f.name ~= 'new' and f.name ~= 'delete' then
 			name = f.mod.." "..f.type..f.ptr.." "..self.flags.parent_object.lname.."__"..f.name
 		end
 	end
@@ -265,7 +265,7 @@ function classVirtualClass:output_parent_methods()
 
 	for k,v in ipairs(self.methods) do
 
-		if v.f.access == 1 and (not v.f.pure_virtual) and v.f.name ~= 'new' and v.f.name ~= 'delete' then
+		if v.f.access ~= 2 and (not v.f.pure_virtual) and v.f.name ~= 'new' and v.f.name ~= 'delete' then
 
 			local rettype = v.f.mod.." "..v.f.type..v.f.ptr.." "
 			local parent_name = rettype..self.btype.."__"..v.f.name
