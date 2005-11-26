@@ -177,7 +177,7 @@ end
 
 function classVirtualClass:has_method(f)
 
-	for k,v in self.methods do
+	for k,v in pairs(self.methods) do
 		-- just match name for now
 		if v.f.name == f.name then
 			return true

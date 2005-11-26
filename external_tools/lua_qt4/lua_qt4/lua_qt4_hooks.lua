@@ -1,4 +1,4 @@
-require "lua_qt4/hooks.lua"
+dofile "lua_qt4/hooks.lua"
 
 -- support for QString
 _basic['QString'] = 'qtstring'

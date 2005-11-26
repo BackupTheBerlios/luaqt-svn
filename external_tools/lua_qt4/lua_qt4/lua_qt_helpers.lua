@@ -152,20 +152,22 @@ function LuaQt.normalize_signal(signal)
 	return signal
 end
 
+local signal_handlers
+
 function LuaQt.register_signal_handler(handler)
 
-	LuaQt.signal_handlers = LuaQt.signal_handlers or {}
+	signal_handlers = signal_handlers or {}
 	table.insert(LuaQt.signal_handlers, handler)
 end
 
 function LuaQt.get_q_object(parameters, parent)
 
-	if not LuaQt.signal_handlers then
+	if not signal_handlers then
 		return nil
 	end
 
 	local obj
-	for k,v in ipairs(LuaQt.signal_handlers) do
+	for k,v in ipairs(signal_handlers) do
 
 		obj = v:get_q_object(parameters, parent)
 		if obj then

@@ -1,32 +1,52 @@
 function load_module(mod)
 
 	print("Loading module "..mod)
-	local f, oe, ce = loadlib("./liblua_qt_"..mod..".so", "tolua_lua_qt_"..mod.."_open")
+	local f, oe, ce = package.loadlib("./liblua_qt_"..mod..".so", "tolua_lua_qt_"..mod.."_open")
 	--local f, oe, ce = loadlib("./lua_qt_"..mod..".dll", "tolua_lua_qt_"..mod.."_open")
 	if not f then
 		error(oe)
 	end
 
 	f()
+	print"done"
 end
 
+print(package.path)
+print(package.cpath)
+package.cpath = "./lib?.so;"..package.cpath
+--load_module("Core")
+require "lua_qt_Core"
 
-load_module("Core")
+print("lua_qt handlers is "..tostring(LuaQt.signal_handlers))
+
+local nsg = {}
+if not LuaQt.signal_handlers then
+	print("new signal_handlers is "..tostring(nsg))
+	LuaQt.signal_handlers = nsg
+end
+table.insert(LuaQt.signal_handlers, new_QtSignalHandler__lua_qt_Core())
+print("lua_qt handlers is "..tostring(LuaQt.signal_handlers))
+
 load_module("Gui")
-load_module("3Support")
-load_module("Xml")
-load_module("Sql")
-load_module("OpenGL")
-load_module("Network")
-load_module("Designer")
 
-require "calculator.lua"
+--load_module("3Support")
+--load_module("Xml")
+--load_module("Sql")
+--load_module("OpenGL")
+--load_module("Network")
+--load_module("Designer")
+print"1"
+require "calculator"
+print"2"
 
 app = QApplication:new(LuaQt.argc, LuaQt.argv)
+print"3"
 
 --require "lua_qt_helpers.lua"
+print"4"
 
 class "Main"
+print"5"
 
 function Main:button_pressed()
 

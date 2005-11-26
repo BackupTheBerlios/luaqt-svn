@@ -73,21 +73,19 @@ lua_Object LuaQt::get_registry(lua_State* ls) {
 
 int LuaQt::or_list(lua_State* L, lua_Object t) {
 
-	int ret;
+	int ret = 0;
+	int i=1;
 
-	lua_pushnil(L);  /* first key */
-	if (lua_next(L, t) == 0) return 0;
-	ret = (int)lua_tonumber(L, -1);
-	lua_pop(L, 1);
+	lua_rawgeti(L, t, i++);
 
-	/* table is in the stack at index `t' */
-	while (lua_next(L, t) != 0) {
-		/* `key' is at index -2 and `value' at index -1 */
+	while (lua_isnumber(L, -1)) {
 
 		ret = ret | (int)lua_tonumber(L, -1);
 
-		lua_pop(L, 1);  /* removes `value'; keeps `key' for next iteration */
+		lua_pop(L, 1);
+		lua_rawgeti(L, t, i++);
 	}
+	lua_pop(L,1);
 
 	return ret;
 };
@@ -95,20 +93,25 @@ int LuaQt::or_list(lua_State* L, lua_Object t) {
 int LuaQt::and_list(lua_State* L, lua_Object t) {
 
 	int ret;
+	int i=1;
 
-	lua_pushnil(L);  /* first key */
-	if (lua_next(L, t) == 0) return 0;
+	lua_rawgeti(L, t, i++);
+	if (lua_isnil(L, -1)) {
+		return 0;
+	};
+
 	ret = (int)lua_tonumber(L, -1);
 	lua_pop(L, 1);
+	lua_rawgeti(L, t, i++);
 
-	/* table is in the stack at index `t' */
-	while (lua_next(L, t) != 0) {
-		/* `key' is at index -2 and `value' at index -1 */
+	while (lua_isnumber(L, -1)) {
 
 		ret = ret & (int)lua_tonumber(L, -1);
 
-		lua_pop(L, 1);  /* removes `value'; keeps `key' for next iteration */
+		lua_pop(L, 1);
+		lua_rawgeti(L, t, i++);
 	}
+	lua_pop(L,1);
 
 	return ret;
 };
