@@ -52,7 +52,7 @@ function LuaQt.copy_args(args)
 	if not args then return nil end
 
 	local r = {}
-	for k,v in args do
+	for k,v in pairs(args) do
 		r[k] = v
 	end
 
@@ -273,13 +273,13 @@ LuaSignal.emit = LuaSignal.__call
 function LuaSignal:call_internal(arg_list)
 
 	if arg_list.n > 0 then
-		for k,v in self.slot_list do
+		for k,v in pairs(self.slot_list) do
 			for i=1,v.rep do
 				k(unpack(arg_list))
 			end
 		end
 	else
-		for k,v in self.slot_list do
+		for k,v in pairs(self.slot_list) do
 			for i=1,v.rep do
 				k()
 			end
