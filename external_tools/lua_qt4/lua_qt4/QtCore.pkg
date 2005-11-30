@@ -37,11 +37,3 @@ $ifile "lua_qt4/qmap_ptr.pkg", template, QString QVariant*
 
 $ifile "lua_qt4/QtCore_headers.pkg",qt
 
-
-${
-extern int tolua_lua_qt_Core_open (lua_State* tolua_S);
-TOLUA_API int luaopen_lua_qt_Core(lua_State* L) {
-
-	return tolua_lua_qt_Core_open(L);
-};
-$}

@@ -207,7 +207,7 @@ function output_qt_signal_handlers(package)
 	end
 
 	local qt_object_list = {}
-	i = 0
+	local i = 1
 
 	for k,v in pairs(signals) do
 		if k~='count' then
