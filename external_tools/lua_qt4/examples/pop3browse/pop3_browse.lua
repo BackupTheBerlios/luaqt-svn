@@ -1,6 +1,7 @@
-require "pop3_config.lua"
-require "pop3_client.lua"
+require "pop3_client"
 --require "lua_qt_helpers.lua"
+package.path = "~/.?;"..package.path
+require "pop3_config"
 
 class "POP3Browse"
 

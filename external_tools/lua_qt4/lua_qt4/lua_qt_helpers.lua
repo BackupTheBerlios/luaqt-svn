@@ -24,7 +24,7 @@ function LuaQt.global_connect(self, sender_instance, signal, rcv_instance, metho
 		return nil
 	else
 		local ret
-		local slot = LuaSlot:new(rcv_instance, method, unpack(arg))
+		local slot = LuaSlot:new(rcv_instance, method, ...)
 		if type(signal) == 'string' then
 			-- qt signal, lua slot
 			local signal_pars = LuaQt.normalize_signal(signal)
@@ -46,7 +46,7 @@ end
 class.BaseClass.connect = LuaQt.global_connect
 class.BaseClass.connect_signal = LuaQt.global_connect
 
-function LuaQt.copy_args(args)
+local function copy_args(args)
 
 	-- used to avoid modifying the arg list
 	if not args then return nil end
@@ -74,7 +74,7 @@ function LuaQt.init_tree(parent, tree, container, debug)
 		if type(tree.type) == 'string' then
 			tree.type = _G[tree.type]
 		end
-		local args = LuaQt.copy_args(tree.args) or {}
+		local args = copy_args(tree.args) or {}
 		local parent_pos = args.parent_pos or 1
 		table.insert(args, parent_pos, parent_widget)
 		widget = tree.type:new(unpack(args))
@@ -101,7 +101,7 @@ function LuaQt.init_tree(parent, tree, container, debug)
 			local args = v.args
 			if not args then
 				--table.remove(v, 1)
-				args = LuaQt.copy_args(v)
+				args = copy_args(v)
 				table.remove(args, 1)
 			end
 			if type(obj) == 'string' then
@@ -157,11 +157,11 @@ local signal_handlers
 function LuaQt.register_signal_handler(handler)
 
 	signal_handlers = signal_handlers or {}
-	table.insert(LuaQt.signal_handlers, handler)
+	table.insert(signal_handlers, handler)
 end
 
 function LuaQt.get_q_object(parameters, parent)
-
+	
 	if not signal_handlers then
 		return nil
 	end
@@ -188,18 +188,26 @@ end
 
 --------------------------------------------- the lua slot ---------------------------------------------
 
-function join_tables(t1, t2)
+local function get_arg(...)
 
-	for k,v in ipairs(t2) do
-		table.insert(t1, v)
+	return {n=select("#", ...), ...}
+end
+
+local function join_tables(t1, t2)
+
+	-- first table needs to have 'n'
+	for i=1,t2.n do
+		t1[t1.n+i] = v
 	end
+	t1.n = t1.n + t2.n
 end
 
 class "LuaSlot"
 
 function LuaSlot:__call(...)
 
-	if self.bindn > 0 then
+	local arg = get_arg(...)
+	if self.bind.n > 0 then
 		join_tables(arg, self.bind)
 	end
 
@@ -207,11 +215,11 @@ function LuaSlot:__call(...)
 		if not self.method then
 			return nil
 		end
-		return self.method(unpack(arg))
+		return self.method(unpack(arg, 1, arg.n))
 	else
 		local inst = self.instance.p
 		if inst then
-			return self.instance.m(inst, unpack(arg))
+			return self.instance.m(inst, unpack(arg, 1, arg.n))
 		else
 			if self.connection then
 				self.connection:disconnect()
@@ -239,8 +247,7 @@ weak_val_mt = {__mode = 'v'}
 weak_key_mt = {__mode = 'k'}
 
 function LuaSlot:__init__(rcv_instance, method, ...)
-	self.bind = arg
-	self.bindn = table.getn(arg)
+	self.bind = get_arg(...)
 	if rcv_instance then
 		self.instance = {p = rcv_instance, m = method}
 		setmetatable(self.instance, weak_val_mt)
@@ -255,15 +262,11 @@ end
 class "LuaSignal"
 
 function LuaSignal:__call(...)
+	local arg = get_arg(...)
 	if self.args == -1 or arg.n == self.args then
 		self:call_internal(arg)
 	else
-		for i=self.args+1,arg.n do
-			arg[i] = nil
-		end
-		for i=arg.n+1,self.args do
-			arg[i] = false -- we need to pad the arg list with _something_
-		end
+		arg.n = self.args
 		self:call_internal(arg)
 	end
 end
@@ -275,7 +278,7 @@ function LuaSignal:call_internal(arg_list)
 	if arg_list.n > 0 then
 		for k,v in pairs(self.slot_list) do
 			for i=1,v.rep do
-				k(unpack(arg_list))
+				k(unpack(arg_list, 1, arg_list.n))
 			end
 		end
 	else

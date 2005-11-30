@@ -1,6 +1,7 @@
-if not win32 then
-	require "/usr/share/lua50/luasocket.lua"
-end
+--if not win32 then
+--	require "/usr/share/lua50/luasocket.lua"
+--end
+require "lua_qt_Network"
 
 class "POP3Client"
 
@@ -11,19 +12,22 @@ function POP3Client:connect(host, port)
 	self.port = port or self.port
 	self.host = host or self.host
 
-	self.sockfd = socket.tcp()
+	self.sockfd = QTcpSocket:new_local()
+	self:connect(self.sockfd, "error(QAbstractSocket::SocketError)", self, self.socket_error)
 	--self.sockfd:settimeout(2) -- 2 seconds
 
 	local ret
-	ret, self.last_error = self.sockfd:connect(self.host, self.port)
+	self.sockfd:connectToHost(self.host, self.port)
+	if not self.sockfd:waitForConnected() then
+		self.error(self.sockfd:errorString())
+		return nil,self.sockfd:errorString()
+	end
 
+	ret, self.last_error = self:read_line()
 	if ret then
-		ret, self.last_error = self.sockfd:receive('*l')
-		if ret then
-			if string.sub(ret, 1, 1) ~= "+" then
-				self.last_error = ret
-				ret = nil
-			end
+		if string.sub(ret, 1, 1) ~= "+" then
+			self.last_error = ret
+			ret = nil
 		end
 	end
 
@@ -32,13 +36,35 @@ function POP3Client:connect(host, port)
 	return ret, self.last_error
 end
 
+function POP3Client:read_line()
+
+	while not self.sockfd:canReadLine() do
+	
+		self.blocking()
+		if not self.sockfd:waitForReadyRead(100) then
+		
+			if self.sockfd:state() == QAbstractSocket.UnconnectedState then
+				return nil, self.sockfd:errorString()
+			end
+		end
+	end
+	-- can read line
+	return self.sockfd:readLine():constData()
+end
+
+function POP3Client:socket_error(err)
+
+	self.error(self.sockfd:errorString())
+end
+
 function POP3Client:connected()
-	if not self.sockfd or not self.sockfd:getpeername() then
+	--if not self.sockfd or not self.sockfd:getpeername() then
+	if not self.sockfd or self.sockfd:state() == QAbstractSocket.UnconnectedState then
 
 		self:clear()
 		self:connect()
 	end
-	return self.sockfd and self.sockfd:getpeername()
+	return self.sockfd and self.sockfd:state() ~= QAbstractSocket.UnconnectedState
 end
 
 function POP3Client:login(user,pass)
@@ -217,6 +243,12 @@ function POP3Client:get_item(n)
 	return self.mbox_list[n]
 end
 
+function POP3Client:send_data(data)
+
+	self.sockfd:write(data, string.len(data))
+	self.sockfd:waitForBytesWritten(-1)
+end
+
 function POP3Client:send(command, act)
 
 	-- not for now
@@ -228,9 +260,9 @@ function POP3Client:send(command, act)
 		command = command.."\n"
 	end
 
-	self.sockfd:send(command)
+	self:send_data(command)
 
-	local r, err = self.sockfd:receive('*l')
+	local r, err = self:read_line()
 	if debug_flag then print(tostring(r)) end
 
 	if not r then
@@ -255,7 +287,7 @@ function POP3Client:send(command, act)
 
 	while r ~= '.' and not err do
 
-		r, err = self.sockfd:receive('*l')
+		r, err = self:read_line()
 		if debug_flag then
 			print(r)
 		end
@@ -286,6 +318,7 @@ function POP3Client:__init__(port, host)
 	self.item_updated = LuaSignal:new(1)
 	self.message_deleted = LuaSignal:new(1)
 	self.error = LuaSignal:new(1)
+	self.blocking = LuaSignal:new(0)
 
 	self.port = port or 110
 	self.host = host or 'localhost'

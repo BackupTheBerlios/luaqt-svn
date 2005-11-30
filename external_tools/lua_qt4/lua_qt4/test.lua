@@ -102,13 +102,13 @@ function Main:__init__(parent)
 
 	LuaQt.init_tree(self, gui, self)
 
-	--self:connect(self.button, "clicked()", self, self.button_pressed)
+	self:connect(self.button, "clicked()", self, self.button_pressed)
 	self.counter = 0
 
 	--self:connect(self, "destroyed(QObject*)", self, self.__delete__)
 
-	--self:connect(self.self_destruct, "destroyed(QObject*)", self, self.button_pressed)
-	--self:connect(self.self_destruct, "clicked()", self.self_destruct, QObject.deleteLater)
+	self:connect(self.self_destruct, "destroyed(QObject*)", self, self.button_pressed)
+	self:connect(self.self_destruct, "clicked()", self.self_destruct, QObject.deleteLater)
 
 	self:setWindowTitle("Qt4")
 

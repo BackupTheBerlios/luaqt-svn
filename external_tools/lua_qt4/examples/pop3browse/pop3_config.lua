@@ -1,23 +1,14 @@
 
 accounts = {
 
-	tolua = {
+	example = {
 
-		host = "john.anime.com.ar",
+		host = "example.com",
 		port = 110,
 
-		username = "tolua",
+		username = "username",
+		--password = "plain_text_password",
 	},
-
-	--[[
-	fibertel = {
-
-		host = "pop.fibertel.com.ar",
-		port = 110,
-
-		username = "hmanzur",
-	},
-	--]]
 }
 
 general = {

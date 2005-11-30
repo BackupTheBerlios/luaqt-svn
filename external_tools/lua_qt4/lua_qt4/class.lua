@@ -5,6 +5,11 @@ class._global_objects = {}
 local BaseClass = {[".classname"] = "BaseClass"}
 BaseClass.__index = BaseClass
 
+local function get_arg(...)
+
+	return {n=select("#", ...), ...}
+end
+
 function class.create(self, obj, base)
 
 	local o = _G[obj] or {}
@@ -30,7 +35,7 @@ end
 
 function class.alloc_tolua_base(...)
 
-	return self['.tolua_base']:new(unpack(arg))
+	return self['.tolua_base']:new(...)
 end
 
 function class.instance_from_script(p_script, page)
@@ -45,7 +50,7 @@ function BaseClass.new(self, ...)
 	local o, t
 
 	if self.__alloc__ then
-		o = self.__alloc__(unpack(arg))
+		o = self.__alloc__(...)
 		if type(o) == 'table' then
 			t = o
 		else
@@ -58,7 +63,8 @@ function BaseClass.new(self, ...)
 	end
 
 	setmetatable(t, self)
-
+	
+	local arg = get_arg(...)
 	class.init_object(self, o, arg)
 	--o:__init__(unpack(arg))
 
@@ -98,7 +104,7 @@ function class.init_object(mt, obj, arg)
 
 	local pa = rawget(mt, "__parent_args__")
 	if pa then
-		arg = { pa(obj, unpack(arg)) }
+		arg = get_arg( pa(obj, unpack(arg, 1, arg.n)) )
 	end
 
 	local ip = rawget(mt, "__init_parent__")
@@ -112,7 +118,7 @@ function class.init_object(mt, obj, arg)
 	local init = rawget(mt, "__init__")
 
 	if init then
-		init(obj, unpack(arg))
+		init(obj, unpack(arg, 1, arg.n))
 	end
 end
 
