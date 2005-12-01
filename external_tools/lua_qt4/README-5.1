@@ -1,0 +1,21 @@
+Compiling for lua 5.1
+---------------------
+
+This package is intended to work with lua 5.1. However, since most
+distributions haven't included the package yet (it's still beta at the time
+I'm writing this), the build parameters may changes on each system. The easiest
+way to change the build parameters is to add a file called 'custom.py' on the
+root of the parameter (alongside 'config_linux.py') with your customizations.
+For example:
+
+## BEGIN custom.py
+
+TOLUAPP = "tolua++"
+extra_cxx_flags = ['-I/usr/include/lua51'] ## default is /usr/local/include/lua51 for linux
+lua_libs = ['lua51']
+
+## END custom.py
+
+'TOLUAPP' contains the name of the tolua++ binary, the default is 'tolua++51'
+for linux. You can see all the available parameters by running 'scons -h'.
+
