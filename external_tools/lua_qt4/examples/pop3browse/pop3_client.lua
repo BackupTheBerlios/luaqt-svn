@@ -1,6 +1,3 @@
---if not win32 then
---	require "/usr/share/lua50/luasocket.lua"
---end
 require "lua_qt_Network"
 
 class "POP3Client"
@@ -13,7 +10,7 @@ function POP3Client:connect(host, port)
 	self.host = host or self.host
 
 	self.sockfd = QTcpSocket:new_local()
-	self:connect(self.sockfd, "error(QAbstractSocket::SocketError)", self, self.socket_error)
+	self:connect_signal(self.sockfd, "error(QAbstractSocket::SocketError)", self, self.socket_error)
 	--self.sockfd:settimeout(2) -- 2 seconds
 
 	local ret
@@ -53,7 +50,8 @@ function POP3Client:read_line()
 end
 
 function POP3Client:socket_error(err)
-
+print("calling error with "..self.sockfd:errorString())
+print(debug.traceback())
 	self.error(self.sockfd:errorString())
 end
 

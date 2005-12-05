@@ -115,6 +115,53 @@ public:
 	 static bool isValid (int h, int m, int s, int ms=0);
 
 };
+$#include <QDate>
+
+class QDate {
+Q_OBJECT
+signals:
+public:
+
+	 QDate ();
+	 QDate (int y, int m, int d);
+	 bool isNull () const;
+	 bool isValid () const;
+	 int year () const;
+	 int month () const;
+	 int day () const;
+	 int dayOfWeek () const;
+	 int dayOfYear () const;
+	 int daysInMonth () const;
+	 int daysInYear () const;
+	 int weekNumber (int *yearNum=0) const;
+	 QString toString (Qt::DateFormat f=Qt::TextDate) const;
+	 QString toString (const QString &format) const;
+	 bool setYMD (int y, int m, int d);
+	 QDate addDays (int days) const;
+	 QDate addMonths (int months) const;
+	 QDate addYears (int years) const;
+	 int daysTo (const QDate &) const;
+	 bool operator== (const QDate &other) const;
+	 bool operator!= (const QDate &other) const;
+	 bool operator< (const QDate &other) const;
+	 bool operator<= (const QDate &other) const;
+	 bool operator> (const QDate &other) const;
+	 bool operator>= (const QDate &other) const;
+	 int toJulianDay () const;
+	 static QString shortMonthName (int month);
+	 static QString shortDayName (int weekday);
+	 static QString longMonthName (int month);
+	 static QString longDayName (int weekday);
+	 static QDate currentDate ();
+	 static QDate fromString (const QString &s, Qt::DateFormat f=Qt::TextDate);
+	 static QDate fromString (const QString &s, const QString &format);
+	 static bool isValid (int y, int m, int d);
+	 static bool isLeapYear (int year);
+	 static uint gregorianToJulian (int y, int m, int d);
+	 static void julianToGregorian (uint jd, int &y, int &m, int &d);
+	 static QDate fromJulianDay (int jd);
+
+};
 $#include <QVariant>
 
 class QVariant {
@@ -217,51 +264,73 @@ public:
 	 static Type nameToType (const char *name);
 
 };
-$#include <QDate>
+$#include <QUrl>
 
-class QDate {
+class QUrl {
 Q_OBJECT
 signals:
 public:
+	 typedef LuaQtGenericFlags FormattingOptions;
+	 enum FormattingOption {         None = 0x0, RemoveScheme = 0x1, RemovePassword = 0x2, RemoveUserInfo = RemovePassword | 0x4,         RemovePort = 0x8, RemoveAuthority = RemoveUserInfo | RemovePort | 0x10, RemovePath = 0x20, RemoveQuery = 0x40,         RemoveFragment = 0x80, StripTrailingSlash = 0x10000       };
 
-	 QDate ();
-	 QDate (int y, int m, int d);
-	 bool isNull () const;
+	 QUrl ();
+	 QUrl (const QString &url);
+	 QUrl (const QUrl &copy);
+	 ~QUrl ();
+	 void setUrl (const QString &url);
+	 void setEncodedUrl (const QByteArray &url);
 	 bool isValid () const;
-	 int year () const;
-	 int month () const;
-	 int day () const;
-	 int dayOfWeek () const;
-	 int dayOfYear () const;
-	 int daysInMonth () const;
-	 int daysInYear () const;
-	 int weekNumber (int *yearNum=0) const;
-	 QString toString (Qt::DateFormat f=Qt::TextDate) const;
-	 QString toString (const QString &format) const;
-	 bool setYMD (int y, int m, int d);
-	 QDate addDays (int days) const;
-	 QDate addMonths (int months) const;
-	 QDate addYears (int years) const;
-	 int daysTo (const QDate &) const;
-	 bool operator== (const QDate &other) const;
-	 bool operator!= (const QDate &other) const;
-	 bool operator< (const QDate &other) const;
-	 bool operator<= (const QDate &other) const;
-	 bool operator> (const QDate &other) const;
-	 bool operator>= (const QDate &other) const;
-	 int toJulianDay () const;
-	 static QString shortMonthName (int month);
-	 static QString shortDayName (int weekday);
-	 static QString longMonthName (int month);
-	 static QString longDayName (int weekday);
-	 static QDate currentDate ();
-	 static QDate fromString (const QString &s, Qt::DateFormat f=Qt::TextDate);
-	 static QDate fromString (const QString &s, const QString &format);
-	 static bool isValid (int y, int m, int d);
-	 static bool isLeapYear (int year);
-	 static uint gregorianToJulian (int y, int m, int d);
-	 static void julianToGregorian (uint jd, int &y, int &m, int &d);
-	 static QDate fromJulianDay (int jd);
+	 bool isEmpty () const;
+	 void clear ();
+	 void setScheme (const QString &scheme);
+	 QString scheme () const;
+	 void setAuthority (const QString &authority);
+	 QString authority () const;
+	 void setUserInfo (const QString &userInfo);
+	 QString userInfo () const;
+	 void setUserName (const QString &userName);
+	 QString userName () const;
+	 void setPassword (const QString &password);
+	 QString password () const;
+	 void setHost (const QString &host);
+	 QString host () const;
+	 void setPort (int port);
+	 int port () const;
+	 void setPath (const QString &path);
+	 QString path () const;
+	 void setEncodedQuery (const QByteArray &query);
+	 QByteArray encodedQuery () const;
+	 void setQueryDelimiters (char valueDelimiter, char pairDelimiter);
+	 char queryValueDelimiter () const;
+	 char queryPairDelimiter () const;
+	 void setQueryItems (const QList< QPair< QString, QString > > &query);
+	 void addQueryItem (const QString &key, const QString &value);
+	 QList< QPair< QString, QString > > queryItems () const;
+	 bool hasQueryItem (const QString &key) const;
+	 QString queryItemValue (const QString &key) const;
+	 QStringList allQueryItemValues (const QString &key) const;
+	 void removeQueryItem (const QString &key);
+	 void removeAllQueryItems (const QString &key);
+	 void setFragment (const QString &fragment);
+	 QString fragment () const;
+	 QUrl resolved (const QUrl &relative) const;
+	 bool isRelative () const;
+	 bool isParentOf (const QUrl &url) const;
+	 QString toLocalFile () const;
+	 QString toString (FormattingOptions options=None) const;
+	 QByteArray toEncoded (FormattingOptions options=None) const;
+	 void detach ();
+	 bool isDetached () const;
+	 bool operator< (const QUrl &url) const;
+	 bool operator== (const QUrl &url) const;
+	 bool operator!= (const QUrl &url) const;
+	 QUrl & operator= (const QUrl &copy);
+		 static QUrl fromLocalFile (const QString &localfile);
+	 static QUrl fromEncoded (const QByteArray &url);
+	 static QString fromPercentEncoding (const QByteArray &);
+	 static QByteArray toPercentEncoding (const QString &, const QByteArray &exclude=QByteArray(), const QByteArray &include=QByteArray());
+	 static QString fromPunycode (const QByteArray &);
+	 static QByteArray toPunycode (const QString &);
 
 };
 $#include <QSemaphore>
@@ -458,201 +527,6 @@ public:
 	 bool operator!= (const QLine &d) const;
 
 };
-$#include <QUrl>
-
-class QUrl {
-Q_OBJECT
-signals:
-public:
-	 typedef LuaQtGenericFlags FormattingOptions;
-	 enum FormattingOption {         None = 0x0, RemoveScheme = 0x1, RemovePassword = 0x2, RemoveUserInfo = RemovePassword | 0x4,         RemovePort = 0x8, RemoveAuthority = RemoveUserInfo | RemovePort | 0x10, RemovePath = 0x20, RemoveQuery = 0x40,         RemoveFragment = 0x80, StripTrailingSlash = 0x10000       };
-
-	 QUrl ();
-	 QUrl (const QString &url);
-	 QUrl (const QUrl &copy);
-	 ~QUrl ();
-	 void setUrl (const QString &url);
-	 void setEncodedUrl (const QByteArray &url);
-	 bool isValid () const;
-	 bool isEmpty () const;
-	 void clear ();
-	 void setScheme (const QString &scheme);
-	 QString scheme () const;
-	 void setAuthority (const QString &authority);
-	 QString authority () const;
-	 void setUserInfo (const QString &userInfo);
-	 QString userInfo () const;
-	 void setUserName (const QString &userName);
-	 QString userName () const;
-	 void setPassword (const QString &password);
-	 QString password () const;
-	 void setHost (const QString &host);
-	 QString host () const;
-	 void setPort (int port);
-	 int port () const;
-	 void setPath (const QString &path);
-	 QString path () const;
-	 void setEncodedQuery (const QByteArray &query);
-	 QByteArray encodedQuery () const;
-	 void setQueryDelimiters (char valueDelimiter, char pairDelimiter);
-	 char queryValueDelimiter () const;
-	 char queryPairDelimiter () const;
-	 void setQueryItems (const QList< QPair< QString, QString > > &query);
-	 void addQueryItem (const QString &key, const QString &value);
-	 QList< QPair< QString, QString > > queryItems () const;
-	 bool hasQueryItem (const QString &key) const;
-	 QString queryItemValue (const QString &key) const;
-	 QStringList allQueryItemValues (const QString &key) const;
-	 void removeQueryItem (const QString &key);
-	 void removeAllQueryItems (const QString &key);
-	 void setFragment (const QString &fragment);
-	 QString fragment () const;
-	 QUrl resolved (const QUrl &relative) const;
-	 bool isRelative () const;
-	 bool isParentOf (const QUrl &url) const;
-	 QString toLocalFile () const;
-	 QString toString (FormattingOptions options=None) const;
-	 QByteArray toEncoded (FormattingOptions options=None) const;
-	 void detach ();
-	 bool isDetached () const;
-	 bool operator< (const QUrl &url) const;
-	 bool operator== (const QUrl &url) const;
-	 bool operator!= (const QUrl &url) const;
-	 QUrl & operator= (const QUrl &copy);
-		 static QUrl fromLocalFile (const QString &localfile);
-	 static QUrl fromEncoded (const QByteArray &url);
-	 static QString fromPercentEncoding (const QByteArray &);
-	 static QByteArray toPercentEncoding (const QString &, const QByteArray &exclude=QByteArray(), const QByteArray &include=QByteArray());
-	 static QString fromPunycode (const QByteArray &);
-	 static QByteArray toPunycode (const QString &);
-
-};
-$#include <QDataStream>
-
-class QDataStream {
-Q_OBJECT
-signals:
-public:
-	 enum Version {         Qt_1_0 = 1, Qt_2_0 = 2, Qt_2_1 = 3, Qt_3_0 = 4,         Qt_3_1 = 5, Qt_3_3 = 6, Qt_4_0 = 7       };
-	 enum ByteOrder { BigEndian = QSysInfo::BigEndian, LittleEndian = QSysInfo::LittleEndian };
-	 enum Status { Ok, ReadPastEnd, ReadCorruptData };
-
-	 QDataStream ();
-	 QDataStream (QIODevice *);
-	 QDataStream (QByteArray *, QIODevice::OpenMode flags);
-	 QDataStream (const QByteArray &);
-	 virtual ~QDataStream ();
-	 void setDevice (QIODevice *);
-	 void unsetDevice ();
-	 bool atEnd () const;
-	 Status status () const;
-	 void setStatus (Status status);
-	 void resetStatus ();
-	 ByteOrder byteOrder () const;
-	 void setByteOrder (ByteOrder);
-	 int version () const;
-	 void setVersion (int);
-	 QDataStream & operator>> (qint8 &i);
-	 QDataStream & operator>> (quint8 &i);
-	 QDataStream & operator>> (qint16 &i);
-	 QDataStream & operator>> (quint16 &i);
-	 QDataStream & operator>> (qint32 &i);
-	 QDataStream & operator>> (quint32 &i);
-	 QDataStream & operator>> (qint64 &i);
-	 QDataStream & operator>> (quint64 &i);
-	 QDataStream & operator>> (bool &i);
-	 QDataStream & operator>> (float &f);
-	 QDataStream & operator>> (double &f);
-	 QDataStream & operator>> (char *&str);
-	 QDataStream & operator<< (qint8 i);
-	 QDataStream & operator<< (quint8 i);
-	 QDataStream & operator<< (qint16 i);
-	 QDataStream & operator<< (quint16 i);
-	 QDataStream & operator<< (qint32 i);
-	 QDataStream & operator<< (quint32 i);
-	 QDataStream & operator<< (qint64 i);
-	 QDataStream & operator<< (quint64 i);
-	 QDataStream & operator<< (bool i);
-	 QDataStream & operator<< (float f);
-	 QDataStream & operator<< (double f);
-	 QDataStream & operator<< (const char *str);
-	 QDataStream & readBytes (char *&, uint &len);
-	 int readRawData (char *, int len);
-	 QDataStream & writeBytes (const char *, uint len);
-	 int writeRawData (const char *, int len);
-
-};
-$#include <QTextDecoder>
-
-class QTextDecoder {
-Q_OBJECT
-signals:
-public:
-
-	 QTextDecoder (const QTextCodec *codec);
-	 ~QTextDecoder ();
-	 QString toUnicode (const char *chars, int len);
-	 QString toUnicode (const QByteArray &ba);
-
-};
-$#include <QSize>
-
-class QSize {
-Q_OBJECT
-signals:
-public:
-
-	 QSize ();
-	 QSize (int w, int h);
-	 bool isNull () const;
-	 bool isEmpty () const;
-	 bool isValid () const;
-	 int width () const;
-	 int height () const;
-	 void setWidth (int w);
-	 void setHeight (int h);
-	 void transpose ();
-	 void scale (int w, int h, Qt::AspectRatioMode mode);
-	 void scale (const QSize &s, Qt::AspectRatioMode mode);
-	 QSize expandedTo (const QSize &) const;
-	 QSize boundedTo (const QSize &) const;
-	 int & rwidth ();
-	 int & rheight ();
-	 QSize & operator+= (const QSize &);
-	 QSize & operator-= (const QSize &);
-	 QSize & operator *= (qreal c);
-	 QSize & operator/= (qreal c);
-
-};
-$#include <QMetaClassInfo>
-
-class QMetaClassInfo {
-Q_OBJECT
-signals:
-public:
-
-	 QMetaClassInfo ();
-	 const char * name () const;
-	 const char * value () const;
-
-};
-$#include <QLatin1String>
-
-class QLatin1String {
-Q_OBJECT
-signals:
-public:
-
-	 QLatin1String (const char *s);
-	 const char * latin1 () const;
-	 bool operator== (const QString &s) const;
-	 bool operator!= (const QString &s) const;
-	 bool operator> (const QString &s) const;
-	 bool operator< (const QString &s) const;
-	 bool operator>= (const QString &s) const;
-	 bool operator<= (const QString &s) const;
-
-};
 $#include <QRectF>
 
 class QRectF {
@@ -727,6 +601,208 @@ public:
 	 QRectF intersect (const QRectF &r) const;
 	 bool intersects (const QRectF &r) const;
 	 QRect toRect () const;
+
+};
+$#include <QRect>
+
+class QRect {
+Q_OBJECT
+signals:
+public:
+
+	 QRect ();
+	 QRect (const QPoint &topleft, const QPoint &bottomright);
+	 QRect (const QPoint &topleft, const QSize &size);
+	 QRect (int left, int top, int width, int height);
+	 bool isNull () const;
+	 bool isEmpty () const;
+	 bool isValid () const;
+	 int left () const;
+	 int top () const;
+	 int right () const;
+	 int bottom () const;
+	 QRect normalized () const;
+	 int x () const;
+	 int y () const;
+	 void setLeft (int pos);
+	 void setTop (int pos);
+	 void setRight (int pos);
+	 void setBottom (int pos);
+	 void setX (int x);
+	 void setY (int y);
+	 void setTopLeft (const QPoint &p);
+	 void setBottomRight (const QPoint &p);
+	 void setTopRight (const QPoint &p);
+	 void setBottomLeft (const QPoint &p);
+	 QPoint topLeft () const;
+	 QPoint bottomRight () const;
+	 QPoint topRight () const;
+	 QPoint bottomLeft () const;
+	 QPoint center () const;
+	 void moveLeft (int pos);
+	 void moveTop (int pos);
+	 void moveRight (int pos);
+	 void moveBottom (int pos);
+	 void moveTopLeft (const QPoint &p);
+	 void moveBottomRight (const QPoint &p);
+	 void moveTopRight (const QPoint &p);
+	 void moveBottomLeft (const QPoint &p);
+	 void moveCenter (const QPoint &p);
+	 void translate (int dx, int dy);
+	 void translate (const QPoint &p);
+	 QRect translated (int dx, int dy) const;
+	 QRect translated (const QPoint &p) const;
+	 void moveTo (int x, int t);
+	 void moveTo (const QPoint &p);
+	 void setRect (int x, int y, int w, int h);
+	 void getRect (int *x, int *y, int *w, int *h) const;
+	 void setCoords (int x1, int y1, int x2, int y2);
+	 void getCoords (int *x1, int *y1, int *x2, int *y2) const;
+	 void adjust (int x1, int y1, int x2, int y2);
+	 QRect adjusted (int x1, int y1, int x2, int y2) const;
+	 QSize size () const;
+	 int width () const;
+	 int height () const;
+	 void setWidth (int w);
+	 void setHeight (int h);
+	 void setSize (const QSize &s);
+	 QRect operator| (const QRect &r) const;
+	 QRect operator & (const QRect &r) const;
+	 QRect & operator|= (const QRect &r);
+	 QRect & operator &= (const QRect &r);
+	 bool contains (const QPoint &p, bool proper=false) const;
+	 bool contains (int x, int y) const;
+	 bool contains (int x, int y, bool proper) const;
+	 bool contains (const QRect &r, bool proper=false) const;
+	 QRect unite (const QRect &r) const;
+	 QRect intersect (const QRect &r) const;
+	 bool intersects (const QRect &r) const;
+
+};
+$#include <QTextDecoder>
+
+class QTextDecoder {
+Q_OBJECT
+signals:
+public:
+
+	 QTextDecoder (const QTextCodec *codec);
+	 ~QTextDecoder ();
+	 QString toUnicode (const char *chars, int len);
+	 QString toUnicode (const QByteArray &ba);
+
+};
+$#include <QSize>
+
+class QSize {
+Q_OBJECT
+signals:
+public:
+
+	 QSize ();
+	 QSize (int w, int h);
+	 bool isNull () const;
+	 bool isEmpty () const;
+	 bool isValid () const;
+	 int width () const;
+	 int height () const;
+	 void setWidth (int w);
+	 void setHeight (int h);
+	 void transpose ();
+	 void scale (int w, int h, Qt::AspectRatioMode mode);
+	 void scale (const QSize &s, Qt::AspectRatioMode mode);
+	 QSize expandedTo (const QSize &) const;
+	 QSize boundedTo (const QSize &) const;
+	 int & rwidth ();
+	 int & rheight ();
+	 QSize & operator+= (const QSize &);
+	 QSize & operator-= (const QSize &);
+	 QSize & operator *= (qreal c);
+	 QSize & operator/= (qreal c);
+
+};
+$#include <QMetaClassInfo>
+
+class QMetaClassInfo {
+Q_OBJECT
+signals:
+public:
+
+	 QMetaClassInfo ();
+	 const char * name () const;
+	 const char * value () const;
+
+};
+$#include <QLatin1String>
+
+class QLatin1String {
+Q_OBJECT
+signals:
+public:
+
+	 QLatin1String (const char *s);
+	 const char * latin1 () const;
+	 bool operator== (const QString &s) const;
+	 bool operator!= (const QString &s) const;
+	 bool operator> (const QString &s) const;
+	 bool operator< (const QString &s) const;
+	 bool operator>= (const QString &s) const;
+	 bool operator<= (const QString &s) const;
+
+};
+$#include <QDataStream>
+
+class QDataStream {
+Q_OBJECT
+signals:
+public:
+	 enum Version {         Qt_1_0 = 1, Qt_2_0 = 2, Qt_2_1 = 3, Qt_3_0 = 4,         Qt_3_1 = 5, Qt_3_3 = 6, Qt_4_0 = 7       };
+	 enum ByteOrder { BigEndian = QSysInfo::BigEndian, LittleEndian = QSysInfo::LittleEndian };
+	 enum Status { Ok, ReadPastEnd, ReadCorruptData };
+
+	 QDataStream ();
+	 QDataStream (QIODevice *);
+	 QDataStream (QByteArray *, QIODevice::OpenMode flags);
+	 QDataStream (const QByteArray &);
+	 virtual ~QDataStream ();
+	 void setDevice (QIODevice *);
+	 void unsetDevice ();
+	 bool atEnd () const;
+	 Status status () const;
+	 void setStatus (Status status);
+	 void resetStatus ();
+	 ByteOrder byteOrder () const;
+	 void setByteOrder (ByteOrder);
+	 int version () const;
+	 void setVersion (int);
+	 QDataStream & operator>> (qint8 &i);
+	 QDataStream & operator>> (quint8 &i);
+	 QDataStream & operator>> (qint16 &i);
+	 QDataStream & operator>> (quint16 &i);
+	 QDataStream & operator>> (qint32 &i);
+	 QDataStream & operator>> (quint32 &i);
+	 QDataStream & operator>> (qint64 &i);
+	 QDataStream & operator>> (quint64 &i);
+	 QDataStream & operator>> (bool &i);
+	 QDataStream & operator>> (float &f);
+	 QDataStream & operator>> (double &f);
+	 QDataStream & operator>> (char *&str);
+	 QDataStream & operator<< (qint8 i);
+	 QDataStream & operator<< (quint8 i);
+	 QDataStream & operator<< (qint16 i);
+	 QDataStream & operator<< (quint16 i);
+	 QDataStream & operator<< (qint32 i);
+	 QDataStream & operator<< (quint32 i);
+	 QDataStream & operator<< (qint64 i);
+	 QDataStream & operator<< (quint64 i);
+	 QDataStream & operator<< (bool i);
+	 QDataStream & operator<< (float f);
+	 QDataStream & operator<< (double f);
+	 QDataStream & operator<< (const char *str);
+	 QDataStream & readBytes (char *&, uint &len);
+	 int readRawData (char *, int len);
+	 QDataStream & writeBytes (const char *, uint len);
+	 int writeRawData (const char *, int len);
 
 };
 $#include <QDateTime>
@@ -809,106 +885,6 @@ public:
 	 QLine toLine () const;
 
 };
-$#include <QRect>
-
-class QRect {
-Q_OBJECT
-signals:
-public:
-
-	 QRect ();
-	 QRect (const QPoint &topleft, const QPoint &bottomright);
-	 QRect (const QPoint &topleft, const QSize &size);
-	 QRect (int left, int top, int width, int height);
-	 bool isNull () const;
-	 bool isEmpty () const;
-	 bool isValid () const;
-	 int left () const;
-	 int top () const;
-	 int right () const;
-	 int bottom () const;
-	 QRect normalized () const;
-	 int x () const;
-	 int y () const;
-	 void setLeft (int pos);
-	 void setTop (int pos);
-	 void setRight (int pos);
-	 void setBottom (int pos);
-	 void setX (int x);
-	 void setY (int y);
-	 void setTopLeft (const QPoint &p);
-	 void setBottomRight (const QPoint &p);
-	 void setTopRight (const QPoint &p);
-	 void setBottomLeft (const QPoint &p);
-	 QPoint topLeft () const;
-	 QPoint bottomRight () const;
-	 QPoint topRight () const;
-	 QPoint bottomLeft () const;
-	 QPoint center () const;
-	 void moveLeft (int pos);
-	 void moveTop (int pos);
-	 void moveRight (int pos);
-	 void moveBottom (int pos);
-	 void moveTopLeft (const QPoint &p);
-	 void moveBottomRight (const QPoint &p);
-	 void moveTopRight (const QPoint &p);
-	 void moveBottomLeft (const QPoint &p);
-	 void moveCenter (const QPoint &p);
-	 void translate (int dx, int dy);
-	 void translate (const QPoint &p);
-	 QRect translated (int dx, int dy) const;
-	 QRect translated (const QPoint &p) const;
-	 void moveTo (int x, int t);
-	 void moveTo (const QPoint &p);
-	 void setRect (int x, int y, int w, int h);
-	 void getRect (int *x, int *y, int *w, int *h) const;
-	 void setCoords (int x1, int y1, int x2, int y2);
-	 void getCoords (int *x1, int *y1, int *x2, int *y2) const;
-	 void adjust (int x1, int y1, int x2, int y2);
-	 QRect adjusted (int x1, int y1, int x2, int y2) const;
-	 QSize size () const;
-	 int width () const;
-	 int height () const;
-	 void setWidth (int w);
-	 void setHeight (int h);
-	 void setSize (const QSize &s);
-	 QRect operator| (const QRect &r) const;
-	 QRect operator & (const QRect &r) const;
-	 QRect & operator|= (const QRect &r);
-	 QRect & operator &= (const QRect &r);
-	 bool contains (const QPoint &p, bool proper=false) const;
-	 bool contains (int x, int y) const;
-	 bool contains (int x, int y, bool proper) const;
-	 bool contains (const QRect &r, bool proper=false) const;
-	 QRect unite (const QRect &r) const;
-	 QRect intersect (const QRect &r) const;
-	 bool intersects (const QRect &r) const;
-
-};
-$#include <QPointF>
-
-class QPointF {
-Q_OBJECT
-signals:
-public:
-
-	 QPointF ();
-	 QPointF (const QPoint &p);
-	 QPointF (qreal xpos, qreal ypos);
-	 bool isNull () const;
-	 qreal x () const;
-	 qreal y () const;
-	 void setX (qreal x);
-	 void setY (qreal y);
-	 qreal & rx ();
-	 qreal & ry ();
-	 QPointF & operator+= (const QPointF &p);
-	 QPointF & operator-= (const QPointF &p);
-	 QPointF & operator *= (qreal c);
-	 QPointF & operator/= (qreal c);
-	 QPoint toPoint () const;
-
-};
 $#include <QChar>
 
 class QChar {
@@ -967,6 +943,177 @@ public:
 	 void setRow (uchar row);
 	 static QChar fromAscii (char c);
 	 static QChar fromLatin1 (char c);
+
+};
+$#include <QPointF>
+
+class QPointF {
+Q_OBJECT
+signals:
+public:
+
+	 QPointF ();
+	 QPointF (const QPoint &p);
+	 QPointF (qreal xpos, qreal ypos);
+	 bool isNull () const;
+	 qreal x () const;
+	 qreal y () const;
+	 void setX (qreal x);
+	 void setY (qreal y);
+	 qreal & rx ();
+	 qreal & ry ();
+	 QPointF & operator+= (const QPointF &p);
+	 QPointF & operator-= (const QPointF &p);
+	 QPointF & operator *= (qreal c);
+	 QPointF & operator/= (qreal c);
+	 QPoint toPoint () const;
+
+};
+$#include <QByteArray>
+
+class QByteArray {
+Q_OBJECT
+signals:
+public:
+	 typedef char * iterator;
+	 typedef const char * const_iterator;
+	 typedef iterator Iterator;
+	 typedef const_iterator ConstIterator;
+	 struct Data;
+
+	 QByteArray ();
+	 QByteArray (const char *);
+	 QByteArray (const char *, int size);
+	 QByteArray (int size, char c);
+	 QByteArray (const QByteArray &);
+	 ~QByteArray ();
+	 QByteArray & operator= (const QByteArray &);
+	 QByteArray & operator= (const char *str);
+	 int size () const;
+	 bool isEmpty () const;
+	 void resize (int size);
+	 QByteArray & fill (char c, int size=-1);
+	 int capacity () const;
+	 void reserve (int size);
+	 void squeeze ();
+	 
+	 
+	 char * data ();
+	 const char * data () const;
+	 const char * constData () const;
+	 void detach ();
+	 bool isDetached () const;
+	 void clear ();
+	 const char at (int i) const;
+	 const char operator[] (int i) const;
+	 QByteRef operator[] (int i);
+	 const char operator[] (uint i) const;
+	 QByteRef operator[] (uint i);
+	 int indexOf (char c, int from=0) const;
+	 int indexOf (const char *c, int from=0) const;
+	 int indexOf (const QByteArray &a, int from=0) const;
+	 int lastIndexOf (char c, int from=-1) const;
+	 int lastIndexOf (const char *c, int from=-1) const;
+	 int lastIndexOf (const QByteArray &a, int from=-1) const;
+	 QBool contains (char c) const;
+	 QBool contains (const char *a) const;
+	 QBool contains (const QByteArray &a) const;
+	 int count (char c) const;
+	 int count (const char *a) const;
+	 int count (const QByteArray &a) const;
+	 QByteArray left (int len) const;
+	 QByteArray right (int len) const;
+	 QByteArray mid (int index, int len=-1) const;
+	 bool startsWith (const QByteArray &a) const;
+	 bool startsWith (char c) const;
+	 bool startsWith (const char *c) const;
+	 bool endsWith (const QByteArray &a) const;
+	 bool endsWith (char c) const;
+	 bool endsWith (const char *c) const;
+	 void truncate (int pos);
+	 void chop (int n);
+	 QByteArray toLower () const;
+	 QByteArray toUpper () const;
+	 QByteArray trimmed () const;
+	 QByteArray simplified () const;
+	 QByteArray leftJustified (int width, char fill= ' ', bool truncate=false) const;
+	 QByteArray rightJustified (int width, char fill= ' ', bool truncate=false) const;
+	 QByteArray & prepend (char c);
+	 QByteArray & prepend (const char *s);
+	 QByteArray & prepend (const QByteArray &a);
+	 QByteArray & append (char c);
+	 QByteArray & append (const char *s);
+	 QByteArray & append (const QByteArray &a);
+	 QByteArray & insert (int i, char c);
+	 QByteArray & insert (int i, const char *s);
+	 QByteArray & insert (int i, const QByteArray &a);
+	 QByteArray & remove (int index, int len);
+	 QByteArray & replace (int index, int len, const char *s);
+	 QByteArray & replace (int index, int len, const QByteArray &s);
+	 QByteArray & replace (char before, const char *after);
+	 QByteArray & replace (char before, const QByteArray &after);
+	 QByteArray & replace (const char *before, const char *after);
+	 QByteArray & replace (const QByteArray &before, const QByteArray &after);
+	 QByteArray & replace (const QByteArray &before, const char *after);
+	 QByteArray & replace (const char *before, const QByteArray &after);
+	 QByteArray & replace (char before, char after);
+	 QByteArray & operator+= (char c);
+	 QByteArray & operator+= (const char *s);
+	 QByteArray & operator+= (const QByteArray &a);
+	 QList< QByteArray > split (char sep) const;
+	 QByteArray & append (const QString &s);
+	 QByteArray & insert (int i, const QString &s);
+	 QByteArray & replace (const QString &before, const char *after);
+	 QByteArray & replace (char c, const QString &after);
+	 QByteArray & replace (const QString &before, const QByteArray &after);
+	 QByteArray & operator+= (const QString &s);
+	 int indexOf (const QString &s, int from=0) const;
+	 int lastIndexOf (const QString &s, int from=-1) const;
+	 bool operator== (const QString &s2) const;
+	 bool operator!= (const QString &s2) const;
+	 bool operator< (const QString &s2) const;
+	 bool operator> (const QString &s2) const;
+	 bool operator<= (const QString &s2) const;
+	 bool operator>= (const QString &s2) const;
+	 short toShort (bool *ok=0, int base=10) const;
+	 ushort toUShort (bool *ok=0, int base=10) const;
+	 int toInt (bool *ok=0, int base=10) const;
+	 uint toUInt (bool *ok=0, int base=10) const;
+	 qlonglong toLongLong (bool *ok=0, int base=10) const;
+	 qulonglong toULongLong (bool *ok=0, int base=10) const;
+	 float toFloat (bool *ok=0) const;
+	 double toDouble (bool *ok=0) const;
+	 QByteArray toBase64 () const;
+	 QByteArray & setNum (short, int base=10);
+	 QByteArray & setNum (ushort, int base=10);
+	 QByteArray & setNum (int, int base=10);
+	 QByteArray & setNum (uint, int base=10);
+	 QByteArray & setNum (qlonglong, int base=10);
+	 QByteArray & setNum (qulonglong, int base=10);
+	 QByteArray & setNum (float, char f= 'g', int prec=6);
+	 QByteArray & setNum (double, char f= 'g', int prec=6);
+	 iterator begin ();
+	 const_iterator begin () const;
+	 const_iterator constBegin () const;
+	 iterator end ();
+	 const_iterator end () const;
+	 const_iterator constEnd () const;
+	 void push_back (char c);
+	 void push_back (const char *c);
+	 void push_back (const QByteArray &a);
+	 void push_front (char c);
+	 void push_front (const char *c);
+	 void push_front (const QByteArray &a);
+	 int count () const;
+	 int length () const;
+	 bool isNull () const;
+	 static QByteArray number (int, int base=10);
+	 static QByteArray number (uint, int base=10);
+	 static QByteArray number (qlonglong, int base=10);
+	 static QByteArray number (qulonglong, int base=10);
+	 static QByteArray number (double, char f= 'g', int prec=6);
+	 static QByteArray fromRawData (const char *, int size);
+	 static QByteArray fromBase64 (const QByteArray &base64);
 
 };
 $#include <QPoint>
@@ -1075,77 +1222,19 @@ public:
 	 bool operator!= (const QModelIndex &other) const;
 
 };
-$#include <QMetaType>
+$#include <QReadWriteLock>
 
-class QMetaType {
-Q_OBJECT
-signals:
-public:
-	class  Destructor ;
-	class  Constructor ;
-	class  SaveOperator ;
-	class  LoadOperator ;
-	 enum Type {         Void = 0, Bool = 1, Int = 2, UInt = 3,         Double = 6, QChar = 7, QString = 10, QByteArray = 12,         VoidStar = 128, Long, Short, Char,         ULong, UShort, UChar, Float,         QObjectStar, QWidgetStar, User = 256       };
-
-	 static void registerStreamOperators (const char *typeName, SaveOperator saveOp, LoadOperator loadOp);
-	 static int registerType (const char *typeName, Destructor destructor, Constructor constructor);
-	 static int type (const char *typeName);
-	 static const char * typeName (int type);
-	 static bool isRegistered (int type);
-	 static void * construct (int type, const void *copy);
-	 static void destroy (int type, void *data);
-	 static bool save (QDataStream &stream, int type, const void *data);
-	 static bool load (QDataStream &stream, int type, void *data);
-	 static void registerStreamOperators (const char *typeName, SaveOperator saveOp, LoadOperator loadOp);
-	 static int registerType (const char *typeName, Destructor destructor, Constructor constructor);
-	 static int type (const char *typeName);
-	 static const char * typeName (int type);
-	 static bool isRegistered (int type);
-	 static void * construct (int type, const void *copy);
-	 static void destroy (int type, void *data);
-	 static bool save (QDataStream &stream, int type, const void *data);
-	 static bool load (QDataStream &stream, int type, void *data);
-
-};
-$#include <QMetaProperty>
-
-class QMetaProperty {
+class QReadWriteLock {
 Q_OBJECT
 signals:
 public:
 
-	 QMetaProperty ();
-	 const char * name () const;
-	 const char * typeName () const;
-	 QVariant::Type type () const;
-	 bool isReadable () const;
-	 bool isWritable () const;
-	 bool isDesignable (const QObject *obj=0) const;
-	 bool isScriptable (const QObject *obj=0) const;
-	 bool isStored (const QObject *obj=0) const;
-	 bool isEditable (const QObject *obj=0) const;
-	 bool isFlagType () const;
-	 bool isEnumType () const;
-	 QMetaEnum enumerator () const;
-	 QVariant read (const QObject *obj) const;
-	 bool write (QObject *obj, const QVariant &value) const;
-	 bool reset (QObject *obj) const;
-	 bool hasStdCppSet () const;
-	 bool isValid () const;
-
-};
-$#include <QMutex>
-
-class QMutex {
-Q_OBJECT
-signals:
-public:
-	 enum RecursionMode { NonRecursive, Recursive };
-
-	 QMutex (RecursionMode mode=NonRecursive);
-	 ~QMutex ();
-	 void lock ();
-	 bool tryLock ();
+	 QReadWriteLock ();
+	 ~QReadWriteLock ();
+	 void lockForRead ();
+	 bool tryLockForRead ();
+	 void lockForWrite ();
+	 bool tryLockForWrite ();
 	 void unlock ();
 
 };
@@ -1187,6 +1276,48 @@ public:
 	 bool fill (bool val, int size=-1);
 	 void fill (bool val, int first, int last);
 	 void truncate (int pos);
+
+};
+$#include <QMutex>
+
+class QMutex {
+Q_OBJECT
+signals:
+public:
+	 enum RecursionMode { NonRecursive, Recursive };
+
+	 QMutex (RecursionMode mode=NonRecursive);
+	 ~QMutex ();
+	 void lock ();
+	 bool tryLock ();
+	 void unlock ();
+
+};
+$#include <QMetaProperty>
+
+class QMetaProperty {
+Q_OBJECT
+signals:
+public:
+
+	 QMetaProperty ();
+	 const char * name () const;
+	 const char * typeName () const;
+	 QVariant::Type type () const;
+	 bool isReadable () const;
+	 bool isWritable () const;
+	 bool isDesignable (const QObject *obj=0) const;
+	 bool isScriptable (const QObject *obj=0) const;
+	 bool isStored (const QObject *obj=0) const;
+	 bool isEditable (const QObject *obj=0) const;
+	 bool isFlagType () const;
+	 bool isEnumType () const;
+	 QMetaEnum enumerator () const;
+	 QVariant read (const QObject *obj) const;
+	 bool write (QObject *obj, const QVariant &value) const;
+	 bool reset (QObject *obj) const;
+	 bool hasStdCppSet () const;
+	 bool isValid () const;
 
 };
 $#include <QDir>
@@ -1279,41 +1410,48 @@ public:
 	 QReadWriteLock * readWriteLock () const;
 
 };
-$#include <QReadWriteLock>
+$#include <QMetaType>
 
-class QReadWriteLock {
+class QMetaType {
 Q_OBJECT
 signals:
 public:
+	class  Destructor ;
+	class  Constructor ;
+	class  SaveOperator ;
+	class  LoadOperator ;
+	 enum Type {         Void = 0, Bool = 1, Int = 2, UInt = 3,         Double = 6, QChar = 7, QString = 10, QByteArray = 12,         VoidStar = 128, Long, Short, Char,         ULong, UShort, UChar, Float,         QObjectStar, QWidgetStar, User = 256       };
 
-	 QReadWriteLock ();
-	 ~QReadWriteLock ();
-	 void lockForRead ();
-	 bool tryLockForRead ();
-	 void lockForWrite ();
-	 bool tryLockForWrite ();
-	 void unlock ();
+	 static void registerStreamOperators (const char *typeName, SaveOperator saveOp, LoadOperator loadOp);
+	 static int registerType (const char *typeName, Destructor destructor, Constructor constructor);
+	 static int type (const char *typeName);
+	 static const char * typeName (int type);
+	 static bool isRegistered (int type);
+	 static void * construct (int type, const void *copy);
+	 static void destroy (int type, void *data);
+	 static bool save (QDataStream &stream, int type, const void *data);
+	 static bool load (QDataStream &stream, int type, void *data);
+	 static void registerStreamOperators (const char *typeName, SaveOperator saveOp, LoadOperator loadOp);
+	 static int registerType (const char *typeName, Destructor destructor, Constructor constructor);
+	 static int type (const char *typeName);
+	 static const char * typeName (int type);
+	 static bool isRegistered (int type);
+	 static void * construct (int type, const void *copy);
+	 static void destroy (int type, void *data);
+	 static bool save (QDataStream &stream, int type, const void *data);
+	 static bool load (QDataStream &stream, int type, void *data);
 
 };
-$#include <QMetaMethod>
+$#include <QSharedData>
 
-class QMetaMethod {
+class QSharedData {
 Q_OBJECT
 signals:
 public:
-	 enum Access { Private, Protected, Public };
-	 enum MethodType { Method, Signal, Slot };
-	 enum Attributes { Compatibility = 0x1, Cloned = 0x2, Scriptable = 0x4 };
 
-	 QMetaMethod ();
-	 const char * signature () const;
-	 const char * typeName () const;
-	 QList< QByteArray > parameterTypes () const;
-	 QList< QByteArray > parameterNames () const;
-	 const char * tag () const;
-	 Access access () const;
-	 MethodType methodType () const;
-	 int attributes () const;
+	 QSharedData ();
+	 QSharedData (const QSharedData &);
+	 QAtomic ref;
 
 };
 $#include <QRegExp>
@@ -1368,16 +1506,60 @@ public:
 	 QReadWriteLock * readWriteLock () const;
 
 };
-$#include <QSharedData>
+$#include <QMetaMethod>
 
-class QSharedData {
+class QMetaMethod {
+Q_OBJECT
+signals:
+public:
+	 enum Access { Private, Protected, Public };
+	 enum MethodType { Method, Signal, Slot };
+	 enum Attributes { Compatibility = 0x1, Cloned = 0x2, Scriptable = 0x4 };
+
+	 QMetaMethod ();
+	 const char * signature () const;
+	 const char * typeName () const;
+	 QList< QByteArray > parameterTypes () const;
+	 QList< QByteArray > parameterNames () const;
+	 const char * tag () const;
+	 Access access () const;
+	 MethodType methodType () const;
+	 int attributes () const;
+
+};
+$#include <QEvent>
+
+class QEvent {
+Q_OBJECT
+signals:
+public:
+	 enum Type {         None = 0, Timer = 1, MouseButtonPress = 2, MouseButtonRelease = 3,         MouseButtonDblClick = 4, MouseMove = 5, KeyPress = 6, KeyRelease = 7,         FocusIn = 8, FocusOut = 9, Enter = 10, Leave = 11,         Paint = 12, Move = 13, Resize = 14, Create = 15,         Destroy = 16, Show = 17, Hide = 18, Close = 19,         Quit = 20, ParentChange = 21, ParentAboutToChange = 131, ThreadChange = 22,         WindowActivate = 24, WindowDeactivate = 25, ShowToParent = 26, HideToParent = 27,         Wheel = 31, WindowTitleChange = 33, WindowIconChange = 34, ApplicationWindowIconChange = 35,         ApplicationFontChange = 36, ApplicationLayoutDirectionChange = 37, ApplicationPaletteChange = 38, PaletteChange = 39,         Clipboard = 40, Speech = 42, MetaCall = 43, SockAct = 50,         WinEventAct = 132, DeferredDelete = 52, DragEnter = 60, DragMove = 61,         DragLeave = 62, Drop = 63, DragResponse = 64, ChildAdded = 68,         ChildPolished = 69, ChildRemoved = 71, ShowWindowRequest = 73, PolishRequest = 74,         Polish = 75, LayoutRequest = 76, UpdateRequest = 77, EmbeddingControl = 79,         ActivateControl = 80, DeactivateControl = 81, ContextMenu = 82, InputMethod = 83,         AccessibilityPrepare = 86, TabletMove = 87, LocaleChange = 88, LanguageChange = 89,         LayoutDirectionChange = 90, Style = 91, TabletPress = 92, TabletRelease = 93,         OkRequest = 94, HelpRequest = 95, IconDrag = 96, FontChange = 97,         EnabledChange = 98, ActivationChange = 99, StyleChange = 100, IconTextChange = 101,         ModifiedChange = 102, MouseTrackingChange = 109, WindowBlocked = 103, WindowUnblocked = 104,         WindowStateChange = 105, ToolTip = 110, WhatsThis = 111, StatusTip = 112,         ActionChanged = 113, ActionAdded = 114, ActionRemoved = 115, FileOpen = 116,         Shortcut = 117, ShortcutOverride = 51, WhatsThisClicked = 118, ToolBarChange = 120,         ApplicationActivated = 121, ApplicationDeactivated = 122, QueryWhatsThis = 123, EnterWhatsThisMode = 124,         LeaveWhatsThisMode = 125, ZOrderChange = 126, HoverEnter = 127, HoverLeave = 128,         HoverMove = 129, AccessibilityHelp = 119, AccessibilityDescription = 130, User = 1000,         MaxUser = 65535       };
+
+	 QEvent (Type type);
+	 virtual ~QEvent ();
+	 Type type () const;
+	 bool spontaneous () const;
+	 void setAccepted (bool accepted);
+	 bool isAccepted () const;
+	 void accept ();
+	 void ignore ();
+
+};
+$#include <QByteArrayMatcher>
+
+class QByteArrayMatcher {
 Q_OBJECT
 signals:
 public:
 
-	 QSharedData ();
-	 QSharedData (const QSharedData &);
-	 QAtomic ref;
+	 QByteArrayMatcher ();
+	 QByteArrayMatcher (const QByteArray &pattern);
+	 QByteArrayMatcher (const QByteArrayMatcher &other);
+	 ~QByteArrayMatcher ();
+	 QByteArrayMatcher & operator= (const QByteArrayMatcher &other);
+	 void setPattern (const QByteArray &pattern);
+	 int indexIn (const QByteArray &ba, int from=0) const;
+	 QByteArray pattern () const;
 
 };
 $#include <QPersistentModelIndex>
@@ -1407,41 +1589,6 @@ public:
 	 QModelIndex child (int row, int column) const;
 	 const QAbstractItemModel * model () const;
 	 bool isValid () const;
-
-};
-$#include <QByteArrayMatcher>
-
-class QByteArrayMatcher {
-Q_OBJECT
-signals:
-public:
-
-	 QByteArrayMatcher ();
-	 QByteArrayMatcher (const QByteArray &pattern);
-	 QByteArrayMatcher (const QByteArrayMatcher &other);
-	 ~QByteArrayMatcher ();
-	 QByteArrayMatcher & operator= (const QByteArrayMatcher &other);
-	 void setPattern (const QByteArray &pattern);
-	 int indexIn (const QByteArray &ba, int from=0) const;
-	 QByteArray pattern () const;
-
-};
-$#include <QEvent>
-
-class QEvent {
-Q_OBJECT
-signals:
-public:
-	 enum Type {         None = 0, Timer = 1, MouseButtonPress = 2, MouseButtonRelease = 3,         MouseButtonDblClick = 4, MouseMove = 5, KeyPress = 6, KeyRelease = 7,         FocusIn = 8, FocusOut = 9, Enter = 10, Leave = 11,         Paint = 12, Move = 13, Resize = 14, Create = 15,         Destroy = 16, Show = 17, Hide = 18, Close = 19,         Quit = 20, ParentChange = 21, ParentAboutToChange = 131, ThreadChange = 22,         WindowActivate = 24, WindowDeactivate = 25, ShowToParent = 26, HideToParent = 27,         Wheel = 31, WindowTitleChange = 33, WindowIconChange = 34, ApplicationWindowIconChange = 35,         ApplicationFontChange = 36, ApplicationLayoutDirectionChange = 37, ApplicationPaletteChange = 38, PaletteChange = 39,         Clipboard = 40, Speech = 42, MetaCall = 43, SockAct = 50,         WinEventAct = 132, DeferredDelete = 52, DragEnter = 60, DragMove = 61,         DragLeave = 62, Drop = 63, DragResponse = 64, ChildAdded = 68,         ChildPolished = 69, ChildRemoved = 71, ShowWindowRequest = 73, PolishRequest = 74,         Polish = 75, LayoutRequest = 76, UpdateRequest = 77, EmbeddingControl = 79,         ActivateControl = 80, DeactivateControl = 81, ContextMenu = 82, InputMethod = 83,         AccessibilityPrepare = 86, TabletMove = 87, LocaleChange = 88, LanguageChange = 89,         LayoutDirectionChange = 90, Style = 91, TabletPress = 92, TabletRelease = 93,         OkRequest = 94, HelpRequest = 95, IconDrag = 96, FontChange = 97,         EnabledChange = 98, ActivationChange = 99, StyleChange = 100, IconTextChange = 101,         ModifiedChange = 102, MouseTrackingChange = 109, WindowBlocked = 103, WindowUnblocked = 104,         WindowStateChange = 105, ToolTip = 110, WhatsThis = 111, StatusTip = 112,         ActionChanged = 113, ActionAdded = 114, ActionRemoved = 115, FileOpen = 116,         Shortcut = 117, ShortcutOverride = 51, WhatsThisClicked = 118, ToolBarChange = 120,         ApplicationActivated = 121, ApplicationDeactivated = 122, QueryWhatsThis = 123, EnterWhatsThisMode = 124,         LeaveWhatsThisMode = 125, ZOrderChange = 126, HoverEnter = 127, HoverLeave = 128,         HoverMove = 129, AccessibilityHelp = 119, AccessibilityDescription = 130, User = 1000,         MaxUser = 65535       };
-
-	 QEvent (Type type);
-	 virtual ~QEvent ();
-	 Type type () const;
-	 bool spontaneous () const;
-	 void setAccepted (bool accepted);
-	 bool isAccepted () const;
-	 void accept ();
-	 void ignore ();
 
 };
 $#include <QSettings>
@@ -1508,6 +1655,38 @@ public:
 	 void map (QObject *sender);
 
 };
+$#include <QAbstractEventDispatcher>
+
+class QAbstractEventDispatcher : public QObject {
+Q_OBJECT
+signals:
+	 void aboutToBlock ();
+	 void awake ();
+public:
+	 typedef QPair< int, int > TimerInfo;
+	class  EventFilter ;
+
+	 QAbstractEventDispatcher (QObject *parent=0);
+	 ~QAbstractEventDispatcher ();
+	 virtual bool processEvents (QEventLoop::ProcessEventsFlags flags)=0;
+	 virtual bool hasPendingEvents ()=0;
+	 virtual void registerSocketNotifier (QSocketNotifier *notifier)=0;
+	 virtual void unregisterSocketNotifier (QSocketNotifier *notifier)=0;
+	 int registerTimer (int interval, QObject *object);
+	 virtual void registerTimer (int timerId, int interval, QObject *object)=0;
+	 virtual bool unregisterTimer (int timerId)=0;
+	 virtual bool unregisterTimers (QObject *object)=0;
+	 virtual QList< TimerInfo > registeredTimers (QObject *object) const =0;
+	 virtual void wakeUp ()=0;
+	 virtual void interrupt ()=0;
+	 virtual void flush ()=0;
+	 virtual void startingUp ();
+	 virtual void closingDown ();
+	 EventFilter setEventFilter (EventFilter filter);
+	 bool filterEvent (void *message);
+		 static QAbstractEventDispatcher * instance (QThread *thread=0);
+
+};
 $#include <QIODevice>
 
 class QIODevice : public QObject {
@@ -1555,38 +1734,6 @@ public:
 	protected  virtual qint64 writeData (const char *data, qint64 len)=0;
 		
 };
-$#include <QAbstractEventDispatcher>
-
-class QAbstractEventDispatcher : public QObject {
-Q_OBJECT
-signals:
-	 void aboutToBlock ();
-	 void awake ();
-public:
-	 typedef QPair< int, int > TimerInfo;
-	class  EventFilter ;
-
-	 QAbstractEventDispatcher (QObject *parent=0);
-	 ~QAbstractEventDispatcher ();
-	 virtual bool processEvents (QEventLoop::ProcessEventsFlags flags)=0;
-	 virtual bool hasPendingEvents ()=0;
-	 virtual void registerSocketNotifier (QSocketNotifier *notifier)=0;
-	 virtual void unregisterSocketNotifier (QSocketNotifier *notifier)=0;
-	 int registerTimer (int interval, QObject *object);
-	 virtual void registerTimer (int timerId, int interval, QObject *object)=0;
-	 virtual bool unregisterTimer (int timerId)=0;
-	 virtual bool unregisterTimers (QObject *object)=0;
-	 virtual QList< TimerInfo > registeredTimers (QObject *object) const =0;
-	 virtual void wakeUp ()=0;
-	 virtual void interrupt ()=0;
-	 virtual void flush ()=0;
-	 virtual void startingUp ();
-	 virtual void closingDown ();
-	 EventFilter setEventFilter (EventFilter filter);
-	 bool filterEvent (void *message);
-		 static QAbstractEventDispatcher * instance (QThread *thread=0);
-
-};
 $#include <QSocketNotifier>
 
 class QSocketNotifier : public QObject {
@@ -1604,45 +1751,6 @@ public:
 	 void setEnabled (bool);
 	
 };
-$#include <QLibrary>
-
-class QLibrary : public QObject {
-Q_OBJECT
-signals:
-public:
-
-	 QLibrary (QObject *parent=0);
-	 QLibrary (const QString &fileName, QObject *parent=0);
-	 ~QLibrary ();
-	 void * resolve (const char *symbol);
-	 bool load ();
-	 bool unload ();
-	 bool isLoaded () const;
-	 void setFileName (const QString &fileName);
-	 QString fileName () const;
-	 static void * resolve (const QString &fileName, const char *symbol);
-	 static bool isLibrary (const QString &fileName);
-
-};
-$#include <QPluginLoader>
-
-class QPluginLoader : public QObject {
-Q_OBJECT
-signals:
-public:
-
-	 QPluginLoader (QObject *parent=0);
-	 QPluginLoader (const QString &fileName, QObject *parent=0);
-	 ~QPluginLoader ();
-	 QObject * instance ();
-	 bool load ();
-	 bool unload ();
-	 bool isLoaded () const;
-	 void setFileName (const QString &fileName);
-	 QString fileName () const;
-	 static QObjectList staticInstances ();
-
-};
 $#include <QTimerEvent>
 
 class QTimerEvent : public QEvent {
@@ -1653,6 +1761,54 @@ public:
 	 QTimerEvent (int timerId);
 	 ~QTimerEvent ();
 	 int timerId () const;
+
+};
+$#include <QTextCodecPlugin>
+
+class QTextCodecPlugin : public QObject , public QTextCodecFactoryInterface {
+Q_OBJECT
+signals:
+public:
+
+	 QTextCodecPlugin (QObject *parent=0);
+	 ~QTextCodecPlugin ();
+	 virtual QList< QByteArray > names () const =0;
+	 virtual QList< QByteArray > aliases () const =0;
+	 virtual QTextCodec * createForName (const QByteArray &name)=0;
+	 virtual QList< int > mibEnums () const =0;
+	 virtual QTextCodec * createForMib (int mib)=0;
+
+};
+$#include <QMimeData>
+
+class QMimeData : public QObject {
+Q_OBJECT
+signals:
+public:
+
+	 QMimeData ();
+	 ~QMimeData ();
+	 QList< QUrl > urls () const;
+	 void setUrls (const QList< QUrl > &urls);
+	 bool hasUrls () const;
+	 QString text () const;
+	 void setText (const QString &text);
+	 bool hasText () const;
+	 QString html () const;
+	 void setHtml (const QString &html);
+	 bool hasHtml () const;
+	 QVariant imageData () const;
+	 void setImageData (const QVariant &image);
+	 bool hasImage () const;
+	 QVariant colorData () const;
+	 void setColorData (const QVariant &color);
+	 bool hasColor () const;
+	 QByteArray data (const QString &mimetype) const;
+	 void setData (const QString &mimetype, const QByteArray &data);
+	 virtual bool hasFormat (const QString &mimetype) const;
+	 virtual QStringList formats () const;
+	 void clear ();
+	protected  virtual QVariant retrieveData (const QString &mimetype, QVariant::Type preferredType) const;
 
 };
 $#include <QThread>
@@ -1679,19 +1835,26 @@ public:
 		 static Qt::HANDLE currentThreadId ();
 
 };
-$#include <QTranslator>
+$#include <QTimer>
 
-class QTranslator : public QObject {
+class QTimer : public QObject {
 Q_OBJECT
 signals:
+	 void timeout ();
 public:
 
-	 QTranslator (QObject *parent=0);
-	 ~QTranslator ();
-	 virtual QString translate (const char *context, const char *sourceText, const char *comment=0) const;
-	 virtual bool isEmpty () const;
-	 bool load (const QString &filename, const QString &directory=QString(), const QString &search_delimiters=QString(), const QString &suffix=QString());
-	 bool load (const uchar *data, int len);
+	 QTimer (QObject *parent=0);
+	 ~QTimer ();
+	 bool isActive () const;
+	 int timerId () const;
+	 void setInterval (int msec);
+	 int interval () const;
+	 void setSingleShot (bool singleShot);
+	 bool isSingleShot () const;
+	 void start (int msec);
+	 void start ();
+	 void stop ();
+		 static void singleShot (int msec, QObject *receiver, const char *member);
 
 };
 $#include <QAbstractItemModel>
@@ -1767,61 +1930,24 @@ public:
 	 int lastIndexOf (const QRegExp &rx, int from=-1) const;
 
 };
-$#include <QEventLoop>
+$#include <QLibrary>
 
-class QEventLoop : public QObject {
-Q_OBJECT
-signals:
-public:
-	 typedef LuaQtGenericFlags ProcessEventsFlags;
-	 enum ProcessEventsFlag { AllEvents = 0x00, ExcludeUserInputEvents = 0x01, ExcludeSocketNotifiers = 0x02, WaitForMoreEvents = 0x04 };
-
-	 QEventLoop (QObject *parent=0);
-	 ~QEventLoop ();
-	 bool processEvents (ProcessEventsFlags flags=AllEvents);
-	 void processEvents (ProcessEventsFlags flags, int maximumTime);
-	 int exec (ProcessEventsFlags flags=AllEvents);
-	 void exit (int returnCode=0);
-	 bool isRunning () const;
-	 void wakeUp ();
-	 void quit ();
-
-};
-$#include <QTimer>
-
-class QTimer : public QObject {
-Q_OBJECT
-signals:
-	 void timeout ();
-public:
-
-	 QTimer (QObject *parent=0);
-	 ~QTimer ();
-	 bool isActive () const;
-	 int timerId () const;
-	 void setInterval (int msec);
-	 int interval () const;
-	 void setSingleShot (bool singleShot);
-	 bool isSingleShot () const;
-	 void start (int msec);
-	 void start ();
-	 void stop ();
-		 static void singleShot (int msec, QObject *receiver, const char *member);
-
-};
-$#include <QObjectCleanupHandler>
-
-class QObjectCleanupHandler : public QObject {
+class QLibrary : public QObject {
 Q_OBJECT
 signals:
 public:
 
-	 QObjectCleanupHandler ();
-	 ~QObjectCleanupHandler ();
-	 QObject * add (QObject *object);
-	 void remove (QObject *object);
-	 bool isEmpty () const;
-	 void clear ();
+	 QLibrary (QObject *parent=0);
+	 QLibrary (const QString &fileName, QObject *parent=0);
+	 ~QLibrary ();
+	 void * resolve (const char *symbol);
+	 bool load ();
+	 bool unload ();
+	 bool isLoaded () const;
+	 void setFileName (const QString &fileName);
+	 QString fileName () const;
+	 static void * resolve (const QString &fileName, const char *symbol);
+	 static bool isLibrary (const QString &fileName);
 
 };
 $#include <QChildEvent>
@@ -1837,6 +1963,36 @@ public:
 	 bool added () const;
 	 bool polished () const;
 	 bool removed () const;
+
+};
+$#include <QTranslator>
+
+class QTranslator : public QObject {
+Q_OBJECT
+signals:
+public:
+
+	 QTranslator (QObject *parent=0);
+	 ~QTranslator ();
+	 virtual QString translate (const char *context, const char *sourceText, const char *comment=0) const;
+	 virtual bool isEmpty () const;
+	 bool load (const QString &filename, const QString &directory=QString(), const QString &search_delimiters=QString(), const QString &suffix=QString());
+	 bool load (const uchar *data, int len);
+
+};
+$#include <QObjectCleanupHandler>
+
+class QObjectCleanupHandler : public QObject {
+Q_OBJECT
+signals:
+public:
+
+	 QObjectCleanupHandler ();
+	 ~QObjectCleanupHandler ();
+	 QObject * add (QObject *object);
+	 void remove (QObject *object);
+	 bool isEmpty () const;
+	 void clear ();
 
 };
 $#include <QCoreApplication>
@@ -1890,52 +2046,43 @@ public:
 	 static void flush ();
 
 };
-$#include <QTextCodecPlugin>
+$#include <QPluginLoader>
 
-class QTextCodecPlugin : public QObject , public QTextCodecFactoryInterface {
+class QPluginLoader : public QObject {
 Q_OBJECT
 signals:
 public:
 
-	 QTextCodecPlugin (QObject *parent=0);
-	 ~QTextCodecPlugin ();
-	 virtual QList< QByteArray > names () const =0;
-	 virtual QList< QByteArray > aliases () const =0;
-	 virtual QTextCodec * createForName (const QByteArray &name)=0;
-	 virtual QList< int > mibEnums () const =0;
-	 virtual QTextCodec * createForMib (int mib)=0;
+	 QPluginLoader (QObject *parent=0);
+	 QPluginLoader (const QString &fileName, QObject *parent=0);
+	 ~QPluginLoader ();
+	 QObject * instance ();
+	 bool load ();
+	 bool unload ();
+	 bool isLoaded () const;
+	 void setFileName (const QString &fileName);
+	 QString fileName () const;
+	 static QObjectList staticInstances ();
 
 };
-$#include <QMimeData>
+$#include <QEventLoop>
 
-class QMimeData : public QObject {
+class QEventLoop : public QObject {
 Q_OBJECT
 signals:
 public:
+	 typedef LuaQtGenericFlags ProcessEventsFlags;
+	 enum ProcessEventsFlag { AllEvents = 0x00, ExcludeUserInputEvents = 0x01, ExcludeSocketNotifiers = 0x02, WaitForMoreEvents = 0x04 };
 
-	 QMimeData ();
-	 ~QMimeData ();
-	 QList< QUrl > urls () const;
-	 void setUrls (const QList< QUrl > &urls);
-	 bool hasUrls () const;
-	 QString text () const;
-	 void setText (const QString &text);
-	 bool hasText () const;
-	 QString html () const;
-	 void setHtml (const QString &html);
-	 bool hasHtml () const;
-	 QVariant imageData () const;
-	 void setImageData (const QVariant &image);
-	 bool hasImage () const;
-	 QVariant colorData () const;
-	 void setColorData (const QVariant &color);
-	 bool hasColor () const;
-	 QByteArray data (const QString &mimetype) const;
-	 void setData (const QString &mimetype, const QByteArray &data);
-	 virtual bool hasFormat (const QString &mimetype) const;
-	 virtual QStringList formats () const;
-	 void clear ();
-	protected  virtual QVariant retrieveData (const QString &mimetype, QVariant::Type preferredType) const;
+	 QEventLoop (QObject *parent=0);
+	 ~QEventLoop ();
+	 bool processEvents (ProcessEventsFlags flags=AllEvents);
+	 void processEvents (ProcessEventsFlags flags, int maximumTime);
+	 int exec (ProcessEventsFlags flags=AllEvents);
+	 void exit (int returnCode=0);
+	 bool isRunning () const;
+	 void wakeUp ();
+	 void quit ();
 
 };
 $#include <QAbstractListModel>
