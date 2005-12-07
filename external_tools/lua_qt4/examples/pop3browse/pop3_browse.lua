@@ -4,6 +4,9 @@ require "pop3_config"
 
 require "pop3_client"
 
+-- not yet
+--class("POP3Browse", QMainWindow)
+
 class "POP3Browse"
 
 function POP3Browse:item_updated(num)
@@ -28,7 +31,7 @@ function POP3Browse:item_updated(num)
 		lit = Q3ListViewItem:new(self.list, num, size, pop_item.date, pop_item.from, pop_item.subject)
 	end
 
-	--QApplication:flush()
+	QCoreApplication:flush()
 end
 
 function POP3Browse:message_deleted(msg)
@@ -96,7 +99,7 @@ function POP3Browse:show_preview(text)
 		},
 	}
 
-	local root = LuaQt.init_tree(nil, gui, w)
+	local root = LuaQt.init_tree(self, gui, w)
 
 	self:connect(w.close, "clicked()", root, QObject.deleteLater)
 	self:connect(root, "destroyed(QObject*)", self, self.close_preview, root)
@@ -145,7 +148,7 @@ function POP3Browse:delete_pressed()
 		it = it:nextSibling()
 	end
 
-	local res = QMessageBox:question(self.root, "Are you sure", "Delete "..table.getn(delete_list).." selected messages?",
+	local res = QMessageBox:question(self, "Are you sure", "Delete "..table.getn(delete_list).." selected messages?",
 						"Yes", "No", nil)
 
 	if res ~= 0 then return end
@@ -156,7 +159,7 @@ end
 
 function POP3Browse:error_report(msg)
 
-	QMessageBox:critical(self.root, "Error!", msg);
+	QMessageBox:critical(self, "Error!", msg);
 
 end
 
@@ -171,13 +174,13 @@ function POP3Browse:connect_pressed()
 	local it = self.accounts:currentText()
 	if not accounts[it] then
 
-		QMessageBox:critical(self.root, "Error!", "Please select an account.");
+		QMessageBox:critical(self, "Error!", "Please select an account.");
 		return
 	end
 
 	if not accounts[it].password and self.password:text() == "" then
 
-		QMessageBox:critical(self.root, "Error!", "Please enter a password.");
+		QMessageBox:critical(self, "Error!", "Please enter a password.");
 		return
 	end
 
@@ -189,6 +192,12 @@ function POP3Browse:connect_pressed()
 	self:start_connection(accounts[it])
 end
 
+function POP3Browse:flush()
+
+	--QApplication:flush()
+end
+
+
 function POP3Browse:quit()
 
 	self.pop:disconnect()
@@ -196,136 +205,136 @@ function POP3Browse:quit()
 	QCoreApplication:quit()
 end
 
+function POP3Browse:closeEvent(e)
+
+	print "O NOES :("
+	self:quit()
+end
+
 POP3Browse.LOGIN_PAGE = 0
 POP3Browse.LIST_PAGE = 1
 
 function POP3Browse:__init__(parent)
 
+	self:set_c_instance(Lua__QMainWindow:new(parent))
+	self:setWindowTitle("POP3 Browser")
+
 	local gui = {
 
-		type = QMainWindow,
+		type = QStackedWidget,
+		name = "stack",
 
-		name = "main_window",
 		init = {
 
-			{"setWindowTitle", "POP3 Browser"},
+			{ QMainWindow.setCentralWidget },
 		},
 
-		{ type = QStackedWidget,
-			name = "stack",
+		{ type = Q3VBox,
+
+			{ type = QShortcut,
+
+				name = "shortcut",
+				init = {
+					{ "setKey", QKeySequence(Qt.Key_Return) },
+				},
+			},
+
+			"Account:",
+			{ type = QComboBox,
+
+				name = "accounts",
+			},
+			"Password:",
+			{ type = QLineEdit,
+
+				name = "password",
+				init = {
+
+					{"setEchoMode", QLineEdit.Password},
+				},
+			},
+
+			{ type = QPushButton,
+
+				name = "connect_button",
+				init = {
+
+					{"setText", "Connect"},
+				},
+			},
 
 			init = {
 
-				{ QMainWindow.setCentralWidget },
+				{QStackedWidget.addWidget }, --, self.LOGIN_PAGE,
+			},
+		},
+
+		{ type = Q3VBox,
+
+			{ type = Q3ListView,
+
+				name = "list",
+				init = {
+					{"addColumn", "#", 30},
+					{"addColumn", "Size", 50},
+					{"addColumn", "Date", 160},
+					{"addColumn", "From", 180},
+					{"addColumn", "Subject", 320},
+					{"setSelectionMode", Q3ListView.Multi},
+					{"setAllColumnsShowFocus", true},
+					{"setSorting", 50},
+				},
 			},
 
-			{ type = Q3VBox,
+			{ type = Q3HBox,
 
-				{ type = QShortcut,
+				{ type = QPushButton,
 
-					name = "shortcut",
+					name="disconnect_button",
 					init = {
-						{ "setKey", QKeySequence(Qt.Key_Return) },
+
+						{"setText", "<< Disconnect"},
 					},
 				},
+				{ type = QPushButton,
 
-				"Account:",
-				{ type = QComboBox,
-
-					name = "accounts",
-				},
-				"Password:",
-				{ type = QLineEdit,
-
-					name = "password",
+					name="all",
 					init = {
 
-						{"setEchoMode", QLineEdit.Password},
+						{"setText", "Select all"},
+					},
+				},
+				{ type = QPushButton,
+
+					name="clear",
+					init = {
+
+						{"setText", "Clear selection"},
+					},
+				},
+				{ type = QPushButton,
+
+					name="invert",
+					init = {
+
+						{"setText", "Invert selection"},
 					},
 				},
 
 				{ type = QPushButton,
 
-					name = "connect_button",
+					name="delete_button",
 					init = {
 
-						{"setText", "Connect"},
+						{"setText", "Delete selected messages"},
 					},
 				},
 
-				init = {
-
-					{QStackedWidget.addWidget }, --, self.LOGIN_PAGE,
-				},
 			},
 
-			{ type = Q3VBox,
+			init = {
 
-				{ type = Q3ListView,
-
-					name = "list",
-					init = {
-						{"addColumn", "#", 30},
-						{"addColumn", "Size", 50},
-						{"addColumn", "Date", 160},
-						{"addColumn", "From", 180},
-						{"addColumn", "Subject", 320},
-						{"setSelectionMode", Q3ListView.Multi},
-						{"setAllColumnsShowFocus", true},
-						{"setSorting", 50},
-					},
-				},
-
-				{ type = Q3HBox,
-
-					{ type = QPushButton,
-
-						name="disconnect",
-						init = {
-
-							{"setText", "<< Disconnect"},
-						},
-					},
-					{ type = QPushButton,
-
-						name="all",
-						init = {
-
-							{"setText", "Select all"},
-						},
-					},
-					{ type = QPushButton,
-
-						name="clear",
-						init = {
-
-							{"setText", "Clear selection"},
-						},
-					},
-					{ type = QPushButton,
-
-						name="invert",
-						init = {
-
-							{"setText", "Invert selection"},
-						},
-					},
-
-					{ type = QPushButton,
-
-						name="delete",
-						init = {
-
-							{"setText", "Delete selected messages"},
-						},
-					},
-
-				},
-
-				init = {
-
-					{QStackedWidget.addWidget }, --, self.LIST_PAGE,
-				},
+				{QStackedWidget.addWidget }, --, self.LIST_PAGE,
 			},
 		},
 	}
@@ -334,9 +343,10 @@ function POP3Browse:__init__(parent)
 	self.pop.item_updated:connect(LuaSlot:new(self, self.item_updated))
 	self.pop.message_deleted:connect(LuaSlot:new(self, self.message_deleted))
 	self.pop.error:connect(LuaSlot:new(self, self.error_report))
+	self.pop.blocking:connect(LuaSlot:new(self, self.flush))
 
-	self.root = LuaQt.init_tree(parent, gui, self)
-	self.root:show()
+	self.root = LuaQt.init_tree(self, gui, self, true)
+	self:show()
 
 	for k,v in pairs(accounts) do
 
@@ -346,15 +356,15 @@ function POP3Browse:__init__(parent)
 	self:connect(self.connect_button, "clicked()", self, self.connect_pressed)
 	self:connect(self.shortcut, "activated()", self, self.connect_pressed)
 
-	self:connect(self.disconnect, "clicked()", self, self.disconnect_pressed)
+	self:connect(self.disconnect_button, "clicked()", self, self.disconnect_pressed)
 	self:connect(self.all, "clicked()", self.list, self.list.selectAll, true)
 	self:connect(self.clear, "clicked()", self.list, self.list.clearSelection)
 	self:connect(self.invert, "clicked()", self.list, "invertSelection()")
-	self:connect(self.delete, "clicked()", self, self.delete_pressed)
+	self:connect(self.delete_button, "clicked()", self, self.delete_pressed)
 
 	self:connect(self.list, "doubleClicked(Q3ListViewItem*,const QPoint&, int)", self, self.load_preview)
 
-	self:connect(self.main_window, "destroyed(QObject*)", self, self.quit)
+	self:connect(self, "destroyed(QObject*)", self, self.quit)
 	self:connect(q_app, "lastWindowClosed()", self, self.quit)
 
 	--self:start_connection(accounts.pop3)

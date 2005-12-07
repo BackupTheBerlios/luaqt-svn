@@ -14,44 +14,24 @@ end
 print(package.path)
 print(package.cpath)
 package.cpath = "./lib?.so;"..package.cpath
---load_module("Core")
+
 require "lua_qt_Core"
+require "lua_qt_Gui"
+require "lua_qt_3Support"
 
-print("lua_qt handlers is "..tostring(LuaQt.signal_handlers))
+require "lua_qt_helpers"
 
-local nsg = {}
-if not LuaQt.signal_handlers then
-	print("new signal_handlers is "..tostring(nsg))
-	LuaQt.signal_handlers = nsg
-end
-table.insert(LuaQt.signal_handlers, new_QtSignalHandler__lua_qt_Core())
-print("lua_qt handlers is "..tostring(LuaQt.signal_handlers))
-
-load_module("Gui")
-
-load_module("3Support")
---load_module("Xml")
---load_module("Sql")
---load_module("OpenGL")
---load_module("Network")
---load_module("Designer")
-print"1"
 require "calculator"
-print"2"
 
 app = QApplication:new(LuaQt.argc, LuaQt.argv)
-print"3"
-
---require "lua_qt_helpers.lua"
-print"4"
 
 class "Main"
-print"5"
 
-function Main:button_pressed()
+function Main:button_pressed(bind)
 
 	self.counter = self.counter +1
 	self.label:setText(self.counter)
+	print("bind is "..tostring(bind))
 end
 
 function Main:__delete__()
@@ -102,7 +82,7 @@ function Main:__init__(parent)
 
 	LuaQt.init_tree(self, gui, self)
 
-	self:connect(self.button, "clicked()", self, self.button_pressed)
+	self:connect(self.button, "clicked()", self, self.button_pressed, "BIND")
 	self.counter = 0
 
 	--self:connect(self, "destroyed(QObject*)", self, self.__delete__)

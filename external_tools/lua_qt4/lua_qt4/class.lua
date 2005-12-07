@@ -50,7 +50,7 @@ function BaseClass.new(self, ...)
 	local o, t
 
 	if self.__alloc__ then
-		o = self.__alloc__(...)
+		o = self:__alloc__(...)
 		if type(o) == 'table' then
 			t = o
 		else
@@ -63,7 +63,7 @@ function BaseClass.new(self, ...)
 	end
 
 	setmetatable(t, self)
-	
+
 	local arg = get_arg(...)
 	class.init_object(self, o, arg)
 	--o:__init__(unpack(arg))

@@ -152,22 +152,20 @@ function LuaQt.normalize_signal(signal)
 	return signal
 end
 
-local signal_handlers
-
 function LuaQt.register_signal_handler(handler)
 
-	signal_handlers = signal_handlers or {}
-	table.insert(signal_handlers, handler)
+	LuaQt.signal_handlers = LuaQt.signal_handlers or {}
+	table.insert(LuaQt.signal_handlers, handler)
 end
 
 function LuaQt.get_q_object(parameters, parent)
-	
-	if not signal_handlers then
+
+	if not LuaQt.signal_handlers then
 		return nil
 	end
 
 	local obj
-	for k,v in ipairs(signal_handlers) do
+	for k,v in ipairs(LuaQt.signal_handlers) do
 
 		obj = v:get_q_object(parameters, parent)
 		if obj then
@@ -197,7 +195,7 @@ local function join_tables(t1, t2)
 
 	-- first table needs to have 'n'
 	for i=1,t2.n do
-		t1[t1.n+i] = v
+		t1[t1.n+i] = t2[i]
 	end
 	t1.n = t1.n + t2.n
 end
@@ -207,6 +205,7 @@ class "LuaSlot"
 function LuaSlot:__call(...)
 
 	local arg = get_arg(...)
+
 	if self.bind.n > 0 then
 		join_tables(arg, self.bind)
 	end
@@ -247,6 +246,7 @@ weak_val_mt = {__mode = 'v'}
 weak_key_mt = {__mode = 'k'}
 
 function LuaSlot:__init__(rcv_instance, method, ...)
+
 	self.bind = get_arg(...)
 	if rcv_instance then
 		self.instance = {p = rcv_instance, m = method}

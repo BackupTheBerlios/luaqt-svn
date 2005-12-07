@@ -11,6 +11,7 @@ function POP3Client:connect(host, port)
 
 	self.sockfd = QTcpSocket:new_local()
 	self:connect_signal(self.sockfd, "error(QAbstractSocket::SocketError)", self, self.socket_error)
+	self:connect_signal(self.sockfd, "disconnected()", self, self.disconnected_slot)
 	--self.sockfd:settimeout(2) -- 2 seconds
 
 	local ret
@@ -22,6 +23,9 @@ function POP3Client:connect(host, port)
 
 	ret, self.last_error = self:read_line()
 	if ret then
+		if debug_flag then
+			print(ret)
+		end
 		if string.sub(ret, 1, 1) ~= "+" then
 			self.last_error = ret
 			ret = nil
@@ -33,36 +37,46 @@ function POP3Client:connect(host, port)
 	return ret, self.last_error
 end
 
+function POP3Client:disconnected_slot()
+
+	print "*************** socket disconnected"
+end
+
 function POP3Client:read_line()
 
 	while not self.sockfd:canReadLine() do
-	
+
 		self.blocking()
 		if not self.sockfd:waitForReadyRead(100) then
-		
+
 			if self.sockfd:state() == QAbstractSocket.UnconnectedState then
 				return nil, self.sockfd:errorString()
 			end
 		end
 	end
+	local data = self.sockfd:readLine():constData()
+	data = string.gsub(data, "\r?\n$", "")
 	-- can read line
-	return self.sockfd:readLine():constData()
+	return data
 end
 
 function POP3Client:socket_error(err)
-print("calling error with "..self.sockfd:errorString())
-print(debug.traceback())
-	self.error(self.sockfd:errorString())
+
+	if err ~= QAbstractSocket.SocketTimeoutError then
+		self.error(self.sockfd:errorString())
+	end
 end
 
 function POP3Client:connected()
-	--if not self.sockfd or not self.sockfd:getpeername() then
-	if not self.sockfd or self.sockfd:state() == QAbstractSocket.UnconnectedState then
 
-		self:clear()
-		self:connect()
-	end
 	return self.sockfd and self.sockfd:state() ~= QAbstractSocket.UnconnectedState
+
+--	if not self.sockfd or self.sockfd:state() == QAbstractSocket.UnconnectedState then
+--
+--		self:clear()
+--		self:connect()
+--	end
+--	return self.sockfd and self.sockfd:state() ~= QAbstractSocket.UnconnectedState
 end
 
 function POP3Client:login(user,pass)
@@ -83,8 +97,8 @@ function POP3Client:login(user,pass)
 	if not res then
 		return nil, self.ERROR, err
 	end
-
 	res,err = self:send("PASS "..pass)
+
 	if not res then
 		--self:send("QUIT")
 		self:disconnect()
@@ -113,7 +127,7 @@ end
 
 function POP3Client:delete_list(list)
 
-	for k,v in list do
+	for k,v in pairs(list) do
 
 		self:delete_message(v)
 	end
@@ -253,6 +267,18 @@ function POP3Client:send(command, act)
 	-- if not self:connected() then
 	--	return nil, self.CONNECTION_ERROR, "Unable to connect to server."
 	-- end
+
+	if self.sockfd:bytesAvailable() ~= 0 then
+		self.error("Unexpected error while sending data")
+		if debug_flag then
+			print("Data on buffer:\n"..self.sockfd:readAll():constData())
+		end
+		return nil, self.CONNECTION_ERROR, "Unexpected error while sending data"
+	end
+
+	if debug_flag then
+		print("-> "..command)
+	end
 
 	if string.sub(command, -1) ~= "\n" then
 		command = command.."\n"
