@@ -30,7 +30,7 @@ function POP3Browse:item_updated(num)
 
 		lit = Q3ListViewItem:new(self.list, num, size, pop_item.date, pop_item.from, pop_item.subject)
 	end
-
+print "************************* flushhhhhhhhhhh"
 	QCoreApplication:flush()
 end
 
@@ -40,6 +40,7 @@ function POP3Browse:message_deleted(msg)
 end
 
 function POP3Browse:start_connection(acct)
+print "********************* start connection"
 	self.pop:connect(acct.host, acct.port)
 
 	if not self.pop:login(acct.username, acct.password) then
@@ -345,7 +346,7 @@ function POP3Browse:__init__(parent)
 	self.pop.error:connect(LuaSlot:new(self, self.error_report))
 	self.pop.blocking:connect(LuaSlot:new(self, self.flush))
 
-	self.root = LuaQt.init_tree(self, gui, self, true)
+	self.root = LuaQt.init_tree(self, gui, self, false)
 	self:show()
 
 	for k,v in pairs(accounts) do

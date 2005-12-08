@@ -12,6 +12,7 @@ function POP3Client:connect(host, port)
 	self.sockfd = QTcpSocket:new_local()
 	self:connect_signal(self.sockfd, "error(QAbstractSocket::SocketError)", self, self.socket_error)
 	self:connect_signal(self.sockfd, "disconnected()", self, self.disconnected_slot)
+	self:connect_signal(self.sockfd, "stateChanged(QAbstractSocket::SocketState)", self, self.state_changed)
 	--self.sockfd:settimeout(2) -- 2 seconds
 
 	local ret
@@ -35,6 +36,12 @@ function POP3Client:connect(host, port)
 	if not ret then self.error(err) end
 
 	return ret, self.last_error
+end
+
+function POP3Client:state_changed(state)
+
+
+	print("****** state changed to "..state)
 end
 
 function POP3Client:disconnected_slot()
