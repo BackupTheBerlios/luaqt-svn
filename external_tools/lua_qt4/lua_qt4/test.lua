@@ -1,16 +1,3 @@
-function load_module(mod)
-
-	print("Loading module "..mod)
-	local f, oe, ce = package.loadlib("./liblua_qt_"..mod..".so", "tolua_lua_qt_"..mod.."_open")
-	--local f, oe, ce = loadlib("./lua_qt_"..mod..".dll", "tolua_lua_qt_"..mod.."_open")
-	if not f then
-		error(oe)
-	end
-
-	f()
-	print"done"
-end
-
 print(package.path)
 print(package.cpath)
 package.cpath = "./lib?.so;"..package.cpath
@@ -19,19 +6,19 @@ require "lua_qt_Core"
 require "lua_qt_Gui"
 require "lua_qt_3Support"
 
-require "lua_qt_helpers"
+--require "lua_qt_helpers"
+--require "class"
 
 require "calculator"
 
 app = QApplication:new(LuaQt.argc, LuaQt.argv)
 
-class "Main"
+class("Main", QMainWindow)
 
 function Main:button_pressed(bind)
 
 	self.counter = self.counter +1
 	self.label:setText(self.counter)
-	print("bind is "..tostring(bind))
 end
 
 function Main:__delete__()
@@ -43,7 +30,7 @@ function Main:__init__(parent)
 
 	print("*********** parent on main is "..tostring(parent))
 
-	self:set_c_instance(QMainWindow:new())
+	--self:set_c_instance(QMainWindow:new())
 
 	local gui = {
 

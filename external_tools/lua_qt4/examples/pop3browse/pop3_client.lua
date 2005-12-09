@@ -3,12 +3,21 @@ require "lua_qt_Network"
 class "POP3Client"
 
 debug_flag = general.debug or false
+local connection_hack = false
 
 function POP3Client:connect(host, port)
 
 	self.port = port or self.port
 	self.host = host or self.host
 
+	-- for some reason, if I don't do this, the first socket I use will
+	-- disconnect and reconnect randomly (and without telling me)
+	-- WTF??
+	if not connection_hack then
+		local sock = QTcpSocket:new()
+		sock:delete()
+	end
+	
 	self.sockfd = QTcpSocket:new_local()
 	self:connect_signal(self.sockfd, "error(QAbstractSocket::SocketError)", self, self.socket_error)
 	self:connect_signal(self.sockfd, "disconnected()", self, self.disconnected_slot)
@@ -16,6 +25,7 @@ function POP3Client:connect(host, port)
 	--self.sockfd:settimeout(2) -- 2 seconds
 
 	local ret
+	
 	self.sockfd:connectToHost(self.host, self.port)
 	if not self.sockfd:waitForConnected() then
 		self.error(self.sockfd:errorString())
@@ -40,13 +50,11 @@ end
 
 function POP3Client:state_changed(state)
 
-
 	print("****** state changed to "..state)
 end
 
 function POP3Client:disconnected_slot()
 
-	print "*************** socket disconnected"
 end
 
 function POP3Client:read_line()

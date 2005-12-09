@@ -1,8 +1,8 @@
-local class = {} -- the module
+local class = class or {} -- the module
 
 class._global_objects = {}
 
-local BaseClass = {[".classname"] = "BaseClass"}
+local BaseClass = class.BaseClass or {[".classname"] = "BaseClass"}
 BaseClass.__index = BaseClass
 
 local function get_arg(...)
@@ -33,7 +33,7 @@ function class.create(self, obj, base)
 	class._global_objects[obj] = o
 end
 
-function class.alloc_tolua_base(...)
+function class.alloc_tolua_base(self, ...)
 
 	return self['.tolua_base']:new(...)
 end
