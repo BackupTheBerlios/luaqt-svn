@@ -35,5 +35,9 @@ $ifile "lua_qt4/qmap.pkg", template, QString int
 $ifile "lua_qt4/qmap_ptr.pkg", template, QString QVariant*
 */
 
+$#if QT_VERSION > 0x040001
+$#define QFileEngine QAbstractFileEngine
+$#endif
+
 $ifile "lua_qt4/QtCore_headers.pkg",qt
 

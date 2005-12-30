@@ -26,6 +26,10 @@ $ifile "lua_qt4/qpointer.pkg", template, QWidget, QObject
 
 typedef QList<QWidget*> QWidgetList;
 
+$#if QT_VERSION > 0x040001
+$#define DocumentFragmentMark ObjectIndex
+$#endif
+
 $ifile "lua_qt4/QtGui_headers.pkg",qt
 
 // hacks to prevent virtual class to call private member setModel
