@@ -11,6 +11,10 @@ _basic_ctype.qtflags = 'int'
 -- support for weird QBool object
 _basic['QBool'] = 'boolean'
 
+-- support for QVariant
+_basic['QVariant'] = 'QVariant'
+_basic_ctype.QVariant = 'QVariant'
+
 signals = {count=0}
 sigc_signals = {count=0}
 qt_signal_headers = {}

@@ -1,5 +1,5 @@
-require "class_list.lua"
-require "exclude_list.lua"
+require "class_list"
+require "exclude_list"
 
 global_modules = {}
 
@@ -73,7 +73,7 @@ function add_class(fname, module)
 	class.code = class.code..get_section(tmp, class, "Static Public Member Functions")
 	class.code = class.code..get_section(tmp, class, "Public Attributes")
 
-	class.code = string.gsub(class.code, "operator%s+%w[^;]*;", "") -- for now
+	--class.code = string.gsub(class.code, "operator%s+%w[^;]*;", "") -- for now
 	class.code = string.gsub(class.code, "String%s*([&%*]?)%s*string%s*([%)=,])", "String%1 %2")
 
 	class.code = string.gsub(class.code, "QT_STATIC_CONST", "static const")
@@ -173,7 +173,7 @@ function output_module(mod)
 	sort_inheritance(global_modules[mod])
 
 	local clist = global_modules[mod].classes
-	for k,v in global_modules[mod].inheritance do
+	for k,v in pairs(global_modules[mod].inheritance) do
 
 		if clist[v].include then
 			file:write("$"..clist[v].include)
@@ -188,7 +188,7 @@ function sort_inheritance(mod)
 
 	mod.inheritance = {}
 
-	for k,v in mod.classes do
+	for k,v in pairs(mod.classes) do
 
 		table.insert(mod.inheritance, k)
 		v.inheritance_rating = get_rating(mod.classes, k)
@@ -311,7 +311,7 @@ end
 
 -- main loop
 
-for k,v in class_list do
+for k,v in pairs(class_list) do
 
 	local module
 	for mk,mv in ipairs(module_list) do
@@ -331,7 +331,7 @@ for k,v in class_list do
 	end
 end
 
-for k,v in global_modules do
+for k,v in pairs(global_modules) do
 	output_module(k)
 end
 

@@ -996,8 +996,8 @@ public:
 	 int capacity () const;
 	 void reserve (int size);
 	 void squeeze ();
-	 
-	 
+	 operator const char * () const;
+	 operator const void * () const;
 	 char * data ();
 	 const char * data () const;
 	 const char * constData () const;
@@ -1579,7 +1579,7 @@ public:
 	 bool operator== (const QModelIndex &other) const;
 	 bool operator!= (const QModelIndex &other) const;
 	 QPersistentModelIndex & operator= (const QModelIndex &other);
-	 
+	 operator const QModelIndex & () const;
 	 int row () const;
 	 int column () const;
 	 void * internalPointer () const;

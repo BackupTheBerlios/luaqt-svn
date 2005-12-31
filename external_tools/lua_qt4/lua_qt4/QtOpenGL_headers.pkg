@@ -1,26 +1,35 @@
-$#include <QGLColormap>
+$#include <QGLContext>
 
-class QGLColormap {
+class QGLContext {
 Q_OBJECT
 signals:
 public:
-	 struct QGLColormapData;
 
-	 QGLColormap ();
-	 QGLColormap (const QGLColormap &);
-	 ~QGLColormap ();
-	 QGLColormap & operator= (const QGLColormap &);
-	 bool isEmpty () const;
-	 int size () const;
-	 void detach ();
-	 void setEntries (int count, const QRgb *colors, int base=0);
-	 void setEntry (int idx, QRgb color);
-	 void setEntry (int idx, const QColor &color);
-	 QRgb entryRgb (int idx) const;
-	 QColor entryColor (int idx) const;
-	 int find (QRgb color) const;
-	 int findNearest (QRgb color) const;
-		
+	 QGLContext (const QGLFormat &format, QPaintDevice *device);
+	 QGLContext (const QGLFormat &format);
+	 virtual ~QGLContext ();
+	 virtual bool create (const QGLContext *shareContext=0);
+	 bool isValid () const;
+	 bool isSharing () const;
+	 void reset ();
+	 QGLFormat format () const;
+	 QGLFormat requestedFormat () const;
+	 void setFormat (const QGLFormat &format);
+	 virtual void makeCurrent ();
+	 virtual void doneCurrent ();
+	 virtual void swapBuffers () const;
+	 GLuint bindTexture (const QImage &image, GLenum target=GL_TEXTURE_2D, GLint format=GL_RGBA8);
+	 GLuint bindTexture (const QPixmap &pixmap, GLenum target=GL_TEXTURE_2D, GLint format=GL_RGBA8);
+	 GLuint bindTexture (const QString &fileName);
+	 void deleteTexture (GLuint tx_id);
+	 void * getProcAddress (const QString &proc) const;
+	 QPaintDevice * device () const;
+	 QColor overlayTransparentColor () const;
+	protected  virtual bool chooseContext (const QGLContext *shareContext=0);
+										 static void setTextureCacheLimit (int size);
+	 static int textureCacheLimit ();
+	 static const QGLContext * currentContext ();
+
 };
 $#include <QGLFormat>
 
@@ -76,38 +85,29 @@ public:
 	 static bool hasOpenGLOverlays ();
 
 };
-$#include <QGLContext>
+$#include <QGLColormap>
 
-class QGLContext {
+class QGLColormap {
 Q_OBJECT
 signals:
 public:
+	 struct QGLColormapData;
 
-	 QGLContext (const QGLFormat &format, QPaintDevice *device);
-	 QGLContext (const QGLFormat &format);
-	 virtual ~QGLContext ();
-	 virtual bool create (const QGLContext *shareContext=0);
-	 bool isValid () const;
-	 bool isSharing () const;
-	 void reset ();
-	 QGLFormat format () const;
-	 QGLFormat requestedFormat () const;
-	 void setFormat (const QGLFormat &format);
-	 virtual void makeCurrent ();
-	 virtual void doneCurrent ();
-	 virtual void swapBuffers () const;
-	 GLuint bindTexture (const QImage &image, GLenum target=GL_TEXTURE_2D, GLint format=GL_RGBA8);
-	 GLuint bindTexture (const QPixmap &pixmap, GLenum target=GL_TEXTURE_2D, GLint format=GL_RGBA8);
-	 GLuint bindTexture (const QString &fileName);
-	 void deleteTexture (GLuint tx_id);
-	 void * getProcAddress (const QString &proc) const;
-	 QPaintDevice * device () const;
-	 QColor overlayTransparentColor () const;
-	protected  virtual bool chooseContext (const QGLContext *shareContext=0);
-										 static void setTextureCacheLimit (int size);
-	 static int textureCacheLimit ();
-	 static const QGLContext * currentContext ();
-
+	 QGLColormap ();
+	 QGLColormap (const QGLColormap &);
+	 ~QGLColormap ();
+	 QGLColormap & operator= (const QGLColormap &);
+	 bool isEmpty () const;
+	 int size () const;
+	 void detach ();
+	 void setEntries (int count, const QRgb *colors, int base=0);
+	 void setEntry (int idx, QRgb color);
+	 void setEntry (int idx, const QColor &color);
+	 QRgb entryRgb (int idx) const;
+	 QColor entryColor (int idx) const;
+	 int find (QRgb color) const;
+	 int findNearest (QRgb color) const;
+		
 };
 $#include <QGLWidget>
 

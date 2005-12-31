@@ -39,7 +39,7 @@ public:
 	 QRegion & operator^= (const QRegion &r);
 	 bool operator== (const QRegion &r) const;
 	 bool operator!= (const QRegion &r) const;
-	 
+	 operator QVariant () const;
 
 };
 $#include <QStyleOption>
@@ -148,7 +148,7 @@ public:
 	 QTextImageFormat toImageFormat () const;
 	 bool operator== (const QTextFormat &rhs) const;
 	 bool operator!= (const QTextFormat &rhs) const;
-	 
+	 operator QVariant () const;
 	 void setLayoutDirection (Qt::LayoutDirection direction);
 	 Qt::LayoutDirection layoutDirection () const;
 	 void setBackground (const QBrush &brush);
@@ -321,7 +321,7 @@ public:
 	 qreal rawValue () const;
 	 bool operator== (const QTextLength &other) const;
 	 bool operator!= (const QTextLength &other) const;
-	 
+	 operator QVariant () const;
 
 };
 $#include <QAccessible>
@@ -627,7 +627,7 @@ public:
 	 QPalette (const QPalette &palette);
 	 ~QPalette ();
 	 QPalette & operator= (const QPalette &palette);
-	 
+	 operator QVariant () const;
 	 ColorGroup currentColorGroup () const;
 	 void setCurrentColorGroup (ColorGroup cg);
 	 const QColor & color (ColorGroup cg, ColorRole cr) const;
@@ -705,7 +705,7 @@ public:
 	 QCursor (const QCursor &cursor);
 	 ~QCursor ();
 	 QCursor & operator= (const QCursor &cursor);
-	 
+	 operator QVariant () const;
 	 Qt::CursorShape shape () const;
 	 void setShape (Qt::CursorShape newShape);
 	 const QBitmap * bitmap () const;
@@ -968,7 +968,7 @@ public:
 	 QIcon (QIconEngine *engine);
 	 ~QIcon ();
 	 QIcon & operator= (const QIcon &other);
-	 
+	 operator QVariant () const;
 	 QPixmap pixmap (const QSize &size, Mode mode=Normal, State state=Off) const;
 	 QPixmap pixmap (int w, int h, Mode mode=Normal, State state=Off) const;
 	 QPixmap pixmap (int extent, Mode mode=Normal, State state=Off) const;
@@ -1073,7 +1073,7 @@ public:
 	 QColor & operator= (Qt::GlobalColor color);
 	 bool operator== (const QColor &c) const;
 	 bool operator!= (const QColor &c) const;
-	 
+	 operator QVariant () const;
 	 static QStringList colorNames ();
 	 static QColor fromRgb (QRgb rgb);
 	 static QColor fromRgba (QRgb rgba);
@@ -1478,7 +1478,7 @@ public:
 	 bool hasHeightForWidth () const;
 	 bool operator== (const QSizePolicy &s) const;
 	 bool operator!= (const QSizePolicy &s) const;
-	 
+	 operator QVariant () const;
 	 int horizontalStretch () const;
 	 int verticalStretch () const;
 	 void setHorizontalStretch (uchar stretchFactor);
@@ -1651,7 +1651,7 @@ public:
 	 bool operator== (const QFont &) const;
 	 bool operator!= (const QFont &) const;
 	 bool operator< (const QFont &) const;
-	 
+	 operator QVariant () const;
 	 bool isCopyOf (const QFont &) const;
 	 Qt::HANDLE handle () const;
 	 void setRawName (const QString &);
@@ -1694,7 +1694,7 @@ public:
 	 QBrush (const QGradient &gradient);
 	 ~QBrush ();
 	 QBrush & operator= (const QBrush &brush);
-	 
+	 operator QVariant () const;
 	 Qt::BrushStyle style () const;
 	 void setStyle (Qt::BrushStyle);
 	 QPixmap texture () const;
@@ -1794,9 +1794,9 @@ public:
 	 uint count () const;
 	 bool isEmpty () const;
 	 SequenceMatch matches (const QKeySequence &seq) const;
-	 
-	 
-	 
+	 operator QString () const;
+	 operator QVariant () const;
+	 operator int () const;
 	 int operator[] (uint i) const;
 	 QKeySequence & operator= (const QKeySequence &other);
 	 bool operator== (const QKeySequence &other) const;
@@ -1936,7 +1936,7 @@ public:
 	 void setJoinStyle (Qt::PenJoinStyle pcs);
 	 bool operator== (const QPen &p) const;
 	 bool operator!= (const QPen &p) const;
-	 
+	 operator QVariant () const;
 	 bool isDetached ();
 
 };
@@ -2137,7 +2137,7 @@ public:
 	 QPolygon (const QVector< QPoint > &v);
 	 QPolygon (const QRect &r, bool closed=false);
 	 QPolygon (int nPoints, const int *points);
-	 
+	 operator QVariant () const;
 	 void translate (int dx, int dy);
 	 void translate (const QPoint &offset);
 	 QRect boundingRect () const;
@@ -3683,7 +3683,7 @@ public:
 	 int devType () const;
 	 bool operator== (const QImage &) const;
 	 bool operator!= (const QImage &) const;
-	 
+	 operator QVariant () const;
 	 void detach ();
 	 bool isDetached () const;
 	 QImage copy (const QRect &rect=QRect()) const;
@@ -4087,7 +4087,7 @@ public:
 	 QPixmap (const QPixmap &);
 	 ~QPixmap ();
 	 QPixmap & operator= (const QPixmap &);
-	 
+	 operator QVariant () const;
 	 bool isNull () const;
 	 int devType () const;
 	 int width () const;
@@ -4904,7 +4904,7 @@ public:
 	 QBitmap (const QString &fileName, const char *format=0);
 	 ~QBitmap ();
 	 QBitmap & operator= (const QPixmap &);
-	 
+	 operator QVariant () const;
 	 void clear ();
 	 QBitmap transformed (const QMatrix &) const;
 	 static QBitmap fromImage (const QImage &image, Qt::ImageConversionFlags flags=Qt::AutoColor);

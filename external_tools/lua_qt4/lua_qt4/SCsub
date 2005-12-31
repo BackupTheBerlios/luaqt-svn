@@ -16,6 +16,7 @@ env.Append(LIBPATH = ['.']);
 
 helpers_so = env.SharedObject('lua_qt_helpers.cpp')
 qobject_so = env.SharedObject('lua_qobject.cpp')
+basic_so = env.SharedObject('tolua_basic_types.cpp')
 
 def module_targets(mod, signals=1, extra_libs = [core_lib]):
 
@@ -31,7 +32,7 @@ def module_targets(mod, signals=1, extra_libs = [core_lib]):
 		
 		list += ['qt_signal_handlers_lua_qt_'+mod+'.cpp']
 	
-	list += [helpers_so, qobject_so]
+	list += [helpers_so, qobject_so, basic_so]
 
 	return env.SharedLibrary('lua_qt_'+mod, list,
 					LIBS=env['LIBS']+extra_libs+[lib], CXXFLAGS=env['CXXFLAGS']+['-I$QTDIR/include/Qt'+mod])

@@ -41,3 +41,16 @@ $#endif
 
 $ifile "lua_qt4/QtCore_headers.pkg",qt
 
+
+$[
+function QVariant.tolua_push_value(var, name)
+
+	local f = QVariant['value_'..name..'_']
+	if f then
+		
+		return f(var)
+	end
+
+	return nil
+end
+$]
