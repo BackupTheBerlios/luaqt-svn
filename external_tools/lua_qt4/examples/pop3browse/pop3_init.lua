@@ -1,6 +1,6 @@
 if not LuaQt then
-	
-	package.cpath = "./lib?.so;"..package.cpath
+
+	package.cpath = "../../lua_qt4/?.dll;./lib?.so;"..package.cpath
 
 	require "lua_qt_Core"
 	require "lua_qt_Gui"

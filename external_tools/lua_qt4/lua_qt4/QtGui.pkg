@@ -30,6 +30,47 @@ $#if QT_VERSION > 0x040001
 $#define DocumentFragmentMark ObjectIndex
 $#endif
 
+
+${
+
+#include <QKeySequence>
+#include <QVariant>
+
+/* method: operatorQVariant of class  QKeySequence */
+#define TOLUA_DISABLE_tolua_lua_qt_Gui_QKeySequence__QVariant00
+static int tolua_lua_qt_Gui_QKeySequence__QVariant00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"const QKeySequence",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const QKeySequence* self = (const QKeySequence*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'operatorQVariant'",NULL);
+#endif
+  {
+   QVariant tolua_ret = self->operator QVariant();
+   tolua_pushQVariant(tolua_S,(QVariant)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function '.QVariant'.",&tolua_err);
+ return 0;
+#endif
+}
+
+$}
+
+
+
 $ifile "lua_qt4/QtGui_headers.pkg",qt
 
 // hacks to prevent virtual class to call private member setModel
@@ -52,4 +93,5 @@ class QAccessibleWidget {
 
 	TOLUA_PROTECTED_DESTRUCTOR;
 };
+
 

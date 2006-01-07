@@ -14,6 +14,7 @@ _basic['QBool'] = 'boolean'
 -- support for QVariant
 _basic['QVariant'] = 'QVariant'
 _basic_ctype.QVariant = 'QVariant'
+_basic_raw_push.QVariant = 'tolua_pushQVariant__raw'
 
 signals = {count=0}
 sigc_signals = {count=0}

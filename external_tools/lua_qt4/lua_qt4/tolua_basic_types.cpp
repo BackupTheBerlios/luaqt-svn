@@ -65,6 +65,12 @@ QVariant tolua_toQVariant(lua_State* L, int lo, void* def) {
 
 	case LUA_TUSERDATA:
 
+		tolua_Error err;
+		if (tolua_isusertype(L, lo, "QVariant", (int)def, &err)) {
+
+			return (QVariant)*(QVariant*)tolua_tousertype(L, -1, def);
+		};
+
 		lua_pushstring(L, ".QVariant");
 		lua_gettable(L, lo);
 		if (lua_isfunction(L, -1)) {
@@ -72,8 +78,7 @@ QVariant tolua_toQVariant(lua_State* L, int lo, void* def) {
 			lua_pushvalue(L, lo);
 			lua_call(L, 1, 1);
 
-			tolua_Error err;
-			if (tolua_isusertype(L, -1, "QVariant", (int)def, &err)) {
+			if (tolua_isusertype(L, lua_gettop(L), "QVariant", 0, &err)) {
 
 				QVariant ret(*((QVariant*)tolua_tousertype(L, -1, def)));
 				lua_pop(L, 1);
@@ -108,7 +113,16 @@ int tolua_isQVariant(lua_State* L, int lo, int def, tolua_Error* err) {
 
 	case LUA_TUSERDATA:
 
-		return tolua_isusertype(L, lo, "QVariant", def, err);
+		if (tolua_isusertype(L, lo, "QVariant", def, err)) {
+
+			return 1;
+		} else {
+			lua_pushstring(L, ".QVariant");
+			lua_gettable(L, lo);
+			int ret = !lua_isnil(L, -1);
+			lua_pop(L, 1);
+			return ret;
+		};
 
 	default:
 		/* fallthrough */;
@@ -230,4 +244,11 @@ void tolua_pushQVariant(lua_State* L, const QVariant& val) {
 	};
 
 	}; // switch
+};
+
+void tolua_pushQVariant__raw(lua_State* L, const QVariant& p_var) {
+
+	QVariant* nvar = new QVariant(p_var);
+
+	tolua_pushusertype_and_takeownership(L, nvar, "QVariant");
 };

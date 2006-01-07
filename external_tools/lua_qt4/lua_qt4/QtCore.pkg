@@ -41,6 +41,10 @@ $#endif
 
 $ifile "lua_qt4/QtCore_headers.pkg",qt
 
+class QRect {
+
+	operator QVariant();
+};
 
 $[
 function QVariant.tolua_push_value(var, name)

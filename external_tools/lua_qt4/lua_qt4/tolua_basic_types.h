@@ -22,5 +22,6 @@ extern "C" {
 QVariant tolua_toQVariant(lua_State* L, int lo, void* def);
 int tolua_isQVariant(lua_State* L, int lo, int def, tolua_Error* err);
 void tolua_pushQVariant(lua_State* L, const QVariant& val);
+void tolua_pushQVariant__raw(lua_State* L, const QVariant& val);
 
 #endif

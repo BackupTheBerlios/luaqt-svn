@@ -1,10 +1,17 @@
 print(package.path)
 print(package.cpath)
-package.cpath = "./lib?.so;"..package.cpath
 
+if not string.find(package.cpath, "dll") then
+	package.cpath = "./lib?.so;"..package.cpath
+end
+
+print "1"
 require "lua_qt_Core"
+print "2"
 require "lua_qt_Gui"
+print "3"
 require "lua_qt_3Support"
+print "4"
 
 --require "lua_qt_helpers"
 --require "class"
@@ -98,6 +105,15 @@ end
 --Main:new()
 bleh = Bleh:new()
 bleh:setWindowTitle("Qt4 (NOT FROM MAIN)")
+bleh:setProperty("windowTitle", "Title (property)")
+local recto = QRect(0, 0, 400, 400)
+print(recto['.QVariant'])
+local var = QVariant()
+bleh:setProperty("geometry", recto)
+
+local var2 = bleh:property("geometry")
+print("type is "..tolua.type(var2))
+print("title is "..bleh:property("windowTitle"))
 
 --local calc = Calculator:new(nil)
 --calc:setWindowTitle("Calculator!")

@@ -18,7 +18,7 @@ helpers_so = env.SharedObject('lua_qt_helpers.cpp')
 qobject_so = env.SharedObject('lua_qobject.cpp')
 basic_so = env.SharedObject('tolua_basic_types.cpp')
 
-def module_targets(mod, signals=1, extra_libs = [core_lib]):
+def module_targets(mod, signals=1, extra_libs = [core_lib], CXXFLAGS=[]):
 
 	tolua = env.LuaBinding('lua_qt_'+mod+'.cpp', 'Qt'+mod+'.pkg', 'lua_qt_'+mod, None, "lua_qt4/lua_qt4_hooks.lua");
 	env.Depends(tolua, ['hooks.lua'])
@@ -35,7 +35,7 @@ def module_targets(mod, signals=1, extra_libs = [core_lib]):
 	list += [helpers_so, qobject_so, basic_so]
 
 	return env.SharedLibrary('lua_qt_'+mod, list,
-					LIBS=env['LIBS']+extra_libs+[lib], CXXFLAGS=env['CXXFLAGS']+['-I$QTDIR/include/Qt'+mod])
+					LIBS=env['LIBS']+extra_libs+[lib], CXXFLAGS=env['CXXFLAGS']+['-I$QTDIR/include/Qt'+mod]+CXXFLAGS)
 	
 
 
@@ -48,7 +48,11 @@ sql = module_targets("Sql")
 desg = module_targets("Designer", extra_libs = [core_lib, gui_lib])
 qt3 = module_targets("3Support", extra_libs = [core_lib, gui_lib])
 
+dummy = module_targets("Dummy", extra_libs = [core_lib, gui_lib])
+
 env.Alias('all', [core, gui, net, xml, sql, gl, desg, qt3])
 
 env.Moc('test.cpp')
 env.Program('test', ['test.cpp'], LIBS=env['LIBS']+[core_lib, gui_lib])
+
+env.Program('lua_qt', ['lua_qt.cpp', helpers_so, qobject_so], LIBS=env['LIBS']+[core_lib])
