@@ -21,6 +21,9 @@ class ASlot : public QObject {
 
 	Q_OBJECT;
 
+signals:
+	void somebody_set_up_us_the_bomb();
+
 public slots:
 
 	void destroyed(QObject* obj) {
@@ -31,6 +34,10 @@ public slots:
 
 		printf("activensen !!\n");
 	};
+	int return_slot(double a) {return (int)a;};
+public:
+	void a_method() {};
+	int another_method(SliderChange* p_ch) { return int();};
 
 };
 
