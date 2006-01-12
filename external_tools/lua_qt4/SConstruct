@@ -18,7 +18,6 @@ pkgscan = Scanner(name='pkg',
 				recursive = True)
 
 env = Environment(SCANNERS = scanners + [pkgscan], tools=['default', 'qt']);
-env.Append(CPPPATH='#.')
 
 env['QT_LIB'] = ''
 env['QT_AUTOSCAN'] = 0
@@ -44,11 +43,15 @@ opts.Add('qt_append', 'Suffix to append to qt libraries', "")
 opts.Add('extra_cxx_flags', 'Extra for the C++ compiler', [])
 opts.Add('qt_debug', 'Use qt debug libs.', False)
 opts.Add('TOLUAPP', 'The tolua++ binary', 'tolua++51')
+opts.Add('CPPPATH', 'The include paths.', [])
 #opts.Add('QTDIR', 'Qt dir')
 
 opts.Update(env)
 
 Help(opts.GenerateHelpText(env))
+
+env.Append(CPPPATH='#.')
+env.Append(CPPPATH='$QTDIR/include')
 
 env.__class__.make_targets = methods.make_targets
 env.__class__.LuaBinding = methods.make_tolua_code
@@ -97,7 +100,5 @@ env.bin_targets = [];
 Export('env');
 
 SConscript('lua_qt4/SCsub');
-
-
 
 
