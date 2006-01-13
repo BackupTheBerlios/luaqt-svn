@@ -1,5 +1,5 @@
 --require "lua_qt_helpers.lua"
-package.path = os.getenv("HOME").."/.?;"..package.path
+package.path = (os.getenv("HOME") or "").."/.?;"..package.path
 require "pop3_config"
 
 require "pop3_client"
@@ -30,7 +30,7 @@ function POP3Browse:item_updated(num)
 
 		lit = Q3ListViewItem:new(self.list, num, size, pop_item.date, pop_item.from, pop_item.subject)
 	end
-	
+
 	QCoreApplication:flush()
 end
 
@@ -40,7 +40,7 @@ function POP3Browse:message_deleted(msg)
 end
 
 function POP3Browse:start_connection(acct)
-	
+
 	self.pop:connect(acct.host, acct.port)
 
 	if not self.pop:login(acct.username, acct.password) then

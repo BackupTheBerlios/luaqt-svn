@@ -109,7 +109,7 @@ bleh:setProperty("windowTitle", "Title (property)")
 local recto = QRect(0, 0, 400, 400)
 print(recto['.QVariant'])
 local var = QVariant()
-bleh:setProperty("geometry", recto)
+--bleh:setProperty("geometry", recto)
 
 local var2 = bleh:property("geometry")
 print("type is "..tolua.type(var2))

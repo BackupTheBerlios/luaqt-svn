@@ -24,14 +24,14 @@ env['QT_AUTOSCAN'] = 0
 
 options_file = None
 if sys.platform == 'linux2':
-	options_file = "config_linux.py"
+	options_file = "linux"
 
 elif 'msvc' in env['TOOLS']:
-	options_file = "config_msvc.py"
+	options_file = "msvc"
 else:
-	options_file = "config_posix.py"
+	options_file = "posix"
 
-opts = Options([options_file, 'custom.py'], ARGUMENTS)
+opts = Options(["config_"+options_file+".py", "custom_"+options_file+".py", 'custom.py'], ARGUMENTS)
 opts.Add('CXX', 'The C++ compiler.')
 opts.Add('optimize', 'Optimize.', 0)
 opts.Add('debug', 'Add debug symbols.', 1)

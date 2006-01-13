@@ -10,7 +10,7 @@ gui_lib = 'QtGui'+env['qt_append']+debug
 env.Append(CXXFLAGS='-DTOLUA_API="extern \\\"C\\\""')
 env.Append(CXXFLAGS=['-DLUA_QT', '-I$QTDIR/include/QtCore', '-I$QTDIR/include/QtGui']+env['extra_cxx_flags'])
 
-env.Append(LIBS=env['lua_libs']+['tolua++51'])
+env.Append(LIBS=['tolua++51']+env['lua_libs'])
 
 env.Append(LIBPATH = ['.']);
 
