@@ -56,6 +56,9 @@ function BaseClass.new(self, ...)
 		else
 			t = {}
 			tolua.setpeer(o, t)
+			if o.tolua__set_instance then
+				o:tolua__set_instance(o)
+			end
 		end
 	else
 		t = {}
