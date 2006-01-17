@@ -604,13 +604,11 @@ public:
 	 QDesignerMetaDataBaseInterface * metaDataBase () const;
 	 QDesignerWidgetFactoryInterface * widgetFactory () const;
 	 QDesignerIconCacheInterface * iconCache () const;
-	 PluginManager * pluginManager () const;
 	 QString resourceLocation () const;
 	 void setTopLevel (QWidget *topLevel);
 	 void setWidgetBox (QDesignerWidgetBoxInterface *widgetBox);
 	 void setPropertyEditor (QDesignerPropertyEditorInterface *propertyEditor);
 	 void setObjectInspector (QDesignerObjectInspectorInterface *objectInspector);
-	 void setPluginManager (PluginManager *pluginManager);
 						
 };
 $#include <QDesignerIconCacheInterface>

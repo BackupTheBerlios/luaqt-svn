@@ -83,6 +83,10 @@ function add_class(fname, module)
 
 	class.code = class.code.."\n};\n"
 
+	if string.find(class.code, "operator%s+QVariant") then
+		table.insert(mod.qvariant_list, class.name)
+	end
+	
 	mod.classes[class.name] = class
 end
 
@@ -158,7 +162,7 @@ end
 function create_module(modname)
 
 	if not global_modules[modname] then
-		global_modules[modname] = {name = modname, classes = {}}
+		global_modules[modname] = {name = modname, classes = {}, qvariant_list = {}}
 	end
 
 	return global_modules[modname]
@@ -181,6 +185,16 @@ function output_module(mod)
 		file:write(clist[v].code)
 	end
 
+	if #global_modules[mod].qvariant_list > 0 then
+		file:write("class QVariant {\n");
+		file:write("public:\n");
+		for k,v in ipairs(global_modules[mod].qvariant_list) do
+			file:write("\t",v," value<",v,">();\n")
+		end
+		file:write("\t~QVariant();\n");
+		file:write("};\n")
+	end
+	
 	file:close()
 end
 

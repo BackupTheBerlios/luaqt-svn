@@ -22,7 +22,7 @@ protected:
 		if (lua_isnil(lua_state, -1)) {
 
 			// pop the table
-			lua_pop(lua_state, 1);
+			lua_pop(lua_state, 2);
 			return false;
 
 		} else {

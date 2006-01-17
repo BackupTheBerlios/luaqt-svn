@@ -52,6 +52,10 @@ exclude_method_list = {
 	"moveCursor",
 	"resolveEntity",
 	"stepEnabled",
+	
+	-- QtDesigner on 4.1
+	"pluginManager",
+	"setPluginManager",
 }
 
 

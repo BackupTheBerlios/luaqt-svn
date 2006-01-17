@@ -7106,3 +7106,23 @@ public:
 	protected  virtual Qt::DropActions supportedDropActions () const;
 			
 };
+class QVariant {
+public:
+	QRegion value<QRegion>();
+	QKeySequence value<QKeySequence>();
+	QTextFormat value<QTextFormat>();
+	QTextLength value<QTextLength>();
+	QSizePolicy value<QSizePolicy>();
+	QBitmap value<QBitmap>();
+	QBrush value<QBrush>();
+	QFont value<QFont>();
+	QColor value<QColor>();
+	QCursor value<QCursor>();
+	QPalette value<QPalette>();
+	QPen value<QPen>();
+	QPixmap value<QPixmap>();
+	QIcon value<QIcon>();
+	QImage value<QImage>();
+	QPolygon value<QPolygon>();
+	~QVariant();
+};
