@@ -58,3 +58,65 @@ function QVariant.tolua_push_value(var, name)
 	return nil
 end
 $]
+
+
+/* QVariant operators */
+
+class QBitArray {
+	operator QVariant();
+};
+class QByteArray {
+	operator QVariant();
+};
+class QDate {
+	operator QVariant();
+};
+class QDateTime {
+	operator QVariant();
+};
+class QLineF {
+	operator QVariant();
+};
+class QLine {
+	operator QVariant();
+};
+class QPoint {
+	operator QVariant();
+};
+class QPointF {
+	operator QVariant();
+};
+class QRect {
+	operator QVariant();
+};
+class QRectF {
+	operator QVariant();
+};
+class QSize {
+	operator QVariant();
+};
+class QSizeF {
+	operator QVariant();
+};
+class QStringList {
+	operator QVariant();
+};
+class QTime {
+	operator QVariant();
+};
+class QLocale {
+	operator QVariant();
+};
+class QUrl {
+	operator QVariant();
+};
+class QList {
+	TEMPLATE_BIND(T, QVariant);
+	operator QVariant();
+};
+
+class QMap {
+	TEMPLATE_BIND(K V, QString QVariant);
+	operator QVariant();
+};
+

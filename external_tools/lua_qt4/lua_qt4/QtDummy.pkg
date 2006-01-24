@@ -1,0 +1,39 @@
+$pfile "lua_qt4/qt_defines.pkg"
+
+$#include "lua_qt_helpers.h"
+
+$ifile "lua_qt4/qnamespace.pkg",qns
+
+$#include <QKeySequence>
+
+class QKeySequence {
+Q_OBJECT
+signals:
+public:
+	 enum SequenceMatch { NoMatch, PartialMatch, ExactMatch };
+
+	 QKeySequence ();
+	 QKeySequence (const QString &key);
+	 QKeySequence (int k1, int k2=0, int k3=0, int k4=0);
+	 QKeySequence (const QKeySequence &ks);
+	 ~QKeySequence ();
+	 uint count () const;
+	 bool isEmpty () const;
+	 SequenceMatch matches (const QKeySequence &seq) const;
+	 operator QString () const;
+	 operator QVariant () const;
+	 operator int () const;
+	 int operator[] (uint i) const;
+	 QKeySequence & operator= (const QKeySequence &other);
+	 bool operator== (const QKeySequence &other) const;
+	 bool operator!= (const QKeySequence &other) const;
+	 bool operator< (const QKeySequence &ks) const;
+	 bool operator> (const QKeySequence &other) const;
+	 bool operator<= (const QKeySequence &other) const;
+	 bool operator>= (const QKeySequence &other) const;
+	 bool isDetached () const;
+	 static QKeySequence mnemonic (const QString &text);
+
+};
+
+
