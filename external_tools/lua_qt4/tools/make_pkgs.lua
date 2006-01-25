@@ -191,7 +191,7 @@ function output_module(mod)
 		for k,v in ipairs(global_modules[mod].qvariant_list) do
 			file:write("\t",v," value<",v,">();\n")
 		end
-		file:write("\t~QVariant();\n");
+		--file:write("\t~QVariant();\n");
 		file:write("};\n")
 	end
 	

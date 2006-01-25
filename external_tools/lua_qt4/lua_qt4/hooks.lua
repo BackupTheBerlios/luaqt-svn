@@ -187,9 +187,38 @@ function classVirtualClass:has_method(f)
 	return false
 end
 
+function classVirtualClass:add_constructors()
+
+	local i=1
+	while self.flags.parent_object[i] do
+
+		local v = self.flags.parent_object[i]
+		if getmetatable(v) == classFunction and (v.name == 'new' or v.name == 'delete') then
+
+			self:add(v)
+		end
+
+		i = i+1
+	end
+
+end
+
+--[[
+function classVirtualClass:requirecollection(t)
+
+	self:add_constructors()
+	local req = classClass.requirecollection(self, t)
+	if req then
+		output('class ',self.name,";")
+	end
+	return req
+end
+--]]
+
 function classVirtualClass:supcode()
 
 	-- no pure virtual classes for now
+	
 	if self.flags.parent_object.flags.pure_virtual then
 		output('#if (__GNUC__ == 4) || (__GNUC__ > 4 ) // I hope this works on Microsoft Visual studio .net server 2003 XP Compiler\n')
 	end
@@ -204,21 +233,12 @@ function classVirtualClass:supcode()
 
 	output("public:\n")
 
-	local i=1
-	while self.flags.parent_object[i] do
-
-		local v = self.flags.parent_object[i]
-		if getmetatable(v) == classFunction and (v.name == 'new' or v.name == 'delete') then
-
-			self:add(v)
-		end
-
-		i = i+1
-	end
 	self:add_parent_virtual_methods()
 
 	self:output_methods(self.btype)
 	self:output_parent_methods()
+
+	self:add_constructors()
 
 	-- no constructor for pure virtual classes
 	if not self.flags.parent_object.flags.pure_virtual then
@@ -237,6 +257,25 @@ function classVirtualClass:supcode()
 	if self.flags.parent_object.flags.pure_virtual then
 		output('#endif // __GNUC__ >= 4\n')
 	end
+
+	-- output collector for custom class if required
+	if self:requirecollection(_collect) and _collect[self.type] then
+	
+		output('\n')
+		output('/* function to release collected object via destructor */')
+		output('#ifdef __cplusplus\n')
+		--for i,v in pairs(collect) do
+		i,v = self.type, _collect[self.type]
+		 output('\nstatic int '..v..' (lua_State* tolua_S)')
+			output('{')
+			output(' '..i..'* self = ('..i..'*) tolua_tousertype(tolua_S,1,0);')
+			output('	delete self;')
+			output('	return 0;')
+			output('}')
+		--end
+		output('#endif\n\n')
+	end
+
 end
 
 function classVirtualClass:register(pre)

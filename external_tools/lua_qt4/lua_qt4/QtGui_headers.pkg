@@ -7124,5 +7124,4 @@ public:
 	QIcon value<QIcon>();
 	QImage value<QImage>();
 	QPolygon value<QPolygon>();
-	~QVariant();
 };
