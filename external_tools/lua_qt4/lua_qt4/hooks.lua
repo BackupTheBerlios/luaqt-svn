@@ -2,6 +2,8 @@
 --	do_nothing = true
 --end
 
+local disable_virtual_hooks = false
+
 function parser_hook(s)
 
 	local ret = nil
@@ -22,13 +24,13 @@ function parser_hook(s)
 		ret = s
 	end
 
-	if do_nothing and access then
+	if disable_virtual_hooks and access then
 
 		-- remove protected stuff
 		s = string.gsub(s, "^[^;]*", "")
 	end
 
-	if do_nothing then
+	if disable_virtual_hooks then
 
 		return ret
 	end
@@ -218,7 +220,7 @@ end
 function classVirtualClass:supcode()
 
 	-- no pure virtual classes for now
-	
+
 	if self.flags.parent_object.flags.pure_virtual then
 		output('#if (__GNUC__ == 4) || (__GNUC__ > 4 ) // I hope this works on Microsoft Visual studio .net server 2003 XP Compiler\n')
 	end
@@ -260,7 +262,7 @@ function classVirtualClass:supcode()
 
 	-- output collector for custom class if required
 	if self:requirecollection(_collect) and _collect[self.type] then
-	
+
 		output('\n')
 		output('/* function to release collected object via destructor */')
 		output('#ifdef __cplusplus\n')
