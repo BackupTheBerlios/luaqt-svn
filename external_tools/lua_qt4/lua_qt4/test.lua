@@ -5,16 +5,13 @@ if not string.find(package.cpath, "dll") then
 	package.cpath = "./lib?.so;"..package.cpath
 end
 
-print "1"
 require "lua_qt_Core"
-print "2"
+--for k,v in pairs(LuaQt) do print(k,v) end
 require "lua_qt_Gui"
-print "3"
 require "lua_qt_3Support"
-print "4"
 
---require "lua_qt_helpers"
 --require "class"
+--require "lua_qt_helpers"
 
 require "calculator"
 
@@ -31,6 +28,10 @@ end
 function Main:__delete__()
 
 	print "destroyed"
+end
+
+function Main:__parent_args__()
+	return nil
 end
 
 function Main:__init__(parent)
@@ -74,7 +75,7 @@ function Main:__init__(parent)
 		},
 	}
 
-	LuaQt.init_tree(self, gui, self)
+	LuaQt.init_tree(self, gui, self, true)
 
 	self:connect(self.button, "clicked()", self, self.button_pressed, "BIND")
 	self.counter = 0

@@ -49,26 +49,28 @@ function BaseClass.new(self, ...)
 
 	local o, t
 
-	if self.__alloc__ then
-		o = self:__alloc__(...)
-		if type(o) == 'table' then
-			t = o
-		else
-			t = {}
-			tolua.setpeer(o, t)
-			if o.tolua__set_instance then
-				o:tolua__set_instance(o)
-			end
-		end
-	else
+	--[[
+-- 	if self.__alloc__ then
+-- 		o = self:__alloc__(...)
+-- 		if type(o) == 'table' then
+-- 			t = o
+-- 		else
+-- 			t = {}
+-- 			tolua.setpeer(o, t)
+-- 			if o.tolua__set_instance then
+-- 				o:tolua__set_instance(o)
+-- 			end
+-- 		end
+-- 	else
+	--]]
 		t = {}
 		o = t
-	end
+	--end
 
 	setmetatable(t, self)
 
 	local arg = get_arg(...)
-	class.init_object(self, o, arg)
+	o = class.init_object(self, o, arg) or o
 	--o:__init__(unpack(arg))
 
 	return o
@@ -115,7 +117,7 @@ function class.init_object(mt, obj, arg)
 		ip(obj, arg, mt)
 	else
 		ip = rawget(BaseClass, "__init_parent__")
-		ip(obj, arg, mt)
+		obj = ip(obj, arg, mt) or obj
 	end
 
 	local init = rawget(mt, "__init__")
@@ -123,18 +125,30 @@ function class.init_object(mt, obj, arg)
 	if init then
 		init(obj, unpack(arg, 1, arg.n))
 	end
+
+	return obj
 end
 
 function BaseClass:__init_parent__(arg, mt)
 
 	local t = getmetatable(mt)
 	if t then
-		if t ~= BaseClass then
-
-			class.init_object(t, self, arg)
+		if t == BaseClass then
+			if self.__alloc__ then
+				local o = self:__alloc__(unpack(arg, 1, arg.n))
+				if type(o) ~= 'table' then
+					tolua.setpeer(o, self)
+					if o.tolua__set_instance then
+						o:tolua__set_instance(o)
+					end
+				end
+				self = o
+			end
+		else
+			self = class.init_object(t, self, arg)
 		end
 	end
-
+	return self
 end
 
 function BaseClass:__init__()

@@ -24,6 +24,8 @@ $ifile "lua_qt4/qpair.pkg", template, QString QString
 
 $ifile "lua_qt4/qvector.pkg", template, QVariant, QRect, int, QPair<QString, QString>
 
+$ifile "lua_qt4/qmap.pkg", template, QString QVariant
+
 // tested templates
 /* 
 $ifile "lua_qt4/qset.pkg", template, QVariant*, int, QString
@@ -31,7 +33,6 @@ $ifile "lua_qt4/qset.pkg", template, QVariant*, int, QString
 $ifile "lua_qt4/qhash.pkg", template, QString int
 $ifile "lua_qt4/qhash_ptr.pkg", template, QString QVariant*
 
-$ifile "lua_qt4/qmap.pkg", template, QString int
 $ifile "lua_qt4/qmap_ptr.pkg", template, QString QVariant*
 */
 
@@ -40,11 +41,6 @@ $#define QFileEngine QAbstractFileEngine
 $#endif
 
 $ifile "lua_qt4/QtCore_headers.pkg",qt
-
-class QRect {
-
-	operator QVariant();
-};
 
 $[
 function QVariant.tolua_push_value(var, name)
