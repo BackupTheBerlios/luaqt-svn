@@ -256,10 +256,6 @@ function classVirtualClass:supcode()
 
 	classClass.supcode(self)
 
-	if self.flags.parent_object.flags.pure_virtual then
-		output('#endif // __GNUC__ >= 4\n')
-	end
-
 	-- output collector for custom class if required
 	if self:requirecollection(_collect) and _collect[self.type] then
 
@@ -278,6 +274,9 @@ function classVirtualClass:supcode()
 		output('#endif\n\n')
 	end
 
+	if self.flags.parent_object.flags.pure_virtual then
+		output('#endif // __GNUC__ >= 4\n')
+	end
 end
 
 function classVirtualClass:register(pre)

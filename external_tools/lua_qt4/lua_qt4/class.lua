@@ -107,17 +107,18 @@ end
 
 function class.init_object(mt, obj, arg)
 
+	local parg = arg
 	local pa = rawget(mt, "__parent_args__")
 	if pa then
-		arg = get_arg( pa(obj, unpack(arg, 1, arg.n)) )
+		parg = get_arg( pa(obj, unpack(arg, 1, arg.n)) )
 	end
 
 	local ip = rawget(mt, "__init_parent__")
 	if ip then
-		ip(obj, arg, mt)
+		ip(obj, parg, mt)
 	else
 		ip = rawget(BaseClass, "__init_parent__")
-		obj = ip(obj, arg, mt) or obj
+		obj = ip(obj, parg, mt) or obj
 	end
 
 	local init = rawget(mt, "__init__")

@@ -102,7 +102,7 @@ def make_tolua_code(self, target, source, pkgname, list = None, custom_script = 
 	else:
 		sep = '/'
 
-	comando = '$TOLUAPP'
+	comando = '$TOLUAPP -C'
 	if export_header:
 		comando = comando + ' -H ' + pheader
 	
