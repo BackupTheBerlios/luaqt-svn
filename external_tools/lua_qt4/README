@@ -92,13 +92,12 @@ with lua_qt. An example:
 
 -------- begin dialog.lua
 
-class "Dialog"
+class ("Dialog", Q3VBox)
 
 function Dialog:__init__(parent, name)
 
-	self:set_c_intance(Q3VBox:new(parent, name))
+	-- Dialog constructor (optional)
 end
-
 
 class("AccountEditDialog", Dialog)
 
@@ -149,7 +148,8 @@ create instances of the class calling:
 ClassName:new(...)
 
 A second parameter to 'class' can be another class, in this case the new class
-will inherit from it.
+will inherit from it. This parameter can be another lua class, or a c++ class
+(or even a C struct).
 
 The optional method '__init__' will be the class constructor. By default,
 constructors will be called with all the parameters passed to 'new', unless
@@ -162,13 +162,18 @@ constructor be called with 'nil' as the 'parent' argument and 'AccountDialog'
 as the 'name' when an 'AccountEditDialog' is created.
 
 All classes inherit from the 'BaseClass' by default, which contains the method
-'set_c_instance'. This method takes a C/C++ object, and makes our instance
-'inherit' from that object. This enables us to use 'self' as a widget during
-the creation of the GUI (self will be recognized as a 'Q3VBox'), and to call
-the QWidget methods using 'self' directly.
+'connect' , to connect signals (see 'Using signals' for more details).
 
-lua_qt also adds the method 'connect' to BaseClass, to connect signals (see
-'Using signals' for more details).
+When inheriting from a c++ class, the class module uses tolua++'s
+'tolua.setpeer' method to inherit from the C++ class. Optionally, the method
+'set_c_instance' is added to BaseClass too. This method takes a C/C++ object,
+and makes our instance 'inherit' from that object, using tolua++'s
+'tolua.inherit' method. This enables us to use a table as 'self', and have it
+recognized as whatever c++ type we inherit. It also adds a special __index
+metamethod to call the methods from the c++ type. This inheritance method
+is slower than tolua.setpeer, but it gives us complete control over the
+object's __index and __newindex metamethods. Consult the tolua++ manual for
+more details.
 
 Using the library from a host program
 -------------------------------------
@@ -394,7 +399,7 @@ by the name of the C++ class with virtual methods. For example:
 
 ---- editor.lua
 
-class "Editor"
+class("Editor", Lua__QMainWindow)
 
 function Editor:closeEvent(event)
 
@@ -417,17 +422,16 @@ function Editor:closeEvent(event)
 end
 
 function Editor:__init__()
-
-	self:set_c_instance(Lua__QMainWindow:new(nil)) -- inherit from 'Lua__QMainWindow'
+	-- Editor constructor
 end
 
 ---- END editor.lua
 
 This creates the a class 'Editor', that inherits from the c++ class
-Lua__QMainWindow. The method 'set_c_instance' will also pass 'self' to the c++
-object. When the method 'closeEvent' is called, the c++ instance will look
-inside the lua object for the function closeEvent, and call it with the
-parameters passed to the function. Since this is the first version of this
+Lua__QMainWindow. The inheritance (even from a c++ class) can be specified to
+the 'class' function. When the method 'closeEvent' is called, the c++ instance
+will look inside the lua object for the function closeEvent, and call it with
+the parameters passed to the function. Since this is the first version of this
 feature, there are some limitations:
 
  * method overloading is supported, but you can't have more than one lua
@@ -439,10 +443,21 @@ feature, there are some limitations:
  for example, an object from the module 3Support might not implement the
  virtual methods from QWidget (from the module Gui).
 
-If the method is protected, an extra method will be exported on the generated
-class to call it. For example, in the above example, you could call
+For every virtual method, an extra method will be exported on the generated
+class to call it directly. For example, in the above example, you could call
 'self:QmainWindow__closeEvent(event)' to access the protected method
 QMainWindow::closeEvent.
+
+QVariant support
+----------------
+Starting from version 0.0.4a, the QVariant type is supported as a basic type.
+That means when a function returns a QVariant, the return value will be
+converted to whatever object is inside the QVariant (including lua numberts
+and strings), and that will be returned instead. The same for functions that
+expect QVariants as parameters. For example:
+
+local rect = window:property("geometry") -- the return object is converted to QRect
+window:setProperty("windowTitle", "My Application") -- the string "My Application" is converted to QVariant automatically
 
 Notes
 -----
