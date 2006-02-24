@@ -1,8 +1,8 @@
 lua_qt
 ------
 lua_qt is a set of bindings to use the Qt toolkit with the Lua language.
-It was done using qt 4.0.1 on Debian.
-lua_qt requires tolua++ 1.0.6 (http://www.codenix.com/~tolua/)
+It was done using qt 4.0.1 and 4.1.0 on Debian.
+lua_qt requires tolua++ 1.0.90 (http://www.codenix.com/~tolua/)
 
 The current version uses lua 5.1. If there's interest in a 5.0 version, please
 contact me.
