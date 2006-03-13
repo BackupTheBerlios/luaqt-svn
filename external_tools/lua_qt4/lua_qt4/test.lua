@@ -112,6 +112,9 @@ print(recto['.QVariant'])
 local var = QVariant()
 --bleh:setProperty("geometry", recto)
 
+print(type(bleh))
+print(getmetatable(bleh))
+
 local var2 = bleh:property("geometry")
 print("type is "..tolua.type(var2))
 print("title is "..bleh:property("windowTitle"))
