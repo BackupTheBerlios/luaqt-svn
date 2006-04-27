@@ -15,10 +15,21 @@ function add_class(fname, module)
 	local class = {}
 
 	_,_,class.name = string.find(f, "([^%s]+) Class Reference") -- templates excluded
-	if not class.name or class.name == "" or exclude_class(class.name) then
 
+	if not class.name or class.name == "" then
+
+		_,_,class.name = string.find(f, "([^%s]+) Struct Reference") -- templates excluded
+
+		if not class.name or class.name == "" then
+
+			return
+		end
+	end
+
+	if exclude_class(class.name) then
 		return
 	end
+
 	local _,_,inherits = string.find(f, "Inherits (.-)\n")
 	if inherits then
 		inherits = string.gsub(inherits, " and ", "")
@@ -86,7 +97,9 @@ function add_class(fname, module)
 	if string.find(class.code, "operator%s+QVariant") then
 		table.insert(mod.qvariant_list, class.name)
 	end
-	
+
+	class.code = string.gsub(class.code, "struct%s*%b{}[^\n]*", "")
+
 	mod.classes[class.name] = class
 end
 
@@ -194,7 +207,7 @@ function output_module(mod)
 		--file:write("\t~QVariant();\n");
 		file:write("};\n")
 	end
-	
+
 	file:close()
 end
 

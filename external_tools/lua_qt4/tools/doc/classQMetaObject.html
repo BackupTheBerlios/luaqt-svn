@@ -1,0 +1,344 @@
+
+   Main Page | Namespace List | Class Hierarchy | Class List | Directories | File List | Namespace Members | Class Members | File Members
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     QMetaObject Struct Reference
+
+   #include <qobjectdefs.h>
+
+   List of all members.
+
+Public Types
+
+     * enum Call {
+         InvokeMetaMethod, ReadProperty, WriteProperty, ResetProperty,
+         QueryPropertyDesignable, QueryPropertyScriptable, QueryPropertyStored, QueryPropertyEditable
+       }
+
+Public Member Functions
+
+     * const char * className () const
+     * const QMetaObject * superClass () const
+     * QObject * cast (QObject *obj) const
+     * QString tr (const char *s, const char *c) const
+     * QString trUtf8 (const char *s, const char *c) const
+     * int methodOffset () const
+     * int enumeratorOffset () const
+     * int propertyOffset () const
+     * int classInfoOffset () const
+     * int methodCount () const
+     * int enumeratorCount () const
+     * int propertyCount () const
+     * int classInfoCount () const
+     * int indexOfMethod (const char *method) const
+     * int indexOfSignal (const char *signal) const
+     * int indexOfSlot (const char *slot) const
+     * int indexOfEnumerator (const char *name) const
+     * int indexOfProperty (const char *name) const
+     * int indexOfClassInfo (const char *name) const
+     * QMetaMethod method (int index) const
+     * QMetaEnum enumerator (int index) const
+     * QMetaProperty property (int index) const
+     * QMetaClassInfo classInfo (int index) const
+
+Static Public Member Functions
+
+     * static bool checkConnectArgs (const char *signal, const char *method)
+     * static QByteArray normalizedSignature (const char *method)
+     * static bool connect (const QObject *sender, int signal_index, const QObject *receiver, int method_index, int type=0, int *types=0)
+     * static bool disconnect (const QObject *sender, int signal_index, const QObject *receiver, int method_index)
+     * static void connectSlotsByName (QObject *o)
+     * static void activate (QObject *sender, int signal_index, void **argv)
+     * static void activate (QObject *sender, const QMetaObject *, int local_signal_index, void **argv)
+     * static void addGuard (QObject **ptr)
+     * static void removeGuard (QObject **ptr)
+     * static void changeGuard (QObject **ptr, QObject *o)
+     * static bool invokeMethod (QObject *obj, const char *member, Qt::ConnectionType, QGenericReturnArgument ret, QGenericArgument val0=QGenericArgument(0), QGenericArgument val1=QGenericArgument(), QGenericArgument val2=QGenericArgument(), QGenericArgument val3=QGenericArgument(), QGenericArgument val4=QGenericArgument(), QGenericArgument val5=QGenericArgument(), QGenericArgument val6=QGenericArgument(), QGenericArgument val7=QGenericArgument(), QGenericArgument val8=QGenericArgument(), QGenericArgument val9=QGenericArgument())
+     * static bool invokeMethod (QObject *obj, const char *member, QGenericReturnArgument ret, QGenericArgument val0=QGenericArgument(0), QGenericArgument val1=QGenericArgument(), QGenericArgument val2=QGenericArgument(), QGenericArgument val3=QGenericArgument(), QGenericArgument val4=QGenericArgument(), QGenericArgument val5=QGenericArgument(), QGenericArgument val6=QGenericArgument(), QGenericArgument val7=QGenericArgument(), QGenericArgument val8=QGenericArgument(), QGenericArgument val9=QGenericArgument())
+     * static bool invokeMethod (QObject *obj, const char *member, Qt::ConnectionType type, QGenericArgument val0=QGenericArgument(0), QGenericArgument val1=QGenericArgument(), QGenericArgument val2=QGenericArgument(), QGenericArgument val3=QGenericArgument(), QGenericArgument val4=QGenericArgument(), QGenericArgument val5=QGenericArgument(), QGenericArgument val6=QGenericArgument(), QGenericArgument val7=QGenericArgument(), QGenericArgument val8=QGenericArgument(), QGenericArgument val9=QGenericArgument())
+     * static bool invokeMethod (QObject *obj, const char *member, QGenericArgument val0=QGenericArgument(0), QGenericArgument val1=QGenericArgument(), QGenericArgument val2=QGenericArgument(), QGenericArgument val3=QGenericArgument(), QGenericArgument val4=QGenericArgument(), QGenericArgument val5=QGenericArgument(), QGenericArgument val6=QGenericArgument(), QGenericArgument val7=QGenericArgument(), QGenericArgument val8=QGenericArgument(), QGenericArgument val9=QGenericArgument())
+
+Public Attributes
+
+     * struct {
+          +    const QMetaObject *    superdata
+          +    const char *    stringdata
+          +    const uint *    data
+          +    const QMetaObject **    extradata
+     * } d
+     ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Enumeration Documentation
+
+   enum QMetaObject::Call
+
+
+
+   Enumerator: 
+
+          InvokeMetaMethod       
+          ReadProperty           
+          WriteProperty          
+          ResetProperty          
+          QueryPropertyDesignable
+          QueryPropertyScriptable
+          QueryPropertyStored    
+          QueryPropertyEditable  
+     ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Function Documentation
+
+   static void QMetaObject::activate (  QObject *            sender,
+                                        const QMetaObject *  ,
+                                        int                  local_signal_index,
+                                        void **              argv
+                                     )  [static]
+
+
+
+   static void QMetaObject::activate (  QObject *  sender,
+                                        int        signal_index,
+                                        void **    argv
+                                     )  [static]
+
+
+
+   static void QMetaObject::addGuard (  QObject **  ptr  )  [static]
+
+
+
+   QObject* QMetaObject::cast (  QObject *  obj  )  const
+
+
+
+   static void QMetaObject::changeGuard (  QObject **  ptr,
+                                           QObject *   o
+                                        )  [static]
+
+
+
+   static bool QMetaObject::checkConnectArgs (  const char *  signal,
+                                                const char *  method
+                                             )  [static]
+
+
+
+   QMetaClassInfo QMetaObject::classInfo (  int  index  )  const
+
+
+
+   int QMetaObject::classInfoCount (   )  const
+
+
+
+   int QMetaObject::classInfoOffset (   )  const
+
+
+
+   const char * QMetaObject::className (   )  const [inline]
+
+
+
+   static bool QMetaObject::connect (  const QObject *  sender,
+                                       int              signal_index,
+                                       const QObject *  receiver,
+                                       int              method_index,
+                                       int              type = 0,
+                                       int *            types = 0
+                                    )  [static]
+
+
+
+   static void QMetaObject::connectSlotsByName (  QObject *  o  )  [static]
+
+
+
+   static bool QMetaObject::disconnect (  const QObject *  sender,
+                                          int              signal_index,
+                                          const QObject *  receiver,
+                                          int              method_index
+                                       )  [static]
+
+
+
+   QMetaEnum QMetaObject::enumerator (  int  index  )  const
+
+
+
+   int QMetaObject::enumeratorCount (   )  const
+
+
+
+   int QMetaObject::enumeratorOffset (   )  const
+
+
+
+   int QMetaObject::indexOfClassInfo (  const char *  name  )  const
+
+
+
+   int QMetaObject::indexOfEnumerator (  const char *  name  )  const
+
+
+
+   int QMetaObject::indexOfMethod (  const char *  method  )  const
+
+
+
+   int QMetaObject::indexOfProperty (  const char *  name  )  const
+
+
+
+   int QMetaObject::indexOfSignal (  const char *  signal  )  const
+
+
+
+   int QMetaObject::indexOfSlot (  const char *  slot  )  const
+
+
+
+   static bool QMetaObject::invokeMethod (  QObject *         obj,
+                                            const char *      member,
+                                            QGenericArgument  val0 = QGenericArgument(0),
+                                            QGenericArgument  val1 = QGenericArgument(),
+                                            QGenericArgument  val2 = QGenericArgument(),
+                                            QGenericArgument  val3 = QGenericArgument(),
+                                            QGenericArgument  val4 = QGenericArgument(),
+                                            QGenericArgument  val5 = QGenericArgument(),
+                                            QGenericArgument  val6 = QGenericArgument(),
+                                            QGenericArgument  val7 = QGenericArgument(),
+                                            QGenericArgument  val8 = QGenericArgument(),
+                                            QGenericArgument  val9 = QGenericArgument()
+                                         )  [inline, static]
+
+
+
+   static bool QMetaObject::invokeMethod (  QObject *           obj,
+                                            const char *        member,
+                                            Qt::ConnectionType  type,
+                                            QGenericArgument    val0 = QGenericArgument(0),
+                                            QGenericArgument    val1 = QGenericArgument(),
+                                            QGenericArgument    val2 = QGenericArgument(),
+                                            QGenericArgument    val3 = QGenericArgument(),
+                                            QGenericArgument    val4 = QGenericArgument(),
+                                            QGenericArgument    val5 = QGenericArgument(),
+                                            QGenericArgument    val6 = QGenericArgument(),
+                                            QGenericArgument    val7 = QGenericArgument(),
+                                            QGenericArgument    val8 = QGenericArgument(),
+                                            QGenericArgument    val9 = QGenericArgument()
+                                         )  [inline, static]
+
+
+
+   static bool QMetaObject::invokeMethod (  QObject *               obj,
+                                            const char *            member,
+                                            QGenericReturnArgument  ret,
+                                            QGenericArgument        val0 = QGenericArgument(0),
+                                            QGenericArgument        val1 = QGenericArgument(),
+                                            QGenericArgument        val2 = QGenericArgument(),
+                                            QGenericArgument        val3 = QGenericArgument(),
+                                            QGenericArgument        val4 = QGenericArgument(),
+                                            QGenericArgument        val5 = QGenericArgument(),
+                                            QGenericArgument        val6 = QGenericArgument(),
+                                            QGenericArgument        val7 = QGenericArgument(),
+                                            QGenericArgument        val8 = QGenericArgument(),
+                                            QGenericArgument        val9 = QGenericArgument()
+                                         )  [inline, static]
+
+
+
+   static bool QMetaObject::invokeMethod (  QObject *               obj,
+                                            const char *            member,
+                                            Qt::ConnectionType      ,
+                                            QGenericReturnArgument  ret,
+                                            QGenericArgument        val0 = QGenericArgument(0),
+                                            QGenericArgument        val1 = QGenericArgument(),
+                                            QGenericArgument        val2 = QGenericArgument(),
+                                            QGenericArgument        val3 = QGenericArgument(),
+                                            QGenericArgument        val4 = QGenericArgument(),
+                                            QGenericArgument        val5 = QGenericArgument(),
+                                            QGenericArgument        val6 = QGenericArgument(),
+                                            QGenericArgument        val7 = QGenericArgument(),
+                                            QGenericArgument        val8 = QGenericArgument(),
+                                            QGenericArgument        val9 = QGenericArgument()
+                                         )  [static]
+
+
+
+   QMetaMethod QMetaObject::method (  int  index  )  const
+
+
+
+   int QMetaObject::methodCount (   )  const
+
+
+
+   int QMetaObject::methodOffset (   )  const
+
+
+
+   static QByteArray QMetaObject::normalizedSignature (  const char *  method  )  [static]
+
+
+
+   QMetaProperty QMetaObject::property (  int  index  )  const
+
+
+
+   int QMetaObject::propertyCount (   )  const
+
+
+
+   int QMetaObject::propertyOffset (   )  const
+
+
+
+   static void QMetaObject::removeGuard (  QObject **  ptr  )  [static]
+
+
+
+   const QMetaObject * QMetaObject::superClass (   )  const [inline]
+
+
+
+   QString QMetaObject::tr (  const char *  s,
+                              const char *  c
+                           )  const
+
+
+
+   QString QMetaObject::trUtf8 (  const char *  s,
+                                  const char *  c
+                               )  const
+
+
+     ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Member Data Documentation
+
+   struct { ... } QMetaObject::d
+
+
+
+   const uint* QMetaObject::data
+
+
+
+   const QMetaObject** QMetaObject::extradata
+
+
+
+   const char* QMetaObject::stringdata
+
+
+
+   const QMetaObject* QMetaObject::superdata
+
+
+     ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+   The documentation for this struct was generated from the following file:
+     * include/qobjectdefs.h
+     ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Generated on Mon Oct 3 20:36:19 2005 by  doxygen 1.4.3-20050530
