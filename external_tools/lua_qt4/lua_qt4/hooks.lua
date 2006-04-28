@@ -416,8 +416,12 @@ function classVirtualClass:output_method(f, btype)
 
 		local t,ct = isbasic(f.type)
 		if t and t ~= '' then
+			local enumcast = ""
+			if isenum(f.type) then
+				enumcast = "(int)"
+			end
 			--output("\t\t\treturn ("..rettype..")tolua_to"..t.."(lua_state, top, 0);")
-			output("\t\t\t",rettype,"tolua_ret = ("..rettype..")tolua_to"..t.."(lua_state, -1, 0);")
+			output("\t\t\t",rettype,"tolua_ret = ("..rettype..")"..enumcast.."tolua_to"..t.."(lua_state, -1, 0);")
 		else
 
 			local mod = ""
@@ -432,25 +436,28 @@ function classVirtualClass:output_method(f, btype)
 		output("\t\t\treturn tolua_ret;")
 	else
 		output("0);")
+		output("\t\t\treturn;");
 	end
 
 	-- handle non-implemeted function
-	output("\t\t} else {")
+	output("\t\t};")
 
 	if f.pure_virtual then
 
-		output('\t\t\tif (lua_state)')
-		output('\t\t\t\ttolua_error(lua_state, "pure-virtual method '..btype.."::"..f.name..' not implemented.", NULL);')
-		output('\t\t\telse {')
-		output('\t\t\t\tfprintf(stderr, "pure-virtual method '..btype.."::"..f.name..' called with no lua_state. Aborting");')
-		output('\t\t\t\t::abort();')
-		output('\t\t\t};')
+		output('\t\tif (lua_state)')
+		output('\t\t\ttolua_error(lua_state, "pure-virtual method '..btype.."::"..f.name..' not implemented.", NULL);')
+		output('\t\telse {')
+		output('\t\t\tfprintf(stderr, "pure-virtual method '..btype.."::"..f.name..' called with no lua_state. Aborting");')
+		output('\t\t\t::abort();')
+		output('\t\t};')
+		if f.type ~= 'void' then
+			output('\t\t',rettype,' junk;')
+			output('\t\treturn junk;')
+		end
 	else
 
-		output('\t\t\treturn (',rettype,')',btype,'::',f.name,var_list,';')
+		output('\t\treturn (',rettype,')',btype,'::',f.name,var_list,';')
 	end
-
-	output("\t\t};")
 
 	output("\t};")
 end
