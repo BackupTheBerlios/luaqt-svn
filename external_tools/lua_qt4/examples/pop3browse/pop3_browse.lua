@@ -371,6 +371,6 @@ function POP3Browse:__init__(parent)
 	--self:start_connection(accounts.pop3)
 end
 
-POP3Browse:new(nil)
+main_window = POP3Browse:new(nil)
 
 --return POP3Browse
