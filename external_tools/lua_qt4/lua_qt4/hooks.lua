@@ -3,10 +3,24 @@
 --end
 
 local disable_virtual_hooks = false
+local access_list = {public = 0, protected = 1, private = 2}
 
 function parser_hook(s)
 
 	local ret = nil
+
+	do
+		local container = classContainer.curr
+		local b,e,label = string.find(s, "^%s*(%w*)%s*:[^:]") -- we need to check for [^:], otherwise it would match 'namespace::type'
+		if b then
+	
+			-- found a label, get the new access value from the global 'access' table
+			if access_list[label] then
+				container.curr_member_access = access_list[label]
+				return strsub(s, e) -- normally we would use 'e+1', but we need to preserve the [^:]
+			end -- else ?
+		end
+	end
 
 	local access
 	local b,e = string.find(s, "^%s*protected%s+")
@@ -53,6 +67,8 @@ function parser_hook(s)
 		local func = Function(decl, arg, const)
 		func.pure_virtual = purev
 		func.access = access
+		func.global_access = nil
+		func.global_access = func:check_public_access()
 		func.original_sig = decl
 
 		local curflags = classContainer.curr.flags
@@ -373,7 +389,7 @@ function classVirtualClass:output_method(f, btype)
 	-- the caller of the lua method
 	output("\t"..rettype.." "..f.name..par_list..f.const.." {")
 	local fn = f.cname
-	if f.access == 1 then
+	if not f:check_public_access() then
 		fn = "NULL"
 	end
 	output('\t\tif (push_method("',f.lname,'", ',fn,')) {')

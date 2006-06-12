@@ -177,10 +177,16 @@ function LuaQt.get_q_object(parameters, parent)
 end
 
 function LuaQt.bw_and(...)
+	if tolua.type(arg[1]) == "class LuaQt" then
+		table.remove(arg, 1)
+	end
 	return LuaQt:and_list(arg)
 end
 
 function LuaQt.bw_or(...)
+	if tolua.type(arg[1]) == "class LuaQt" then
+		table.remove(arg, 1)
+	end
 	return LuaQt:or_list(arg)
 end
 

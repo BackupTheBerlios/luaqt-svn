@@ -71,6 +71,10 @@ $}
 
 
 
+private:
+$ifile "lua_qt4/QtCore_headers.pkg",qt
+public:
+
 $ifile "lua_qt4/QtGui_headers.pkg",qt
 
 // hacks to prevent virtual class to call private member setModel

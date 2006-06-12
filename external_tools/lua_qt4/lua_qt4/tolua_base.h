@@ -27,7 +27,7 @@ protected:
 
 		} else {
 
-			if (f) {
+			//if (f) {
 				if (lua_iscfunction(lua_state, -1)) {
 					lua_pop(lua_state, 2);
 					return false;
@@ -44,7 +44,7 @@ protected:
 				// pop f
 				lua_pop(lua_state, 1);
 				*/
-			};
+			//};
 
 			// swap table with function
 			lua_insert(lua_state, -2);

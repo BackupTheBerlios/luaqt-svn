@@ -71,16 +71,16 @@ lua_Object LuaQt::get_registry(lua_State* ls) {
 };
 
 
-int LuaQt::or_list(lua_State* L, lua_Object t) {
+unsigned int LuaQt::or_list(lua_State* L, lua_Object t) {
 
-	int ret = 0;
+	unsigned int ret = 0;
 	int i=1;
 
 	lua_rawgeti(L, t, i++);
 
 	while (lua_isnumber(L, -1)) {
 
-		ret = ret | (int)lua_tonumber(L, -1);
+		ret = ret | (unsigned int)lua_tonumber(L, -1);
 
 		lua_pop(L, 1);
 		lua_rawgeti(L, t, i++);
@@ -90,9 +90,9 @@ int LuaQt::or_list(lua_State* L, lua_Object t) {
 	return ret;
 };
 
-int LuaQt::and_list(lua_State* L, lua_Object t) {
+unsigned int LuaQt::and_list(lua_State* L, lua_Object t) {
 
-	int ret;
+	unsigned int ret;
 	int i=1;
 
 	lua_rawgeti(L, t, i++);
@@ -100,13 +100,13 @@ int LuaQt::and_list(lua_State* L, lua_Object t) {
 		return 0;
 	};
 
-	ret = (int)lua_tonumber(L, -1);
+	ret = (unsigned int)lua_tonumber(L, -1);
 	lua_pop(L, 1);
 	lua_rawgeti(L, t, i++);
 
 	while (lua_isnumber(L, -1)) {
 
-		ret = ret & (int)lua_tonumber(L, -1);
+		ret = ret & (unsigned int)lua_tonumber(L, -1);
 
 		lua_pop(L, 1);
 		lua_rawgeti(L, t, i++);

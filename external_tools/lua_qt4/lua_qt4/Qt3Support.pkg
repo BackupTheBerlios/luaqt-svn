@@ -17,26 +17,12 @@ class Q3ValueList : public QLinkedList<T> {
 };
 
 
+private:
+$ifile "lua_qt4/QtCore_headers.pkg"
+$ifile "lua_qt4/QtGui_headers.pkg"
+public:
+
 $ifile "lua_qt4/Qt3Support_headers.pkg",qt
 
-$#include <QWidget>
-class Q3CanvasView {
-
-	protected virtual void closeEvent ( QCloseEvent * e );
-
-	protected virtual void keyPressEvent ( QKeyEvent * e );
-	protected virtual void keyReleaseEvent ( QKeyEvent * e );
-
-	protected virtual void mousePressEvent ( QMouseEvent * e );
-	protected virtual void mouseReleaseEvent ( QMouseEvent * e );
-	protected virtual void moveEvent ( QMoveEvent * event );
-
-	protected virtual void wheelEvent ( QWheelEvent * e );
-
-	protected virtual void contentsMousePressEvent ( QMouseEvent * e ) ;
-
-	protected virtual void enterEvent ( QEvent * event );
-	protected virtual void leaveEvent ( QEvent * event );
-};
 
 

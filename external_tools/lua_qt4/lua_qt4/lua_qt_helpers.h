@@ -21,8 +21,8 @@ public:
 
 	static void init_args(lua_State* ls, lua_Object lo);
 	static void setmetatable(lua_State* ls, lua_Object obj, lua_Object mt);
-	static int or_list(lua_State* ls, lua_Object obj);
-	static int and_list(lua_State* ls, lua_Object obj);
+	static unsigned int or_list(lua_State* ls, lua_Object obj);
+	static unsigned int and_list(lua_State* ls, lua_Object obj);
 	static void c_class(lua_State* ls, char* name, char* base);
 	static lua_Object get_registry(lua_State* ls);
 };
