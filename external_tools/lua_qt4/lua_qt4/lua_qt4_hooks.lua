@@ -58,7 +58,12 @@ function include_hook_list.qns(p, filename, ftype)
 	p.code = string.gsub(p.code, "Q_DECLARE_FLAGS%s*%(([^,]*),([^%)]*)%)%s*;?", "typedef %2 %1;\n")
 end
 
-function include_hook_list.qt(p, filename, ftype)
+function include_hook_list.private(p, filename, ftype)
+
+	include_hook_list.qt(p, filename, ftype, true)
+end
+
+function include_hook_list.qt(p, filename, ftype, private)
 
 	p.code = string.gsub(p.code, "char%s*%*%*argv", "arg_list* argv")
 	p.code = string.gsub(p.code, "int%s*&%s*argc", "arg_count& argc")
@@ -70,14 +75,14 @@ function include_hook_list.qt(p, filename, ftype)
 		code = '$#include "'..filename..'"\n\n'
 	end
 
-	p.code = code.. parse_block(p.code, filename, ftype=='qt')
+	p.code = code.. parse_block(p.code, filename, ftype=='qt', private)
 
 	if string.find(p.code, "SigC::Signal") then
 		sigc_headers[filename] = true
 	end
 end
 
-function parse_block(p_code, filename, keep_code)
+function parse_block(p_code, filename, keep_code, private)
 
 	local code = ""
 
@@ -96,7 +101,7 @@ function parse_block(p_code, filename, keep_code)
 				else -- an actual class
 					local classb,classe,block = string.find(p_code, "(class[^{;]*%b{};)", b)
 					if classb then
-						code = code .. parse_class(block, filename);
+						code = code .. parse_class(block, filename, private);
 						e = classe
 					end
 				end
@@ -498,7 +503,7 @@ function output_sigc_slot(file, classname, slotname, signame)
 
 end
 
-function parse_class(body, filename)
+function parse_class(body, filename, private)
 
 	body = body .. "\n"
 	local b,e,code = string.find(body, "^(class[^{;]*{)")
@@ -556,7 +561,7 @@ function parse_class(body, filename)
 							local subb,sube,class = string.find(body,"(class[^{;]*%b{};)", b)
 							if subb then
 								if status.public then
-									code = code..parse_class(class, filename)
+									code = code..parse_class(class, filename, private)
 								end
 								e = sube
 							end
@@ -564,7 +569,7 @@ function parse_class(body, filename)
 					elseif status.public then
 						code = code..line
 					end
-					if status.object and status.signals then
+					if status.object and status.signals and not private then
 						add_signal(line)
 						--qt_signal_headers[filename]=true
 						qt_signal_headers[class_name]=true

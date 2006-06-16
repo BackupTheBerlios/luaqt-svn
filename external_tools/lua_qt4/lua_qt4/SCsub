@@ -41,7 +41,7 @@ def module_targets(mod, signals=1, extra_libs = [core_lib], CXXFLAGS=[]):
 
 core = module_targets("Core", extra_libs = [])
 gui = module_targets("Gui")
-gl = module_targets("OpenGL", extra_libs = [core_lib, gui_lib])
+gl = module_targets("OpenGL", signals=0, extra_libs = [core_lib, gui_lib])
 net = module_targets("Network")
 xml = module_targets("Xml", 0)
 sql = module_targets("Sql")

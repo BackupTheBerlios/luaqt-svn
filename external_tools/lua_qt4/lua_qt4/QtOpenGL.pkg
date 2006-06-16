@@ -12,8 +12,8 @@ $#include <QPixmap>
 $ifile "lua_qt4/qnamespace.pkg",qns
 
 private:
-$ifile "lua_qt4/QtCore_headers.pkg"
-$ifile "lua_qt4/QtGui_headers.pkg"
+$ifile "lua_qt4/QtCore_headers.pkg",private
+$ifile "lua_qt4/QtGui_headers.pkg",private
 public:
 
 
