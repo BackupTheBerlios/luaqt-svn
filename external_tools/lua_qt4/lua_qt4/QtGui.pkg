@@ -16,7 +16,7 @@ class QEvent {
 class QDir {
 
 	typedef LuaQtGenericFlags SortFlags;
-	
+
 	typedef LuaQtGenericFlags Filters;
 };
 
@@ -72,7 +72,7 @@ $}
 
 
 private:
-$ifile "lua_qt4/QtCore_headers.pkg",qt
+$ifile "lua_qt4/QtCore_headers.pkg",private
 public:
 
 $ifile "lua_qt4/QtGui_headers.pkg",qt

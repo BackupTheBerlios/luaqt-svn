@@ -13,7 +13,7 @@ function parser_hook(s)
 		local container = classContainer.curr
 		local b,e,label = string.find(s, "^%s*(%w*)%s*:[^:]") -- we need to check for [^:], otherwise it would match 'namespace::type'
 		if b then
-	
+
 			-- found a label, get the new access value from the global 'access' table
 			if access_list[label] then
 				container.curr_member_access = access_list[label]
@@ -415,8 +415,8 @@ function classVirtualClass:output_method(f, btype)
 					if m == "*" then m = "" end
 					output("\t\t\ttolua_pushusertype(lua_state, (void*)"..m..arg.name..", \""..arg.type.."\");")
 				else
-					output("\t\t\tvoid* tolua_obj = (void*)new "..arg.type.."("..arg.name..");\n")
-					output('\t\t\ttolua_pushusertype_and_takeownership(lua_state, tolua_obj, "'..arg.type..'");\n')
+					output("\t\t\tvoid* tolua_obj"..i.." = (void*)new "..arg.type.."("..arg.name..");\n")
+					output('\t\t\ttolua_pushusertype_and_takeownership(lua_state, tolua_obj'..i..', "'..arg.type..'");\n')
 				end
 			end
 			argn = argn+1

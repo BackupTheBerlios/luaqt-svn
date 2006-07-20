@@ -18,8 +18,8 @@ class Q3ValueList : public QLinkedList<T> {
 
 
 private:
-$ifile "lua_qt4/QtCore_headers.pkg"
-$ifile "lua_qt4/QtGui_headers.pkg"
+$ifile "lua_qt4/QtCore_headers.pkg",private
+$ifile "lua_qt4/QtGui_headers.pkg",private
 public:
 
 $ifile "lua_qt4/Qt3Support_headers.pkg",qt
