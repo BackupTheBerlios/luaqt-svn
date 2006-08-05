@@ -182,7 +182,7 @@ function classVirtualClass:add_parent_virtual_methods(parent)
 		local vclass = parent.flags.virtual_class
 		for k,v in ipairs(vclass.methods) do
 			if v.f.name ~= 'new' and v.f.name ~= 'delete' and (not self:has_method(v.f)) then
-				table.insert(self.methods, {f=v.f})
+				table.insert(self.methods, {f=v.f, from_parent = true})
 			end
 		end
 	end
@@ -344,7 +344,7 @@ function classVirtualClass:output_methods(btype)
 
 		if v.f.name ~= 'new' and v.f.name ~= 'delete' then
 
-			self:output_method(v.f, btype)
+			self:output_method(v.f, btype, v.from_parent)
 		end
 	end
 	output("\n")
@@ -364,7 +364,7 @@ function classVirtualClass:output_constructors()
 	end
 end
 
-function classVirtualClass:output_method(f, btype)
+function classVirtualClass:output_method(f, btype, from_parent)
 
 	if f.access == 2 then -- private
 		return
@@ -458,7 +458,7 @@ function classVirtualClass:output_method(f, btype)
 	-- handle non-implemeted function
 	output("\t\t};")
 
-	if f.pure_virtual then
+	if f.pure_virtual and not from_parent then
 
 		output('\t\tif (lua_state)')
 		output('\t\t\ttolua_error(lua_state, "pure-virtual method '..btype.."::"..f.name..' not implemented.", NULL);')
