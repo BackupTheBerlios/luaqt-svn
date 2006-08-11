@@ -296,6 +296,27 @@ function LuaSignal:call_internal(arg_list)
 	end
 end
 
+function LuaSignal:remove(slot)
+
+	if not slot_list[slot] then return end
+
+	local st = slot_list[slot]
+	st.rep = st.rep -1
+
+	if st.rep <= 0 then
+		slot_list[slot] = nil
+
+		local key = (slot.static and self) or slot.instance.p
+		local client = self.client_list[key]
+		if client then
+			client[slot] = nil
+			if next(client) == nil then
+				self.client_list[key] = nil
+			end
+		end
+	end
+end
+
 function LuaSignal:connect(p_slot)
 
 	if not p_slot then return end
@@ -322,34 +343,13 @@ function LuaSignal:connect(p_slot)
 	return LuaConnection:new(self, p_slot)
 end
 
-function LuaSignal:remove(slot)
-
-	if not slot_list[slot] then return end
-
-	local st = slot_list[slot]
-	st.rep = st.rep -1
-
-	if st.rep <= 0 then
-		slot_list[slot] = nil
-
-		local key = (slot.static and self) or slot.instance.p
-		local client = self.client_list[key]
-		if client then
-			client[slot] = nil
-			if not next(client) then
-				self.client_list[key] = nil
-			end
-		end
-	end
-end
-
 function LuaSignal:__init__(args)
 	-- nothing?
 	self.args = args or -1
 	if self.args < -1 then self.args = -1 end
 
 	self.slot_list = {}
-	setmetatable(self.slot_list, weak_val_mt)
+	setmetatable(self.slot_list, weak_key_mt)
 
 	self.client_list = {}
 	setmetatable(self.client_list, weak_key_mt)
