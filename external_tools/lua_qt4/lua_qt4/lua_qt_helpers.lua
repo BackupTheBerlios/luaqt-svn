@@ -283,13 +283,13 @@ function LuaSignal:call_internal(arg_list)
 
 	if arg_list.n > 0 then
 		for k,v in pairs(self.slot_list) do
-			for i=1,v.rep do
+			for i=1,v do
 				k(unpack(arg_list, 1, arg_list.n))
 			end
 		end
 	else
 		for k,v in pairs(self.slot_list) do
-			for i=1,v.rep do
+			for i=1,v do
 				k()
 			end
 		end
@@ -300,10 +300,9 @@ function LuaSignal:remove(slot)
 
 	if not slot_list[slot] then return end
 
-	local st = slot_list[slot]
-	st.rep = st.rep -1
+	slot_list[slot] = slot_list[slot] -1
 
-	if st.rep <= 0 then
+	if slot_list[slot] <= 0 then
 		slot_list[slot] = nil
 
 		local key = (slot.static and self) or slot.instance.p
@@ -336,8 +335,8 @@ function LuaSignal:connect(p_slot)
 	end
 	cl[p_slot] = true
 
-	local st = self.slot_list[p_slot] or {rep=0, slot = p_slot}
-	st.rep = st.rep +1
+	local st = self.slot_list[p_slot] or 0
+	st = st + 1
 	self.slot_list[p_slot] = st
 
 	return LuaConnection:new(self, p_slot)
