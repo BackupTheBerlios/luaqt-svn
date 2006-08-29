@@ -60,6 +60,7 @@ QVariant tolua_toQVariant(lua_State* L, int lo, void* def) {
 		return QVariant(tolua_tostring(L, lo, 0));
 
 	case LUA_TBOOLEAN:
+		return QVariant(tolua_toboolean(L, lo, 0)==0?false:true);
 	case LUA_TNUMBER:
 		return QVariant(tolua_tonumber(L, lo, 0));
 
