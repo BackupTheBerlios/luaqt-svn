@@ -14,6 +14,28 @@ $#define __operator_inc operator++
 $#define __operator_dec operator--
 $#define __operator_star operator*()
 
+${
+
+static void push_qobject(lua_State* L, void* value, const char* type) {
+
+	if (value == NULL) {
+		lua_pushnil(L);
+		return;
+	};
+	QObject* obj = (QObject*)value;
+	const char* class_name = obj->metaObject()->className();
+	lua_getfield(L, LUA_REGISTRYINDEX, class_name);
+	if (lua_isnil(L, -1)) {
+		tolua_pushusertype(L, value, type);
+	} else {
+		tolua_pushusertype(L, value, class_name);
+	};
+	
+	lua_remove(L, -2);
+};
+
+$}
+
 
 // Qt typedefs
 typedef unsigned char uchar;

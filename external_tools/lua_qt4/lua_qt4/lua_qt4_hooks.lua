@@ -16,6 +16,9 @@ _basic['QVariant'] = 'QVariant'
 _basic_ctype.QVariant = 'QVariant'
 _basic_raw_push.QVariant = 'tolua_pushQVariant__raw'
 
+-- support for QObject casting
+_base_push_functions['QObject'] = "push_qobject"
+
 signals = {count=0}
 sigc_signals = {count=0}
 qt_signal_headers = {}

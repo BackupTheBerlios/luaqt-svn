@@ -64,11 +64,13 @@ function LuaQt.init_tree(parent, tree, container, debug)
 	parent_widget = (parent and parent.__main_widget) or parent
 
 	local widget
-	if type(tree) == 'string' or ((not tree.type) and (not tree.widget)) then
+	if type(tree) == 'string' or ((not tree.type) and (not tree.widget) and (not tree.instance)) then
 		tree = LuaQt.get_default_widget(tree)
 	end
 
-	if tree.widget then
+	if tree.instance then
+		widget = tree.instance
+	elseif tree.widget then
 		widget = LuaQt.init_tree(parent, tree.widget, container, debug)
 	else
 		if type(tree.type) == 'string' then
