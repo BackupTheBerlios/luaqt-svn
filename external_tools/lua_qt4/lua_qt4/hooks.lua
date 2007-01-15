@@ -491,6 +491,8 @@ function VirtualClass()
 	local ft = getnamespace(c.parent)..c.original_name
 	append_global_type(ft, c)
 
+	_push_functions[ft] = "tolua_pushusertype"
+
 	push(parent)
 
 	c.flags.parent_object = parent
