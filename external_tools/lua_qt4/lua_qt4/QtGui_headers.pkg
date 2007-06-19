@@ -6570,7 +6570,7 @@ public:
 	 typedef LuaQtGenericFlags AutoFormatting;
 	 enum LineWrapMode { NoWrap, WidgetWidth, FixedPixelWidth, FixedColumnWidth };
 	 enum AutoFormattingFlag { AutoNone = 0, AutoBulletList = 0x00000001, AutoAll = 0xffffffff };
-	 enum CursorAction {         MoveBackward, MoveForward, MoveWordBackward, MoveWordForward,         MoveUp, MoveDown, MoveLineStart, MoveLineEnd,         MoveHome, MoveEnd, MovePageUp, MovePageDown       };
+	 //enum CursorAction {         MoveBackward, MoveForward, MoveWordBackward, MoveWordForward,         MoveUp, MoveDown, MoveLineStart, MoveLineEnd,         MoveHome, MoveEnd, MovePageUp, MovePageDown       };
 
 	 QTextEdit (QWidget *parent=0);
 	 QTextEdit (const QString &text, QWidget *parent=0);
